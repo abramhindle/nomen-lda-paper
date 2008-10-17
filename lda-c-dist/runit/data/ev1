@@ -1,0 +1,30 @@
+1997-01-01	2000-03-04  Christopher James Lahey  <clahey@helixcode.com>          * TODO: Added a bunch of stuff to the TODO list.  Put +s before a         few of the items that are finished.          * test-table.c: Add a button to save the spec file.          * e-table.c, e-table.h: Add loading configurations from files as         well as the ability to get the current configuration out of the         widget. 
+1997-01-01	2000-06-14  Chris Toshok  <toshok@helixcode.com>  	* e-tree-example-1.c (print_tree): new function, to generate 	postscript so i can test tree printing. 	(create_tree): add print button.  	* e-cell-tree.c (ect_print_height): implement function (in a 	broken way for the time being, heh). 	(ect_print): implement function to draw tree controls and offset 	the subcell's printing.  icons aren't printed yet, just lines. 	(ect_draw): remove old unnecessary comments.  only draw the 	horizontal line in specific instances (well, add a test so a lone 	root node doesn't get the horizontal line.) 	(e_cell_tree_class_init): add print/print_height methods. 
+1997-01-01		* e-msg-composer-attachment-bar.c (add_from_user): keep the 	GtkFileSelection around between calls so we start up in the same 	directory we ended up in last time around. (Also fixes a big 	memory leak in that the code was already keeping the 	GtkFileSelection around, it just wasn't remembering to reuse it.) 
+1997-01-01		* e-search-bar.c (e_search_bar_construct): Construct the buttons 	earlier so that the option-menu-setup code that tries to adjust 	the button sensitivity won't fail and g_warn. 
+1997-01-01	laptop sync 
+1997-01-01	sync for debugging with chris 
+1997-01-02	2000-06-14  Damon Chaplin  <damon@helixcode.com>  	* README (http): added command to co ORBit. 
+1997-01-02	2000-06-14  Jeffrey Stedfast  <fejj@helixcode.com>  	* camel-folder.c (init): Updated: a separator is now a char* rather than 	a single char because IMAP can have a string for a directory separator. 	Also, since IMAP does not begin with a directory separator, there is a new 	argument (path_begins_with_sep) which decides if a directory should begin 	with a directory separator.  	* providers/imap/camel-imap-store.c (imap_create): Since, on connect, 	Camel tries to create INBOX (which already exists on every IMAP provider) 	we can return TRUE when the folder name is "INBOX".  	* providers/vee/camel-vee-folder.c (vee_init): Updated.  	* providers/imap/camel-imap-folder.c (camel_imap_folder_new): Updated.  	* providers/mbox/camel-mbox-store.c (get_folder): Updated.  	* providers/mbox/camel-mbox-folder.c (mbox_init): Updated.  	* providers/pop3/camel-pop3-folder.c (camel_pop3_folder_new): Updated. 
+1997-01-02		* providers/mbox/camel-mbox-folder.c (mbox_append_message): if the 	mbox doesn't end with a 'BACKSLASHn', write one before appending the new 	message. 
+1997-01-02		* providers/mbox/camel-mbox-summary.c (camel_mbox_summary_sync): 	Renamed from camel_mbox_summary_expunge. Takes a gboolean saying 	whether to expunge or just sync the mbox file. Change some 	g_errors to g_warning so we don't abort. Make the quick 	X-Evolution updating code lseek around correctly. Update the 	mbox mtime in the summary file even in the quick case.  	* providers/mbox/camel-mbox-summary.h: make 	CAMEL_MESSAGE_FOLDER_NOXEV not conflict with 	CAMEL_MESSAGE_FOLDER_FLAGGED defined in camel-mime-message.h  	* providers/mbox/camel-mbox-folder.c (mbox_close): call 	camel_mbox_summary_sync to save flag state if not expunging. 	(mbox_expunge): Update for camel_mbox_summary_expunge rename. 
+1997-01-02	* providers/pop3/camel-pop3-folder.c (get_message_by_uid): Took out the 	filter code ( we already filter in camel_pop3_command_get_additional_data) 
+1997-01-02	updated the crlf filter:  encoder: allocate more memory (3 * len instead of 2 * len)  decoder: prevent p from pointing beyond the end of the buffer 
+1998-01-12	New Gnome Calendar files 
+1998-01-13	updated lexer 
+1998-01-26	Sun Jan 25 23:38:30 1998  Miguel de Icaza  <miguel@nuclecu.unam.mx>          * gemvt/gvtmain.c, gmix/gmix.c, gncal/menus.c, gnomine/gnomine.c,         gtop/main.c, same-gnome/same-gnome.c, scottfree/GnomeScott.c:         Replace "Quit" for "Exit" in all those programs. 
+1998-02-04	Moved top-dir ChangeLog entries to subdir ChangeLogs 
+1998-02-10	Added an about box 
+1998-02-10	added repeat values 
+1998-02-10	* gnome.m4: New file.  Moved AC_CHECK_GNOME from `configure.in' to here, and renamed macro to GNOME_CHECK_GNOME. * gnome-x-checks.m4: Likewise, move and renaming AC_GNOME_X_CHECKS to GNOME_X_CHECKS.  * aclocal-include.m4: New file.  Defines AM_ACLOCAL_INCLUDE macro to provide extra search directories to `aclocal'. 
+1998-02-10	now puts lexer into struct 
+1998-02-11	Gnome Core updates 
+1998-02-11	Gnome/Games shoudl work now 
+1998-02-11	Gnome/Objc automake/autoconf setup 
+1998-02-11	Gnome Utils autoconf/automake setup is ready 
+1998-02-11	Misc setup changes 
+1998-02-12	1998-02-12  Federico Mena Quintero  <federico@nuclecu.unam.mx>  	* main.c: Added #include <locale.h>  1998-02-12  Federico Mena Quintero  <federico@nuclecu.unam.mx>  	* configure.in: Added intl/Makefile to the AC_OUTPUT list. 
+1998-02-12	Fixed Makefile.am so gncal compiles (please check!) 
+1998-02-12	* gnome-support.m4: New file.  Defines GNOME_SUPPORT_CHECKS for libsupport.a support. 
+1998-02-13	1998-02-13  Federico Mena Quintero  <federico@nuclecu.unam.mx>  	* menus.c: Updated g_string_hash and g_string_equal by g_str_hash 	and g_str_equal, respectively. 
+1998-02-13	Add `gnome-support.m4' to MACROS 
