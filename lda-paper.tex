@@ -67,10 +67,50 @@ group of topics.
 
 Topic analysis of fine-grained revisions is important as often
 revisions belonging to different topics are interleaved or even mixed
-inside of commits. 
+inside of commits. Using powerful topic analysis like Latent Semantic
+Indexing (LSI) or Latent Dirichlet Allocation (LDA) one can seperate
+these mixed signals into coherent topics. In this case a topic is a
+set of tokens that are related to each other.
+
+\section{Previous Work}
+%   1. [ ] Intro to LDA
+\subsection{Intro to LDA}
+
+\subsection{LDA Work}
+%      1. [ ] LDA itself
+%      2. [ ] Maletic stuff
+%      3. [ ] WCRE: Scott/Jim
+%      4. [ ] WCRE: Bug LDA stuff
+%      5. [ ] MSR: Challenge work
+%      6. [ ] FCA work
+%4. [ ] Methodology [0/9]
+
 
 
 \section{Methodology}
+
+\subsection{Extract Repos}
+%   2. [ ] Extract Documents
+\subsection{Extract Documents}
+%   3. [ ] Windowed Sets
+\subsection{Windowed Sets}
+%   4. [ ] Cluster Windowed Set w/ LDA
+\subsection{Cluster Windowed Set w/ LDA}
+%   5. [ ] Extract Clusters
+\subsection{Extract Clusters}
+%   6. [ ] Cluster Similarity [0/1]
+\subsection{Cluster Similarity}
+%      1. [ ] need the tool
+%             grab from the cluster analysis
+%   7. [ ] Continuous Cluster Analysis
+\subsection{Continuous Cluster Analysis}
+%   8. [ ] Topic Smear
+\subsection{Topic Smear}
+%   9. [ ] Visualization [0/1]
+\subsection{Visualization}
+%       1. [ ] need the visualizer
+
+
 
 \subsection{Datasets and Tools}
 
@@ -89,6 +129,19 @@ Analysis Tools:
 \item Gnuplot - graph plotting package
 \end{itemize}
 
+
+%   1. [ ] LDA
+
+%   2. [ ] Extractor
+
+%   3.   Similarity
+
+%   4.   Smearing
+
+%   5.   Visualizer
+
+
+
 \section{First Impression}
 
 % 2007-10-12
@@ -101,7 +154,7 @@ bitkeeper appears (probably when they adopted bitkeeper) yet in the
 following windows there were no mentions of bitkeeper. ``RENAME'' also
 only appeared once in the first window.
 
-Often words are shared across topics, see talbe \ref{tab:portability}
+Often words are shared across topics, see table \ref{tab:portability}
 for tracking topics about portability.
 
 It is apparent that we have to compare these topics some how by
@@ -143,59 +196,10 @@ itemset or similarity.
 
 %LDA Skeleton
 %1. [ ] Abstract 
-\begin{abstract}
-\end{abstract}
 %2. [ ] Introduction
-\section{Introduction}
 
 %3. [ ] Previous Work [0/2]
-\section{Previous Work}
-%   1. [ ] Intro to LDA
-\subsection{Intro to LDA}
 %   2. [ ] LDA Work [0/6]
-\subsection{LDA Work}
-%      1. [ ] LDA itself
-%      2. [ ] Maletic stuff
-%      3. [ ] WCRE: Scott/Jim
-%      4. [ ] WCRE: Bug LDA stuff
-%      5. [ ] MSR: Challenge work
-%      6. [ ] FCA work
-%4. [ ] Methodology [0/9]
-\section{Methodology}
-%   1. [ ] Extract Repos
-\subsection{Extract Repos}
-%   2. [ ] Extract Documents
-\subsection{Extract Documents}
-%   3. [ ] Windowed Sets
-\subsection{Windowed Sets}
-%   4. [ ] Cluster Windowed Set w/ LDA
-\subsection{Cluster Windowed Set w/ LDA}
-%   5. [ ] Extract Clusters
-\subsection{Extract Clusters}
-%   6. [ ] Cluster Similarity [0/1]
-\subsection{Cluster Similarity}
-%      1. [ ] need the tool
-%             grab from the cluster analysis
-%   7. [ ] Continuous Cluster Analysis
-\subsection{Continuous Cluster Analysis}
-%   8. [ ] Topic Smear
-\subsection{Topic Smear}
-%   9. [ ] Visualization [0/1]
-\subsection{Visualization}
-%       1. [ ] need the visualizer
-%5. [ ] Tools [0/5]
-\section{Tools}
-%   1. [ ] LDA
-\subsection{LDA}
-%   2. [ ] Extractor
-\subsection{Extractor}
-%   3.   Similarity
-\subsection{Similarity}
-%   4.   Smearing
-\subsection{Smearing}
-%   5.   Visualizer
-\subsection{Visualizer}
-%6.   Results [0/4]
 \section{Results}
 %   1. Interesting smears 
 %   2.   postgresql
