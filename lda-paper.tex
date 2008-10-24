@@ -36,24 +36,16 @@ Micheal Godfrey and Ric Holt
 
 %?
 
-In this lab report we seek to explore how topics shift over time in
-the source control repository of a project. We analyze commit
-comments, and even source code per revision per each time window and
-extract the topics prevelant in that window. We expect that topic sets
-will change over time and the change in topic sets indicate a change
-in the focus of development. We suppose this could help us to segment
-the revisions on the time line to discover parts of an iteration. For
-topic extraction we use \lda (LDA).
 
 % 
 
-In the presence of fine grained changes and detailed changelogs
+% In the presence of fine grained changes and detailed changelogs
 
-Developers topics the focus of develop
+% Developers topics the focus of develop
 
-many changelogs how to sort by change type
+% many changelogs how to sort by change type
 
-interleaved changes relate similar changes
+% interleaved changes relate similar changes
 
 What happened in the previous iteration? What were the developers
 working on? What was the developer in the next cubicle working on?
@@ -67,16 +59,55 @@ group of topics.
 
 Topic analysis of fine-grained revisions is important as often
 revisions belonging to different topics are interleaved or even mixed
-inside of commits. Using powerful topic analysis like Latent Semantic
-Indexing (LSI) or Latent Dirichlet Allocation (LDA) one can seperate
-these mixed signals into coherent topics. In this case a topic is a
-set of tokens that are related to each other.
+inside of commits.  Sometimes a single revision to a file contains
+multiple bug fixes.  Using powerful topic analysis like Latent
+Semantic Indexing (LSI) or Latent Dirichlet Allocation (LDA) one can
+seperate these mixed signals into coherent topics. In this case a
+topic is a set of tokens that are related to each other.
+
+% We suppose this could help us to segment the revisions on the time
+% line to discover parts of an iteration.
+
+Topic analysis is useful because it can help us partition a project's
+time-line into sub-iterations. By breaking apart an iteration we might
+be able to extract the underlying software development process from
+these artifacts.
+
+In this paper we seek to explore how topics shift over time in
+the source control repository of a project. We analyze commit
+comments, and even source code per revision per each time window and
+extract the topics in that time window. We expect that topic sets
+will change over time and the change in topic sets indicate a change
+in the focus of development. 
 
 \section{Previous Work}
-%   1. [ ] Intro to LDA
+
 \subsection{Intro to LDA}
 
+XXX explain LDA \cite{944937}
+
 \subsection{LDA Work}
+
+Lukins, Kraft and Etzkorn~\cite{lukins2008} use LDA to help query for
+finding related documents during bug localization tasks. They used LDA
+to build a topic model and then query against it using sample
+documents, the query would return relevant documentation.
+
+LSI is related to LDA and has been used to identify topics in software
+artifacts~\cite{1421013,1374321,10.1109/ICPC.2007.13,10.1109/ICPC.2006.17}.
+
+Semantic Clustering \cite{1698774,1566153}
+
+Linstead et al has proposed an author source code model using
+LDA.\cite{10.1109/MSR.2007.20,NIPS2007637,1321709} 
+
+Grant et al. have used an alternative technique to LSI and LDA, they
+used Independant Component Analysis to seperate topic signals from
+software code.
+
+Our technique differs in the sense we apply LDA temporally and we
+apply to change comments.
+
 %      1. [ ] LDA itself
 %      2. [ ] Maletic stuff
 %      3. [ ] WCRE: Scott/Jim
@@ -230,6 +261,9 @@ itemset or similarity.
 \section{Conclusions}
 %11.   Start file file:/home/abez/projects/lda-paper/lda-paper.tex
 
+
+\bibliographystyle{alpha}
+\bibliography{paper1}
 
 
 \end{document}
