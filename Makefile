@@ -1,7 +1,13 @@
 IMAGES=
 default: view
 
+view: ahindle-lda.pdf
+	xpdf $<
+
 SUBMISSION: ahindle-lda.pdf
+
+ahindle-lda.pdf: lda-paper.pdf
+	cp lda-paper.pdf ahindle-lda.pdf
 
 lda-paper-pre.pdf: lda-paper.tex lda-paper.bib
 	pdflatex lda-paper
