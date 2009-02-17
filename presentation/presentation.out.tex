@@ -52,7 +52,28 @@ ahindle@cs.uwaterloo.ca
 
 \sslide{Introduction}
 \begin{itemize}
-\item Intro
+\item Stakeholders want to know what the focus of the last iteration was
+\item Evidence of work done at Retrospective meetings
+\item Difference between developer opinion and developer commits
+
+\end{itemize}
+\sslide{Topic Clustering }
+\begin{itemize}
+\item Need to track continuous topics across 
+\item Similarity between topics
+\item Clusters of the transitive closure of topics with X\% similarity
+	\begin{itemize}
+	\item Fill flood along similarity, make subsets of everyone who X\% similar to any of their neighbors, make that a cluster
+
+\newslide
+
+%\igbigslidecap{transitiveclosure}{Clustering topics (black dots) by Transitive Closure based on similarity (arcs)}
+
+\begin{center}
+\includegraphics[width=\textwidth]{transitiveclosure}
+Clustering topics (black dots) by Transitive Closure based on similarity (arcs)
+\end{center}
+
 
 \newslide
 
@@ -103,6 +124,7 @@ ahindle@cs.uwaterloo.ca
 
 \igbigslidecap{lda}{Example of topics extracted from MySQL 3.23}
 
+\end{itemize}
 \end{itemize}
 \end{slide}
 
