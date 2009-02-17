@@ -222,20 +222,21 @@ We extend the cluster matching across contiguous months.q
 
 \subsection{Datasets and Tools}
 
-Extractors:
-\begin{itemize}
-\item CVSSuck - CVS Suck mirrors RCS files from a CVS repository. 
-\item softChange - extract CVS facts to a PostgreSQL database.
-\item bt2csv - Convert BitKeeper repositories to facts in CSV
-  databases.
-\end{itemize}
+To extract data from CVS and BitKeeper we used softChange to extract
+CVS repositories and provide a schema for our revision data. We used
+bt2csv to extract BitKeeper revisions from BitKeeper web repositories.
 
-Analysis Tools:
-\begin{itemize}
-\item Hiraldo-Grok - An OCaml based spin off of Grok used for
-  answering queries.
-\item Gnuplot - graph plotting package
-\end{itemize}
+% Extractors:
+% \begin{itemize}
+% \item CVSSuck - CVS Suck mirrors RCS files from a CVS repository. 
+% \item softChange - extract CVS facts to a PostgreSQL database.
+% \item bt2csv - Convert BitKeeper repositories to facts in CSV
+%   databases.
+% \end{itemize}
+
+Our analysis tools consisted of: Hiraldo-Grok, an OCaml based spin off
+of Grok used for answering queries; Gnuplot, a graph plotting package,
+lda-c a LDA package by Biel
 
 
 %   1. [ ] LDA
