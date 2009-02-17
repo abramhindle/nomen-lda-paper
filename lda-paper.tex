@@ -1,5 +1,7 @@
+\documentclass[times, 10pt,twocolumn]{article} 
+\usepackage{times}
 
-\documentclass{report}
+
 \usepackage{graphicx,amsmath,comment,fullpage}
 \newcommand{\igH}[1]{\includegraphics[height=.9\textheight]{#1}}
 \newcommand{\igW}[1]{\includegraphics[width=.9\textwidth]{#1}}
@@ -8,13 +10,12 @@
 \newcommand{\lda}{Latent Dirichlet Allocation}
 
 
-\author{Abram Hindle\\
-ahindle@cs.uwaterloo.ca\\
+\author{Abram Hindle and Michael Godfrey and Ric Holt \\
+\{ahindle,migod,holt\}@cs.uwaterloo.ca\\
 Software Architecture Group (SWAG)\\
-Supervised by\\
-Micheal Godfrey and Ric Holt
+University of Waterloo\\
 }
-\title{Lab 0006: Latent Dirichlet Allocation Applied to Revisions}
+\title{Temporal Developer Concept Witchery: Latent Dirichlet Allocation Applied to Revisions}
 
 \usepackage{rotating}   
 \begin{document}
@@ -37,24 +38,16 @@ Micheal Godfrey and Ric Holt
 
 %?
 
-In this lab report we seek to explore how topics shift over time in
-the source control repository of a project. We analyze commit
-comments, and even source code per revision per each time window and
-extract the topics prevelant in that window. We expect that topic sets
-will change over time and the change in topic sets indicate a change
-in the focus of development. We suppose this could help us to segment
-the revisions on the time line to discover parts of an iteration. For
-topic extraction we use \lda (LDA).
 
 % 
 
-In the presence of fine grained changes and detailed changelogs
+% In the presence of fine grained changes and detailed changelogs
 
-Developers topics the focus of develop
+% Developers topics the focus of develop
 
-many changelogs how to sort by change type
+% many changelogs how to sort by change type
 
-interleaved changes relate similar changes
+% interleaved changes relate similar changes
 
 What happened in the previous iteration? What were the developers
 working on? What was the developer in the next cubicle working on?
@@ -68,16 +61,82 @@ group of topics.
 
 Topic analysis of fine-grained revisions is important as often
 revisions belonging to different topics are interleaved or even mixed
-inside of commits. Using powerful topic analysis like Latent Semantic
-Indexing (LSI) or Latent Dirichlet Allocation (LDA) one can seperate
-these mixed signals into coherent topics. In this case a topic is a
-set of tokens that are related to each other.
+inside of commits.  Sometimes a single revision to a file contains
+multiple bug fixes.  Using powerful topic analysis like Latent
+Semantic Indexing (LSI) or Latent Dirichlet Allocation (LDA) one can
+seperate these mixed signals into coherent topics. In this case a
+topic is a set of tokens that are related to each other.
+
+% We suppose this could help us to segment the revisions on the time
+% line to discover parts of an iteration.
+
+Topic analysis is useful because it can help us partition a project's
+time-line into sub-iterations. By breaking apart an iteration we might
+be able to extract the underlying software development process from
+these artifacts.
+
+In this paper we seek to explore how topics shift over time in
+the source control repository of a project. We analyze commit
+comments, and even source code per revision per each time window and
+extract the topics in that time window. We expect that topic sets
+will change over time and the change in topic sets indicate a change
+in the focus of development. 
 
 \section{Previous Work}
-%   1. [ ] Intro to LDA
-\subsection{Intro to LDA}
 
-\subsection{LDA Work}
+%\subsection{Intro to LDA}
+
+%XXX explain LDA \cite{944937}
+
+Latent Dirichlet Alloation (LDA)~\cite{944937} is a competitor to
+latent semantic indexing (LSI), probabilistic latent semantic indexing
+(pLSI) and semantic clustering. It is used for document modelling,
+document clustering and collaborative filtering. What LDA attempts to
+do is model a documents as mixture model of topics.  The common use of
+LDA in software engineering
+literature~\cite{lukins2008,10.1109/MSR.2007.20,NIPS2007637,1321709}
+is to extract topic clusters from documents such as methods, bug
+reports, source code and files.
+
+Our blackbox view of LDA and LSI is that they extract topic clusters
+from the documents that are independant from one another. LDA doesn't
+name these clusters but the clusters consist of words whose
+relationship is often obvious to someone familar with the
+corpus. Technically we could swap LDA for LSI. Our data is posed as
+documents with word distributions (word counts per documents) and LDA
+extracts distinct topics (clusters of words) from the documents.
+
+\subsection{LDA, LSI and Semantic Clustering}
+
+Linstead et al has proposed an author source code model using
+LDA~\cite{10.1109/MSR.2007.20,NIPS2007637,1321709}. They used an
+author-topic (AT) model~\cite{1036902} to infer the association or
+expertise of a particular developer with a particular code topic
+extracted from the source control system.
+
+Lukins, Kraft and Etzkorn~\cite{lukins2008} use LDA to help query for
+finding related documents during bug localization tasks. They used LDA
+to build a topic model and then query against it using sample
+documents, the query would the proportion of topics that were
+associated with the query and thus the related documents.
+
+LSI is related to LDA and has been used to identify topics in software
+artifacts for forumal concept analysis and concept
+location~\cite{1421013,1374321,10.1109/ICPC.2007.13,10.1109/ICPC.2006.17}.
+This is when concepts are automatically extracted from source code or
+documents are related to part of the source code.  Concept location is
+how high level concepts relate to low level entities like source code,
+for instance when fixing a bug how do the concepts in the bug report
+map back to the source code?  Semantic Clustering has also been used
+for similar reason~\cite{1698774,1566153}.
+
+Grant et al.~\cite{scottcordy} have used an alternative technique to
+LSI and LDA, they used Independant Component Analysis to seperate
+topic signals from software code.
+
+Our technique differs in the sense we apply LDA temporally and we
+apply to change comments.
+
 %      1. [ ] LDA itself
 %      2. [ ] Maletic stuff
 %      3. [ ] WCRE: Scott/Jim
@@ -91,20 +150,68 @@ set of tokens that are related to each other.
 \section{Methodology}
 
 \subsection{Extract Repos}
+
+We extracted the repositories with software such as rsync, CVSSuck,
+\texttt{softChange} and bt2csv.  \texttt{softChange} provided a
+general schema for storing revisions. CVSSuck and rsync mirrored CVS
+repositories while bt2csv mirrored web accessible bitkeeper
+repositories.
+
+
 %   2. [ ] Extract Documents
 \subsection{Extract Documents}
 %   3. [ ] Windowed Sets
+
+The document we are primarily using are the changelog comments, these
+are the comments added when a revision to the source code is
+committed, it could be per file or per commit of changes to multiple
+files, this depends on the source control system used.
+
+Documents are converted into word count distributions. The
+distributions include all of the possible words in the system.
+
 \subsection{Windowed Sets}
+
+We then create windows which are sets of documents grouped by time
+window. Time windows can overlap but don't have to. Windowing by time
+allows for many levels of granularity. We usually used one month as
+the length of our time windows.
+
 %   4. [ ] Cluster Windowed Set w/ LDA
 \subsection{Cluster Windowed Set w/ LDA}
 %   5. [ ] Extract Clusters
+
+We take our topic clusterer and cluster the documents by their topics
+and get the $n$ unique topic clusters out. In this paper we used LDA
+but LSI could be used in a similar way.
+
+This is a very slow step as LDA takes a long time to run.
+
 \subsection{Extract Clusters}
+
+
 %   6. [ ] Cluster Similarity [0/1]
 \subsection{Cluster Similarity}
 %      1. [ ] need the tool
 %             grab from the cluster analysis
 %   7. [ ] Continuous Cluster Analysis
+
+
+Once we get our clusters, we analyze them and look for repeating
+topics. We do this by taking the top 10 most common words and
+comparing them. Given a fraction such as 8/10 we joined topics where
+8/10 of the top ten topic words were shared.
+
+Clusters in the same period which are this similar are grouped
+together. Anything that matches either of those clusters 8/10 will
+match.
+
+
+
 \subsection{Continuous Cluster Analysis}
+
+We extend the cluster matching across contiguous months.q
+
 %   8. [ ] Topic Smear
 \subsection{Topic Smear}
 %   9. [ ] Visualization [0/1]
@@ -143,39 +250,48 @@ Analysis Tools:
 
 
 
-\section{First Impression}
+\section{First Impressions}
 
-% 2007-10-12
+In our first exploratory pass we wanted to see 
 
 Looking at 30 day non-overlapping windows of revisions for MySQL 3.23
 (20 topics, top 10 words per topic) we found there were common words
 across topic clusters such as diffs, annotate and history. There were
 notable transitional topics such as in the first window the word
-bitkeeper appears (probably when they adopted bitkeeper) yet in the
-following windows there were no mentions of bitkeeper. ``RENAME'' also
-only appeared once in the first window.
+``bitkeeper'' appears (probably when they adopted Bitkeeper for their
+source control system) yet in the following windows there were no
+mentions of Bitkeeper. ``RENAME'' also only appeared once in the first
+window and never again.
 
-Often words are shared across topics, see table \ref{tab:portability}
-for tracking topics about portability.
+A subsampling of the notable topic words is displayed in Table
+\ref{tab:portability}. We tracked one topic cluster which seemed
+related to portability.
 
-It is apparent that we have to compare these topics some how by
-itemset or similarity.
+%Often words are shared across topics, see table \ref{tab:portability}
+%for tracking topics about portability.
 
-\begin{table}
+After viewing these topic is was obvious that we would have to combine
+try to track the evolution of topics over the windows or rank topics
+by similarity.
+
+%It is apparent that we have to compare these topics some how by
+%itemset or similarity.
+
+\begin{table*}
 \centering
 \begin{tabular}{|ccc|l|}
 \hline
 2000 &  Jul &  31 &    chmod \\
 2000 &  Sep &  29 &    fixes benchmark logging windows \\
 2000 &  Nov &  28 &    typo fix insert\_multi\_value \\
-2001 &  Jan &  27 &    FIxes Innobase Cleanups auto-union \\
+2001 &  Jan &  27 &    fixes Innobase Cleanups auto-union \\
 2001 &  Mar &  28 &    2 topics bugfix, logging , TEMPORARY,  \\
 \hline
-2001 &  Jul &  26 &    Update Allow TABLES LOCK [a] \\ 
+2001 &  Jul &  26 &    update Allow TABLES LOCK [a] \\ 
 
-2001 &  Aug &  25 &    Tables row version [a] \\
+2001 &  Aug &  25 &    tables row version [a] \\
 \hline
-2001 &  Sep &  24 &    Update checksum merge \\
+2001 &  Sep &  24 &    update checksum merge \\
 2001 &  Oct &  24 &    fixed fix \\
 2001 &  Dec &  23 &    HPUX SCO fix \\
 \hline
@@ -193,7 +309,7 @@ itemset or similarity.
 \end{tabular}
 \caption{Tracking topics associated with the word portability, note some continuous blocks}
 \label{tab:portability}
-\end{table}
+\end{table*}
 
 %LDA Skeleton
 %1. [ ] Abstract 
@@ -231,6 +347,9 @@ itemset or similarity.
 \section{Conclusions}
 %11.   Start file file:/home/abez/projects/lda-paper/lda-paper.tex
 
+
+\bibliographystyle{alpha}
+\bibliography{lda-paper}
 
 
 \end{document}
