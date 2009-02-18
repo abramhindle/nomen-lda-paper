@@ -1,4 +1,4 @@
-\documentclass[titlepage,usenames,a4,landscape,semhelv]{seminar}
+\documentclass[titlepage,usenames,a4,landscape,semhelv,16pt]{seminar}
 \newcommand{\presenter}{Abram Hindle}
 \newcommand{\conference}{}
 \newcommand{\gettitle}{Temporal Developer Concept Witchery: Latent Dirichlet Allocation Applied to Revisions}
@@ -55,12 +55,34 @@ ahindle@cs.uwaterloo.ca
 * Evidence of work done at Retrospective meetings
 * Difference between developer opinion and developer commits
 
+
 =Dictionary
 * Message - in this a CVS Commit
 * Word Distribution - count of words occuring in a message
 * Topic - a word distribution that is common amongst messages
 * Trend - a topic that re-occurs
 
+\newslide
+\igbigcapb{commit-to-topics}{How commits are aggregated into Topics}
+
+=Developer Trends
+* Trends
+** Continuous or repeating topics
+** Occur over multiple time windows
+
+=Topic Similarity
+* Given 2 topics
+** if their top 10 words 
+*** share X words (7 or more)
+****  they are similar
+
+=LDA
+* Latent Dirichlet Allocation
+* Like Latent Semantic Indexing (LSI)
+* Like ICA/PCA
+* Black box view:
+** Input word distributions of messages, 
+** Output topics consisting of a word distribution and related messages
 
 =Topic Clustering 
 * Need to track continuous topics across 
@@ -80,7 +102,10 @@ ahindle@cs.uwaterloo.ca
 %\igninetycap{transitiveclosure}{Clustering topics (black dots) by Transitive Closure based on similarity (arcs)}
 \igonecap{transitiveclosure}{Clustering topics (black dots) by Transitive Closure based on similarity (arcs)}
 
-
+=Case Study: Portability
+* MySQL 3.23 
+** Discussions relating to portability
+** Some topics smeared across multiple months
 
 
 \newslide
@@ -138,6 +163,41 @@ ahindle@cs.uwaterloo.ca
 %\igbigcapb{lda}{Example of topics extracted from MySQL 3.23}
 %\igbigthirtycapb{lda}{Example of topics extracted from MySQL 3.23}
 \igbigthirtyfivecapb{lda}{Example of topics extracted from MySQL 3.23}
+
+
+\igbigthirtyfivecapb{fixed-time-smear-plot-cropped}{}
+\igbigthirtyfivecapb{fixed-time-smear-plot-scaled}{}   
+
+\igbigthirtyfivecapb{histogram-cropped}{}
+\igbigthirtyfivecapb{histogram-cropped-scaled}{}       
+
+%class-smear-plot-crop                
+
+\igbigthirtyfivecapb{class-smear-plot-crop-scaled}{}         
+\igbigthirtyfivecapb{class-smear-plot-crop-scaled-zoomed}{}
+
+
+=Observations
+* Topics could be named
+** Certain words indicate a focus on
+*** Maintenance
+*** Bug Fixing
+*** Portability
+*** Potential 'ilities
+
+=Observations
+* Powerlaw distribution of repeating topic counts
+** Most occured once
+** A few were repeated 
+*** less than 10\% of topics reoccur
+
+
+
+=Unfinished
+* Total Topics versus Monthly Topics
+
+=Future work
+* Extension, associate Trends or Topics with purpoes by using wordnet and Taxonomies of software quality 
 
 =
 \end{slide}

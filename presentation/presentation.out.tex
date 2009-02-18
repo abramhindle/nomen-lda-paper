@@ -1,4 +1,4 @@
-\documentclass[titlepage,usenames,a4,landscape,semhelv]{seminar}
+\documentclass[titlepage,usenames,a4,landscape,semhelv,16pt]{seminar}
 \newcommand{\presenter}{Abram Hindle}
 \newcommand{\conference}{}
 \newcommand{\gettitle}{Temporal Developer Concept Witchery: Latent Dirichlet Allocation Applied to Revisions}
@@ -56,6 +56,53 @@ ahindle@cs.uwaterloo.ca
 \item Evidence of work done at Retrospective meetings
 \item Difference between developer opinion and developer commits
 
+
+\end{itemize}
+\sslide{Dictionary}
+\begin{itemize}
+\item Message - in this a CVS Commit
+\item Word Distribution - count of words occuring in a message
+\item Topic - a word distribution that is common amongst messages
+\item Trend - a topic that re-occurs
+
+\newslide
+\igbigcapb{commit-to-topics}{How commits are aggregated into Topics}
+
+\end{itemize}
+\sslide{Developer Trends}
+\begin{itemize}
+\item Trends
+	\begin{itemize}
+	\item Continuous or repeating topics
+	\item Occur over multiple time windows
+
+\end{itemize}
+\end{itemize}
+\sslide{Topic Similarity}
+\begin{itemize}
+\item Given 2 topics
+	\begin{itemize}
+	\item if their top 10 words 
+		\begin{itemize}
+		\item share X words (7 or more)
+			\begin{itemize}
+			\item they are similar
+
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\end{itemize}
+\sslide{LDA}
+\begin{itemize}
+\item Latent Dirichlet Allocation
+\item Like Latent Semantic Indexing (LSI)
+\item Like ICA/PCA
+\item Black box view:
+	\begin{itemize}
+	\item Input word distributions of messages, 
+	\item Output topics consisting of a word distribution and related messages
+
+\end{itemize}
 \end{itemize}
 \sslide{Topic Clustering }
 \begin{itemize}
@@ -77,7 +124,14 @@ ahindle@cs.uwaterloo.ca
 %\igninetycap{transitiveclosure}{Clustering topics (black dots) by Transitive Closure based on similarity (arcs)}
 \igonecap{transitiveclosure}{Clustering topics (black dots) by Transitive Closure based on similarity (arcs)}
 
-
+\end{itemize}
+\end{itemize}
+\sslide{Case Study: Portability}
+\begin{itemize}
+\item MySQL 3.23 
+	\begin{itemize}
+	\item Discussions relating to portability
+	\item Some topics smeared across multiple months
 
 
 \newslide
@@ -137,6 +191,42 @@ ahindle@cs.uwaterloo.ca
 \igbigthirtyfivecapb{lda}{Example of topics extracted from MySQL 3.23}
 
 \end{itemize}
+\end{itemize}
+\sslide{Observations}
+\begin{itemize}
+\item Topics could be named
+	\begin{itemize}
+	\item Certain words indicate a focus on
+		\begin{itemize}
+		\item Maintenance
+		\item Bug Fixing
+		\item Portability
+		\item Potential 'ilities
+
+	\end{itemize}
+\end{itemize}
+\end{itemize}
+\sslide{Observations}
+\begin{itemize}
+\item Powerlaw distribution of repeating topic counts
+	\begin{itemize}
+	\item Most occured once
+	\item A few were repeated 
+		\begin{itemize}
+		\item less than 10\% of topics reoccur
+
+	\end{itemize}
+\end{itemize}
+\end{itemize}
+\sslide{Unfinished}
+\begin{itemize}
+\item Total Topics versus Monthly Topics
+
+\end{itemize}
+\sslide{Future work}
+\begin{itemize}
+\item Extension, associate Trends or Topics with purpoes by using wordnet and Taxonomies of software quality 
+
 \end{itemize}
 \end{slide}
 
