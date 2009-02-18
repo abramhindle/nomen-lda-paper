@@ -5,6 +5,11 @@
 %%% End: 
 
 \usepackage{xspace,verbatim,listings}
+%\slidewidth 300mm
+\slideheight 200mm
+
+
+
 \newcommand{\clstinline}[1]{\lstinline[language=c]!#1!}
 \usepackage{graphicx}
 \usepackage{comment}
@@ -67,6 +72,10 @@
 \noxcomment
   \renewcommand{\slidetopmargin}{15.5mm}
   \renewcommand{\slidebottommargin}{13mm}
+
+%  \renewcommand{\slidetopmargin}{20mm}
+
+%  \renewcommand{\slidebottommargin}{20mm}
 %  \renewcommand{\slidetopmargin}{15.5mm}
 %  \renewcommand{\slidebottommargin}{13mm}
 
@@ -154,8 +163,13 @@
 \fancyfoot[R]{\fancyfootr}
 \renewcommand{\slidetopmargin}{15.5mm}
 \renewcommand{\slidebottommargin}{13mm}
+
+
 \renewcommand{\slidetopmargin}{0.5cm}
 \renewcommand{\slidebottommargin}{0.5cm}
+
+
+
 \renewcommand{\slideleftmargin}{5mm}
 \renewcommand{\sliderightmargin}{0cm}
 
@@ -177,6 +191,8 @@
 \renewcommand{\headwidth}{\textwidth}
 \renewcommand{\slidetopmargin}{0.5cm}
 \renewcommand{\slidebottommargin}{0.5cm}
+%\renewcommand{\slidebottommargin}{2cm}
+%\renewcommand{\slidebottommargin}{-0.1cm}
 
 
 \newcommand{\igH}[1]{\includegraphics[height=.9\textheight]{#1}}
@@ -390,6 +406,96 @@
 \item\relax}
 {\endlist}
 
+\newenvironment{specquotea}%
+{\list{}{\rightmargin 0em%
+         \leftmargin  0em}
+\item\relax}
+{\endlist}
+
+\newenvironment{specquoteb}%
+{\list{}{\rightmargin 0em%
+         \leftmargin  -1em}
+\item\relax}
+{\endlist}
+
+\newenvironment{specquotec}%
+{\list{}{\rightmargin 0em%
+         \leftmargin  -2em}
+\item\relax}
+{\endlist}
+
+\newenvironment{specquoted}%
+{\list{}{\rightmargin 0em%
+         \leftmargin  -3em}
+\item\relax}
+{\endlist}
+
+\newenvironment{specquotee}%
+{\list{}{\rightmargin 0em%
+         \leftmargin  -4em}
+\item\relax}
+{\endlist}
+
+\newenvironment{specquotef}%
+{\list{}{\rightmargin 0em%
+         \leftmargin  -5em}
+\item\relax}
+{\endlist}
+\newenvironment{specquoteg}%
+{\list{}{\rightmargin -1em%
+         \leftmargin  -6em}
+\item\relax}
+{\endlist}
+
+\newenvironment{specquotega}%
+{\list{}{\rightmargin -1em%
+         \leftmargin  -6.5em}
+\item\relax}
+{\endlist}
+
+
+\newenvironment{specquoteh}%
+{\list{}{\rightmargin -1em%
+         \leftmargin  -7em}
+\item\relax}
+{\endlist}
+\newenvironment{specquotei}%
+{\list{}{\rightmargin -1em%
+         \leftmargin  -8em}
+\item\relax}
+{\endlist}
+\newenvironment{specquotej}%
+{\list{}{\rightmargin -1em%
+         \leftmargin  -9em}
+\item\relax}
+{\endlist}
+\newenvironment{specquotek}%
+{\list{}{\rightmargin -1em%
+         \leftmargin  -10em}
+\item\relax}
+{\endlist}
+
+%\newcommand{ninetyimage}[2]{%
+%\begin{specquoted}
+%\begin{center}
+%\includegraphics[width=0.9\textwidth]{#1}\\
+%#2
+%\end{center}
+%\end{specquoted}
+%}
+
+
+
+
+
+% \newenvironment{specquote}[1]%
+% {\list{}{\rightmargin #1%
+%          \leftmargin  0em%
+% }
+% \item\relax}
+% {\endlist}
+
+
 
 \newenvironment{uuquote}
 {\list{}{\rightmargin 0em
@@ -427,6 +533,58 @@
 \fancyfancy
 %\centerslidestrue
 \end{uquote}
+}
+
+
+\newcommand{\igninetycap}[2]{
+\begin{specquoted}
+\begin{center}
+\includegraphics[width=0.9\textwidth]{#1} \\
+#2
+\end{center}
+\end{specquoted}
+}
+\newcommand{\igonecap}[2]{
+\begin{specquoted}
+\begin{center}
+\includegraphics[width=\textwidth]{#1} \\
+#2
+\end{center}
+\end{specquoted}
+}
+\newcommand{\igbigcap}[2]{
+\begin{specquotee}
+\begin{center}
+\includegraphics[width=1.10\textwidth]{#1} \\
+#2
+\end{center}
+\end{specquotee}
+}
+\newcommand{\igbigcapb}[2]{
+\begin{specquotega}
+\begin{center}
+\includegraphics[width=1.25\textwidth]{#1} \\
+#2
+\end{center}
+\end{specquotega}
+}
+
+\newcommand{\igbigthirtycapb}[2]{
+\begin{specquoteh}
+\begin{center}
+\includegraphics[width=1.30\textwidth]{#1} \\
+#2
+\end{center}
+\end{specquoteh}
+}
+
+\newcommand{\igbigthirtyfivecapb}[2]{
+\begin{specquotei}
+\begin{center}
+\includegraphics[width=1.35\textwidth]{#1} \\
+#2
+\end{center}
+\end{specquotei}
 }
 
 

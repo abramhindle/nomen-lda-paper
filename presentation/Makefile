@@ -1,6 +1,9 @@
 FILE = presentation
 NFILE = notes
 NAME = ahindle-lda-presentation
+HEIGHT=22cm
+HEIGHT=225mm
+WIDTH=30cm
 default: $(NAME).pdf
 
 $(NAME).pdf: $(FILE).out.pdf
@@ -23,7 +26,9 @@ psview: ${FILE}.out.ps
 	gv ${FILE}.out.ps
 
 present: ${FILE}.out.pdf
-	acroread ${FILE}.out.pdf
+	xpdf -fullscreen -bg black ${FILE}.out.pdf
+
+#		acroread ${FILE}.out.pdf	
 
 acro: ${FILE}.out.pdf
 	acroread $<
@@ -59,12 +64,12 @@ ${NFILE}.out.pdf:	${NFILE}.out.ps
 #	pdflatex ${FILE}.out.tex
 #	pdflatex ${FILE}.out.tex
 ${FILE}.out.ps:	${FILE}.out.dvi 
-	dvips -T 30cm,22cm $< -o $@
+	dvips -T ${WIDTH},${HEIGHT} $< -o $@
 #${FILE}.out.ps:	${FILE}.out.dvi 
-#	dvips -T 30cm,22cm $< -o $@
+#	dvips -T ${WIDTH},${HEIGHT} $< -o $@
 
 ${NFILE}.out.ps:	${NFILE}.out.dvi 
-	dvips -T 30cm,22cm $< -o $@
+	dvips -T ${WIDTH},${HEIGHT} $< -o $@
 
 
 #
@@ -86,14 +91,14 @@ $(NFILE).out.dvi: $(NFILE).out.tex ${TRANSITIONSEPS}
 
 
 $(FILE).s: $(FILE).dvi
-	dvips -T 30cm,22cm -o $@ $<
+	dvips -T ${WIDTH},${HEIGHT} -o $@ $<
 
 $(NFILE).ps: $(NFILE).dvi
-	dvips -T 30cm,22cm -o $@ $<
+	dvips -T ${WIDTH},${HEIGHT} -o $@ $<
 
 
 #$(FILE).ps: $(FILE).dvi
-#	dvips -T 30cm,22cm -o $@ $<
+#	dvips -T ${WIDTH},${HEIGHT} -o $@ $<
 
 
 
