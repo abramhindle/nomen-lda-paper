@@ -43,14 +43,18 @@ University of Waterloo\\
   time period and then see if these individual topics ever reappear.
   
 
-  In this lab report we seek to explore how topics shift over time in
-  the source control repository of a project. We analyze commit
-  comments, and even source code per revision per each time window and
-  extract the topics prevelant in that window. We expect that topic
-  sets will change over time and the change in topic sets indicate a
-  change in the focus of development. We suppose this could help us to
-  segment the revisions on the time line to discover parts of an
-  iteration. For topic extraction we use \lda (LDA).
+
+
+
+
+%   In this lab report we seek to explore how topics shift over time in
+%   the source control repository of a project. We analyze commit
+%   comments, and even source code per revision per each time window and
+%   extract the topics prevelant in that window. We expect that topic
+%   sets will change over time and the change in topic sets indicate a
+%   change in the focus of development. We suppose this could help us to
+%   segment the revisions on the time line to discover parts of an
+%   iteration. For topic extraction we use \lda (LDA).
 
 \end{abstract}
 
@@ -73,6 +77,24 @@ What happened in the previous iteration? What were the developers
 working on? What was the developer in the next cubicle working on?
 What were the common topics and issues dealt with in the current
 release of the software? What were the topics of the previous release?
+Given the requirements agreed to at the start of the iteration did our
+developers work on them? What else did they work on. Were there issues
+which were orthogonal to the
+
+Topic analysis, with respect to Software Control Systems (SCSs), is
+valuable as it has many uses for the stakeholders involved. 
+
+Example scenarios where the usage of this technique would prove useful
+are numerous. Imagine a development team has agreed to implement some
+features at the start of an iteration. By the end of the iteration
+only some of the agreed upon features are implemented. The developers
+swear they were focusing solely on the features agreed upon. Topic
+analysis could help by teasing out the distinct topics or focusses of
+the developers. Perhaps the developers had to deal with issues
+orthogonal to the features they were working on, but were probably
+necessary to complete such features. Developers might have grouped
+those orthogonal changes into one of the features and might not
+
 
 We propose to extend common concept analysis techniques by executing
 them over windows of documents over time. We hope by looking at topic
@@ -102,11 +124,30 @@ extract the topics in that time window. We expect that topic sets
 will change over time and the change in topic sets indicate a change
 in the focus of development. 
 
-\section{Previous Work}
+
+
+\section{Background}
+
+
+Some terms we will be using for the rest of the paper include:
+message, word distribution, topic and trend. Messages are block of
+text written by developers, in this paper messages will be the CVS
+commit comments. Word distributions are the summary of a message by
+word count, effectively the word distribution will be over all
+messages looked at but since most words will not appear in a message,
+a word distribution is effectively a word count divided by the message
+size. A topic is a unique word distribution, but effectively a set of
+words unique to an independant behaviour in the text corpus, in this
+paper we often summarize topics by their top 10 more frequent words.
+A trend is a one or more similar topics which reoccur over
+time. Trends are important because they are sets of topics which
+reoccur over the development of a project.
+
 
 %\subsection{Intro to LDA}
 
 %XXX explain LDA \cite{944937}
+
 
 Latent Dirichlet Alloation (LDA)~\cite{944937} is a competitor to
 latent semantic indexing (LSI), probabilistic latent semantic indexing
