@@ -82,10 +82,9 @@ developers work on them? What else did they work on. Were there issues
 which were orthogonal to the
 
 Topic analysis, with respect to Software Control Systems (SCSs), is
-valuable as it has many uses for the stakeholders involved. 
-
-Example scenarios where the usage of this technique would prove useful
-are numerous. Imagine a development team has agreed to implement some
+valuable as it has many uses for the stakeholders involved.  Example
+scenarios where the usage of these techniques would prove useful are
+numerous. Imagine a development team has agreed to implement some
 features at the start of an iteration. By the end of the iteration
 only some of the agreed upon features are implemented. The developers
 swear they were focusing solely on the features agreed upon. Topic
@@ -93,7 +92,14 @@ analysis could help by teasing out the distinct topics or focusses of
 the developers. Perhaps the developers had to deal with issues
 orthogonal to the features they were working on, but were probably
 necessary to complete such features. Developers might have grouped
-those orthogonal changes into one of the features and might not
+those orthogonal changes into one of the features they were working
+on, thus when asked about how their time was spent the orthogonal
+changes would not be covered. This is what we hope that windowed topic
+analysis can uncover. If windowed topic analysis can discover
+important but overlooked topics, it can help both developers and
+managers.
+
+
 
 
 We propose to extend common concept analysis techniques by executing
@@ -398,6 +404,11 @@ by similarity.
 %   5.   work it out
 %8.   Validity Threats [0/5]
 \section{Validity Threats}
+
+In this study we are explicitly trusting that the programmers annotate
+their changes with relevant information. We rely on the descriptions
+they provide. If the language of checkin comments was automated
+
 %   1.   validation
 %   2.   LDA is questionable
 %   3.   blackbox problem
