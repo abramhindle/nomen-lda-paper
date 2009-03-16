@@ -97,38 +97,40 @@ on, thus when asked about how their time was spent the orthogonal
 changes would not be covered. This is what we hope that windowed topic
 analysis can uncover. If windowed topic analysis can discover
 important but overlooked topics, it can help both developers and
-managers.
-
+managers. Developer can reflect and see a good summary of what worked
+on, and managers can see the focus of development while still
+remaining relatively high level.
 
 
 
 We propose to extend common concept analysis techniques by executing
 them over windows of documents over time. We hope by looking at topic
-clusters over time we can I identify continuous effort on a select
+clusters over time we can identify continuous effort on a select
 group of topics.
 
 Topic analysis of fine-grained revisions is important as often
 revisions belonging to different topics are interleaved or even mixed
 inside of commits.  Sometimes a single revision to a file contains
-multiple bug fixes.  Using powerful topic analysis like Latent
-Semantic Indexing (LSI) or Latent Dirichlet Allocation (LDA) one can
-seperate these mixed signals into coherent topics. In this case a
-topic is a set of tokens that are related to each other.
+multiple bug fixes.  Using powerful topic analysis techniques like
+Latent Semantic Indexing (LSI) or Latent Dirichlet Allocation (LDA)
+one can seperate these mixed signals into coherent topics. In this
+case a topic is a set of tokens that are related to each other.
 
 % We suppose this could help us to segment the revisions on the time
 % line to discover parts of an iteration.
 
-Topic analysis is useful because it can help us partition a project's
-time-line into sub-iterations. By breaking apart an iteration we might
-be able to extract the underlying software development process from
-these artifacts.
+Another use of topic analysis is to help us partition a project's
+time-line into sub-iterations of developer focus. By breaking apart an
+iteration we might be able to extract the underlying software
+development process from these artifacts or at the very least what
+maintenance was occurring in the repository at that time.
 
-In this paper we seek to explore how topics shift over time in
-the source control repository of a project. We analyze commit
-comments, and even source code per revision per each time window and
-extract the topics in that time window. We expect that topic sets
-will change over time and the change in topic sets indicate a change
-in the focus of development. 
+In this paper we seek to explore how topics shift over time in the
+source control repository of a project. We analyze commit comments per
+revision in each time window and we extract the topics in that time
+window. We expect that topics in each window will change over time and
+the similarities and differences in these sets of topics will indicate
+both developer focus and changes in developer focus.
 
 
 
@@ -154,9 +156,8 @@ reoccur over the development of a project.
 
 %XXX explain LDA \cite{944937}
 
-
 Latent Dirichlet Alloation (LDA)~\cite{944937} is a competitor to
-latent semantic indexing (LSI), probabilistic latent semantic indexing
+Latent Semantic Indexing (LSI), probabilistic Latent Semantic Indexing
 (pLSI) and semantic clustering. It is used for document modelling,
 document clustering and collaborative filtering. What LDA attempts to
 do is model a documents as mixture model of topics.  The common use of
@@ -213,111 +214,6 @@ apply to change comments.
 %4. [ ] Methodology [0/9]
 
 
-
-\section{Methodology}
-
-\subsection{Extract Repos}
-
-We extracted the repositories with software such as rsync, CVSSuck,
-\texttt{softChange} and bt2csv.  \texttt{softChange} provided a
-general schema for storing revisions. CVSSuck and rsync mirrored CVS
-repositories while bt2csv mirrored web accessible bitkeeper
-repositories.
-
-
-%   2. [ ] Extract Documents
-\subsection{Extract Documents}
-%   3. [ ] Windowed Sets
-
-The document we are primarily using are the changelog comments, these
-are the comments added when a revision to the source code is
-committed, it could be per file or per commit of changes to multiple
-files, this depends on the source control system used.
-
-Documents are converted into word count distributions. The
-distributions include all of the possible words in the system.
-
-\subsection{Windowed Sets}
-
-We then create windows which are sets of documents grouped by time
-window. Time windows can overlap but don't have to. Windowing by time
-allows for many levels of granularity. We usually used one month as
-the length of our time windows.
-
-%   4. [ ] Cluster Windowed Set w/ LDA
-\subsection{Cluster Windowed Set w/ LDA}
-%   5. [ ] Extract Clusters
-
-We take our topic clusterer and cluster the documents by their topics
-and get the $n$ unique topic clusters out. In this paper we used LDA
-but LSI could be used in a similar way.
-
-This is a very slow step as LDA takes a long time to run.
-
-\subsection{Extract Clusters}
-
-
-%   6. [ ] Cluster Similarity [0/1]
-\subsection{Cluster Similarity}
-%      1. [ ] need the tool
-%             grab from the cluster analysis
-%   7. [ ] Continuous Cluster Analysis
-
-
-Once we get our clusters, we analyze them and look for repeating
-topics. We do this by taking the top 10 most common words and
-comparing them. Given a fraction such as 8/10 we joined topics where
-8/10 of the top ten topic words were shared.
-
-Clusters in the same period which are this similar are grouped
-together. Anything that matches either of those clusters 8/10 will
-match.
-
-
-
-\subsection{Continuous Cluster Analysis}
-
-We extend the cluster matching across contiguous months.q
-
-%   8. [ ] Topic Smear
-\subsection{Topic Smear}
-%   9. [ ] Visualization [0/1]
-\subsection{Visualization}
-%       1. [ ] need the visualizer
-
-
-
-\subsection{Datasets and Tools}
-
-To extract data from CVS and BitKeeper we used softChange to extract
-CVS repositories and provide a schema for our revision data. We used
-bt2csv to extract BitKeeper revisions from BitKeeper web repositories.
-
-% Extractors:
-% \begin{itemize}
-% \item CVSSuck - CVS Suck mirrors RCS files from a CVS repository. 
-% \item softChange - extract CVS facts to a PostgreSQL database.
-% \item bt2csv - Convert BitKeeper repositories to facts in CSV
-%   databases.
-% \end{itemize}
-
-Our analysis tools consisted of: Hiraldo-Grok, an OCaml based spin off
-of Grok used for answering queries; Gnuplot, a graph plotting package,
-lda-c a LDA package by Biel
-
-
-%   1. [ ] LDA
-
-%   2. [ ] Extractor
-
-%   3.   Similarity
-
-%   4.   Smearing
-
-%   5.   Visualizer
-
-
-
 \section{First Impressions}
 
 In our first exploratory pass we wanted to see 
@@ -333,7 +229,8 @@ window and never again.
 
 A subsampling of the notable topic words is displayed in Table
 \ref{tab:portability}. We tracked one topic cluster which seemed
-related to portability.
+related to portability. We picked out terms which seem to summarize
+those topics.
 
 %Often words are shared across topics, see table \ref{tab:portability}
 %for tracking topics about portability.
@@ -379,12 +276,190 @@ by similarity.
 \label{tab:portability}
 \end{table*}
 
+
+
+
+\section{Methodology}
+
+\subsection{Extract Repos}
+
+We extracted the repositories with software such as rsync, CVSSuck,
+\texttt{softChange} and bt2csv.  \texttt{softChange} provided a
+general schema for storing revisions. CVSSuck and rsync mirrored CVS
+repositories while bt2csv mirrored web accessible bitkeeper
+repositories.
+
+
+%   2. [ ] Extract Documents
+\subsection{Extract Documents}
+%   3. [ ] Windowed Sets
+
+The document we are analyzing are the changelog comments, these are
+the comments added when a revision to the source code is committed.
+Documents are converted into word count distributions. These
+distributions are can be normalized by by the size of the
+message. After all messages are processes the distributions are
+extended to include all words in all distributions (each distribution
+is extended with word bins of count 0).
+
+\subsection{Windowed Sets}
+
+Given all messages, we group the messages into windows. We could use
+overlapping windows, but in this paper we use non-overlapping windows
+of a set time unit.  Windowing by time allows for many levels of
+granularity. We usually used one month as the length of our time
+windows, while we could use different granularities for the study we
+think that a month is a sizable unit of development (4 weeks of
+development).
+
+
+\subsection{Apply Topic Analysis to each Window}
+
+Once we have our data windowed, we apply our Topic Analysis tool to
+each window and extract the top $N$ topic clusters, we used $20$
+topics in our case study. Our Topic Analysis tool is an implementation
+of LDA, but we could've used other similar tools like LSI.
+
+This is a very slow step as LDA takes a long time to run, and takes
+even longer since we run it once per window.
+
+
+
+%\subsection{Extract Clusters}
+
+
+%   6. [ ] Cluster Similarity [0/1]
+\subsection{Cluster Similarity}
+%      1. [ ] need the tool
+%             grab from the cluster analysis
+%   7. [ ] Continuous Cluster Analysis
+
+
+Once we have our topics extracted for each window , we analyze them
+and look for repeating topics. We do this by taking the top 10 most
+common words and then comparing them. 
+
+We then abstract these topics by comparing them to each other.  Each
+topic is compared to each other topic in the system, given a certain
+threshold of top 10 similarity, like 8/10 words. Then given this topic
+similarity matrix, we find the transitive closure of similar topics,
+that is we fill flood along the similarity arcs until we have
+partitioned the topics into clusters of similar topics.  These
+clusters of topics are called trends. A trend is probably interesting
+and valuable if there is more than 1 topic in the trend.
+
+This technique has weaknesses in that nodes a few neighbors away in
+similarity might not share any similar words.  We do this because we
+want to be able to color or highlight topics which are related to each
+other and track them throughout time.
+
+Once we have determined our similarity clusters we can choose to
+analyze and to plot the topics.
+
+\begin{comment}
+Topic Clustering
+ · Need to track continuous topics across
+ · Similarity between topics
+ · Clusters of the transitive closure of topics with X%
+   similarity
+    ­ Fill flood along similarity, make subsets of
+      everyone who X% similar to any of their neighbors,
+      make that a cluster
+\end{comment}
+
+\subsection{Visualization}
+%       1. [ ] need the visualizer
+
+We have come up with multiple ways to visualize these topics and
+trends.  For all of these plots if we trends which have continuous
+segments we plot those segments as joined across time.  We have a
+compressed stacked trend view, which displays trends arbitrarily
+across the y axis but are placed where they occur on the time-based x
+axis. Another plot we have is the trend-time plot, a each trend gets
+it own distinct-y value , while the x-axis is time; these topics are
+then each plotted on their own line across time as they occur. The
+last plot we have is the histogram plot, where we plot each trend on
+its own line but stack up the segments of the trend, much like a plot
+of counts or a histogram.
+
+
+The first visualization is a compressed view, we try to sink the
+larger trends to the bottom, once the larger trends are stacked, we
+fill in the gaps with the smaller trends in the same window and then
+stack the smaller trends on top. Although there is a chance that gaps
+will be left due to nonoptimal stacking in practice there are lot of
+small trends (90\% of all trends contain 1 topic) which fill in these
+gaps quickly. The trend segments that share the same color are the
+same trend, colors are randomly chosen for each trend, so color
+similarity is meaningless, only exact color matching matters.
+The compressed view is nice because it shows all of the
+information and the repeating continuous trends are easy to pick out,
+unfortunately repeating discontinuous trends are harder to spot.
+
+The second visualization is the trend-time plot, it displays repeating
+trends more clearly by dedicating a horizonal line for trend segments
+dedicated to one trend. This means that if a trend contains
+discontinuous segments the segments appear on the same line. One down
+side to this view is the least common trends need to be pruned
+otherwise it'd take too many horizontal lines to plot them.
+
+The 3rd visualization is the histogram plot which is a lot like the
+time-trend plot except the trends are plotted together by stacking to
+their row so time information is lost and the trends are ordered by
+the number of topics in the trend. The histogram plot shows the count
+of instances of a trend and thus indicates which trends occur the
+most. Unfortunately due to the large number of topics given allotted
+space it is often best to crop off the trends with only one topic,
+otherwise the tail is long.
+
+
+
+\subsection{Datasets and Tools}
+
+To extract data from CVS and BitKeeper we used softChange to extract
+CVS repositories and provide a schema for our revision data. We used
+bt2csv to extract BitKeeper revisions from BitKeeper web repositories.
+
+We extracted the repositories of: MySQL, PostGreSQL, MaxDB and
+Firebird.
+
+% Extractors:
+% \begin{itemize}
+% \item CVSSuck - CVS Suck mirrors RCS files from a CVS repository. 
+% \item softChange - extract CVS facts to a PostgreSQL database.
+% \item bt2csv - Convert BitKeeper repositories to facts in CSV
+%   databases.
+% \end{itemize}
+
+Our analysis tools consisted of: Hiraldo-Grok, an OCaml based spin off
+of Grok used for answering queries; Gnuplot, a graph plotting package;
+lda-c, a LDA package implemented by Biel; and our topic plotter,
+implemented in Haskell.
+
+
+%   1. [ ] LDA
+
+%   2. [ ] Extractor
+
+%   3.   Similarity
+
+%   4.   Smearing
+
+%   5.   Visualizer
+
+
+
+
 %LDA Skeleton
 %1. [ ] Abstract 
 %2. [ ] Introduction
 
 %3. [ ] Previous Work [0/2]
 %   2. [ ] LDA Work [0/6]
+
+
+
+
 \section{Results}
 %   1. Interesting smears 
 %   2.   postgresql
@@ -396,7 +471,12 @@ by similarity.
 %   5.   what's that other db?
 \subsection{ what's that other db?}
 %7.   Validation [0/1]
+
+\subsection{Compare to topics over entire development}
+
 \subsection{Validation}
+
+
 %   1. well i'm stumped
 %   2. look at it?
 %   3. investigate those revisions and check the proportion etc
@@ -408,6 +488,10 @@ by similarity.
 In this study we are explicitly trusting that the programmers annotate
 their changes with relevant information. We rely on the descriptions
 they provide. If the language of checkin comments was automated
+
+We truncated the topics to top 10 tokens, this summary of a topic
+might not have been as useful as determining the actual topic distance
+between two word topic distributions.
 
 %   1.   validation
 %   2.   LDA is questionable
