@@ -1,5 +1,5 @@
 \documentclass[times, 10pt,twocolumn]{article} 
-\usepackage{times}
+\usepackage{latex8}
 
 
 \usepackage{graphicx,amsmath,comment,fullpage}
@@ -15,10 +15,56 @@
 Software Architecture Group (SWAG)\\
 University of Waterloo\\
 }
+
+
+
 \title{Windowed Developer Topic Analysis}
 
 \usepackage{rotating}   
 \begin{document}
+
+
+\newcommand{\affaddr}[1]{#1}
+\newcommand{\aemail}[1]{#1}
+%\numberofauthors{5}
+\author{
+%\alignauthor
+Abram Hindle\\
+%\affaddr{David Cheriton School of Computer Science}\\
+\affaddr{University of Waterloo}\\
+\affaddr{Waterloo, Ontario}\\
+\affaddr{Canada}\\
+\aemail{ahindle@cs.uwaterloo.ca}
+%\alignauthor
+\and
+Michael W. Godfrey\\
+%\affaddr{David Cheriton School of Computer Science}\\
+\affaddr{University of Waterloo}\\
+\affaddr{Waterloo, Ontario}\\
+\affaddr{Canada}\\
+\aemail{migod@cs.uwaterloo.ca}
+%\alignauthor
+\and
+Richard C. Holt\\
+%\affaddr{David Cheriton School of Computer Science}\\
+\affaddr{University of Waterloo}\\
+\affaddr{Waterloo, Ontario}\\
+\affaddr{Canada}\\
+\aemail{holt@cs.uwaterloo.ca}
+%\alignauthor
+%\and
+%Gregorio Robles\\
+%\affaddr{GSyc}\\
+%\affaddr{Universidad Rey Juan Carlos}\\
+%\affaddr{Madrid}\\
+%\affaddr{Spain}\\
+%\aemail{grex@gsyc.escet.urjc.es}
+}
+
+
+
+
+
 
 \maketitle
 \begin{abstract}
@@ -276,10 +322,24 @@ by similarity.
 \label{tab:portability}
 \end{table*}
 
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.9\textwidth]{lda}
+  \caption{Example of topics extracted from MySQL 3.23. This is the kind of plot we eventually want to produce: named topics and topic trends}
+  \label{fig:lda}
+\end{figure*}
 
 
 
 \section{Methodology}
+\begin{figure*}
+  \centering
+  \includegraphics[width=0.9\textwidth]{commit-to-topics} 
+  \caption{How commits are analyzed and aggregated into Topics and Trends}
+  \label{fig:commits}
+\end{figure*}
+
+
 
 \subsection{Extract Repos}
 
@@ -367,6 +427,15 @@ Topic Clustering
       make that a cluster
 \end{comment}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\textwidth]{transitiveclosure}
+  \caption{Clusting topics by the transitive closure of topic similarity. Nodes are topics and arcs imply similarity}
+\label{fig:closure}
+\end{figure}
+
+
+
 \subsection{Visualization}
 %       1. [ ] need the visualizer
 
@@ -412,6 +481,36 @@ most. Unfortunately due to the large number of topics given allotted
 space it is often best to crop off the trends with only one topic,
 otherwise the tail is long.
 
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.0\textwidth]{fixed-time-smear-plot-scaled}
+  \caption{Compact Trend Plot Topics per Month for MaxDB 7.500}
+  \label{fig:topicsmear}
+\end{figure*}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\textwidth]{fixed-time-smear-plot-cropped}
+  \caption{Zoomed in Slice Compact Trend Plot of Topics per Month for MaxDB 7.500}
+  \label{fig:zoomedsmear}
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\textwidth]{class-smear-plot-crop-scaled}
+  \caption{Trend Time Line: Trends plotted over time of MaxDB 7.500}         
+  \label{fig:trendtimeline}
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\textwidth]{histogram-cropped-scaled}
+  \caption{Top part of trend histogram, ordered by topic occurance for MaxDB 7.500}       
+  \label{fig:histogram}
+\end{figure}
 
 
 \subsection{Datasets and Tools}
@@ -467,12 +566,28 @@ implemented in Haskell.
 %   3.   mysql
 \subsection{Mysql}
 %   4.   firebird
+
+XXX need results! 
+
 \subsection{Firebird}
 %   5.   what's that other db?
-\subsection{ what's that other db?}
-%7.   Validation [0/1]
+
+XXX needs results
+
+\subsection{MaxDB 7.500}
+
 
 \subsection{Compare to topics over entire development}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\textwidth]{maxdb7500-everything-by-month}
+  \caption{MaxDB 7.500 Topics Analyzed with Static Topic Analysis, 20
+    topics over the entire development history of MaxDB 7.500. Each
+    box indicates the number of documents matching that topic in that
+    month.}
+  \label{fig:statictopics}
+\end{figure}
+
 
 \subsection{Validation}
 
@@ -499,14 +614,38 @@ between two word topic distributions.
 %   4.   not in the token
 %   5.   multiple X token
 %9.    Future Work
-\section{ Future Work}
+
 %10.   Conclusions
+
+
+
+
 \section{Conclusions}
 %11.   Start file file:/home/abez/projects/lda-paper/lda-paper.tex
 
 
-\bibliographystyle{alpha}
+\subsection{ Future Work}
+
+One avenue of future work we think is quite important is automatic
+cluster labelling. Given a word distribution we should be able to
+figure out a word or term which best describes that distribution
+automatically.
+Another avenue we wish to investigate the is value of applying
+static community generated software taxonomies to the naming or
+grouping of clusters
+
+
+
+
+\bibliographystyle{latex8}
 \bibliography{lda-paper}
 
+%\bibliographystyle{abbrv}
+
+\section{Appendix}
+
+\begin{itemize}
+\item We are missing a comparison of our technique to the classical technique
+\end{itemize}
 
 \end{document}
