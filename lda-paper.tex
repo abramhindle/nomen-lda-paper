@@ -578,6 +578,24 @@ XXX needs results
 
 
 \subsection{Compare to topics over entire development}
+
+The previous work which leverage LSI or LDA usually extracted a
+certain number of topics and tracked them over time. This meant a
+static set of topics was tracked across the whole development history
+of a project. Thus we really had 20 trends. 
+
+We attempted the same kind of analysis, as shown in
+Figure~\ref{fig:statictopics} we extracted 20 topics and then plotted
+the number of messages per month which related to that topic. What we
+found was that often one topic would dominate the results, while
+messages related to other topics didn't appear that often.
+
+This technique seems useful if the 20 extracted topics are relevant
+and useful, that said one weakness of this approach is that documents
+for a topic might only occur in one time window, yet we're tracking
+messages that could be related to it over the entire lifetime of the
+project.
+
 \begin{figure}
   \centering
   \includegraphics[width=0.45\textwidth]{maxdb7500-everything-by-month}
