@@ -560,6 +560,10 @@ implemented in Haskell.
 
 
 \section{Results}
+
+We applied our tools and visualizations to the repositories of
+multiple database systems.
+
 %   1. Interesting smears 
 %   2.   postgresql
 \subsection{Postgresql}
@@ -576,6 +580,28 @@ XXX needs results
 
 \subsection{MaxDB 7.500}
 
+The plots we produced of MaxDB 7.500 were interesting, there was a
+period where no real development occured and thus there were no topics
+whatsoever. We have two periods to evaluate for MaxDB 7.500, the first
+period from June 2004 to jan 2005, and the second period from June
+2005 to June 2006.
+
+The largest common trend has references to build system files like
+SYSDD.punix and MONITOR.punix etc. Other tokens mentioned are Sutcheck
+v1.09, the prefix SUT stands for Storable Unit Type. Sutcheck would
+also automate perforce check-ins.
+
+The second largest common trend seems to be a side effect of an
+automated checkin which is annotated as ``implicit checkin''. These
+were checkins that were produced when importing changes from an
+external Perforce repository.
+
+The third most common trend, seen on Figure \ref{fig:trend}, seemed to
+include tokens related to operating system support, such as Linux and
+Windows, as well as architecture support, AMD64 and Opteron. The word
+problem was common among all of those trends. This trend seemed
+related to the smaller fourth largest trend which occurred nearby it
+that had AMD64 and Windows tokens.
 
 \subsection{Compare to topics over entire development}
 
@@ -620,11 +646,22 @@ project.
 
 In this study we are explicitly trusting that the programmers annotate
 their changes with relevant information. We rely on the descriptions
-they provide. If the language of checkin comments was automated
+they provide. If the language of checkin comments was automated we
+would only be analyzing that.
 
 We truncated the topics to top 10 tokens, this summary of a topic
 might not have been as useful as determining the actual topic distance
-between two word topic distributions.
+between two word topic distributions. By truncating tokens we could be
+losing valuable data.
+
+Each project seemed to have their own kind of stop words, we did not
+remove them, but perhaps dropping some of these stop words would aid
+the clarity of such topic clusters, alternatively it might cause our
+topic similarity plots to be fundamentally different. Perhaps our
+methods of suggesting that topics are similar is not appropriate.
+
+The number of commits per month is inconsistent some months have a lot
+of changes where as some months have almost none.
 
 %   1.   validation
 %   2.   LDA is questionable
