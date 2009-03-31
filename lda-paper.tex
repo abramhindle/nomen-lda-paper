@@ -562,7 +562,7 @@ implemented in Haskell.
 \section{Results}
 
 We applied our tools and visualizations to the repositories of
-multiple database systems.
+multiple database systems. 
 
 %   1. Interesting smears 
 %   2.   postgresql
@@ -583,6 +583,17 @@ The third largest trend seemed to be about copying and moving files
 between branches as it referenced the old branch. This is a side
 effect of the programmers manually recording such a merge across
 branches because CVS cannot.
+
+Once stop words were removed the some of hte purposes became more
+clear. The mega trend disappeared, the largest trend became bug fixes
+submitted by Dal Zotto which is a short trend.
+
+
+% Large Trends is not the point!!!
+% That's what normal LDA gives us
+
+But large trends are not the point, by investigating windowed trends
+we want more local information about trends being worked on.
 
 \subsection{Firebird}
 %   5.   what's that other db?
