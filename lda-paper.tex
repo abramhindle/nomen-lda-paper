@@ -70,23 +70,21 @@ Richard C. Holt\\
 \begin{abstract}
 
   At different times, developers focus on different topics and tasks
-  during development.  These different topics and times of focus might
+  during development.  These different topics and tasks might
   be obvious to developers familar with the project, but other
   stakeholders, like managers, might be less aware of the topics of
-  development. Imagine the scenario where developers had to deal with
+  development. Imagine the scenario where developers unexpectedly had to deal with
   issues orthogonal to the features suggested, at the end of the
-  iteration a manager would wonder where all the time went, the
-  developers might have just blocked all sides issues in with features
-  they were initially working on, they might not have noticed their
-  focus had changed.  Currently it is difficult for stakeholders to
+  iteration a manager would wonder where all the effort went to.
+  Currently it is difficult for stakeholders to
   audit what actually occurred and when certain features or topics
-  were focussed on. We propose and provide a visualization of the
-  changing development topics over time. Our approach takes a topic
+  were focussed on. We propose a visualization of the
+  changing development topics over time. Our approach uses a topic
   analysis tool like Latent Dirichlet Allocation (LDA) or Latent
-  Semantic Indexing (LSI) and instead of applying the tool to the
-  entire corpus we apply to windows of the corpus. This allows us to
-  see the unique topics of development occuring during a particular
-  time period and then see if these individual topics ever reappear.
+  Semantic Indexing (LSI). Instead of applying the tool to the
+  entire corpus we apply it to windows (periods) of the corpus. This allows us to
+  see the evolving stream of topics of development occuring
+  over time.
   
 
 
@@ -119,59 +117,59 @@ Richard C. Holt\\
 
 % interleaved changes relate similar changes
 
-What happened in the previous iteration? What were the developers
+What happened in the previous maintenance or development iteration? What were the developers
 working on? What was the developer in the next cubicle working on?
 What were the common topics and issues dealt with in the current
 release of the software? What were the topics of the previous release?
 Given the requirements agreed to at the start of the iteration did our
-developers work on them? What else did they work on. Were there issues
-which were orthogonal to the
+developers work on them? What else did they work on. 
 
-Topic analysis, with respect to Software Control Systems (SCSs), is
-valuable as it has many uses for the stakeholders involved.  Example
-scenarios where the usage of these techniques would prove useful are
-numerous. Imagine a development team has agreed to implement some
-features at the start of an iteration. By the end of the iteration
-only some of the agreed upon features are implemented. The developers
-swear they were focusing solely on the features agreed upon. Topic
-analysis could help by teasing out the distinct topics or focusses of
-the developers. Perhaps the developers had to deal with issues
-orthogonal to the features they were working on, but were probably
-necessary to complete such features. Developers might have grouped
-those orthogonal changes into one of the features they were working
-on, thus when asked about how their time was spent the orthogonal
-changes would not be covered. This is what we hope that windowed topic
-analysis can uncover. If windowed topic analysis can discover
-important but overlooked topics, it can help both developers and
-managers. Developer can reflect and see a good summary of what worked
-on, and managers can see the focus of development while still
-remaining relatively high level.
+Topic analysis, with respect to Software Control Systems (SCSs) like
+CVS, Subversion, Git etc., is potentially valuable as it has many uses
+for various stakeholders and uses.
+Imagine a
+development team has agreed to implement some features at the start of
+an iteration. By the end of the iteration only some of the agreed upon
+features are implemented. The developers swear they were focusing
+solely on the features agreed upon. Topic analysis could help by
+teasing out the distinct topics or focusses of the developers. Perhaps
+the developers had to deal with issues.
+Developers might have grouped those orthogonal changes into
+one of the features they were working on, thus when asked about how
+their time was spent the orthogonal changes would not be covered. This
+is what we hope that windowed topic analysis can uncover. If windowed
+topic analysis can discover important but overlooked topics, it can
+help both developers and managers. Developer can see a
+summary of what worked on, and managers can development.
 
 
-
-We propose to extend common concept analysis techniques by executing
-them over windows of documents over time. We hope by looking at topic
-clusters over time we can identify continuous effort on a select
-group of topics.
-
-Topic analysis of fine-grained revisions is important as often
-revisions belonging to different topics are interleaved or even mixed
-inside of commits.  Sometimes a single revision to a file contains
-multiple bug fixes.  Using powerful topic analysis techniques like
-Latent Semantic Indexing (LSI) or Latent Dirichlet Allocation (LDA)
-one can seperate these mixed signals into coherent topics. In this
-case a topic is a set of tokens that are related to each other.
+Topic analysis of revisions in SCSs is important as often revisions
+belonging to different topics are interleaved or even mixed inside of
+commits.  Sometimes a single revision to a file contains multiple bug
+fixes.  Using powerful topic analysis techniques like Latent Semantic
+Indexing (LSI) or Latent Dirichlet Allocation (LDA) one can seperate
+these mixed comments into topics. These topics describe seperate ideas
+that are interleaved throughtout the development. They indicate groups
+of comments which are related to each other by their language, often
+the content of the comments are related.  In this case a topic is a
+set of tokens that are related to each other.
 
 % We suppose this could help us to segment the revisions on the time
 % line to discover parts of an iteration.
 
-Another use of topic analysis is to help us partition a project's
-time-line into sub-iterations of developer focus. By breaking apart an
-iteration we might be able to extract the underlying software
-development process from these artifacts or at the very least what
-maintenance was occurring in the repository at that time.
+One use of topic analysis is to help us partition a project's
+time-line into periods  of developer focus. By breaking apart an
+iteration we may be able to recognize the underlying software
+development process from these revision or at the very least what
+maintenance was occurring in the repository at a particular time.
 
-In this paper we seek to explore how topics shift over time in the
+We propose to extend the use of common topic analysis techniques by executing
+them over windows of documents over time. We hope by looking at topic
+clusters over time we can identify continuous effort on a select
+group of topics.
+
+
+In this paper we explore how topics shift over time in the
 source control repository of a project. We analyze commit comments per
 revision in each time window and we extract the topics in that time
 window. We expect that topics in each window will change over time and
@@ -189,12 +187,13 @@ Our contributions include:
 
 
 Some terms we will be using for the rest of the paper include:
-message, word distribution, topic and trend. Messages are block of
-text written by developers, in this paper messages will be the CVS
-commit comments. Word distributions are the summary of a message by
-word count, effectively the word distribution will be over all
-messages looked at but since most words will not appear in a message,
-a word distribution is effectively a word count divided by the message
+message, word distribution, topic and trend. \emph{Messages} are
+blocks of text written by developers. In this paper messages will be
+the CVS commit comments made when the user commits changes to files in
+a repository. Word distributions are the summary of a message by word
+count. The word distribution will be over all messages
+looked at but since most words will not appear in a message, a word
+distribution is effectively a word count divided by the message
 size. A topic is a unique word distribution, but effectively a set of
 words unique to an independant behaviour in the text corpus, in this
 paper we often summarize topics by their top 10 more frequent words.
@@ -217,8 +216,8 @@ literature~\cite{lukins2008,10.1109/MSR.2007.20,NIPS2007637,1321709}
 is to extract topic clusters from documents such as methods, bug
 reports, source code and files.
 
-Our blackbox view of LDA and LSI is that they extract topic clusters
-from the documents that are independant from one another. LDA doesn't
+Each of these, LDA and LSI, extract topic clusters
+from the documents that are independent from one another. LDA doesn't
 name these clusters but the clusters consist of words whose
 relationship is often obvious to someone familar with the
 corpus. Technically we could swap LDA for LSI. Our data is posed as
@@ -729,10 +728,20 @@ of changes where as some months have almost none.
 %11.   Start file file:/home/abez/projects/lda-paper/lda-paper.tex
 
 Even with our liberal topic similarity metrics which produced both
-long and short and trends we showed that there are only a few trends
-in a repository which re-appear. Since so few trends re-appear and so
-many trends appear only once this suggests that global topic analysis
-might be ignoring local unique topics.
+long and short trends, we showed that there are only a few trends in a
+repository which re-appear. Since so few trends re-appear and so many
+trends appear only once this suggests that global topic analysis might
+be ignoring locally unique topics. 
+
+The utility of global topic analysis is questionable if the value of
+information decreases as it becomes older. Perhaps older trends will
+dominate the topic analysis. Windowed localized topic analysis show
+what are the unique topics.
+
+We presented multiple visualizations which focused on different
+aspects of the data: temporality of trends, trend size, and a
+condensed overall trend view. The condensed trend view shows much more
+information than the views that global analysis could show.
 
 
 \subsection{ Future Work}
@@ -753,10 +762,10 @@ grouping of clusters
 
 %\bibliographystyle{abbrv}
 
-\section{Appendix}
+% \section{Appendix}
 
-\begin{itemize}
-\item We are missing a comparison of our technique to the classical technique
-\end{itemize}
+% \begin{itemize}
+% \item We are missing a comparison of our technique to the classical technique
+% \end{itemize}
 
 \end{document}
