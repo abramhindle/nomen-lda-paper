@@ -69,23 +69,47 @@ Richard C. Holt\\
 \maketitle
 \begin{abstract}
 
-  At different times, developers focus on different topics and tasks
-  during development.  These different topics and tasks might
-  be obvious to developers familar with the project, but other
-  stakeholders, like managers, might be less aware of the topics of
-  development. Imagine the scenario where developers unexpectedly had to deal with
-  issues orthogonal to the features suggested, at the end of the
-  iteration a manager would wonder where all the effort went to.
-  Currently it is difficult for stakeholders to
-  audit what actually occurred and when certain features or topics
-  were focussed on. We propose a visualization of the
-  changing development topics over time. Our approach uses a topic
-  analysis tool like Latent Dirichlet Allocation (LDA) or Latent
-  Semantic Indexing (LSI). Instead of applying the tool to the
-  entire corpus we apply it to windows (periods) of the corpus. This allows us to
-  see the evolving stream of topics of development occuring
-  over time.
+%   At different times, developers focus on different topics and tasks
+%   during development.  These different topics and tasks might
+%   be obvious to developers familar with the project, but other
+%   stakeholders, like managers, might be less aware of the topics of
+%   development. Imagine the scenario where developers unexpectedly had to deal with
+%   issues orthogonal to the features suggested, at the end of the
+%   iteration a manager would wonder where all the effort went to.
+%   Currently it is difficult for stakeholders to
+%   audit what actually occurred and when certain features or topics
+%   were focussed on. We propose a visualization of the
+%   changing development topics over time. Our approach uses a topic
+%   analysis tool like Latent Dirichlet Allocation (LDA) or Latent
+%   Semantic Indexing (LSI). Instead of applying the tool to the
+%   entire corpus we apply it to windows (periods) of the corpus. This allows us to
+%   see the evolving stream of topics of development occuring
+%   over time.
   
+
+
+  During different periods, developers focus on different topics and
+  different tasks during development. Stake-holders, such as managers,
+  not directly involved with the development might have less awareness
+  of the project and the topics and tasks that the developers are
+  focussed on.  Imagine the scenario where a manager is trying to
+  discover where all the developers' effort went after features have
+  not been implemented because the developers unexpectedly had to deal
+  with issues orthogonal to these features.  We propose to help
+  stake-holder understand the topics of development by extracting
+  topics from the descriptions of changes that programmers provide
+  when they make changes.  We leverage topic analysis tools such as
+  Latent Dirichlet Allocation (LDA) or Latent Semantic Indexing (LSI)
+  to analyze periods, such as months, within a project's
+  lifetime. Previous work applied LDA and LSI to
+  to a project's entire lifetime.  These tools associate
+  descriptions with independent topics extracted from these
+  descriptions.  We propose a visualization of changing development
+  topics over time that allows us to see the evolving stream of topics
+  of development occurring over time. We also show that windowed topic
+  analysis offers benefits compare to entire lifetime topic analysis
+  because of the independence of topics between windows.
+
 
 
 
@@ -126,7 +150,7 @@ developers work on them? What else did they work on.
 
 Topic analysis, with respect to Software Control Systems (SCSs) like
 CVS, Subversion, Git etc., is potentially valuable as it has many uses
-for various stakeholders and uses.
+for various stake-holders and uses.
 Imagine a
 development team has agreed to implement some features at the start of
 an iteration. By the end of the iteration only some of the agreed upon
@@ -147,9 +171,9 @@ Topic analysis of revisions in SCSs is important as often revisions
 belonging to different topics are interleaved or even mixed inside of
 commits.  Sometimes a single revision to a file contains multiple bug
 fixes.  Using powerful topic analysis techniques like Latent Semantic
-Indexing (LSI) or Latent Dirichlet Allocation (LDA) one can seperate
-these mixed comments into topics. These topics describe seperate ideas
-that are interleaved throughtout the development. They indicate groups
+Indexing (LSI) or Latent Dirichlet Allocation (LDA) one can separate
+these mixed comments into topics. These topics describe separate ideas
+that are interleaved throughout the development. They indicate groups
 of comments which are related to each other by their language, often
 the content of the comments are related.  In this case a topic is a
 set of tokens that are related to each other.
@@ -195,7 +219,7 @@ count. The word distribution will be over all messages
 looked at but since most words will not appear in a message, a word
 distribution is effectively a word count divided by the message
 size. A topic is a unique word distribution, but effectively a set of
-words unique to an independant behaviour in the text corpus, in this
+words unique to an independent behavior in the text corpus, in this
 paper we often summarize topics by their top 10 more frequent words.
 A trend is a one or more similar topics which reoccur over
 time. Trends are important because they are sets of topics which
@@ -206,7 +230,7 @@ reoccur over the development of a project.
 
 %XXX explain LDA \cite{944937}
 
-Latent Dirichlet Alloation (LDA)~\cite{944937} is a competitor to
+Latent Dirichlet Allocation (LDA)~\cite{944937} is a competitor to
 Latent Semantic Indexing (LSI), probabilistic Latent Semantic Indexing
 (pLSI) and semantic clustering. It is used for document modelling,
 document clustering and collaborative filtering. What LDA attempts to
@@ -219,8 +243,8 @@ reports, source code and files.
 Each of these, LDA and LSI, extract topic clusters
 from the documents that are independent from one another. LDA doesn't
 name these clusters but the clusters consist of words whose
-relationship is often obvious to someone familar with the
-corpus. Technically we could swap LDA for LSI. Our data is posed as
+relationship is often obvious to someone familiar with the
+corpus. We could swap LDA for LSI as produce similar results. Our data is posed as
 documents with word distributions (word counts per documents) and LDA
 extracts distinct topics (clusters of words) from the documents.
 
@@ -239,7 +263,7 @@ documents, the query would the proportion of topics that were
 associated with the query and thus the related documents.
 
 LSI is related to LDA and has been used to identify topics in software
-artifacts for forumal concept analysis and concept
+artifacts for formal concept analysis and concept
 location~\cite{1421013,1374321,10.1109/ICPC.2007.13,10.1109/ICPC.2006.17}.
 This is when concepts are automatically extracted from source code or
 documents are related to part of the source code.  Concept location is
@@ -249,7 +273,7 @@ map back to the source code?  Semantic Clustering has also been used
 for similar reason~\cite{1698774,1566153}.
 
 Grant et al.~\cite{scottcordy} have used an alternative technique to
-LSI and LDA, they used Independant Component Analysis to seperate
+LSI and LDA, they used Independent Component Analysis to separate
 topic signals from software code.
 
 Our technique differs in the sense we apply LDA temporally and we
@@ -460,7 +484,7 @@ The first visualization is a compressed view, we try to sink the
 larger trends to the bottom, once the larger trends are stacked, we
 fill in the gaps with the smaller trends in the same window and then
 stack the smaller trends on top. Although there is a chance that gaps
-will be left due to nonoptimal stacking in practice there are lot of
+will be left due to non-optimal stacking in practice there are lot of
 small trends (90\% of all trends contain 1 topic) which fill in these
 gaps quickly. The trend segments that share the same color are the
 same trend, colors are randomly chosen for each trend, so color
@@ -470,7 +494,7 @@ information and the repeating continuous trends are easy to pick out,
 unfortunately repeating discontinuous trends are harder to spot.
 
 The second visualization is the trend-time plot, it displays repeating
-trends more clearly by dedicating a horizonal line for trend segments
+trends more clearly by dedicating a horizontal line for trend segments
 dedicated to one trend. This means that if a trend contains
 discontinuous segments the segments appear on the same line. One down
 side to this view is the least common trends need to be pruned
@@ -588,8 +612,8 @@ between branches as it referenced the old branch. This is a side
 effect of the programmers manually recording such a merge across
 branches because CVS cannot.
 
-Once stop words were removed the some of hte purposes became more
-clear. The mega trend disappeared, the largest trend became bug fixes
+Once stop words were removed the some of the purposes became more
+clear. The mega- trend disappeared, the largest trend became bug fixes
 submitted by Dal Zotto which is a short trend.
 
 
@@ -630,7 +654,7 @@ topics include tokens and topics such as: ``compiler workarounds'', ``nightly up
 \subsection{MaxDB 7.500}
 
 The plots we produced of MaxDB 7.500 were interesting, there was a
-period where no real development occured and thus there were no topics or trends
+period where no real development occurred and thus there were no topics or trends
 whatsoever. We have two periods to evaluate for MaxDB 7.500, the first
 period from June 2004 to jan 2005, and the second period from June
 2005 to June 2006.
