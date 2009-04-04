@@ -1,3 +1,4 @@
+
 \documentclass[times, 10pt,twocolumn]{article} 
 \usepackage{latex8}
 
@@ -88,30 +89,48 @@ Richard C. Holt\\
   
 
 
-  During different periods, developers focus on different topics and
-  different tasks during development. Stake-holders, such as managers,
-  not directly involved with the development might have less awareness
-  of the project and the topics and tasks that the developers are
-  focussed on.  Imagine the scenario where a manager is trying to
-  discover where all the developers' effort went after features have
-  not been implemented because the developers unexpectedly had to deal
-  with issues orthogonal to these features.  We propose to help
-  stake-holder understand the topics of development by extracting
-  topics from the descriptions of changes that programmers provide
-  when they make changes.  We leverage topic analysis tools such as
-  Latent Dirichlet Allocation (LDA) or Latent Semantic Indexing (LSI)
-  to analyze periods, such as months, within a project's
-  lifetime. Previous work applied LDA and LSI to
-  to a project's entire lifetime.  These tools associate
-  descriptions with independent topics extracted from these
-  descriptions.  We propose a visualization of changing development
-  topics over time that allows us to see the evolving stream of topics
-  of development occurring over time. We also show that windowed topic
-  analysis offers benefits compare to entire lifetime topic analysis
-  because of the independence of topics between windows.
+%   During different periods, developers focus on different topics and
+%   different tasks during development. Stake-holders, such as managers,
+%   not directly involved with the development might have less awareness
+%   of the project and the topics and tasks that the developers are
+%   focussed on.  Imagine the scenario where a manager is trying to
+%   discover where all the developers' effort went after features have
+%   not been implemented because the developers unexpectedly had to deal
+%   with issues orthogonal to these features.  We propose to help
+%   stake-holder understand the topics of development by extracting
+%   topics from the descriptions of changes that programmers provide
+%   when they make changes.  We leverage topic analysis tools such as
+%   Latent Dirichlet Allocation (LDA) or Latent Semantic Indexing (LSI)
+%   to analyze periods, such as months, within a project's
+%   lifetime. Previous work applied LDA and LSI to
+%   to a project's entire lifetime.  These tools associate
+%   descriptions with independent topics extracted from these
+%   descriptions.  We propose a visualization of changing development
+%   topics over time that allows us to see the evolving stream of topics
+%   of development occurring over time. We also show that windowed topic
+%   analysis offers benefits compare to entire lifetime topic analysis
+%   because of the independence of topics between windows.
 
-
-
+During different periods, developers focus on different topics and
+different tasks during development. Stake-holders, such as managers, who are
+not directly involved with the project's development might have less awareness of the
+project and the topics and tasks that the developers have focussed on.
+Imagine the scenario where a manager is trying to discover where all the
+developers' effort went after features have not been implemented because the
+developers unexpectedly had to deal with issues orthogonal to these
+features.  We propose to help stakeholders understand the topics of
+development by extracting topics from the descriptions of changes that
+programmers provide when they make commits.  We leverage topic analysis
+tools such as Latent Dirichlet Allocation (LDA) or Latent Semantic Indexing
+(LSI) to analyze periods, such as months, within a project's lifetime,
+whereas previous work applied LDA and LSI to to a project's entire lifetime.  These
+tools associate descriptions with independent topics extracted from these
+descriptions.  
+We propose a visualization of changing development topics
+over time that allows us to see the evolving stream of topics of development
+occurring over time. We demonstrate that windowed topic analysis offers
+benefits over entire lifetime topic analysis because of the
+independence of topics between windows.
 
 
 
