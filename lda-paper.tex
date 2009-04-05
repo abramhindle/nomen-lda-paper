@@ -209,8 +209,12 @@ maintenance was occurring in the repository at a particular time.
 We propose to extend the use of common topic analysis techniques by
 executing them over windows of documents over time. We hope by looking
 at topic clusters over time we can identify continuous effort on a
-select group of topics. We have an example of the kind of
-visualization we want to automatically generate.
+select group of topics. Figure \ref{fig:lda} is an example of the kind
+of visualization we want to automatically generate. We want to see
+topics which are unique to a certain time period, displayed across the
+time axis. Those topics that reoccur, or occur over a larger period
+are plotted continuously. In our example we have summarized the topics
+with a single word.
 
 
 In this paper we explore how topics shift over time in the
@@ -373,7 +377,7 @@ by similarity.
 \begin{figure*}
   \centering
   \includegraphics[width=0.9\textwidth]{lda}
-  \caption{Example of topics extracted from MySQL 3.23. This is the kind of plot we eventually want to produce: named topics and topic trends}
+  \caption{Example of topics extracted from MySQL 3.23. This is the kind of plot we eventually want to produce: named topics and topic trends. The horizontal axis is time in months and the vertical axis used to stack topics that occur at the same time. Longer topics are topics which reoccur in adjacent window.}
   \label{fig:lda}
 \end{figure*}
 
@@ -383,7 +387,7 @@ by similarity.
 \begin{figure*}
   \centering
   \includegraphics[width=0.9\textwidth]{commit-to-topics} 
-  \caption{How commits are analyzed and aggregated into Topics and Trends}
+  \caption{How commits are analyzed and aggregated into Topics and Trends. Commits are first extracted, then abstracted into word counts or word distributions. These word distributions are then given to topic clusterer like LDA which finds independant word distributions (topics) that these documents are related too and clusters or associates these documents with these topics.}
   \label{fig:commits}
 \end{figure*}
 
@@ -478,7 +482,10 @@ Topic Clustering
 \begin{figure}
   \centering
   \includegraphics[width=0.45\textwidth]{transitiveclosure}
-  \caption{Clusting topics by the transitive closure of topic similarity. Nodes are topics and arcs imply similarity}
+  \caption{Clusting topics by the transitive closure (connectedness or
+    a fill flood along arcs) of topic similarity. Nodes are topics and
+    arcs imply similarity. Similarity could be a measure such as
+    topics share 8 out of 10 top ten words.}
 \label{fig:closure}
 \end{figure}
 
@@ -532,7 +539,11 @@ otherwise the tail is long.
 \begin{figure*}
   \centering
   \includegraphics[width=1.0\textwidth]{fixed-time-smear-plot-scaled}
-  \caption{Compact Trend Plot Topics per Month for MaxDB 7.500}
+  \caption{Compact Trend Plot Topics per Month for MaxDB 7.500. The
+    X-axis is time in months, the Y axis is used to stack topics
+    occurring at the same time. Trends which are continuous are
+    plotted as continuous blocks. The top 10 words in the topics are
+    joined and embedded in box representing the topics.}
   \label{fig:topicsmear}
 \end{figure*}
 
@@ -540,7 +551,7 @@ otherwise the tail is long.
 \begin{figure}
   \centering
   \includegraphics[width=0.45\textwidth]{fixed-time-smear-plot-cropped}
-  \caption{Zoomed in Slice Compact Trend Plot of Topics per Month for MaxDB 7.500}
+  \caption{Zoomed in Slice Compact Trend Plot of Topics per Month for MaxDB 7.500. The topic text is visible in each topic box. Trends are plotted across time continuously.}
   \label{fig:zoomedsmear}
 \end{figure}
 
@@ -548,7 +559,7 @@ otherwise the tail is long.
 \begin{figure}
   \centering
   \includegraphics[width=0.45\textwidth]{class-smear-plot-crop-scaled}
-  \caption{Trend Time Line: Trends plotted over time of MaxDB 7.500}         
+  \caption{Trend Time Line: Trends plotted over time of MaxDB 7.500. Time in months are plotted along the X-Axis, each row on the Y-axis is associated with a trend ranked by size in descending order}         
   \label{fig:trendtimeline}
 \end{figure}
 
@@ -556,7 +567,7 @@ otherwise the tail is long.
 \begin{figure}
   \centering
   \includegraphics[width=0.45\textwidth]{histogram-cropped-scaled}
-  \caption{Top part of trend histogram, ordered by topic occurance for MaxDB 7.500}       
+  \caption{Top part of trend histogram, ordered by topic occurance for MaxDB 7.500. X axis determines the number of continuous months of a trend. Trends are ranked  by the number of topics that a trend contains in descending order.}       
   \label{fig:histogram}
 \end{figure}
 
@@ -719,14 +730,15 @@ project.
   \centering
   \includegraphics[width=0.45\textwidth]{maxdb7500-everything-by-month}
   \caption{MaxDB 7.500 Topics Analyzed with Static Topic Analysis, 20
-    topics over the entire development history of MaxDB 7.500. Each
-    box indicates the number of documents matching that topic in that
-    month.}
+    topics over the entire development history of MaxDB 7.500. The
+    color of the topic indicates the number of documents matching that
+    topic in that month relative to the number of documents (white is
+    most, black is least).}
   \label{fig:statictopics}
 \end{figure}
 
 
-\subsection{Validation}
+%\subsection{Validation}
 
 
 %   1. well i'm stumped

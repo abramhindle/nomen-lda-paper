@@ -34,7 +34,7 @@ lda-paper.dvi: lda-paper.tex lda-paper.bib
 
 
 clean:
-	rm -f lda-paper.dvi lda-paper.ps lda-paper.pdf lda-paper.aux lda-paper.bbl || echo lol
+	rm -f lda-paper-pre.pdf lda-paper.dvi lda-paper.ps lda-paper.pdf lda-paper.aux ahindle-lda.pdf lda-paper.bbl || echo lol
 
 
 
