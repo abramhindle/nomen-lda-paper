@@ -201,21 +201,21 @@ set of tokens that are related to each other.
 % line to discover parts of an iteration.
 
 One use of topic analysis is to help us partition a project's
-time-line into periods  of developer focus. By breaking apart an
+time-line into periods of developer focus. By breaking apart an
 iteration we may be able to recognize the underlying software
 development process from these revision or at the very least what
 maintenance was occurring in the repository at a particular time.
 
 We propose to extend the use of common topic analysis techniques by
 executing them over windows of documents over time. We hope by looking
-at topic clusters over time we can identify continuous effort on a
-select group of topics. Figure \ref{fig:lda} is an example of the kind
-of visualization we want to automatically generate. We want to see
-topics which are unique to a certain time period, displayed across the
-time axis. Those topics that reoccur, or occur over a larger period
-are plotted continuously. In our example we have summarized the topics
-with a single word.
-
+at topic clusters during periods or windows over time we can identify
+continuous effort on a select group of topics as well reflect topics
+that were local to that period. Figure \ref{fig:lda} is an example of
+the kind of visualization we want to automatically generate. We want
+to see topics which are unique to a certain time period, displayed
+across the time axis. Those topics that reoccur, or occur over a
+larger period are plotted continuously. In our example we have
+summarized the topics with a single word.
 
 In this paper we explore how topics shift over time in the
 source control repository of a project. We analyze commit comments per
@@ -391,6 +391,12 @@ by similarity.
   \label{fig:commits}
 \end{figure*}
 
+Our methodology is to first extract the commits from repositories such
+as CVS or Bitkeeper. Then we extract the revisions and commits,
+grouping the revisions into commits if necessary. We extract the
+commit log message of each commit, count the occurence of each word in
+the message, remove stop words, and then produce word distributions
+for each message.
 
 
 \subsection{Extract Repos}
