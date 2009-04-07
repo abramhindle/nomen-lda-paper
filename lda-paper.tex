@@ -186,25 +186,27 @@ help both developers and managers. Developer can see a
 summary of what worked on, and managers can development.
 
 
-Topic analysis of revisions in SCSs is important as often revisions
-belonging to different topics are interleaved or even mixed inside of
-commits.  Sometimes a single revision to a file contains multiple bug
-fixes.  Using powerful topic analysis techniques like Latent Semantic
-Indexing (LSI) or Latent Dirichlet Allocation (LDA) one can separate
-these mixed comments into topics. These topics describe separate ideas
-that are interleaved throughout the development. They indicate groups
-of comments which are related to each other by their language, often
-the content of the comments are related.  In this case a topic is a
-set of tokens that are related to each other.
+Commits in SCSs are not necessarily consistent, they can have multiple
+purposes, thus we hope that multipurposes manifest themselves as
+topics interleaved within the commits.  Sometimes a single revision to
+a file contains multiple bug fixes.  Others have demonstrated that by
+using powerful topic analysis techniques like Latent Semantic Indexing
+(LSI) or Latent Dirichlet Allocation (LDA) one can separate topics
+from these mixed comments. These topics often describe separate ideas
+that are interleaved throughout the development. A topic represents a
+groups of commit comments which are related to each other by their
+content.  In this case a topic is a set of tokens that are related to
+each other.
 
 % We suppose this could help us to segment the revisions on the time
 % line to discover parts of an iteration.
 
 One use of topic analysis is to help us partition a project's
 time-line into periods of developer focus. By breaking apart an
-iteration we may be able to recognize the underlying software
-development process from these revision or at the very least what
-maintenance was occurring in the repository at a particular time.
+iteration into sets of topics and trends (topics which reoccur), we
+may be able to recognize the underlying software development process
+from these commits. Alternatively we can track down what maintenance was
+occurring in the repository at a particular time.
 
 We propose to extend the use of common topic analysis techniques by
 executing them over windows of documents over time. We hope by looking
