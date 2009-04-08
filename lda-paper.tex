@@ -297,19 +297,22 @@ related documents.
 LSI is related to LDA and has been used to identify topics in software
 artifacts for formal concept analysis and concept
 location~\cite{1421013,1374321,10.1109/ICPC.2007.13,10.1109/ICPC.2006.17}.
-This is where concepts are automatically extracted from source code or
-documents related to the source code.  Concept location is how high
-level concepts relate to low level entities like source code, for
-instance when fixing a bug how do the concepts in the bug report map
-back to the source code?  Semantic Clustering has also been used for
-similar reasons~\cite{1698774,1566153} as it is similar to LSI.
+Concept analysis aims to automatically extract concepts from source
+code or documents related to the source code.  Concept location is how
+high level concepts relate to low level entities like source code, for
+instance when fixing a bug how and where do the concepts in the bug
+report map back to the source code?  Semantic Clustering has also been
+used for similar reasons~\cite{1698774,1566153} as it is similar to
+LSI.
 
-Grant et al.~\cite{scottcordy} have used an alternative technique to
-LSI and LDA, they used Independent Component Analysis to separate
-topic signals from software code.
+Grant et al.~\cite{scottcordy} have used an alternative technique,
+rather than LSI and LDA, called Independent Component Analysis to
+separate topic signals from software code. 
 
-Our technique differs in the sense we apply LDA temporally and we
-apply to change comments.
+Our technique differ from the previous techniques because we apply LDA
+locally to month-long windows of commit comments, where as other
+approaches apply LDA once to the entire project.
+
 
 %      1. [ ] LDA itself
 %      2. [ ] Maletic stuff
@@ -322,70 +325,108 @@ apply to change comments.
 
 \section{First Impressions}
 
-In our first exploratory pass we wanted to see 
-
-Looking at 30 day non-overlapping windows of revisions for MySQL 3.23
-(20 topics, top 10 words per topic) we found there were common words
-across topic clusters such as diffs, annotate and history. There were
-notable transitional topics such as in the first window the word
-``bitkeeper'' appears (probably when they adopted Bitkeeper for their
-source control system) yet in the following windows there were no
-mentions of Bitkeeper. ``RENAME'' also only appeared once in the first
-window and never again.
+In our first exploratory pass we wanted to see if LDA could provide
+interesting topics extracted from a real system. We took the
+repository of MySQL 3.23, extracted the commits, grouped them by 30
+day non-overlapping windows then applied LDA to each of these
+windows. We asked LDA to make 20 topics per window and we would pay
+attention to the top 10 most frequent words in that topic.  We found
+there were common words across topic clusters, such as diffs, annotate
+and history, these words probably should be viewed as stop
+words. There were notable transitional topics such as in the first
+window the word ``bitkeeper'' appears (probably MySQL they adopted
+Bitkeeper for their source control system) yet in the following
+windows there were no mentions of Bitkeeper. ``RENAME'' also only
+appeared once in the first window and never again. Per each topic we
+tried to name the purpose of the topic, we found that with little
+familarity with the code base that naming the topic was not difficult.
 
 A subsampling of the notable topic words is displayed in Table
-\ref{tab:portability}. We tracked one topic cluster which seemed
-related to portability. We picked out terms which seem to summarize
-those topics.
-
-%Often words are shared across topics, see table \ref{tab:portability}
-%for tracking topics about portability.
-
-After viewing these topic is was obvious that we would have to combine
-try to track the evolution of topics over the windows or rank topics
-by similarity.
+\ref{tab:portability}.  To name the topics we picked out terms which
+seem to summarize those topics.  After viewing these topic is was
+obvious that we would have to combine try to track the evolution of
+topics over the windows or rank topics by similarity, thus if they
+were similar enough we joined them into a trend. Figure \ref{fig:lda}
+displays a sample plot of the extracted topics in table
+\ref{tab:portability}.
 
 %It is apparent that we have to compare these topics some how by
 %itemset or similarity.
 
+% \begin{table*}
+% \centering
+% \begin{tabular}{|ccc|l|}
+% \hline
+% 2000 &  Jul &  31 &    chmod \\
+% 2000 &  Sep &  29 &    fixes benchmark logging windows \\
+% 2000 &  Nov &  28 &    typo fix insert\_multi\_value \\
+% 2001 &  Jan &  27 &    fixes Innobase Cleanups auto-union \\
+% 2001 &  Mar &  28 &    2 topics bugfix, logging , TEMPORARY,  \\
+% \hline
+% 2001 &  Jul &  26 &    update Allow TABLES LOCK [a] \\ 
+
+% 2001 &  Aug &  25 &    tables row version [a] \\
+% \hline
+% 2001 &  Sep &  24 &    update checksum merge \\
+% 2001 &  Oct &  24 &    fixed fix \\
+% 2001 &  Dec &  23 &    HPUX SCO fix \\
+% \hline
+% 2002 &  Feb &  21 &    net buffer length  max\_allowed\_packet [b] \\
+% 2002 &  Mar &  23 &    small buf fix [b]  \\
+% \hline
+% 2002 &  May &  22 &    [popular] fix SCO OSF1 table\_name \\
+% 2002 &  Nov &  18 &    HPUX11 compiler HP \\
+% \hline
+% 2003 &  Feb &  16 &    Linux errno  [c] \\
+% 2003 &  Mar &  18 &    alarm bookmark bug [c] \\
+% \hline
+% 2003 &  Sep &  14 &    Auto logging merge windows distribution fix 64-bit 4.0 Cleanup \\
+% \hline
+% \end{tabular}
+% \caption{Tracking topics associated with the word portability, note some continuous blocks}
+% \label{tab:portability}
+% \end{table*}
+
 \begin{table*}
 \centering
-\begin{tabular}{|ccc|l|}
+\begin{tabular}{|cc|l|}
 \hline
-2000 &  Jul &  31 &    chmod \\
-2000 &  Sep &  29 &    fixes benchmark logging windows \\
-2000 &  Nov &  28 &    typo fix insert\_multi\_value \\
-2001 &  Jan &  27 &    fixes Innobase Cleanups auto-union \\
-2001 &  Mar &  28 &    2 topics bugfix, logging , TEMPORARY,  \\
-\hline
-2001 &  Jul &  26 &    update Allow TABLES LOCK [a] \\ 
-
-2001 &  Aug &  25 &    tables row version [a] \\
-\hline
-2001 &  Sep &  24 &    update checksum merge \\
-2001 &  Oct &  24 &    fixed fix \\
-2001 &  Dec &  23 &    HPUX SCO fix \\
-\hline
-2002 &  Feb &  21 &    net buffer length  max\_allowed\_packet [b] \\
-2002 &  Mar &  23 &    small buf fix [b]  \\
-\hline
-2002 &  May &  22 &    [popular] fix SCO OSF1 table\_name \\
-2002 &  Nov &  18 &    HPUX11 compiler HP \\
-\hline
-2003 &  Feb &  16 &    Linux errno  [c] \\
-2003 &  Mar &  18 &    alarm bookmark bug [c] \\
-\hline
-2003 &  Sep &  14 &    Auto logging merge windows distribution fix 64-bit 4.0 Cleanup \\
+2000 &  Jul &      chmod \\
+2000 &  Sep &      fixes benchmark logging Win32 \\
+2000 &  Nov &      fixes insert\_multi\_value \\
+2001 &  Jan &      fixes Innobase Cleanups auto-union \\
+2001 &  Mar &      bugfix logging  TEMPORARY  \\
+\hline         
+2001 &  Jul &      TABLES update Allow LOCK \\ 
+               
+2001 &  Aug &      TABLES row version \\
+\hline         
+2001 &  Sep &      update checksum merge \\
+2001 &  Oct &      fixed fix \\
+2001 &  Dec &      HPUX SCO fix \\
+\hline         
+2002 &  Feb &      net buffer length  max\_allowed\_packet \\
+2002 &  Mar &      small buf fix  \\
+\hline         
+2002 &  May &      [popular] fix SCO OSF1 table\_name \\
+2002 &  Nov &      HPUX11 compiler HP \\
+\hline         
+2003 &  Feb &      Linux errno   \\
+2003 &  Mar &      alarm bookmark bug \\
+\hline         
+2003 &  Sep &      Auto logging merge windows distribution fix 64-bit 4.0 Cleanup \\
 \hline
 \end{tabular}
-\caption{Tracking topics associated with the word portability, note some continuous blocks}
+\caption{Sub-sampled topics from MySQL 3.23, some with continuous topics, these tokens were pulled from LDA topic. Each token is a summary of one LDA generated topic from MySQL 3.23 commit logs.}
 \label{tab:portability}
 \end{table*}
+
+
 
 \begin{figure*}
   \centering
   \includegraphics[width=0.9\textwidth]{lda}
-  \caption{Example of topics extracted from MySQL 3.23. This is the kind of plot we eventually want to produce: named topics and topic trends. The horizontal axis is time in months and the vertical axis used to stack topics that occur at the same time. Longer topics are topics which reoccur in adjacent window.}
+  \caption{Example of topics extracted from MySQL 3.23. This is the kind of plot we eventually want to produce: named topics and topic trends. The horizontal axis is time in months and the vertical axis used to stack topics that occur at the same time. Longer topics are topics which reoccur in adjacent window. Colors are arbitrary.}
   \label{fig:lda}
 \end{figure*}
 
