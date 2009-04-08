@@ -19,7 +19,9 @@ University of Waterloo\\
 
 
 
-\title{Windowed Developer Topic Analysis}
+
+%\title{Windowed Developer Topic Analysis}
+\title{What's hot and what's not:\\Windowing developer topic analysis}
 
 \usepackage{rotating}   
 \begin{document}
@@ -111,26 +113,48 @@ Richard C. Holt\\
 %   analysis offers benefits compare to entire lifetime topic analysis
 %   because of the independence of topics between windows.
 
-During different periods, developers focus on different topics and
-different tasks during development. Stake-holders, such as managers, who are
-not directly involved with the project's development might have less awareness of the
-project and the topics and tasks that the developers have focussed on.
-Imagine the scenario where a manager is trying to discover where all the
-developers' effort went after features have not been implemented because the
-developers unexpectedly had to deal with issues orthogonal to these
-features.  We propose to help stake-holders understand the topics of
-development by extracting topics from the descriptions of changes that
-programmers provide when they make commits.  We leverage topic analysis
-tools such as Latent Dirichlet Allocation (LDA) or Latent Semantic Indexing
-(LSI) to analyze periods, such as months, within a project's lifetime,
-whereas previous work applied LDA and LSI to to a project's entire lifetime.  These
-tools associate descriptions with independent topics extracted from these
-descriptions.  
-We propose a visualization of changing development topics
-over time that allows us to see the evolving stream of topics of development
-occurring over time. We demonstrate that windowed topic analysis offers
-benefits over entire lifetime topic analysis because of the
-independence of topics between windows.
+% During different periods, developers focus on different topics and
+% different tasks during development. Stake-holders, such as managers, who are
+% not directly involved with the project's development might have less awareness of the
+% project and the topics and tasks that the developers have focussed on.
+% Imagine the scenario where a manager is trying to discover where all the
+% developers' effort went after features have not been implemented because the
+% developers unexpectedly had to deal with issues orthogonal to these
+% features.  We propose to help stake-holders understand the topics of
+% development by extracting topics from the descriptions of changes that
+% programmers provide when they make commits.  We leverage topic analysis
+% tools such as Latent Dirichlet Allocation (LDA) or Latent Semantic Indexing
+% (LSI) to analyze periods, such as months, within a project's lifetime,
+% whereas previous work applied LDA and LSI to to a project's entire lifetime.  These
+% tools associate descriptions with independent topics extracted from these
+% descriptions.  
+% We propose a visualization of changing development topics
+% over time that allows us to see the evolving stream of topics of development
+% occurring over time. We demonstrate that windowed topic analysis offers
+% benefits over entire lifetime topic analysis because of the
+% independence of topics between windows.
+
+
+
+As development on a software project progresses, developers will naturally
+shift their focus between different topics and tasks many times.  Managers
+and newcomer developers often seek simple ways of understanding what tasks
+have recently been worked on and how much effort has gone into each; for
+example, a manager might wonder what unexpected tasks occupied their team's
+attention during a period when they were supposed to have been implementing
+a set of new features.  Tools such as Latent Dirichlet Allocation (LDA) and
+Latent Semantic Indexing (LSI) can be used to analyze check-in comments
+over the entire lifetime of a project, and previous work on developer topic
+analysis has leveraged these tools to associate commit log comments with
+independent topics extracted from these commit log comments.  In this work, we use
+LDA and LSI to analyze periods, such as months, within a project's lifetime
+to create a time-windowed model of changing development topics.  We propose
+a visualization of this model that allows us to explore the evolving stream
+of topics of development occurring over time, and we demonstrate that
+windowed topic analysis offers strong advantages over entire lifetime topic
+analysis because of the independence of topics between windows.
+
+
 
 
 
@@ -169,7 +193,7 @@ developers work on them? What else did they work on.
 
 Topic analysis, with respect to Software Control Systems (SCSs) like
 CVS, Subversion, Git etc., is potentially valuable as it has many uses
-for various stake-holders and uses.
+for various stakeholders and uses.
 Imagine a
 development team has agreed to implement some features at the start of
 an iteration. By the end of the iteration only some of the agreed upon
@@ -387,7 +411,7 @@ displays a sample plot of the extracted topics in table
 % \label{tab:portability}
 % \end{table*}
 
-\begin{table*}
+\begin{table}
 \centering
 \begin{tabular}{|cc|l|}
 \hline
@@ -402,24 +426,24 @@ displays a sample plot of the extracted topics in table
 2001 &  Aug &      TABLES row version \\
 \hline         
 2001 &  Sep &      update checksum merge \\
-2001 &  Oct &      fixed fix \\
-2001 &  Dec &      HPUX SCO fix \\
-\hline         
-2002 &  Feb &      net buffer length  max\_allowed\_packet \\
-2002 &  Mar &      small buf fix  \\
-\hline         
-2002 &  May &      [popular] fix SCO OSF1 table\_name \\
-2002 &  Nov &      HPUX11 compiler HP \\
-\hline         
-2003 &  Feb &      Linux errno   \\
-2003 &  Mar &      alarm bookmark bug \\
-\hline         
-2003 &  Sep &      Auto logging merge windows distribution fix 64-bit 4.0 Cleanup \\
+% 2001 &  Oct &      fixed fix \\
+% 2001 &  Dec &      HPUX SCO fix \\
+% \hline         
+% 2002 &  Feb &      net buffer length  max\_allowed\_packet \\
+% 2002 &  Mar &      small buf fix  \\
+% \hline         
+% 2002 &  May &      [popular] fix SCO OSF1 table\_name \\
+% 2002 &  Nov &      HPUX11 compiler HP \\
+% \hline         
+% 2003 &  Feb &      Linux errno   \\
+% 2003 &  Mar &      alarm bookmark bug \\
+% \hline         
+% 2003 &  Sep &      Auto logging merge windows distribution fix 64-bit 4.0 Cleanup \\
 \hline
 \end{tabular}
 \caption{Sub-sampled topics from MySQL 3.23, some with continuous topics, these tokens were pulled from LDA topic. Each token is a summary of one LDA generated topic from MySQL 3.23 commit logs.}
 \label{tab:portability}
-\end{table*}
+\end{table}
 
 
 
