@@ -72,19 +72,19 @@ Richard C. Holt\\
 
 %   At different times, developers focus on different topics and tasks
 %   during development.  These different topics and tasks might
-%   be obvious to developers familar with the project, but other
-%   stakeholders, like managers, might be less aware of the topics of
+%   be obvious to developers familiar with the project, but other
+%   stake-holders, like managers, might be less aware of the topics of
 %   development. Imagine the scenario where developers unexpectedly had to deal with
 %   issues orthogonal to the features suggested, at the end of the
 %   iteration a manager would wonder where all the effort went to.
-%   Currently it is difficult for stakeholders to
+%   Currently it is difficult for stake-holders to
 %   audit what actually occurred and when certain features or topics
 %   were focussed on. We propose a visualization of the
 %   changing development topics over time. Our approach uses a topic
 %   analysis tool like Latent Dirichlet Allocation (LDA) or Latent
 %   Semantic Indexing (LSI). Instead of applying the tool to the
 %   entire corpus we apply it to windows (periods) of the corpus. This allows us to
-%   see the evolving stream of topics of development occuring
+%   see the evolving stream of topics of development occurring
 %   over time.
   
 
@@ -118,7 +118,7 @@ project and the topics and tasks that the developers have focussed on.
 Imagine the scenario where a manager is trying to discover where all the
 developers' effort went after features have not been implemented because the
 developers unexpectedly had to deal with issues orthogonal to these
-features.  We propose to help stakeholders understand the topics of
+features.  We propose to help stake-holders understand the topics of
 development by extracting topics from the descriptions of changes that
 programmers provide when they make commits.  We leverage topic analysis
 tools such as Latent Dirichlet Allocation (LDA) or Latent Semantic Indexing
@@ -137,7 +137,7 @@ independence of topics between windows.
 %   In this lab report we seek to explore how topics shift over time in
 %   the source control repository of a project. We analyze commit
 %   comments, and even source code per revision per each time window and
-%   extract the topics prevelant in that window. We expect that topic
+%   extract the topics prevalent in that window. We expect that topic
 %   sets will change over time and the change in topic sets indicate a
 %   change in the focus of development. We suppose this could help us to
 %   segment the revisions on the time line to discover parts of an
@@ -152,11 +152,11 @@ independence of topics between windows.
 
 % 
 
-% In the presence of fine grained changes and detailed changelogs
+% In the presence of fine grained changes and detailed change-logs
 
 % Developers topics the focus of develop
 
-% many changelogs how to sort by change type
+% many change-logs how to sort by change type
 
 % interleaved changes relate similar changes
 
@@ -187,7 +187,7 @@ summary of what worked on, and managers can development.
 
 
 Commits in SCSs are not necessarily consistent, they can have multiple
-purposes, thus we hope that multipurposes manifest themselves as
+purposes, thus we hope that these multiple purposes manifest themselves as
 topics interleaved within the commits.  Sometimes a single revision to
 a file contains multiple bug fixes.  Others have demonstrated that by
 using powerful topic analysis techniques like Latent Semantic Indexing
@@ -245,7 +245,7 @@ by word count. The word distribution will be over all messages looked
 at but since most words will not appear in a message, a word
 distribution is effectively a word count divided by the message
 size. A \emph{topic} is essentially a set of words which form a word
-distribution that is unique and independant within the set of
+distribution that is unique and independent within the set of
 documents in our total corpus. One could think of a topic as the
 center distribution of a group of messages. In this paper we often
 summarize topics by their top 10 most frequent words in their word
@@ -281,7 +281,7 @@ words) from the documents.
 \subsection{LDA, LSI and Semantic Clustering}
 
 In order to infer or associate the expertise of an author with topics
-extracted from SCS, Linstead et al proposed an author-sourcecode model
+extracted from SCS, Linstead et al proposed an author-source-code model
 using LDA~\cite{10.1109/MSR.2007.20,NIPS2007637,1321709}. This model
 is essentially an extension of the author-topic (AT)
 model~\cite{1036902}, which associated authors and topics extracted
@@ -339,9 +339,9 @@ Bitkeeper for their source control system) yet in the following
 windows there were no mentions of Bitkeeper. ``RENAME'' also only
 appeared once in the first window and never again. Per each topic we
 tried to name the purpose of the topic, we found that with little
-familarity with the code base that naming the topic was not difficult.
+familiarity with the code base that naming the topic was not difficult.
 
-A subsampling of the notable topic words is displayed in Table
+A sub-sampling of the notable topic words is displayed in Table
 \ref{tab:portability}.  To name the topics we picked out terms which
 seem to summarize those topics.  After viewing these topic is was
 obvious that we would have to combine try to track the evolution of
@@ -351,7 +351,7 @@ displays a sample plot of the extracted topics in table
 \ref{tab:portability}.
 
 %It is apparent that we have to compare these topics some how by
-%itemset or similarity.
+%item-set or similarity.
 
 % \begin{table*}
 % \centering
@@ -436,14 +436,14 @@ displays a sample plot of the extracted topics in table
 \begin{figure*}
   \centering
   \includegraphics[width=0.9\textwidth]{commit-to-topics} 
-  \caption{How commits are analyzed and aggregated into Topics and Trends. Commits are first extracted, then abstracted into word counts or word distributions. These word distributions are then given to topic clusterer like LDA which finds independant word distributions (topics) that these documents are related too and clusters or associates these documents with these topics.}
+  \caption{How commits are analyzed and aggregated into Topics and Trends. Commits are first extracted, then abstracted into word counts or word distributions. These word distributions are then given to topic clusterer like LDA which finds independent word distributions (topics) that these documents are related too and clusters or associates these documents with these topics.}
   \label{fig:commits}
 \end{figure*}
 
 Our methodology is to first extract the commits from repositories such
 as CVS or Bitkeeper. Then we extract the revisions and commits,
 grouping the revisions into commits if necessary. We extract the
-commit log message of each commit, count the occurence of each word in
+commit log message of each commit, count the occurrence of each word in
 the message, remove stop words, and then produce word distributions
 for each message.
 
@@ -511,9 +511,11 @@ topic is compared to each other topic in the system, given a certain
 threshold of top 10 similarity, like 8/10 words. Then given this topic
 similarity matrix, we find the transitive closure of similar topics,
 that is we fill flood along the similarity arcs until we have
-partitioned the topics into clusters of similar topics.  These
-clusters of topics are called trends. A trend is probably interesting
-and valuable if there is more than 1 topic in the trend.
+partitioned the topics into clusters of similar topics. Figure
+\ref{fig:closure} provides an example of clustering topics by the
+topic similarity. These clusters of topics are called trends. A trend
+is probably interesting and valuable if there is more than 1 topic in
+the trend.
 
 This technique has weaknesses in that nodes a few neighbors away in
 similarity might not share any similar words.  We do this because we
@@ -537,8 +539,8 @@ Topic Clustering
 \begin{figure}
   \centering
   \includegraphics[width=0.45\textwidth]{transitiveclosure}
-  \caption{Clusting topics by the transitive closure (connectedness or
-    a fill flood along arcs) of topic similarity. Nodes are topics and
+  \caption{Topic similarity demonstrated by clustering topics by the transitive closure (connectedness)
+    of topic similarity. Nodes are topics and
     arcs imply similarity. Similarity could be a measure such as
     topics share 8 out of 10 top ten words.}
 \label{fig:closure}
@@ -552,17 +554,20 @@ Topic Clustering
 We have come up with multiple ways to visualize these topics and
 trends.  For all of these plots if we trends which have continuous
 segments we plot those segments as joined across time.  We have a
-compressed stacked trend view, which displays trends arbitrarily
+compressed stacked trend view, shown in Figure \ref{fig:topicsmear}
+and Figure \ref{fig:zoomedsmear}, which displays trends arbitrarily
 across the y axis but are placed where they occur on the time-based x
-axis. Another plot we have is the trend-time plot, a each trend gets
-it own distinct-y value , while the x-axis is time; these topics are
-then each plotted on their own line across time as they occur. The
-last plot we have is the histogram plot, where we plot each trend on
+axis. Another plot we have is the trend-time line plot, shown in
+Figure \ref{fig:timeline}, each trend gets it own distinct-y value ,
+while the x-axis is time; these topics are then each plotted on their
+own line across time as they occur. Our final plot is the histogram
+plot, shown in Figure \ref{fig:histogram} where we plot each trend on
 its own line but stack up the segments of the trend, much like a plot
-of counts or a histogram.
+of counts or a histogram .
 
 
-The first visualization is a compressed view, we try to sink the
+The first visualization is a compressed view (Figure \ref{fig:topicsmear}
+and Figure \ref{fig:zoomedsmear}), we try to sink the
 larger trends to the bottom, once the larger trends are stacked, we
 fill in the gaps with the smaller trends in the same window and then
 stack the smaller trends on top. Although there is a chance that gaps
@@ -575,21 +580,23 @@ The compressed view is nice because it shows all of the
 information and the repeating continuous trends are easy to pick out,
 unfortunately repeating discontinuous trends are harder to spot.
 
-The second visualization is the trend-time plot, it displays repeating
-trends more clearly by dedicating a horizontal line for trend segments
-dedicated to one trend. This means that if a trend contains
-discontinuous segments the segments appear on the same line. One down
-side to this view is the least common trends need to be pruned
-otherwise it'd take too many horizontal lines to plot them.
+The second visualization is the trend-time line plot (Figure
+\ref{fig:timeline}), it displays repeating trends more clearly by
+dedicating a horizontal line for trend segments dedicated to one
+trend. This means that if a trend contains discontinuous segments the
+segments appear on the same line. One down side to this view is the
+least common trends need to be pruned otherwise it'd take too many
+horizontal lines to plot them.
 
-The 3rd visualization is the histogram plot which is a lot like the
-time-trend plot except the trends are plotted together by stacking to
-their row so time information is lost and the trends are ordered by
-the number of topics in the trend. The histogram plot shows the count
-of instances of a trend and thus indicates which trends occur the
-most. Unfortunately due to the large number of topics given allotted
-space it is often best to crop off the trends with only one topic,
-otherwise the tail is long.
+The third visualization is the histogram plot (Figure
+\ref{fig:histogram}) which is a lot like the time-trend plot except
+the trends are plotted together by stacking to their row so time
+information is lost and the trends are ordered by the number of topics
+in the trend. The histogram plot shows the count of instances of a
+trend and thus indicates which trends occur the most. Unfortunately
+due to the large number of topics given allotted space it is often
+best to crop off the trends with only one topic, otherwise the tail is
+long.
 
 \begin{figure*}
   \centering
@@ -614,7 +621,7 @@ otherwise the tail is long.
 \begin{figure}
   \centering
   \includegraphics[width=0.45\textwidth]{class-smear-plot-crop-scaled}
-  \caption{Trend Time Line: Trends plotted over time of MaxDB 7.500. Time in months are plotted along the X-Axis, each row on the Y-axis is associated with a trend ranked by size in descending order}         
+  \caption{Trend-time Line: Trends plotted over time of MaxDB 7.500. Time in months are plotted along the X-Axis, each row on the Y-axis is associated with a trend ranked by size in descending order}         
   \label{fig:trendtimeline}
 \end{figure}
 
@@ -680,12 +687,19 @@ multiple database systems.
 
 %   1. Interesting smears 
 %   2.   postgresql
+
+
+%\subsection{MySQL}
+%XXX DO MYSQL?
+
 \subsection{Postgresql}
 %   3.   mysql
 
+%XXX Redo?
+
 PostgreSQL did not have many trends with two or more topics, but it
-did have one large mega-trend which stretched across most of its
-existence. Much of the mega-trend consisted of stop words but it did
+did have one large trend which stretched across most of its
+existence. Much of the large trend consisted of stop words but it did
 include topics which had words such as patch, fix, update.
 
 The second largest topic was interesting because it dealt changes from
@@ -699,7 +713,7 @@ effect of the programmers manually recording such a merge across
 branches because CVS cannot.
 
 Once stop words were removed the some of the purposes became more
-clear. The mega- trend disappeared, the largest trend became bug fixes
+clear. The large trend disappeared, the largest trend became bug fixes
 submitted by Dal Zotto which is a short trend.
 
 
@@ -712,7 +726,7 @@ we want more local information about trends being worked on.
 \subsection{Firebird}
 %   5.   what's that other db?
 
-%XXX needs results
+%XXX REDO?
 
 We tracked Firebird from August 2000 to January 2006.
 Our first attempt with Firebird resulted in a set of trends that were
@@ -738,6 +752,9 @@ in their changelog comments: ``thanks Bill Lam''. Other interesting
 topics include tokens and topics such as: ``compiler workarounds'', ``nightly updates'', packets and MSVC++, 
 
 \subsection{MaxDB 7.500}
+
+%XXX REDO?
+
 
 The plots we produced of MaxDB 7.500 were interesting, there was a
 period where no real development occurred and thus there were no topics or trends
