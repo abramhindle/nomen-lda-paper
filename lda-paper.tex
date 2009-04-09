@@ -840,6 +840,18 @@ addressed, the global LDA analysis would probably miss this, yet these
 bug tickets were the focus of development for that month and not
 necessarily globally relevant.
 
+The query optimizer was a topic which recurred multiple times during
+MaxDB's development. In our plots, topics which mention optimizer
+occur four times yet in the large static plot (Figure
+\ref{fig:statictopics}) it is not in any of the topics. A query
+optimizer is rather important to an DBMS, but as we've shown it just
+doesn't pop up as a topic on its own. We tried to remove words to see
+if we could get optimizer topic out, after removing stop words and
+then two of the most common words the global analysis finally had a
+topic with optimizer in its topic ten words. This shows that optimizer
+was important but it had been obscured, while it would have been
+noticed using a more locally relevant approach that we propose.
+
 We noticed that Perforce and Changelist were in just about every
 topic, so we added them to the stop words list. Longer trends were
 shortened and in some cases the total number of topics found per month
@@ -848,6 +860,7 @@ removing common words one reduces the general similarity of topics,
 that said the larger topics still existed. Thus if you add more
 relevant stop words one should tune your topic similarity parameters
 to handle this change.
+
 
 
 
@@ -885,6 +898,22 @@ may be that some topics are of strong interest but only briefly; in
 such a case, a window-based model gives a much stronger indication of
 the fleeting importance of such topics, and can help to put such a
 topic into its proper context.
+
+XXX Numbers and more argument
+
+Even with our liberal topic similarity metrics that produced both
+long and short trends, we showed that there are only a few trends in a
+repository which recur. Since so few trends recur and so many
+trends appear only once this suggests that global topic analysis might
+be ignoring locally unique topics. 
+
+The utility of global topic analysis is questionable if the value of
+information decreases as it becomes older. Perhaps older trends will
+dominate the topic analysis. Windowed localized topic analysis show
+what are the unique topics.
+
+
+
 
 \begin{figure}
   \centering
@@ -957,16 +986,21 @@ while others months have almost none.
 % be more detail.
 
 
-Even with our liberal topic similarity metrics that produced both
-long and short trends, we showed that there are only a few trends in a
-repository which recur. Since so few trends recur and so many
-trends appear only once this suggests that global topic analysis might
-be ignoring locally unique topics. 
 
-The utility of global topic analysis is questionable if the value of
-information decreases as it becomes older. Perhaps older trends will
-dominate the topic analysis. Windowed localized topic analysis show
-what are the unique topics.
+% Even with our liberal topic similarity metrics that produced both
+% long and short trends, we showed that there are only a few trends in a
+% repository which recur. Since so few trends recur and so many
+% trends appear only once this suggests that global topic analysis might
+% be ignoring locally unique topics. 
+
+% The utility of global topic analysis is questionable if the value of
+% information decreases as it becomes older. Perhaps older trends will
+% dominate the topic analysis. Windowed localized topic analysis show
+% what are the unique topics.
+
+XXX summarize our position
+
+XXX Add more detail here
 
 We presented multiple visualizations that focused on different
 aspects of the data: temporality of trends, trend size, and a
