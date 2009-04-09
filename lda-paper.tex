@@ -193,7 +193,7 @@ developers work on them? What else did they work on?
 
 Topic analysis, with respect to Software Control Systems (SCSs) such
 as CVS, Subversion, Git etc., is potentially valuable as it has many
-uses for various stake-holders and uses.  Imagine a development team
+uses for various stakeholders and uses.  Imagine a development team
 has agreed to implement some features at the start of an iteration. By
 the end of the iteration only some of the agreed upon features are
 implemented. The developers insist they were focusing solely on the
@@ -281,15 +281,15 @@ development of the project.
 
 %\subsection{Intro to LDA}
 
-%XXX explain LDA \cite{944937}
-%XXX What has pLSI in it?
 In terms of clustering and finding topic distributions, Latent
 Dirichlet Allocation (LDA)~\cite{944937} competes with Latent Semantic
-Indexing (LSI)~\cite{1421013,1374321,10.1109/ICPC.2007.13,10.1109/ICPC.2006.17}, probabilistic Latent Semantic Indexing (pLSI) and
-semantic clustering~\cite{1698774,1566153}. These tools are used for document modelling,
-document clustering and collaborative filtering. What LDA attempts to
-do is encode documents as mixture model of topics.  LDA is used in
-software engineering
+Indexing
+(LSI)~\cite{1421013,1374321,10.1109/ICPC.2007.13,10.1109/ICPC.2006.17},
+probabilistic Latent Semantic Indexing (pLSI)~\cite{944937} and
+semantic clustering~\cite{1698774,1566153}. These tools are used for
+document modelling, document clustering and collaborative
+filtering. What LDA attempts to do is encode documents as mixture
+model of topics.  LDA is used in software engineering
 literature~\cite{lukins2008,10.1109/MSR.2007.20,NIPS2007637,1321709}
 is to extract topic clusters from documents such as methods, bug
 reports, source code and files.
@@ -634,7 +634,7 @@ one topic, otherwise the tail is long.
   \centering
   \includegraphics[width=1.0\textwidth]{fixed-time-smear-plot-scaled}
   \caption{Compact Trend Plot Topics per Month for MaxDB 7.500. The
-    X-axis is time in months, the Y axis is used to stack topics
+    x-axis is time in months, the Y axis is used to stack topics
     occurring at the same time. Trends that are continuous are
     plotted as continuous blocks. The top 10 words in the topics are
     joined and embedded in box representing the topics.}
@@ -653,7 +653,7 @@ one topic, otherwise the tail is long.
 \begin{figure}
   \centering
   \includegraphics[width=0.45\textwidth]{class-smear-plot-crop-scaled}
-  \caption{Trend-time Line: Trends plotted over time of MaxDB 7.500. Time in months are plotted along the X-Axis, each row on the Y-axis is associated with a trend ranked by size in descending order}         
+  \caption{Trend-time Line: Trends plotted over time of MaxDB 7.500. Time in months are plotted along the x-Axis, each row on the y-axis is associated with a trend ranked by size in descending order}         
   \label{fig:trendtimeline}
 \end{figure}
 
@@ -685,7 +685,7 @@ Firebird.
 
 Our analysis tools consisted of: Hiraldo-Grok, an OCaml-based variant
 of the Grok query language; Gnuplot, a graph plotting package; lda-c,
-a LDA package implemented by Biel; and our topic plotter, implemented
+a LDA package implemented by Blei et al. \cite{944937}; and our topic plotter, implemented
 in Haskell.
 
 
@@ -832,7 +832,9 @@ that had AMD64 and Windows tokens.
 % whole paper.  You need expand it.  Maybe you should move the first
 % two paras of the conclusions in here too.
 
-% The thing that is most disappointing is that the argument is entire qualitative.  Can you give examples to make this sound less hypothetical?
+% The thing that is most disappointing is that the argument is entire
+% qualitative.  Can you give examples to make this sound less
+% hypothetical?
 
 % Can you add numbers in here to make the argument stronger?
 
