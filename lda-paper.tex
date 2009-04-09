@@ -359,11 +359,11 @@ day non-overlapping windows, and then applied LDA to each of these
 windows. We asked LDA to make 20 topics per window and we then
 carefully examined the top 10 most frequent words in that topic.  We
 found there were common words across topic clusters, such as
-``diffs'', ``annotate'' and ``history'', these words probably should
+\emph{diffs}, \emph{annotate} and \emph{history}, these words probably should
 be viewed as stop words. There were notable transitional topics such
-as in the first window the word ``bitkeeper'' appears because MySQL
+as in the first window the word \emph{bitkeeper} appears because MySQL
 adopted Bitkeeper for their source control system yet in the following
-windows there were no mentions of Bitkeeper. ``RENAME'' also only
+windows there were no mentions of Bitkeeper. \emph{RENAME} also only
 appeared once in the first window and never again. Per each topic we
 tried to identify the purpose of the topic; to our surprise we found
 that even with onlyy a little familiarity with the code base that
@@ -766,8 +766,8 @@ submitted by a developer named Dal Zotto which is a short trend.
 We tracked Firebird from August 2000 to January 2006.
 Our first attempt with Firebird resulted in a set of trends that were
 dominated by one large trend containing tokens that were mostly stop
-words such as ``the to a for of is it'' and references to one author
-\texttt{carlosga05}. 
+words such as references to one author
+\texttt{carlosga05} and the words: \emph{the, to, a, for, of, is, it}.
 
 The second largest trend related to branching and possibly merging; it
 contained language such as ``was added on branch'' and contained
@@ -775,7 +775,7 @@ references to tags and branches.
 
 The third largest trend contained references to the changelog, the
 build system, architecture and platform support. It specifically
-mentioned tokens such as ``Solaris port x86''.
+mentioned tokens such as \emph{Solaris}, \emph{port} and \emph{x86}.
 
 Other trends included topics regarding AIX PPC compilation, updating
 the build process, internationalization and UTF8, Darwin build support
@@ -784,7 +784,7 @@ and bug fixing.
 Topics that were not trends but appeared to be  interesting were mostly external bug
 fixes submitted to the project.
  In these cases, the developers would express thanks in their changelog comments, such as ``Thanks, Bill Lam''.  Other easily discernible topics included 
- tokens and topics such as: ``compiler workarounds'', ``nightly updates'', packets and MSVC++, 
+ tokens and topics such as: \emph{compiler workarounds}, \emph{nightly updates}, \emph{packets} and \emph{MSVC++}.
 
 \subsection{MaxDB 7.500}
 
@@ -829,16 +829,25 @@ that had AMD64 and Windows tokens.
 
 %XXX Edit
 % Was reading lda.report
-Bug tracker URLs were common during some months. For instance in the
-last month of MaxDB 7.500 development every topic contained 1 unique
-Bug tracker URL, this pattern did not occur in the previou month. We
-investigated the actual revisions and we did find there was difference
-in behaviour between and that the last month of development commits
-were mostly referencing the bug tracker. If the topics of one month
-were 20 or more unique bug tickets being addressed, the global LDA
-analysis would probably miss this, yet these bug tickets were the
-focus of development for that month and not necessarily globally
-relevant.
+Bug tracker URLs dominated unique topics during some months. For
+instance in the last month of MaxDB 7.500 development every topic
+contained 1 unique Bug tracker URL, this pattern did not occur in the
+previou month. We investigated the actual revisions and we did find
+there was difference in behaviour between and that the last month of
+development commits were mostly referencing the bug tracker. If the
+topics of one month were 20 or more unique bug tickets being
+addressed, the global LDA analysis would probably miss this, yet these
+bug tickets were the focus of development for that month and not
+necessarily globally relevant.
+
+We noticed that Perforce and Changelist were in just about every
+topic, so we added them to the stop words list. Longer trends were
+shortened and in some cases the total number of topics found per month
+was less. Evaluating different similarity thresholds showed that by
+removing common words one reduces the general similarity of topics,
+that said the larger topics still existed. Thus if you add more
+relevant stop words one should tune your topic similarity parameters
+to handle this change.
 
 
 
