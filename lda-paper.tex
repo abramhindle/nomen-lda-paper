@@ -366,7 +366,7 @@ adopted Bitkeeper for their source control system yet in the following
 windows there were no mentions of Bitkeeper. \emph{RENAME} also only
 appeared once in the first window and never again. Per each topic we
 tried to identify the purpose of the topic; to our surprise we found
-that even with onlyy a little familiarity with the code base that
+that even with only a little familiarity with the code base that
 naming the topic was straightforward.
 
 A sub-sampling of the notable topic words is displayed in Table
@@ -606,9 +606,9 @@ window, and then stack the smaller trends on top.  Although there is a
 chance that gaps will be left due to non-optimal stacking in practice
 there are lot of small trends (90\% of all trends contain 1 topic)
 which fill in these gaps quickly.  Different instances of the same
-trend share the same colour; apart from that, the color of trends is
+trend share the same color; apart from that, the color of trends is
 randomly chosen and color similarity is not meaningful.
-The compressed view is convienant because it shows all of the
+The compressed view is convenient because it shows all of the
 information and the repeating continuous trends are easy to pick out,
 although repeating discontinuous trends are harder to spot.
 
@@ -661,7 +661,7 @@ one topic, otherwise the tail is long.
 \begin{figure}
   \centering
   \includegraphics[width=0.45\textwidth]{histogram-cropped-scaled}
-  \caption{Top part of trend histogram, ordered by topic occurance for MaxDB 7.500. X axis determines the number of continuous months of a trend. Trends are ranked  by the number of topics that a trend contains in descending order.}       
+  \caption{Top part of trend histogram, ordered by topic occurrence for MaxDB 7.500. X axis determines the number of continuous months of a trend. Trends are ranked  by the number of topics that a trend contains in descending order.}       
   \label{fig:histogram}
 \end{figure}
 
@@ -672,7 +672,7 @@ To extract data from CVS and BitKeeper we used softChange to extract
 CVS repositories and provide a schema for our revision data. We used
 bt2csv to extract BitKeeper revisions from BitKeeper web repositories.
 
-We extracted the repositories of: PostGreSQL, MaxDB and
+We extracted the repositories of: PosgreSQL, MaxDB and
 Firebird.
 
 % Extractors:
@@ -724,7 +724,7 @@ open source database systems: PostgreSQL, MaxDB and Firebird.
 %\subsection{MySQL}
 %XXX DO MYSQL?
 
-\subsection{Postgresql}
+\subsection{PostgreSQL}
 %   3.   mysql
 
 %XXX Redo?
@@ -804,7 +804,7 @@ fixes submitted to the project.
 The plots we produced of MaxDB 7.500 were unlike those of the other
 systems, as there was a period where no real development occurred and
 thus there were no topics or trends whatsoever. We have two periods to
-evaluate for MaxDB 7.500, the first period from June 2004 to jan 2005,
+evaluate for MaxDB 7.500, the first period from June 2004 to January 2005,
 and the second period from June 2005 to June 2006.
 
 The largest common trend has references to build system files like
@@ -848,13 +848,20 @@ The query optimizer was a topic which recurred during
 MaxDB's development. In our plots, topics which mention optimizer
 occur four times yet in the large static plot (Figure
 \ref{fig:statictopics}) it is not in any of the topics. A query
-optimizer is rather important to an DBMS, but as we've shown it just
-doesn't pop up as a topic on its own. We tried to remove words to see
+optimizer is rather important to an DBMS, but as we have shown it just
+does not pop up as a topic on its own. We tried to remove words to see
 if we could get optimizer topic out, after removing stop words and
 then two of the most common words the global analysis finally had a
 topic with optimizer in its topic ten words. This shows that optimizer
 was important but it had been obscured, while it would have been
 noticed using a more locally relevant approach that we propose.
+
+We noticed that PHP was in a third of the commits that Perl was in
+(not the same commits) in as many commits as Perl yet PHP did not
+appear in the global static topic analysis topics while Perl did. Our
+local topic analysis mentioned PHP in 5 different topics, yet
+mentioned Perl in 4 different topics. Perhaps the Perl mentions were
+not as independent topics as the PHP topics were.
 
 We noticed that Perforce and Changelist were in just about every
 topic, so we added them to the stop words list. Longer trends were
@@ -865,30 +872,32 @@ that said the larger topics still existed. Thus if you add more
 relevant stop words one should tune your topic similarity parameters
 to handle this change.
 
-UNICODE
 
-DEC/OSF1
 
-ODBC
+% UNICODE
 
-crash
+% DEC/OSF1
+
+% ODBC
+
+% crash
 
 % PHP yet Perl is mentioned is less but it part
 
 
 
-SQLCLI
-%V75
+% SQLCLI
+% %V75
 
-SYSDD.cpnix
-backup
+% SYSDD.cpnix
+% backup
 
-select
-make
-memory
-view
+% select
+% make
+% memory
+% view
 
-debug
+% debug
 
 % V75 is mentioned many times maxdb version guh
 
@@ -929,6 +938,11 @@ such a case, a window-based model gives a much stronger indication of
 the fleeting importance of such topics, and can help to put such a
 topic into its proper context.
 
+% Revisions 26+1+103+19+20+48+35+50+77+49+48+18
+% Revisions 494 
+% Topics 1+1+19+1+5+10+7+10+11+9+9+7
+% Topics 90
+
 If we approach the difference via common tokens we can see that common
 token tend to dominate both results, at least in the case of MaxDB
 7.500 our local topic approach netted us topics which contained these
@@ -936,18 +950,15 @@ relatively important and common words: \emph{UNICODE},
 \emph{DEC/OSF1}, \emph{ODBC}, \emph{crash}, \emph{SQLCLI},
 \emph{SYSDD.cpnix}, \emph{backup}, \emph{select}, \emph{make},
 \emph{memory}, \emph{view}, and finally \emph{debug}. None of these
-tokens were part of the static topic analysis topics but they were
-part of 494 commits (5\% of the entire system) to MaxDB 7.500.
-
-
-% Revisions 26+1+103+19+20+48+35+50+77+49+48+18
-% Revisions 494 
-% Topics 1+1+19+1+5+10+7+10+11+9+9+7
-% Topics 90
+tokens were part of the static topic analysis topics, but there were
+part of 566 commits (6\% of the entire system) to MaxDB 7.500 which
+contained these. These tokens were part of 87 out of 500 of our
+locally generated topics (ignoring similar topics).
 
 
 
-XXX Numbers and more argument
+
+%XXX Numbers and more argument
 
 Even with our liberal topic similarity metrics that produced both
 long and short trends, we showed that there are only a few trends in a
@@ -1046,14 +1057,37 @@ while others months have almost none.
 % dominate the topic analysis. Windowed localized topic analysis show
 % what are the unique topics.
 
-XXX summarize our position
 
-XXX Add more detail here
+We demonstrated the application of windowed topic analysis, topic
+analysis applied to commit messages during periods of
+development. This approach differed from previous work, as previous
+work would apply topic analysis globally and then analyze related
+documents. Instead we show that many topics that exist locally are
+relevant and interesting yet would often not be included in global
+topic analysis. We handle the case of recurring topics by using a
+topic similarity measure which looks for topics which recur and mutate
+throughout the development of the software project.
 
-We presented multiple visualizations that focused on different
-aspects of the data: temporality of trends, trend size, and a
-condensed overall trend view. The condensed trend view shows much more
-information than the views that global analysis could show.
+The value of windowed topic analysis was demonstrated on a case study
+of three database systems with a particular focus on MaxDB 7.500. We
+showed that static topic analysis missed important database concepts
+such as ODBC.
+
+%XXX summarize our position
+
+%XXX Add more detail here
+
+We presented multiple visualizations that focused on different aspects
+of the data: temporality of trends, trend size, and a condensed
+overall trend view. The condensed trend view shows much more
+information than the views that global analysis could show, it
+indicates how focused a period is by the total number of topics as
+well shows topics by similarity so one can track trends across time.
+Our histogram trend-view immediately hi-lights and measures the size of
+trends while our time-line trend view shows how a topic reoccurs over
+time. These visualizations help us get an over feeling about the
+common and unique topics that developers focus on. If implemented
+properly a user can easily zoom and query a topic.
 
 
 \subsection{ Future Work}
