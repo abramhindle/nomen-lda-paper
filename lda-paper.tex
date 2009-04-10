@@ -468,11 +468,11 @@ displays a sample plot of the extracted topics in table
   \label{fig:commits}
 \end{figure*}
 
-Our methodology is to first extract the commits from SCS repositories such
-as CVS or Bitkeeper. Then we extract the revisions and commits,
+Our methodology is to first extract the commits from SCS repositories
+such as CVS or Bitkeeper. Then we extract the revisions and commits,
 grouping the revisions into commits if necessary. We extract the
-commit log message of each commit, count the occurrence of each word in
-the message, remove stop words, and then produce word distributions
+commit log message of each commit, count the occurrence of each word
+in the message, remove stop words, and then produce word distributions
 for each message.
 
 
@@ -482,19 +482,19 @@ We mirrored the repositories and their revisions using software such
 as rsync, CVSSuck, \texttt{softChange} and bt2csv.
 \texttt{softChange} provided a general schema for storing
 revisions. CVSSuck and rsync mirrored CVS repositories while bt2csv
-mirrored web accessible bitkeeper repositories.
+mirrored web accessible BitKeeper repositories.
 
 
 %   2. [ ] Extract Documents
 \subsection{Extract Documents}
 %   3. [ ] Windowed Sets
 
-The document we are analyzing are the changelog comments i.e., the comments that are added  when a revision to the source code is committed.
+The documents we are analyzing are the commit log comments i.e., the
+comments that are added when revisions to the project are committed.
 Documents are converted into word count distributions. These
-distributions, which are then normalized by by the size of the
-message. After all messages are processed the distributions are
-extended to include all words in all distributions (each distribution
-is extended with word bins of count 0).
+distributions are then normalized by the size of the message. After
+all messages are processed the distributions are extended to include
+all words within all of the  distributions.
 
 \subsection{Windowed Sets}
 
@@ -504,22 +504,19 @@ of a set time unit because it simplifies analysis.  Windowing by time
 allows for many levels of granularity. We usually used one month as
 the length of our time windows, while we could use different
 granularities for the study we think that a month is a sizable unit of
-development, 4 weeks of development, which we consider to be fine
-enough to show meaningful shifts but coarse enough not to show too
-much detail.
+development, which we consider to be fine enough to show meaningful
+shifts in focus, but coarse enough not to show too much detail.
 
 \subsection{Apply Topic Analysis to each Window}
 
 Once we have our data windowed, we apply our Topic Analysis tool to
 each window and extract the top $N$ topic clusters, we used $20$
-topics in our case study. Our Topic Analysis tool is an implementation
-of LDA, but we could have used other similar tools like LSI, but
-previous showed more promising topic analysis with LDA.
-
-This is a very slow step as LDA takes a long time to run, and takes
-even longer since we run it once per window. We note that this step is
-a slow one, as executing even one instance of LDA involves significant
-computation, and we perform LDA once per window.
+topics in our case studies. Our Topic Analysis tool is an
+implementation of LDA, but we could have used other similar tools like
+LSI, but previous work showed more promising topic analysis results
+with LDA.  We note that this step is a slow one, as executing even one
+instance of LDA involves significant computation, and we perform LDA
+once per window.
 
 
 
@@ -539,19 +536,20 @@ look for repeating topics. We find repeating topics by comparing the
 
 We then abstract these topics by comparing them to each other.  Each
 topic is compared to each other topic in the system, given a certain
-threshold of top 10 similarity, such as 8/10 words. Then given this topic
-similarity matrix, we find the transitive closure of similar topics;
-that is, we fill flood along the similarity arcs until we have
+threshold of top 10 similarity, such as 8 out of 10 words. Then given
+this topic similarity matrix, we find the transitive closure of
+similar topics; that is, if we model topics are nodes and arcs as
+similarity, we fill flood along the similarity arcs until we have
 partitioned the topics into clusters of similar topics. Figure
 \ref{fig:closure} provides an example of clustering topics by the
 topic similarity. These clusters of topics are called trends. A trend
-is probably interesting and valuable if there is more than one topic in
-the trend.
+is probably interesting and valuable if there is more than one topic
+in the trend.
 
-This technique has weaknesses in that nodes that are  a few neighbors away in
-similarity might not share any similar words.  We do this because we
-want to be able to color or highlight topics that are related to each
-other and track them throughout time.
+This technique has weaknesses in that nodes that are a few neighbors
+away in similarity might not share any similar words.  We do this
+because we want to be able to color or highlight topics that are
+related to each other and track them throughout time.
 
 Once we have determined our similarity clusters we can choose to
 analyze and to plot the topics.
@@ -582,20 +580,19 @@ Topic Clustering
 \subsection{Visualization}
 %       1. [ ] need the visualizer
 
-We have devised several ways to visualize these topics and
-trends.  For all of these plots if we find trends that have continuous
-segments, then we plot those segments as joined across time.  We have a
-compressed stacked trend view, shown in Figure \ref{fig:topicsmear}
-and Figure \ref{fig:zoomedsmear}, 
-which displays trends as they occur
+We have devised several ways to visualize these topics and trends.
+For all of these plots if we find trends that have continuous
+segments, then we plot those segments as joined across time.  We have
+a compressed stacked trend view, shown in Figure \ref{fig:topicsmear}
+and Figure \ref{fig:zoomedsmear}, which displays trends as they occur
 on the time-based x-axis (placement along the y-axis is arbitrary).
- Another plot we have is the trend-time line plot, shown in
-Figure \ref{fig:trendtimeline}, each trend gets it own distinct y-value ,
+Another plot we have is the trend-time line plot, shown in Figure
+\ref{fig:trendtimeline}, each trend gets it own distinct y-value ,
 while the x-axis is time; these topics are then each plotted on their
 own line across time as they occur. Our final plot is the histogram
 plot, shown in Figure \ref{fig:histogram} where we plot each trend on
-its own line but stack up the segments of the trend, much like a plot
-of counts or a histogram.
+its own line but stack up the segments of the trend, much like a
+histogram.
 
 
 The first visualization is a compressed view
@@ -607,35 +604,35 @@ chance that gaps will be left due to non-optimal stacking in practice
 there are lot of small trends (90\% of all trends contain 1 topic)
 which fill in these gaps quickly.  Different instances of the same
 trend share the same color; apart from that, the color of trends is
-randomly chosen and color similarity is not meaningful.
-The compressed view is convenient because it shows all of the
-information and the repeating continuous trends are easy to pick out,
-although repeating discontinuous trends are harder to spot.
+randomly chosen and color similarity is not meaningful.  The
+compressed view is convenient because it shows all of the information
+and the repeating continuous trends are easy to pick out, although
+repeating discontinuous trends are harder to spot.
 
 The second visualization is the trend-time line plot (Figure
 \ref{fig:trendtimeline}), it displays repeating trends more clearly by
-dedicating a horizontal line for trend segments dedicated to one
-trend. This means that if a trend contains discontinuous segments then the
-segments appear on the same line. 
-However, the least common trends need to be pruned away or the view will be cluttered with a lot of noise.
+dedicating a horizontal line for trend segments belonging to one
+trend. This means that if a trend contains discontinuous segments then
+the segments appear on the same line.  However, the least common
+trends need to be pruned away or the view will be very long.
 
 The third visualization is the histogram plot (Figure
 \ref{fig:histogram}) which superficially resembles the time-trend
 plot.  However, in this view the trends are plotted together by
-stacking to their row so time information is lost, and the trends are
-ordered by the number of topics in the trend.  The histogram plot
-shows the count of instances of a trend and thus indicates which
-trends occur the most. Unfortunately due to the large number of topics
-given allotted space it is often best to crop off the trends with only
-one topic, otherwise the tail is long.
+stacking to the left of their row, thus time information is lost.  The
+trends are ordered by the number of topics in the trend.  The
+histogram plot shows the count of instances of a trend and thus
+indicates which trends occur the most. Unfortunately due to the large
+number of topics given allotted space it is often best to crop off the
+trends with only one topic, otherwise the tail is long.
 
 %XXX Describe something useful like a trend
 \begin{figure*}
   \centering
   \includegraphics[width=1.0\textwidth]{fixed-time-smear-plot-scaled}
-  \caption{Compact Trend Plot Topics per Month for MaxDB 7.500. The
-    x-axis is time in months, the Y axis is used to stack topics
-    occurring at the same time. Trends that are continuous are
+  \caption{Compact trend plot shows topics per month for MaxDB
+    7.500. The x-axis is time in months, the Y axis is used to stack
+    topics occurring at the same time. Trends that are continuous are
     plotted as continuous blocks. The top 10 words in the topics are
     joined and embedded in box representing the topics.}
   \label{fig:topicsmear}
@@ -645,7 +642,7 @@ one topic, otherwise the tail is long.
 \begin{figure}
   \centering
   \includegraphics[width=0.45\textwidth]{fixed-time-smear-plot-cropped}
-  \caption{Zoomed in Slice Compact Trend Plot of Topics per Month for MaxDB 7.500. The topic text is visible in each topic box. Trends are plotted across time continuously.}
+  \caption{A zoomed in slice of compact trend plot of topics per month of MaxDB 7.500. The topic text is visible in each topic box. Trends are plotted across time continuously.}
   \label{fig:zoomedsmear}
 \end{figure}
 
@@ -653,7 +650,7 @@ one topic, otherwise the tail is long.
 \begin{figure}
   \centering
   \includegraphics[width=0.45\textwidth]{class-smear-plot-crop-scaled}
-  \caption{Trend-time Line: Trends plotted over time of MaxDB 7.500. Time in months are plotted along the x-Axis, each row on the y-axis is associated with a trend ranked by size in descending order}         
+  \caption{Trend-time Line: Trends plotted per month of MaxDB 7.500. Time in months are plotted along the x-Axis, each row on the y-axis is associated with a trend ranked by size in descending order}         
   \label{fig:trendtimeline}
 \end{figure}
 
@@ -661,7 +658,10 @@ one topic, otherwise the tail is long.
 \begin{figure}
   \centering
   \includegraphics[width=0.45\textwidth]{histogram-cropped-scaled}
-  \caption{Top part of trend histogram, ordered by topic occurrence for MaxDB 7.500. X axis determines the number of continuous months of a trend. Trends are ranked  by the number of topics that a trend contains in descending order.}       
+  \caption{The top part of a trend histogram of MaxDB 7.500, ordered
+    by topic occurrence. X axis determines the number of continuous
+    months of a trend. Trends are ranked by the number of topics that
+    a trend contains in descending order.}
   \label{fig:histogram}
 \end{figure}
 
@@ -685,8 +685,8 @@ Firebird.
 
 Our analysis tools consisted of: Hiraldo-Grok, an OCaml-based variant
 of the Grok query language; Gnuplot, a graph plotting package; lda-c,
-a LDA package implemented by Blei et al. \cite{944937}; and our topic plotter, implemented
-in Haskell.
+a LDA package implemented by Blei et al. \cite{944937}; and our topic
+plotter, implemented in Haskell.
 
 
 %   1. [ ] LDA
@@ -729,26 +729,48 @@ open source database systems: PostgreSQL, MaxDB and Firebird.
 
 %XXX Redo?
 
-When we examined PostgreSQL, we did not find many trends with two or more topics; however, we did find one large trend which stretched across most of its existence.
- Much of the large trend consisted of stop words but it did
-include topics which had non-stop words such as \emph{patch}, \emph{fix}, \emph{update}.
+When we examined PostgreSQL, we did not find many trends with two or
+more topics with a similarity of $7/10$. These trends were not very
+large, lasting on 3 months at most. The first, second largest trends
+were dedicated to the work of two external developers: Dal Zotto, Dan
+McGuirk. The fifth largest trend related to work by PostgreSQL developer D'Arcy. Other
+topics of the larger trends were changes to the TODO list in HTML, and
+time string formating topics relating to timezones.
 
-The second largest topic was interesting because it concerned changes from
-1998, from developers using Central Europe Time (CEST), where the two
-notable tokens were 1998 and CEST. These changes appear to be patches
-submitted by one particular developer who lived in that timezone.
+If we kept the stop words we found that the large trend consisted
+mostly of stop words and non-stop words such as \emph{patch},
+\emph{fix}, \emph{update}.  By decreasing the similarity constraint to
+$1/2$ similarity the largest most the largest most common trend, which
+stretched across development, contained these same words
+(\emph{patch}, \emph{fix}, \emph{update}). The second most common
+topic mentions Dal Zotto, while the third most common topic mentions
+the \texttt{[PATCHES]} mailinglist and the names of some patch
+contributors.  Other repeating topics refer to portability with Win32,
+Central Europe Time (CEST) from email headers, issues with ALTER TABLE
+and CVS branch merging (because CVS doesn't record merges explicitly).
 
-The third largest trend we found appeared to concerned with copying
-and moving files between branches as it referenced the old branch.
-branches.  We inferred this trend based on the fact that the old
-version identifier was referenced, and we know this this is common
-practice when performing a branch merge, since CVS cannot record such
-information directly.
+% When we examined PostgreSQL, we did not find many trends with two or
+% more topics; however, we did find one large trend which stretched
+% across most of its existence.  Much of the large trend consisted of
+% stop words but it did include topics which had non-stop words such as
+% \emph{patch}, \emph{fix}, \emph{update}.
+
+% The second largest topic was interesting because it concerned changes from
+% 1998, from developers using Central Europe Time (CEST), where the two
+% notable tokens were 1998 and CEST. These changes appear to be patches
+% submitted by one particular developer who lived in that timezone.
+
+% The third largest trend we found appeared to concerned with copying
+% and moving files between branches as it referenced the old branch.
+% branches.  We inferred this trend based on the fact that the old
+% version identifier was referenced, and we know this this is common
+% practice when performing a branch merge, since CVS cannot record such
+% information directly.
 
 
-Once stop words were removed the some of the purposes became more
-clear. The large trend disappeared, the largest trend became bug fixes
-submitted by a developer named Dal Zotto which is a short trend.
+% Once stop words were removed the some of the purposes became more
+% clear. The large trend disappeared, the largest trend became bug fixes
+% submitted by a developer named Dal Zotto which is a short trend.
 
 
 %XXX REDO POSTEGRESQL?
@@ -763,28 +785,50 @@ submitted by a developer named Dal Zotto which is a short trend.
 
 %XXX REDO?
 
-We tracked Firebird from August 2000 to January 2006.
-Our first attempt with Firebird resulted in a set of trends that were
-dominated by one large trend containing tokens that were mostly stop
-words such as references to one author
-\texttt{carlosga05} and the words: \emph{the, to, a, for, of, is, it}.
+We tracked Firebird from August 2000 to January 2006. We found that with a
+similarity of $7/10$ that Firebird had far more continuous and
+recurring trends than PosgreSQL.  The first large trend was segmented
+across time but explicitly references one author \texttt{carlosga05}
+and words like \emph{added}, \emph{fixed} and \emph{updated}.
 
-The second largest trend related to branching and possibly merging; it
-contained language such as ``was added on branch'' and contained
-references to tags and branches.
+The second largest trend was during the month of March 2001 relating
+to incremental building and the porting of developer Konstantin's
+Solaris port of the Firebird build files. The third largest trend was
+about JDBC, which is how Firebird and Java communicate.  Other trends
+included topics regarding AIX PPC compilation, updating the build
+process, internationalization and UTF8, Darwin build support and bug
+fixing.
 
-The third largest trend contained references to the changelog, the
-build system, architecture and platform support. It specifically
-mentioned tokens such as \emph{Solaris}, \emph{port} and \emph{x86}.
+Topics that were not trends but appeared to be interesting were mostly
+external bug fixes submitted to the project.  In these cases, the
+developers would express gratitude in their commit log comments, such
+as ``Thanks, Bill Lam''.  Other easily discernible topics included
+tokens and phrases such as: \emph{compiler workarounds}, \emph{nightly
+  updates}, \emph{packets} and \emph{MSVC++}.
 
-Other trends included topics regarding AIX PPC compilation, updating
-the build process, internationalization and UTF8, Darwin build support
-and bug fixing.
 
-Topics that were not trends but appeared to be  interesting were mostly external bug
-fixes submitted to the project.
- In these cases, the developers would express thanks in their changelog comments, such as ``Thanks, Bill Lam''.  Other easily discernible topics included 
- tokens and topics such as: \emph{compiler workarounds}, \emph{nightly updates}, \emph{packets} and \emph{MSVC++}.
+% We tracked Firebird from August 2000 to January 2006.
+% Our first attempt with Firebird resulted in a set of trends that were
+% dominated by one large trend containing tokens that were mostly stop
+% words such as references to one author
+% \texttt{carlosga05} and the words: \emph{the, to, a, for, of, is, it}.
+
+% The second largest trend related to branching and possibly merging; it
+% contained language such as ``was added on branch'' and contained
+% references to tags and branches.
+
+% The third largest trend contained references to the changelog, the
+% build system, architecture and platform support. It specifically
+% mentioned tokens such as \emph{Solaris}, \emph{port} and \emph{x86}.
+
+% Other trends included topics regarding AIX PPC compilation, updating
+% the build process, internationalization and UTF8, Darwin build support
+% and bug fixing.
+
+% Topics that were not trends but appeared to be  interesting were mostly external bug
+% fixes submitted to the project.
+%  In these cases, the developers would express thanks in their commit log comments, such as ``Thanks, Bill Lam''.  Other easily discernible topics included 
+%  tokens and topics such as: \emph{compiler workarounds}, \emph{nightly updates}, \emph{packets} and \emph{MSVC++}.
 
 \subsection{MaxDB 7.500}
 
@@ -803,17 +847,19 @@ fixes submitted to the project.
 
 The plots we produced of MaxDB 7.500 were unlike those of the other
 systems, as there was a period where no real development occurred and
-thus there were no topics or trends whatsoever. We have two periods to
-evaluate for MaxDB 7.500, the first period from June 2004 to January 2005,
-and the second period from June 2005 to June 2006.
+thus there were no topics or trends whatsoever. Using a topic
+similarity of $7/10$ we evaluated of MaxDB 7.500, the first period
+from June 2004 to January 2005, and the second period from June 2005
+to June 2006.
 
 The largest common trend has references to build system files like
-SYSDD.punix and MONITOR.punix.  This trend is partially displayed at
-the top of the zoomed in compressed view plot (Figure
-\ref{fig:zoomedsmear}) and at the top of the histogram plot (Figure
-\ref{fig:histogram}).  Other tokens mentioned are Sutcheck v1.09, the
-prefix SUT stands for Storable Unit Type. Sutcheck would also automate
-check-ins using a Perforce SCS tool which was exported to CVS.
+\texttt{SYSDD.punix} and \texttt{MONITOR.punix}.  This trend is
+partially displayed at the top of the zoomed in compressed view plot
+(Figure \ref{fig:zoomedsmear}) and at the top of the histogram plot
+(Figure \ref{fig:histogram}).  Other tokens mentioned are
+\emph{Sutcheck v1.09}, the prefix SUT stands for Storable Unit
+Type. Sutcheck would also automate check-ins using a Perforce SCS tool
+which was exporting check-ins to CVS.
 
 The second largest common trend seems to be a side effect of an
 automated check-in which is annotated as ``implicit check-in'' (see
@@ -826,9 +872,8 @@ seemed to include tokens related to operating system support, such as
 Linux and Windows, as well as architecture support, AMD64 and
 Opteron. The word \emph{problem} was common among all of these
 trends. This trend seemed related to the smaller fourth largest trend
-which occurred nearby which referenced tokens \emph{AMD64} and
-\emph{Windows}, this shows that topics can overlap but still not match
-via our similarity measure.
+that had tokens \emph{AMD64} and \emph{Windows}. This shows that
+topics can overlap but still not match via our similarity measure.
 
 
 %XXX Edit
@@ -836,8 +881,8 @@ via our similarity measure.
 Bug tracker URLs dominated unique topics during some months. For
 instance in the last month of MaxDB 7.500 development every topic
 contained 1 unique Bug tracker URL, this pattern did not occur in the
-previou month. We investigated the actual revisions and we did find
-there was difference in behaviour between and that the last month of
+previous month. We investigated the actual revisions and we did find
+there was difference in behavior between and that the last month of
 development commits were mostly referencing the bug tracker. If the
 topics of one month were 20 or more unique bug tickets being
 addressed, the global LDA analysis would probably miss this, yet these
@@ -856,12 +901,13 @@ topic with optimizer in its topic ten words. This shows that optimizer
 was important but it had been obscured, while it would have been
 noticed using a more locally relevant approach that we propose.
 
-We noticed that PHP was in a third of the commits that Perl was in
-(not the same commits) in as many commits as Perl yet PHP did not
-appear in the global static topic analysis topics while Perl did. Our
-local topic analysis mentioned PHP in 5 different topics, yet
-mentioned Perl in 4 different topics. Perhaps the Perl mentions were
-not as independent topics as the PHP topics were.
+We noticed that commits which mentioned \emph{PHP} occured two thirds
+less frequently than commits which mentioned \emph{Perl}, but
+\emph{Perl} related topics appeared in the global static topics for
+MaxDB while \emph{PHP} related topics did not.  Our local topic
+analysis mentioned \emph{PHP} in 5 different topics, yet only
+mentioned \emph{Perl} in 4 different topics. Perhaps the Perl mentions
+were not as independent topics as the PHP topics were.
 
 We noticed that Perforce and Changelist were in just about every
 topic, so we added them to the stop words list. Longer trends were
@@ -870,7 +916,7 @@ was less. Evaluating different similarity thresholds showed that by
 removing common words one reduces the general similarity of topics,
 that said the larger topics still existed. Thus if you add more
 relevant stop words one should tune your topic similarity parameters
-to handle this change.
+to handle these changes.
 
 
 
@@ -943,20 +989,17 @@ topic into its proper context.
 % Topics 1+1+19+1+5+10+7+10+11+9+9+7
 % Topics 90
 
-If we approach the difference via common tokens we can see that common
-token tend to dominate both results, at least in the case of MaxDB
-7.500 our local topic approach netted us topics which contained these
-relatively important and common words: \emph{UNICODE},
-\emph{DEC/OSF1}, \emph{ODBC}, \emph{crash}, \emph{SQLCLI},
-\emph{SYSDD.cpnix}, \emph{backup}, \emph{select}, \emph{make},
-\emph{memory}, \emph{view}, and finally \emph{debug}. None of these
-tokens were part of the static topic analysis topics, but there were
-part of 566 commits (6\% of the entire system) to MaxDB 7.500 which
-contained these. These tokens were part of 87 out of 500 of our
-locally generated topics (ignoring similar topics).
-
-
-
+If we approach the difference of static global topic analysis and
+windowed topic analysis via common tokens we can see that common token
+tend to dominate both results, at least in the case of MaxDB 7.500 our
+local topic approach netted us topics which contained these relatively
+important and common words: \emph{UNICODE}, \emph{DEC/OSF1},
+\emph{ODBC}, \emph{crash}, \emph{SQLCLI}, \emph{SYSDD.cpnix},
+\emph{backup}, \emph{select}, \emph{make}, \emph{memory}, \emph{view},
+and finally \emph{debug}. None of these tokens were part of the static
+topic analysis topics, but they were part of 566 commits (6\% of the
+entire system) to MaxDB 7.500. These tokens were part of 87 out of 500
+(25 months, 20 topics per month) of our locally generated topics.
 
 %XXX Numbers and more argument
 
@@ -1009,12 +1052,12 @@ losing valuable data.
 
 Each project seemed to have their own kind of stop words, we did not
 remove them, but perhaps dropping some of these stop words would aid
-the clarity of such topic cluster; alternatively it might cause our
-topic similarity plots to be fundamentally different. 
+the clarity of topics produced through topic analysis; alternatively
+it might cause our topic similarity plots to be fundamentally
+different.
 
-The number of
-commits per month is inconsistent as some months have a lot of changes
-while others months have almost none.
+The number of commits per month is inconsistent as some months have a
+lot of changes while others months have almost none.
 %   1.   validation
 %   2.   LDA is questionable
 %   3.   blackbox problem
@@ -1058,28 +1101,27 @@ while others months have almost none.
 % what are the unique topics.
 
 
-We demonstrated the application of windowed topic analysis, topic
-analysis applied to commit messages during periods of
-development. This approach differed from previous work, as previous
-work would apply topic analysis globally and then analyze related
-documents. Instead we show that many topics that exist locally are
-relevant and interesting yet would often not be included in global
-topic analysis. We handle the case of recurring topics by using a
-topic similarity measure which looks for topics which recur and mutate
-throughout the development of the software project.
+We proposed and demonstrated the application of windowed topic
+analysis, that is, topic analysis applied to commit messages during
+periods of development. This approach differed from previous work that
+would apply topic analysis globally to a project. We showed that many
+topics that exist locally are relevant and interesting yet would often
+not be included in global topic analysis. We identify recurring topics
+with a topic similarity measure which looks for topics which recur and
+mutate throughout the development of the software project.
 
 The value of windowed topic analysis was demonstrated on a case study
 of three database systems with a particular focus on MaxDB 7.500. We
-showed that static topic analysis missed important database concepts
-such as ODBC.
+showed that static topic analysis missed important topics like ODBC
+changes.
 
 %XXX summarize our position
 
 %XXX Add more detail here
 
 We presented multiple visualizations that focused on different aspects
-of the data: temporality of trends, trend size, and a condensed
-overall trend view. The condensed trend view shows much more
+of the data: temporality of trends, trend size, and a compressed
+overall trend view. The compressed trend view shows much more
 information than the views that global analysis could show, it
 indicates how focused a period is by the total number of topics as
 well shows topics by similarity so one can track trends across time.
