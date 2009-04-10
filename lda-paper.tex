@@ -801,30 +801,34 @@ fixes submitted to the project.
 
 
 
-The plots we produced of MaxDB 7.500 were 
-unlike those of the other systems, as 
- there was a
-period where no real development occurred and thus there were no topics or trends
-whatsoever. We have two periods to evaluate for MaxDB 7.500, the first
-period from June 2004 to jan 2005, and the second period from June
-2005 to June 2006.
+The plots we produced of MaxDB 7.500 were unlike those of the other
+systems, as there was a period where no real development occurred and
+thus there were no topics or trends whatsoever. We have two periods to
+evaluate for MaxDB 7.500, the first period from June 2004 to jan 2005,
+and the second period from June 2005 to June 2006.
 
 The largest common trend has references to build system files like
-SYSDD.punix and MONITOR.punix etc. Other tokens mentioned are Sutcheck
-v1.09, the prefix SUT stands for Storable Unit Type. Sutcheck would
-also automate check-ins using a Perforce SCS tool.
+SYSDD.punix and MONITOR.punix.  This trend is partially displayed at
+the top of the zoomed in compressed view plot (Figure
+\ref{fig:zoomedsmear}) and at the top of the histogram plot (Figure
+\ref{fig:histogram}).  Other tokens mentioned are Sutcheck v1.09, the
+prefix SUT stands for Storable Unit Type. Sutcheck would also automate
+check-ins using a Perforce SCS tool which was exported to CVS.
 
 The second largest common trend seems to be a side effect of an
-automated check-in which is annotated as ``implicit check-in''. These
-were check-ins that were produced when importing changes from an
-external Perforce repository.
+automated check-in which is annotated as ``implicit check-in'' (see
+the bottom of Figure \ref{fig:zoomedsmear}). These were check-ins that
+were produced when importing changes from an external Perforce
+repository.
 
-The third most common trend, seen on Figure \ref{fig:trendtimeline}, seemed to
-include tokens related to operating system support, such as Linux and
-Windows, as well as architecture support, AMD64 and Opteron. The word
-problem was common among all of those trends. This trend seemed
-related to the smaller fourth largest trend which occurred nearby it
-that had AMD64 and Windows tokens.
+The third most common trend, seen on Figure \ref{fig:trendtimeline},
+seemed to include tokens related to operating system support, such as
+Linux and Windows, as well as architecture support, AMD64 and
+Opteron. The word \emph{problem} was common among all of these
+trends. This trend seemed related to the smaller fourth largest trend
+which occurred nearby which referenced tokens \emph{AMD64} and
+\emph{Windows}, this shows that topics can overlap but still not match
+via our similarity measure.
 
 
 %XXX Edit
@@ -840,7 +844,7 @@ addressed, the global LDA analysis would probably miss this, yet these
 bug tickets were the focus of development for that month and not
 necessarily globally relevant.
 
-The query optimizer was a topic which recurred multiple times during
+The query optimizer was a topic which recurred during
 MaxDB's development. In our plots, topics which mention optimizer
 occur four times yet in the large static plot (Figure
 \ref{fig:statictopics}) it is not in any of the topics. A query
@@ -861,6 +865,32 @@ that said the larger topics still existed. Thus if you add more
 relevant stop words one should tune your topic similarity parameters
 to handle this change.
 
+UNICODE
+
+DEC/OSF1
+
+ODBC
+
+crash
+
+% PHP yet Perl is mentioned is less but it part
+
+
+
+SQLCLI
+%V75
+
+SYSDD.cpnix
+backup
+
+select
+make
+memory
+view
+
+debug
+
+% V75 is mentioned many times maxdb version guh
 
 
 
@@ -898,6 +928,24 @@ may be that some topics are of strong interest but only briefly; in
 such a case, a window-based model gives a much stronger indication of
 the fleeting importance of such topics, and can help to put such a
 topic into its proper context.
+
+If we approach the difference via common tokens we can see that common
+token tend to dominate both results, at least in the case of MaxDB
+7.500 our local topic approach netted us topics which contained these
+relatively important and common words: \emph{UNICODE},
+\emph{DEC/OSF1}, \emph{ODBC}, \emph{crash}, \emph{SQLCLI},
+\emph{SYSDD.cpnix}, \emph{backup}, \emph{select}, \emph{make},
+\emph{memory}, \emph{view}, and finally \emph{debug}. None of these
+tokens were part of the static topic analysis topics but they were
+part of 494 commits (5\% of the entire system) to MaxDB 7.500.
+
+
+% Revisions 26+1+103+19+20+48+35+50+77+49+48+18
+% Revisions 494 
+% Topics 1+1+19+1+5+10+7+10+11+9+9+7
+% Topics 90
+
+
 
 XXX Numbers and more argument
 

@@ -1,0 +1,8 @@
+for file in `cat kdiff`; do echo `fgrep -i -w --  "$file" maxdb7500-default-stopwords.report | wc -l` "$file"; done  | tee what2
+sort -n what2 > lol
+for file in `cat k2`; do echo `fgrep -i -w --  "$file" maxdb7500-default-stopwords.report | wc -l` "$file"; done  | tee what3
+sort -n what3 > lol2
+for file in `cat kdiff`; do echo `fgrep -i -w -- "$file" query1.mrs2 | wc -l` `fgrep -i -w --  "$file" maxdb7500-default-stopwords.report | wc -l` "$file"; done  | tee what4
+sort -n what4 > lol-revisions
+for file in `cat k2`; do echo `fgrep -i -w -- "$file" query1.mrs2 | wc -l` `fgrep -i -w --  "$file" maxdb7500-default-stopwords.report | wc -l` "$file"; done  | tee what5
+sort -n what5 > lol-revisions2
