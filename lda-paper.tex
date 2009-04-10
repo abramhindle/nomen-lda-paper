@@ -23,6 +23,9 @@ University of Waterloo\\
 %\title{Windowed Developer Topic Analysis}
 \title{What's hot and what's not:\\Windowing developer topic analysis}
 
+\newcommand{\shrinkit}{\vspace*{-.3em}}
+
+
 \usepackage{rotating}   
 \begin{document}
 
@@ -170,7 +173,9 @@ Richard C. Holt\\
 
 \end{abstract}
 
+\shrinkit
 \section{Introduction}
+\shrinkit
 
 %?
 
@@ -260,8 +265,10 @@ Our contributions include:
 \item An exploratory case study using these techniques on several open source database systems.
 \end{itemize}
 
-
+\shrinkit
 \section{Background}
+\shrinkit
+
 
 We now define some terms that we will use in the rest of the paper: A
 \emph{message} is a block of text written by developers. In this
@@ -305,7 +312,9 @@ results. Our data is posed as documents with word distributions (word
 counts per documents) and LDA extracts distinct topics (clusters of
 words) from the documents.
 
+\shrinkit
 \subsection{LDA, LSI and Semantic Clustering}
+\shrinkit
 
 In order to infer or associate the expertise of an author with topics
 extracted from SCS, Linstead et al. proposed an author-source-code model
@@ -351,8 +360,9 @@ history.
 %      6. [ ] FCA work
 %4. [ ] Methodology [0/9]
 
-
+\shrinkit
 \section{Preliminary Case Study}
+\shrinkit
 
 In our first exploratory pass we wanted to see if LDA could provide
 interesting topics extracted from a real system. We took the
@@ -363,7 +373,7 @@ windows. We asked LDA to make 20 topics per window and we then
 found there were common words across topic clusters, such as
 \emph{diffs}, \emph{annotate} and \emph{history}, these words probably should
 be viewed as stop words. There were notable transitional topics such
-as in the first window the word \emph{bitkeeper} appears because MySQL
+as in the first window the word \emph{BitKeeper} appears because MySQL
 adopted Bitkeeper for their source control system yet in the following
 windows there were no mentions of Bitkeeper. \emph{RENAME} also only
 appeared once in the first window and never again. Per each topic we
@@ -465,8 +475,9 @@ plot of the extracted topics in Table \ref{tab:portability}.
 \end{figure*}
 
 
-
+\shrinkit
 \section{Methodology}
+\shrinkit
 \begin{figure*}
   \centering
   \includegraphics[width=0.9\textwidth]{commit-to-topics} 
@@ -482,7 +493,9 @@ in the message, remove stop words, and then produce word distributions
 for each message.
 
 
+\shrinkit
 \subsection{Extraction of  Repositories and Documents}
+\shrinkit
 
 We mirrored the repositories and their revisions using software such
 as rsync, CVSSuck, \texttt{softChange} and bt2csv.
@@ -497,7 +510,9 @@ distributions are then normalized by the size of the message. After
 all messages are processed the distributions are extended to include
 all words within all of the  distributions.
 
+\shrinkit
 \subsection{Windowed Sets}
+\shrinkit
 
 Given all messages, we group the messages into windows. We could use
 overlapping windows, but in this paper we use non-overlapping windows
@@ -508,7 +523,9 @@ lengths for the study we think that a month is a sizable unit of
 development, which is large enough to show shifts in focus, but coarse
 enough not to show too much detail.
 
+\shrinkit
 \subsection{Apply Topic Analysis to each Window}
+\shrinkit
 
 Once we have our data windowed, we apply our Topic Analysis tool to
 each window and extract the top $N$ topics. We used $20$
@@ -525,7 +542,9 @@ once per window.
 
 
 %   6. [ ] Cluster Similarity [0/1]
+\shrinkit
 \subsection{Topic Similarity}
+\shrinkit
 %      1. [ ] need the tool
 %             grab from the cluster analysis
 %   7. [ ] Continuous Cluster Analysis
@@ -576,8 +595,9 @@ Topic Clustering
 \end{figure}
 
 
-
+\shrinkit
 \subsection{Visualization}
+\shrinkit
 %       1. [ ] need the visualizer
 
 We have devised several techniques for visualizing these topics and
@@ -666,14 +686,15 @@ long.
   \label{fig:histogram}
 \end{figure}
 
-
+\shrinkit
 \subsection{Datasets and Tools}
+\shrinkit
 
 To extract data from CVS and BitKeeper we used softChange to extract
 CVS repositories and provide a schema for our revision data. We used
 bt2csv to extract BitKeeper revisions from BitKeeper web repositories.
 
-We extracted the repositories of: PosgreSQL, MaxDB and
+We extracted the repositories of: PostgreSQL, MaxDB and
 Firebird.
 
 % Extractors:
@@ -712,8 +733,9 @@ plotter, implemented in Haskell.
 
 
 
-
+\shrinkit
 \section{Results}
+\shrinkit
 
 We applied our tools and visualizations to the repositories of several
 open source database systems: PostgreSQL, MaxDB and Firebird.
@@ -724,8 +746,9 @@ open source database systems: PostgreSQL, MaxDB and Firebird.
 
 %\subsection{MySQL}
 %XXX DO MYSQL?
-
+\shrinkit
 \subsection{PostgreSQL}
+\shrinkit
 %   3.   mysql
 
 %XXX Redo?
@@ -781,7 +804,9 @@ and CVS branch merging (because CVS doesn't record merges explicitly).
 %But large trends are not the point, by investigating windowed trends
 %we want more local information about trends being worked on.
 
+\shrinkit
 \subsection{Firebird}
+\shrinkit
 %   5.   what's that other db?
 
 %XXX REDO?
@@ -831,7 +856,9 @@ tokens and phrases such as: \emph{compiler workarounds}, \emph{nightly
 %  In these cases, the developers would express thanks in their commit log comments, such as ``Thanks, Bill Lam''.  Other easily discernible topics included 
 %  tokens and topics such as: \emph{compiler workarounds}, \emph{nightly updates}, \emph{packets} and \emph{MSVC++}.
 
+\shrinkit
 \subsection{MaxDB 7.500}
+\shrinkit
 
 %XXX REDO?
 
@@ -848,18 +875,18 @@ tokens and phrases such as: \emph{compiler workarounds}, \emph{nightly
 
 The plots we produced of MaxDB 7.500 were unlike those of the other
 systems, as there was a period where no real development occurred and
-thus there were no topics or trends whatsoever. Using a topic
-similarity of $7/10$ we evaluated of MaxDB 7.500, the first period
-from June 2004 to January 2005, and the second period from June 2005
-to June 2006.
+thus there were no topics or trends whatsoever (see the gap in Figure
+\ref{fig:topicsmear}). Using a topic similarity of $7/10$ we evaluated
+of MaxDB 7.500, the first period from June 2004 to January 2005, and
+the second period from June 2005 to June 2006.
 
 The largest common trend has references to build system files like
 \texttt{SYSDD.punix} and \texttt{MONITOR.punix}.  This trend is
 partially displayed at the top of the zoomed in compact-trend-view
 (Figure \ref{fig:zoomedsmear}) and at the top of the trend-histogram
 (Figure \ref{fig:histogram}).  Other tokens mentioned are
-\emph{Sutcheck v1.09}, the prefix SUT stands for Storable Unit
-Type. Sutcheck would also automate check-ins using a Perforce SCS tool
+\emph{Sutcheck v1.09} (the prefix SUT stands for Storable Unit
+Type), a tool that would also automate check-ins using a Perforce SCS tool
 which was exporting check-ins to CVS.
 
 The second largest common trend seems to be a side effect of an
@@ -890,19 +917,19 @@ addressed, the global LDA analysis would probably miss this, yet these
 bug tickets were the focus of development for that month and not
 necessarily globally relevant.
 
-The query optimizer was a topic which recurred during
-MaxDB's development. In our plots, topics which mention optimizer
-occur four times yet in the large static plot (Figure
-\ref{fig:statictopics}) it is not in any of the topics. A query
-optimizer is rather important to an DBMS, but as we have shown it just
-does not pop up as a topic on its own. We tried to remove words to see
-if we could get optimizer topic out, after removing stop words and
-then two of the most common words the global analysis finally had a
-topic with optimizer in its topic ten words. This shows that optimizer
-was important but it had been obscured, while it would have been
-noticed using a more locally relevant approach that we propose.
+The query optimizer was a topic which recurred during MaxDB's
+development. In our plots, topics which mention optimizer occur four
+times yet in the global-trend-view (Figure \ref{fig:statictopics}) it
+is not in any of the topics. A query optimizer is rather important to
+an DBMS, but as we have shown it just does not pop up as a topic on
+its own. We tried to remove words to see if we could get an topic
+optimizer topic. After removing stop words and then two of the most
+common words the global analysis finally had a topic with optimizer in
+its topic ten words. This shows that optimizer was important but it
+had been obscured, while it would have been noticed using a more
+locally relevant approach that we propose.
 
-We noticed that commits which mentioned \emph{PHP} occured two thirds
+We noticed that commits which mentioned \emph{PHP} occurred two thirds
 less frequently than commits which mentioned \emph{Perl}, but
 \emph{Perl} related topics appeared in the global static topics for
 MaxDB while \emph{PHP} related topics did not.  Our local topic
@@ -949,8 +976,9 @@ similarity parameters to handle these changes.
 % V75 is mentioned many times maxdb version guh
 
 
-
+\shrinkit
 \subsection{Compare with topics over the entire development}
+\shrinkit
 
 %XXX Migod notes This section is perhaps the most important of the
 % whole paper.  You need expand it.  Maybe you should move the first
@@ -966,13 +994,15 @@ similarity parameters to handle these changes.
 Previous work on topic analysis that employed LSI and LDA typically
 extracted a certain number of topics and tracked them over time. This
 means that a single, static set of topics was tracked across the whole
-development history of a project. 
+development history of a project. \emph{Global topic analysis} is
+topic analysis applied to entire lifetime of a project.
 
 We carried out the same kind of analysis, as shown in
-Figure~\ref{fig:statictopics}. We extracted 20 topics  and plotted
-the number of messages per month that were related to that topic. We
-found was that one topic would often dominate the results, as shown , while
-messages related to other topics did not appear very often.
+Figure~\ref{fig:statictopics}. We extracted 20 topics and plotted the
+number of messages per month that were related to that topic. We found
+was that one topic would often dominate the results, as shown in the
+third row of Figure \ref{fig:statictopics}, while messages related to
+other topics did not appear very often.
 % This technique seems useful if the 20 extracted topics are relevant
 % and useful, that said one weakness of this approach is that documents
 % for a topic might only occur in one time window, yet we are tracking
@@ -990,14 +1020,14 @@ topic into its proper context.
 % Topics 1+1+19+1+5+10+7+10+11+9+9+7
 % Topics 90
 
-If we approach the difference of static global topic analysis and
+If we approach the difference of global topic analysis and
 windowed topic analysis via common tokens we can see that common token
 tend to dominate both results, at least in the case of MaxDB 7.500 our
 local topic approach netted us topics which contained these relatively
 important and common words: \emph{UNICODE}, \emph{DEC/OSF1},
 \emph{ODBC}, \emph{crash}, \emph{SQLCLI}, \emph{SYSDD.cpnix},
 \emph{backup}, \emph{select}, \emph{make}, \emph{memory}, \emph{view},
-and finally \emph{debug}. None of these tokens were part of the static
+and finally \emph{debug}. None of these tokens were part of the global 
 topic analysis topics, but they were part of 566 commits (6\% of the
 entire system) to MaxDB 7.500. These tokens were part of 87 out of 520
 (26 months, 20 topics per month) of our locally generated topics.
@@ -1021,12 +1051,13 @@ what are the unique topics.
 \begin{figure}
   \centering
   %\includegraphics[width=0.45\textwidth]{maxdb7500-everything-by-month}
-  \includegraphics[width=0.45\textwidth]{month}
-  \caption{MaxDB 7.500 Topics Analyzed with Static Topic Analysis, 20
-    topics over the entire development history of MaxDB 7.500 (26 months). The
-    shade of the topic indicates the number of documents matching that
-    topic in that month relative to the number of documents (white is
-    most, black is least).}
+  \includegraphics[width=0.46\textwidth]{month}
+  \caption{MaxDB 7.500 topics analyzed with global topic analysis, 20
+    topics (each row) and their document counts plotted over the
+    entire development history of MaxDB 7.500 (26 months). The shade
+    of the topic indicates the number of documents matching that topic
+    in that month relative to the number of documents (white is most,
+    black is least).}
   \label{fig:statictopics}
 \end{figure}
 
@@ -1040,7 +1071,9 @@ what are the unique topics.
 %   4. exploratory
 %   5.   work it out
 %8.   Validity Threats [0/5]
+\shrinkit
 \section{Validity Threats}
+\shrinkit
 
 In this study we are explicitly trusting that the programmers annotate
 their changes with relevant information. We rely on the descriptions
@@ -1071,8 +1104,9 @@ lot of changes while others months have almost none.
 
 
 
-
+\shrinkit
 \section{Conclusions}
+\shrinkit
 %11.   Start file file:/home/abez/projects/lda-paper/lda-paper.tex
 
 
@@ -1104,45 +1138,45 @@ lot of changes while others months have almost none.
 
 
 We proposed and demonstrated the application of windowed topic
-analysis, that is, topic analysis applied to commit messages during
-periods of development. This approach differed from previous work that
+analysis, that is, which is topic analysis applied to commit messages during
+periods of development. This approach differs from previous work that
 would apply topic analysis globally to a project. We showed that many
 topics that exist locally are relevant and interesting yet would often
-not be included in global topic analysis. We identify recurring topics
+not be detected via global topic analysis. We identify recurring topics
 with a topic similarity measure which looks for topics which recur and
-mutate throughout the development of the software project.
+mutate repeatedly throughout the development of the software project.
 
 The value of windowed topic analysis was demonstrated on a case study
 of three database systems with a particular focus on MaxDB 7.500. We
-showed that static topic analysis missed important topics like ODBC
+showed that global topic analysis missed important topics like ODBC
 changes.
 
 %XXX summarize our position
 
 %XXX Add more detail here
 
-We presented multiple visualizations that focused on different aspects
-of the data: temporality of trends, trend size, and a
-compact-trend-view. The compact-trend-view shows much more
+We presented several visualization techniques that focused on
+different aspects of the data: temporality of trends, trend size, and
+a compact-trend-view. The compact-trend-view shows much more
 information than the views that global analysis could show, it
 indicates how focused a period is by the total number of topics as
 well shows topics by similarity so one can track trends across time.
-Our trend-histogram immediately hi-lights and measures the size
-of trends while our trend-time-line view shows how a topic reoccurs
-over time. These visualizations help us get an over feeling about the
+Our trend-histogram immediately hi-lights and measures the size of
+trends while our trend-time-line view shows how a topic reoccurs over
+time. These visualizations help us get an over feeling about the
 common and unique topics that developers focus on. If implemented
 properly a user can easily zoom and query a topic.
 
 
+\shrinkit
 \subsection{ Future Work}
+\shrinkit
 
-One avenue of future work we think is quite important is automatic
-cluster labelling. Given a word distribution we should be able to
-automatically select a word or term that best describes that distribution.
-Another avenue we wish to investigate the is value of applying
-static community-generated software taxonomies to the naming or
-grouping of clusters
-
+One avenue of future work is automatic topic labelling. Given a word
+distribution we should be able to automatically select a word or term
+that describes that distribution. Potential external sources of topic
+names include: software engineering taxonomies, ontologies and
+standards.
 
 
 
