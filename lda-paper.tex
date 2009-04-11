@@ -503,16 +503,6 @@ plot of the extracted topics in Table \ref{tab:portability}.
   \label{fig:commits}
 \end{figure*}
 
-\begin{figure*}
-  \centering
-  \includegraphics[width=1.0\textwidth]{fixed-time-smear-plot-scaled}
-  \caption{Compact-trend-view shows topics per month for MaxDB
-    7.500. The x-axis is time in months, the Y axis is used to stack
-    topics occurring at the same time. Trends that are continuous are
-    plotted as continuous blocks. The top 10 words in the topics are
-    joined and embedded in box representing the topics.}
-  \label{fig:topicsmear}
-\end{figure*}
 
 
 Our methodology is to first extract the commits from SCS repositories
@@ -625,6 +615,19 @@ Topic Clustering
 \end{figure}
 
 
+\begin{figure*}
+  \centering
+  \includegraphics[width=1.0\textwidth]{fixed-time-smear-plot-scaled}
+  \caption{Compact-trend-view shows topics per month for MaxDB
+    7.500. The x-axis is time in months, the Y axis is used to stack
+    topics occurring at the same time. Trends that are continuous are
+    plotted as continuous blocks. The top 10 words in the topics are
+    joined and embedded in box representing the topics.}
+  \label{fig:topicsmear}
+\end{figure*}
+
+
+
 \shrinkit
 \subsection{Visualization}
 \shrinkit
@@ -679,7 +682,7 @@ long.
 
 
 
-\begin{figure}
+\begin{figure}[t]
   \centering
   \includegraphics[width=0.45\textwidth]{fixed-time-smear-plot-cropped}
   \caption{A zoomed in slice of compact-trend-view of topics per month of MaxDB 7.500. The topic text is visible in each topic box. Trends are plotted across time continuously.}
