@@ -439,19 +439,20 @@ involves significant computation, and we perform LDA once per window.
 
 
 Once we have our topics extracted for each window, we analyze them and
-look for topics that recur across windows. Our input for topic
-similarity is the top 10 most common words of each topic.
+look for topics that recur across windows.  We then cluster these
+topics into trends by comparing them to each other using topic similarity.
 
-We then cluster these topics into trends by comparing them to each
-other.  Each topic is compared to each other topic in the system,
-given a certain threshold of top 10 similarity, such as 8 out of 10
-words. Then given this topic similarity matrix, we find the transitive
-closure of similar topics; that is, if we model topics are nodes and
-arcs as similarity, we fill flood along the similarity arcs until we
-have partitioned the topics into clusters of similar topics. Figure
-\ref{fig:closure} illustrates clustering of topics by 
-topic similarity. These clusters of topics are called trends. A trend
-is probably interesting if it contains more than one topic.
+Our input for topic similarity is the top 10 most common words of each
+topic.  Each topic is compared to each other topic in the system,
+given a certain threshold of top 10 word similarity, such as 8 out of
+top 10 matching words. Then given this topic similarity matrix, we
+find the transitive closure of similar topics; that is, if we model
+topics are nodes and arcs as similarity, we fill flood along the
+similarity arcs until we have partitioned the topics into clusters of
+similar topics. Figure \ref{fig:closure} illustrates clustering of
+topics by topic similarity. These clusters of topics are called
+trends. A trend is probably interesting if it contains more than one
+topic.
 
 This technique has weaknesses in that nodes that are a few neighbors
 away in similarity might not share any similar words.  We use this measure
