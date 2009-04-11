@@ -664,17 +664,17 @@ The plots we produced of MaxDB 7.500 were unlike those of the other
 systems, as there was a period where no real development occurred and
 thus there were no topics or trends whatsoever (see the gap in Figure
 \ref{fig:topicsmear}). Using a topic similarity of $7/10$ we evaluated
-of MaxDB 7.500, the first period from June 2004 to January 2005, and
-the second period from June 2005 to June 2006.
+MaxDB 7.500. MaxDB 7.500's first period was from June 2004 to January
+2005, and its second period was from June 2005 to June 2006.
 
 The largest common trend has references to build system files like
 \texttt{SYSDD.punix} and \texttt{MONITOR.punix}.  This trend is
 partially displayed at the top of the zoomed in compact-trend-view
 (Figure \ref{fig:zoomedsmear}) and at the top of the trend-histogram
 (Figure \ref{fig:histogram}).  Other tokens mentioned are
-\emph{Sutcheck v1.09} (the prefix SUT stands for Storable Unit
-Type), a tool that would also automate check-ins using a Perforce SCS tool
-which was exporting check-ins to CVS.
+\emph{Sutcheck v1.09} (the prefix SUT stands for Storable Unit Type),
+that is a tool that would also automate check-ins using a Perforce SCS
+tool which was exporting check-ins to CVS.
 
 The second largest common trend seems to be a side effect of an
 automated check-in which is annotated as ``implicit check-in'' (see
@@ -684,8 +684,8 @@ repository.
 
 The third most common trend, seen on Figure \ref{fig:trendtimeline},
 seemed to include tokens related to operating system support, such as
-Linux and Windows, as well as architecture support, AMD64 and
-Opteron. The word \emph{problem} was common among all of these
+\emph{Linux} and \emph{Windows}, as well as architecture support, \emph{AMD64} and
+\emph{Opteron}. The word \emph{problem} was common among all of these
 trends. This trend seemed related to the smaller fourth largest trend
 that had tokens \emph{AMD64} and \emph{Windows}. This shows that
 topics can overlap but still not match via our similarity measure.
@@ -697,11 +697,11 @@ Bug tracker URLs dominated unique topics during some months. For
 instance in the last month of MaxDB 7.500 development every topic
 contained 1 unique Bug tracker URL, this pattern did not occur in the
 previous month. We investigated the actual revisions and we did find
-there was difference in behavior between, and that the last month of
+there was a difference in behavior between, and that the last month of
 development commits were mostly referencing the bug tracker. If the
-topics of one month were 20 or more unique bug tickets being
-addressed, the global LDA analysis would probably miss this, yet these
-bug tickets were the focus of development for that month and not
+topics of one month were about unique bug tickets being
+addressed, the global topic analysis would probably miss this, yet these
+bug tickets were the focus of development for that month but not
 necessarily globally relevant.
 
 The query optimizer was a topic that recurred during MaxDB's
@@ -713,7 +713,7 @@ its own. We tried to remove words to see if we could get an
 \emph{optimizer} topic. After removing stop words and then two of the most
 common words, the global analysis finally had a topic with optimizer in
 its topic ten words. This shows that optimizer was important but it
-had been obscured, while it would have been noticed using a more
+had been obscured, while it would have been noticed using the more
 locally relevant approach that we propose.
 
 We noticed that commits that mentioned \emph{PHP} occurred two thirds
@@ -723,7 +723,7 @@ MaxDB while \emph{PHP}-related topics did not.  Our local topic
 analysis mentioned \emph{PHP} in 5 different topics, yet only
 mentioned \emph{Perl} in 4 different windowed topics and 1 global
 topic. Perhaps this is because there was a cluster of \emph{Perl}
-mentions during one month while \emph{PHP} was mentions were more
+mentions during one month while the \emph{PHP} mentions were more
 spread out.
 
 
@@ -732,7 +732,7 @@ about every topic, so we added them to the stop words list. As a
 result, longer trends were shortened and in some cases the total
 number of topics found per month was less.  Evaluating different
 similarity thresholds showed that by removing common words one reduces
-the general similarity of topics. That said, the larger topics still
+the general similarity of topics. That said, the larger topics were still
 clearly apparent. Thus if more relevant stop words are added one
 should tune the topic similarity parameters to handle these changes.
 
@@ -771,10 +771,11 @@ should tune the topic similarity parameters to handle these changes.
 
 
 Previous work on topic analysis that employed LSI and LDA typically
-extracted a specified number of topics and then tracked them over time. This
-means that a single, static set of topics was tracked across the whole
-development history of a project. \emph{Global topic analysis} is
-topic analysis applied to entire lifetime of a project.
+extracted a specified number of topics and then tracked them over
+time. This means that a single, static set of topics was tracked
+across the whole development history of a project. \emph{Global topic
+  analysis} is topic analysis applied against the entire lifetime of a
+project.
 
 We carried out the same kind of analysis, in order to compare the
 results against our time-windowed approach.  To produce
@@ -801,7 +802,7 @@ topic into its proper context.
 % Topics 90
 
 If we approach the difference of global topic analysis and windowed
-topic analysis via common tokens we can see that common token tend to
+topic analysis via common tokens we can see that common tokens tend to
 dominate both results, at least in the case of MaxDB 7.500 our local
 topic approach netted us topics which contained these relatively
 important and common words: \emph{UNICODE}, \emph{DEC/OSF1},
@@ -878,7 +879,7 @@ it might cause our topic similarity plots to be fundamentally
 different.
 
 The number of commits per month is inconsistent as some months have a
-lot of changes while others months have almost none.
+lot of changes while other months have almost none.
 %   1.   validation
 %   2.   LDA is questionable
 %   3.   blackbox problem
@@ -913,8 +914,8 @@ lot of changes while others months have almost none.
 We proposed and demonstrated the application of windowed topic
 analysis, that is, topic analysis applied to commit messages during
 periods of development. This approach differs from previous work that
-would applied topic analysis globally to the entire history of a
-project without regard to time.. We showed that many topics that exist
+applied topic analysis globally to the entire history of a
+project without regard to time. We showed that many topics that exist
 locally are relevant and interesting yet would often not be detected
 via global topic analysis. We identify recurring topics with a topic
 similarity measure which looks for topics which recur and mutate
@@ -922,21 +923,22 @@ repeatedly throughout the development of the software project.
 
 The value of windowed topic analysis was demonstrated on a case study
 of three database systems with a particular focus on MaxDB 7.500. We
-showed that global topic analysis missed important topics like such as
-ODBC changes.
+showed that global topic analysis missed important topics such as
+\emph{ODBC}.
 
 
 We presented several visualization techniques that focused on
 different aspects of the data: temporality of trends, trend size, and
 a compact-trend-view. The compact-trend-view shows much more
 information than the views that global analysis could show, it
-indicates how focused a period is by the total number of topics as
-well shows topics by similarity so one can track trends across time.
-Our trend-histogram immediately hi-lights and measures the size of
-trends while our trend-time-line view shows how a topic reoccurs over
-time. These visualizations help us get an over feeling about the
-common and unique topics that developers focus on. If implemented
-properly a user can easily zoom and query a topic.
+indicates how focused a period is by the total number of topics, as
+well, it shows topics by similarity so one can track trends across
+time.  Our trend-histogram immediately highlights and measures the
+size of trends while our trend-time-line view shows how a topic
+reoccurs over time. These visualizations help us get an overall
+feeling about the common and unique topics that developers focus
+on. If implemented properly a user could easily zoom in and query a
+summary of a topic or trend.
 
 
 \shrinkit
