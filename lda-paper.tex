@@ -87,10 +87,10 @@ Richard C. Holt\\
   comments over the entire lifetime of a project. Previous work on
   developer topic analysis has leveraged these tools to associate
   commit log comments with independent topics extracted from these
-  commit log comments.  In this work, we use LDA and LSI to analyze
+  commit log comments.  In this work, we use LDA  to analyze
   periods, such as months, within a project's lifetime to create a
-  time-windowed model of changing development topics.  We propose a
-  visualization of this model that allows us to explore the evolving
+  time-windowed model of changing development topics.  We propose 
+  visualizations of this model that allows us to explore the evolving
   stream of topics of development occurring over time.  We demonstrate
   that windowed topic analysis offers advantages over topic analysis
   applied to a projects lifetime because many topics are quite local.
@@ -129,16 +129,17 @@ the developers and managers might be able to see what were the topics
 of development during that iteration. %XXX RM during that iteration
 
 
-Commits in SCSs can have
-multiple purposes. Thus we hope that our research will help uncover
-these multiple purposes that manifest themselves as topics interleaved
-within the commits.  Others have demonstrated that 
-topic analysis techniques, such as Latent Semantic Indexing (LSI) and
-Latent Dirichlet Allocation (LDA), can aid in separating topics from
-these mixed comments. These topics often describe distinct ideas that
-are interleaved throughout the development. A topic represents a
-groups of commit log comments that are related to each other by their
-content.  In this case a topic is a set of tokens. 
+%XXX RM 
+Commits in source control systems (SCSs) can have multiple
+purposes. Thus we hope that our research will help uncover these
+multiple purposes that manifest themselves as topics interleaved
+within the commits.  Others have demonstrated that topic analysis
+techniques, such as Latent Semantic Indexing (LSI) and Latent
+Dirichlet Allocation (LDA), can aid in separating topics from these
+mixed comments. These topics often describe distinct ideas that are
+interleaved throughout the development. A topic represents both a word
+distribution and a group of commit log comments that are related to
+each other by their content.  In this case a topic is a set of tokens.
 
 
 % We suppose this could help us to segment the revisions on the time
@@ -151,24 +152,25 @@ be able to recognize the underlying software development process from
 these commits. Alternatively, we can determine what particular
 maintenance task was being performed at a given time.
 
-We propose to extend existing topic analysis techniques by
-applying them to windows of documents over time. We hope that by
+We propose to extend existing topic analysis techniques by applying
+them to windows of documents over time. We hope that by
 looking %XX X ADDED
 at topic clusters during periods or windows over time we can identify
-ongoing areas of focus on a select group of topics as well reflect more intermittent topics. Figure \ref{fig:lda} illustrates
-the kind of visualization we want to automatically generate. We want
-to see topics that are unique to a certain time period, displayed
-across the time axis. Those topics that recur, or occur over a
-larger period are plotted continuously. In our example we have
-titled each topic with a single word.
+ongoing areas of focus on a select group of topics as well reflect
+more intermittent topics. Figure \ref{fig:lda} illustrates the kind of
+visualization we want to automatically generate. We want to see topics
+that are unique to a certain time period, displayed across the time
+axis. Those topics that recur, or occur over a larger period are
+plotted continuously. In our example we have titled each topic with a
+single word drawn from itself.
 
-In this paper we explore how topics shift over time in the source
-control system (SCS) of a project, using several open source database
-systems as examples. We analyze commit log comments in each
-time window and we extract the topics of that time window. We expect
-that topics will change over time and the similarities and differences
-in these topics will indicate developer focus and changes in developer
-focus as it changes over time.
+In this paper we explore how topics shift over time in the SCS of a
+project, using several open source database systems as examples. We
+analyze commit log comments in each time window and we extract the
+topics of that time window. We expect that topics will change over
+time and the similarities and differences in these topics will
+indicate developer focus and changes in developer focus as it changes
+over time.
 
 Our contributions include:
 \begin{itemize}
@@ -184,20 +186,21 @@ Our contributions include:
 
 We now define some terms that we will use in the rest of the paper: A
 \emph{message} is a block of text written by developers. In this
-paper, messages will be the CVS commit log comments made when the user
-commits changes to files in a repository. A \emph{word distribution}
-is the summary of a message by word count. Each word distribution will
-be over the words in all messages. However, most words will not appear
-in a message, a word distribution is effectively a word count divided
-by the message size. A \emph{topic} is a word distribution, a
-set of words that form a word distribution that is unique and
-independent within the set of documents in our total corpus. One could
-think of a topic as a distribution of the centroid of a group of
-messages. In this paper we often summarize topics by the top 10 most
-frequent words of their word distribution.  A \emph{trend} is a one or
-more similar topics that recur over time.  Trends are particularly
-important, as they indicate long-lived and recurring topics that may
-provide key insights into the development of the project.
+paper, messages will be the CVS and BitKeeper commit log comments made
+when the user commits changes to files in a repository. A \emph{word
+  distribution} is the summary of a message by word count. Each word
+distribution will be over the words in all messages. However, most
+words will not appear in a message, a word distribution is effectively
+a word count divided by the message size. A \emph{topic} is a word
+distribution, a set of words that form a word distribution that is
+unique and independent within the set of documents in our total
+corpus. One could think of a topic as a distribution of the centroid
+of a group of messages. In this paper we often summarize topics by the
+top 10 most frequent words of their word distribution.  A \emph{trend}
+is a one or more similar topics that recur over time.  Trends are
+particularly important, as they indicate long-lived and recurring
+topics that may provide key insights into the development of the
+project.
 
 %\subsection{Intro to LDA}
 
@@ -256,8 +259,8 @@ used for similar purposes~\cite{1698774,1566153} as it is similar to
 LSI.
 
 Grant et al.~\cite{scottcordy} have used an alternative technique,
- called Independent Component Analysis to
-separate topic signals from software code. 
+called Independent Component Analysis to separate topic signals from
+software code.
 
 Our technique differs from the previous techniques because we apply
 LDA locally to month-long windows of commit log comments, whereas other
@@ -298,7 +301,7 @@ naming the topic was straightforward.
 A sampling of the notable topic words is displayed in Table
 \ref{tab:portability}, we chose topics that we felt confident we could
 name.  To name each topic we selected a term that seemed to best
-summarized that topic.  After extracting these topics, we attempted to
+summarize that topic.  After extracting these topics, we attempted to
 track the evolution of topics by visualizing the topics and joining
 similar topics into trends.  Figure \ref{fig:lda} displays a manually
 created sample plot of the extracted topics in Table
@@ -364,13 +367,14 @@ created sample plot of the extracted topics in Table
 \end{figure*}
 
 
+%XXX Smaller?
 
-Our methodology is to first extract the commits from SCS repositories
-such as CVS or Bitkeeper. Then we extract the revisions and commits,
-grouping the revisions into commits if necessary. We extract the
-commit log comment of each commit, count the occurrence of each word
-in the message, remove stop words, and then produce word distributions
-for each message.
+Our methodology is to first extract the commit log comments from a
+project's SCS repository. We filter out stop words and produce word
+distributions from these messages. These distributions are bucketted
+into windows, and then each window is subject to topic analysis and
+then we analyze and visualize the results.
+
 
 
 \shrinkit
@@ -379,16 +383,21 @@ for each message.
 
 We mirrored the repositories and their revisions using software such
 as rsync, CVSSuck, \texttt{softChange} and bt2csv.
-\texttt{softChange} provided a general schema for storing
-revisions. CVSSuck and rsync mirrored CVS repositories while bt2csv
-mirrored web accessible BitKeeper repositories.
+\texttt{softChange} provided a general schema for storing revisions
+and grouped CVS revisions into commits. CVSSuck and rsync mirrored CVS
+repositories while bt2csv mirrored web accessible BitKeeper
+repositories.
+
+
+%XXX Smaller?
 
 The documents we are analyzing are the commit log comments i.e., the
 comments that are added when revisions to the project are committed.
-Documents are converted into word count distributions. These
-distributions are then normalized by the size of the message. After
-all messages are processed the distributions are extended to include
-all words from all of the  distributions.
+Per each commit log comment, we count the occurrence of each word in
+the message, remove stop words, and then produce word distributions
+for each message.  These distributions are then normalized by the size
+of the message. After all messages are processed the distributions are
+extended to include all words from all of the distributions.
 
 \shrinkit
 \subsection{Windowed Sets}
@@ -397,9 +406,9 @@ all words from all of the  distributions.
 Given all messages, we group the messages into windows. We could use
 overlapping windows, but in this paper we use non-overlapping windows
 of a set time unit because it simplifies analysis.  Windowing by time
-allows for many levels of granularity.  We usually used one month as
-the length of our time windows. While we could use different window
-lengths for the study we think that a month is a sizable unit of
+allows for many levels of granularity.  We used one month as the
+length of our time windows. While we could use different window
+lengths for this study we think that a month is a sizable unit of
 development, which is large enough to show shifts in focus, but coarse
 enough not to show too much detail.
 
@@ -408,13 +417,12 @@ enough not to show too much detail.
 \shrinkit
 
 Once we have our data windowed, we apply our Topic Analysis tool to
-each window and extract the top $N$ topics. We used $20$
-topics in our case studies. Our Topic Analysis tool is an
-implementation of LDA, but we could have used other similar tools like
-LSI, but previous work showed more promising topic analysis results
-with LDA.  We note that this step is a slow one, as executing even one
-instance of LDA involves significant computation, and we perform LDA
-once per window.
+each window and extract the top $N$ topics. We used $20$ topics in our
+case studies. Our Topic Analysis tool is an implementation of LDA, but
+we could have used other similar tools like LSI, but previous work
+showed more promising topic analysis results with LDA.  We note that
+this step is a slow one, as executing even one instance of LDA
+involves significant computation, and we perform LDA once per window.
 
 
 
