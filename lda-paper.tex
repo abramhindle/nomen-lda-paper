@@ -21,7 +21,7 @@ University of Waterloo\\
 
 
 %\title{Windowed Developer Topic Analysis}
-\title{What's hot and what's not:\\Windowing developer topic analysis}
+\title{What's hot and what's not:\\Windowed developer topic analysis}
 
 \newcommand{\shrinkit}{\vspace*{-.3em}}
 
@@ -645,7 +645,7 @@ shown in Figure \ref{fig:topicsmear} and Figure \ref{fig:zoomedsmear},
 which displays trends as they occur on the time-based x-axis
 (placement along the y-axis is arbitrary).  Another technique is
 the \emph{trend-time-line}, shown in Figure \ref{fig:trendtimeline},
-each trend gets it own distinct y-value , while the x-axis is time;
+each trend gets it own distinct y-value, while the x-axis is time;
 these topics are then each plotted on their own line across time as
 they occur. Our final technique is the \emph{trend-histogram}, shown in Figure
 \ref{fig:histogram} where we plot each trend on its own line but stack
@@ -680,7 +680,7 @@ plotted together by stacking to the left of their row, thus time
 information is lost.  The trends are ordered by the number of topics
 in the trend.  The trend-histogram shows the count of instances of a
 trend and thus indicates which trends occur the most. Unfortunately
-due to the large number of topics given allotted space it is often
+due to the large number of topics, given the allotted space, it is often
 best to crop off the trends with only one topic, otherwise the tail is
 long.
 
@@ -706,7 +706,7 @@ long.
   \centering
   \includegraphics[width=0.45\textwidth]{histogram-cropped-scaled}
   \caption{The top part of a trend-histogram of MaxDB 7.500, ordered
-    by topic occurrence. X axis determines the number of continuous
+    by topic occurrence. X-axis determines the number of continuous
     months of a trend. Trends are ranked by the number of topics that
     a trend contains in descending order.}
   \label{fig:histogram}
@@ -748,7 +748,7 @@ We applied our methodology to multiple database systems that we
 extracted.  To analyze these extracted repositories we used:
 Hiraldo-Grok, an OCaml-based variant of the Grok query language;
 Gnuplot, a graph plotting package; lda-c, a LDA package implemented by
-Blei et al.~\cite{944937}; and our topic plotter, implemented in
+Blei et al.~\cite{944937}; and our trend plotter, implemented in
 Haskell.
 
 We applied our tools and visualizations to the repositories of several
@@ -777,25 +777,25 @@ open source database systems: PostgreSQL, MaxDB and Firebird.
 %XXX Redo?
 
 When we examined PostgreSQL, we did not find many trends with two or
-more topics with a similarity of $7/10$. Those trends that we did find
-were not very large, lasting on 3 months at most. The first and second
+more topics, using a similarity of $7/10$. Those trends that we did find
+were not very large, lasting only 3 months at most. The first and second
 largest trends were dedicated to the work of two external developers:
 Dal Zotto, Dan McGuirk. The fifth largest trend related to work by
 PostgreSQL developer D'Arcy. Other topics of the larger trends were
-changes to the TODO list in HTML, and time string formating topics
+changes to the TODO, and time string formating topics
 relating to timezones.
 
 If we kept the stop words we found that the large trend consisted
 mostly of stop words and non-stop words such as \emph{patch},
 \emph{fix}, \emph{update}.  By decreasing the similarity constraint to
-$1/2$ similarity the largest most the largest most common trend, which
-stretched across development, contained these same words
+$1/2$ similarity the largest most common trend, which
+stretched across the entire development, contained these same words
 (\emph{patch}, \emph{fix}, \emph{update}). The second largest trend
 mentions Dal Zotto, while the third largest trend mentions the
 \texttt{[PATCHES]} mailinglist and the names of some patch
 contributors.  Other repeating topics refer to portability with Win32,
 Central Europe Time (CEST) from email headers, issues with ALTER TABLE
-and CVS branch merging (because CVS does not record merges explicitly).
+and CVS branch merging, because CVS does not record merges explicitly.
 
 % When we examined PostgreSQL, we did not find many trends with two or
 % more topics; however, we did find one large trend which stretched
