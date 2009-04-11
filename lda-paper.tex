@@ -75,70 +75,6 @@ Richard C. Holt\\
 \maketitle
 \begin{abstract}
 
-%   At different times, developers focus on different topics and tasks
-%   during development.  These different topics and tasks might
-%   be obvious to developers familiar with the project, but other
-%   stake-holders, like managers, might be less aware of the topics of
-%   development. Imagine the scenario where developers unexpectedly had to deal with
-%   issues orthogonal to the features suggested, at the end of the
-%   iteration a manager would wonder where all the effort went to.
-%   Currently it is difficult for stake-holders to
-%   audit what actually occurred and when certain features or topics
-%   were focussed on. We propose a visualization of the
-%   changing development topics over time. Our approach uses a topic
-%   analysis tool like Latent Dirichlet Allocation (LDA) or Latent
-%   Semantic Indexing (LSI). Instead of applying the tool to the
-%   entire corpus we apply it to windows (periods) of the corpus. This allows us to
-%   see the evolving stream of topics of development occurring
-%   over time.
-  
-
-
-%   During different periods, developers focus on different topics and
-%   different tasks during development. Stake-holders, such as managers,
-%   not directly involved with the development might have less awareness
-%   of the project and the topics and tasks that the developers are
-%   focussed on.  Imagine the scenario where a manager is trying to
-%   discover where all the developers' effort went after features have
-%   not been implemented because the developers unexpectedly had to deal
-%   with issues orthogonal to these features.  We propose to help
-%   stake-holder understand the topics of development by extracting
-%   topics from the descriptions of changes that programmers provide
-%   when they make changes.  We leverage topic analysis tools such as
-%   Latent Dirichlet Allocation (LDA) or Latent Semantic Indexing (LSI)
-%   to analyze periods, such as months, within a project's
-%   lifetime. Previous work applied LDA and LSI to
-%   to a project's entire lifetime.  These tools associate
-%   descriptions with independent topics extracted from these
-%   descriptions.  We propose a visualization of changing development
-%   topics over time that allows us to see the evolving stream of topics
-%   of development occurring over time. We also show that windowed topic
-%   analysis offers benefits compare to entire lifetime topic analysis
-%   because of the independence of topics between windows.
-
-% During different periods, developers focus on different topics and
-% different tasks during development. Stake-holders, such as managers, who are
-% not directly involved with the project's development might have less awareness of the
-% project and the topics and tasks that the developers have focussed on.
-% Imagine the scenario where a manager is trying to discover where all the
-% developers' effort went after features have not been implemented because the
-% developers unexpectedly had to deal with issues orthogonal to these
-% features.  We propose to help stake-holders understand the topics of
-% development by extracting topics from the descriptions of changes that
-% programmers provide when they make commits.  We leverage topic analysis
-% tools such as Latent Dirichlet Allocation (LDA) or Latent Semantic Indexing
-% (LSI) to analyze periods, such as months, within a project's lifetime,
-% whereas previous work applied LDA and LSI to to a project's entire lifetime.  These
-% tools associate descriptions with independent topics extracted from these
-% descriptions.  
-% We propose a visualization of changing development topics
-% over time that allows us to see the evolving stream of topics of development
-% occurring over time. We demonstrate that windowed topic analysis offers
-% benefits over entire lifetime topic analysis because of the
-% independence of topics between windows.
-
-
-
   As development on a software project progresses, developers will
   naturally shift their focus between different topics and tasks many
   times.  Managers and newcomer developers often seek ways of
@@ -161,16 +97,6 @@ Richard C. Holt\\
 
 
 
-
-%   In this lab report we seek to explore how topics shift over time in
-%   the source control repository of a project. We analyze commit
-%   comments, and even source code per revision per each time window and
-%   extract the topics prevalent in that window. We expect that topic
-%   sets will change over time and the change in topic sets indicate a
-%   change in the focus of development. We suppose this could help us to
-%   segment the revisions on the time line to discover parts of an
-%   iteration. For topic extraction we use \lda (LDA).
-
 \end{abstract}
 
 \shrinkit
@@ -178,18 +104,6 @@ Richard C. Holt\\
 \shrinkit
 
 %?
-
-
-% 
-
-% In the presence of fine grained changes and detailed change-logs
-
-% Developers topics the focus of develop
-
-% many change-logs how to sort by change type
-
-% interleaved changes relate similar changes
-
 What happened in the previous maintenance or development iteration?
 What were the developers working on? What was the developer in the
 next cubicle working on?  Which common topics and issues were dealt
@@ -198,25 +112,6 @@ the previous release?  Given the requirements agreed to at the start
 of the iteration did our developers work on them? What else did they
 work on?
 
-% XXX Come back here, clear up and cut 
-% Topic analysis, with respect to
-% Software Control Systems (SCSs) such as CVS, Subversion, Git etc.,
-% is potentially valuable as it has many uses for various
-% stakeholders.  Imagine a development team has agreed to implement
-% some features at the start of a development iteration.  By the end
-% of the iteration only some of the agreed upon features are
-% implemented.  The developers insist they were focusing on the
-% features agreed upon, but what actually happened?  Topic analysis
-% could help by teasing out the distinct topics or focusses of the
-% developers.  Perhaps the developers had to deal with other pressing
-% issues.  Developers might have grouped those orthogonal issues into
-% the features they were working on, thus when asked about how their
-% time was spent the orthogonal changes would not be covered.  This is
-% the kind of underlying story that we hope that windowed topic
-% analysis can uncover. If windowed topic analysis can discover
-% important but overlooked topics, it can help both developers and
-% managers.  Developers and Managers can see a summary of what worked
-% on and the topics of development.
 
 Imagine that a development team had agreed upon a set of features to
 implement for a development iteration, but these features were not
@@ -408,44 +303,6 @@ track the evolution of topics by visualizing the topics and joining
 similar topics into trends.  Figure \ref{fig:lda} displays a manually
 created sample plot of the extracted topics in Table
 \ref{tab:portability}.
-
-%It is apparent that we have to compare these topics some how by
-%item-set or similarity.
-
-% \begin{table*}
-% \centering
-% \begin{tabular}{|ccc|l|}
-% \hline
-% 2000 &  Jul &  31 &    chmod \\
-% 2000 &  Sep &  29 &    fixes benchmark logging windows \\
-% 2000 &  Nov &  28 &    typo fix insert\_multi\_value \\
-% 2001 &  Jan &  27 &    fixes Innobase Cleanups auto-union \\
-% 2001 &  Mar &  28 &    2 topics bugfix, logging , TEMPORARY,  \\
-% \hline
-% 2001 &  Jul &  26 &    update Allow TABLES LOCK [a] \\ 
-
-% 2001 &  Aug &  25 &    tables row version [a] \\
-% \hline
-% 2001 &  Sep &  24 &    update checksum merge \\
-% 2001 &  Oct &  24 &    fixed fix \\
-% 2001 &  Dec &  23 &    HPUX SCO fix \\
-% \hline
-% 2002 &  Feb &  21 &    net buffer length  max\_allowed\_packet [b] \\
-% 2002 &  Mar &  23 &    small buf fix [b]  \\
-% \hline
-% 2002 &  May &  22 &    [popular] fix SCO OSF1 table\_name \\
-% 2002 &  Nov &  18 &    HPUX11 compiler HP \\
-% \hline
-% 2003 &  Feb &  16 &    Linux errno  [c] \\
-% 2003 &  Mar &  18 &    alarm bookmark bug [c] \\
-% \hline
-% 2003 &  Sep &  14 &    Auto logging merge windows distribution fix 64-bit 4.0 Cleanup \\
-% \hline
-% \end{tabular}
-% \caption{Tracking topics associated with the word portability, note some continuous blocks}
-% \label{tab:portability}
-% \end{table*}
-
 
 \begin{table}
 \centering
@@ -712,32 +569,6 @@ long.
   \label{fig:histogram}
 \end{figure}
 
-%\shrinkit
-%\subsection{Datasets and Tools}
-%\shrinkit
-
-
-
-%   1. [ ] LDA
-
-%   2. [ ] Extractor
-
-%   3.   Similarity
-
-%   4.   Smearing
-
-%   5.   Visualizer
-
-
-
-
-%LDA Skeleton
-%1. [ ] Abstract 
-%2. [ ] Introduction
-
-%3. [ ] Previous Work [0/2]
-%   2. [ ] LDA Work [0/6]
-
 
 
 \shrinkit
@@ -754,19 +585,6 @@ Haskell.
 We applied our tools and visualizations to the repositories of several
 open source database systems: PostgreSQL, MaxDB and Firebird.
 
-
-% Extractors:
-% \begin{itemize}
-% \item CVSSuck - CVS Suck mirrors RCS files from a CVS repository. 
-% \item softChange - extract CVS facts to a PostgreSQL database.
-% \item bt2csv - Convert BitKeeper repositories to facts in CSV
-%   databases.
-% \end{itemize}
-
-%   1. Interesting smears 
-%   2.   postgresql
-
-
 %\subsection{MySQL}
 %XXX DO MYSQL?
 \shrinkit
@@ -774,7 +592,6 @@ open source database systems: PostgreSQL, MaxDB and Firebird.
 \shrinkit
 %   3.   mysql
 
-%XXX Redo?
 
 When we examined PostgreSQL, we did not find many trends with two or
 more topics, using a similarity of $7/10$. Those trends that we did find
@@ -797,43 +614,13 @@ contributors.  Other repeating topics refer to portability with Win32,
 Central Europe Time (CEST) from email headers, issues with ALTER TABLE
 and CVS branch merging, because CVS does not record merges explicitly.
 
-% When we examined PostgreSQL, we did not find many trends with two or
-% more topics; however, we did find one large trend which stretched
-% across most of its existence.  Much of the large trend consisted of
-% stop words but it did include topics which had non-stop words such as
-% \emph{patch}, \emph{fix}, \emph{update}.
-
-% The second largest topic was interesting because it concerned changes from
-% 1998, from developers using Central Europe Time (CEST), where the two
-% notable tokens were 1998 and CEST. These changes appear to be patches
-% submitted by one particular developer who lived in that timezone.
-
-% The third largest trend we found appeared to concerned with copying
-% and moving files between branches as it referenced the old branch.
-% branches.  We inferred this trend based on the fact that the old
-% version identifier was referenced, and we know this this is common
-% practice when performing a branch merge, since CVS cannot record such
-% information directly.
-
-
-% Once stop words were removed the some of the purposes became more
-% clear. The large trend disappeared, the largest trend became bug fixes
-% submitted by a developer named Dal Zotto which is a short trend.
-
-
-%XXX REDO POSTEGRESQL?
-% Large Trends is not the point!!!
-% That's what normal LDA gives us
-
-%But large trends are not the point, by investigating windowed trends
-%we want more local information about trends being worked on.
 
 \shrinkit
 \subsection{Firebird}
 \shrinkit
 %   5.   what's that other db?
 
-%XXX REDO?
+
 
 We tracked Firebird from August 2000 to January 2006. We found that with a
 similarity of $7/10$ that Firebird had far more continuous and
@@ -857,36 +644,12 @@ tokens and phrases such as: \emph{compiler workarounds}, \emph{nightly
   updates}, \emph{packets} and \emph{MSVC++}.
 
 
-% We tracked Firebird from August 2000 to January 2006.
-% Our first attempt with Firebird resulted in a set of trends that were
-% dominated by one large trend containing tokens that were mostly stop
-% words such as references to one author
-% \texttt{carlosga05} and the words: \emph{the, to, a, for, of, is, it}.
-
-% The second largest trend related to branching and possibly merging; it
-% contained language such as ``was added on branch'' and contained
-% references to tags and branches.
-
-% The third largest trend contained references to the changelog, the
-% build system, architecture and platform support. It specifically
-% mentioned tokens such as \emph{Solaris}, \emph{port} and \emph{x86}.
-
-% Other trends included topics regarding AIX PPC compilation, updating
-% the build process, internationalization and UTF8, Darwin build support
-% and bug fixing.
-
-% Topics that were not trends but appeared to be  interesting were mostly external bug
-% fixes submitted to the project.
-%  In these cases, the developers would express thanks in their commit log comments, such as ``Thanks, Bill Lam''.  Other easily discernible topics included 
-%  tokens and topics such as: \emph{compiler workarounds}, \emph{nightly updates}, \emph{packets} and \emph{MSVC++}.
-
 \shrinkit
 \subsection{MaxDB 7.500}
 \shrinkit
 
-%XXX REDO?
 
-%XXX Migod todo
+% Migod todo
 % I think that you should enlarge this discussion of MaxDB (at the
 % expense of the other systems) and make careful references to how the
 % diagrams give you extra info about the evolution of the system (in
@@ -976,30 +739,19 @@ should tune the topic similarity parameters to handle these changes.
 
 
 % UNICODE
-
 % DEC/OSF1
-
 % ODBC
-
 % crash
-
 % PHP yet Perl is mentioned is less but it part
-
-
-
 % SQLCLI
 % %V75
-
 % SYSDD.cpnix
 % backup
-
 % select
 % make
 % memory
 % view
-
 % debug
-
 % V75 is mentioned many times maxdb version guh
 
 
@@ -1007,7 +759,7 @@ should tune the topic similarity parameters to handle these changes.
 \subsection{Compare with topics over the entire development}
 \shrinkit
 
-%XXX Migod notes This section is perhaps the most important of the
+% Migod notes This section is perhaps the most important of the
 % whole paper.  You need expand it.  Maybe you should move the first
 % two paras of the conclusions in here too.
 
@@ -1158,19 +910,6 @@ lot of changes while others months have almost none.
 % be more detail.
 
 
-
-% Even with our liberal topic similarity metrics that produced both
-% long and short trends, we showed that there are only a few trends in a
-% repository which recur. Since so few trends recur and so many
-% trends appear only once this suggests that global topic analysis might
-% be ignoring locally unique topics. 
-
-% The utility of global topic analysis is questionable if the value of
-% information decreases as it becomes older. Perhaps older trends will
-% dominate the topic analysis. Windowed localized topic analysis show
-% what are the unique topics.
-
-
 We proposed and demonstrated the application of windowed topic
 analysis, that is, topic analysis applied to commit messages during
 periods of development. This approach differs from previous work that
@@ -1186,9 +925,6 @@ of three database systems with a particular focus on MaxDB 7.500. We
 showed that global topic analysis missed important topics like such as
 ODBC changes.
 
-%XXX summarize our position
-
-%XXX Add more detail here
 
 We presented several visualization techniques that focused on
 different aspects of the data: temporality of trends, trend size, and
