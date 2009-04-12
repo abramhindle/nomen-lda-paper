@@ -359,6 +359,8 @@ created sample plot of the extracted topics in Table
 \shrinkit
 \section{Methodology}
 \shrinkit
+
+
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.9\textwidth]{commit-to-topics} 
@@ -377,9 +379,12 @@ then we analyze and visualize the results.
 
 
 
+
 \shrinkit
 \subsection{Extraction of  Repositories and Documents}
 \shrinkit
+
+
 
 We mirrored the repositories and their revisions using software such
 as rsync, CVSSuck, \texttt{softChange} and bt2csv.
@@ -455,9 +460,9 @@ trends. A trend is probably interesting if it contains more than one
 topic.
 
 This technique has weaknesses in that nodes that are a few neighbors
-away in similarity might not share any similar words.  We use this measure
-because we want to be able to color or highlight topics that are
-related to each other and track them throughout time.
+away in similarity might not share any similar words.  We use this
+measure because we want to be able to color or highlight topics that
+are related to each other and track them throughout time.
 
 Once we have determined our similarity clusters we can choose to
 analyze and to plot the topics.
@@ -522,7 +527,7 @@ The \emph{compact-trend-view} (Figure \ref{fig:topicsmear}) tries to
 sink the larger trends to the bottom.  Once the larger trends are
 stacked we fill in the gaps with the smaller trends in the same
 window, and then stack the smaller trends on top.  Although there is a
-chance that gaps will be left due to non-optimal stacking in practice
+chance that gaps will be left due to non-optimal stacking, in practice
 there are lot of small trends (90\% of all trends contain 1 topic)
 that fill in these gaps quickly.  Different instances of the same
 trend share the same color; apart from that, the color of trends is
@@ -614,14 +619,14 @@ relating to timezones.
 If we kept the stop words we found that the large trend consisted
 mostly of stop words and non-stop words such as \emph{patch},
 \emph{fix}, \emph{update}.  By decreasing the similarity constraint to
-$1/2$ similarity the largest most common trend, which
-stretched across the entire development, contained these same words
-(\emph{patch}, \emph{fix}, \emph{update}). The second largest trend
-mentions Dal Zotto, while the third largest trend mentions the
-\texttt{[PATCHES]} mailinglist and the names of some patch
-contributors.  Other repeating topics refer to portability with Win32,
-Central Europe Time (CEST) from email headers, issues with ALTER TABLE
-and CVS branch merging, because CVS does not record merges explicitly.
+$1/2$ similarity the largest most common trend, which stretched across
+the entire development, contained these same words (\emph{patch},
+\emph{fix}, \emph{update}). The second largest trend mentions Dal
+Zotto, while the third largest trend mentions the \texttt{[PATCHES]}
+mailinglist and the names of some patc contributors.  Other repeating
+topics refer to portability with Win32, Central Europe Time (CEST)
+from email headers, issues with ALTER TABLE and CVS branch merging
+(CVS does not record merges explicitly).
 
 
 \shrinkit
@@ -705,43 +710,41 @@ topics can overlap but still not match via our similarity measure.
 Bug tracker URLs dominated unique topics during some months. For
 instance in the last month of MaxDB 7.500 development every topic
 contained 1 unique Bug tracker URL, this pattern did not occur in the
-previous month. We investigated the revisions and we did find
-there was a difference in behavior between, and that the last month of
-development commits were mostly referencing the bug tracker. If the
-topics of one month were about unique bug tickets being
-addressed, the global topic analysis would probably miss this, yet these
-bug tickets were the focus of development for that month but not
+previous month. We investigated the revisions and we found that
+developers were referencing the bug tracker more during the last
+month.  If the topics of one month were about unique bug tickets being
+addressed, the global topic analysis would probably miss this, yet
+these bug tickets were the focus of development for that month but not
 necessarily globally relevant.
 
 The query optimizer was a topic that recurred during MaxDB's
-development. In our plots, topics that mention \emph{optimizer} occur four
-times, yet in the global-trend-view (Figure \ref{fig:statictopics}) it
-is not in any of the topics. A query optimizer is rather important to
-an DBMS, but as we have shown it just does not pop up as a topic on
-its own. We tried to remove words to see if we could get an 
-\emph{optimizer} topic. After removing stop words and then two of the most
-common words, the global analysis finally had a topic with optimizer in
-its topic ten words. This shows that optimizer was important but it
-had been obscured, while it would have been noticed using the more
-locally relevant approach that we propose.
+development. In our plots, topics that mention \emph{optimizer} occur
+four times, yet in the global-trend-view (Figure
+\ref{fig:statictopics}) it is not in any of the topics. A query
+optimizer is an important component of an DBMS, but as we have shown
+it does not appear as a topic on its own. We tried to remove words to
+see if we could get an \emph{optimizer} topic. After removing stop
+words and then two of the most common words, the global analysis
+finally had a topic with optimizer in its topic ten words. This shows
+that optimizer was important but it had been obscured, but would have
+been noticed using the more local topic analysis.
 
 We noticed that commits that mentioned \emph{PHP} occurred two thirds
 less frequently than commits that mentioned \emph{Perl}, but
 \emph{Perl}-related topics appeared in the global static topics for
 MaxDB while \emph{PHP}-related topics did not.  Our local topic
 analysis mentioned \emph{PHP} in 5 different topics, yet only
-mentioned \emph{Perl} in 4 different windowed topics and 1 global
+mentioned \emph{Perl} in 4 different topics and 1 global
 topic. Perhaps this is because there was a cluster of \emph{Perl}
 mentions during one month while the \emph{PHP} mentions were more
 spread out.
 
-
-We noticed that \emph{Perforce} and \emph{Changelist} were in just
-about every topic, so we added them to the stop words list. As a
-result, longer trends were shortened and sometimes the total
-number of topics found per month were less.  Evaluating different
-similarity thresholds showed that by removing common words one reduces
-the general similarity of topics. That said, the larger topics were still
+Just about every topic included the words \emph{Perforce} and
+\emph{Changelist}, so we added them to the stop words list. As a
+result, longer trends were shortened and sometimes the total number of
+topics found per month were reduced.  Evaluating different similarity
+thresholds showed that by removing common words one reduces the
+general similarity of topics. That said, the larger topics were still
 clearly apparent. Thus if more relevant stop words are added one
 should tune the topic similarity parameters to handle these changes.
 
@@ -782,12 +785,12 @@ should tune the topic similarity parameters to handle these changes.
 Previous work on topic analysis that employed LSI and LDA typically
 extracted a specified number of topics and then tracked them over
 time. This means that a single, static set of topics was tracked
-across the whole development history of a project. \emph{Global topic
-  analysis} is topic analysis applied against the entire lifetime of a
-project.
+across the whole development history of a project, we refer to this as \emph{global topic
+  analysis}.% is topic analysis applied against the entire lifetime of a
+%project.
 
-We carried out the same kind of analysis,          to compare the
-results against our time-windowed approach.  To produce
+We carried otu \emph{global topic analysis} on MaxDB 7.500 and
+compared this against our windowed topic analysis.  To produce
 figure~\ref{fig:statictopics}, we extracted 20 topics and plotted the
 number of messages per month that were related to that topic. We found
 was that one topic would often dominate the results, as shown in the
@@ -801,9 +804,9 @@ other topics did not appear often.
 This approach seems reasonable if most of the extracted topics are of
 broad interest during most of the development process.  However, it
 may be that some topics are of strong interest but only briefly; in
-such a case, a window-based model gives a much stronger indication of
-the fleeting importance of such topics, and can help to put such a
-topic into its proper context.
+such a case, a windowed topic analysis gives a much stronger
+indication of the fleeting importance of such topics, and can help to
+put such a topic into its proper context.
 
 % Revisions 26+1+103+19+20+48+35+50+77+49+48+18
 % Revisions 494 
@@ -833,16 +836,11 @@ repository that recur. Since so few trends recur and so many trends
 appear only once this suggests that global topic analysis might be
 ignoring locally unique topics.
 
-
-
 The utility of global topic analysis is questionable if the value of
 information decreases as it becomes older. Perhaps older trends will
 dominate the topic analysis. Windowed localized topic analysis shows
 what are the unique topics, yet seems to give a more nuanced view of
 the timeliness of the important topics.
-
-
-
 
 
 \begin{figure}[t]
@@ -877,16 +875,25 @@ their changes with relevant information. We rely on the descriptions
 they provide. If the language of check-in comments was automated we
 would  be analyzing only that.
 
-We truncated the topics to top 10 tokens, so this summary of a topic
-might not have been as useful as determining the actual topic distance
-between two word topic distributions. By truncating tokens we could be
-losing valuable data.
+We compared topics using the top 10 tokens, this approach could be
+throwing data away and might not be as useful as determining the
+actual distance between two word topic distributions.
 
-Each project seemed to have their own set of stop words, and we did not
-remove them, but perhaps dropping some of these stop words would aid
-the clarity of topics produced through topic analysis; alternatively
-it might cause our topic similarity plots to be fundamentally
-different.
+% We truncated the topics to the top 10 tokens, so this summary of a topic
+% might not have been as useful as determining the actual topic distance
+% between two word topic distributions. By truncating tokens we could be
+% losing valuable data.
+
+Adding and removing stop words produced different results. Our choice
+of stopwords could be biased, and could affect the results.
+%, and our bias for or against such stop words could affect
+%the results.
+
+% Each project seemed to have their own set of stop words, and we did not
+% remove them, but perhaps dropping some of these stop words would aid
+% the clarity of topics produced through topic analysis; alternatively
+% it might cause our topic similarity plots to be fundamentally
+% different.
 
 The number of commits per month is inconsistent as some months have
 many changes while other months have almost none.
@@ -945,14 +952,15 @@ indicates how focused a period is by the total number of topics, as
 well, it shows topics by similarity so one can track trends across
 time.  Our trend-histogram immediately highlights and measures the
 size of trends while our trend-time-line view shows how a topic
-reoccurs over time. These visualizations help us get an general
-feeling about the common and unique topics that developers focus
-on during development. If implemented properly a user could easily zoom in and query a
-summary of a topic or trend.
+reoccurs over time. These visualizations help us get a general feeling
+about the common and unique topics that developers focus on during
+development. If implemented interactively a user could easily zoom in
+and query for a summary of a topic or trend.
 
 
 \shrinkit
 \subsection{ Future Work}
+\shrinkit
 \shrinkit
 
 One avenue of future work is automatic topic labelling. Given a word
@@ -964,6 +972,8 @@ standards.
 
 \shrinkit
 \bibliographystyle{latex8}
+
+\shrinkit
 \bibliography{lda-paper}
 
 %\bibliographystyle{abbrv}
