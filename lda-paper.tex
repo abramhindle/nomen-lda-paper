@@ -541,7 +541,7 @@ trends are harder to spot.
 The \emph{trend-time-line} (Figure
 \ref{fig:trendtimeline}) displays repeating trends more clearly by
 dedicating a horizontal line for trend segments belonging to one
-trend. This means that if a trend contains discontinuous segments then
+trend. Therefore if a trend contains discontinuous segments then
 the segments appear on the same line.  However, the least common
 trends need to be pruned away or the view will be very long.
 
@@ -782,11 +782,23 @@ should tune the topic similarity parameters to handle these changes.
 % Can you add numbers in here to make the argument stronger?
 
 
+% Previous work on topic analysis that employed LSI and LDA typically
+% extracted a specified number of topics and then tracked their
+% relationship to documents over time. This means that a single, static
+% set of topics was tracked across the whole development history of a
+% project, we refer to this as \emph{global topic
+%   analysis}.% is topic analysis applied against the entire lifetime of a
+% %project.
+
 Previous work on topic analysis that employed LSI and LDA typically
-extracted a specified number of topics and then tracked them over
-time. This means that a single, static set of topics was tracked
-across the whole development history of a project, we refer to this as \emph{global topic
-  analysis}.% is topic analysis applied against the entire lifetime of a
+extracted a specified number of topics from the entire development
+history of a project and then tracked their relationships to documents
+over time, we call this \emph{global topic analysis}.
+
+% This means that a single, static
+%set of topics was tracked across the whole development history of a
+%project, we refer to this as \emph{global topic
+%  analysis}.% is topic analysis applied against the entire lifetime of a
 %project.
 
 We carried out \emph{global topic analysis} on MaxDB 7.500 and
