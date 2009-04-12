@@ -197,7 +197,7 @@ unique and independent within the set of documents in our total
 corpus. One could think of a topic as a distribution of the centroid
 of a group of messages. In this paper we often summarize topics by the
 top 10 most frequent words of their word distribution.  A \emph{trend}
-is a one or more similar topics that recur over time.  Trends are
+is one or more similar topics that recur over time.  Trends are
 particularly important, as they indicate long-lived and recurring
 topics that may provide key insights into the development of the
 project.
@@ -263,10 +263,10 @@ called Independent Component Analysis to separate topic signals from
 software code.
 
 Our technique differs from the previous techniques because we apply
-LDA locally to month-long windows of commit log comments, whereas other
-approaches apply LDA once to the entire project. This allows us to
-examine the time-based windowing of topics over its development
-history.
+LDA locally to month-long windows of commit log comments, whereas
+other approaches apply LDA once to the entire project. Windowed topic
+analysis allows us to examine the time-based windowing of topics over
+its development history.
 
 
 %      1. [ ] LDA itself
@@ -725,7 +725,7 @@ optimizer is an important component of an DBMS, but as we have shown
 it does not appear as a topic on its own. We tried to remove words to
 see if we could get an \emph{optimizer} topic. After removing stop
 words and then two of the most common words, the global analysis
-finally had a topic with optimizer in its topic ten words. This shows
+finally had a topic with optimizer in its topic ten words. Our analysis shows
 that optimizer was important but it had been obscured, but would have
 been noticed using the more local topic analysis.
 
@@ -734,7 +734,7 @@ less frequently than commits that mentioned \emph{Perl}, but
 \emph{Perl}-related topics appeared in the global static topics for
 MaxDB while \emph{PHP}-related topics did not.  Our local topic
 analysis mentioned \emph{PHP} in 5 different topics, yet only
-mentioned \emph{Perl} in 4 different topics and 1 global
+mentioned \emph{Perl} in four different topics and one global
 topic. Perhaps this is because there was a cluster of \emph{Perl}
 mentions during one month while the \emph{PHP} mentions were more
 spread out.
@@ -954,7 +954,7 @@ time.  Our trend-histogram immediately highlights and measures the
 size of trends while our trend-time-line view shows how a topic
 reoccurs over time. These visualizations help us get a general feeling
 about the common and unique topics that developers focus on during
-development. If implemented interactively a user could easily zoom in
+development. If implemented interactively an user could easily zoom in
 and query for a summary of a topic or trend.
 
 
