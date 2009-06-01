@@ -1,0 +1,173 @@
+Subject:
+ICSM 09 Research Paper Track Reviews
+From:
+ICSM 09 <icsm09@easychair.org>
+Date:
+Sat, 30 May 2009 04:53:25 +0100
+To:
+Abram Hindle <ahindle@cs.uwaterloo.ca>
+
+Dear (*AUTHORS*),
+
+In the previous email sent by us, we already included the accept/reject notification of your paper, entitled
+
+(*NUMBER*): (*TITLE*)
+
+Please find the reviews of your paper attached below.  We hope you will find them useful.
+
+We look forward to seeing you this September in Edmonton!
+http://icsm2009.cs.ualberta.ca/
+
+Best regards,
+Tao Xie
+Kostas Kontogiannis
+ICSM 2009 Research Program Co-Chairs
+
+
+
+
+---------------------------------------------
+
+Paper: 119
+Title: What's hot and what's not: Windowed developer topic analysis
+
+
+-------------------- review 1 --------------------
+
+PAPER: 119
+TITLE: What's hot and what's not: Windowed developer topic analysis
+    
+
+The paper proposes Windowed topic analysis that differs from global topic analysis because a time frame (the authors choose 1 month) is considered instead of the entire periods of development. Topic analysis is applied to commit messages; the approach is based on LDA and LSI. Topic analysis was applied on a case study of three database systems with a particular focus on MaxDB 7.500. Several views are presented.
+
+The approach proposed seems interesting and new. I have read the paper with great interest. However, in general, the paper lacks much in the way of significant findings. Overall, the paper fails to make clear conclusions on the real outcome. 
+Authors in the conclusion said: “The value of windowed topic analysis was demonstrated on a case study of three database systems with a particular focus on MaxDB 7.500”. The problem is that I have not seen the “real value” of windowed topic analysis. What did you really learn from the 3 experiments (PostgreSQL, Firebird and MaxDB 7500)? It seems a list of trends but not so much significant. It leave me with a “so what”, and the application of the approach do not really bring something new. Maybe the problem is only mine: I was expecting too much from the paper/approach.
+
+Other remarks:
+•	LDA should be explained a little. It is not so common in SE.
+•	Some references are lacking; for example in “We mirrored the repositories and their revisions using software such as rsync, CVSSuck, softChange and bt2csv” (page 3)
+•	How is decided the order of the tokens? (e.g., in table 1). Is it the output of LDA?
+•	Sometimes some choices are not so clear/well explained: one month as the length of time windows, 20 topics, 10 words, using and non using stop words. The authors should comment a little more these choices and what is the impact of changing these values.
+•	Figures in general are not readable. In particular in B/W. This renders the comphrension of the paper more difficult and doesn’t help the reader.
+•	Figure 2 is not referenced in the paper. It should summarize the approach (maybe a symptom that the paper was written in haste?)
+•	The role of the views is not clear (how the views are used to produce the results presented in section 5?).
+•	Maybe some information regarding the number of analyzed commit per case studies could be useful to understand a little bit better the experiemnts. 
+
+
+-------------------- review 2 --------------------
+
+PAPER: 119
+TITLE: What's hot and what's not: Windowed developer topic analysis
+    
+
+The paper presents a study on topic detection based on analyzing the commit messages.
+
+Overall comments:
+
+The problem is important, and the study does show interesting results. In particular, I like the observation on how 
+most topics are tiny and how they tend to be local. Furthermore, the case studies are significant. However, the paper 
+is not very clear regarding the goal and the achievements.
+
+The introduction is unclear about the actual focus of the paper. It talks about topics and about some expectations, 
+but it is unclear what the benefit is.
+
+You say that one of the contribution is to demonstrate the value of windowed topic analysis using trends, but there is 
+no hint as to what this value is and how it is compared with other similar approaches.
+
+You also say that you provide multiple visualizations, but it is unclear what their goal is.
+
+I strongly suggest to sharpen the introduction.
+
+In section 3, you state that at first you wanted to see if LDA could provide interesting topics. What does interesting 
+mean? If you goal is not clear, how do you know you reach it?
+
+You state that words like "diffs, annotate, history" should be treated as stop words. Why? Is it because they do not 
+denote a domain concept? What if the domain actually include these words, are they still not relevant?
+
+You say that you tries to identify the purpose of the topic. How did you do it? Was it by looking at the commit 
+messages, or just by reading the list of words? Did you check your assumptions?
+
+You say that you remove stop words, but in Figure 4 I noticed words like "to" or "on". These are stop words.
+
+Figure 3 is not informative. Figure 5 is supposed to provide a more detailed view of a selection from Figure 4, but it 
+fails to do so because we still need to zoom to read the details. I would suggest removing it and adding a comment 
+to the reader that Figure 4 is a high resolution picture and that details can be obtained by zooming in.
+
+In section 4.5 you enumerate several visualizations, but it is again unclear what the goal is. Why do you need these? 
+What do you intend to detect?
+
+I do not understand the white gap from Figure 4. At first I thought there was no commit in that period, but the 
+presence of text in the whitespace threw me off. I only learnt in section 5.3 that my original assumptions was correct. 
+Still, I do not understand the text.
+
+In section 5 you describe the detected topics for each case study. However, it is unclear how and which of the 
+visualizations helped. Furthermore, you seem to make several assumptions when interpreting the data (e.g., "seem to 
+be a side effect"). Did you verify these assumptions?
+
+"Our analysis shows that optimizer was important but it had been obscured, but would have been noticed using the 
+more local topic analysis." What does local topic mean? A smaller window?
+
+All in all, the work is interesting but I do not know what to take away. While most of the paper focuses on the 
+visualizations,  there is not much evidence for supporting the case for their effectiveness. On the other hand, the 
+most important lesson seems to be the thesis that most topics are local. I would suggest to clearly delimit one idea 
+and to focus on it.
+
+
+Detailed remarks:
+- The format is not the correct one for ICSM
+- "we hope that our research will help uncover these ...", "We hope that by looking..." -> and do you succeed?
+- "Others have demonstrated ..." -> some references would help
+- "LDA [5]This" -> "LDA [5]. This"
+- "we model topics are nodes" -> ""we model topics as nodes"
+- "We found was that" -> "We found that" 
+
+
+-------------------- review 3 --------------------
+
+PAPER: 119
+TITLE: What's hot and what's not: Windowed developer topic analysis
+    
+
+Short summary
+------------- 
+The authors investigate whether a topic analysis of version control log messages done with montly intervals works 
+
+better than when a global topic analysis is done.
+
+In favour/against
+-----------------
++ interesting topic
++ well-written
+
+Detailed remarks
+----------------
+- Is the 1 month non-overlapping interval ideal? Did you experiment with other intervals? Maybe even a non-constant 
+
+interval, but an interval which is dependent on the activity rate? Did you experiment with fixed intervals which 
+
+overlap?
+
+- Section 4.3. How did you come to the 20 topics? Did you experiment with other values?
+
+- Why did you split the observation-period for MaxDB?
+
+- You say yourself that your graph in Figure 6 can become very big... can you give us an idea as to how big and also how well your solution copes with scalability?
+
+
+***************
+** IMPORTANT **
+***************
+- After a very intense discussion among the PC, we would like to *strongly advice* you to sharpen the paper according to the suggestions that have been raised by all the reviewers. In particular, you should:
+* Make the goal and the achievements more explicit
+* Explain details of your technique better, e.g., the choice of the window size, what exactly you consider stop words (reviewers 1 and 2 have some questions there)
+* Please go over all suggestions by all 3 reviewers and try to incorporate them into your camera ready paper
+
+Smaller remarks
+---------------
+- p2, column2: LDA [5]*.* This model
+- p3, column1: [6,7]*.* Concept analysis
+- Figure 2 is not referenced in the text
+- p4, column2: Sentence that starts with: "Then given this topic similarity matrix, we find the transitive..." --> re-read sentence
+- p8, column1: 7/10 that Firebird --> drop "that"
+- p9, column1: To produce figure 8 --> capitalize --> Figure
+- p9, column1: re-read sentence that starts with: "We found was that one..." 
