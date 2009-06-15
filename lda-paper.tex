@@ -99,6 +99,52 @@ Richard C. Holt\\
 
 \end{abstract}
 
+\section{Real Introduction}
+
+We care about the topics of development. We want to know given a
+certain period of time, what were the popular topics being worked on
+during that period. We also want to know if any of those topics
+occurred again, whether before or after our current period.
+
+These topics could help stakeholders determine what their coworkers
+were working on, what were common issues, what requirements were being
+worked on, etc.
+
+Topic analysis extracts groups of words from documents (commit log
+comments) that are word distributions, topics, which characterize
+clusters of documents. These extracted topics often correlate with
+actual development topics that the developers discussed. 
+
+Usually topic analysis is applied to the entire history of a project,
+where as we suggest that more topics are probably local, if a
+programmer is working on a story card, they might never deal with that
+story card ever again. Thus that topic might be quite relevant to a
+small window of time but never relevant ever again.  By applying topic
+analysis locally to an iteration, both the developers and managers
+might be able to see what were the topics of development during that
+iteration, rather than the whole project.
+
+
+Topic analysis often allows for a single document, such as a commit
+message, to be related to multiple documents. This maps well to
+commits which often have more than one purpose.
+
+
+Commits in source control systems (SCSs) can have multiple
+purposes. Thus we hope that our research will help uncover these
+multiple purposes that manifest themselves as topics interleaved
+within the commits.  Others have demonstrated that topic analysis
+techniques, such as Latent Semantic Indexing (LSI) and Latent
+Dirichlet Allocation (LDA), can aid in separating topics from these
+mixed comments. These topics often describe distinct ideas that are
+interleaved throughout the development. A topic represents both a word
+distribution and a group of commit log comments that are related to
+each other by their content.  In this case a topic is a set of tokens.
+
+
+
+
+
 \shrinkit
 \section{Introduction}
 \shrinkit
