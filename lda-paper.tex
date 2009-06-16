@@ -99,7 +99,7 @@ Richard C. Holt\\
 
 \end{abstract}
 
-\section{Real Introduction}
+\section{Introduction}
 
 We care about the topics of development. We want to know given a
 certain period of time, what were the popular topics being worked on
@@ -115,6 +115,15 @@ comments) that are word distributions, topics, which characterize
 clusters of documents. These extracted topics often correlate with
 actual development topics that the developers discussed. 
 
+Topic analysis often allows for a single document, such as a commit
+message, to be related to multiple topics. This maps well to
+commits which often have more than one purpose.  A topic represents
+both a word distribution and a group of commit log comments that are
+related to each other by their content.  In this case a topic is a set
+of tokens.
+
+
+
 Usually topic analysis is applied to the entire history of a project,
 where as we suggest that more topics are probably local, if a
 programmer is working on a story card, they might never deal with that
@@ -125,106 +134,114 @@ might be able to see what were the topics of development during that
 iteration, rather than the whole project.
 
 
-Topic analysis often allows for a single document, such as a commit
-message, to be related to multiple documents. This maps well to
-commits which often have more than one purpose.
+Figure \ref{fig:lda} illustrates the kind of visualization we want to
+automatically generate. We want to see topics that are unique to a
+certain time period, displayed across the time axis. Those topics that
+recur, or occur over a larger period are plotted continuously. In our
+example we have titled each topic with a single word drawn from
+itself.
 
-
-Commits in source control systems (SCSs) can have multiple
-purposes. Thus we hope that our research will help uncover these
-multiple purposes that manifest themselves as topics interleaved
-within the commits.  Others have demonstrated that topic analysis
-techniques, such as Latent Semantic Indexing (LSI) and Latent
-Dirichlet Allocation (LDA), can aid in separating topics from these
-mixed comments. These topics often describe distinct ideas that are
-interleaved throughout the development. A topic represents both a word
-distribution and a group of commit log comments that are related to
-each other by their content.  In this case a topic is a set of tokens.
-
-
-
-
-
-\shrinkit
-\section{Introduction}
-\shrinkit
-
-%?
-What happened in the previous maintenance or development iteration?
-What were the developers working on? What was the developer in the
-next cubicle working on?  Which common topics and issues were dealt
-with in the current release of the software? What were the topics of
-the previous release?  Given the requirements agreed to at the start
-of the iteration did our developers work on them? What else did they
-work on?
-
-
-Imagine that a development team had agreed upon a set of features to
-implement for a development iteration, but these features were not
-finished by the end of the iteration. The developers insist they
-focussed on those features, yet their manager is not sure what
-happened. In a scenario like this, topic analysis can help tease out
-the topics of development that the developers were focussed on. Topic
-analysis could highlight the orthogonal issues that developers were
-spending time on.  Topic analysis extracts groups of words from
-documents (commit log comments) that are word distributions, topics,
-which characterize clusters of documents. These extracted topics often
-correlate with actual development topics that the developers
-discussed. By applying topic analysis locally to an iteration, both
-the developers and managers might be able to see what were the topics
-of development during that iteration. %XXX RM during that iteration
-
-
-%XXX RM 
-Commits in source control systems (SCSs) can have multiple
-purposes. Thus we hope that our research will help uncover these
-multiple purposes that manifest themselves as topics interleaved
-within the commits.  Others have demonstrated that topic analysis
-techniques, such as Latent Semantic Indexing (LSI) and Latent
-Dirichlet Allocation (LDA), can aid in separating topics from these
-mixed comments. These topics often describe distinct ideas that are
-interleaved throughout the development. A topic represents both a word
-distribution and a group of commit log comments that are related to
-each other by their content.  In this case a topic is a set of tokens.
-
-
-% We suppose this could help us to segment the revisions on the time
-% line to discover parts of an iteration.
-
-Topic analysis can aid in partitioning a project's
-time-line into periods of developer focus. By breaking apart an
-iteration into sets of topics and trends (topics that recur), we may
-be able to recognize the underlying software development process from
-these commits. Alternatively, we can determine what particular
-maintenance task was being performed at a given time.
-
-We propose to extend existing topic analysis techniques by applying
-them to windows of documents over time. We hope that by
-looking %XX X ADDED
-at topic clusters during periods or windows over time we can identify
-ongoing areas of focus on a select group of topics as well reflect
-more intermittent topics. Figure \ref{fig:lda} illustrates the kind of
-visualization we want to automatically generate. We want to see topics
-that are unique to a certain time period, displayed across the time
-axis. Those topics that recur, or occur over a larger period are
-plotted continuously. In our example we have titled each topic with a
-single word drawn from itself.
-
-In this paper we explore how topics shift over time in the SCS of a
-project, using several open source database systems as examples. We
-analyze commit log comments in each time window and we extract the
-topics of that time window. We expect that topics will change over
-time and the similarities and differences in these topics will
-indicate developer focus and changes in developer focus as it changes
-over time.
+In this paper we explore how topics shift over time in the source
+control system (SCS) of a project, using several open source database
+systems as examples. We analyze commit log comments in each time
+window and we extract the topics of that time window. We expect that
+topics will change over time and the similarities and differences in
+these topics will indicate developer focus and changes in developer
+focus as it changes over time.
 
 Our contributions include:
 \begin{itemize}
-\item Demonstrating the value of windowed topic analysis using trends.
-\item Multiple visualizations of topics and trends over time.
+\item Demonstrating that most topics are local in scope, thus would be
+  missed by a global topic analysis.
+\item Multiple visualizations of topics and trends over time to aid
+  communication and analysis of topics and trends.
 \item An exploratory case study using these techniques on several open source database systems.
 \end{itemize}
 
+
+
+%%%   
+%%%   
+%%%   \shrinkit
+%%%   \section{Introduction}
+%%%   \shrinkit
+%%%   
+%%%   %?
+%%%   What happened in the previous maintenance or development iteration?
+%%%   What were the developers working on? What was the developer in the
+%%%   next cubicle working on?  Which common topics and issues were dealt
+%%%   with in the current release of the software? What were the topics of
+%%%   the previous release?  Given the requirements agreed to at the start
+%%%   of the iteration did our developers work on them? What else did they
+%%%   work on?
+%%%   
+%%%   
+%%%   Imagine that a development team had agreed upon a set of features to
+%%%   implement for a development iteration, but these features were not
+%%%   finished by the end of the iteration. The developers insist they
+%%%   focussed on those features, yet their manager is not sure what
+%%%   happened. In a scenario like this, topic analysis can help tease out
+%%%   the topics of development that the developers were focussed on. Topic
+%%%   analysis could highlight the orthogonal issues that developers were
+%%%   spending time on.  Topic analysis extracts groups of words from
+%%%   documents (commit log comments) that are word distributions, topics,
+%%%   which characterize clusters of documents. These extracted topics often
+%%%   correlate with actual development topics that the developers
+%%%   discussed. By applying topic analysis locally to an iteration, both
+%%%   the developers and managers might be able to see what were the topics
+%%%   of development during that iteration. %XXX RM during that iteration
+%%%   
+%%%   
+%%%   %XXX RM 
+%%%   Commits in source control systems (SCSs) can have multiple
+%%%   purposes. Thus we hope that our research will help uncover these
+%%%   multiple purposes that manifest themselves as topics interleaved
+%%%   within the commits.  Others have demonstrated that topic analysis
+%%%   techniques, such as Latent Semantic Indexing (LSI) and Latent
+%%%   Dirichlet Allocation (LDA), can aid in separating topics from these
+%%%   mixed comments. These topics often describe distinct ideas that are
+%%%   interleaved throughout the development. A topic represents both a word
+%%%   distribution and a group of commit log comments that are related to
+%%%   each other by their content.  In this case a topic is a set of tokens.
+%%%   
+%%%   
+%%%   % We suppose this could help us to segment the revisions on the time
+%%%   % line to discover parts of an iteration.
+%%%   
+%%%   Topic analysis can aid in partitioning a project's
+%%%   time-line into periods of developer focus. By breaking apart an
+%%%   iteration into sets of topics and trends (topics that recur), we may
+%%%   be able to recognize the underlying software development process from
+%%%   these commits. Alternatively, we can determine what particular
+%%%   maintenance task was being performed at a given time.
+%%%   
+%%%   We propose to extend existing topic analysis techniques by applying
+%%%   them to windows of documents over time. We hope that by
+%%%   looking %XX X ADDED
+%%%   at topic clusters during periods or windows over time we can identify
+%%%   ongoing areas of focus on a select group of topics as well reflect
+%%%   more intermittent topics. Figure \ref{fig:lda} illustrates the kind of
+%%%   visualization we want to automatically generate. We want to see topics
+%%%   that are unique to a certain time period, displayed across the time
+%%%   axis. Those topics that recur, or occur over a larger period are
+%%%   plotted continuously. In our example we have titled each topic with a
+%%%   single word drawn from itself.
+%%%   
+%%%   In this paper we explore how topics shift over time in the SCS of a
+%%%   project, using several open source database systems as examples. We
+%%%   analyze commit log comments in each time window and we extract the
+%%%   topics of that time window. We expect that topics will change over
+%%%   time and the similarities and differences in these topics will
+%%%   indicate developer focus and changes in developer focus as it changes
+%%%   over time.
+%%%   
+%%%   Our contributions include:
+%%%   \begin{itemize}
+%%%   \item Demonstrating the value of windowed topic analysis using trends.
+%%%   \item Multiple visualizations of topics and trends over time.
+%%%   \item An exploratory case study using these techniques on several open source database systems.
+%%%   \end{itemize}
+%%%   
 \shrinkit
 \section{Background}
 \shrinkit
