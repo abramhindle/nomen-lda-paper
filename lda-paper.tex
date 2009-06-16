@@ -147,15 +147,19 @@ systems as examples. We analyze commit log comments in each time
 window and we extract the topics of that time window. We expect that
 topics will change over time and the similarities and differences in
 these topics will indicate developer focus and changes in developer
-focus as it changes over time.
+focus as it changes over time. We will show that most topics are
+locally relevant and thus a windowed analysis can allow for both
+different kinds of global and local analysis than global topic
+analysis would.
 
 Our contributions include:
 \begin{itemize}
-\item Demonstrating that most topics are local in scope, thus would be
-  missed by a global topic analysis.
+\item Demonstrating that windowed topic analysis most topics are local
+  in scope, thus would be missed by a global topic analysis.
 \item Multiple visualizations of topics and trends over time to aid
   communication and analysis of topics and trends.
-\item An exploratory case study using these techniques on several open source database systems.
+\item An exploratory case study using these techniques on several open
+  source database systems.
 \end{itemize}
 
 
@@ -296,7 +300,7 @@ words) from the documents.
 
 In order to infer or associate the expertise of an author with topics
 extracted from SCS, Linstead et al.\  proposed an author-source-code model
-using LDA~\cite{10.1109/MSR.2007.20}%,NIPS2007637,1321709}. 
+using LDA~\cite{10.1109/MSR.2007.20}.%,NIPS2007637,1321709}. 
 This model
 is essentially an extension of the author-topic (AT)
 model~\cite{1036902}, which associated authors and topics extracted
@@ -312,7 +316,7 @@ related documents.
 LSI is related to LDA and has been used to identify topics in software
 artifacts for formal concept analysis and concept
 %location~\cite{1421013,1374321,10.1109/ICPC.2007.13,10.1109/ICPC.2006.17}.
-location~\cite{1374321,10.1109/ICPC.2007.13}
+location~\cite{1374321,10.1109/ICPC.2007.13}.
 Concept analysis aims to automatically extract concepts from source
 code or documents that are related to the source code.  Concept location concerns how
 high-level concepts relate to low level entities such as source code. For
@@ -438,7 +442,9 @@ Our methodology is to first extract the commit log comments from a
 project's SCS repository. We filter out stop words and produce word
 distributions from these messages. These distributions are bucketed
 into windows, and then each window is subject to topic analysis and
-then we analyze and visualize the results.
+then we analyze and visualize the results. Figure \ref{fig:commits}
+depicts the general process for processing and analyzing the commit
+messages.
 
 
 
@@ -491,6 +497,9 @@ we could have used other similar tools like LSI, but previous work
 showed more promising topic analysis results with LDA.  We note that
 this step is a slow one, as executing even one instance of LDA
 involves significant computation, and we perform LDA once per window.
+Figure \ref{fig:commits} shows how LDA is applied to a set of
+messages, and how the topics are extracted and related to the
+messages.
 
 
 
@@ -513,9 +522,9 @@ topics into trends by comparing them to each other using topic similarity.
 Our input for topic similarity is the top 10 most common words of each
 topic.  Each topic is compared to each other topic in the system,
 given a certain threshold of top 10 word similarity, such as 8 out of
-top 10 matching words. Then given this topic similarity matrix, we
-find the transitive closure of similar topics; that is, if we model
-topics are nodes and arcs as similarity, we fill flood along the
+top 10 matching words. We then apply the transitive closure on similar
+topics to this topic similarity matrix; this is similar to modelling
+topics as nodes and similarity as arcs, then fill flooding along the
 similarity arcs until we have partitioned the topics into clusters of
 similar topics. Figure \ref{fig:closure} illustrates clustering of
 topics by topic similarity. These clusters of topics are called
@@ -560,7 +569,8 @@ Topic Clustering
     7.500. The x-axis is time in months, the Y axis is used to stack
     topics occurring at the same time. Trends that are continuous are
     plotted as continuous blocks. The top 10 words in the topics are
-    joined and embedded in box representing the topics.}
+    joined and embedded in box representing the topics. The gap in the
+    middle is a period where no development took place.}
   \label{fig:topicsmear}
 \end{figure*}
 
@@ -614,9 +624,10 @@ plotted together by stacking to the left of their row, thus time
 information is lost.  The trends are ordered by the number of topics
 in the trend.  The trend-histogram shows the count of instances of a
 trend and thus indicates which trends occur the most. Unfortunately
-due to the large number of topics, given the allotted space, it is often
-best to crop off the trends with only one topic, otherwise the tail is
-long.
+due to the large number of topics (approximately $N$ topics multiplied
+by $M$ periods), given the allotted space, it is often best to crop
+off the trends with only one topic ($1\%$ to $10\%$ of the total
+topics), otherwise the tail is long.
 
 
 
@@ -700,7 +711,7 @@ from email headers, issues with ALTER TABLE and CVS branch merging
 
 
 We tracked Firebird from August 2000 to January 2006. We found that with a
-similarity of $7/10$ that Firebird had far more continuous and
+similarity of $7/10$ Firebird had far more continuous and
 recurring trends than PostgreSQL.  The first large trend was segmented
 across time but explicitly references one author \texttt{carlosga05}
 and words like \emph{added}, \emph{fixed} and \emph{updated}.
@@ -738,7 +749,7 @@ tokens and phrases such as: \emph{compiler workarounds}, \emph{nightly
 
 
 The plots we produced of MaxDB 7.500 were unlike those of the other
-systems, as there was a period where no real development occurred and
+systems, as there was a period where no development occurred and
 thus there were no topics or trends whatsoever (see the gap in Figure
 \ref{fig:topicsmear}). Using a topic similarity of $7/10$ we evaluated
 MaxDB 7.500. MaxDB 7.500's first period was from June 2004 to January
@@ -866,11 +877,12 @@ over time, we call this \emph{global topic analysis}.
 
 We carried out \emph{global topic analysis} on MaxDB 7.500 and
 compared this against our windowed topic analysis.  To produce
-figure~\ref{fig:statictopics}, we extracted 20 topics and plotted the
-number of messages per month that were related to that topic. We found
-was that one topic would often dominate the results, as shown in the
-third row of Figure \ref{fig:statictopics}, while messages related to
-other topics did not appear often.
+Figure~\ref{fig:statictopics}, we extracted 20 topics and plotted the
+number of messages per month that were related to that topic.  One
+topic would often dominate the results, as shown in the third row of
+Figure \ref{fig:statictopics}, while the other topics did not appear
+as often.
+
 % This technique seems useful if the 20 extracted topics are relevant
 % and useful, that said one weakness of this approach is that documents
 % for a topic might only occur in one time window, yet we are tracking
@@ -1013,10 +1025,10 @@ via global topic analysis. We identify recurring topics with a topic
 similarity measure that looks for topics which recur and mutate
 repeatedly throughout the development of the software project.
 
-The value of windowed topic analysis was demonstrated on a case study
-of three database systems with a particular focus on MaxDB 7.500. We
-showed that global topic analysis missed important topics such as
-\emph{ODBC}.
+Windowed topic analysis demonstrated its value to hilight local topics
+and indentify global trends. This was shown in our case study of MaxDB
+7.500. Global topic analysis missed important topics such as
+\emph{ODBC} while windowed topic analysis identified them.
 
 
 We presented several visualization techniques that focused on
