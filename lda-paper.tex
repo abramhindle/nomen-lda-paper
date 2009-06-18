@@ -34,28 +34,28 @@ University of Waterloo\\
 %\numberofauthors{5}
 \author{
 %\alignauthor
-Abram Hindle\\
+Abram Hindle and Michael W. Godfrey and Richard C. Holt\\
 %\affaddr{David Cheriton School of Computer Science}\\
 \affaddr{University of Waterloo}\\
 \affaddr{Waterloo, Ontario}\\
 \affaddr{Canada}\\
-\aemail{ahindle@cs.uwaterloo.ca}
+\aemail{\{ahindle,migod,holt\}@uwaterloo.ca}
 %\alignauthor
-\and
-Michael W. Godfrey\\
-%\affaddr{David Cheriton School of Computer Science}\\
-\affaddr{University of Waterloo}\\
-\affaddr{Waterloo, Ontario}\\
-\affaddr{Canada}\\
-\aemail{migod@cs.uwaterloo.ca}
-%\alignauthor
-\and
-Richard C. Holt\\
-%\affaddr{David Cheriton School of Computer Science}\\
-\affaddr{University of Waterloo}\\
-\affaddr{Waterloo, Ontario}\\
-\affaddr{Canada}\\
-\aemail{holt@cs.uwaterloo.ca}
+% \and
+% Michael W. Godfrey\\
+% %\affaddr{David Cheriton School of Computer Science}\\
+% \affaddr{University of Waterloo}\\
+% \affaddr{Waterloo, Ontario}\\
+% \affaddr{Canada}\\
+% \aemail{migod@cs.uwaterloo.ca}
+% %\alignauthor
+% \and
+% Richard C. Holt\\
+% %\affaddr{David Cheriton School of Computer Science}\\
+% \affaddr{University of Waterloo}\\
+% \affaddr{Waterloo, Ontario}\\
+% \affaddr{Canada}\\
+% ;\aemail{holt@cs.uwaterloo.ca}
 %\alignauthor
 %\and
 %Gregorio Robles\\
@@ -86,7 +86,7 @@ Richard C. Holt\\
   unexpected tasks occupied their team's attention during a period
   when they were supposed to have been implementing a set of new
   features.  Tools such as Latent Dirichlet Allocation (LDA) and
-  Latent Semantic Indexing (LSI) can be used to analyze check-in
+  Latent Semantic Indexing (LSI) can be used to analyze commit log
   comments over the entire lifetime of a project. Previous work on
   developer topic analysis has leveraged these tools to associate
   commit log comments with independent topics extracted from these
@@ -104,6 +104,15 @@ Richard C. Holt\\
 
 \Section{Introduction}
 
+What happened in the previous maintenance or development iteration?
+What were the developers working on? What was the developer in the
+next cubicle working on? Which common topics and issues were dealt
+with in the current release of the software? What were the topics of
+the previous release? Given the requirements agreed to at the start
+of the iteration did our developers work on them?  What else did they
+work on?
+
+
 We want to know about the topics of development that programmers
 encountered while developing a software project. We want to know given
 a certain period of time, what were the popular topics being worked on
@@ -111,13 +120,15 @@ during that period. We also want to know if any of those topics
 occurred again, whether before or after our current period.  These
 topics could help stakeholders determine what their coworkers were
 working on, what were common issues, what requirements were being
-worked on, etc.
+worked on, etc. In order to extract and evaluate these topics we plan
+to rely on topic analysis.
 
 Topic analysis extracts groups of words from documents (commit log
 comments) that are word distributions, topics, that are combined to
 characterize clusters of documents. These extracted topics often
 correlate with actual development topics that the developers discussed
 during the development of the software project.
+
 
 Topic analysis often allows for a single document, such as a commit
 message, to be related to multiple topics. This maps well to commits
@@ -303,6 +314,9 @@ words) from the documents.
 \SubSection{LDA, LSI and Semantic Clustering}
 \shrinkit
 
+
+
+
 In order to infer or associate the expertise of an author with topics
 extracted from SCS, Linstead et al.\  proposed an author-source-code model
 using LDA~\cite{10.1109/MSR.2007.20}.%,NIPS2007637,1321709}. 
@@ -341,6 +355,44 @@ analysis allows us to examine the time-based windowing of topics over
 its development history.
 
 
+% An example use of LDA
+% * take a bunch of commit messages
+% ** occurred during a period with bug fixing, adding a GUI and documentation changes
+% ** LDA would find that bug fixing topic was associated to the words bug, fix, failure, ticket
+% *** GUI - widget, panel, button, menu, window
+% *** Documentation - chapter, section, figure and words shared between GUI and bug fixing
+% * a particular commit would be associated with some of these topics 
+% ** a commit about addressing a fix to a bug in a ticket would be heavily associated with the bug topic
+% ** a commit that deals with documenting the GUI associated with GUI and Documentation
+% ** a commit that was independant of all three could've induced a seperate topic altogether
+
+Imagine that we are analyzing one month of development in a project
+where the main focus was on bug fixing, adding a new GUI and
+documentation updates relating to the system and the GUI. To use LDA
+we'd get the word distributions of each commit messages, pass them to
+LDA and tell LDA to find some topics, in this case we said 4. The 4
+topics it discovered would probably be bug fixing, GUI, documentation
+and other. These topics are essentially word distributions, for
+example the bug fixing topic would include words like \emph{bug},
+\emph{fix}, \emph{failure} and \emph{ticket}. The GUI topic would
+include words like \emph{widget}, \emph{panel}, \emph{window}, and
+\emph{menu}. The documentation topic would include words like
+\emph{section}, \emph{figure}, and \emph{chapter}. The other topic
+would include words found in topics generally independant of the other
+topics. If we analyzed a commit of a bug fix it'd probably contain
+words like \emph{ticket} and thus heavily associate with the bug fix
+topic. A commit that was about user documentation regarding the GUI
+would be associated with the documentation topic and the GUI topic
+because it shared words from both topics. Where as a topic dealing
+neither bugs, GUIs or documentation might be associated with the other
+topic. This example demonstrates how LDA can associate 1 document (a
+commit message) with more than one topic, how topics are related to
+documents via their word distributions. LDA also would discover these
+independant topics in an unsupervised manner, all the end user has to
+do is name the topic based upon the most frequent words in that topic,
+which is a word distribution.
+
+
 %      1. [ ] LDA itself
 %      2. [ ] Maletic stuff
 %      3. [ ] WCRE: Scott/Jim
@@ -358,7 +410,17 @@ interesting topics extracted from a real system. We took the
 repository of MySQL 3.23, extracted the commits, grouped them by 30
 day non-overlapping windows, and then applied LDA to each of these
 windows. We asked LDA to make 20 topics per window and we then
-examined the top 10 most frequent words in that topic.  We found there
+examined the top 10 most frequent words in that topic.  We chose one
+month because it was smaller than the time between minor releases but
+large enough for there to be many commits to analyze. We chose 20
+topics because past experimentation showed that few topics might
+aggregate multiple unique topics while anymore topics seemed to dilute
+the results and create some indistinct topics. 10 most frequent words
+were chosen as sometimes 1 common word dominated topics so we wanted
+to have enough words to distingush topics.
+
+
+We found there
 were common words across topic clusters, such as \emph{diffs},
 \emph{annotate} and \emph{history}; since these words occur so often
 in the MySQL 3.23 messages, we probably should be viewed as stop
@@ -410,7 +472,7 @@ created sample plot of the extracted topics in Table
 % 2003 &  Sep &      Auto logging merge windows distribution fix 64-bit 4.0 Cleanup \\
 \hline
 \end{tabular}
-\caption{Sampled topics from MySQL 3.23, some with continuous topics. These tokens were pulled from LDA topic. Each token is a summary of one LDA generated topic from MySQL 3.23 commit comments.}
+\caption{Sampled topics from MySQL 3.23, some with continuous topics. These tokens were pulled from the top 10 most common words found in LDA extracted topics. Each token is a summary of one LDA generated topic from MySQL 3.23 commit comments.}
 \label{tab:portability}
 \end{table}
 
@@ -490,7 +552,11 @@ allows for many levels of granularity.  We used one month as the
 length of our time windows. While we could use different window
 lengths for this study we think that a month is a sizable unit of
 development, which is large enough to show shifts in focus, but coarse
-enough not to show too much detail.
+enough not to show too much detail. Choosing a month as the window
+provided us with enough documents to analyze. One could overlap the
+windows, which would increase the likelihood of trends, but for this
+study we lacked the space and were more concerned if topics ever
+repeated, overlapping might skew that result.
 
 \shrinkit
 \SubSection{Apply Topic Analysis to each Window}
@@ -498,7 +564,11 @@ enough not to show too much detail.
 
 Once we have our data windowed, we apply our Topic Analysis tool to
 each window and extract the top $N$ topics. We used $20$ topics in our
-case studies. Our Topic Analysis tool is an implementation of LDA, but
+case studies because we experimented before and that $20$ was about
+all we can handle before too many topics seemed too indistinct from
+each other to differeniate.
+
+ Our Topic Analysis tool is an implementation of LDA, but
 we could have used other similar tools like LSI, but previous work
 showed more promising topic analysis results with LDA.  We note that
 this step is a slow one, as executing even one instance of LDA
@@ -528,14 +598,16 @@ topics into trends by comparing them to each other using topic similarity.
 Our input for topic similarity is the top 10 most common words of each
 topic.  Each topic is compared to each other topic in the system,
 given a certain threshold of top 10 word similarity, such as 8 out of
-top 10 matching words. We then apply the transitive closure on similar
-topics to this topic similarity matrix; this is similar to modelling
-topics as nodes and similarity as arcs, then fill flooding along the
-similarity arcs until we have partitioned the topics into clusters of
-similar topics. Figure \ref{fig:closure} illustrates clustering of
-topics by topic similarity. These clusters of topics are called
-trends. A trend is probably interesting if it contains more than one
-topic.
+top 10 matching words.  10 words were chosen because often people care
+about top 10 comparison and it allowed for some common words to exist
+but not cause topics to match so closely.  We then apply the
+transitive closure on similar topics to this topic similarity matrix;
+this is similar to modelling topics as nodes and similarity as arcs,
+then fill flooding along the similarity arcs until we have partitioned
+the topics into clusters of similar topics. Figure \ref{fig:closure}
+illustrates clustering of topics by topic similarity. These clusters
+of topics are called trends. A trend is probably interesting if it
+contains more than one topic.
 
 This technique has weaknesses in that nodes that are a few neighbors
 away in similarity might not share any similar words.  We use this
@@ -688,7 +760,11 @@ open source database systems: PostgreSQL, MaxDB and Firebird.
 
 
 When we examined PostgreSQL, we did not find many trends with two or
-more topics, using a similarity of $7/10$. Those trends that we did find
+more topics, using a similarity of $7/10$. $7/10$ was chosen because
+it preserved indepedant topics but seemed to be a borderline threshold
+value where more serious trends started to appear.
+
+Those trends that we did find
 were not very large, lasting only 3 months at most. The first and second
 largest trends were dedicated to the work of two external developers:
 Dal Zotto, Dan McGuirk. The fifth largest trend related to work by
@@ -1059,7 +1135,14 @@ and query for a summary of a topic or trend.
 \shrinkit
 \shrinkit
 
-One avenue of future work is automatic topic labelling. Given a word
+We want to explore parameters more across multiple projects, what
+motivates the need for more or less topics, can we find a good
+estimate of a good choice of number of topics to evaluate. We want to
+investigate the effects of overlapping windows on this analysis, do
+they make the trends too long? Do they highlight some trends
+unnecessarily or are they more because they are time agnostic.
+
+Another avenue of future work is automatic topic labelling. Given a word
 distribution we should be able to automatically select a word or term
 that describes that distribution. Potential external sources of topic
 names include: software engineering taxonomies, ontologies and
