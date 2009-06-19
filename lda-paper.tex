@@ -422,20 +422,22 @@ to have enough words to distingush topics.
 
 We found there were common words across topic clusters, such as
 \emph{diffs}, \emph{annotate} and \emph{history}; since these words
-occur so often in the MySQL 3.23 messages, we probably should be
-viewed as stop words. There were notable transitional topics such as
-in the first window the word \emph{BitKeeper} appears because MySQL
-adopted Bitkeeper for their source control system yet in the following
-windows there were no mentions of BitKeeper. \emph{RENAME} also only
-appeared once in the first window and never again. Per each topic we
-tried to identify the purpose of the topic; to our surprise we found
-that even with only a little familiarity with the code base that
-naming the topic was straightforward. To find the purpose of a commit
-we looked at the most frequent words in the word distribution of the
-topic and tried to summarize the topic, then we looked into the
-commits related to that topic to investigate if we were correct; since
-the commit messages and the word distribution share the same words the
-purpose extracted from commit comments was usually accurate.
+occur so often in the MySQL 3.23 messages. These words probably should
+be viewed as stop words since occur across so many topics, even though
+they are related to version control usage.  There were notable
+transitional topics such as in the first window the word
+\emph{BitKeeper} appears because MySQL adopted Bitkeeper for their
+source control system yet in the following windows there were no
+mentions of BitKeeper. \emph{RENAME} also only appeared once in the
+first window and never again. Per each topic we tried to identify the
+purpose of the topic; to our surprise we found that even with only a
+little familiarity with the code base that naming the topic was
+straightforward. To find the purpose of a commit we looked at the most
+frequent words in the word distribution of the topic and tried to
+summarize the topic, then we looked into the commits related to that
+topic to investigate if we were correct; since the commit messages and
+the word distribution share the same words the purpose extracted from
+commit comments was usually accurate.
 
 A sampling of the notable topic words is displayed in Table
 \ref{tab:portability}, we chose topics that we felt confident we could
