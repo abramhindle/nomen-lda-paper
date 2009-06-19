@@ -140,7 +140,7 @@ projects source control system (SCS).
 
 
 
-Usually topic analysis is applied to the entire history of a project,
+Usually topic analysis is applied to the entire history of a project~\cite{1321709,lukins2008,10.1109/ICPC.2007.13},
 where as we suggest that more topics are probably local, if a
 programmer is working on a story card, they might never deal with that
 story card ever again. Thus that topic might be quite relevant to a
@@ -344,8 +344,8 @@ report map back to the source code?  Semantic Clustering has also been
 used for similar purposes~\cite{1698774,1566153} as it is similar to
 LSI.
 
-Grant et al.~\cite{scottcordy} have used an alternative technique,
-called Independent Component Analysis to separate topic signals from
+Grant et al.~\cite{scottcordy} and have used an alternative technique,
+called Independent Component Analysis~\cite{delac} to separate topic signals from
 software code.
 
 Our technique differs from the previous techniques because we apply
@@ -530,9 +530,10 @@ messages.
 
 
 We mirrored the repositories and their revisions using software such
-as rsync, CVSSuck, \texttt{softChange} and bt2csv.
+as rsync~\cite{rsync}, CVSsuck~\cite{cvssuck},
+\texttt{softChange}~\cite{dmgseke2004}, and bt2csv~\cite{methodology}.
 \texttt{softChange} provided a general schema for storing revisions
-and grouped CVS revisions into commits. CVSSuck and rsync mirrored CVS
+and grouped CVS revisions into commits. CVSsuck and rsync mirrored CVS
 repositories while bt2csv mirrored web accessible BitKeeper
 repositories.
 
@@ -677,7 +678,9 @@ each trend gets it own distinct y-value, while the x-axis is time;
 these topics are then each plotted on their own line across time as
 they occur. Our final technique is the \emph{trend-histogram}, shown in Figure
 \ref{fig:histogram} where we plot each trend on its own line but stack
-up the segments of the trend, much like a histogram.
+up the segments of the trend, much like a histogram. Each topic has its top 10 words 
+listed in descending order of frequency from top to bottom, this text is embedded inside the topic's box.
+A trend has all of its topic text embedded side by side within the same trend box.
 
 
 The \emph{compact-trend-view} (Figure \ref{fig:topicsmear}) tries to
@@ -755,7 +758,8 @@ Blei et al.~\cite{944937}; and our trend plotter, implemented in
 Haskell.
 
 We applied our tools and visualizations to the repositories of several
-open source database systems: PostgreSQL, MaxDB and Firebird.
+open source database systems: PostgreSQL, MaxDB and Firebird. The
+total number of commits analyzed was over $66 000$.
 
 %\SubSection{MySQL}
 %XXX DO MYSQL?
@@ -765,9 +769,10 @@ open source database systems: PostgreSQL, MaxDB and Firebird.
 %   3.   mysql
 
 
-When we examined PostgreSQL, we did not find many trends with two or
-more topics, using a similarity of $7/10$. $7/10$ was chosen because
-it preserved indepedant topics but seemed to be a borderline threshold
+When we examined PostgreSQL's history from 1996 to 2004, which include
+over $20 000$ commits. We did not find many trends with two or more
+topics, using a similarity of $7/10$. $7/10$ was chosen because it
+preserved indepedant topics but seemed to be a borderline threshold
 value where more serious trends started to appear.
 
 Those trends that we did find
@@ -798,7 +803,7 @@ from email headers, issues with ALTER TABLE and CVS branch merging
 
 
 
-We tracked Firebird from August 2000 to January 2006. We found that with a
+We tracked Firebird from August 2000 to January 2006, we extracted comments from $38 000$ commits. We found that with a
 similarity of $7/10$ Firebird had far more continuous and
 recurring trends than PostgreSQL.  The first large trend was segmented
 across time but explicitly references one author \texttt{carlosga05}
@@ -837,11 +842,12 @@ tokens and phrases such as: \emph{compiler workarounds}, \emph{nightly
 
 
 The plots we produced of MaxDB 7.500 were unlike those of the other
-systems, as there was a period where no development occurred and
-thus there were no topics or trends whatsoever (see the gap in Figure
+systems, as there was a period where no development occurred and thus
+there were no topics or trends whatsoever (see the gap in Figure
 \ref{fig:topicsmear}). Using a topic similarity of $7/10$ we evaluated
 MaxDB 7.500. MaxDB 7.500's first period was from June 2004 to January
-2005, and its second period was from June 2005 to June 2006.
+2005, and its second period was from June 2005 to June 2006. There
+were a total of $8 600$ commits analyzed.
 
 The largest common trend has references to build system files like
 \texttt{SYSDD.punix} and \texttt{MONITOR.punix}.  This trend is
