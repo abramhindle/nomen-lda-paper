@@ -118,15 +118,15 @@ Abram Hindle and Michael W. Godfrey and Richard C. Holt\\
 
 \Section{Introduction}
 
-\hla{
-What happened in the previous maintenance or development iteration?
-What were the developers working on? What was the developer in the
-next cubicle working on? Which common topics and issues were dealt
-with in the current release of the software? What were the topics of
-the previous release? Given the requirements agreed to at the start
-of the iteration did our developers work on them?  What else did they
-work on?
-}
+\hla{ The questions that we wish to address deal with the past and
+  topics of development that occurred in the past.  What happened in
+  the previous iteration of a project's development?  What were the
+  developers working on? What was the developer in the next cubicle
+  working on? Which common topics and issues were dealt with in the
+  current release of the software? What were the topics of the
+  previous release? Given the requirements agreed to at the start of
+  the iteration did our developers work on them?  What else did they
+  work on?  }
 
 \hla{
 We want to know about the topics of development that programmers
@@ -140,13 +140,12 @@ worked on, etc. In order to extract and evaluate these topics we plan
 to rely on topic analysis.
 }
 
+
 Topic analysis extracts groups of words from documents (commit log
 comments) that are word distributions, topics, that are combined to
 characterize clusters of documents. These extracted topics often
 correlate with actual development topics that the developers discussed
-during the development of the software project.
-
-
+during the development of the software project. 
 Topic analysis often allows for a single document, such as a commit
 \hla{
 message, to be related to multiple topics. This maps well to commits
@@ -154,7 +153,7 @@ to source code, which often have more than one purpose.  A topic
 represents both a word distribution and a group of commit log comments
 that are related to each other by their content.  In this case a topic
 is a set of tokens extracted from commit messages found within a
-projects source control system (SCS).
+projects source control system (SCS). 
 }
 
 \hla{
@@ -173,8 +172,17 @@ Figure \ref{fig:lda} illustrates the kind of visualization we want to
 automatically generate. We want to see topics that are unique to a
 certain time period, displayed across the time axis. Those topics that
 recur, or occur over a larger period are plotted continuously. In our
-example we have titled each topic with a single word drawn from its word
-distribution.
+example we have titled each topic with a single word drawn from its
+word distribution.  Given a visualization, such as this, topic
+analysis can aid in partitioning a project's time-line into periods of
+developer focus. By breaking apart an iteration into sets of topics
+and trends (topics that recur), we may be able to recognize the
+underlying software development process from these
+commits. Alternatively, we can determine what particular maintenance
+task was being performed at a given time.
+
+
+
 
 In this paper we explore how topics shift over time in the source
 control system (SCS) of a project, using several open source database
