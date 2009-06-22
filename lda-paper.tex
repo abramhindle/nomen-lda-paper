@@ -22,7 +22,7 @@
 
 
 
-\author{Abram Hindle and Michael Godfrey and Ric Holt \\
+\author{Abram Hindle, Michael Godfrey and Ric Holt \\
 \{ahindle,migod,holt\}@cs.uwaterloo.ca\\
 Software Architecture Group (SWAG)\\
 University of Waterloo\\
@@ -167,19 +167,23 @@ analysis locally to an iteration, both the developers and managers
 might be able to see what were the topics of development during that
 iteration, rather than the whole project.
 
-
+\hlb{
+We want to see topics that are unique to a
+certain time period, displayed across the time axis.
 Figure \ref{fig:lda} illustrates the kind of visualization we want to
-automatically generate. We want to see topics that are unique to a
-certain time period, displayed across the time axis. Those topics that
+automatically generate. } Those topics that
 recur, or occur over a larger period are plotted continuously. In our
 example we have titled each topic with a single word drawn from its
-word distribution.  Given a visualization, such as this, topic
+word distribution.  
+\hdb{
+Given a visualization, such as Figure \ref{fig:lda}, topic
 analysis can aid in partitioning a project's time-line into periods of
-developer focus. By breaking apart an iteration into sets of topics
+developer focus.
+}
+By breaking apart an iteration into sets of topics
 and trends (topics that recur), we may be able to recognize the
-underlying software development process from these
-commits. Alternatively, we can determine what particular maintenance
-task was being performed at a given time.
+underlying software development process and maintenance tasks from these
+commits. 
 
 
 
@@ -710,6 +714,16 @@ Topic Clustering
 \SubSection{Visualization}
 \shrinkit
 %       1. [ ] need the visualizer
+\hdb{ Visualization is an integral part of our topics analysis which
+  allows us to quickly explore the topics and trends of a project.
+  Visualization provides us with a framework that allows us to
+  visually answer many questions about: the spread of topics, how many
+  topics were independant per period, what the repeating trends were,
+  if the trends dominated or did local topics dominate, how continuous
+  trends were, and what the topic text in topic, trend, or period was.
+  Since we have multiple questions to answer we have multiple
+  visualization, described within this section, that help answer
+  different questions.  }
 
 We have devised several techniques for visualizing these topics and
 trends.  For all of these techniques if we find trends that have
@@ -729,40 +743,58 @@ listed in descending order of frequency from top to bottom, this text is embedde
 A trend has all of its topic text embedded side by side within the same trend box.
 }
 
-The \emph{compact-trend-view} (Figure \ref{fig:topicsmear}) tries to
-sink the larger trends to the bottom.  Once the larger trends are
-stacked we fill in the gaps with the smaller trends in the same
-window, and then stack the smaller trends on top.  Although there is a
-chance that gaps will be left due to non-optimal stacking, in practice
-there are lot of small trends (90\% of all trends contain 1 topic)
-that fill in these gaps quickly.  Different instances of the same
-trend share the same color; apart from that, the color of trends is
-randomly chosen and color similarity is not meaningful.  The
-compact-trend-view is convenient because it shows all of the topic
-information, as shown by the zoomed-in view of MaxDB 7.500's
-compact-trend-view in Figure \ref{fig:zoomedsmear}. This view makes
-repeating continuous trends easy to pick out, although discontinuous
-trends are harder to spot.
+\hlb{ The \emph{compact-trend-view} (Figure \ref{fig:topicsmear})
+  attempts to show all topics and trends at once across time in a
+  compact view that could fit on one page. It tries to give a compact
+  summary of the topics and trends across time.  } The
+\emph{compact-trend-view} (Figure \ref{fig:topicsmear}) tries to sink
+the larger trends to the bottom.  Once the larger trends are stacked
+we fill in the gaps with the smaller trends in the same window, and
+then stack the smaller trends on top.  Although there is a chance that
+gaps will be left due to non-optimal stacking, in practice there are
+lot of small trends (90\% of all trends contain 1 topic) that fill in
+these gaps quickly.  Different instances of the same trend share the
+same color; apart from that, the color of trends is randomly chosen
+and color similarity is not meaningful.  The compact-trend-view is
+convenient because it shows all of the topic information, as shown by
+the zoomed-in view of MaxDB 7.500's compact-trend-view in Figure
+\ref{fig:zoomedsmear}. The \emph{compact-trend-view} makes repeating
+continuous trends easy to pick out, although discontinuous trends are
+harder to spot, and provides a general summary of the topics within a project.
 
-The \emph{trend-time-line} (Figure
-\ref{fig:trendtimeline}) displays repeating trends more clearly by
+\hdb{
+The \emph{trend-time-line} (Figure \ref{fig:trendtimeline})
+attempts to show a summary of trends seperated from single topics. This view shows how a trend persists across time, which aids time-wise analysis of trends.
+}
+The \emph{trend-time-line} displays repeating trends more clearly by
 dedicating a horizontal line for trend segments belonging to one
 trend. Therefore if a trend contains discontinuous segments then
 the segments appear on the same line.  However, the least common
-trends need to be pruned away or the view will be very long.
+trends need to be pruned away or the view will be very long. 
+Thus the \emph{trend-time-line} view is used to analyze trends across time.
 
-The \emph{trend-histogram} (Figure \ref{fig:histogram}) superficially
-resembles the trend-time-line.  However, in this view the trends are
-plotted together by stacking to the left of their row, thus time
-information is lost.  The trends are ordered by the number of topics
-in the trend.  The trend-histogram shows the count of instances of a
-trend and thus indicates which trends occur the most. Unfortunately
-due to the large number of topics (approximately $N$ topics multiplied
-by $M$ periods), given the allotted space, it is often best to crop
-off the trends with only one topic ($1\%$ to $10\%$ of the total
-topics), otherwise the tail is long.
+\hdb{ The \emph{trend-histogram} (Figure \ref{fig:histogram}) attempts
+  to show a count of how often a trend reoccurs and how many topics
+  are related to a trend. It is meant to show the distribution of
+  trends by their size in topics and time-span.  } The
+\emph{trend-histogram} superficially resembles the trend-time-line.
+However, in this view the trends are plotted together by stacking to
+the left of their row, thus time information is lost.  The trends are
+ordered by the number of topics in the trend.  The trend-histogram
+shows the count of instances of a trend and thus indicates which
+trends occur the most. Unfortunately due to the large number of topics
+(approximately $N$ topics multiplied by $M$ periods), given the
+allotted space, it is often best to crop off the trends with only one
+topic ($1\%$ to $10\%$ of the total topics), otherwise the tail is
+long. \hdb{ The \emph{trend-histogram} summarizes the distribution of
+trends ordered by size. }
 
-
+\hdb{ All of these visualization combine to enable an analysis of
+  trends and topics. Some views like the \emph{compact-trend-view}
+  enable an analysis of local topics while the \emph{trend-histogram}
+  and \emph{trend-time-line} focus more on trends. We used these
+  visualizations to analyze the database systems that we discuss in
+  the following results section.  }
 
 \begin{figure}[t]
   \centering
