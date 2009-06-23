@@ -90,8 +90,7 @@ Abram Hindle and Michael W. Godfrey and Richard C. Holt\\
 
 \begin{abstract}
 
-  As development on a software project progresses, developers will
-  naturally shift their focus between different topics and tasks many
+  As development on a software project progresses, developers shift their focus between different topics and tasks many
   times.  Managers and newcomer developers often seek ways of
   understanding what tasks have recently been worked on and how much
   effort has gone into each; for example, a manager might wonder what
@@ -104,13 +103,13 @@ Abram Hindle and Michael W. Godfrey and Richard C. Holt\\
   comments over the entire lifetime of a project. Previous work on
   developer topic analysis has leveraged these tools to associate
   commit log comments with independent topics extracted from these
-  commit log comments.  In this work, we use LDA  to analyze
+  commit log comments.  In this paper, we use LDA  to analyze
   periods, such as months, within a project's lifetime to create a
   time-windowed model of changing development topics.  We propose 
   visualizations of this model that allows us to explore the evolving
   stream of topics of development occurring over time.  We demonstrate
   that windowed topic analysis offers advantages over topic analysis
-  applied to a projects lifetime because many topics are quite local.
+  applied to a project's lifetime because many topics are quite local.
 
 
 
@@ -119,7 +118,7 @@ Abram Hindle and Michael W. Godfrey and Richard C. Holt\\
 \Section{Introduction}
 
 \hla{ The questions that we wish to address deal with the past and
-  topics of development that occurred in the past.  What happened in
+  topics development that occurred in the past.  What happened in
   the previous iteration of a project's development?  What were the
   developers working on? What was the developer in the next cubicle
   working on? Which common topics and issues were dealt with in the
@@ -129,7 +128,7 @@ Abram Hindle and Michael W. Godfrey and Richard C. Holt\\
   work on?  }
 
 \hla{
-We want to know about the topics of development that programmers
+We want to know about the topics of that programmers
 encountered while developing a software project. We want to know given
 a certain period of time, what were the popular topics being worked on
 during that period. We also want to know if any of those topics
@@ -140,15 +139,17 @@ worked on, etc. In order to extract and evaluate these topics we plan
 to rely on topic analysis.
 }
 
-
-Topic analysis extracts groups of words from documents (commit log
-comments) that are word distributions, topics, that are combined to
-characterize clusters of documents. These extracted topics often
+\hdb{
+Topic analysis extracts independant word distributions (topics) from
+documents (commit log comments).
+Ideally these extracted topics }
 correlate with actual development topics that the developers discussed
 during the development of the software project. 
 Topic analysis often allows for a single document, such as a commit
+\hlb{
+message, to be related to multiple topics. Documents represented as a mixture of topics maps well to commits
+}
 \hla{
-message, to be related to multiple topics. This maps well to commits
 to source code, which often have more than one purpose.  A topic
 represents both a word distribution and a group of commit log comments
 that are related to each other by their content.  In this case a topic
@@ -157,13 +158,14 @@ projects source control system (SCS).
 }
 
 \hla{
-Usually topic analysis is applied to the entire history of a project~\cite{1321709,lukins2008,10.1109/ICPC.2007.13},
+In the past, topic analysis has been applied to the entire history of a project~\cite{1321709,lukins2008,10.1109/ICPC.2007.13},
 }
-where as we suggest that more topics are probably local, if a
-programmer is working on a story card, they might never deal with that
+\hlb{
+where-as this paper suggests that most topics are local. For example,  
+programmer may be working on a story card,} they might never deal with that
 story card ever again. Thus that topic might be quite relevant to a
 small window of time but never relevant ever again.  By applying topic
-analysis locally to an iteration, both the developers and managers
+analysis locally to a window or an iteration, both the developers and managers
 might be able to see what were the topics of development during that
 iteration, rather than the whole project.
 
@@ -173,7 +175,7 @@ certain time period, displayed across the time axis.
 Figure \ref{fig:lda} illustrates the kind of visualization we want to
 automatically generate. } Those topics that
 recur, or occur over a larger period are plotted continuously. In our
-example we have titled each topic with a single word drawn from its
+example we have titled each topic with a word drawn from its
 word distribution.  
 \hdb{
 Given a visualization, such as Figure \ref{fig:lda}, topic
