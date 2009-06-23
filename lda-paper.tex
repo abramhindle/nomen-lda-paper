@@ -197,19 +197,19 @@ window and we extract the topics of that time window. We expect that
 topics will change over time and the similarities and differences in
 these topics will indicate developer focus and changes in developer
 focus as it changes over time. We will show that most topics are
-\hla{
-locally relevant and thus a windowed topic analysis (local topic
-analysis of windows of messages) can allow for both different kinds of
-global and local analysis than global topic analysis would.
+\hlb{
+locally relevant, i.e., relevant to a single window of time.  
+Our windowing approach supports both local (single window) analysis
+and global (entire history) analysis.
 }
 
 \hla{
 Our contributions include:
 \begin{itemize}
 \item We demonstrate that windowed topic analysis most topics are local
-  in scope, thus would be missed by a global topic analysis.
-\item We present multiple visualizations of topics and trends over time to aid
-  communication and analysis of topics and trends.
+  in scope, which would be missed by a global topic analysis.
+\item We present a number of visualizations of topics and their trends over time to aid
+  communication and analysis of these topics and trends.
 \item We provide an exploratory case study using these techniques on
   several open source database systems.
 \end{itemize}
@@ -309,9 +309,9 @@ paper, messages will be the CVS and BitKeeper commit log comments made
 when the user commits changes to files in a repository. A \emph{word
   distribution} is the summary of a message by word count. Each word
 distribution will be over the words in all messages. However, most
-words will not appear in a message, a word distribution is effectively
+words will not appear in each message. A word distribution is effectively
 a word count divided by the message size. A \emph{topic} is a word
-distribution, a set of words that form a word distribution that is
+distribution, i.e. a set of words that form a word distribution that is
 unique and independent within the set of documents in our total
 corpus. One could think of a topic as a distribution of the centroid
 of a group of messages. In this paper we often summarize topics by the
@@ -333,14 +333,14 @@ semantic clustering~\cite{1698774,1566153}. These tools are used for
 document modelling, document clustering and collaborative
 filtering. LDA attempts to encode documents as a mixture
 model, a combination of topics.  LDA is used in software engineering
-literature~\cite{lukins2008,10.1109/MSR.2007.20}%,NIPS2007637,1321709}
- to extract topics from documents such as methods, bug
+literature~\cite{lukins2008,10.1109/MSR.2007.20}%,NIPS2007637,1321709}.
+LDA extracts topics from documents such as methods, bug
 reports, source code and files.
 
 LDA, LSI and semantic clustering extract topic
 clusters from the documents that are independent from one another. LDA
 does not name these clusters but the clusters consist of words whose
-relationship is often obvious to someone familiar with the corpus. We
+relationship is often obvious to someone familiar with the corpus. For our purposes, we
 could swap LDA for LSI or semantic clustering and likely produce similar
 results. Our data is posed as documents with word distributions (word
 counts per documents) and LDA extracts distinct topics (clusters of
@@ -356,7 +356,7 @@ words) from the documents.
 In order to infer or associate the expertise of an author with topics
 extracted from SCS, Linstead et al.\  proposed an author-source-code model
 using LDA~\cite{10.1109/MSR.2007.20}.%,NIPS2007637,1321709}. 
-This model
+  This model
 is essentially an extension of the author-topic (AT)
 model~\cite{1036902}, which associated authors and topics extracted
 with LDA.
@@ -408,9 +408,12 @@ its development history.
 Imagine that we are analyzing one month of development in a project
 where the main focus was on bug fixing, adding a new GUI and
 documentation updates relating to the system and the GUI. To use LDA
-we'd get the word distributions of each commit messages, pass them to
-LDA and tell LDA to find some topics, in this case we said 4. The 4
-topics it discovered would probably be bug fixing, GUI, documentation
+we would get the word distributions of each commit messages, pass them to
+LDA and tell LDA to find some topics, in this case we
+\hlb{
+ in this case we chose to concentrate on four topics.
+} The four
+topics it discovered would ideally be bug fixing, GUI, documentation
 and other. These topics are essentially word distributions, for
 example the bug fixing topic would include words like \emph{bug},
 \emph{fix}, \emph{failure} and \emph{ticket}. The GUI topic would
@@ -418,16 +421,16 @@ include words like \emph{widget}, \emph{panel}, \emph{window}, and
 \emph{menu}. The documentation topic would include words like
 \emph{section}, \emph{figure}, and \emph{chapter}. The other topic
 would include words found in topics generally independant of the other
-topics. If we analyzed a commit of a bug fix it'd probably contain
+topics. If we analyzed a commit of a bug fix it would probably contain
 words like \emph{ticket} and thus heavily associate with the bug fix
 topic. A commit that was about user documentation regarding the GUI
 would be associated with the documentation topic and the GUI topic
 because it shared words from both topics. Where as a topic dealing
 neither bugs, GUIs or documentation might be associated with the other
-topic. This example demonstrates how LDA can associate 1 document (a
-commit message) with more than one topic, how topics are related to
+topic. This example demonstrates how LDA can associate one document (a
+commit message) with more than one topic, and how topics are related to
 documents via their word distributions. LDA also would discover these
-independant topics in an unsupervised manner, all the end user has to
+independant topics in an unsupervised manner. All the end user has to
 do is name the topic based upon the most frequent words in that topic,
 which is a word distribution.
 }
@@ -453,12 +456,14 @@ windows. We asked LDA to make 20 topics per window and we then
 examined the top 10 most frequent words in that topic.  We chose one
 month because it was smaller than the time between minor releases but
 large enough for there to be many commits to analyze. We chose 20
-topics because past experimentation showed that few topics might
-aggregate multiple unique topics while anymore topics seemed to dilute
-the results and create some indistinct topics. 10 most frequent words
-were chosen as sometimes 1 common word dominated topics so we wanted
-to have enough words to distingush topics.
-
+topics because past experimentation showed that fewer topics might
+aggregate multiple unique topics while any more topics seemed to dilute
+the results and create indistinct topics. 
+\hlb{
+  We chose the top ten most frequent words because sometimes a couple
+  of common words dominated topics so we wanted to have enough words
+  to distinguish topics.
+}
 
 We found there were common words across topic clusters, such as
 \emph{diffs}, \emph{annotate} and \emph{history}; since these words
@@ -469,7 +474,7 @@ transitional topics such as in the first window the word
 \emph{BitKeeper} appears because MySQL adopted Bitkeeper for their
 source control system yet in the following windows there were no
 mentions of BitKeeper. \emph{RENAME} also only appeared once in the
-first window and never again. Per each topic we tried to identify the
+first window and never again. For each topic we tried to name the
 purpose of the topic; to our surprise we found that even with only a
 little familiarity with the code base that naming the topic was
 straightforward. To find the purpose of a commit we looked at the most
@@ -486,7 +491,7 @@ name.  To name each topic we selected a term that seemed to best
 summarize that topic.  After extracting these topics, we attempted to
 track the evolution of topics by visualizing the topics and joining
 similar topics into trends.  Figure \ref{fig:lda} displays a manually
-created sample plot of the extracted topics in Table
+created plot of the extracted topics in Table
 \ref{tab:portability}.
 
 \begin{table}
@@ -585,12 +590,13 @@ repositories.
 
 %XXX Smaller?
 
-The documents we are analyzing are the commit log comments i.e., the
+The documents we are analyzing are the commit log comments, i.e. the
 comments that are added when revisions to the project are committed.
-Per each commit log comment, we count the occurrence of each word in
+For each commit log comment, we count the occurrence of each word in
 the message, remove stop words, and then produce word distributions
 for each message.  These distributions are then normalized by the size
-of the message. After all messages are processed the distributions are
+of the message, each count was divided by the total number of
+tokens. After all messages are processed the distributions are
 extended to include all words from all of the distributions.
 
 \shrinkit
@@ -599,17 +605,19 @@ extended to include all words from all of the distributions.
 
 Given all messages, we group the messages into windows. We could use
 overlapping windows, but in this paper we use non-overlapping windows
-of a set time unit because it simplifies analysis.  Windowing by time
+of a set time unit because it simplifies analysis.  
+One could overlap the
+windows, which would increase the likelihood of trends, but for this
+study we lacked the space and were more concerned if topics ever
+repeated, overlapping might skew that result.
+Windowing by time
 allows for many levels of granularity.  We used one month as the
 length of our time windows. While we could use different window
 lengths for this study we think that a month is a sizable unit of
 development, which is large enough to show shifts in focus, but coarse
 \hla{
 enough not to show too much detail. Choosing a month as the window
-provided us with enough documents to analyze. One could overlap the
-windows, which would increase the likelihood of trends, but for this
-study we lacked the space and were more concerned if topics ever
-repeated, overlapping might skew that result.
+provided us with enough documents to analyze. 
 }
 
 \shrinkit
