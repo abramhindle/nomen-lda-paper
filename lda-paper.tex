@@ -17,8 +17,8 @@
 \definecolor{changecolor4}{rgb}{0.0,0.3,0.0} 
 \newcommand{\hl}[1]{{\color{changecolor1} #1 }}
 \newcommand{\hla}[1]{{\color{changecolor2} #1 }}
-\newcommand{\hlc}[1]{{\color{changecolor3} #1 }}
-\newcommand{\hld}[1]{{\color{changecolor4} #1 }}
+\newcommand{\hlb}[1]{{\color{changecolor3} #1 }}
+\newcommand{\hlc}[1]{{\color{changecolor4} #1 }}
 
 
 
@@ -139,7 +139,7 @@ worked on, etc. In order to extract and evaluate these topics we plan
 to rely on topic analysis.
 }
 
-\hdb{
+\hla{
 Topic analysis extracts independant word distributions (topics) from
 documents (commit log comments).
 Ideally these extracted topics }
@@ -177,7 +177,7 @@ automatically generate. } Those topics that
 recur, or occur over a larger period are plotted continuously. In our
 example we have titled each topic with a word drawn from its
 word distribution.  
-\hdb{
+\hla{
 Given a visualization, such as Figure \ref{fig:lda}, topic
 analysis can aid in partitioning a project's time-line into periods of
 developer focus.
@@ -724,7 +724,7 @@ Topic Clustering
 \SubSection{Visualization}
 \shrinkit
 %       1. [ ] need the visualizer
-\hdb{ Visualization is an integral part of our topics analysis which
+\hla{ Visualization is an integral part of our topics analysis which
   allows us to quickly explore the topics and trends of a project.
   Visualization provides us with a framework that allows us to
   visually answer many questions about: the spread of topics, how many
@@ -772,7 +772,7 @@ the zoomed-in view of MaxDB 7.500's compact-trend-view in Figure
 continuous trends easy to pick out, although discontinuous trends are
 harder to spot, and provides a general summary of the topics within a project.
 
-\hdb{
+\hla{
 The \emph{trend-time-line} (Figure \ref{fig:trendtimeline})
 attempts to show a summary of trends seperated from single topics. This view shows how a trend persists across time, which aids time-wise analysis of trends.
 }
@@ -783,7 +783,7 @@ the segments appear on the same line.  However, the least common
 trends need to be pruned away or the view will be very long. 
 Thus the \emph{trend-time-line} view is used to analyze trends across time.
 
-\hdb{ The \emph{trend-histogram} (Figure \ref{fig:histogram}) attempts
+\hla{ The \emph{trend-histogram} (Figure \ref{fig:histogram}) attempts
   to show a count of how often a trend reoccurs and how many topics
   are related to a trend. It is meant to show the distribution of
   trends by their size in topics and time-span.  } The
@@ -796,10 +796,10 @@ trends occur the most. Unfortunately due to the large number of topics
 (approximately $N$ topics multiplied by $M$ periods), given the
 allotted space, it is often best to crop off the trends with only one
 topic ($1\%$ to $10\%$ of the total topics), otherwise the tail is
-long. \hdb{ The \emph{trend-histogram} summarizes the distribution of
+long. \hla{ The \emph{trend-histogram} summarizes the distribution of
 trends ordered by size. }
 
-\hdb{ All of these visualization combine to enable an analysis of
+\hla{ All of these visualization combine to enable an analysis of
   trends and topics. Some views like the \emph{compact-trend-view}
   enable an analysis of local topics while the \emph{trend-histogram}
   and \emph{trend-time-line} focus more on trends. We used these
