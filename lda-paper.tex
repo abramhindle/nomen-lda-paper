@@ -15,10 +15,17 @@
 \definecolor{changecolor2}{rgb}{0.3,0.08,0.45} 
 \definecolor{changecolor3}{rgb}{0.3,0.45,0.45} 
 \definecolor{changecolor4}{rgb}{0.0,0.3,0.0} 
-\newcommand{\hl}[1]{{\color{changecolor1} #1 }}
-\newcommand{\hla}[1]{{\color{changecolor2} #1 }}
-\newcommand{\hlb}[1]{{\color{changecolor3} #1 }}
-\newcommand{\hlc}[1]{{\color{changecolor4} #1 }}
+% \newcommand{\hl}[1]{{\color{changecolor1} #1 }}
+% \newcommand{\hla}[1]{{\color{changecolor2} #1 }}
+% \newcommand{\hlb}[1]{{\color{changecolor3} #1 }}
+% \newcommand{\hlc}[1]{{\color{changecolor4} #1 }}
+
+
+\newcommand{\hl}[1]{#1}
+\newcommand{\hla}[1]{#1}
+\newcommand{\hlb}[1]{#1}
+\newcommand{\hlc}[1]{#1}
+
 
 
 
@@ -46,7 +53,7 @@ University of Waterloo\\
 %\numberofauthors{5}
 \author{
 %\alignauthor
-Abram Hindle and Michael W. Godfrey and Richard C. Holt\\
+Abram Hindle, Michael W. Godfrey and Richard C. Holt\\
 %\affaddr{David Cheriton School of Computer Science}\\
 \affaddr{University of Waterloo}\\
 \affaddr{Waterloo, Ontario}\\
@@ -120,9 +127,7 @@ Abram Hindle and Michael W. Godfrey and Richard C. Holt\\
 \hla{ The questions that we wish to address deal with the past and
   topics development that occurred in the past.  What happened in
   the previous iteration of a project's development?  What were the
-  developers working on? What was the developer in the next cubicle
-  working on? Which common topics and issues were dealt with in the
-  current release of the software? What were the topics of the
+  developers working on? What were the topics of the
   previous release? Given the requirements agreed to at the start of
   the iteration did our developers work on them?  What else did they
   work on?  }
@@ -982,7 +987,7 @@ necessarily globally relevant.
 The query optimizer was a topic that recurred during MaxDB's
 development. In our plots, topics that mention \emph{optimizer} occur
 four times, yet in the global-trend-view (Figure
-\ref{fig:statictopics}, explained in Section \ref{ref:compare}) it is not in any of the topics. A query
+\ref{fig:statictopics}, explained in Section \ref{sec:compare}) it is not in any of the topics. A query
 optimizer is an important component of an DBMS, but as we have shown
 it does not appear as a topic on its own. We tried to remove words to
 see if we could get an \emph{optimizer} topic. After removing stop
