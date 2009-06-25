@@ -20,6 +20,12 @@
 \newcommand{\hlb}[1]{{\color{changecolor3} #1 }}
 \newcommand{\hlc}[1]{{\color{changecolor4} #1 }}
 
+% \newcommand{\hl}[1]{#1}
+% \newcommand{\hla}[1]{#1}
+% \newcommand{\hlb}[1]{#1}
+% \newcommand{\hlc}[1]{#1}
+
+
 
 
 \author{Abram Hindle, Michael Godfrey and Ric Holt \\
@@ -46,7 +52,7 @@ University of Waterloo\\
 %\numberofauthors{5}
 \author{
 %\alignauthor
-Abram Hindle and Michael W. Godfrey and Richard C. Holt\\
+Abram Hindle, Michael W. Godfrey and Richard C. Holt\\
 %\affaddr{David Cheriton School of Computer Science}\\
 \affaddr{University of Waterloo}\\
 \affaddr{Waterloo, Ontario}\\
@@ -120,9 +126,7 @@ Abram Hindle and Michael W. Godfrey and Richard C. Holt\\
 \hla{ The questions that we wish to address deal with the past and
   topics development that occurred in the past.  What happened in
   the previous iteration of a project's development?  What were the
-  developers working on? What was the developer in the next cubicle
-  working on? Which common topics and issues were dealt with in the
-  current release of the software? What were the topics of the
+  developers working on? What were the topics of the
   previous release? Given the requirements agreed to at the start of
   the iteration did our developers work on them?  What else did they
   work on?  }
@@ -139,8 +143,8 @@ worked on, etc. In order to extract and evaluate these topics we plan
 to rely on topic analysis.
 }
 
-\hla{
-Topic analysis extracts independant word distributions (topics) from
+\hlb{
+Topic analysis extracts independent word distributions (topics) from
 documents (commit log comments).
 Ideally these extracted topics }
 correlate with actual development topics that the developers discussed
@@ -177,7 +181,7 @@ automatically generate. } Those topics that
 recur, or occur over a larger period are plotted continuously. In our
 example we have titled each topic with a word drawn from its
 word distribution.  
-\hla{
+\hlb{
 Given a visualization, such as Figure \ref{fig:lda}, topic
 analysis can aid in partitioning a project's time-line into periods of
 developer focus.
@@ -420,7 +424,7 @@ example the bug fixing topic would include words like \emph{bug},
 include words like \emph{widget}, \emph{panel}, \emph{window}, and
 \emph{menu}. The documentation topic would include words like
 \emph{section}, \emph{figure}, and \emph{chapter}. The other topic
-would include words found in topics generally independant of the other
+would include words found in topics generally independent of the other
 topics. If we analyzed a commit of a bug fix it would probably contain
 words like \emph{ticket} and thus heavily associate with the bug fix
 topic. A commit that was about user documentation regarding the GUI
@@ -430,7 +434,7 @@ neither bugs, GUIs or documentation might be associated with the other
 topic. This example demonstrates how LDA can associate one document (a
 commit message) with more than one topic, and how topics are related to
 documents via their word distributions. LDA also would discover these
-independant topics in an unsupervised manner. All the end user has to
+independent topics in an unsupervised manner. All the end user has to
 do is name the topic based upon the most frequent words in that topic,
 which is a word distribution.
 }
@@ -555,7 +559,7 @@ Sampled topics from MySQL 3.23, some with continuous topics. These tokens were p
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.9\textwidth]{commit-to-topics} 
-  \caption{How commits are analyzed and aggregated into Topics and Trends. Commits are first extracted, then abstracted into word counts or word distributions. These word distributions are then given a topic analysis tool like LDA. LDA finds independent word distributions (topics) that these documents are related to.}
+  \caption{How commits are analyzed and aggregated into topics and trends. Commits are first extracted, then abstracted into word counts or word distributions. These word distributions are then given to topic analysis tool like LDA. LDA finds independent word distributions (topics) that these documents are related to \hlb{ (the numbers indicate similarity between documents and topics)}.}
   \label{fig:commits}
 \end{figure*}
 
@@ -629,11 +633,11 @@ each window and extract the top $N$ topics. We used $20$ topics in our
 \hla{
 case studies because we experimented before and that $20$ was about
 all we can handle before too many topics seemed too indistinct from
-each other to differeniate.
+each other to differentiate.
 
- Our Topic Analysis tool is an implementation of LDA, but
+ Our Topic Analysis tool is an implementation of LDA.
 }
-we could have used other similar tools like LSI, but previous work
+We could have used other similar tools like LSI, but previous work
 showed more promising topic analysis results with LDA.  We note that
 this step is a slow one, as executing even one instance of LDA
 involves significant computation, and we perform LDA once per window.
@@ -671,8 +675,8 @@ this is similar to modelling topics as nodes and similarity as arcs,
 then fill flooding along the similarity arcs until we have partitioned
 the topics into clusters of similar topics. Figure \ref{fig:closure}
 illustrates clustering of topics by topic similarity. These clusters
-of topics are called trends. A trend is probably interesting if it
-contains more than one topic.
+of topics are called trends. 
+Trends are interesting because they that topic during development has occurred over more than one period.
 }
 
 This technique has weaknesses in that nodes that are a few neighbors
@@ -680,8 +684,8 @@ away in similarity might not share any similar words.  We use this
 measure because we want to be able to color or highlight topics that
 are related to each other and track them throughout time.
 
-Once we have determined our similarity clusters we can choose to
-analyze and to plot the topics.
+Once we have determined our similarity clusters we are ready analyze
+and to plot the topics.
 
 \begin{comment}
 Topic Clustering
@@ -714,7 +718,7 @@ Topic Clustering
     topics occurring at the same time. Trends that are continuous are
     plotted as continuous blocks. The top 10 words in the topics are
     joined and embedded in box representing the topics. No stop words were removed. The gap in the
-    middle is a period where no development took place.}
+    middle is a period where no development took place (see Section \ref{sec:maxdb}).}
   \label{fig:topicsmear}
 \end{figure*}
 
@@ -724,11 +728,11 @@ Topic Clustering
 \SubSection{Visualization}
 \shrinkit
 %       1. [ ] need the visualizer
-\hla{ Visualization is an integral part of our topics analysis which
+\hlb{ Visualization is an integral part of our topics analysis which
   allows us to quickly explore the topics and trends of a project.
   Visualization provides us with a framework that allows us to
   visually answer many questions about: the spread of topics, how many
-  topics were independant per period, what the repeating trends were,
+  topics were independent per period, what the repeating trends were,
   if the trends dominated or did local topics dominate, how continuous
   trends were, and what the topic text in topic, trend, or period was.
   Since we have multiple questions to answer we have multiple
@@ -772,9 +776,9 @@ the zoomed-in view of MaxDB 7.500's compact-trend-view in Figure
 continuous trends easy to pick out, although discontinuous trends are
 harder to spot, and provides a general summary of the topics within a project.
 
-\hla{
+\hlb{
 The \emph{trend-time-line} (Figure \ref{fig:trendtimeline})
-attempts to show a summary of trends seperated from single topics. This view shows how a trend persists across time, which aids time-wise analysis of trends.
+attempts to show a summary of trends separated from single topics. This view shows how a trend persists across time, which aids time-wise analysis of trends.
 }
 The \emph{trend-time-line} displays repeating trends more clearly by
 dedicating a horizontal line for trend segments belonging to one
@@ -783,7 +787,7 @@ the segments appear on the same line.  However, the least common
 trends need to be pruned away or the view will be very long. 
 Thus the \emph{trend-time-line} view is used to analyze trends across time.
 
-\hla{ The \emph{trend-histogram} (Figure \ref{fig:histogram}) attempts
+\hlb{ The \emph{trend-histogram} (Figure \ref{fig:histogram}) attempts
   to show a count of how often a trend reoccurs and how many topics
   are related to a trend. It is meant to show the distribution of
   trends by their size in topics and time-span.  } The
@@ -792,14 +796,14 @@ However, in this view the trends are plotted together by stacking to
 the left of their row, thus time information is lost.  The trends are
 ordered by the number of topics in the trend.  The trend-histogram
 shows the count of instances of a trend and thus indicates which
-trends occur the most. Unfortunately due to the large number of topics
+trends occur the most. Due to the large number of topics
 (approximately $N$ topics multiplied by $M$ periods), given the
 allotted space, it is often best to crop off the trends with only one
 topic ($1\%$ to $10\%$ of the total topics), otherwise the tail is
-long. \hla{ The \emph{trend-histogram} summarizes the distribution of
+long. \hlb{ The \emph{trend-histogram} summarizes the distribution of
 trends ordered by size. }
 
-\hla{ All of these visualization combine to enable an analysis of
+\hlb{ All of these visualization combine to enable an analysis of
   trends and topics. Some views like the \emph{compact-trend-view}
   enable an analysis of local topics while the \emph{trend-histogram}
   and \emph{trend-time-line} focus more on trends. We used these
@@ -809,7 +813,7 @@ trends ordered by size. }
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.45\textwidth]{fixed-time-smear-plot-cropped}
-  \caption{A zoomed in slice of compact-trend-view of topics per month of MaxDB 7.500. The topic text is visible in each topic box. Trends are plotted across time continuously.}
+  \caption{A zoomed-in slice of compact-trend-view of topics per month of MaxDB 7.500. The topic text is visible in each topic box. Trends are plotted across time continuously.}
   \label{fig:zoomedsmear}
 \end{figure}
 
@@ -845,7 +849,7 @@ Gnuplot, a graph plotting package; lda-c, a LDA package implemented by
 Blei et al.~\cite{944937}; and our trend plotter, implemented in
 Haskell.
 
-We applied our tools and visualizations to the repositories of several
+We applied our tools and visualizations to the repositories of these
 \hla{
 open source database systems: PostgreSQL, MaxDB and Firebird. The
 total number of commits analyzed was over $66 000$.
@@ -859,24 +863,24 @@ total number of commits analyzed was over $66 000$.
 %   3.   mysql
 
 
-When we examined PostgreSQL's history from 1996 to 2004, which include
+When we examined PostgreSQL's history from 1996 to 2004, which includes
 over $20 000$ commits. We did not find many trends with two or more
 topics, using a similarity of $7/10$. $7/10$ was chosen because it
-preserved indepedant topics but seemed to be a borderline threshold
+preserve independent topics but seemed to be a threshold
 value where more serious trends started to appear.
 
 Those trends that we did find
 were not very large, lasting only 3 months at most. The first and second
-largest trends were dedicated to the work of two external developers:
+largest trends directly referenced two external developers:
 Dal Zotto, Dan McGuirk. The fifth largest trend related to work by
 PostgreSQL developer D'Arcy. Other topics of the larger trends were
-changes to the TODO, and time string formating topics
-relating to timezones.
+changes to the ``to do'' list, and time string formating topics
+relating to time-zones.
 
 If we kept the stop words we found that the large trend consisted
 mostly of stop words and non-stop words such as \emph{patch},
 \emph{fix}, \emph{update}.  By decreasing the similarity constraint to
-$1/2$ similarity the largest most common trend, which stretched across
+$1/2$ the largest most common trend, which stretched across
 the entire development, contained these same words (\emph{patch},
 \emph{fix}, \emph{update}). The second largest trend mentions Dal
 Zotto, while the third largest trend mentions the \texttt{[PATCHES]}
@@ -896,7 +900,7 @@ from email headers, issues with ALTER TABLE and CVS branch merging
 We tracked Firebird from August 2000 to January 2006, we extracted comments from $38 000$ commits. We found that with a
 }
 similarity of $7/10$ Firebird had far more continuous and
-recurring trends than PostgreSQL.  The first large trend was segmented
+recurring trends than PostgreSQL.  The first large trend was discontinuous
 across time but explicitly references one author \texttt{carlosga05}
 and words like \emph{added}, \emph{fixed} and \emph{updated}.
 
@@ -920,6 +924,7 @@ tokens and phrases such as: \emph{compiler workarounds}, \emph{nightly
 \SubSection{MaxDB 7.500}
 \shrinkit
 
+\label{sec:maxdb}
 
 % Migod todo
 % I think that you should enlarge this discussion of MaxDB (at the
@@ -970,7 +975,7 @@ topics can overlap but still not match via our similarity measure.
 % Was reading lda.report
 Bug tracker URLs dominated unique topics during some months. For
 instance in the last month of MaxDB 7.500 development every topic
-contained 1 unique Bug tracker URL, this pattern did not occur in the
+contained one unique Bug tracker URL. This pattern did not occur in the
 previous month. We investigated the revisions and we found that
 developers were referencing the bug tracker more during the last
 month.  If the topics of one month were about unique bug tickets being
@@ -981,7 +986,7 @@ necessarily globally relevant.
 The query optimizer was a topic that recurred during MaxDB's
 development. In our plots, topics that mention \emph{optimizer} occur
 four times, yet in the global-trend-view (Figure
-\ref{fig:statictopics}) it is not in any of the topics. A query
+\ref{fig:statictopics}, explained in Section \ref{sec:compare}) it is not in any of the topics. A query
 optimizer is an important component of an DBMS, but as we have shown
 it does not appear as a topic on its own. We tried to remove words to
 see if we could get an \emph{optimizer} topic. After removing stop
@@ -1036,6 +1041,8 @@ should tune the topic similarity parameters to handle these changes.
 \shrinkit
 \SubSection{Compare with topics over the entire development}
 \shrinkit
+
+\label{sec:compare}
 
 % Migod notes This section is perhaps the most important of the
 % whole paper.  You need expand it.  Maybe you should move the first
@@ -1217,39 +1224,39 @@ via global topic analysis. We identify recurring topics with a topic
 similarity measure that looks for topics which recur and mutate
 repeatedly throughout the development of the software project.
 
-Windowed topic analysis demonstrated its value to hilight local topics
-and indentify global trends. This was shown in our case study of MaxDB
+Windowed topic analysis demonstrated its ability to hi-light local topics
+and identify global trends. This was shown in our case study of MaxDB
 7.500. Global topic analysis missed important topics such as
 \emph{ODBC} while windowed topic analysis identified them.
 
 
 We presented several visualization techniques that focused on
 different aspects of the data: temporality of trends, trend size, and
-a compact-trend-view. The compact-trend-view shows much more
-information than the views that global analysis could show, it
-indicates how focused a period is by the total number of topics, as
+a compact-trend-view. The compact-trend-view shows more
+information than the views that global analysis could show, and it
+indicates how focused a period is by the total number of topics. As
 well, it shows topics by similarity so one can track trends across
-time.  Our trend-histogram immediately highlights and measures the
+time.  Our trend-histogram highlights and measures the
 size of trends while our trend-time-line view shows how a topic
-reoccurs over time. These visualizations help us get a general feeling
-about the common and unique topics that developers focus on during
+reoccurs over time. These visualizations help us  understand the common topics that developers focus on during
 development. If implemented interactively an user could easily zoom in
 and query for a summary of a topic or trend.
-
+In summary, our work on windowed topic analysis shows the potential
+for automatically determining key topics and trends across software
+development projects .
 
 \shrinkit
 \SubSection{ Future Work}
 \shrinkit
 \shrinkit
 
-\hla{
-We want to explore parameters more across multiple projects, what
-motivates the need for more or less topics, can we find a good
-estimate of a good choice of number of topics to evaluate. We want to
-investigate the effects of overlapping windows on this analysis, do
-they make the trends too long? Do they highlight some trends
-unnecessarily or are they more because they are time agnostic.
-}
+\hla{ We want to explore parameters more across multiple projects,
+  what motivates the need for more or less topics.  Parameters
+  include: window overlapping, window overlap size, window size,
+  number of topics, etc.  We want to investigate the effects of
+  overlapping windows on this analysis. Do they make the trends too
+  long? Do they highlight some trends unnecessarily or are they more
+  because they are time agnostic.  }
 
 Another avenue of future work is automatic topic labelling. Given a word
 distribution we should be able to automatically select a word or term
