@@ -93,7 +93,7 @@ Abram Hindle, Michael W. Godfrey and Richard C. Holt\\
 \thispagestyle{empty}
 
 
-
+%XXX Drop down to 200
 \begin{abstract}
 
 
@@ -103,15 +103,32 @@ Abram Hindle, Michael W. Godfrey and Richard C. Holt\\
   have recently been worked on and how much effort has gone into each;
   for example, a manager might wonder what unexpected tasks occupied
   their team's attention during a period when they were supposed to
-  have been implementing a set of new features.  Tools such as Latent
-  Dirichlet Allocation (LDA) and Latent Semantic Indexing (LSI) can be
-  used to extract a set of independent topics from a corpus of commit
-  log comments.  Previous work in the area has created a single set of
-  topics by analyzing comments from the entire lifetime of the
-  project.  In this paper, we propose windowing the topic analysis to
-  give a more nuanced view of the system's evolution. By using a
-  defined time-window of, for example, one month, we can track which
-  topics come and go over time, and which ones recur. We propose
+  have been implementing new features.  
+%  have been implementing a set of new features.  
+%
+  Tools such as Latent Dirichlet Allocation (LDA) and Latent Semantic
+%  Indexing (LSI) can be used to extract a set of independent topics
+  Indexing (LSI) extract a set of independent topics
+  from a corpus of commit-log comments.  Previous work in the area has
+  created a single set of topics by analyzing comments from the entire
+  lifetime of the project.  In this paper, we propose windowing the
+  topic analysis to give a more nuanced view of the system's
+  evolution. By using a defined time-window of, for example, one
+  month, we can track which topics come and go over time, and which
+  ones recur.
+%
+%
+%   Tools such as Latent
+%   Dirichlet Allocation (LDA) and Latent Semantic Indexing (LSI) can be
+%   used to extract a set of independent topics from a corpus of commit
+%   log comments.  Previous work in the area has created a single set of
+%   topics by analyzing comments from the entire lifetime of the
+%   project.  In this paper, we propose windowing the topic analysis to
+%   give a more nuanced view of the system's evolution. By using a
+%   defined time-window of, for example, one month, we can track which
+%   topics come and go over time, and which ones recur.
+%  
+  We propose
   visualizations of this model that allows us to explore the evolving
   stream of topics of development occurring over time. We demonstrate
   that windowed topic analysis offers advantages over topic analysis
@@ -148,29 +165,43 @@ Abram Hindle, Michael W. Godfrey and Richard C. Holt\\
 \Section{Introduction}
 \shrinkit
 
-
-  The questions that we wish to address deal with the past and
-  topics development that occurred in the past.  What happened in
-  the previous iteration of a project's development?  What were the
-  developers working on? What were the topics of the
-  previous release? Given the requirements agreed to at the start of
-  the iteration did our developers work on them?  What else did they
-  work on?  
-
-We want to know about the topics of that programmers
-encountered while developing a software project. We want to know given
-a certain period of time, what were the popular topics being worked on
-during that period. We also want to know if any of those topics
-occurred again, whether before or after our current period.  These
-topics could help stakeholders determine what their coworkers were
-working on, what were common issues, what requirements were being
-worked on, etc. In order to extract and evaluate these topics we plan
-to rely on topic analysis.
+Software managers know that --- during any given development cycle ---
+there is usually a difference between the set of tasks that developers
+are supposed to be working on and the tasks they are actually working
+on.  To better understand the realities of development, it would be
+helpful to be able to answer questions such as: What topics dominated
+the previous release cycle? Given the requirements agreed to at the
+start of the iteration how much work did our developers spend on them?
+What other tasks did they work on?  Which topics seem to recur over
+and over between cycles?  How long do different topics persist?  Are
+there latent cause-effect relationships between different topics?
 
 
 
-Topic analysis extracts independent word distributions (topics) from
-documents (commit log comments).
+%   The questions that we wish to address deal with the past and
+%   topics development that occurred in the past.  What happened in
+%   the previous iteration of a project's development?  What were the
+%   developers working on? What were the topics of the
+%   previous release? Given the requirements agreed to at the start of
+%   the iteration did our developers work on them?  What else did they
+%   work on?  
+
+% We want to know about the topics of that programmers
+% encountered while developing a software project. We want to know given
+% a certain period of time, what were the popular topics being worked on
+% during that period. We also want to know if any of those topics
+% occurred again, whether before or after our current period.  These
+% topics could help stakeholders determine what their coworkers were
+% working on, what were common issues, what requirements were being
+% worked on, etc. In order to extract and evaluate these topics we plan
+% to rely on topic analysis.
+
+
+
+Topic analysis 
+uses tools such as Latent Dirichlet Allocation (LDA) and Latent Semantic Indexing (LSI) to extract
+independent word distributions (topics) from
+documents (commit log comments)~\cite{1374321,10.1109/ICPC.2007.13,lukins2008,10.1109/MSR.2007.20}.
 Ideally these extracted topics 
 correlate with actual development topics that the developers discussed
 during the development of the software project. 
@@ -182,20 +213,42 @@ that are related to each other by their content.  In this case a topic
 is a set of tokens extracted from commit messages found within a
 projects source control system (SCS). 
 
-In the past, topic analysis has been applied to the entire history of a project~\cite{1321709,lukins2008,10.1109/ICPC.2007.13},
-where-as this paper suggests that most topics are local. For example,  
-programmer may be working on a story card, they might never deal with that
-story card ever again. Thus that topic might be quite relevant to a
-small window of time but never relevant ever again.  By applying topic
-analysis locally to a window or an iteration, both the developers and managers
-might be able to see what were the topics of development during that
-iteration, rather than the whole project.
+
+Previous work on topic analysis has been applied to the entire history of a 
+project~\cite{1321709,lukins2008,10.1109/ICPC.2007.13}
+to produce a single set of topics. In this paper we explore the idea
+of time-windowed topic analysis; that is, we pick a period of, say,
+one month and perform topic analysis within each window.  In addition
+to being able to study just which topics were actually worked on and
+when, we can also analyze the historical timeline of topics for
+patterns and trends.  For example, we might wish to categorize each
+topic as being local to a single time window, spanning multiple
+consecutive windows, or recurring periodically.  Alternatively, we
+might explore if any topics often recur together, if one particular
+topic usually precedes another, if unplanned topics outnumber planned
+topics, if particular topics recur near the end of development
+iterations, etc.  whereas this paper suggests that most topics are
+local.
+
+% In the past, topic analysis has been applied to the entire history of a project~\cite{1321709,lukins2008,10.1109/ICPC.2007.13},
+% whereas this paper suggests that most topics are local. For example,  
+% programmer may be working on a story card, they might never deal with that
+% story card ever again. Thus that topic might be quite relevant to a
+% small window of time but never relevant ever again.  By applying topic
+% analysis locally to a window or an iteration, both the developers and managers
+% might be able to see what were the topics of development during that
+% iteration, rather than the whole project.
 
 
-We want to see topics that are unique to a
-certain time period, displayed across the time axis.
-Figure \ref{fig:lda} illustrates the kind of visualization we want to
-automatically generate. Those topics that
+% We want to see topics that are unique to a
+% certain time period, displayed across the time axis.
+% Figure \ref{fig:lda} illustrates the kind of visualization we want to
+% automatically generate. 
+As part of this work, we wish to explore approaches to automatically
+generating visualizations of the topic trends and development timelines, so
+that managers may be able to more easily grasp the topic-related
+activities of the developers.  Figure \ref{fig:lda} gives an example.
+Those topics that
 recur, or occur over a larger period are plotted continuously. In our
 example we have titled each topic with a word drawn from its
 word distribution.  
@@ -322,14 +375,14 @@ Our contributions include:
 
 
 We now define some terms that we will use in the rest of the paper: A
-\emph{message} is a block of text written by developers. In this
+\emph{message} is a block of text written by a developer. In this
 paper, messages will be the CVS and BitKeeper commit log comments made
 when the user commits changes to files in a repository. A \emph{word
   distribution} is the summary of a message by word count. Each word
 distribution will be over the words in all messages. However, most
 words will not appear in each message. A word distribution is effectively
 a word count divided by the message size. A \emph{topic} is a word
-distribution, i.e. a set of words that form a word distribution that is
+distribution, i.e., a set of words that form a word distribution that is
 unique and independent within the set of documents in our total
 corpus. One could think of a topic as a distribution of the centroid
 of a group of messages. In this paper we often summarize topics by the
@@ -350,14 +403,17 @@ probabilistic Latent Semantic Indexing (pLSI)~\cite{944937} and
 semantic clustering~\cite{1698774,1566153}. These tools are used for
 document modelling, document clustering and collaborative
 filtering. LDA attempts to encode documents as a mixture
-model, a combination of topics.  LDA is used in software engineering
+model, a combination of topics.  LDA has been used in software engineering
 literature~\cite{lukins2008,10.1109/MSR.2007.20}%,NIPS2007637,1321709}.
-LDA extracts topics from documents such as methods, bug
+to extract topics from documents such as methods, bug
 reports, source code and files.
 
 LDA, LSI and semantic clustering extract topic
-clusters from the documents that are independent from one another. LDA
-does not name these clusters but the clusters consist of words whose
+clusters from the documents that are independent from one another. 
+The clusters are not named by the process, and consist of
+%LDA
+%does not name these clusters but the clusters consist of
+words whose
 relationship is often obvious to someone familiar with the corpus. For our purposes, we
 could swap LDA for LSI or semantic clustering and likely produce similar
 results. Our data is posed as documents with word distributions (word
@@ -402,7 +458,7 @@ Grant et al.~\cite{scottcordy} and have used an alternative technique,
 called Independent Component Analysis~\cite{delacshort} to separate topic signals from
 software code.
 
-Our technique differs from the previous techniques because we apply
+Our technique differs from the previous approaches to topic analysis because we apply
 LDA locally to month-long windows of commit log comments, whereas
 other approaches apply LDA once to the entire project. Windowed topic
 analysis allows us to examine the time-based windowing of topics over
@@ -421,10 +477,13 @@ its development history.
 % ** a commit that was independant of all three could've induced a seperate topic altogether
 
 
+
 Imagine that we are analyzing one month of development in a project
-where the main focus was on bug fixing, adding a new GUI and
+where there were three major tasks: bug fixing, adding a new GUI, and
 documentation updates relating to the system and the GUI. To use LDA
-we would get the word distributions of each commit messages, pass them to
+we would get the word distributions of each commit messages, 
+\begin{comment}
+pass them to
 LDA and tell LDA to find some topics, in this case we
 in this case we chose to concentrate on four topics.
  The four
@@ -448,6 +507,41 @@ documents via their word distributions. LDA also would discover these
 independent topics in an unsupervised manner. All the end user has to
 do is name the topic based upon the most frequent words in that topic,
 which is a word distribution.
+\end{comment}
+% (please preserve the italics you put in ... I had to edit this in plain text so they got lost)
+and have the LDA tool extract a set of topics from the data.  Ideally,
+the LDA analysis would return four topics, corresponding to bug
+fixing, GUI implementation, documentation, and ``other''.  Each topic
+essentially corresponds to a word distribution.  For example, the bug
+fixing topic might include words such as \emph{bug}, \emph{fix}, \emph{failure}, and
+\emph{ticket}, while the GUI topic might include \emph{widget}, \emph{panel}, \emph{window}, and
+\emph{menu}, and the documentation topic might include \emph{section}, \emph{figure}, and
+\emph{chapter}.  The last topic would include words that were not commonly
+found in bug reports, GUI fixing, or documentation commits; that is,
+the LDA analysis would put into this last category the words that were
+independent of the other topics it found.
+
+LDA is an unsupervised technique.  The user provides a corpus of
+documents and specifies various parameters, and then LDA automatically
+generates a set of likely topics based on word frequencies.  It is
+then up to the user to decide if the topics are meaningful by looking
+at the most frequent words in each and deciding what each discovered
+topic should be named.
+
+In addition to finding the topics, LDA can also associate the
+documents (i.e., commit messages) in its corpus to one or more of the
+topics it discovers.  For example, a commit of a simple bug fix would
+probably contain a word such as \emph{ticket}, and thus heavily associate
+with the bug fix topic.  A commit that concerned user documentation of
+the GUI would likely be associated with both the documentation and GUI
+topics if it shared words from both topics.  And a commit that did not
+concern bugs, GUIs, or documentation would likely be related to the other topic.
+
+
+
+
+
+
 
 
 %      1. [ ] LDA itself
@@ -477,17 +571,32 @@ the results and create indistinct topics.
   of common words dominated topics so we wanted to have enough words
   to distinguish topics.
 
+
+
+%   We decided [did we?] to treat these as stop words, since they occur
+%   across many of the topics and since they relate to the mechanisms of
+%   version control rather than the semantic content of the commit.
+
 We found there were common words across topic clusters, such as
-\emph{diffs}, \emph{annotate} and \emph{history}; since these words
-occur so often in the MySQL 3.23 messages. These words probably should
-be viewed as stop words since occur across so many topics, even though
-they are related to version control usage.  There were notable
-transitional topics such as in the first window the word
-\emph{BitKeeper} appears because MySQL adopted Bitkeeper for their
-source control system yet in the following windows there were no
-mentions of BitKeeper. \emph{RENAME} also only appeared once in the
-first window and never again. For each topic we tried to name the
-purpose of the topic; to our surprise we found that even with only a
+\emph{diffs}, \emph{annotate} and \emph{history}.
+Words like these could be treated as stop words, since they occur
+across many of the topics and since they relate to the mechanisms of
+version control rather than the semantic content of the commit.
+% since these words
+%occur so often in the MySQL 3.23 messages. These words probably should
+%be viewed as stop words since occur across so many topics, even though
+%they are related to version control usage.  
+There were topics which appeared only during some transitional period and never again
+such as \emph{RENAME} and \emph{BitKeeper}. \emph{BitKeeper} which appears when MySQL switched to  BitKeeper for their SCS.
+% There were notable
+% transitional topics such as in the first window the word
+% \emph{BitKeeper} appears because MySQL adopted Bitkeeper for their
+% source control system yet in the following windows there were no
+% mentions of BitKeeper. 
+%\emph{RENAME} also only appeared once in the
+%first window and never again.
+For each topic we tried to find a word to describe its purpose.
+To our surprise we found that even with only a
 little familiarity with the code base that naming the topic was
 straightforward. To find the purpose of a commit we looked at the most
 frequent words in the word distribution of the topic and tried to
@@ -547,9 +656,11 @@ Sampled topics from MySQL 3.23, some with continuous topics. These tokens were p
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.9\textwidth]{lda}
-  \caption{Example of topics extracted from MySQL 3.23. This is the
-    kind of plot we eventually want to illustrate: named topics and
-    topic trends. The horizontal axis is time by month examined. The
+  \caption{Example of topics extracted from MySQL 3.23. 
+%     This is the
+%     kind of plot we eventually want to illustrate: named topics and
+%     topic trends. 
+    The horizontal axis is time by month examined. The
     vertical axis is used to stack topics that occur at the same
     time. Longer topics are topics which recur in adjacent
     windows. Colors are arbitrary.}
@@ -565,7 +676,7 @@ Sampled topics from MySQL 3.23, some with continuous topics. These tokens were p
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.9\textwidth]{commit-to-topics} 
-  \caption{How commits are analyzed and aggregated into topics and trends. Commits are first extracted, then abstracted into word counts or word distributions. These word distributions are then given to topic analysis tool like LDA. LDA finds independent word distributions (topics) that these documents are related to (the numbers indicate similarity between documents and topics).}
+  \caption{How commits are analyzed and aggregated into topics and trends: commits are first extracted, then abstracted into word counts or word distributions which are then given to topic analysis tool like LDA. LDA finds independent word distributions (topics) that these documents are related to (the numbers indicate similarity between documents and topics).}
   \label{fig:commits}
 \end{figure*}
 
@@ -599,7 +710,7 @@ repositories.
 
 %XXX Smaller?
 
-The documents we are analyzing are the commit log comments, i.e. the
+The documents we are analyzing are the commit log comments, i.e., the
 comments that are added when revisions to the project are committed.
 For each commit log comment, we count the occurrence of each word in
 the message, remove stop words, and then produce word distributions
@@ -634,19 +745,24 @@ provided us with enough documents to analyze.
 \shrinkit
 
 Once we have our data windowed, we apply our Topic Analysis tool to
-each window and extract the top $N$ topics. We used $20$ topics in our
-case studies because we experimented before and that $20$ was about
-all we can handle before too many topics seemed too indistinct from
-each other to differentiate.
+each window and extract the top $N$ topics.  We decided to use a
+threshold of $20$ topics based on our previous experience with LDA; we
+found that using more than $20$ makes the boundaries between topics less
+distinct.
 
- Our Topic Analysis tool is an implementation of LDA.
-We could have used other similar tools like LSI, but previous work
-showed more promising topic analysis results with LDA.  We note that
-this step is a slow one, as executing even one instance of LDA
-involves significant computation, and we perform LDA once per window.
-Figure \ref{fig:commits} shows how LDA is applied to a set of
-messages, and how the topics are extracted and related to the
-messages.
+% We used $20$ topics in our
+% case studies because we experimented before and that $20$ was about
+% all we can handle before too many topics seemed too indistinct from
+% each other to differentiate.
+
+Our Topic Analysis tool is based around a third-party implementation
+of LDA.  While we could have used LSI or similar techniques as the
+engine, our preliminary studies found LDA to provide more promising
+results for topic analysis.  We note that this step is a slow one, as
+executing even one instance of LDA involves significant computation,
+and we perform LDA once per window.  Figure \ref{fig:commits} shows
+how LDA is applied to a set of messages, and how the topics are
+extracted and related to the messages.
 
 
 
@@ -677,16 +793,15 @@ this is similar to modelling topics as nodes and similarity as arcs,
 then fill flooding along the similarity arcs until we have partitioned
 the topics into clusters of similar topics. Figure \ref{fig:closure}
 illustrates clustering of topics by topic similarity. These clusters
-of topics are called trends. 
+of topics are called \emph{trends}. 
 Trends are interesting because they that topic during development has occurred over more than one period.
 
-
-This technique has weaknesses in that nodes that are a few neighbors
+This approach does have a weakness, in that nodes that are a few neighbors
 away in similarity might not share any similar words.  We use this
 measure because we want to be able to color or highlight topics that
 are related to each other and track them throughout time.
 
-Once we have determined our similarity clusters we are ready analyze
+Once we have determined our similarity clusters we are ready to analyze
 and to plot the topics.
 
 \begin{comment}
@@ -705,8 +820,8 @@ Topic Clustering
   \includegraphics[width=0.42\textwidth]{transitiveclosure}
   \caption{Topic similarity demonstrated by clustering topics by the transitive closure (connectedness)
     of topic similarity. Nodes are topics and
-    arcs imply similarity. Similarity could be a measure such as
-    topics share 8 out of 10 top ten words.}
+    arcs imply 
+some notion of similarity, e.g.,  topics share 8 out of 10 top ten words.}
 \label{fig:closure}
 \end{figure}
 
@@ -732,14 +847,25 @@ Topic Clustering
 %       1. [ ] need the visualizer
   Visualization is an integral part of our topics analysis which
   allows us to quickly explore the topics and trends of a project.
-  Visualization provides us with a framework that allows us to
-  visually answer many questions about: the spread of topics, how many
-  topics were independent per period, what the repeating trends were,
-  if the trends dominated or did local topics dominate, how continuous
-  trends were, and what the topic text in topic, trend, or period was.
-  Since we have multiple questions to answer we have multiple
-  visualization, described within this section, that help answer
-  different questions.  
+  Visualizing the results is desirable as it allows us to explore the
+  data from different points of view to address different questions:
+  How are the topics spread over time?  How many independent topics
+  per period were there?  What repeating trends were there?  Did the
+  trends dominate, or did local topics dominate?  How broken up were
+  the trends?  
+  Since we have a variety of questions to answer we suggest multiple
+  visualizations, which we now describe.
+
+
+
+%   Visualization provides us with a framework that allows us to
+%   visually answer many questions about: the spread of topics, how many
+%   topics were independent per period, what the repeating trends were,
+%   if the trends dominated or did local topics dominate, how continuous
+%   trends were, and what the topic text in topic, trend, or period was.
+%   Since we have multiple questions to answer we have multiple
+%   visualization, described within this section, that help answer
+%   different questions.  
 
 We have devised several techniques for visualizing these topics and
 trends.  For all of these techniques if we find trends that have
@@ -748,20 +874,19 @@ horizontally across time. One technique is the \emph{compact-trend-view},
 shown in Figure \ref{fig:topicsmear} and Figure \ref{fig:zoomedsmear},
 that displays trends as they occur on the time-based x-axis
 (placement along the y-axis is arbitrary).  Another technique is
-the \emph{trend-time-line}, shown in Figure \ref{fig:trendtimeline},
+the \emph{trend-time-line}, shown in Figure \ref{fig:trendtimeline}, where
 each trend gets it own distinct y-value, while the x-axis is time;
 these topics are then each plotted on their own line across time as
 they occur. Our final technique is the \emph{trend-histogram}, shown in Figure
 \ref{fig:histogram} where we plot each trend on its own line but stack
 up the segments of the trend, much like a histogram. Each topic has its top 10 words 
 listed in descending order of frequency from top to bottom, this text is embedded inside the topic's box.
-A trend has all of its topic text embedded side by side within the same trend box.
+A trend has all of its topic text embedded side by side within the same trend box, which at this resolution requires the reader to zoom in electronically.
 
 
  The \emph{compact-trend-view} (Figure \ref{fig:topicsmear})
   attempts to show all topics and trends at once across time in a
-  compact view that could fit on one page. It tries to give a compact
-  summary of the topics and trends across time.   The
+  compact view that could fit on one page.   The
 \emph{compact-trend-view} (Figure \ref{fig:topicsmear}) tries to sink
 the larger trends to the bottom.  Once the larger trends are stacked
 we fill in the gaps with the smaller trends in the same window, and
@@ -848,9 +973,9 @@ Gnuplot, a graph plotting package; lda-c, a LDA package implemented by
 Blei et al.~\cite{944937}; and our trend plotter, implemented in
 Haskell.
 
-We applied our tools and visualizations to the repositories of these
-open source database systems: PostgreSQL, MaxDB and Firebird. The
-total number of commits analyzed was over $66 000$.
+We applied our tools and visualizations to the repositories of three
+open source database systems: PostgreSQL, MaxDB, and Firebird. The
+total number of commits analyzed was over $66,000$.
 
 
 %\SubSection{MySQL}
@@ -862,7 +987,7 @@ total number of commits analyzed was over $66 000$.
 
 
 When we examined PostgreSQL's history from 1996 to 2004, which includes
-over $20 000$ commits. We did not find many trends with two or more
+over $20,000$ commits. We did not find many trends with two or more
 topics, using a similarity of $7/10$. $7/10$ was chosen because it
 preserve independent topics but seemed to be a threshold
 value where more serious trends started to appear.
@@ -895,11 +1020,11 @@ from email headers, issues with ALTER TABLE and CVS branch merging
 
 
 
-We tracked Firebird from August 2000 to January 2006, we extracted comments from $38 000$ commits. We found that with a
+We tracked Firebird from August 2000 to January 2006, we extracted comments from $38,000$ commits. We found that with a
 similarity of $7/10$ Firebird had far more continuous and
 recurring trends than PostgreSQL.  The first large trend was discontinuous
 across time but explicitly references one author \texttt{carlosga05}
-and words like \emph{added}, \emph{fixed} and \emph{updated}.
+and words like \emph{added}, \emph{fixed}, and \emph{updated}.
 
 The second largest trend was during the month of March 2001. It was
 related to incremental building and the porting of developer
@@ -987,7 +1112,7 @@ optimizer is an important component of an DBMS, but as we have shown
 it does not appear as a topic on its own. We tried to remove words to
 see if we could get an \emph{optimizer} topic. After removing stop
 words and then two of the most common words, the global analysis
-finally had a topic with optimizer in its topic ten words. Our
+finally found a topic with optimizer in its topic ten words. Our
 analysis shows that optimizer was important but it had been obscured
 by the global topic analysis, which used the entire history of
 messages, but would have been noticed using the more local topic
