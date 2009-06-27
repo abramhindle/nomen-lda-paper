@@ -436,11 +436,12 @@ model~\cite{1036902}, which associated authors and topics extracted
 with LDA.
 
 Lukins, Kraft and Etzkorn~\cite{lukins2008} use LDA to help bug
-localization by querying for documents that are related to a bug's topic. They
-used LDA to build a topic model and then queried against it using
-sample documents. These queries would indicate the proportion of
-topics that were associated with the query and the
-related documents.
+localization by querying for documents that are related to a bug's
+topic. They used LDA to build a topic model and then searched for
+similar documents by querying with sample documents.
+%These queries would indicate the proportion of
+%topics that were associated with the query and the
+%related documents.
 
 LSI is related to LDA and has been used to identify topics in software
 artifacts for formal concept analysis and concept
@@ -448,9 +449,11 @@ artifacts for formal concept analysis and concept
 location~\cite{1374321,10.1109/ICPC.2007.13}.
 Concept analysis aims to automatically extract concepts from source
 code or documents that are related to the source code.  Concept location concerns how
-high-level concepts relate to low level entities such as source code. For
-example, when fixing a bug, how and where do the concepts in the bug
-report map back to the source code?  Semantic Clustering has also been
+high-level concepts, such as bugs, relate to low level entities such as source code. 
+%For
+%example, when fixing a bug, how and where do the concepts in the bug
+%report map back to the source code?  
+Semantic Clustering has also been
 used for similar purposes~\cite{1698774,1566153} as it is similar to
 LSI.
 
@@ -1101,8 +1104,9 @@ previous month. We investigated the revisions and we found that
 developers were referencing the bug tracker more during the last
 month.  If the topics of one month were about unique bug tickets being
 addressed, the global topic analysis would probably miss this, yet
-these bug tickets were the focus of development for that month but not
-necessarily globally relevant.
+these bug tickets were the focus of development for that month.
+% but not
+% necessarily globally relevant.
 
 The query optimizer was a topic that recurred during MaxDB's
 development. In our plots, topics that mention \emph{optimizer} occur
