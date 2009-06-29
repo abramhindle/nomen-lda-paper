@@ -719,10 +719,24 @@ repositories.
 %XXX maybe fix
 The documents we are analyzing are the commit log comments, i.e., the
 comments that are added when revisions to the project are committed.
+% For each commit log comment, we count the occurrence of each word in
+% the message, remove stop words, and then produce word distributions
+% for each message.  These distributions are then normalized by the size
+% of the message, each count was divided by the total number of
+% tokens. After all messages are processed the distributions are
+% extended to include all words from all of the distributions.
+% For each commit log comment, we count the occurrence of each word in
+% the message, remove stop words, and then produce word distributions
+% for each message, which are normalized (divided by) by the size
+% of the message.
+% After all messages are processed the distributions are
+% extended to include all words from all of the distributions.
+% 
+%
 For each commit log comment we produce word distributions by counting
 the occurrence of each word in the message, removing stop words and
-normalizing the distribution by the size of message, in tokens.
-% (dividing counts by the number of tokens).  
+then normalizing the distribution by the size of message, in tokens.
+% (dividing word counts by the number of tokens).  
 After
 all messages are processed the distributions are extended to include
 all words from all of the distributions.
