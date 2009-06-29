@@ -108,7 +108,7 @@ Abram Hindle, Michael W. Godfrey and Richard C. Holt\\
 %
   Tools such as Latent Dirichlet Allocation (LDA) and Latent Semantic
 %  Indexing (LSI) can be used to extract a set of independent topics
-  Indexing (LSI) extract a set of independent topics
+  Indexing (LSI) can be used to extract a set of independent topics
   from a corpus of commit-log comments.  Previous work in the area has
   created a single set of topics by analyzing comments from the entire
   lifetime of the project.  In this paper, we propose windowing the
@@ -224,11 +224,11 @@ when, we can also analyze the historical timeline of topics for
 patterns and trends.  For example, we might wish to categorize each
 topic as being local to a single time window, spanning multiple
 consecutive windows, or recurring periodically.  Alternatively, we
-might explore if any topics often recur together, if one particular
+might explore evolutionary patterns, such as if topics often recur together, if one particular
 topic usually precedes another, if unplanned topics outnumber planned
 topics, if particular topics recur near the end of development
-iterations, etc.  whereas this paper suggests that most topics are
-local.
+iterations, etc. % whereas this paper suggests that most topics are
+%local.
 
 % In the past, topic analysis has been applied to the entire history of a project~\cite{1321709,lukins2008,10.1109/ICPC.2007.13},
 % whereas this paper suggests that most topics are local. For example,  
@@ -250,7 +250,7 @@ that managers may be able to more easily grasp the topic-related
 activities of the developers.  Figure \ref{fig:lda} gives an example.
 Those topics that
 recur, or occur over a larger period are plotted continuously. In our
-example we have titled each topic with a word drawn from its
+example we have titled each topic with a word chosen from its
 word distribution.  
 Given a visualization, such as Figure \ref{fig:lda}, topic
 analysis can aid in partitioning a project's time-line into periods of
@@ -277,8 +277,12 @@ and global (entire history) analysis.
 
 Our contributions include:
 \begin{itemize}
-\item We demonstrate that windowed topic analysis most topics are local
-  in scope, which would be missed by a global topic analysis.
+%\item We demonstrate that windowed topic analysis most topics are local
+%  in scope, which would be missed by a global topic analysis.
+
+\item  We introduce windowed topic analysis, and demonstrate its utility
+  compared to global topic analysis.
+
 \item We present a number of visualizations of topics and their trends over time to aid
   communication and analysis of these topics and trends.
 \item We provide an exploratory case study using these techniques on
@@ -437,7 +441,7 @@ This model associates authors and topics via their associated documents.
 % model~\cite{1036902}, which associated authors and topics extracted
 % with LDA.
 
-Lukins, Kraft and Etzkorn~\cite{lukins2008} use LDA to help bug
+Lukins et al.~\cite{lukins2008} use LDA to help bug
 localization by querying for documents that are related to a bug's
 topic. They used LDA to build a topic model and then searched for
 similar documents by querying with sample documents.
@@ -540,7 +544,7 @@ probably contain a word such as \emph{ticket}, and thus heavily associate
 with the bug fix topic.  A commit that concerned user documentation of
 the GUI would likely be associated with both the documentation and GUI
 topics if it shared words from both topics.  And a commit that did not
-concern bugs, GUIs, or documentation would likely be related to the other topic.
+concern bugs, GUIs, or documentation would likely be related to the ``other'' topic.
 
 
 
@@ -778,7 +782,7 @@ provided us with enough documents to analyze.
 
 Once we have our data windowed, we apply our Topic Analysis tool to
 each window and extract the top $N$ topics.  We decided to use a
-threshold of $20$ topics based on our previous experience with LDA; we
+threshold of $N=20$ topics based on our previous experience with LDA; we
 found that using more than $20$ makes the boundaries between topics less
 distinct.
 
@@ -886,9 +890,9 @@ some notion of similarity, e.g.,  topics share 8 out of  top 10 words.}
   data from different points of view to address different questions:
   How are the topics spread over time?  How many independent topics
   per period were there?  What were the repeating trends?  Did the
-  trends dominate, or did local topics dominate?  How broken up were
+  trends dominate, or did local topics dominate?  How contiguous were
   the trends?  
-  To address these multiple questions we will describe and employ multiple visualizations.
+  To address these questions we will describe and employ multiple visualizations.
 %  Since we have a variety of questions to answer we suggest multiple
 %  visualizations, which we now describe.
 
@@ -1332,8 +1336,9 @@ actual distance between two word topic distributions.
 % between two word topic distributions. By truncating tokens we could be
 % losing valuable data.
 
-Adding and removing stop words produced different results. Our choice
-of stop words could be biased, and could affect the results.
+Our choice of the number of topics and adding and removing stop words
+produced different results. Our choice of stop words could be biased,
+and could affect the results.
 %, and our bias for or against such stop words could affect
 %the results.
 
