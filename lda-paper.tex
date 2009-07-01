@@ -201,7 +201,7 @@ there latent cause-effect relationships between different topics?
 Topic analysis 
 uses tools such as Latent Dirichlet Allocation (LDA) and Latent Semantic Indexing (LSI) to extract
 independent word distributions (topics) from
-documents (commit log comments)~\cite{1374321-short,10.1109/ICPC.2007.13-short,lukins2008,10.1109/MSR.2007.20-short}.
+documents (commit log comments)~\cite{1374321-short,10.1109/ICPC.2007.13-short,lukins2008-short,10.1109/MSR.2007.20-short}.
 Ideally these extracted topics 
 correlate with actual development topics that the developers discussed
 during the development of the software project. 
@@ -215,7 +215,7 @@ projects source control system (SCS).
 
 
 Previous work on topic analysis has been applied to the entire history of a 
-project~\cite{1321709-short,lukins2008,10.1109/ICPC.2007.13-short}
+project~\cite{1321709-short,lukins2008-short,10.1109/ICPC.2007.13-short}
 to produce a single set of topics. In this paper we explore the idea
 of time-windowed topic analysis; that is, we pick a period of, say,
 one month and perform topic analysis within each window.  In addition
@@ -408,7 +408,7 @@ semantic clustering~\cite{1698774-short,1566153-short}. These tools are used for
 document modelling, document clustering and collaborative
 filtering. LDA attempts to encode documents as a mixture
 model, a combination of topics.  LDA has been used in software engineering
-literature~\cite{lukins2008,10.1109/MSR.2007.20-short}%,NIPS2007637,1321709}.
+literature~\cite{lukins2008-short,10.1109/MSR.2007.20-short}%,NIPS2007637,1321709}.
 to extract topics from documents such as methods, bug
 reports, source code and files.
 
@@ -441,7 +441,7 @@ This model associates authors and topics via their associated documents.
 % model~\cite{1036902}, which associated authors and topics extracted
 % with LDA.
 
-Lukins et al.~\cite{lukins2008} use LDA to help bug
+Lukins et al.~\cite{lukins2008-short} use LDA to help bug
 localization by querying for documents that are related to a bug's
 topic. They used LDA to build a topic model and then searched for
 similar documents by querying with sample documents.
@@ -945,7 +945,9 @@ gaps will be left due to non-optimal stacking, in practice there are
 many small trends (90\% of all trends contain 1 topic) that fill in
 these gaps quickly.  Different instances of the same trend share the
 same color; apart from that, the color of a trend is randomly chosen
-while the color of a unique topic is grey. Color similarity is not meaningful.  
+while topics that do not reoccur are colored grey.
+%the color of a unique topic is grey. 
+Color similarity is not meaningful.  
 %The compact-trend-view is
 %convenient because it shows all of the topic information, as shown by
 %the zoomed-in view of MaxDB 7.500's compact-trend-view in Figure
@@ -1449,7 +1451,7 @@ that describes that distribution. Potential external sources of topic
 names include software engineering taxonomies, ontologies and
 standards.
 \newline\noindent{\small\textbf{Acknowledgements:} Thanks to Tudor Girba and Neil Ernst.}
-%for valuable feedback
+%for their valuable feedback.}
 \shrinkit
 \bibliographystyle{latex8}
 
