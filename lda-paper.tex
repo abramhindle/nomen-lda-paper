@@ -173,7 +173,7 @@ helpful to be able to answer questions such as: What topics dominated
 the previous release cycle? Given the requirements agreed to at the
 start of the iteration how much work did our developers spend on them?
 What other tasks did they work on?  Which topics seem to recur over
-and over between cycles?  How long do different topics persist?  Are
+and over between releases?  How long do different topics persist?  Are
 there latent cause-effect relationships between different topics?
 
 
@@ -408,8 +408,8 @@ semantic clustering~\cite{1698774-short,1566153-short}. These tools are used for
 document modelling, document clustering and collaborative
 filtering. LDA attempts to encode documents as a mixture
 model, a combination of topics.  LDA has been used in software engineering
-literature~\cite{lukins2008-short,10.1109/MSR.2007.20-short}%,NIPS2007637,1321709}.
-to extract topics from documents such as methods, bug
+literature~\cite{lukins2008-short,10.1109/MSR.2007.20-short} to %,NIPS2007637,1321709}.
+extract topics from documents such as methods, bug
 reports, source code and files.
 
 LDA, LSI and semantic clustering extract topic
@@ -433,8 +433,8 @@ words) from the documents.
 
 In order to infer or associate the expertise of an author with topics
 extracted from SCS, Linstead et al.\  proposed an author-source-code model
-using LDA~\cite{10.1109/MSR.2007.20-short}.%,NIPS2007637,1321709}. 
-This model associates authors and topics via their associated documents.
+using LDA~\cite{10.1109/MSR.2007.20-short}. This %,NIPS2007637,1321709}. 
+model associates authors and topics via their associated documents.
 
 %   This model
 % is essentially an extension of the author-topic (AT)
@@ -463,7 +463,7 @@ Semantic Clustering has also been
 used for similar purposes~\cite{1698774-short,1566153-short} as it is similar to
 LSI.
 
-Grant et al.~\cite{scottcordy} and have used an alternative technique,
+Grant et al.~\cite{scottcordy-short} and have used an alternative technique,
 called Independent Component Analysis~\cite{delac-short} to separate topic signals from
 software code.
 
@@ -490,7 +490,7 @@ its development history.
 Imagine that we are analyzing one month of development in a project
 where there were three major tasks: bug fixing, adding a new GUI, and
 documentation updates relating to the system and the GUI. To use LDA
-we would get the word distributions of each commit messages, 
+we would get the word distributions of each commit message, 
 \begin{comment}
 pass them to
 LDA and tell LDA to find some topics, in this case we
@@ -597,7 +597,7 @@ version control rather than the semantic content of the commit.
 %occur so often in the MySQL 3.23 messages. These words probably should
 %be viewed as stop words since occur across so many topics, even though
 %they are related to version control usage.  
-There were topics which appeared only during some transitional period and never again
+There were topics which appeared only during some transitional period and never again,
 such as \emph{RENAME} and \emph{BitKeeper}. \emph{BitKeeper} which appears when MySQL switched to  BitKeeper for their SCS.
 % There were notable
 % transitional topics such as in the first window the word
@@ -614,7 +614,7 @@ frequent words in the word distribution of the topic and tried to
 summarize the topic, then we looked into the commits related to that
 topic to investigate if we were correct; since the commit messages and
 the word distribution share the same words the purpose extracted from
-top 10 words was usually accurate.
+the top 10 words was usually accurate.
 
 %SHORTEN could shorten 1 line
 A sampling of the notable topic words is displayed in Table
@@ -688,7 +688,7 @@ Sampled topics from MySQL 3.23, some with continuous topics. These tokens were p
 \begin{figure*}[t]
   \centering
   \includegraphics[width=0.9\textwidth]{commit-to-topics} 
-  \caption{How commits are analyzed and aggregated into topics and trends: commits are first extracted, then abstracted into word counts or word distributions which are then given to topic analysis tool like LDA. LDA finds independent word distributions (topics) that these documents are related to (the numbers indicate similarity between documents and topics).}
+  \caption{How commits are analyzed and aggregated into topics and trends: commits are first extracted, then abstracted into word counts or word distributions which are then given to a topic analysis tool like LDA. LDA finds independent word distributions (topics) that these documents are related to (the numbers indicate similarity between documents and topics).}
   \label{fig:commits}
 \end{figure*}
 
@@ -739,7 +739,7 @@ comments that are added when revisions to the project are committed.
 %
 For each commit log comment we produce word distributions by counting
 the occurrence of each word in the message, removing stop words and
-then normalizing the distribution by the size of message, in tokens.
+then normalizing the distribution by the size of the message, in tokens.
 % (dividing word counts by the number of tokens).  
 After
 all messages are processed the distributions are extended to include
@@ -822,7 +822,7 @@ Our input for topic similarity is the top 10 most common words of each
 topic.  Each topic is compared to each other topic in the system,
 given a certain threshold of similarity, such as 8 out of
 top 10 matching words.  10 words were chosen because often people care
-about top 10 comparison and it allowed for some common words to exist
+about top 10 comparisons and it allowed for some common words to exist
 %but not cause topics to match so closely.  
 yet not produce too many trends.
 We then apply the
@@ -884,7 +884,7 @@ some notion of similarity, e.g.,  topics share 8 out of  top 10 words.}
 \SubSection{Visualization}
 \shrinkit
 %       1. [ ] need the visualizer
-  Visualization is an integral part of our topics analysis which
+  Visualization is an integral part of our topic analysis which
   allows us to quickly explore the topics and trends of a project.
   Visualizing the results %is desirable as it 
   allows us to explore the
@@ -916,7 +916,7 @@ shown in Figure \ref{fig:topicsmear} and Figure \ref{fig:zoomedsmear},
 that displays trends as they occur on the time-based x-axis
 (placement along the y-axis is arbitrary).  Another technique is
 the \emph{trend-time-line}, shown in Figure \ref{fig:trendtimeline}, where
-each trend gets it own distinct y-value, while the x-axis is time;
+each trend gets its own distinct y-value, while the x-axis is time;
 these topics are then each plotted on their own line across time as
 they occur. Our final technique is the \emph{trend-histogram}, shown in Figure
 \ref{fig:histogram} where we plot each trend on its own line but stack
@@ -977,7 +977,7 @@ shows the count of instances of a trend and thus indicates which
 trends occur the most. Due to the large number of topics
 (approximately $N$ topics multiplied by $M$ periods), given the
 allotted space, it is often best to crop off the trends with only one
-topic ($1\%$ to $10\%$ of the total topics), otherwise the tail is
+topic ($90\%$ to $99\%$ of the total topics), otherwise the tail is
 long. The \emph{trend-histogram} summarizes the distribution of
 trends ordered by size.
 
@@ -993,7 +993,7 @@ trends ordered by size.
 \begin{figure}[t]
   \centering
   \includegraphics[width=0.45\textwidth]{class-smear-plot-crop-scaled}
-  \caption{Trend-time-line: Trends plotted per month of MaxDB 7.500. Time in months are plotted along the x-axis, each row on the y-axis is associated with a trend ranked by size in descending order}         
+  \caption{Trend-time-line: Trends plotted per month of MaxDB 7.500. Time in months are plotted along the x-axis, each row on the y-axis is associated with a trend ranked by size in descending order.}         
   \label{fig:trendtimeline}
 \end{figure}
 
@@ -1034,7 +1034,7 @@ total number of commits analyzed was over $66,000$.
 %   3.   mysql
 
 
-When we examined PostgreSQL's history from 1996 to 2004, which includes
+We examined PostgreSQL's history from 1996 to 2004, which includes
 over $20,000$ commits. We did not find many trends with two or more
 topics, using a similarity of $7/10$. $7/10$ was chosen because it
 preserve independent topics but seemed to be a threshold
@@ -1051,13 +1051,13 @@ relating to time-zones.
 If we kept the stop words, we found that the large trend consisted
 mostly of stop words and non-stop words such as \emph{patch},
 \emph{fix}, \emph{update}.  By decreasing the similarity constraint to
-$1/2$ the largest most common trend, which stretched across
+$1/2$, the largest most common trend, which stretched across
 the entire development, contained these same words (\emph{patch},
 \emph{fix}, \emph{update}). The second largest trend mentions Dal
 Zotto, while the third largest trend mentions the \texttt{[PATCHES]}
 mailing-list and the names of some patch contributors.  Other repeating
 topics refer to portability with Win32, Central Europe Time (CEST)
-from email headers, issues with ALTER TABLE and CVS branch merging
+from email headers, issues with ALTER TABLE, and CVS branch merging
 (CVS does not record merges explicitly).
 
 
@@ -1113,7 +1113,7 @@ there were no topics or trends whatsoever (see the gap in Figure
 \ref{fig:topicsmear}). Using a topic similarity of $7/10$ we evaluated
 MaxDB 7.500. MaxDB 7.500's first period was from June 2004 to January
 2005, and its second period was from June 2005 to June 2006. There
-were a total of $8 600$ commits analyzed.
+were a total of $8,600$ commits analyzed.
 
 
 The largest common trend has references to build system files like
@@ -1157,7 +1157,7 @@ The query optimizer was a topic that recurred during MaxDB's
 development. In our plots, topics that mention \emph{optimizer} occur
 four times, yet in the global-trend-view (Figure
 \ref{fig:statictopics}, explained in Section \ref{sec:compare}) it is not in any of the topics. A query
-optimizer is an important component of an DBMS, but as we have shown
+optimizer is an important component of a DBMS, but as we have shown
 it does not appear as a topic on its own. We tried to remove words to
 see if we could get an \emph{optimizer} topic. After removing stop
 words and then two of the most common words, the global analysis
@@ -1165,7 +1165,7 @@ finally found a topic with optimizer in its top 10 words. Our
 analysis shows that optimizer was important but it had been obscured
 by the global topic analysis, which used the entire history of
 messages, but would have been noticed using the more local topic
-analysis such as our windowed topic analysis, which used a window of
+analysis such as our windowed topic analysis, which used a smaller window of
 messages.
 
 
@@ -1424,7 +1424,7 @@ well, it shows topics by similarity so one can track trends across
 time.  Our trend-histogram highlights and measures the
 size of trends while our trend-time-line view shows how a topic
 reoccurs over time. These visualizations help us  understand the common topics that developers focus on during
-development. If implemented interactively an user could easily zoom in
+development. If implemented interactively, a user could easily zoom in
 and query for a summary of a topic or trend.
 In summary, our work on windowed topic analysis shows the potential
 for automatically determining key topics and trends across software
@@ -1451,12 +1451,14 @@ that describes that distribution. Potential external sources of topic
 names include software engineering taxonomies, ontologies and
 standards.
 %\newline\noindent{\small\textbf{Acknowledgements:} We'd like to thank Tudor Girba and Neil Ernst.}
-\newline\noindent{\small\textbf{Acknowledgements:} We thank Tudor Girba for his comments.}
+%\newline\noindent{\small\textbf{Acknowledgements:} We thank Tudor Girba for his comments.}
+\newline\noindent{\small\textbf{Acknowledgements:} We would like to thank Tudor Girba and Neil Ernst for their feedback and ideas.}
+%\newline\noindent{\small\textbf{Acknowledgements:} We thank Tudor Girba and Neil Ernst.}
 %We'd like to thank Tudor Girba and Neil Ernst.}
 %for their valuable feedback.}
 \shrinkit
 \bibliographystyle{latex8}
-
+\shrinkit
 \shrinkit
 \bibliography{lda-paper}
 
