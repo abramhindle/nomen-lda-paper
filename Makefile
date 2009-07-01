@@ -18,7 +18,7 @@ lda-paper-pre.pdf: lda-paper.tex lda-paper.bib
 	mv lda-paper.pdf lda-paper-pre.pdf
 
 lda-paper.pdf: lda-paper-pre.pdf
-	gs -q -dNOPAUSE -dBATCH -dPDFSETTINGS=/prepress -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -sDEVICE=pdfwrite -sOutputFile=lda-paper.pdf lda-paper-pre.pdf
+	gs -q -dNOPAUSE -dBATCH -dPDFSETTINGS=/prepress -dDownsampleColorImages=false -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -sDEVICE=pdfwrite -sOutputFile=lda-paper.pdf lda-paper-pre.pdf
 
 
 lda-paper.ps: lda-paper.dvi
