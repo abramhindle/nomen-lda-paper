@@ -871,7 +871,8 @@ some notion of similarity, e.g.,  topics share 8 out of  top 10 words.}
   \caption{Compact-trend-view shows topics per month for MaxDB
     7.500. The x-axis is time in months, the y-axis is used to stack
     topics occurring at the same time. Trends that are continuous are
-    plotted as continuous blocks. The top 10 words in the topics are
+    plotted as continuous blocks. Trends with more than one topic are colored the same unique color, while topics that do not reoccur are colored grey.
+    The top 10 words in the topics are
     joined and embedded in box representing the topics. No stop words were removed. The gap in the
     middle is a period where no development took place (see Section \ref{sec:maxdb}).}
   \label{fig:topicsmear}
@@ -943,8 +944,8 @@ then stack the smaller trends on top.  Although there is a chance that
 gaps will be left due to non-optimal stacking, in practice there are
 many small trends (90\% of all trends contain 1 topic) that fill in
 these gaps quickly.  Different instances of the same trend share the
-same color; apart from that, the color of trends is randomly chosen
-and color similarity is not meaningful.  
+same color; apart from that, the color of a trend is randomly chosen
+while the color of a unique topic is grey. Color similarity is not meaningful.  
 %The compact-trend-view is
 %convenient because it shows all of the topic information, as shown by
 %the zoomed-in view of MaxDB 7.500's compact-trend-view in Figure
@@ -1447,8 +1448,8 @@ distribution we should be able to automatically select a word or term
 that describes that distribution. Potential external sources of topic
 names include software engineering taxonomies, ontologies and
 standards.
-
-
+\newline\noindent{\small\textbf{Acknowledgements:} Thanks to Tudor Girba and Neil Ernst.}
+%for valuable feedback
 \shrinkit
 \bibliographystyle{latex8}
 
