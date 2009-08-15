@@ -2,21 +2,550 @@
 
 \begin{document}
 
-\section{Word lists}
+% \section{Word lists}
 
-Make a word list (a file) of related words and a label. Used wordnet
-similarity (unfiltered) and concepts from \cite{5072519}.
+% Make a word list (a file) of related words and a label. Used wordnet
+% similarity (unfiltered) and concepts from \cite{5072519}.
 
-\subsection{Observations}
+% \subsection{Observations}
 
-We ran it and we found that wordnet for correctness was too
-generic. We ran it on MaxDB 7.500 with the words: integrity, security,
+% We ran it and we found that wordnet for correctness was too
+% generic. We ran it on MaxDB 7.500 with the words: integrity, security,
+% interoperability, testability, maintainability, traceability,
+% accuracy, modifiability, understandability, availability, modularity,
+% usability, correctness, performance, verifiability, efficiency,
+% portability, flexibility, and reliability.
+
+% We had 500 topics extracted.
+
+
+
+
+
+\section{Exp1: Word Lists on MaxDb 7.500 commit log comments}
+
+We extracted the commit log comments from MaxDB 7.500 and per month extracted 20 topics using LDA. There are 25 months, thus a total of topic 500 possible topics, but there were a couple of months with no commits.
+
+Make a word list (a file) of related words and a label. We used
+wordnet similarity (unfiltered) on concepts extracted from
+\cite{5072519}.  The concepts used included: integrity, security,
 interoperability, testability, maintainability, traceability,
 accuracy, modifiability, understandability, availability, modularity,
 usability, correctness, performance, verifiability, efficiency,
 portability, flexibility, and reliability.
 
-We had 500 topics extracted.
+We determined if a word list was similar to a topic if they shared 1
+or more words in common.
+
+\subsection{Observations}
+
+We ran it and we found that wordnet generated word lists for
+\emph{correctness} were too large andgeneric. Results are listed below
+in the results section
+
+\subsection{Future attempts:}
+
+\begin{itemize}
+\item  Make better manual word lists
+\item  Take that ISO standard that Neil used
+\item  Take that ISO Architecture standard that ric mentioned
+\item  Different similarity measure
+\item  Utilize wordnet distance
+\item  Utilize LDA to query its own model with single wordlists to get related documents
+\end{itemize}
+
+\subsection{Results}
+
+Here's the output of what I got:
+\begin{verbatim}
+Total Topics: 500
+Total Named Topics: 281
+Total UnNamed Topics: 219
+Total Empty Topics: 80
+Total UnNamed Non-empty Topics: 139
+
+Wordlists associated with n topics:
+interoperability 1
+accuracy 3
+usability 4
+modularity 5
+understandability 6
+efficiency 8
+security 8
+integrity 9
+performance 58
+verifiability 78
+traceability 95
+testability 121
+correctness 182
+
+Now wordlists that were correlated with each other
+correctness, interoperability 1
+efficiency, performance 1
+efficiency, security 1
+efficiency, testability 1
+efficiency, verifiability 1
+integrity, traceability 1
+integrity, verifiability 1
+interoperability, interoperability 1
+modularity, performance 1
+performance, security 1
+performance, usability 1
+traceability, understandability 1
+traceability, usability 1
+understandability, verifiability 1
+efficiency, traceability 2
+security, testability 2
+testability, usability 2
+accuracy, accuracy 3
+accuracy, correctness 3
+accuracy, testability 3
+accuracy, understandability 3
+integrity, testability 3
+correctness, integrity 4
+security, verifiability 4
+usability, usability 4
+correctness, efficiency 5
+correctness, modularity 5
+correctness, security 5
+correctness, understandability 5
+modularity, modularity 5
+security, traceability 5
+testability, understandability 5
+understandability, understandability 6
+efficiency, efficiency 8
+security, security 8
+integrity, integrity 9
+performance, traceability 10
+performance, verifiability 12
+performance, testability 17
+correctness, performance 24
+testability, verifiability 26
+testability, traceability 32
+performance, performance 58
+correctness, testability 62
+correctness, verifiability 76
+traceability, verifiability 76
+verifiability, verifiability 78
+correctness, traceability 86
+traceability, traceability 95
+testability, testability 121
+correctness, correctness 182
+\end{verbatim}
+
+\section{Exp2: Word Lists extracted from ISO9126 Taxonomy}
+
+We extracted the commit log comments from MaxDB 7.500 and per month
+extracted 20 topics using LDA. There are 25 months, thus a total of
+topic 500 possible topics, but there were a couple of months with no
+commits.
+
+Make a word list (a file) of related words and a label.  These words
+were extracted from the ISO9126 Taxonomy.  The main concepts used are:
+functionality, reliability, maintainability, usability, efficiency,
+and portability.
+
+We determined if a word list was similar to a topic if they shared 1
+or more words in common.
+
+\subsection{Observations}
+
+There are many more unnamed topics than before. Only reliability shows up very often.
+
+The words that reliability finds are:
+\begin{verbatim}
+error 279
+bug 25
+fails 2
+crash 14
+failure 1
+\end{verbatim}
+
+Usability words
+\begin{verbatim}
+ui 16
+user 8
+default 4
+gui 3
+feature 2
+\end{verbatim}
+
+Portability words
+\begin{verbatim}
+documentation 5
+migration 1
+\end{verbatim}
+
+Effeciency words
+\begin{verbatim}
+optimize 18
+optimization 4
+fast 3
+slow 1
+\end{verbatim}
+
+And ``dependency'' for maintability
+
+\subsection{Results}
+
+
+\begin{verbatim}
+Total Topics: 500
+Total Named Topics: 125
+Total UnNamed Topics: 375
+Total Empty Topics: 80
+Total UnNamed Non-empty Topics: 295
+
+maintainability 1
+efficiency 4
+portability 5
+usability 13
+reliability 107
+
+efficiency, reliability 1
+maintainability, maintainability 1
+maintainability, reliability 1
+portability, reliability 1
+reliability, usability 2
+efficiency, efficiency 4
+portability, portability 5
+usability, usability 13
+reliability, reliability 107
+\end{verbatim}
+
+
+\section{Exp3: Word Lists extracted from ISO9126 Taxonomy combined with Wordnet}
+
+We extended Experiment 2 to include the wordnet words.
+
+\subsection{Observations}
+
+Many more results that before, most topics are named now.
+
+
+For the efficiency concept:
+\begin{verbatim}
+add 109
+fix 102
+base 24
+optimize 18
+fixing 14
+correction 12
+command 7
+process 5
+frame 5
+string 4
+optimization 4
+fast 3
+end 3
+count 3
+upgrade 2
+speed 2
+solve 2
+record 2
+avoid 2
+slow 1
+shorten 1
+scratch 1
+resolve 1
+quick 1
+loading 1
+frequency 1
+estimate 1
+corrections 1
+control 1
+constant 1
+administration 1
+\end{verbatim}
+
+For functionality:
+\begin{verbatim}
+fix 102
+update 43
+window 22
+tack 9
+key 9
+support 8
+memory 8
+difference 8
+mark 7
+system 6
+ease 6
+lease 5
+grate 5
+frame 5
+ring 4
+strategy 3
+label 3
+source 2
+power 2
+gain 2
+buffer 2
+buff 2
+bar 2
+tool 1
+machine 1
+grant 1
+extract 1
+complex 1
+catch 1
+\end{verbatim}
+
+For maintainability
+\begin{verbatim}
+file 140
+log 19
+difference 8
+mark 7
+ease 6
+point 5
+document 5
+environment 4
+order 3
+improvement 3
+end 3
+action 3
+verify 2
+record 2
+power 2
+post 2
+place 2
+mode 2
+union 1
+tract 1
+tension 1
+sleep 1
+representation 1
+processing 1
+ownership 1
+need 1
+increase 1
+enlargement 1
+dependency 1
+control 1
+condition 1
+\end{verbatim}
+
+For portability:
+\begin{verbatim}
+os 17
+support 8
+form 8
+program 6
+function 6
+documentation 5
+transaction 3
+action 3
+upgrade 2
+routine 1
+migration 1
+integration 1
+\end{verbatim} 
+
+For reliability
+\begin{verbatim}
+error 279
+check 196
+change 67
+move 60
+bug 25
+correct 24
+age 20
+set 18
+make 18
+ram 17
+out 17
+ace 15
+crash 14
+lock 10
+sing 9
+run 9
+list 9
+mat 8
+form 8
+case 8
+fail 7
+vent 6
+stall 6
+din 6
+point 5
+grate 5
+get 5
+format 5
+cover 5
+work 4
+ting 4
+ring 4
+fault 4
+default 4
+adjust 4
+turn 3
+rap 3
+pass 3
+order 3
+let 3
+gel 3
+end 3
+adapt 3
+action 3
+static 2
+start 2
+resume 2
+refresh 2
+power 2
+part 2
+modify 2
+ill 2
+flow 2
+find 2
+fails 2
+drop 2
+cut 2
+yield 1
+worker 1
+value 1
+union 1
+stance 1
+sink 1
+scratch 1
+representation 1
+report 1
+regard 1
+prim 1
+pop 1
+ping 1
+ownership 1
+nod 1
+instance 1
+header 1
+grow 1
+go 1
+failure 1
+exit 1
+enlargement 1
+eld 1
+dress 1
+develop 1
+dependency 1
+cycle 1
+corrections 1
+condition 1
+close 1
+catch 1
+calm 1
+administration 1
+\end{verbatim}
+
+For usability
+\begin{verbatim}
+error 279
+check 196
+test 125
+fix 102
+window 22
+monitor 19
+set 18
+ram 17
+ui 16
+view 15
+port 15
+back 15
+elect 12
+trace 11
+user 8
+use 8
+man 8
+compiler 8
+case 8
+miss 7
+name 6
+module 6
+function 6
+longer 5
+etch 5
+cover 5
+diagnose 4
+default 4
+gui 3
+end 3
+aries 3
+application 3
+wrapper 2
+wrap 2
+wall 2
+top 2
+stop 2
+possibility 2
+match 2
+liver 2
+libra 2
+feature 2
+cut 2
+cap 2
+bar 2
+worker 1
+ward 1
+sort 1
+show 1
+self 1
+resolve 1
+relative 1
+relation 1
+purpose 1
+protection 1
+present 1
+patch 1
+owner 1
+machine 1
+killer 1
+go 1
+gem 1
+extract 1
+equal 1
+block 1
+binary 1
+\end{verbatim}
+
+
+\subsection{Results}
+\begin{verbatim}
+Total Topics: 500
+Total Named Topics: 328
+Total UnNamed Topics: 172
+Total Empty Topics: 80
+Total UnNamed Non-empty Topics: 92
+
+maintainability 44
+portability 45
+functionality 94
+efficiency 200
+reliability 225
+usability 265
+
+maintainability, portability 5
+functionality, maintainability 15
+portability, reliability 29
+efficiency, maintainability 31
+maintainability, reliability 34
+maintainability, usability 35
+efficiency, portability 38
+functionality, portability 39
+portability, usability 40
+maintainability, maintainability 44
+portability, portability 45
+functionality, reliability 58
+efficiency, functionality 73
+functionality, usability 85
+functionality, functionality 94
+efficiency, reliability 137
+efficiency, usability 150
+reliability, usability 190
+efficiency, efficiency 200
+reliability, reliability 225
+usability, usability 265
+\end{verbatim}
+
+
 
 \end{document}
 
