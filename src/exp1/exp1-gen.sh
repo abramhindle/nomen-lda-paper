@@ -1,4 +1,4 @@
-./related.sh maintainability maintainenance				> wordlist.maintainability
+./related.sh maintainability maintenance				> wordlist.maintainability
 ./related.sh efficiency efficient > wordlist.efficiency
 ./related.sh usability  usable                             > wordlist.usability             
 ./related.sh performance                            > wordlist.performance
