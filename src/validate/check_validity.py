@@ -13,7 +13,7 @@ def load_period(period):
     
 def load_wordlists(): 
     """ load the datafile with the wordlists we want to use """
-    exp = '../exp2/'
+    exp = '../exp3/'
     quality_map = {'portability':[], 'efficiency':[], 'reliability':[], 'functionality':[], 'usability':[], 'maintainability':[]}
     for q in quality_map.keys():
         q_file = open(exp + 'wordlist.' + q)
