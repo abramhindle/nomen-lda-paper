@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding='UTF-8'   ?>
+<!ELEMENT Periods (Period*)>
+<!ELEMENT Period (Documents?,Files?,Authors?,Topic*)>
+<!ELEMENT Documents (Document*)>
+<!ELEMENT Document (Files?)>
+<!ELEMENT Files (File*)>
+<!ELEMENT Authors (Author*)>
+<!ELEMENT Author (#PCDATA)>
+<!ELEMENT File (#PCDATA)>
+<!ELEMENT annotation (#PCDATA)>
+<!ELEMENT Topics (Topic*)>
+<!ELEMENT Topic (annotation*,Document*,Files?,Authors?,Elements)>
+<!ELEMENT Elements (Elm*)>
+<!ELEMENT Elm (#PCDATA)>
+<!ATTLIST Period time CDATA "">
+<!ATTLIST Document time CDATA "">
+<!ATTLIST Document author CDATA "">
+<!ATTLIST Document document CDATA "">
+<!ATTLIST File name CDATA "">
+<!ATTLIST File count CDATA "">
+<!ATTLIST Elm  word CDATA "">
+<!ATTLIST Elm  freq CDATA "">
+<!ATTLIST annotation name CDATA "">
+<!ATTLIST annotation comment CDATA "">
+<!ATTLIST Author count CDATA "">
+<!ATTLIST Author name CDATA "">
