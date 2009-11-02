@@ -1,0 +1,296 @@
+I use emacs org-mode to view this, but anything would work.
+
+Neil this is the first stab at tacking this down I suggest you rip
+into it.
+
+* Planning for Topic Naming Paper
+** Authors
+   - Abram Hindle
+   - Neil Ernst
+** Questions to answer
+*** Why: 
+    - We wanted to name topics based on a static ontology of non
+      functional requirements, and software qualities.
+    - Later we decided that we should use this work to springboard into
+      a SE Wordnet idea
+*** What:
+    - We discuss how to use domain knowledge about software
+      development in order to better annotate topics of development
+      that are extracted from the change log messages in SCSes like
+      CVS.
+*** Who:
+    - Neil Ernst
+    - Abram Hindle
+    - And their illustrious supervisors
+*** When:
+    - MSR is due Jan 11th 2010
+    - ICPC is due Feb 07 2010
+    - ASE May 7thish 2010
+    - FSE March 05 2010
+*** How:
+    - Extract topics from changes
+    - Annotate topics of multiple projects
+    - Try simple word matching
+    - Try simple word match of wordnet words
+    - Try machine learning
+    - Make a simple wordnet?
+    - Try it
+*** Quality: 
+    - Abram: I want to submit an early version to MSR and then a later
+      version to something big like ICSE 2011
+** TODO Naming Paper Task Overview [4/10]
+   - [X] Extract topics of mysql
+   - [X] Extract topics of maxdb
+   - [X] annotate mysql
+   - [X] annotate maxdb
+   - [ ] Evaluate automatic annotation using just words alone
+   - [ ] Evaluate automatic annotation with wordnet
+   - [ ] Evaluate automatic annotation with machine learners
+   - [ ] Machine Learner testing system
+   - [ ] Script/build system for evaluation so we can run again easily!
+   - [ ] Get precision, recall, f-measure of evaluations
+   - [ ] Write up Planning
+   - [ ] Write up skeleton
+   - [ ] Write up
+   - [ ] SE wordnet - structure
+   - [ ] SE Wordnet - SE Layer
+   - [ ] SE wordnet - Domain layer - db
+   - [ ] SE wordnet - project layer - maxdb7.500
+   - [ ] SE wordnet - project layer - mysql
+** Needed for MSR paper? [0/5]
+   - [ ] Extraction
+   - [ ] Evaluation
+   - [ ] Position clarified
+   - [ ] Comparison of evaluations
+   - [ ] Write paper
+** Needed for ICSE Paper? [0/4]
+   - [ ] MSR Paper stuff
+   - [ ] Need a partial SE wordnet implementation
+   - [ ] Need a domain level implementation
+   - [ ] Need a project level implementation
+** TODO Machine Learning System [0/2]
+   - [ ] Look at old setup, we can automate it
+   - [ ] Generate ARFF files
+** Schedule
+   - Nov 1st to 7th  
+     - get all projects automated and eval'd
+   - Nov 8th to 14th 
+   - Nov 15 th 21st  
+     - get all machine learning w/ weka done
+   - Nov 22nd to 28th   
+     - get report tables from evaluation
+   - Nov 29th to Dec 5th
+     - skeleton of paper 
+   - Dec 6th to 12th
+     - assign sections/do writing etc.
+   - Dec 13 to 19th
+     - draft
+   - Dec 20th to 26st
+   - Dec 27 to Jan 2nd
+   - Jan 3rd to 9th
+     - revise draft
+   - Jan 10 to 16th - MSR Due
+     - MSR submit
+   - Future: more SE Wordnet?
+   
+* SE Wordnet 
+** Keep this one at the end, this was a thesis proposal
+   
+   Lexical analysis of source code and software artifacts is often
+   hindered by a lack of domain knowledge and semantics available to tool
+   implementers or analysts. We propose to enable the lexical analysis of
+   these tokens by providing a software development specific network of
+   words, a wordnet, to help give meaning to the extracted tokens.
+   Wordnet~\cite{wordnet} is a lexical database of word relationships
+   used to support lexical analysis of text with respect to AI
+   applications, unfortunately for software engineers and researchers the
+   words used by Wordnet~\cite{wordnet} are defined very generally and do
+   not focus on non-functional requirements, software development related
+   meanings or software domain words. We propose to develop a domain
+   specific wordnet dedicated to software engineering and software
+   development so that we can better bootstrap our research and tool
+   development efforts with a framework to help us infer meaning from
+   tokens extracted from various development artifacts.
+   
+   A wordnet for SE research and tools would allow the ease of
+   development of methods and tools that would leverage the semantics of
+   the underlying terms. We personally have observed a need for this kind
+   of database when we tried to apply a the original Wordnet to our
+   software engineering problems. We observed that many words like
+   \emph{performance} have many meanings that are irrelevant to software,
+   such as theatre performance. Yet words like \emph{optimizer} might
+   have a domain specific context to databases and yet have little to do
+   with the software quality of efficiency.
+   
+   What we propose is a multi-layered approach to a wordnet, we start
+   with 3 layers of wordnet:
+   \begin{description}
+   \item[Software layer] is a graph of terms related to software
+     engineering and software development. These include terms related
+     to nonfunctional requirements, software qualities ('itilies), as
+     well as software development infrastructure (version control etc.).
+   \item[Domain layer] is a graph connected to the software layer which
+     provides domain knowledge to the model. A domain layer graph is
+     domain specific: e.g, databases, statistics software, office
+     software.  Terms from these domains would be connected to the
+     software layer terms indicating either a relation or a negation of a
+     previous relation. For instance in database systems optimizer might
+     be a module rather than anything related to software quality.
+   \item[Project layer] is the graph of project specific terminology and
+     lexicon that is used to improve the accuracy of tools analyzing a
+     specific project. These words could include clarifications of module
+     names, chosen names for non-functional requirements, the names of
+     tools used to improve maintainability of software, the underlying
+     architecture, etc. The project layer attempts to reconcile local
+     lexicons with the global lexicons of domain and software layers.
+   \end{description}
+   
+   We hope that the interactions and relationships between these layers
+   will allow the end user of the wordnet to better tune the wordnet to
+   their project and their teams lexicon. We expect that one will do
+   noun-verb analysis to extract concepts from the various artifacts then
+   relate them to the domain and software development layers. We suspect
+   that this can be a semi-automated process.
+   
+   There are many problems related to this proposal:
+   \begin{description}
+   \item[Wordnet definition] is what the SE wordnet will
+     look like and how it will be structured.
+   \item[Wordnet ontology creation] refers to how we create the initial
+     software engineering/development ontology and graph, what resources
+     do we rely on, do we rely on the consensus of a broader group of
+     participants, etc.
+     \item[Wordnet Collaboration creation], can we build a wordnet in a
+       collaborative manner? Would it be useful, how does one elicit
+       lexicons from a community?
+     \item[Automatic Project level wordnet generation] is the problem of
+       taking an existing project, extracting its lexicon and relating it
+       to the domain and software layers. This would be an user driven
+       semi-automatic process which would allow the stakeholders to
+       relate terms to domain and development concepts.
+   \end{description}
+   
+   To produce a thesis one would probably focus on the definition, a
+   basic implementation, and project level word generation.  The actual
+   thesis itself would probably be, ``Can a domain specific wordnet for
+   software development provide better accuracy for labelling and other
+   lexical related tasks than wordnet and other machine learning
+   techniques''.
+   
+   The validation of this thesis could consist of:
+   \begin{description}
+   \item[Case study of database systems:] part of the work done with Neil
+     Ernst, this would be a case study which demonstrates the value of
+     having a SE related wordnet versus not having one. It would be more
+     of an experience report than anything.
+   \item[Leveraging domain knowledge:] a demonstration of augmenting
+     previous machine learning work (maintenance classification) with the
+     domain knowledge provide by the SE Wordnet.
+   \item[Human labelling efficiency comparison:] choose a task related to
+     the use of this wordnet (annotating changes) and compare the speed
+     and accuracy of trained users, untrained users, and the wordnet
+     augmented algorithms.
+   \end{description}
+   
+   \subsection{Timeline}
+   
+   \begin{description}
+   \item[November] Complete literature review and definition. 
+   \item[December] Finish LDA topic naming case study and evaluate the
+     use of wordnet versus SE wordnet.
+   \item[January 2010]  Evaluate against domain driven values. Write up study.
+   \item[February] Automatic extraction of lexicon. MSR 2010 Challenge. MSR Deadline
+   \item[March] Initiate thesis. FSE Deadline
+   \item[April] MSR Challenge. Validation with maintenance classification
+   \item[May] MSR 2010/ICSE 2010/MSR Challenge 2010. MLM Journal Paper. ASE deadline
+   \item[June] Efficiency validation
+   \item[July] 
+   \item[August] Thesis Draft V1
+   \item[September] ICSE submission
+   \item[October] Thesis Draft V2.
+   \item[November] Submit Thesis 
+   \item[December] Defend
+   
+   \end{description}
+   
+   
+   
+   % Timeline
+   %% 
+   % 
+   
+   \section{Skeleton}
+   \begin{itemize}
+   
+    \item Introduction
+    \item Previous Work
+    \item LDA topics
+    \item Initial Observations and the problem
+    \item SE wordnet Structure
+    \item SE level
+      \begin{itemize}
+   
+      \item LDA at SE level on DBs
+      \end{itemize}
+   
+    \item Domain level
+      \begin{itemize}
+   
+      \item DB examples
+      \end{itemize}
+   
+    \item Project level
+      \begin{itemize}
+   
+      \item DB Examples
+      \item Local lexicon
+      \end{itemize}
+   
+    \item Automation
+      \begin{itemize}
+   
+      \item Auto generate network
+      \item How machine learning applies
+      \end{itemize}
+   
+    \item Validation
+      \begin{itemize}
+   
+      \item Comparison between integration of different levels
+      \end{itemize}
+   
+    \item Conclusions
+   \end{itemize}
+   
+   
+   \section{Work done}
+   \begin{itemize}
+     \item annotated 2 databases topic extraction
+     \item lda paper, ICSM paper
+     \item maintenance type papers
+   \end{itemize}
+   \section{Work To do}
+   \begin{itemize}
+     \item literature review on SE wordnet
+     \item investigation into ontologies and word networks
+     \item finish LDA topic naming case study
+     \item SE Wordnet structure
+     \item Evaluate domain driven wordnet
+     \item Evaluate project word net
+     \item Investigate automation of wordnet generation
+     \item Investigate semiautomatic wordnet generation
+     \item Validation and comparison between techniques
+     \item Come up with applications
+   \end{itemize}
+   
+   \section{Conclusions}
+   
+   This research would be all new research, it has the potential for
+   having high impact but it might also take a lot longer than
+   anticipated. The SE Wordnet does not need to be fully implemented but
+   allows for growth as more information is added and different wordnets
+   are built. Another problem is that this is not our main area and it is
+   risky.  The SE Wordnet has more applicability in supporting tool
+   building and automatically classifying topics, textual data, source
+   code tokens, etc.
+   
