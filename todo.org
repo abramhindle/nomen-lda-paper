@@ -11,6 +11,7 @@ into it.
 *** Why: 
     - We wanted to name topics based on a static ontology of non
       functional requirements, and software qualities.
+      - I think these two are essentially the same thing. 
     - Later we decided that we should use this work to springboard into
       a SE Wordnet idea
 *** What:
@@ -18,6 +19,9 @@ into it.
       development in order to better annotate topics of development
       that are extracted from the change log messages in SCSes like
       CVS.
+    - Neil: are there other possible sources for the data? I think
+        we need to consider bug databases, at least where they are
+        linked with changes. I.e. "http://bugzilla.org?bugid=2343"
 *** Who:
     - Neil Ernst
     - Abram Hindle
@@ -27,6 +31,11 @@ into it.
     - ICPC is due Feb 07 2010
     - ASE May 7thish 2010
     - FSE March 05 2010
+The RE conference would be a possibility, mid February, with a
+requirements focus. It would be something like (but improved)
+Cleland-Huang paper.
+My wife is pregnant and giving birth mid-February, so I anticipate a
+few weeks hiatus.
 *** How:
     - Extract topics from changes
     - Annotate topics of multiple projects
@@ -36,9 +45,17 @@ into it.
     - Make a simple wordnet?
     - Try it
 *** Quality: 
+    - Neil: not a question.
     - Abram: I want to submit an early version to MSR and then a later
       version to something big like ICSE 2011
-** TODO Naming Paper Task Overview [4/10]
+    - Neil: seems like a plan. I think ICSE would require greater
+      amount of data collection (another domain, for e.g.)
+** Naming Paper Task Overview [4/10]
+Neil: I think somewhere we should make clear why supervised
+(Cleland-Huang) methods are not useful (too time-consuming, domain
+specific, etc). 
+Neil: I also suspect the results will be poor for maxdb. We should
+figure out a way to handle this - what prec/recall will we accept?
    - [X] Extract topics of mysql
    - [X] Extract topics of maxdb
    - [X] annotate mysql
@@ -46,6 +63,7 @@ into it.
    - [ ] Evaluate automatic annotation using just words alone
    - [ ] Evaluate automatic annotation with wordnet
    - [ ] Evaluate automatic annotation with machine learners
+   - [ ] Evaluate with default learner for comparison
    - [ ] Machine Learner testing system
    - [ ] Script/build system for evaluation so we can run again easily!
    - [ ] Get precision, recall, f-measure of evaluations
@@ -92,8 +110,16 @@ into it.
    - Jan 10 to 16th - MSR Due
      - MSR submit
    - Future: more SE Wordnet?
-   
+     
 * SE Wordnet 
+** Neil's brief comments
+*** WN is a massive project (your thesis is not)
+I would focus on a particular domain to show how it might work,
+i.e. one 'branch' of a possible taxonomy ... like open-source DBs. I
+think it would also be interesting to tie the notion of taxonomy into
+a more complete theory of software engineering. We lack so many
+constructs to allow comparison of different studies. You might want to
+read Jorge Aranda's bug history paper at ICSE this year.
 ** Keep this one at the end, this was a thesis proposal
    
    Lexical analysis of source code and software artifacts is often
@@ -294,3 +320,4 @@ into it.
    building and automatically classifying topics, textual data, source
    code tokens, etc.
    
+
