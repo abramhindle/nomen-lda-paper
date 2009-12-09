@@ -1,0 +1,66 @@
+\documentclass[times, 10pt,twocolumn]{article} 
+\usepackage{latex8}
+\usepackage{times}
+
+\begin{document}
+
+\title{On the (automated) topic naming of software maintenance activities}
+
+\author{Abram Hindle\\
+University of Waterloo\\ ahindle@uwaterloo.ca\\
+% For a paper whose authors are all at the same institution, 
+% omit the following lines up until the closing ``}''.
+% Additional authors and addresses can be added with ``\and'', 
+% just like the second author.
+\and
+Neil Ernst\\
+University of Toronto\\ 
+nernst@cs.toronto.edu\\
+
+\and
+(illustrious supervisors)\\
+}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+	The field of automated repository mining in software engineering has been a fruitful one. However, while many techniques use automated machine learners to classify their data, there has not been any investigation into the latent topics these classifiers represent. In particular, we would like to know whether such groups can be generalized across software products. We focus on software quality as a potential generalization, since there is some shared belief that these qualities apply broadly across software products. We wanted to name topics based on a static ontology of non-functional requirements and software qualities. Our overarching goal is to use individual topic models to create a list of terms that can be shared across software projects. In essence, this would be adding some form of context to general-purpose ontologies such as Wordnet. In this paper, we discuss how to use domain knowledge about software development in order to better annotate topics of development that are extracted from the change log messages in configuration management systems such as CVS.
+\end{abstract}
+
+
+
+\Section{Introduction}
+In this paper we are going to show how one can `name' topic models generated with LDA. We also show that these topics can be generalized across products. 
+
+
+\section{Methodology}
+- Extract topics from changes
+- Annotate topics of multiple projects
+-- mysql
+-- maxdb
+- Try simple word matching
+- Try simple word match of wordnet words (related words)
+- Try machine learning
+- Make a simple wordnet?
+- Try it
+
+\section{Observations and evaluation}
+
+\section{Related work}
+I think somewhere we should make clear why supervised
+(Cleland-Huang) methods are not useful (too time-consuming, domain
+specific, etc).
+
+\section{Conclusion}
+``Can a domain specific wordnet for
+   software development provide better accuracy for labelling and other
+   lexical related tasks than wordnet and other machine learning
+   techniques''.
+
+
+\bibliographystyle{latex8}
+\bibliography{icpc}
+
+\end{document}
+
