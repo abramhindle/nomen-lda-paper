@@ -1,0 +1,457 @@
+<Period time="1055819404.">
+    <Documents>
+      <Document time="1055828309." author="guilhem@mysql.com" document="history annotate diffs \n  \n In Start_log_event, 'created' is always the same as 'when', or O. \n We didn't need 4 bytes for this, a bit would have been enough (O or \n &quot;same as 'when'&quot;). Possibly in 5.0 we will re-use the useless bytes. \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="sql/log_event.cc"/>
+          <File name="sql/log_event.h"/>
+        </Files>
+      </Document>
+      <Document time="1055934299." author="heikki@mysql.fi" document="history annotate diffs \n  \n Backport the clust rec bug fix from 4.0 \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="innobase/row/row0sel.c"/>
+          <File name="innobase/row/row0vers.c"/>
+        </Files>
+      </Document>
+      <Document time="1056234743." author="guilhem@mysql.com" document="history annotate diffs \n  \n Instead of looking like working (bug #198), replication between \n a 3.23 slave and 4.0 master should frankly stop. Here we detect \n 4.0 masters in the 3.23 slave code when we see a strange Rotate \n event, and in that case we print an error and stop. \n 4.0.13 and older masters will be &quot;often&quot; caught (see the patch); 4.0.14 \n and newer masters will always be immediately caught. \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="sql/slave.cc"/>
+        </Files>
+      </Document>
+      <Document time="1056946549." author="monty@mysql.fi" document="history annotate diffs \n  \n Fixed problem with lookup on NULL \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="mysql-test/r/order_by.result"/>
+          <File name="mysql-test/t/order_by.test"/>
+          <File name="sql/sql_select.cc"/>
+        </Files>
+      </Document>
+      <Document time="1057129697." author="heikki@mysql.fi" document="history annotate diffs \n  \n Backport from 4.0 of the btr0sea.c latch hang fix \n  \n ">
+        <Files>
+          <File name="sql/ha_innobase.cc"/>
+        </Files>
+      </Document>
+    </Documents>
+    <Files>
+      <File name="sql/ha_innobase.cc" count="1"/>
+      <File name="sql/log_event.cc" count="1"/>
+      <File name="sql/log_event.h" count="1"/>
+      <File name="innobase/row/row0vers.c" count="1"/>
+      <File name="sql/slave.cc" count="1"/>
+      <File name="sql/sql_select.cc" count="1"/>
+      <File name="innobase/row/row0sel.c" count="1"/>
+      <File name="mysql-test/r/order_by.result" count="1"/>
+      <File name="mysql-test/t/order_by.test" count="1"/>
+      <File name="ChangeSet" count="4"/>
+    </Files>
+    <Authors>
+      <Author name="guilhem@mysql.com" count="2"/>
+      <Author name="heikki@mysql.fi" count="2"/>
+      <Author name="monty@mysql.fi" count="1"/>
+    </Authors>
+    <Topic>
+      <annotation name="efficiency"/>
+      <annotation name="optimization"/>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1055828309." author="guilhem@mysql.com" document="history annotate diffs \n  \n In Start_log_event, 'created' is always the same as 'when', or O. \n We didn't need 4 bytes for this, a bit would have been enough (O or \n &quot;same as 'when'&quot;). Possibly in 5.0 we will re-use the useless bytes. \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="sql/log_event.cc" count="1"/>
+        <File name="sql/log_event.h" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="guilhem@mysql.com" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="history" freq="-3.0445224377"/>
+        <Elm word="annotate" freq="-3.0445224377"/>
+        <Elm word="diffs" freq="-3.0445224377"/>
+        <Elm word="O." freq="-3.0445224377"/>
+        <Elm word="'when'&quot;)." freq="-3.0445224377"/>
+        <Elm word="bit" freq="-3.0445224377"/>
+        <Elm word="re-use" freq="-3.0445224377"/>
+        <Elm word="(O" freq="-3.0445224377"/>
+        <Elm word="'when'," freq="-3.0445224377"/>
+        <Elm word="Start_log_event," freq="-3.0445224377"/>
+        <Elm word="4" freq="-3.0445224377"/>
+        <Elm word="&quot;same" freq="-3.0445224377"/>
+        <Elm word="need" freq="-3.0445224377"/>
+        <Elm word="Possibly" freq="-3.0445224377"/>
+        <Elm word="bytes." freq="-3.0445224377"/>
+        <Elm word="bytes" freq="-3.0445224377"/>
+        <Elm word="5.0" freq="-3.0445224377"/>
+        <Elm word="'created'" freq="-3.0445224377"/>
+        <Elm word="this," freq="-3.0445224377"/>
+        <Elm word="useless" freq="-3.0445224377"/>
+        <Elm word="didn't" freq="-3.0445224377"/>
+        <Elm word="4.0" freq="-457.673313019"/>
+        <Elm word="Backport" freq="-458.455656223"/>
+        <Elm word="fix" freq="-458.455656223"/>
+        <Elm word="lookup" freq="-459.809273493"/>
+        <Elm word="problem" freq="-459.809273493"/>
+        <Elm word="Fixed" freq="-459.809273493"/>
+        <Elm word="NULL" freq="-459.809273493"/>
+        <Elm word="btr0sea.c" freq="-459.841950584"/>
+        <Elm word="bug" freq="-459.841950584"/>
+        <Elm word="hang" freq="-459.841950584"/>
+        <Elm word="latch" freq="-459.841950584"/>
+        <Elm word="clust" freq="-459.841950584"/>
+        <Elm word="rec" freq="-459.841950584"/>
+        <Elm word="masters" freq="-459.928967444"/>
+        <Elm word="slave" freq="-459.928967444"/>
+        <Elm word="stop." freq="-459.928967444"/>
+        <Elm word="3.23" freq="-459.928967444"/>
+        <Elm word="master" freq="-459.928967444"/>
+        <Elm word="error" freq="-459.928967444"/>
+        <Elm word="looking" freq="-459.928967444"/>
+        <Elm word="print" freq="-459.928967444"/>
+        <Elm word="immediately" freq="-459.928967444"/>
+        <Elm word="case" freq="-459.928967444"/>
+        <Elm word="replication" freq="-459.928967444"/>
+        <Elm word="caught." freq="-459.928967444"/>
+        <Elm word="4.0.14" freq="-459.928967444"/>
+        <Elm word="4.0.13" freq="-459.928967444"/>
+        <Elm word="event," freq="-459.928967444"/>
+        <Elm word="(see" freq="-459.928967444"/>
+        <Elm word="working" freq="-459.928967444"/>
+        <Elm word="patch);" freq="-459.928967444"/>
+        <Elm word="Rotate" freq="-459.928967444"/>
+        <Elm word="Instead" freq="-459.928967444"/>
+        <Elm word="newer" freq="-459.928967444"/>
+        <Elm word="caught" freq="-459.928967444"/>
+        <Elm word="#198)," freq="-459.928967444"/>
+        <Elm word="older" freq="-459.928967444"/>
+        <Elm word="strange" freq="-459.928967444"/>
+        <Elm word="(bug" freq="-635.427974937"/>
+        <Elm word="&quot;often&quot;" freq="-635.427974937"/>
+        <Elm word="frankly" freq="-635.427974937"/>
+        <Elm word="detect" freq="-635.427974937"/>
+        <Elm word="code" freq="-635.427974937"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1055934299." author="heikki@mysql.fi" document="history annotate diffs \n  \n Backport the clust rec bug fix from 4.0 \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="innobase/row/row0sel.c" count="1"/>
+        <File name="innobase/row/row0vers.c" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="heikki@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="history" freq="-2.1972245773"/>
+        <Elm word="annotate" freq="-2.1972245773"/>
+        <Elm word="diffs" freq="-2.1972245773"/>
+        <Elm word="4.0" freq="-2.1972245773"/>
+        <Elm word="Backport" freq="-2.1972245773"/>
+        <Elm word="fix" freq="-2.1972245773"/>
+        <Elm word="bug" freq="-2.1972245773"/>
+        <Elm word="clust" freq="-2.1972245773"/>
+        <Elm word="rec" freq="-2.1972245773"/>
+        <Elm word="lookup" freq="-458.114677772"/>
+        <Elm word="problem" freq="-458.114677772"/>
+        <Elm word="Fixed" freq="-458.114677772"/>
+        <Elm word="NULL" freq="-458.114677772"/>
+        <Elm word="btr0sea.c" freq="-458.147354863"/>
+        <Elm word="hang" freq="-458.147354863"/>
+        <Elm word="latch" freq="-458.147354863"/>
+        <Elm word="O." freq="-458.211744947"/>
+        <Elm word="'when'&quot;)." freq="-458.211744947"/>
+        <Elm word="bit" freq="-458.211744947"/>
+        <Elm word="re-use" freq="-458.211744947"/>
+        <Elm word="(O" freq="-458.211744947"/>
+        <Elm word="'when'," freq="-458.211744947"/>
+        <Elm word="Start_log_event," freq="-458.211744947"/>
+        <Elm word="4" freq="-458.211744947"/>
+        <Elm word="&quot;same" freq="-458.211744947"/>
+        <Elm word="need" freq="-458.211744947"/>
+        <Elm word="Possibly" freq="-458.211744947"/>
+        <Elm word="bytes." freq="-458.211744947"/>
+        <Elm word="bytes" freq="-458.211744947"/>
+        <Elm word="5.0" freq="-458.211744947"/>
+        <Elm word="'created'" freq="-458.211744947"/>
+        <Elm word="this," freq="-458.211744947"/>
+        <Elm word="useless" freq="-458.211744947"/>
+        <Elm word="didn't" freq="-458.211744947"/>
+        <Elm word="masters" freq="-458.234371723"/>
+        <Elm word="slave" freq="-458.234371723"/>
+        <Elm word="stop." freq="-458.234371723"/>
+        <Elm word="3.23" freq="-458.234371723"/>
+        <Elm word="master" freq="-458.234371723"/>
+        <Elm word="error" freq="-458.234371723"/>
+        <Elm word="looking" freq="-458.234371723"/>
+        <Elm word="print" freq="-458.234371723"/>
+        <Elm word="immediately" freq="-458.234371723"/>
+        <Elm word="(bug" freq="-458.234371723"/>
+        <Elm word="&quot;often&quot;" freq="-458.234371723"/>
+        <Elm word="case" freq="-458.234371723"/>
+        <Elm word="replication" freq="-458.234371723"/>
+        <Elm word="caught." freq="-458.234371723"/>
+        <Elm word="4.0.14" freq="-458.234371723"/>
+        <Elm word="4.0.13" freq="-458.234371723"/>
+        <Elm word="event," freq="-458.234371723"/>
+        <Elm word="(see" freq="-458.234371723"/>
+        <Elm word="working" freq="-458.234371723"/>
+        <Elm word="patch);" freq="-458.234371723"/>
+        <Elm word="Rotate" freq="-458.234371723"/>
+        <Elm word="Instead" freq="-458.234371723"/>
+        <Elm word="frankly" freq="-458.234371723"/>
+        <Elm word="detect" freq="-458.234371723"/>
+        <Elm word="newer" freq="-458.234371723"/>
+        <Elm word="caught" freq="-458.234371723"/>
+        <Elm word="#198)," freq="-458.234371723"/>
+        <Elm word="older" freq="-458.234371723"/>
+        <Elm word="code" freq="-458.234371723"/>
+        <Elm word="strange" freq="-458.234371723"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1056234743." author="guilhem@mysql.com" document="history annotate diffs \n  \n Instead of looking like working (bug #198), replication between \n a 3.23 slave and 4.0 master should frankly stop. Here we detect \n 4.0 masters in the 3.23 slave code when we see a strange Rotate \n event, and in that case we print an error and stop. \n 4.0.13 and older masters will be &quot;often&quot; caught (see the patch); 4.0.14 \n and newer masters will always be immediately caught. \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="sql/slave.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="guilhem@mysql.com" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="masters" freq="-2.5902671654"/>
+        <Elm word="4.0" freq="-2.9957322736"/>
+        <Elm word="slave" freq="-2.9957322736"/>
+        <Elm word="stop." freq="-2.9957322736"/>
+        <Elm word="3.23" freq="-2.9957322736"/>
+        <Elm word="history" freq="-3.6888794541"/>
+        <Elm word="annotate" freq="-3.6888794541"/>
+        <Elm word="diffs" freq="-3.6888794541"/>
+        <Elm word="master" freq="-3.6888794541"/>
+        <Elm word="error" freq="-3.6888794541"/>
+        <Elm word="looking" freq="-3.6888794541"/>
+        <Elm word="print" freq="-3.6888794541"/>
+        <Elm word="immediately" freq="-3.6888794541"/>
+        <Elm word="(bug" freq="-3.6888794541"/>
+        <Elm word="&quot;often&quot;" freq="-3.6888794541"/>
+        <Elm word="case" freq="-3.6888794541"/>
+        <Elm word="replication" freq="-3.6888794541"/>
+        <Elm word="caught." freq="-3.6888794541"/>
+        <Elm word="4.0.14" freq="-3.6888794541"/>
+        <Elm word="4.0.13" freq="-3.6888794541"/>
+        <Elm word="event," freq="-3.6888794541"/>
+        <Elm word="(see" freq="-3.6888794541"/>
+        <Elm word="working" freq="-3.6888794541"/>
+        <Elm word="patch);" freq="-3.6888794541"/>
+        <Elm word="Rotate" freq="-3.6888794541"/>
+        <Elm word="Instead" freq="-3.6888794541"/>
+        <Elm word="frankly" freq="-3.6888794541"/>
+        <Elm word="detect" freq="-3.6888794541"/>
+        <Elm word="newer" freq="-3.6888794541"/>
+        <Elm word="caught" freq="-3.6888794541"/>
+        <Elm word="#198)," freq="-3.6888794541"/>
+        <Elm word="older" freq="-3.6888794541"/>
+        <Elm word="code" freq="-3.6888794541"/>
+        <Elm word="strange" freq="-3.6888794541"/>
+        <Elm word="Backport" freq="-459.744370256"/>
+        <Elm word="fix" freq="-459.744370256"/>
+        <Elm word="lookup" freq="-461.097987526"/>
+        <Elm word="problem" freq="-461.097987526"/>
+        <Elm word="Fixed" freq="-461.097987526"/>
+        <Elm word="NULL" freq="-461.097987526"/>
+        <Elm word="btr0sea.c" freq="-461.130664617"/>
+        <Elm word="bug" freq="-461.130664617"/>
+        <Elm word="hang" freq="-461.130664617"/>
+        <Elm word="latch" freq="-461.130664617"/>
+        <Elm word="clust" freq="-461.130664617"/>
+        <Elm word="rec" freq="-461.130664617"/>
+        <Elm word="O." freq="-461.1950547"/>
+        <Elm word="bit" freq="-461.1950547"/>
+        <Elm word="re-use" freq="-461.1950547"/>
+        <Elm word="(O" freq="-461.1950547"/>
+        <Elm word="Start_log_event," freq="-461.1950547"/>
+        <Elm word="need" freq="-461.1950547"/>
+        <Elm word="Possibly" freq="-461.1950547"/>
+        <Elm word="bytes." freq="-461.1950547"/>
+        <Elm word="bytes" freq="-461.1950547"/>
+        <Elm word="'created'" freq="-461.1950547"/>
+        <Elm word="this," freq="-461.1950547"/>
+        <Elm word="useless" freq="-461.1950547"/>
+        <Elm word="didn't" freq="-461.1950547"/>
+        <Elm word="'when'&quot;)." freq="-637.327109265"/>
+        <Elm word="'when'," freq="-637.327109265"/>
+        <Elm word="4" freq="-637.327109265"/>
+        <Elm word="&quot;same" freq="-637.327109265"/>
+        <Elm word="5.0" freq="-637.327109265"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1056946549." author="monty@mysql.fi" document="history annotate diffs \n  \n Fixed problem with lookup on NULL \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="sql/sql_select.cc" count="1"/>
+        <File name="mysql-test/r/order_by.result" count="1"/>
+        <File name="mysql-test/t/order_by.test" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="history" freq="-1.9459101491"/>
+        <Elm word="annotate" freq="-1.9459101491"/>
+        <Elm word="diffs" freq="-1.9459101491"/>
+        <Elm word="lookup" freq="-1.9459101491"/>
+        <Elm word="problem" freq="-1.9459101491"/>
+        <Elm word="Fixed" freq="-1.9459101491"/>
+        <Elm word="NULL" freq="-1.9459101491"/>
+        <Elm word="4.0" freq="-279.227414083"/>
+        <Elm word="Backport" freq="-456.258431646"/>
+        <Elm word="fix" freq="-456.258431646"/>
+        <Elm word="btr0sea.c" freq="-457.644726007"/>
+        <Elm word="bug" freq="-457.644726007"/>
+        <Elm word="hang" freq="-457.644726007"/>
+        <Elm word="latch" freq="-457.644726007"/>
+        <Elm word="clust" freq="-457.644726007"/>
+        <Elm word="rec" freq="-457.644726007"/>
+        <Elm word="O." freq="-457.70911609"/>
+        <Elm word="'when'&quot;)." freq="-457.70911609"/>
+        <Elm word="bit" freq="-457.70911609"/>
+        <Elm word="re-use" freq="-457.70911609"/>
+        <Elm word="(O" freq="-457.70911609"/>
+        <Elm word="'when'," freq="-457.70911609"/>
+        <Elm word="Start_log_event," freq="-457.70911609"/>
+        <Elm word="4" freq="-457.70911609"/>
+        <Elm word="&quot;same" freq="-457.70911609"/>
+        <Elm word="need" freq="-457.70911609"/>
+        <Elm word="Possibly" freq="-457.70911609"/>
+        <Elm word="bytes." freq="-457.70911609"/>
+        <Elm word="bytes" freq="-457.70911609"/>
+        <Elm word="5.0" freq="-457.70911609"/>
+        <Elm word="'created'" freq="-457.70911609"/>
+        <Elm word="this," freq="-457.70911609"/>
+        <Elm word="useless" freq="-457.70911609"/>
+        <Elm word="didn't" freq="-457.70911609"/>
+        <Elm word="masters" freq="-457.731742866"/>
+        <Elm word="slave" freq="-457.731742866"/>
+        <Elm word="stop." freq="-457.731742866"/>
+        <Elm word="3.23" freq="-457.731742866"/>
+        <Elm word="master" freq="-457.731742866"/>
+        <Elm word="error" freq="-457.731742866"/>
+        <Elm word="looking" freq="-457.731742866"/>
+        <Elm word="print" freq="-457.731742866"/>
+        <Elm word="immediately" freq="-457.731742866"/>
+        <Elm word="(bug" freq="-457.731742866"/>
+        <Elm word="&quot;often&quot;" freq="-457.731742866"/>
+        <Elm word="case" freq="-457.731742866"/>
+        <Elm word="replication" freq="-457.731742866"/>
+        <Elm word="caught." freq="-457.731742866"/>
+        <Elm word="4.0.14" freq="-457.731742866"/>
+        <Elm word="4.0.13" freq="-457.731742866"/>
+        <Elm word="event," freq="-457.731742866"/>
+        <Elm word="(see" freq="-457.731742866"/>
+        <Elm word="working" freq="-457.731742866"/>
+        <Elm word="patch);" freq="-457.731742866"/>
+        <Elm word="Rotate" freq="-457.731742866"/>
+        <Elm word="Instead" freq="-457.731742866"/>
+        <Elm word="frankly" freq="-457.731742866"/>
+        <Elm word="detect" freq="-457.731742866"/>
+        <Elm word="newer" freq="-457.731742866"/>
+        <Elm word="caught" freq="-457.731742866"/>
+        <Elm word="#198)," freq="-457.731742866"/>
+        <Elm word="older" freq="-457.731742866"/>
+        <Elm word="code" freq="-457.731742866"/>
+        <Elm word="strange" freq="-457.731742866"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+      <annotation name="reliability"/>
+      <annotation name="bug" comment="reliability"/>
+
+      <Document time="1057129697." author="heikki@mysql.fi" document="history annotate diffs \n  \n Backport from 4.0 of the btr0sea.c latch hang fix \n  \n "/>
+      <Files>
+        <File name="sql/ha_innobase.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="heikki@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="history" freq="-2.1972245773"/>
+        <Elm word="annotate" freq="-2.1972245773"/>
+        <Elm word="diffs" freq="-2.1972245773"/>
+        <Elm word="4.0" freq="-2.1972245773"/>
+        <Elm word="Backport" freq="-2.1972245773"/>
+        <Elm word="fix" freq="-2.1972245773"/>
+        <Elm word="btr0sea.c" freq="-2.1972245773"/>
+        <Elm word="hang" freq="-2.1972245773"/>
+        <Elm word="latch" freq="-2.1972245773"/>
+        <Elm word="lookup" freq="-458.114677772"/>
+        <Elm word="problem" freq="-458.114677772"/>
+        <Elm word="Fixed" freq="-458.114677772"/>
+        <Elm word="NULL" freq="-458.114677772"/>
+        <Elm word="bug" freq="-458.147354863"/>
+        <Elm word="clust" freq="-458.147354863"/>
+        <Elm word="rec" freq="-458.147354863"/>
+        <Elm word="O." freq="-458.211744947"/>
+        <Elm word="'when'&quot;)." freq="-458.211744947"/>
+        <Elm word="bit" freq="-458.211744947"/>
+        <Elm word="re-use" freq="-458.211744947"/>
+        <Elm word="(O" freq="-458.211744947"/>
+        <Elm word="'when'," freq="-458.211744947"/>
+        <Elm word="Start_log_event," freq="-458.211744947"/>
+        <Elm word="4" freq="-458.211744947"/>
+        <Elm word="&quot;same" freq="-458.211744947"/>
+        <Elm word="need" freq="-458.211744947"/>
+        <Elm word="Possibly" freq="-458.211744947"/>
+        <Elm word="bytes." freq="-458.211744947"/>
+        <Elm word="bytes" freq="-458.211744947"/>
+        <Elm word="5.0" freq="-458.211744947"/>
+        <Elm word="'created'" freq="-458.211744947"/>
+        <Elm word="this," freq="-458.211744947"/>
+        <Elm word="useless" freq="-458.211744947"/>
+        <Elm word="didn't" freq="-458.211744947"/>
+        <Elm word="masters" freq="-458.234371723"/>
+        <Elm word="slave" freq="-458.234371723"/>
+        <Elm word="stop." freq="-458.234371723"/>
+        <Elm word="3.23" freq="-458.234371723"/>
+        <Elm word="master" freq="-458.234371723"/>
+        <Elm word="error" freq="-458.234371723"/>
+        <Elm word="looking" freq="-458.234371723"/>
+        <Elm word="print" freq="-458.234371723"/>
+        <Elm word="immediately" freq="-458.234371723"/>
+        <Elm word="(bug" freq="-458.234371723"/>
+        <Elm word="&quot;often&quot;" freq="-458.234371723"/>
+        <Elm word="case" freq="-458.234371723"/>
+        <Elm word="replication" freq="-458.234371723"/>
+        <Elm word="caught." freq="-458.234371723"/>
+        <Elm word="4.0.14" freq="-458.234371723"/>
+        <Elm word="4.0.13" freq="-458.234371723"/>
+        <Elm word="event," freq="-458.234371723"/>
+        <Elm word="(see" freq="-458.234371723"/>
+        <Elm word="working" freq="-458.234371723"/>
+        <Elm word="patch);" freq="-458.234371723"/>
+        <Elm word="Rotate" freq="-458.234371723"/>
+        <Elm word="Instead" freq="-458.234371723"/>
+        <Elm word="frankly" freq="-458.234371723"/>
+        <Elm word="detect" freq="-458.234371723"/>
+        <Elm word="newer" freq="-458.234371723"/>
+        <Elm word="caught" freq="-458.234371723"/>
+        <Elm word="#198)," freq="-458.234371723"/>
+        <Elm word="older" freq="-458.234371723"/>
+        <Elm word="code" freq="-458.234371723"/>
+        <Elm word="strange" freq="-458.234371723"/>
+      </Elements>
+    </Topic>
+  </Period>
+  

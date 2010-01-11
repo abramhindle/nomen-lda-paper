@@ -1,0 +1,554 @@
+<Period time="1061003404.">
+    <Documents>
+      <Document time="1061258495." author="guilhem@mysql.com" document="history annotate diffs \n  \n Fix for 64-bit CPUs (u_long is 64 bit there, but in_addr_t is always uint32). \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="extra/resolveip.c"/>
+        </Files>
+      </Document>
+      <Document time="1062098855." author="monty@mysql.fi" document="all diffs diff -Nur style patch Bookmarkable link \n  \n ixed overflow bug in MyISAM and ISAM when using packed tables with a lot of fields and blobs \n  \n isam/open.c@1.12  2003-08-28 12:27:35+03:00  monty@mysql.fi \n history annotate diffs \n  \n Fixed overflow bug when using packed tables and blobs \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="isam/test_all.res"/>
+          <File name="myisam/mi_dynrec.c"/>
+          <File name="myisam/mi_open.c"/>
+        </Files>
+      </Document>
+      <Document time="1062098930." author="monty@mysql.fi" document="history annotate diffs \n  \n Updated test for overflow bug \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="mysql-test/r/isam.result"/>
+          <File name="mysql-test/t/isam.test"/>
+        </Files>
+      </Document>
+      <Document time="1062549033." author="serg@mylan" document="history annotate diffs \n  \n proper obligatory quoting of identifiers in mysqldump&lt;-&gt;server communication (unrelated from command-line options) \n  \n ">
+        <Files>
+          <File name="client/mysqldump.c"/>
+        </Files>
+      </Document>
+      <Document time="1062640089." author="monty@mysql.fi" document="history annotate diffs \n  \n Better quoting patch \n  \n ">
+        <Files>
+          <File name="client/mysqldump.c"/>
+        </Files>
+      </Document>
+      <Document time="1063308967." author="lenz@mysql.com" document="history annotate diffs \n  \n  - backport compatibility fix from 4.0 to be able to compile on HP-UX 10.20 \n    (which does not have in_add_t). \n  \n ">
+        <Files>
+          <File name="extra/resolveip.c"/>
+        </Files>
+      </Document>
+      <Document time="1063409203." author="guilhem@mysql.com" document="history annotate diffs \n  \n Ignore ER_EMPTY_QUERY as it is also a marker for &quot;query was ignored because  \n of replicate-*-table rules&quot;. \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="sql/slave.cc"/>
+          <File name="sql/sql_parse.cc"/>
+        </Files>
+      </Document>
+    </Documents>
+    <Files>
+      <File name="sql/slave.cc" count="1"/>
+      <File name="myisam/mi_open.c" count="1"/>
+      <File name="sql/sql_parse.cc" count="1"/>
+      <File name="mysql-test/t/isam.test" count="1"/>
+      <File name="ChangeSet" count="4"/>
+      <File name="myisam/mi_dynrec.c" count="1"/>
+      <File name="extra/resolveip.c" count="2"/>
+      <File name="isam/test_all.res" count="1"/>
+      <File name="client/mysqldump.c" count="2"/>
+      <File name="mysql-test/r/isam.result" count="1"/>
+    </Files>
+    <Authors>
+      <Author name="serg@mylan" count="1"/>
+      <Author name="guilhem@mysql.com" count="2"/>
+      <Author name="lenz@mysql.com" count="1"/>
+      <Author name="monty@mysql.fi" count="3"/>
+    </Authors>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+      <annotation name="portability"/>
+
+      <Document time="1061258495." author="guilhem@mysql.com" document="history annotate diffs \n  \n Fix for 64-bit CPUs (u_long is 64 bit there, but in_addr_t is always uint32). \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="extra/resolveip.c" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="guilhem@mysql.com" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.4849066498"/>
+        <Elm word="history" freq="-2.4849066498"/>
+        <Elm word="annotate" freq="-2.4849066498"/>
+        <Elm word="there," freq="-2.4849066498"/>
+        <Elm word="bit" freq="-2.4849066498"/>
+        <Elm word="64-bit" freq="-2.4849066498"/>
+        <Elm word="(u_long" freq="-2.4849066498"/>
+        <Elm word="CPUs" freq="-2.4849066498"/>
+        <Elm word="uint32)." freq="-2.4849066498"/>
+        <Elm word="64" freq="-2.4849066498"/>
+        <Elm word="Fix" freq="-2.4849066498"/>
+        <Elm word="in_addr_t" freq="-2.4849066498"/>
+        <Elm word="quoting" freq="-500.28923059"/>
+        <Elm word="patch" freq="-500.305186904"/>
+        <Elm word="overflow" freq="-500.532019325"/>
+        <Elm word="bug" freq="-500.532019325"/>
+        <Elm word="Better" freq="-501.021497754"/>
+        <Elm word="Updated" freq="-501.35455117"/>
+        <Elm word="test" freq="-501.35455117"/>
+        <Elm word="ignored" freq="-502.6367286"/>
+        <Elm word="rules&quot;." freq="-502.6367286"/>
+        <Elm word="ER_EMPTY_QUERY" freq="-502.6367286"/>
+        <Elm word="Ignore" freq="-502.6367286"/>
+        <Elm word="marker" freq="-502.6367286"/>
+        <Elm word="replicate-*-table" freq="-502.6367286"/>
+        <Elm word="&quot;query" freq="-502.6367286"/>
+        <Elm word="command-line" freq="-502.653719544"/>
+        <Elm word="identifiers" freq="-502.653719544"/>
+        <Elm word="mysqldump&lt;-&gt;server" freq="-502.653719551"/>
+        <Elm word="(unrelated" freq="-502.653719551"/>
+        <Elm word="proper" freq="-502.653719551"/>
+        <Elm word="obligatory" freq="-502.653719551"/>
+        <Elm word="options)" freq="-502.653719551"/>
+        <Elm word="communication" freq="-502.653719551"/>
+        <Elm word="backport" freq="-502.67062131"/>
+        <Elm word="does" freq="-502.67062131"/>
+        <Elm word="HP-UX" freq="-502.67062131"/>
+        <Elm word="compile" freq="-502.67062131"/>
+        <Elm word="in_add_t)." freq="-502.67062131"/>
+        <Elm word="4.0" freq="-502.67062131"/>
+        <Elm word="-" freq="-502.67062131"/>
+        <Elm word="compatibility" freq="-502.67062131"/>
+        <Elm word="fix" freq="-502.67062131"/>
+        <Elm word="able" freq="-502.67062131"/>
+        <Elm word="10.20" freq="-502.67062131"/>
+        <Elm word="(which" freq="-502.67062131"/>
+        <Elm word="blobs" freq="-502.706240603"/>
+        <Elm word="packed" freq="-502.706240603"/>
+        <Elm word="-Nur" freq="-502.706240603"/>
+        <Elm word="ixed" freq="-502.706240603"/>
+        <Elm word="MyISAM" freq="-502.706240603"/>
+        <Elm word="monty@mysql.fi" freq="-502.706240603"/>
+        <Elm word="diff" freq="-502.706240603"/>
+        <Elm word="Fixed" freq="-502.706240603"/>
+        <Elm word="isam/open.c@1.12" freq="-502.706240603"/>
+        <Elm word="Bookmarkable" freq="-502.706240603"/>
+        <Elm word="lot" freq="-502.706240603"/>
+        <Elm word="2003-08-28" freq="-502.706240603"/>
+        <Elm word="ISAM" freq="-502.706240603"/>
+        <Elm word="style" freq="-502.706240603"/>
+        <Elm word="fields" freq="-502.706240603"/>
+        <Elm word="tables" freq="-502.706240612"/>
+        <Elm word="using" freq="-502.706240612"/>
+        <Elm word="12:27:35+03:00" freq="-502.706240612"/>
+        <Elm word="link" freq="-502.706240612"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="reliability"/>
+      <annotation name="bug" comment="reliability"/>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1062098855." author="monty@mysql.fi" document="all diffs diff -Nur style patch Bookmarkable link \n  \n ixed overflow bug in MyISAM and ISAM when using packed tables with a lot of fields and blobs \n  \n isam/open.c@1.12  2003-08-28 12:27:35+03:00  monty@mysql.fi \n history annotate diffs \n  \n Fixed overflow bug when using packed tables and blobs \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="myisam/mi_open.c" count="1"/>
+        <File name="isam/test_all.res" count="1"/>
+        <File name="myisam/mi_dynrec.c" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.7725887222"/>
+        <Elm word="overflow" freq="-2.7725887222"/>
+        <Elm word="bug" freq="-2.7725887222"/>
+        <Elm word="tables" freq="-2.7725887222"/>
+        <Elm word="using" freq="-2.7725887222"/>
+        <Elm word="blobs" freq="-2.7725887222"/>
+        <Elm word="packed" freq="-2.7725887222"/>
+        <Elm word="history" freq="-3.4657359028"/>
+        <Elm word="annotate" freq="-3.4657359028"/>
+        <Elm word="patch" freq="-3.4657359028"/>
+        <Elm word="-Nur" freq="-3.4657359028"/>
+        <Elm word="ixed" freq="-3.4657359028"/>
+        <Elm word="MyISAM" freq="-3.4657359028"/>
+        <Elm word="monty@mysql.fi" freq="-3.4657359028"/>
+        <Elm word="diff" freq="-3.4657359028"/>
+        <Elm word="Fixed" freq="-3.4657359028"/>
+        <Elm word="isam/open.c@1.12" freq="-3.4657359028"/>
+        <Elm word="Bookmarkable" freq="-3.4657359028"/>
+        <Elm word="lot" freq="-3.4657359028"/>
+        <Elm word="2003-08-28" freq="-3.4657359028"/>
+        <Elm word="ISAM" freq="-3.4657359028"/>
+        <Elm word="12:27:35+03:00" freq="-3.4657359028"/>
+        <Elm word="link" freq="-3.4657359028"/>
+        <Elm word="style" freq="-3.4657359028"/>
+        <Elm word="fields" freq="-3.4657359028"/>
+        <Elm word="quoting" freq="-502.250889096"/>
+        <Elm word="Better" freq="-502.98315626"/>
+        <Elm word="Updated" freq="-503.316205564"/>
+        <Elm word="test" freq="-503.316209676"/>
+        <Elm word="ignored" freq="-504.598387106"/>
+        <Elm word="rules&quot;." freq="-504.598387106"/>
+        <Elm word="ER_EMPTY_QUERY" freq="-504.598387106"/>
+        <Elm word="Ignore" freq="-504.598387106"/>
+        <Elm word="marker" freq="-504.598387106"/>
+        <Elm word="replicate-*-table" freq="-504.598387106"/>
+        <Elm word="&quot;query" freq="-504.598387106"/>
+        <Elm word="command-line" freq="-504.61537805"/>
+        <Elm word="identifiers" freq="-504.61537805"/>
+        <Elm word="mysqldump&lt;-&gt;server" freq="-504.615378057"/>
+        <Elm word="(unrelated" freq="-504.615378057"/>
+        <Elm word="there," freq="-504.615378057"/>
+        <Elm word="bit" freq="-504.615378057"/>
+        <Elm word="64-bit" freq="-504.615378057"/>
+        <Elm word="proper" freq="-504.615378057"/>
+        <Elm word="(u_long" freq="-504.615378057"/>
+        <Elm word="obligatory" freq="-504.615378057"/>
+        <Elm word="CPUs" freq="-504.615378057"/>
+        <Elm word="uint32)." freq="-504.615378057"/>
+        <Elm word="64" freq="-504.615378057"/>
+        <Elm word="Fix" freq="-504.615378057"/>
+        <Elm word="in_addr_t" freq="-504.615378057"/>
+        <Elm word="options)" freq="-504.615378057"/>
+        <Elm word="communication" freq="-504.615378057"/>
+        <Elm word="backport" freq="-504.632279816"/>
+        <Elm word="does" freq="-504.632279816"/>
+        <Elm word="HP-UX" freq="-504.632279816"/>
+        <Elm word="compile" freq="-504.632279816"/>
+        <Elm word="in_add_t)." freq="-504.632279816"/>
+        <Elm word="4.0" freq="-504.632279816"/>
+        <Elm word="-" freq="-504.632279816"/>
+        <Elm word="compatibility" freq="-504.632279816"/>
+        <Elm word="fix" freq="-504.632279816"/>
+        <Elm word="able" freq="-504.632279816"/>
+        <Elm word="10.20" freq="-504.632279816"/>
+        <Elm word="(which" freq="-504.632279816"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="maintainability"/>
+      <annotation name="testability"/>
+
+      <Document time="1062640089." author="monty@mysql.fi" document="history annotate diffs \n  \n Better quoting patch \n  \n "/>
+      <Document time="1062098930." author="monty@mysql.fi" document="history annotate diffs \n  \n Updated test for overflow bug \n  \n "/>
+      <Files>
+        <File name="client/mysqldump.c" count="1"/>
+        <File name="mysql-test/t/isam.test" count="1"/>
+        <File name="ChangeSet" count="1"/>
+        <File name="mysql-test/r/isam.result" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="2"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-1.8718021769"/>
+        <Elm word="history" freq="-1.8718021769"/>
+        <Elm word="annotate" freq="-1.8718021769"/>
+        <Elm word="overflow" freq="-2.5649493575"/>
+        <Elm word="bug" freq="-2.5649493575"/>
+        <Elm word="patch" freq="-2.5649493575"/>
+        <Elm word="quoting" freq="-2.5649493575"/>
+        <Elm word="Updated" freq="-2.5649493575"/>
+        <Elm word="Better" freq="-2.5649493575"/>
+        <Elm word="test" freq="-2.5649493575"/>
+        <Elm word="ignored" freq="-502.796814015"/>
+        <Elm word="rules&quot;." freq="-502.796814015"/>
+        <Elm word="ER_EMPTY_QUERY" freq="-502.796814015"/>
+        <Elm word="Ignore" freq="-502.796814015"/>
+        <Elm word="marker" freq="-502.796814015"/>
+        <Elm word="replicate-*-table" freq="-502.796814015"/>
+        <Elm word="&quot;query" freq="-502.796814015"/>
+        <Elm word="command-line" freq="-502.810481995"/>
+        <Elm word="identifiers" freq="-502.810481995"/>
+        <Elm word="mysqldump&lt;-&gt;server" freq="-502.813804966"/>
+        <Elm word="(unrelated" freq="-502.813804966"/>
+        <Elm word="there," freq="-502.813804966"/>
+        <Elm word="bit" freq="-502.813804966"/>
+        <Elm word="64-bit" freq="-502.813804966"/>
+        <Elm word="proper" freq="-502.813804966"/>
+        <Elm word="(u_long" freq="-502.813804966"/>
+        <Elm word="obligatory" freq="-502.813804966"/>
+        <Elm word="CPUs" freq="-502.813804966"/>
+        <Elm word="uint32)." freq="-502.813804966"/>
+        <Elm word="64" freq="-502.813804966"/>
+        <Elm word="Fix" freq="-502.813804966"/>
+        <Elm word="in_addr_t" freq="-502.813804966"/>
+        <Elm word="options)" freq="-502.813804966"/>
+        <Elm word="communication" freq="-502.813804966"/>
+        <Elm word="backport" freq="-502.830706726"/>
+        <Elm word="does" freq="-502.830706726"/>
+        <Elm word="HP-UX" freq="-502.830706726"/>
+        <Elm word="compile" freq="-502.830706726"/>
+        <Elm word="in_add_t)." freq="-502.830706726"/>
+        <Elm word="4.0" freq="-502.830706726"/>
+        <Elm word="-" freq="-502.830706726"/>
+        <Elm word="compatibility" freq="-502.830706726"/>
+        <Elm word="fix" freq="-502.830706726"/>
+        <Elm word="able" freq="-502.830706726"/>
+        <Elm word="10.20" freq="-502.830706726"/>
+        <Elm word="(which" freq="-502.830706726"/>
+        <Elm word="blobs" freq="-502.855953926"/>
+        <Elm word="packed" freq="-502.855953926"/>
+        <Elm word="-Nur" freq="-502.855953926"/>
+        <Elm word="ixed" freq="-502.855953926"/>
+        <Elm word="MyISAM" freq="-502.855953926"/>
+        <Elm word="monty@mysql.fi" freq="-502.855953926"/>
+        <Elm word="diff" freq="-502.855953926"/>
+        <Elm word="Fixed" freq="-502.855953926"/>
+        <Elm word="isam/open.c@1.12" freq="-502.855953926"/>
+        <Elm word="Bookmarkable" freq="-502.855953926"/>
+        <Elm word="lot" freq="-502.855953926"/>
+        <Elm word="2003-08-28" freq="-502.855953926"/>
+        <Elm word="ISAM" freq="-502.855953926"/>
+        <Elm word="style" freq="-502.855953926"/>
+        <Elm word="fields" freq="-502.855953926"/>
+        <Elm word="tables" freq="-502.866326027"/>
+        <Elm word="using" freq="-502.866326027"/>
+        <Elm word="12:27:35+03:00" freq="-502.866326027"/>
+        <Elm word="link" freq="-502.866326027"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality" comment=""/>      
+      <annotation name="security" comment=""/>
+
+      <Document time="1062549033." author="serg@mylan" document="history annotate diffs \n  \n proper obligatory quoting of identifiers in mysqldump&lt;-&gt;server communication (unrelated from command-line options) \n  \n "/>
+      <Files>
+        <File name="client/mysqldump.c" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="serg@mylan" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.4849066498"/>
+        <Elm word="history" freq="-2.4849066498"/>
+        <Elm word="annotate" freq="-2.4849066498"/>
+        <Elm word="quoting" freq="-2.4849066498"/>
+        <Elm word="mysqldump&lt;-&gt;server" freq="-2.4849066498"/>
+        <Elm word="(unrelated" freq="-2.4849066498"/>
+        <Elm word="proper" freq="-2.4849066498"/>
+        <Elm word="obligatory" freq="-2.4849066498"/>
+        <Elm word="command-line" freq="-2.4849066498"/>
+        <Elm word="identifiers" freq="-2.4849066498"/>
+        <Elm word="options)" freq="-2.4849066498"/>
+        <Elm word="communication" freq="-2.4849066498"/>
+        <Elm word="patch" freq="-500.305186904"/>
+        <Elm word="overflow" freq="-500.532019325"/>
+        <Elm word="bug" freq="-500.532019325"/>
+        <Elm word="Better" freq="-501.021497754"/>
+        <Elm word="Updated" freq="-501.35455117"/>
+        <Elm word="test" freq="-501.35455117"/>
+        <Elm word="ignored" freq="-502.6367286"/>
+        <Elm word="rules&quot;." freq="-502.6367286"/>
+        <Elm word="ER_EMPTY_QUERY" freq="-502.6367286"/>
+        <Elm word="Ignore" freq="-502.6367286"/>
+        <Elm word="marker" freq="-502.6367286"/>
+        <Elm word="replicate-*-table" freq="-502.6367286"/>
+        <Elm word="&quot;query" freq="-502.6367286"/>
+        <Elm word="there," freq="-502.653719551"/>
+        <Elm word="bit" freq="-502.653719551"/>
+        <Elm word="64-bit" freq="-502.653719551"/>
+        <Elm word="(u_long" freq="-502.653719551"/>
+        <Elm word="CPUs" freq="-502.653719551"/>
+        <Elm word="uint32)." freq="-502.653719551"/>
+        <Elm word="64" freq="-502.653719551"/>
+        <Elm word="Fix" freq="-502.653719551"/>
+        <Elm word="in_addr_t" freq="-502.653719551"/>
+        <Elm word="backport" freq="-502.67062131"/>
+        <Elm word="does" freq="-502.67062131"/>
+        <Elm word="HP-UX" freq="-502.67062131"/>
+        <Elm word="compile" freq="-502.67062131"/>
+        <Elm word="in_add_t)." freq="-502.67062131"/>
+        <Elm word="4.0" freq="-502.67062131"/>
+        <Elm word="-" freq="-502.67062131"/>
+        <Elm word="compatibility" freq="-502.67062131"/>
+        <Elm word="fix" freq="-502.67062131"/>
+        <Elm word="able" freq="-502.67062131"/>
+        <Elm word="10.20" freq="-502.67062131"/>
+        <Elm word="(which" freq="-502.67062131"/>
+        <Elm word="blobs" freq="-502.706240603"/>
+        <Elm word="packed" freq="-502.706240603"/>
+        <Elm word="-Nur" freq="-502.706240603"/>
+        <Elm word="ixed" freq="-502.706240603"/>
+        <Elm word="MyISAM" freq="-502.706240603"/>
+        <Elm word="monty@mysql.fi" freq="-502.706240603"/>
+        <Elm word="diff" freq="-502.706240603"/>
+        <Elm word="Fixed" freq="-502.706240603"/>
+        <Elm word="isam/open.c@1.12" freq="-502.706240603"/>
+        <Elm word="Bookmarkable" freq="-502.706240603"/>
+        <Elm word="lot" freq="-502.706240603"/>
+        <Elm word="2003-08-28" freq="-502.706240603"/>
+        <Elm word="ISAM" freq="-502.706240603"/>
+        <Elm word="style" freq="-502.706240603"/>
+        <Elm word="fields" freq="-502.706240603"/>
+        <Elm word="tables" freq="-502.706240612"/>
+        <Elm word="using" freq="-502.706240612"/>
+        <Elm word="12:27:35+03:00" freq="-502.706240612"/>
+        <Elm word="link" freq="-502.706240612"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+      <annotation name="portability"/>
+
+      <Document time="1063308967." author="lenz@mysql.com" document="history annotate diffs \n  \n  - backport compatibility fix from 4.0 to be able to compile on HP-UX 10.20 \n    (which does not have in_add_t). \n  \n "/>
+      <Files>
+        <File name="extra/resolveip.c" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="lenz@mysql.com" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.7080502011"/>
+        <Elm word="history" freq="-2.7080502011"/>
+        <Elm word="annotate" freq="-2.7080502011"/>
+        <Elm word="backport" freq="-2.7080502011"/>
+        <Elm word="does" freq="-2.7080502011"/>
+        <Elm word="HP-UX" freq="-2.7080502011"/>
+        <Elm word="compile" freq="-2.7080502011"/>
+        <Elm word="in_add_t)." freq="-2.7080502011"/>
+        <Elm word="4.0" freq="-2.7080502011"/>
+        <Elm word="-" freq="-2.7080502011"/>
+        <Elm word="compatibility" freq="-2.7080502011"/>
+        <Elm word="fix" freq="-2.7080502011"/>
+        <Elm word="able" freq="-2.7080502011"/>
+        <Elm word="10.20" freq="-2.7080502011"/>
+        <Elm word="(which" freq="-2.7080502011"/>
+        <Elm word="quoting" freq="-500.735517693"/>
+        <Elm word="patch" freq="-500.751474007"/>
+        <Elm word="overflow" freq="-500.978306428"/>
+        <Elm word="bug" freq="-500.978306428"/>
+        <Elm word="Better" freq="-501.467784856"/>
+        <Elm word="Updated" freq="-501.800838273"/>
+        <Elm word="test" freq="-501.800838273"/>
+        <Elm word="ignored" freq="-503.083015702"/>
+        <Elm word="rules&quot;." freq="-503.083015702"/>
+        <Elm word="ER_EMPTY_QUERY" freq="-503.083015702"/>
+        <Elm word="Ignore" freq="-503.083015702"/>
+        <Elm word="marker" freq="-503.083015702"/>
+        <Elm word="replicate-*-table" freq="-503.083015702"/>
+        <Elm word="&quot;query" freq="-503.083015702"/>
+        <Elm word="command-line" freq="-503.100006646"/>
+        <Elm word="identifiers" freq="-503.100006646"/>
+        <Elm word="mysqldump&lt;-&gt;server" freq="-503.100006653"/>
+        <Elm word="(unrelated" freq="-503.100006653"/>
+        <Elm word="there," freq="-503.100006653"/>
+        <Elm word="bit" freq="-503.100006653"/>
+        <Elm word="64-bit" freq="-503.100006653"/>
+        <Elm word="proper" freq="-503.100006653"/>
+        <Elm word="(u_long" freq="-503.100006653"/>
+        <Elm word="obligatory" freq="-503.100006653"/>
+        <Elm word="CPUs" freq="-503.100006653"/>
+        <Elm word="uint32)." freq="-503.100006653"/>
+        <Elm word="64" freq="-503.100006653"/>
+        <Elm word="Fix" freq="-503.100006653"/>
+        <Elm word="in_addr_t" freq="-503.100006653"/>
+        <Elm word="options)" freq="-503.100006653"/>
+        <Elm word="communication" freq="-503.100006653"/>
+        <Elm word="blobs" freq="-503.152527706"/>
+        <Elm word="packed" freq="-503.152527706"/>
+        <Elm word="-Nur" freq="-503.152527706"/>
+        <Elm word="ixed" freq="-503.152527706"/>
+        <Elm word="MyISAM" freq="-503.152527706"/>
+        <Elm word="monty@mysql.fi" freq="-503.152527706"/>
+        <Elm word="diff" freq="-503.152527706"/>
+        <Elm word="Fixed" freq="-503.152527706"/>
+        <Elm word="isam/open.c@1.12" freq="-503.152527706"/>
+        <Elm word="Bookmarkable" freq="-503.152527706"/>
+        <Elm word="lot" freq="-503.152527706"/>
+        <Elm word="2003-08-28" freq="-503.152527706"/>
+        <Elm word="ISAM" freq="-503.152527706"/>
+        <Elm word="style" freq="-503.152527706"/>
+        <Elm word="fields" freq="-503.152527706"/>
+        <Elm word="tables" freq="-503.152527714"/>
+        <Elm word="using" freq="-503.152527714"/>
+        <Elm word="12:27:35+03:00" freq="-503.152527714"/>
+        <Elm word="link" freq="-503.152527714"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1063409203." author="guilhem@mysql.com" document="history annotate diffs \n  \n Ignore ER_EMPTY_QUERY as it is also a marker for &quot;query was ignored because  \n of replicate-*-table rules&quot;. \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="sql/slave.cc" count="1"/>
+        <File name="sql/sql_parse.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="guilhem@mysql.com" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.302585093"/>
+        <Elm word="history" freq="-2.302585093"/>
+        <Elm word="annotate" freq="-2.302585093"/>
+        <Elm word="ignored" freq="-2.302585093"/>
+        <Elm word="rules&quot;." freq="-2.302585093"/>
+        <Elm word="ER_EMPTY_QUERY" freq="-2.302585093"/>
+        <Elm word="Ignore" freq="-2.302585093"/>
+        <Elm word="marker" freq="-2.302585093"/>
+        <Elm word="replicate-*-table" freq="-2.302585093"/>
+        <Elm word="&quot;query" freq="-2.302585093"/>
+        <Elm word="quoting" freq="-499.924587476"/>
+        <Elm word="patch" freq="-499.940543791"/>
+        <Elm word="overflow" freq="-500.167376212"/>
+        <Elm word="bug" freq="-500.167376212"/>
+        <Elm word="Better" freq="-500.65685464"/>
+        <Elm word="Updated" freq="-500.989908056"/>
+        <Elm word="test" freq="-500.989908056"/>
+        <Elm word="command-line" freq="-502.28907643"/>
+        <Elm word="identifiers" freq="-502.28907643"/>
+        <Elm word="mysqldump&lt;-&gt;server" freq="-502.289076437"/>
+        <Elm word="(unrelated" freq="-502.289076437"/>
+        <Elm word="there," freq="-502.289076437"/>
+        <Elm word="bit" freq="-502.289076437"/>
+        <Elm word="64-bit" freq="-502.289076437"/>
+        <Elm word="proper" freq="-502.289076437"/>
+        <Elm word="(u_long" freq="-502.289076437"/>
+        <Elm word="obligatory" freq="-502.289076437"/>
+        <Elm word="CPUs" freq="-502.289076437"/>
+        <Elm word="uint32)." freq="-502.289076437"/>
+        <Elm word="64" freq="-502.289076437"/>
+        <Elm word="Fix" freq="-502.289076437"/>
+        <Elm word="in_addr_t" freq="-502.289076437"/>
+        <Elm word="options)" freq="-502.289076437"/>
+        <Elm word="communication" freq="-502.289076437"/>
+        <Elm word="backport" freq="-502.305978197"/>
+        <Elm word="does" freq="-502.305978197"/>
+        <Elm word="HP-UX" freq="-502.305978197"/>
+        <Elm word="compile" freq="-502.305978197"/>
+        <Elm word="in_add_t)." freq="-502.305978197"/>
+        <Elm word="4.0" freq="-502.305978197"/>
+        <Elm word="-" freq="-502.305978197"/>
+        <Elm word="compatibility" freq="-502.305978197"/>
+        <Elm word="fix" freq="-502.305978197"/>
+        <Elm word="able" freq="-502.305978197"/>
+        <Elm word="10.20" freq="-502.305978197"/>
+        <Elm word="(which" freq="-502.305978197"/>
+        <Elm word="blobs" freq="-502.34159749"/>
+        <Elm word="packed" freq="-502.34159749"/>
+        <Elm word="-Nur" freq="-502.34159749"/>
+        <Elm word="ixed" freq="-502.34159749"/>
+        <Elm word="MyISAM" freq="-502.34159749"/>
+        <Elm word="monty@mysql.fi" freq="-502.34159749"/>
+        <Elm word="diff" freq="-502.34159749"/>
+        <Elm word="Fixed" freq="-502.34159749"/>
+        <Elm word="isam/open.c@1.12" freq="-502.34159749"/>
+        <Elm word="Bookmarkable" freq="-502.34159749"/>
+        <Elm word="lot" freq="-502.34159749"/>
+        <Elm word="2003-08-28" freq="-502.34159749"/>
+        <Elm word="ISAM" freq="-502.34159749"/>
+        <Elm word="style" freq="-502.34159749"/>
+        <Elm word="fields" freq="-502.34159749"/>
+        <Elm word="tables" freq="-502.341597498"/>
+        <Elm word="using" freq="-502.341597498"/>
+        <Elm word="12:27:35+03:00" freq="-502.341597498"/>
+        <Elm word="link" freq="-502.341597498"/>
+      </Elements>
+    </Topic>
+  </Period>
+  
