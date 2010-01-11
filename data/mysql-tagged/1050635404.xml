@@ -1,0 +1,716 @@
+<Period time="1050635404.">
+    <Documents>
+      <Document time="1051082016." author="monty@mysql.fi" document="history annotate diffs \n  \n New test results \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="mysql-test/r/join.result"/>
+          <File name="mysql-test/t/join.test"/>
+          <File name="sql/log_event.cc"/>
+          <File name="sql/log_event.h"/>
+        </Files>
+      </Document>
+      <Document time="1051168159." author="monty@mysql.fi" document="all diffs diff -Nur style patch Bookmarkable link \n  \n Put changeset number in emails \n  \n ">
+        <Files>
+          <File name="BitKeeper/triggers/post-commit"/>
+          <File name="ChangeSet"/>
+        </Files>
+      </Document>
+      <Document time="1051405036." author="monty@mysql.fi" document="history annotate diffs \n  \n Fix possible memory overrun when reading broken character set files \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="mysys/charset.c"/>
+          <File name="sql/mysqld.cc"/>
+        </Files>
+      </Document>
+      <Document time="1051582144." author="serg@mylan" document="history annotate diffs \n  \n Auto merged \n  \n ">
+        <Files>
+          <File name="BitKeeper/etc/logging_ok"/>
+          <File name="client/mysqldump.c"/>
+        </Files>
+      </Document>
+      <Document time="1051665870." author="Sinisa@nasamreza.org" document="history annotate diffs \n  \n Porting back security fix from 4.0. \n  \n All tests plus grant.pl test passed. \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="sql/sql_base.cc"/>
+        </Files>
+      </Document>
+      <Document time="1052377162." author="monty@mysql.fi" document="history annotate diffs \n  \n Security patch \n  \n ">
+        <Files>
+          <File name="sql/sql_acl.cc"/>
+          <File name="sql/sql_base.cc"/>
+          <File name="sql/sql_parse.cc"/>
+          <File name="tests/grant.res"/>
+        </Files>
+      </Document>
+      <Document time="1052379262." author="monty@mysql.fi" document="history annotate diffs \n  \n Better grant test for SELECT * \n  \n ">
+        <Files>
+          <File name="sql/sql_base.cc"/>
+        </Files>
+      </Document>
+      <Document time="1052930223." author="monty@mysql.fi" document="history annotate diffs \n  \n SHOW TABLE STATUS displayed wrong Row_format for myisampack'ed tables. \n  \n ">
+        <Files>
+          <File name="sql/sql_show.cc"/>
+        </Files>
+      </Document>
+      <Document time="1052964435." author="heikki@mysql.fi" document="history annotate diffs \n  \n Backport from 4.0: We had forgotten to call pthread_mutex_destroy when we free an OS mutex in Unix \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="innobase/os/os0sync.c"/>
+        </Files>
+      </Document>
+    </Documents>
+    <Files>
+      <File name="sql/log_event.cc" count="1"/>
+      <File name="BitKeeper/triggers/post-commit" count="1"/>
+      <File name="sql/sql_acl.cc" count="1"/>
+      <File name="mysql-test/t/join.test" count="1"/>
+      <File name="sql/sql_parse.cc" count="1"/>
+      <File name="sql/mysqld.cc" count="1"/>
+      <File name="sql/sql_show.cc" count="1"/>
+      <File name="sql/sql_base.cc" count="3"/>
+      <File name="tests/grant.res" count="1"/>
+      <File name="client/mysqldump.c" count="1"/>
+      <File name="innobase/os/os0sync.c" count="1"/>
+      <File name="ChangeSet" count="5"/>
+      <File name="mysql-test/r/join.result" count="1"/>
+      <File name="sql/log_event.h" count="1"/>
+      <File name="mysys/charset.c" count="1"/>
+      <File name="BitKeeper/etc/logging_ok" count="1"/>
+    </Files>
+    <Authors>
+      <Author name="heikki@mysql.fi" count="1"/>
+      <Author name="serg@mylan" count="1"/>
+      <Author name="monty@mysql.fi" count="6"/>
+      <Author name="Sinisa@nasamreza.org" count="1"/>
+    </Authors>
+    <Topic>
+      <annotation name="maintainability"/>
+      <annotation name="testability"/>
+
+      <Document time="1051082016." author="monty@mysql.fi" document="history annotate diffs \n  \n New test results \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="mysql-test/r/join.result" count="1"/>
+        <File name="sql/log_event.cc" count="1"/>
+        <File name="sql/log_event.h" count="1"/>
+        <File name="mysql-test/t/join.test" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-1.7917594692"/>
+        <Elm word="history" freq="-1.7917594692"/>
+        <Elm word="annotate" freq="-1.7917594692"/>
+        <Elm word="test" freq="-1.7917594692"/>
+        <Elm word="New" freq="-1.7917594692"/>
+        <Elm word="results" freq="-1.7917594692"/>
+        <Elm word="patch" freq="-561.214083815"/>
+        <Elm word="merged" freq="-562.549072719"/>
+        <Elm word="Security" freq="-562.549072719"/>
+        <Elm word="Auto" freq="-562.549072719"/>
+        <Elm word="Better" freq="-562.627343517"/>
+        <Elm word="SELECT" freq="-562.627343517"/>
+        <Elm word="*" freq="-562.627343517"/>
+        <Elm word="grant" freq="-562.627343517"/>
+        <Elm word="diff" freq="-562.653034487"/>
+        <Elm word="Row_format" freq="-562.653034487"/>
+        <Elm word="tables." freq="-562.653034487"/>
+        <Elm word="emails" freq="-562.653034487"/>
+        <Elm word="link" freq="-562.653034487"/>
+        <Elm word="style" freq="-562.653034487"/>
+        <Elm word="TABLE" freq="-562.653034487"/>
+        <Elm word="Bookmarkable" freq="-562.653034487"/>
+        <Elm word="changeset" freq="-562.653034487"/>
+        <Elm word="displayed" freq="-562.653034487"/>
+        <Elm word="wrong" freq="-562.653034487"/>
+        <Elm word="STATUS" freq="-562.653034487"/>
+        <Elm word="number" freq="-562.653034487"/>
+        <Elm word="myisampack'ed" freq="-562.653034487"/>
+        <Elm word="-Nur" freq="-562.653034487"/>
+        <Elm word="forgotten" freq="-562.662326832"/>
+        <Elm word="Backport" freq="-562.662326832"/>
+        <Elm word="free" freq="-562.662326832"/>
+        <Elm word="pthread_mutex_destroy" freq="-562.662326832"/>
+        <Elm word="Unix" freq="-562.662326832"/>
+        <Elm word="4.0:" freq="-562.662326832"/>
+        <Elm word="mutex" freq="-562.662326832"/>
+        <Elm word="OS" freq="-562.662326832"/>
+        <Elm word="grant.pl" freq="-562.670050112"/>
+        <Elm word="character" freq="-562.670050112"/>
+        <Elm word="fix" freq="-562.670050112"/>
+        <Elm word="Fix" freq="-562.670050112"/>
+        <Elm word="possible" freq="-562.670050112"/>
+        <Elm word="passed." freq="-562.670050112"/>
+        <Elm word="broken" freq="-562.670050112"/>
+        <Elm word="memory" freq="-562.670050112"/>
+        <Elm word="Porting" freq="-562.670050112"/>
+        <Elm word="tests" freq="-562.670050112"/>
+        <Elm word="security" freq="-562.670050112"/>
+        <Elm word="reading" freq="-562.670050112"/>
+        <Elm word="overrun" freq="-562.670050112"/>
+        <Elm word="set" freq="-562.670050112"/>
+        <Elm word="plus" freq="-562.670050112"/>
+        <Elm word="files" freq="-562.670050112"/>
+        <Elm word="4.0." freq="-562.670050112"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="maintainability"/>
+      <annotation name="logging"/>
+
+      <Document time="1051168159." author="monty@mysql.fi" document="all diffs diff -Nur style patch Bookmarkable link \n  \n Put changeset number in emails \n  \n "/>
+      <Files>
+        <File name="BitKeeper/triggers/post-commit" count="1"/>
+        <File name="ChangeSet" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.302585093"/>
+        <Elm word="patch" freq="-2.302585093"/>
+        <Elm word="diff" freq="-2.302585093"/>
+        <Elm word="emails" freq="-2.302585093"/>
+        <Elm word="link" freq="-2.302585093"/>
+        <Elm word="style" freq="-2.302585093"/>
+        <Elm word="Bookmarkable" freq="-2.302585093"/>
+        <Elm word="changeset" freq="-2.302585093"/>
+        <Elm word="number" freq="-2.302585093"/>
+        <Elm word="-Nur" freq="-2.302585093"/>
+        <Elm word="history" freq="-330.992074921"/>
+        <Elm word="annotate" freq="-330.992074921"/>
+        <Elm word="test" freq="-561.451276784"/>
+        <Elm word="merged" freq="-563.570723967"/>
+        <Elm word="Security" freq="-563.570723967"/>
+        <Elm word="Auto" freq="-563.570723967"/>
+        <Elm word="New" freq="-563.605731825"/>
+        <Elm word="results" freq="-563.605731825"/>
+        <Elm word="Better" freq="-563.648994764"/>
+        <Elm word="SELECT" freq="-563.648994764"/>
+        <Elm word="*" freq="-563.648994764"/>
+        <Elm word="grant" freq="-563.648994764"/>
+        <Elm word="Row_format" freq="-563.674685734"/>
+        <Elm word="tables." freq="-563.674685734"/>
+        <Elm word="TABLE" freq="-563.674685734"/>
+        <Elm word="displayed" freq="-563.674685734"/>
+        <Elm word="wrong" freq="-563.674685734"/>
+        <Elm word="STATUS" freq="-563.674685734"/>
+        <Elm word="myisampack'ed" freq="-563.674685734"/>
+        <Elm word="forgotten" freq="-563.683978079"/>
+        <Elm word="Backport" freq="-563.683978079"/>
+        <Elm word="free" freq="-563.683978079"/>
+        <Elm word="pthread_mutex_destroy" freq="-563.683978079"/>
+        <Elm word="Unix" freq="-563.683978079"/>
+        <Elm word="4.0:" freq="-563.683978079"/>
+        <Elm word="mutex" freq="-563.683978079"/>
+        <Elm word="OS" freq="-563.683978079"/>
+        <Elm word="grant.pl" freq="-563.69170136"/>
+        <Elm word="character" freq="-563.69170136"/>
+        <Elm word="fix" freq="-563.69170136"/>
+        <Elm word="Fix" freq="-563.69170136"/>
+        <Elm word="possible" freq="-563.69170136"/>
+        <Elm word="passed." freq="-563.69170136"/>
+        <Elm word="broken" freq="-563.69170136"/>
+        <Elm word="memory" freq="-563.69170136"/>
+        <Elm word="Porting" freq="-563.69170136"/>
+        <Elm word="tests" freq="-563.69170136"/>
+        <Elm word="security" freq="-563.69170136"/>
+        <Elm word="reading" freq="-563.69170136"/>
+        <Elm word="overrun" freq="-563.69170136"/>
+        <Elm word="set" freq="-563.69170136"/>
+        <Elm word="plus" freq="-563.69170136"/>
+        <Elm word="files" freq="-563.69170136"/>
+        <Elm word="4.0." freq="-563.69170136"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+      <annotation name="reliability"/>
+      <annotation name="bug" comment="reliability"/>
+
+      <Document time="1051405036." author="monty@mysql.fi" document="history annotate diffs \n  \n Fix possible memory overrun when reading broken character set files \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="mysys/charset.c" count="1"/>
+        <File name="sql/mysqld.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.4849066498"/>
+        <Elm word="history" freq="-2.4849066498"/>
+        <Elm word="annotate" freq="-2.4849066498"/>
+        <Elm word="character" freq="-2.4849066498"/>
+        <Elm word="Fix" freq="-2.4849066498"/>
+        <Elm word="possible" freq="-2.4849066498"/>
+        <Elm word="broken" freq="-2.4849066498"/>
+        <Elm word="memory" freq="-2.4849066498"/>
+        <Elm word="reading" freq="-2.4849066498"/>
+        <Elm word="overrun" freq="-2.4849066498"/>
+        <Elm word="set" freq="-2.4849066498"/>
+        <Elm word="files" freq="-2.4849066498"/>
+        <Elm word="test" freq="-561.815919898"/>
+        <Elm word="patch" freq="-562.600378176"/>
+        <Elm word="merged" freq="-563.93536708"/>
+        <Elm word="Security" freq="-563.93536708"/>
+        <Elm word="Auto" freq="-563.93536708"/>
+        <Elm word="New" freq="-563.970374939"/>
+        <Elm word="results" freq="-563.970374939"/>
+        <Elm word="Better" freq="-564.013637878"/>
+        <Elm word="SELECT" freq="-564.013637878"/>
+        <Elm word="*" freq="-564.013637878"/>
+        <Elm word="grant" freq="-564.013637878"/>
+        <Elm word="diff" freq="-564.039328848"/>
+        <Elm word="Row_format" freq="-564.039328848"/>
+        <Elm word="tables." freq="-564.039328848"/>
+        <Elm word="emails" freq="-564.039328848"/>
+        <Elm word="link" freq="-564.039328848"/>
+        <Elm word="style" freq="-564.039328848"/>
+        <Elm word="TABLE" freq="-564.039328848"/>
+        <Elm word="Bookmarkable" freq="-564.039328848"/>
+        <Elm word="changeset" freq="-564.039328848"/>
+        <Elm word="displayed" freq="-564.039328848"/>
+        <Elm word="wrong" freq="-564.039328848"/>
+        <Elm word="STATUS" freq="-564.039328848"/>
+        <Elm word="number" freq="-564.039328848"/>
+        <Elm word="myisampack'ed" freq="-564.039328848"/>
+        <Elm word="-Nur" freq="-564.039328848"/>
+        <Elm word="forgotten" freq="-564.048621193"/>
+        <Elm word="Backport" freq="-564.048621193"/>
+        <Elm word="free" freq="-564.048621193"/>
+        <Elm word="pthread_mutex_destroy" freq="-564.048621193"/>
+        <Elm word="Unix" freq="-564.048621193"/>
+        <Elm word="4.0:" freq="-564.048621193"/>
+        <Elm word="mutex" freq="-564.048621193"/>
+        <Elm word="OS" freq="-564.048621193"/>
+        <Elm word="grant.pl" freq="-564.056344473"/>
+        <Elm word="fix" freq="-564.056344473"/>
+        <Elm word="passed." freq="-564.056344473"/>
+        <Elm word="Porting" freq="-564.056344473"/>
+        <Elm word="tests" freq="-564.056344473"/>
+        <Elm word="security" freq="-564.056344473"/>
+        <Elm word="plus" freq="-564.056344473"/>
+        <Elm word="4.0." freq="-564.056344473"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="unknown"/>
+
+      <Document time="1051582144." author="serg@mylan" document="history annotate diffs \n  \n Auto merged \n  \n "/>
+      <Files>
+        <File name="BitKeeper/etc/logging_ok" count="1"/>
+        <File name="client/mysqldump.c" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="serg@mylan" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-1.6094379124"/>
+        <Elm word="history" freq="-1.6094379124"/>
+        <Elm word="annotate" freq="-1.6094379124"/>
+        <Elm word="merged" freq="-1.6094379124"/>
+        <Elm word="Auto" freq="-1.6094379124"/>
+        <Elm word="test" freq="-331.283170399"/>
+        <Elm word="Row_format" freq="-332.394875572"/>
+        <Elm word="tables." freq="-332.394875572"/>
+        <Elm word="TABLE" freq="-332.394875572"/>
+        <Elm word="displayed" freq="-332.394875572"/>
+        <Elm word="wrong" freq="-332.394875572"/>
+        <Elm word="STATUS" freq="-332.394875572"/>
+        <Elm word="myisampack'ed" freq="-332.394875572"/>
+        <Elm word="patch" freq="-560.849440701"/>
+        <Elm word="Security" freq="-562.184429605"/>
+        <Elm word="New" freq="-562.219437464"/>
+        <Elm word="results" freq="-562.219437464"/>
+        <Elm word="Better" freq="-562.262700403"/>
+        <Elm word="SELECT" freq="-562.262700403"/>
+        <Elm word="*" freq="-562.262700403"/>
+        <Elm word="grant" freq="-562.262700403"/>
+        <Elm word="diff" freq="-562.288391373"/>
+        <Elm word="emails" freq="-562.288391373"/>
+        <Elm word="link" freq="-562.288391373"/>
+        <Elm word="style" freq="-562.288391373"/>
+        <Elm word="Bookmarkable" freq="-562.288391373"/>
+        <Elm word="changeset" freq="-562.288391373"/>
+        <Elm word="number" freq="-562.288391373"/>
+        <Elm word="-Nur" freq="-562.288391373"/>
+        <Elm word="forgotten" freq="-562.297683718"/>
+        <Elm word="Backport" freq="-562.297683718"/>
+        <Elm word="free" freq="-562.297683718"/>
+        <Elm word="pthread_mutex_destroy" freq="-562.297683718"/>
+        <Elm word="Unix" freq="-562.297683718"/>
+        <Elm word="4.0:" freq="-562.297683718"/>
+        <Elm word="mutex" freq="-562.297683718"/>
+        <Elm word="OS" freq="-562.297683718"/>
+        <Elm word="grant.pl" freq="-562.305406999"/>
+        <Elm word="character" freq="-562.305406999"/>
+        <Elm word="fix" freq="-562.305406999"/>
+        <Elm word="Fix" freq="-562.305406999"/>
+        <Elm word="possible" freq="-562.305406999"/>
+        <Elm word="passed." freq="-562.305406999"/>
+        <Elm word="broken" freq="-562.305406999"/>
+        <Elm word="memory" freq="-562.305406999"/>
+        <Elm word="Porting" freq="-562.305406999"/>
+        <Elm word="tests" freq="-562.305406999"/>
+        <Elm word="security" freq="-562.305406999"/>
+        <Elm word="reading" freq="-562.305406999"/>
+        <Elm word="overrun" freq="-562.305406999"/>
+        <Elm word="set" freq="-562.305406999"/>
+        <Elm word="plus" freq="-562.305406999"/>
+        <Elm word="files" freq="-562.305406999"/>
+        <Elm word="4.0." freq="-562.305406999"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+      <annotation name="functionality" comment=""/>      
+      <annotation name="security" comment=""/>
+
+      <Document time="1051665870." author="Sinisa@nasamreza.org" document="history annotate diffs \n  \n Porting back security fix from 4.0. \n  \n All tests plus grant.pl test passed. \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="sql/sql_base.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="Sinisa@nasamreza.org" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.4849066498"/>
+        <Elm word="history" freq="-2.4849066498"/>
+        <Elm word="annotate" freq="-2.4849066498"/>
+        <Elm word="test" freq="-2.4849066498"/>
+        <Elm word="grant.pl" freq="-2.4849066498"/>
+        <Elm word="fix" freq="-2.4849066498"/>
+        <Elm word="passed." freq="-2.4849066498"/>
+        <Elm word="Porting" freq="-2.4849066498"/>
+        <Elm word="tests" freq="-2.4849066498"/>
+        <Elm word="security" freq="-2.4849066498"/>
+        <Elm word="plus" freq="-2.4849066498"/>
+        <Elm word="4.0." freq="-2.4849066498"/>
+        <Elm word="patch" freq="-562.600378176"/>
+        <Elm word="merged" freq="-563.93536708"/>
+        <Elm word="Security" freq="-563.93536708"/>
+        <Elm word="Auto" freq="-563.93536708"/>
+        <Elm word="New" freq="-563.970374939"/>
+        <Elm word="results" freq="-563.970374939"/>
+        <Elm word="Better" freq="-564.013637878"/>
+        <Elm word="SELECT" freq="-564.013637878"/>
+        <Elm word="*" freq="-564.013637878"/>
+        <Elm word="grant" freq="-564.013637878"/>
+        <Elm word="diff" freq="-564.039328848"/>
+        <Elm word="Row_format" freq="-564.039328848"/>
+        <Elm word="tables." freq="-564.039328848"/>
+        <Elm word="emails" freq="-564.039328848"/>
+        <Elm word="link" freq="-564.039328848"/>
+        <Elm word="style" freq="-564.039328848"/>
+        <Elm word="TABLE" freq="-564.039328848"/>
+        <Elm word="Bookmarkable" freq="-564.039328848"/>
+        <Elm word="changeset" freq="-564.039328848"/>
+        <Elm word="displayed" freq="-564.039328848"/>
+        <Elm word="wrong" freq="-564.039328848"/>
+        <Elm word="STATUS" freq="-564.039328848"/>
+        <Elm word="number" freq="-564.039328848"/>
+        <Elm word="myisampack'ed" freq="-564.039328848"/>
+        <Elm word="-Nur" freq="-564.039328848"/>
+        <Elm word="forgotten" freq="-564.048621193"/>
+        <Elm word="Backport" freq="-564.048621193"/>
+        <Elm word="free" freq="-564.048621193"/>
+        <Elm word="pthread_mutex_destroy" freq="-564.048621193"/>
+        <Elm word="Unix" freq="-564.048621193"/>
+        <Elm word="4.0:" freq="-564.048621193"/>
+        <Elm word="mutex" freq="-564.048621193"/>
+        <Elm word="OS" freq="-564.048621193"/>
+        <Elm word="character" freq="-564.056344473"/>
+        <Elm word="Fix" freq="-564.056344473"/>
+        <Elm word="possible" freq="-564.056344473"/>
+        <Elm word="broken" freq="-564.056344473"/>
+        <Elm word="memory" freq="-564.056344473"/>
+        <Elm word="reading" freq="-564.056344473"/>
+        <Elm word="overrun" freq="-564.056344473"/>
+        <Elm word="set" freq="-564.056344473"/>
+        <Elm word="files" freq="-564.056344473"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality" comment=""/>      
+      <annotation name="security" comment=""/>
+
+      <Document time="1052377162." author="monty@mysql.fi" document="history annotate diffs \n  \n Security patch \n  \n "/>
+      <Files>
+        <File name="sql/sql_acl.cc" count="1"/>
+        <File name="sql/sql_base.cc" count="1"/>
+        <File name="tests/grant.res" count="1"/>
+        <File name="sql/sql_parse.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-1.6094379124"/>
+        <Elm word="history" freq="-1.6094379124"/>
+        <Elm word="annotate" freq="-1.6094379124"/>
+        <Elm word="patch" freq="-1.6094379124"/>
+        <Elm word="Security" freq="-1.6094379124"/>
+        <Elm word="test" freq="-331.283170399"/>
+        <Elm word="merged" freq="-562.184429605"/>
+        <Elm word="Auto" freq="-562.184429605"/>
+        <Elm word="New" freq="-562.219437464"/>
+        <Elm word="results" freq="-562.219437464"/>
+        <Elm word="Better" freq="-562.262700403"/>
+        <Elm word="SELECT" freq="-562.262700403"/>
+        <Elm word="*" freq="-562.262700403"/>
+        <Elm word="grant" freq="-562.262700403"/>
+        <Elm word="diff" freq="-562.288391373"/>
+        <Elm word="Row_format" freq="-562.288391373"/>
+        <Elm word="tables." freq="-562.288391373"/>
+        <Elm word="emails" freq="-562.288391373"/>
+        <Elm word="link" freq="-562.288391373"/>
+        <Elm word="style" freq="-562.288391373"/>
+        <Elm word="TABLE" freq="-562.288391373"/>
+        <Elm word="Bookmarkable" freq="-562.288391373"/>
+        <Elm word="changeset" freq="-562.288391373"/>
+        <Elm word="displayed" freq="-562.288391373"/>
+        <Elm word="wrong" freq="-562.288391373"/>
+        <Elm word="STATUS" freq="-562.288391373"/>
+        <Elm word="number" freq="-562.288391373"/>
+        <Elm word="myisampack'ed" freq="-562.288391373"/>
+        <Elm word="-Nur" freq="-562.288391373"/>
+        <Elm word="forgotten" freq="-562.297683718"/>
+        <Elm word="Backport" freq="-562.297683718"/>
+        <Elm word="free" freq="-562.297683718"/>
+        <Elm word="pthread_mutex_destroy" freq="-562.297683718"/>
+        <Elm word="Unix" freq="-562.297683718"/>
+        <Elm word="4.0:" freq="-562.297683718"/>
+        <Elm word="mutex" freq="-562.297683718"/>
+        <Elm word="OS" freq="-562.297683718"/>
+        <Elm word="grant.pl" freq="-562.305406999"/>
+        <Elm word="character" freq="-562.305406999"/>
+        <Elm word="fix" freq="-562.305406999"/>
+        <Elm word="Fix" freq="-562.305406999"/>
+        <Elm word="possible" freq="-562.305406999"/>
+        <Elm word="passed." freq="-562.305406999"/>
+        <Elm word="broken" freq="-562.305406999"/>
+        <Elm word="memory" freq="-562.305406999"/>
+        <Elm word="Porting" freq="-562.305406999"/>
+        <Elm word="tests" freq="-562.305406999"/>
+        <Elm word="security" freq="-562.305406999"/>
+        <Elm word="reading" freq="-562.305406999"/>
+        <Elm word="overrun" freq="-562.305406999"/>
+        <Elm word="set" freq="-562.305406999"/>
+        <Elm word="plus" freq="-562.305406999"/>
+        <Elm word="files" freq="-562.305406999"/>
+        <Elm word="4.0." freq="-562.305406999"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality" comment=""/>      
+      <annotation name="security" comment=""/>
+
+      <Document time="1052379262." author="monty@mysql.fi" document="history annotate diffs \n  \n Better grant test for SELECT * \n  \n "/>
+      <Files>
+        <File name="sql/sql_base.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.0794415417"/>
+        <Elm word="history" freq="-2.0794415417"/>
+        <Elm word="annotate" freq="-2.0794415417"/>
+        <Elm word="test" freq="-2.0794415417"/>
+        <Elm word="Better" freq="-2.0794415417"/>
+        <Elm word="SELECT" freq="-2.0794415417"/>
+        <Elm word="*" freq="-2.0794415417"/>
+        <Elm word="grant" freq="-2.0794415417"/>
+        <Elm word="patch" freq="-561.789447959"/>
+        <Elm word="merged" freq="-563.124436864"/>
+        <Elm word="Security" freq="-563.124436864"/>
+        <Elm word="Auto" freq="-563.124436864"/>
+        <Elm word="New" freq="-563.159444723"/>
+        <Elm word="results" freq="-563.159444723"/>
+        <Elm word="diff" freq="-563.228398631"/>
+        <Elm word="Row_format" freq="-563.228398631"/>
+        <Elm word="tables." freq="-563.228398631"/>
+        <Elm word="emails" freq="-563.228398631"/>
+        <Elm word="link" freq="-563.228398631"/>
+        <Elm word="style" freq="-563.228398631"/>
+        <Elm word="TABLE" freq="-563.228398631"/>
+        <Elm word="Bookmarkable" freq="-563.228398631"/>
+        <Elm word="changeset" freq="-563.228398631"/>
+        <Elm word="displayed" freq="-563.228398631"/>
+        <Elm word="wrong" freq="-563.228398631"/>
+        <Elm word="STATUS" freq="-563.228398631"/>
+        <Elm word="number" freq="-563.228398631"/>
+        <Elm word="myisampack'ed" freq="-563.228398631"/>
+        <Elm word="-Nur" freq="-563.228398631"/>
+        <Elm word="forgotten" freq="-563.237690977"/>
+        <Elm word="Backport" freq="-563.237690977"/>
+        <Elm word="free" freq="-563.237690977"/>
+        <Elm word="pthread_mutex_destroy" freq="-563.237690977"/>
+        <Elm word="Unix" freq="-563.237690977"/>
+        <Elm word="4.0:" freq="-563.237690977"/>
+        <Elm word="mutex" freq="-563.237690977"/>
+        <Elm word="OS" freq="-563.237690977"/>
+        <Elm word="grant.pl" freq="-563.245414257"/>
+        <Elm word="character" freq="-563.245414257"/>
+        <Elm word="fix" freq="-563.245414257"/>
+        <Elm word="Fix" freq="-563.245414257"/>
+        <Elm word="possible" freq="-563.245414257"/>
+        <Elm word="passed." freq="-563.245414257"/>
+        <Elm word="broken" freq="-563.245414257"/>
+        <Elm word="memory" freq="-563.245414257"/>
+        <Elm word="Porting" freq="-563.245414257"/>
+        <Elm word="tests" freq="-563.245414257"/>
+        <Elm word="security" freq="-563.245414257"/>
+        <Elm word="reading" freq="-563.245414257"/>
+        <Elm word="overrun" freq="-563.245414257"/>
+        <Elm word="set" freq="-563.245414257"/>
+        <Elm word="plus" freq="-563.245414257"/>
+        <Elm word="files" freq="-563.245414257"/>
+        <Elm word="4.0." freq="-563.245414257"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1052930223." author="monty@mysql.fi" document="history annotate diffs \n  \n SHOW TABLE STATUS displayed wrong Row_format for myisampack'ed tables. \n  \n "/>
+      <Files>
+        <File name="sql/sql_show.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.302585093"/>
+        <Elm word="history" freq="-2.302585093"/>
+        <Elm word="annotate" freq="-2.302585093"/>
+        <Elm word="Row_format" freq="-2.302585093"/>
+        <Elm word="tables." freq="-2.302585093"/>
+        <Elm word="TABLE" freq="-2.302585093"/>
+        <Elm word="displayed" freq="-2.302585093"/>
+        <Elm word="wrong" freq="-2.302585093"/>
+        <Elm word="STATUS" freq="-2.302585093"/>
+        <Elm word="myisampack'ed" freq="-2.302585093"/>
+        <Elm word="test" freq="-561.451276784"/>
+        <Elm word="patch" freq="-562.235735062"/>
+        <Elm word="merged" freq="-563.570723967"/>
+        <Elm word="Security" freq="-563.570723967"/>
+        <Elm word="Auto" freq="-563.570723967"/>
+        <Elm word="New" freq="-563.605731825"/>
+        <Elm word="results" freq="-563.605731825"/>
+        <Elm word="Better" freq="-563.648994764"/>
+        <Elm word="SELECT" freq="-563.648994764"/>
+        <Elm word="*" freq="-563.648994764"/>
+        <Elm word="grant" freq="-563.648994764"/>
+        <Elm word="diff" freq="-563.674685734"/>
+        <Elm word="emails" freq="-563.674685734"/>
+        <Elm word="link" freq="-563.674685734"/>
+        <Elm word="style" freq="-563.674685734"/>
+        <Elm word="Bookmarkable" freq="-563.674685734"/>
+        <Elm word="changeset" freq="-563.674685734"/>
+        <Elm word="number" freq="-563.674685734"/>
+        <Elm word="-Nur" freq="-563.674685734"/>
+        <Elm word="forgotten" freq="-563.683978079"/>
+        <Elm word="Backport" freq="-563.683978079"/>
+        <Elm word="free" freq="-563.683978079"/>
+        <Elm word="pthread_mutex_destroy" freq="-563.683978079"/>
+        <Elm word="Unix" freq="-563.683978079"/>
+        <Elm word="4.0:" freq="-563.683978079"/>
+        <Elm word="mutex" freq="-563.683978079"/>
+        <Elm word="OS" freq="-563.683978079"/>
+        <Elm word="grant.pl" freq="-563.69170136"/>
+        <Elm word="character" freq="-563.69170136"/>
+        <Elm word="fix" freq="-563.69170136"/>
+        <Elm word="Fix" freq="-563.69170136"/>
+        <Elm word="possible" freq="-563.69170136"/>
+        <Elm word="passed." freq="-563.69170136"/>
+        <Elm word="broken" freq="-563.69170136"/>
+        <Elm word="memory" freq="-563.69170136"/>
+        <Elm word="Porting" freq="-563.69170136"/>
+        <Elm word="tests" freq="-563.69170136"/>
+        <Elm word="security" freq="-563.69170136"/>
+        <Elm word="reading" freq="-563.69170136"/>
+        <Elm word="overrun" freq="-563.69170136"/>
+        <Elm word="set" freq="-563.69170136"/>
+        <Elm word="plus" freq="-563.69170136"/>
+        <Elm word="files" freq="-563.69170136"/>
+        <Elm word="4.0." freq="-563.69170136"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+      <annotation name="portability"/>
+
+      <Document time="1052964435." author="heikki@mysql.fi" document="history annotate diffs \n  \n Backport from 4.0: We had forgotten to call pthread_mutex_destroy when we free an OS mutex in Unix \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="innobase/os/os0sync.c" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="heikki@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.3978952728"/>
+        <Elm word="history" freq="-2.3978952728"/>
+        <Elm word="annotate" freq="-2.3978952728"/>
+        <Elm word="forgotten" freq="-2.3978952728"/>
+        <Elm word="Backport" freq="-2.3978952728"/>
+        <Elm word="free" freq="-2.3978952728"/>
+        <Elm word="pthread_mutex_destroy" freq="-2.3978952728"/>
+        <Elm word="Unix" freq="-2.3978952728"/>
+        <Elm word="4.0:" freq="-2.3978952728"/>
+        <Elm word="mutex" freq="-2.3978952728"/>
+        <Elm word="OS" freq="-2.3978952728"/>
+        <Elm word="test" freq="-561.641897144"/>
+        <Elm word="patch" freq="-562.426355422"/>
+        <Elm word="merged" freq="-563.761344326"/>
+        <Elm word="Security" freq="-563.761344326"/>
+        <Elm word="Auto" freq="-563.761344326"/>
+        <Elm word="New" freq="-563.796352185"/>
+        <Elm word="results" freq="-563.796352185"/>
+        <Elm word="Better" freq="-563.839615124"/>
+        <Elm word="SELECT" freq="-563.839615124"/>
+        <Elm word="*" freq="-563.839615124"/>
+        <Elm word="grant" freq="-563.839615124"/>
+        <Elm word="diff" freq="-563.865306094"/>
+        <Elm word="Row_format" freq="-563.865306094"/>
+        <Elm word="tables." freq="-563.865306094"/>
+        <Elm word="emails" freq="-563.865306094"/>
+        <Elm word="link" freq="-563.865306094"/>
+        <Elm word="style" freq="-563.865306094"/>
+        <Elm word="TABLE" freq="-563.865306094"/>
+        <Elm word="Bookmarkable" freq="-563.865306094"/>
+        <Elm word="changeset" freq="-563.865306094"/>
+        <Elm word="displayed" freq="-563.865306094"/>
+        <Elm word="wrong" freq="-563.865306094"/>
+        <Elm word="STATUS" freq="-563.865306094"/>
+        <Elm word="number" freq="-563.865306094"/>
+        <Elm word="myisampack'ed" freq="-563.865306094"/>
+        <Elm word="-Nur" freq="-563.865306094"/>
+        <Elm word="grant.pl" freq="-563.882321719"/>
+        <Elm word="character" freq="-563.882321719"/>
+        <Elm word="fix" freq="-563.882321719"/>
+        <Elm word="Fix" freq="-563.882321719"/>
+        <Elm word="possible" freq="-563.882321719"/>
+        <Elm word="passed." freq="-563.882321719"/>
+        <Elm word="broken" freq="-563.882321719"/>
+        <Elm word="memory" freq="-563.882321719"/>
+        <Elm word="Porting" freq="-563.882321719"/>
+        <Elm word="tests" freq="-563.882321719"/>
+        <Elm word="security" freq="-563.882321719"/>
+        <Elm word="reading" freq="-563.882321719"/>
+        <Elm word="overrun" freq="-563.882321719"/>
+        <Elm word="set" freq="-563.882321719"/>
+        <Elm word="plus" freq="-563.882321719"/>
+        <Elm word="files" freq="-563.882321719"/>
+        <Elm word="4.0." freq="-563.882321719"/>
+      </Elements>
+    </Topic>
+  </Period>
+  

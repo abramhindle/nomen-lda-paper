@@ -1,0 +1,133 @@
+<Period time="1066187404.">
+    <Documents>
+      <Document time="1066685693." author="guilhem@mysql.com" document="history annotate diffs \n  \n Make mysqlbinlog prompt for the password if \n mysqlbinlog -p \n instead of printing the usage(). \n This makes mysqlbinlog behave like other clients, which is the reason \n why we fix this in 3.23. \n This new code was almost copied from mysqldump. \n Note that before, one could use \n mysqlbinlog -p pass \n and now one must use \n mysqlbinlog -ppass \n (putting a space will ask for the password). \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="client/mysqlbinlog.cc"/>
+        </Files>
+      </Document>
+      <Document time="1068034856." author="walrus@mysql.com" document="history annotate diffs \n  \n Stop the line wrapping for warnings. \n it needs for warnings statistic in code coverage \n  \n ">
+        <Files>
+          <File name="BUILD/compile-pentium-gcov"/>
+        </Files>
+      </Document>
+    </Documents>
+    <Files>
+      <File name="client/mysqlbinlog.cc" count="1"/>
+      <File name="BUILD/compile-pentium-gcov" count="1"/>
+      <File name="ChangeSet" count="1"/>
+    </Files>
+    <Authors>
+      <Author name="walrus@mysql.com" count="1"/>
+      <Author name="guilhem@mysql.com" count="1"/>
+    </Authors>
+    <Topic>
+      <annotation name="usability" comment="e:added"/>
+      <annotation name="feature" comment="usability"/>
+      <annotation name="ui" comment="usability"/>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+      <annotation name="functionality" comment=""/>      
+      <annotation name="security" comment=""/>
+
+      <Document time="1066685693." author="guilhem@mysql.com" document="history annotate diffs \n  \n Make mysqlbinlog prompt for the password if \n mysqlbinlog -p \n instead of printing the usage(). \n This makes mysqlbinlog behave like other clients, which is the reason \n why we fix this in 3.23. \n This new code was almost copied from mysqldump. \n Note that before, one could use \n mysqlbinlog -p pass \n and now one must use \n mysqlbinlog -ppass \n (putting a space will ask for the password). \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="client/mysqlbinlog.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="guilhem@mysql.com" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="mysqlbinlog" freq="-1.974081026"/>
+        <Elm word="use" freq="-2.8903717579"/>
+        <Elm word="-p" freq="-2.8903717579"/>
+        <Elm word="code" freq="-3.5835189385"/>
+        <Elm word="history" freq="-3.5835189385"/>
+        <Elm word="annotate" freq="-3.5835189385"/>
+        <Elm word="diffs" freq="-3.5835189385"/>
+        <Elm word="Make" freq="-3.5835189385"/>
+        <Elm word="-ppass" freq="-3.5835189385"/>
+        <Elm word="pass" freq="-3.5835189385"/>
+        <Elm word="usage()." freq="-3.5835189385"/>
+        <Elm word="new" freq="-3.5835189385"/>
+        <Elm word="Note" freq="-3.5835189385"/>
+        <Elm word="prompt" freq="-3.5835189385"/>
+        <Elm word="copied" freq="-3.5835189385"/>
+        <Elm word="mysqldump." freq="-3.5835189385"/>
+        <Elm word="space" freq="-3.5835189385"/>
+        <Elm word="before," freq="-3.5835189385"/>
+        <Elm word="(putting" freq="-3.5835189385"/>
+        <Elm word="3.23." freq="-3.5835189385"/>
+        <Elm word="password)." freq="-3.5835189385"/>
+        <Elm word="behave" freq="-3.5835189385"/>
+        <Elm word="instead" freq="-3.5835189385"/>
+        <Elm word="makes" freq="-3.5835189385"/>
+        <Elm word="ask" freq="-3.5835189385"/>
+        <Elm word="reason" freq="-3.5835189385"/>
+        <Elm word="printing" freq="-3.5835189385"/>
+        <Elm word="fix" freq="-3.5835189385"/>
+        <Elm word="password" freq="-3.5835189385"/>
+        <Elm word="clients," freq="-3.5835189385"/>
+        <Elm word="coverage" freq="-448.390922145"/>
+        <Elm word="wrapping" freq="-448.390922145"/>
+        <Elm word="warnings" freq="-448.390922145"/>
+        <Elm word="needs" freq="-448.390922145"/>
+        <Elm word="warnings." freq="-448.390922145"/>
+        <Elm word="line" freq="-448.390922145"/>
+        <Elm word="Stop" freq="-448.390922145"/>
+        <Elm word="statistic" freq="-448.390922145"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="build" comment=""/>
+      <Document time="1068034856." author="walrus@mysql.com" document="history annotate diffs \n  \n Stop the line wrapping for warnings. \n it needs for warnings statistic in code coverage \n  \n "/>
+      <Files>
+        <File name="BUILD/compile-pentium-gcov" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="walrus@mysql.com" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="code" freq="-2.4849066498"/>
+        <Elm word="history" freq="-2.4849066498"/>
+        <Elm word="annotate" freq="-2.4849066498"/>
+        <Elm word="diffs" freq="-2.4849066498"/>
+        <Elm word="coverage" freq="-2.4849066498"/>
+        <Elm word="wrapping" freq="-2.4849066498"/>
+        <Elm word="warnings" freq="-2.4849066498"/>
+        <Elm word="needs" freq="-2.4849066498"/>
+        <Elm word="warnings." freq="-2.4849066498"/>
+        <Elm word="line" freq="-2.4849066498"/>
+        <Elm word="Stop" freq="-2.4849066498"/>
+        <Elm word="statistic" freq="-2.4849066498"/>
+        <Elm word="mysqlbinlog" freq="-446.249590656"/>
+        <Elm word="use" freq="-446.249590656"/>
+        <Elm word="-p" freq="-446.249590656"/>
+        <Elm word="Make" freq="-446.249590656"/>
+        <Elm word="-ppass" freq="-446.249590656"/>
+        <Elm word="pass" freq="-446.249590656"/>
+        <Elm word="usage()." freq="-446.249590656"/>
+        <Elm word="new" freq="-446.249590656"/>
+        <Elm word="Note" freq="-446.249590656"/>
+        <Elm word="prompt" freq="-446.249590656"/>
+        <Elm word="copied" freq="-446.249590656"/>
+        <Elm word="mysqldump." freq="-446.249590656"/>
+        <Elm word="space" freq="-446.249590656"/>
+        <Elm word="before," freq="-446.249590656"/>
+        <Elm word="(putting" freq="-446.249590656"/>
+        <Elm word="3.23." freq="-446.249590656"/>
+        <Elm word="password)." freq="-446.249590656"/>
+        <Elm word="behave" freq="-446.249590656"/>
+        <Elm word="instead" freq="-446.249590656"/>
+        <Elm word="makes" freq="-446.249590656"/>
+        <Elm word="ask" freq="-446.249590656"/>
+        <Elm word="reason" freq="-446.249590656"/>
+        <Elm word="printing" freq="-446.249590656"/>
+        <Elm word="fix" freq="-446.249590656"/>
+        <Elm word="password" freq="-446.249590656"/>
+        <Elm word="clients," freq="-446.249590656"/>
+      </Elements>
+    </Topic>
+  </Period>
+  

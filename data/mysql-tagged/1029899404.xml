@@ -1,0 +1,3391 @@
+<Period time="1029899404.">
+    <Documents>
+      <Document time="1030048130." author="heikki@mysql.fi" document="history annotate diffs \n  \n Add InnoDB internal SQL interpreter grammar and lexer sources \n  \n ">
+        <Files>
+          <File name="innobase/include/pars0grm.h"/>
+          <File name="innobase/pars/lexyy.c"/>
+          <File name="innobase/pars/pars0grm.c"/>
+          <File name="innobase/pars/pars0grm.h"/>
+          <File name="innobase/pars/pars0grm.y"/>
+          <File name="innobase/pars/pars0lex.l"/>
+        </Files>
+      </Document>
+      <Document time="1030123995." author="monty@mysql.fi" document="history annotate diffs \n  \n Changelog \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="Docs/manual.texi"/>
+          <File name="sql/mysqld.cc"/>
+        </Files>
+      </Document>
+      <Document time="1030125094." author="heikki@mysql.fi" document="history annotate diffs \n  \n Improved error message for out-of-sync frm files \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="innobase/row/row0mysql.c"/>
+          <File name="sql/ha_innobase.cc"/>
+        </Files>
+      </Document>
+      <Document time="1030163110." author="monty@mysql.fi" document="history annotate diffs \n  \n Rename: mysql-test/t/rpl000016.test -&gt; mysql-test/t/rpl_rotate_logs.test \n  \n ">
+        <Files>
+          <File name="BitKeeper/etc/ignore"/>
+          <File name="mysql-test/r/rpl_rotate_logs.result"/>
+          <File name="mysql-test/t/rpl000018.test"/>
+          <File name="mysql-test/t/rpl_rotate_logs-master.opt"/>
+          <File name="mysql-test/t/rpl_rotate_logs-slave.sh"/>
+          <File name="mysql-test/t/rpl_rotate_logs.slave-mi"/>
+          <File name="mysql-test/t/rpl_rotate_logs.test"/>
+        </Files>
+      </Document>
+      <Document time="1030176327." author="heikki@mysql.fi" document="history annotate diffs \n  \n Remove potential memory leak caused by redefined alloca, remove include of unistd.h to allow compilation on Windows \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="innobase/pars/lexyy.c"/>
+          <File name="innobase/pars/pars0grm.c"/>
+          <File name="innobase/pars/pars0grm.y"/>
+          <File name="innobase/pars/pars0lex.l"/>
+        </Files>
+      </Document>
+      <Document time="1030295994." author="heikki@mysql.fi" document="history annotate diffs \n  \n Make sure stack size in InnoDB threads in AIX is at least 32 kB \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="innobase/configure.in"/>
+          <File name="innobase/os/os0file.c"/>
+          <File name="innobase/os/os0thread.c"/>
+        </Files>
+      </Document>
+      <Document time="1030578081." author="Sinisa@nasamreza.org" document="history annotate diffs \n  \n Little but nasty bug with BDB and alter table \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="Docs/manual.texi"/>
+          <File name="mysql-test/r/bdb-alter-table-1.result"/>
+          <File name="mysql-test/r/bdb-alter-table-2.result"/>
+          <File name="mysql-test/t/bdb-alter-table-1.test"/>
+          <File name="mysql-test/t/bdb-alter-table-2.test"/>
+          <File name="sql/sql_table.cc"/>
+        </Files>
+      </Document>
+      <Document time="1030652268." author="lenz@mysql.com" document="history annotate diffs \n  \n  - applied some modifications made in the 4.0 tree \n  - added option --make-options to pass options to &quot;make&quot; after configure \n  - added option --raid to enable RAID \n  - added option --libwrap to enable TCP wrapper support \n  - make sure to remove log files as early as possible \n  - fixed option --with-other-libc to actually work \n  - fixed some oddly-placed quotes in the configure call \n  \n ">
+        <Files>
+          <File name="Build-tools/Do-compile"/>
+          <File name="ChangeSet"/>
+        </Files>
+      </Document>
+      <Document time="1030830115." author="monty@mysql.fi" document="history annotate diffs \n  \n SCCS merged \n  \n ">
+        <Files>
+          <File name="Docs/manual.texi"/>
+        </Files>
+      </Document>
+      <Document time="1030850287." author="serg@mysql.com" document="history annotate diffs \n  \n LOCK+modify+OPTIMIZE bugfix \n  \n ">
+        <Files>
+          <File name="Docs/manual.texi"/>
+          <File name="mysql-test/r/myisam.result"/>
+          <File name="mysql-test/t/myisam.test"/>
+          <File name="sql/ha_myisam.cc"/>
+        </Files>
+      </Document>
+      <Document time="1031093585." author="monty@mysql.fi" document="history annotate diffs \n  \n Better fix for ALTER TABLE on BDB tables \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="Docs/manual.texi"/>
+          <File name="sql/item_cmpfunc.cc"/>
+          <File name="sql/sql_table.cc"/>
+        </Files>
+      </Document>
+      <Document time="1031095680." author="monty@mysql.fi" document="history annotate diffs \n  \n Fixed results after bug fix \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="mysql-test/r/distinct.result"/>
+          <File name="sql/mysql_priv.h"/>
+          <File name="sql/sql_base.cc"/>
+        </Files>
+      </Document>
+      <Document time="1031096916." author="monty@mysql.fi" document="history annotate diffs \n  \n SCCS merged \n  \n ">
+        <Files>
+          <File name="Docs/manual.texi"/>
+        </Files>
+      </Document>
+      <Document time="1031169917." author="lenz@mysql.com" document="history annotate diffs \n  \n  - Removed some obsolete pieces of code (get rid of using rsh and rcp) \n  - Added some code comments \n  - Reworked help text to match the options available \n  - Heavily reworked GetOptions, removed some obsolete ones and joined others \n  - make_options and config_options can now be given multiple times \n  - simplified code that added configure options dependent on given options \n  \n ">
+        <Files>
+          <File name="Build-tools/Do-compile"/>
+        </Files>
+      </Document>
+      <Document time="1031467033." author="heikki@mysql.fi" document="history annotate diffs \n  \n The option (= default) innodb_fast_shutdown did not always make the shutdown quickly, fix that \n  \n ">
+        <Files>
+          <File name="innobase/srv/srv0srv.c"/>
+        </Files>
+      </Document>
+      <Document time="1031469488." author="heikki@mysql.fi" document="history annotate diffs \n  \n Add diagnostics to track why a semaphore creation failed on Windows ME \n  \n ">
+        <Files>
+          <File name="innobase/os/os0sync.c"/>
+        </Files>
+      </Document>
+      <Document time="1031479290." author="heikki@mysql.fi" document="history annotate diffs \n  \n Remove long latch hold which happened if we scanned long an index without finding any record visible to the current consistent read \n  \n ">
+        <Files>
+          <File name="innobase/btr/btr0cur.c"/>
+        </Files>
+      </Document>
+      <Document time="1031479465." author="heikki@mysql.fi" document="history annotate diffs \n  \n Increase max latch wait time to 600 seconds before we assert \n  \n ">
+        <Files>
+          <File name="innobase/sync/sync0arr.c"/>
+        </Files>
+      </Document>
+      <Document time="1031562749." author="heikki@mysql.fi" document="history annotate diffs \n  \n Remove an assertion in trx0undo.c which could erroneously fail when we ran out of tablespace \n  \n ">
+        <Files>
+          <File name="innobase/trx/trx0undo.c"/>
+        </Files>
+      </Document>
+      <Document time="1031644176." author="heikki@mysql.fi" document="history annotate diffs \n  \n innodb_flush_log_at_trx_commit can have values 0, 1, 2 starting from 3.23.52 \n  \n ">
+        <Files>
+          <File name="sql/ha_innobase.cc"/>
+          <File name="sql/ha_innobase.h"/>
+        </Files>
+      </Document>
+      <Document time="1031688358." author="heikki@mysql.fi" document="history annotate diffs \n  \n Fix a typo: should be buf_page_print \n  \n ">
+        <Files>
+          <File name="innobase/os/os0file.c"/>
+        </Files>
+      </Document>
+      <Document time="1031692957." author="heikki@mysql.fi" document="history annotate diffs \n  \n make innobase_flush_log_at_trx_commit a long, like other params \n  \n ">
+        <Files>
+          <File name="sql/ha_innobase.cc"/>
+          <File name="sql/ha_innobase.h"/>
+          <File name="sql/mysqld.cc"/>
+        </Files>
+      </Document>
+      <Document time="1031693488." author="heikki@mysql.fi" document="history annotate diffs \n  \n Cleanup after last push \n  \n ">
+        <Files>
+          <File name="sql/ha_innobase.cc"/>
+        </Files>
+      </Document>
+      <Document time="1031716597." author="monty@mysql.fi" document="history annotate diffs \n  \n Fixed changelog \n  \n ">
+        <Files>
+          <File name="Docs/manual.texi"/>
+        </Files>
+      </Document>
+      <Document time="1031785176." author="heikki@mysql.fi" document="history annotate diffs \n  \n Start using unbuffered i/o again in Windows because sequential read using normal i/o was 4 times slower in XP \n  \n ">
+        <Files>
+          <File name="innobase/include/srv0srv.h"/>
+          <File name="innobase/os/os0file.c"/>
+          <File name="innobase/srv/srv0srv.c"/>
+        </Files>
+      </Document>
+      <Document time="1031950505." author="heikki@mysql.fi" document="history annotate diffs \n  \n Allow CREATE TABLE and DROP TABLE even if innodb_force_recovery is used, the user can drop a problematic table \n  \n ">
+        <Files>
+          <File name="innobase/row/row0mysql.c"/>
+        </Files>
+      </Document>
+      <Document time="1031952181." author="heikki@mysql.fi" document="history annotate diffs \n  \n Fix typos in previous push \n  \n ">
+        <Files>
+          <File name="innobase/row/row0mysql.c"/>
+        </Files>
+      </Document>
+      <Document time="1032078179." author="monty@mysql.fi" document="history annotate diffs \n  \n Changelog \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="Docs/manual.texi"/>
+          <File name="sql/filesort.cc"/>
+        </Files>
+      </Document>
+      <Document time="1032215093." author="monty@mysql.fi" document="history annotate diffs \n  \n changelog \n  \n ">
+        <Files>
+          <File name="Docs/manual.texi"/>
+          <File name="sql/sql_table.cc"/>
+        </Files>
+      </Document>
+      <Document time="1032339654." author="monty@mysql.fi" document="history annotate diffs \n  \n ChangeLog \n  \n ">
+        <Files>
+          <File name="Docs/manual.texi"/>
+          <File name="mysql-test/r/binary.result"/>
+          <File name="mysql-test/t/binary.test"/>
+          <File name="sql/item_strfunc.h"/>
+        </Files>
+      </Document>
+    </Documents>
+    <Files>
+      <File name="BitKeeper/etc/ignore" count="1"/>
+      <File name="mysql-test/t/rpl_rotate_logs-slave.sh" count="1"/>
+      <File name="innobase/include/srv0srv.h" count="1"/>
+      <File name="sql/item_strfunc.h" count="1"/>
+      <File name="innobase/include/pars0grm.h" count="1"/>
+      <File name="sql/ha_myisam.cc" count="1"/>
+      <File name="sql/item_cmpfunc.cc" count="1"/>
+      <File name="sql/ha_innobase.cc" count="4"/>
+      <File name="mysql-test/t/bdb-alter-table-2.test" count="1"/>
+      <File name="innobase/trx/trx0undo.c" count="1"/>
+      <File name="mysql-test/t/rpl_rotate_logs.test" count="1"/>
+      <File name="innobase/configure.in" count="1"/>
+      <File name="sql/filesort.cc" count="1"/>
+      <File name="Docs/manual.texi" count="10"/>
+      <File name="mysql-test/t/binary.test" count="1"/>
+      <File name="ChangeSet" count="9"/>
+      <File name="mysql-test/r/bdb-alter-table-1.result" count="1"/>
+      <File name="innobase/pars/pars0grm.h" count="1"/>
+      <File name="innobase/row/row0mysql.c" count="3"/>
+      <File name="innobase/pars/lexyy.c" count="2"/>
+      <File name="Build-tools/Do-compile" count="2"/>
+      <File name="mysql-test/r/distinct.result" count="1"/>
+      <File name="innobase/srv/srv0srv.c" count="2"/>
+      <File name="innobase/pars/pars0grm.c" count="2"/>
+      <File name="innobase/os/os0file.c" count="3"/>
+      <File name="innobase/os/os0sync.c" count="1"/>
+      <File name="mysql-test/t/rpl000018.test" count="1"/>
+      <File name="sql/sql_table.cc" count="3"/>
+      <File name="sql/sql_base.cc" count="1"/>
+      <File name="sql/ha_innobase.h" count="2"/>
+      <File name="sql/mysqld.cc" count="2"/>
+      <File name="mysql-test/t/rpl_rotate_logs-master.opt" count="1"/>
+      <File name="mysql-test/r/bdb-alter-table-2.result" count="1"/>
+      <File name="innobase/os/os0thread.c" count="1"/>
+      <File name="innobase/pars/pars0grm.y" count="2"/>
+      <File name="innobase/btr/btr0cur.c" count="1"/>
+      <File name="mysql-test/t/bdb-alter-table-1.test" count="1"/>
+      <File name="mysql-test/r/binary.result" count="1"/>
+      <File name="mysql-test/r/rpl_rotate_logs.result" count="1"/>
+      <File name="mysql-test/t/myisam.test" count="1"/>
+      <File name="sql/mysql_priv.h" count="1"/>
+      <File name="innobase/sync/sync0arr.c" count="1"/>
+      <File name="innobase/pars/pars0lex.l" count="2"/>
+      <File name="mysql-test/t/rpl_rotate_logs.slave-mi" count="1"/>
+      <File name="mysql-test/r/myisam.result" count="1"/>
+    </Files>
+    <Authors>
+      <Author name="serg@mysql.com" count="1"/>
+      <Author name="heikki@mysql.fi" count="16"/>
+      <Author name="monty@mysql.fi" count="10"/>
+      <Author name="lenz@mysql.com" count="2"/>
+      <Author name="Sinisa@nasamreza.org" count="1"/>
+    </Authors>
+    <Topic>
+      <annotation name="reliability" comment=""/>
+      <annotation name="error" comment="reliability"/>
+
+      <Document time="1030125094." author="heikki@mysql.fi" document="history annotate diffs \n  \n Improved error message for out-of-sync frm files \n  \n "/>
+      <Document time="1030048130." author="heikki@mysql.fi" document="history annotate diffs \n  \n Add InnoDB internal SQL interpreter grammar and lexer sources \n  \n "/>
+      <Files>
+        <File name="sql/ha_innobase.cc" count="1"/>
+        <File name="innobase/pars/pars0grm.c" count="1"/>
+        <File name="innobase/pars/pars0grm.h" count="1"/>
+        <File name="innobase/row/row0mysql.c" count="1"/>
+        <File name="innobase/pars/lexyy.c" count="1"/>
+        <File name="innobase/pars/pars0lex.l" count="1"/>
+        <File name="innobase/pars/pars0grm.y" count="1"/>
+        <File name="ChangeSet" count="1"/>
+        <File name="innobase/include/pars0grm.h" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="heikki@mysql.fi" count="2"/>
+      </Authors>
+      <Elements>
+        <Elm word="annotate" freq="-2.302585093"/>
+        <Elm word="history" freq="-2.302585093"/>
+        <Elm word="diffs" freq="-2.302585093"/>
+        <Elm word="files" freq="-2.9957322736"/>
+        <Elm word="InnoDB" freq="-2.9957322736"/>
+        <Elm word="Add" freq="-2.9957322736"/>
+        <Elm word="sources" freq="-2.9957322736"/>
+        <Elm word="out-of-sync" freq="-2.9957322736"/>
+        <Elm word="error" freq="-2.9957322736"/>
+        <Elm word="lexer" freq="-2.9957322736"/>
+        <Elm word="grammar" freq="-2.9957322736"/>
+        <Elm word="internal" freq="-2.9957322736"/>
+        <Elm word="Improved" freq="-2.9957322736"/>
+        <Elm word="frm" freq="-2.9957322736"/>
+        <Elm word="message" freq="-2.9957322736"/>
+        <Elm word="SQL" freq="-2.9957322736"/>
+        <Elm word="interpreter" freq="-2.9957322736"/>
+        <Elm word="option" freq="-100."/>
+        <Elm word="added" freq="-100."/>
+        <Elm word="options" freq="-100."/>
+        <Elm word="Remove" freq="-100."/>
+        <Elm word="configure" freq="-100."/>
+        <Elm word="make" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="using" freq="-100."/>
+        <Elm word="Windows" freq="-100."/>
+        <Elm word="fix" freq="-100."/>
+        <Elm word="SCCS" freq="-100."/>
+        <Elm word="merged" freq="-100."/>
+        <Elm word="times" freq="-100."/>
+        <Elm word="long" freq="-100."/>
+        <Elm word="Changelog" freq="-100."/>
+        <Elm word="bug" freq="-100."/>
+        <Elm word="BDB" freq="-100."/>
+        <Elm word="remove" freq="-100."/>
+        <Elm word="Fixed" freq="-100."/>
+        <Elm word="changelog" freq="-100."/>
+        <Elm word="sure" freq="-100."/>
+        <Elm word="latch" freq="-100."/>
+        <Elm word="i/o" freq="-100."/>
+        <Elm word="Fix" freq="-100."/>
+        <Elm word="read" freq="-100."/>
+        <Elm word="table" freq="-100."/>
+        <Elm word="visible" freq="-100."/>
+        <Elm word="size" freq="-100."/>
+        <Elm word="sequential" freq="-100."/>
+        <Elm word="long," freq="-100."/>
+        <Elm word="redefined" freq="-100."/>
+        <Elm word="assertion" freq="-100."/>
+        <Elm word="caused" freq="-100."/>
+        <Elm word="AIX" freq="-100."/>
+        <Elm word="params" freq="-100."/>
+        <Elm word="assert" freq="-100."/>
+        <Elm word="results" freq="-100."/>
+        <Elm word="previous" freq="-100."/>
+        <Elm word="-&gt;" freq="-100."/>
+        <Elm word="wait" freq="-100."/>
+        <Elm word="fail" freq="-100."/>
+        <Elm word="consistent" freq="-100."/>
+        <Elm word="bugfix" freq="-100."/>
+        <Elm word="potential" freq="-100."/>
+        <Elm word="memory" freq="-100."/>
+        <Elm word="mysql-test/t/rpl000016.test" freq="-100."/>
+        <Elm word="Increase" freq="-100."/>
+        <Elm word="time" freq="-100."/>
+        <Elm word="ran" freq="-100."/>
+        <Elm word="unbuffered" freq="-100."/>
+        <Elm word="600" freq="-100."/>
+        <Elm word="ChangeLog" freq="-100."/>
+        <Elm word="happened" freq="-100."/>
+        <Elm word="Make" freq="-100."/>
+        <Elm word="stack" freq="-100."/>
+        <Elm word="index" freq="-100."/>
+        <Elm word="allow" freq="-100."/>
+        <Elm word="hold" freq="-100."/>
+        <Elm word="slower" freq="-100."/>
+        <Elm word="Cleanup" freq="-100."/>
+        <Elm word="include" freq="-100."/>
+        <Elm word="innobase_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="normal" freq="-100."/>
+        <Elm word="unistd.h" freq="-100."/>
+        <Elm word="record" freq="-100."/>
+        <Elm word="trx0undo.c" freq="-100."/>
+        <Elm word="alloca," freq="-100."/>
+        <Elm word="tablespace" freq="-100."/>
+        <Elm word="finding" freq="-100."/>
+        <Elm word="scanned" freq="-100."/>
+        <Elm word="leak" freq="-100."/>
+        <Elm word="current" freq="-100."/>
+        <Elm word="mysql-test/t/rpl_rotate_logs.test" freq="-100."/>
+        <Elm word="LOCK+modify+OPTIMIZE" freq="-100."/>
+        <Elm word="Start" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="kB" freq="-100."/>
+        <Elm word="typos" freq="-100."/>
+        <Elm word="XP" freq="-100."/>
+        <Elm word="seconds" freq="-100."/>
+        <Elm word="4" freq="-100."/>
+        <Elm word="Rename:" freq="-100."/>
+        <Elm word="compilation" freq="-100."/>
+        <Elm word="threads" freq="-100."/>
+        <Elm word="32" freq="-100."/>
+        <Elm word="erroneously" freq="-100."/>
+        <Elm word="-" freq="-287.880201261"/>
+        <Elm word="buf_page_print" freq="-288.499029785"/>
+        <Elm word="typo:" freq="-288.499029785"/>
+        <Elm word="ALTER" freq="-288.527743876"/>
+        <Elm word="Better" freq="-288.527743876"/>
+        <Elm word="Little" freq="-288.527743876"/>
+        <Elm word="alter" freq="-288.527743876"/>
+        <Elm word="tables" freq="-288.527743876"/>
+        <Elm word="nasty" freq="-288.527743876"/>
+        <Elm word="1," freq="-288.533427785"/>
+        <Elm word="starting" freq="-288.533427785"/>
+        <Elm word="0," freq="-288.533427785"/>
+        <Elm word="semaphore" freq="-288.533427785"/>
+        <Elm word="creation" freq="-288.533427785"/>
+        <Elm word="track" freq="-288.533427785"/>
+        <Elm word="innodb_flush_log_at_trx_commit" freq="-288.533427785"/>
+        <Elm word="values" freq="-288.533427785"/>
+        <Elm word="3.23.52" freq="-288.533427785"/>
+        <Elm word="2" freq="-288.533427785"/>
+        <Elm word="failed" freq="-288.533427785"/>
+        <Elm word="diagnostics" freq="-288.533427785"/>
+        <Elm word="innodb_fast_shutdown" freq="-288.541916654"/>
+        <Elm word="shutdown" freq="-288.541916654"/>
+        <Elm word="default)" freq="-288.541916654"/>
+        <Elm word="(=" freq="-288.541916654"/>
+        <Elm word="quickly," freq="-288.541916654"/>
+        <Elm word="did" freq="-288.541916654"/>
+        <Elm word="problematic" freq="-288.5479529"/>
+        <Elm word="drop" freq="-288.5479529"/>
+        <Elm word="used," freq="-288.5479529"/>
+        <Elm word="Allow" freq="-288.5479529"/>
+        <Elm word="CREATE" freq="-288.5479529"/>
+        <Elm word="innodb_force_recovery" freq="-288.5479529"/>
+        <Elm word="DROP" freq="-288.5479529"/>
+        <Elm word="user" freq="-288.5479529"/>
+        <Elm word="code" freq="-288.573132245"/>
+        <Elm word="given" freq="-288.573132245"/>
+        <Elm word="obsolete" freq="-288.573132245"/>
+        <Elm word="rid" freq="-288.573132245"/>
+        <Elm word="text" freq="-288.573132245"/>
+        <Elm word="simplified" freq="-288.573132245"/>
+        <Elm word="Added" freq="-288.573132245"/>
+        <Elm word="match" freq="-288.573132245"/>
+        <Elm word="(get" freq="-288.573132245"/>
+        <Elm word="help" freq="-288.573132245"/>
+        <Elm word="make_options" freq="-288.573132245"/>
+        <Elm word="dependent" freq="-288.573132245"/>
+        <Elm word="rcp)" freq="-288.573132245"/>
+        <Elm word="comments" freq="-288.573132245"/>
+        <Elm word="rsh" freq="-288.573132245"/>
+        <Elm word="reworked" freq="-288.573132245"/>
+        <Elm word="Removed" freq="-288.573132245"/>
+        <Elm word="removed" freq="-288.573132245"/>
+        <Elm word="multiple" freq="-288.573132245"/>
+        <Elm word="GetOptions," freq="-288.573132245"/>
+        <Elm word="Heavily" freq="-288.573132245"/>
+        <Elm word="pieces" freq="-288.573132245"/>
+        <Elm word="available" freq="-288.573132245"/>
+        <Elm word="Reworked" freq="-288.573132245"/>
+        <Elm word="config_options" freq="-288.573132245"/>
+        <Elm word="joined" freq="-288.573132245"/>
+        <Elm word="ones" freq="-288.573132245"/>
+        <Elm word="fixed" freq="-288.573564686"/>
+        <Elm word="enable" freq="-288.573564686"/>
+        <Elm word="possible" freq="-288.573564686"/>
+        <Elm word="--with-other-libc" freq="-288.573564686"/>
+        <Elm word="log" freq="-288.573564686"/>
+        <Elm word="quotes" freq="-288.573564686"/>
+        <Elm word="--raid" freq="-288.573564686"/>
+        <Elm word="--make-options" freq="-288.573564686"/>
+        <Elm word="RAID" freq="-288.573564686"/>
+        <Elm word="oddly-placed" freq="-288.573564686"/>
+        <Elm word="TCP" freq="-288.573564686"/>
+        <Elm word="tree" freq="-288.573564686"/>
+        <Elm word="early" freq="-288.573564686"/>
+        <Elm word="actually" freq="-288.573564686"/>
+        <Elm word="support" freq="-288.573564686"/>
+        <Elm word="--libwrap" freq="-288.573564686"/>
+        <Elm word="applied" freq="-288.573564686"/>
+        <Elm word="4.0" freq="-288.573564686"/>
+        <Elm word="pass" freq="-288.573564686"/>
+        <Elm word="modifications" freq="-288.573564686"/>
+        <Elm word="work" freq="-288.573564686"/>
+        <Elm word="&quot;make&quot;" freq="-288.573564686"/>
+        <Elm word="wrapper" freq="-288.573564686"/>
+        <Elm word="push" freq="-649.622149856"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="maintainability"/>
+      <annotation name="testability"/>
+      <annotation name="portability"/>
+      <annotation name="maintainability"/>
+      <annotation name="cleanup"/>
+
+      <Document time="1032078179." author="monty@mysql.fi" document="history annotate diffs \n  \n Changelog \n  \n "/>
+      <Document time="1031693488." author="heikki@mysql.fi" document="history annotate diffs \n  \n Cleanup after last push \n  \n "/>
+      <Document time="1031562749." author="heikki@mysql.fi" document="history annotate diffs \n  \n Remove an assertion in trx0undo.c which could erroneously fail when we ran out of tablespace \n  \n "/>
+      <Document time="1030295994." author="heikki@mysql.fi" document="history annotate diffs \n  \n Make sure stack size in InnoDB threads in AIX is at least 32 kB \n  \n "/>
+      <Document time="1030163110." author="monty@mysql.fi" document="history annotate diffs \n  \n Rename: mysql-test/t/rpl000016.test -&gt; mysql-test/t/rpl_rotate_logs.test \n  \n "/>
+      <Document time="1030123995." author="monty@mysql.fi" document="history annotate diffs \n  \n Changelog \n  \n "/>
+      <Files>
+        <File name="mysql-test/t/rpl_rotate_logs.test" count="1"/>
+        <File name="mysql-test/t/rpl_rotate_logs-slave.sh" count="1"/>
+        <File name="mysql-test/t/rpl_rotate_logs.slave-mi" count="1"/>
+        <File name="mysql-test/r/rpl_rotate_logs.result" count="1"/>
+        <File name="innobase/os/os0file.c" count="1"/>
+        <File name="sql/ha_innobase.cc" count="1"/>
+        <File name="mysql-test/t/rpl000018.test" count="1"/>
+        <File name="innobase/trx/trx0undo.c" count="1"/>
+        <File name="ChangeSet" count="3"/>
+        <File name="mysql-test/t/rpl_rotate_logs-master.opt" count="1"/>
+        <File name="innobase/configure.in" count="1"/>
+        <File name="Docs/manual.texi" count="2"/>
+        <File name="sql/filesort.cc" count="1"/>
+        <File name="innobase/os/os0thread.c" count="1"/>
+        <File name="BitKeeper/etc/ignore" count="1"/>
+        <File name="sql/mysqld.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="3"/>
+        <Author name="heikki@mysql.fi" count="3"/>
+      </Authors>
+      <Elements>
+        <Elm word="annotate" freq="-1.9459101491"/>
+        <Elm word="history" freq="-1.9459101491"/>
+        <Elm word="diffs" freq="-1.9459101491"/>
+        <Elm word="Changelog" freq="-3.0445224377"/>
+        <Elm word="Remove" freq="-3.7376696183"/>
+        <Elm word="InnoDB" freq="-3.7376696183"/>
+        <Elm word="push" freq="-3.7376696183"/>
+        <Elm word="sure" freq="-3.7376696183"/>
+        <Elm word="size" freq="-3.7376696183"/>
+        <Elm word="assertion" freq="-3.7376696183"/>
+        <Elm word="AIX" freq="-3.7376696183"/>
+        <Elm word="-&gt;" freq="-3.7376696183"/>
+        <Elm word="fail" freq="-3.7376696183"/>
+        <Elm word="mysql-test/t/rpl000016.test" freq="-3.7376696183"/>
+        <Elm word="ran" freq="-3.7376696183"/>
+        <Elm word="Make" freq="-3.7376696183"/>
+        <Elm word="stack" freq="-3.7376696183"/>
+        <Elm word="Cleanup" freq="-3.7376696183"/>
+        <Elm word="trx0undo.c" freq="-3.7376696183"/>
+        <Elm word="tablespace" freq="-3.7376696183"/>
+        <Elm word="mysql-test/t/rpl_rotate_logs.test" freq="-3.7376696183"/>
+        <Elm word="kB" freq="-3.7376696183"/>
+        <Elm word="Rename:" freq="-3.7376696183"/>
+        <Elm word="threads" freq="-3.7376696183"/>
+        <Elm word="32" freq="-3.7376696183"/>
+        <Elm word="erroneously" freq="-3.7376696183"/>
+        <Elm word="make" freq="-100."/>
+        <Elm word="using" freq="-100."/>
+        <Elm word="Windows" freq="-100."/>
+        <Elm word="fix" freq="-100."/>
+        <Elm word="SCCS" freq="-100."/>
+        <Elm word="files" freq="-100."/>
+        <Elm word="merged" freq="-100."/>
+        <Elm word="times" freq="-100."/>
+        <Elm word="bug" freq="-100."/>
+        <Elm word="remove" freq="-100."/>
+        <Elm word="Fixed" freq="-100."/>
+        <Elm word="changelog" freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="latch" freq="-100."/>
+        <Elm word="i/o" freq="-100."/>
+        <Elm word="Fix" freq="-100."/>
+        <Elm word="read" freq="-100."/>
+        <Elm word="sequential" freq="-100."/>
+        <Elm word="long," freq="-100."/>
+        <Elm word="params" freq="-100."/>
+        <Elm word="assert" freq="-100."/>
+        <Elm word="results" freq="-100."/>
+        <Elm word="previous" freq="-100."/>
+        <Elm word="wait" freq="-100."/>
+        <Elm word="Increase" freq="-100."/>
+        <Elm word="time" freq="-100."/>
+        <Elm word="unbuffered" freq="-100."/>
+        <Elm word="600" freq="-100."/>
+        <Elm word="slower" freq="-100."/>
+        <Elm word="innobase_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="Start" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="typos" freq="-100."/>
+        <Elm word="XP" freq="-100."/>
+        <Elm word="seconds" freq="-100."/>
+        <Elm word="4" freq="-100."/>
+        <Elm word="normal" freq="-288.17822641"/>
+        <Elm word="ChangeLog" freq="-288.386055327"/>
+        <Elm word="out-of-sync" freq="-288.471173524"/>
+        <Elm word="error" freq="-288.471173524"/>
+        <Elm word="Improved" freq="-288.471173524"/>
+        <Elm word="frm" freq="-288.471173524"/>
+        <Elm word="message" freq="-288.471173524"/>
+        <Elm word="redefined" freq="-288.570483673"/>
+        <Elm word="caused" freq="-288.570483673"/>
+        <Elm word="potential" freq="-288.570483673"/>
+        <Elm word="memory" freq="-288.570483673"/>
+        <Elm word="allow" freq="-288.570483673"/>
+        <Elm word="include" freq="-288.570483673"/>
+        <Elm word="unistd.h" freq="-288.570483673"/>
+        <Elm word="alloca," freq="-288.570483673"/>
+        <Elm word="leak" freq="-288.570483673"/>
+        <Elm word="compilation" freq="-288.570483673"/>
+        <Elm word="BDB" freq="-288.57653404"/>
+        <Elm word="TABLE" freq="-288.586587502"/>
+        <Elm word="table" freq="-288.586587502"/>
+        <Elm word="option" freq="-288.606405639"/>
+        <Elm word="-" freq="-288.622138606"/>
+        <Elm word="added" freq="-288.622138606"/>
+        <Elm word="options" freq="-288.622138606"/>
+        <Elm word="configure" freq="-288.622138606"/>
+        <Elm word="visible" freq="-288.63296248"/>
+        <Elm word="consistent" freq="-288.63296248"/>
+        <Elm word="index" freq="-288.63296248"/>
+        <Elm word="record" freq="-288.63296248"/>
+        <Elm word="long" freq="-288.632962567"/>
+        <Elm word="happened" freq="-288.632962567"/>
+        <Elm word="hold" freq="-288.632962567"/>
+        <Elm word="finding" freq="-288.632962567"/>
+        <Elm word="scanned" freq="-288.632962567"/>
+        <Elm word="current" freq="-288.632962567"/>
+        <Elm word="bugfix" freq="-288.635717981"/>
+        <Elm word="LOCK+modify+OPTIMIZE" freq="-288.635717981"/>
+        <Elm word="sources" freq="-288.68216393"/>
+        <Elm word="lexer" freq="-288.68216393"/>
+        <Elm word="grammar" freq="-288.68216393"/>
+        <Elm word="internal" freq="-288.68216393"/>
+        <Elm word="SQL" freq="-288.68216393"/>
+        <Elm word="interpreter" freq="-288.68216393"/>
+        <Elm word="buf_page_print" freq="-289.240967129"/>
+        <Elm word="typo:" freq="-289.240967129"/>
+        <Elm word="ALTER" freq="-289.269681221"/>
+        <Elm word="Better" freq="-289.269681221"/>
+        <Elm word="Little" freq="-289.269681221"/>
+        <Elm word="alter" freq="-289.269681221"/>
+        <Elm word="tables" freq="-289.269681221"/>
+        <Elm word="nasty" freq="-289.269681221"/>
+        <Elm word="1," freq="-289.27536513"/>
+        <Elm word="starting" freq="-289.27536513"/>
+        <Elm word="0," freq="-289.27536513"/>
+        <Elm word="semaphore" freq="-289.27536513"/>
+        <Elm word="creation" freq="-289.27536513"/>
+        <Elm word="track" freq="-289.27536513"/>
+        <Elm word="innodb_flush_log_at_trx_commit" freq="-289.27536513"/>
+        <Elm word="values" freq="-289.27536513"/>
+        <Elm word="3.23.52" freq="-289.27536513"/>
+        <Elm word="2" freq="-289.27536513"/>
+        <Elm word="failed" freq="-289.27536513"/>
+        <Elm word="diagnostics" freq="-289.27536513"/>
+        <Elm word="innodb_fast_shutdown" freq="-289.283853999"/>
+        <Elm word="shutdown" freq="-289.283853999"/>
+        <Elm word="default)" freq="-289.283853999"/>
+        <Elm word="(=" freq="-289.283853999"/>
+        <Elm word="quickly," freq="-289.283853999"/>
+        <Elm word="did" freq="-289.283853999"/>
+        <Elm word="problematic" freq="-289.289890244"/>
+        <Elm word="drop" freq="-289.289890244"/>
+        <Elm word="used," freq="-289.289890244"/>
+        <Elm word="Allow" freq="-289.289890244"/>
+        <Elm word="CREATE" freq="-289.289890244"/>
+        <Elm word="innodb_force_recovery" freq="-289.289890244"/>
+        <Elm word="DROP" freq="-289.289890244"/>
+        <Elm word="user" freq="-289.289890244"/>
+        <Elm word="code" freq="-289.31506959"/>
+        <Elm word="given" freq="-289.31506959"/>
+        <Elm word="obsolete" freq="-289.31506959"/>
+        <Elm word="rid" freq="-289.31506959"/>
+        <Elm word="text" freq="-289.31506959"/>
+        <Elm word="simplified" freq="-289.31506959"/>
+        <Elm word="Added" freq="-289.31506959"/>
+        <Elm word="match" freq="-289.31506959"/>
+        <Elm word="(get" freq="-289.31506959"/>
+        <Elm word="help" freq="-289.31506959"/>
+        <Elm word="make_options" freq="-289.31506959"/>
+        <Elm word="dependent" freq="-289.31506959"/>
+        <Elm word="rcp)" freq="-289.31506959"/>
+        <Elm word="comments" freq="-289.31506959"/>
+        <Elm word="rsh" freq="-289.31506959"/>
+        <Elm word="reworked" freq="-289.31506959"/>
+        <Elm word="Removed" freq="-289.31506959"/>
+        <Elm word="removed" freq="-289.31506959"/>
+        <Elm word="multiple" freq="-289.31506959"/>
+        <Elm word="GetOptions," freq="-289.31506959"/>
+        <Elm word="Heavily" freq="-289.31506959"/>
+        <Elm word="pieces" freq="-289.31506959"/>
+        <Elm word="available" freq="-289.31506959"/>
+        <Elm word="Reworked" freq="-289.31506959"/>
+        <Elm word="config_options" freq="-289.31506959"/>
+        <Elm word="joined" freq="-289.31506959"/>
+        <Elm word="ones" freq="-289.31506959"/>
+        <Elm word="fixed" freq="-289.31550203"/>
+        <Elm word="enable" freq="-289.31550203"/>
+        <Elm word="possible" freq="-289.31550203"/>
+        <Elm word="--with-other-libc" freq="-289.31550203"/>
+        <Elm word="log" freq="-289.31550203"/>
+        <Elm word="quotes" freq="-289.31550203"/>
+        <Elm word="--raid" freq="-289.31550203"/>
+        <Elm word="--make-options" freq="-289.31550203"/>
+        <Elm word="RAID" freq="-289.31550203"/>
+        <Elm word="oddly-placed" freq="-289.31550203"/>
+        <Elm word="TCP" freq="-289.31550203"/>
+        <Elm word="tree" freq="-289.31550203"/>
+        <Elm word="early" freq="-289.31550203"/>
+        <Elm word="actually" freq="-289.31550203"/>
+        <Elm word="support" freq="-289.31550203"/>
+        <Elm word="--libwrap" freq="-289.31550203"/>
+        <Elm word="applied" freq="-289.31550203"/>
+        <Elm word="4.0" freq="-289.31550203"/>
+        <Elm word="pass" freq="-289.31550203"/>
+        <Elm word="modifications" freq="-289.31550203"/>
+        <Elm word="work" freq="-289.31550203"/>
+        <Elm word="&quot;make&quot;" freq="-289.31550203"/>
+        <Elm word="wrapper" freq="-289.31550203"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="reliability"/>
+      <annotation name="bug" comment="reliability"/>
+      <annotation name="efficiency"/>
+      <annotation name="optimization"/>
+
+      <Document time="1031479290." author="heikki@mysql.fi" document="history annotate diffs \n  \n Remove long latch hold which happened if we scanned long an index without finding any record visible to the current consistent read \n  \n "/>
+      <Document time="1030176327." author="heikki@mysql.fi" document="history annotate diffs \n  \n Remove potential memory leak caused by redefined alloca, remove include of unistd.h to allow compilation on Windows \n  \n "/>
+      <Files>
+        <File name="innobase/pars/pars0grm.c" count="1"/>
+        <File name="innobase/pars/lexyy.c" count="1"/>
+        <File name="innobase/pars/pars0lex.l" count="1"/>
+        <File name="innobase/btr/btr0cur.c" count="1"/>
+        <File name="innobase/pars/pars0grm.y" count="1"/>
+        <File name="ChangeSet" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="heikki@mysql.fi" count="2"/>
+      </Authors>
+      <Elements>
+        <Elm word="annotate" freq="-2.8033603809"/>
+        <Elm word="history" freq="-2.8033603809"/>
+        <Elm word="diffs" freq="-2.8033603809"/>
+        <Elm word="Remove" freq="-2.8033603809"/>
+        <Elm word="long" freq="-2.8033603809"/>
+        <Elm word="Windows" freq="-3.4965075615"/>
+        <Elm word="remove" freq="-3.4965075615"/>
+        <Elm word="latch" freq="-3.4965075615"/>
+        <Elm word="read" freq="-3.4965075615"/>
+        <Elm word="visible" freq="-3.4965075615"/>
+        <Elm word="redefined" freq="-3.4965075615"/>
+        <Elm word="caused" freq="-3.4965075615"/>
+        <Elm word="consistent" freq="-3.4965075615"/>
+        <Elm word="potential" freq="-3.4965075615"/>
+        <Elm word="memory" freq="-3.4965075615"/>
+        <Elm word="happened" freq="-3.4965075615"/>
+        <Elm word="index" freq="-3.4965075615"/>
+        <Elm word="allow" freq="-3.4965075615"/>
+        <Elm word="hold" freq="-3.4965075615"/>
+        <Elm word="include" freq="-3.4965075615"/>
+        <Elm word="unistd.h" freq="-3.4965075615"/>
+        <Elm word="record" freq="-3.4965075615"/>
+        <Elm word="alloca," freq="-3.4965075615"/>
+        <Elm word="finding" freq="-3.4965075615"/>
+        <Elm word="scanned" freq="-3.4965075615"/>
+        <Elm word="leak" freq="-3.4965075615"/>
+        <Elm word="current" freq="-3.4965075615"/>
+        <Elm word="compilation" freq="-3.4965075615"/>
+        <Elm word="make" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="using" freq="-100."/>
+        <Elm word="fix" freq="-100."/>
+        <Elm word="SCCS" freq="-100."/>
+        <Elm word="files" freq="-100."/>
+        <Elm word="merged" freq="-100."/>
+        <Elm word="times" freq="-100."/>
+        <Elm word="InnoDB" freq="-100."/>
+        <Elm word="Changelog" freq="-100."/>
+        <Elm word="bug" freq="-100."/>
+        <Elm word="push" freq="-100."/>
+        <Elm word="BDB" freq="-100."/>
+        <Elm word="Fixed" freq="-100."/>
+        <Elm word="changelog" freq="-100."/>
+        <Elm word="sure" freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="i/o" freq="-100."/>
+        <Elm word="Fix" freq="-100."/>
+        <Elm word="table" freq="-100."/>
+        <Elm word="size" freq="-100."/>
+        <Elm word="sequential" freq="-100."/>
+        <Elm word="long," freq="-100."/>
+        <Elm word="assertion" freq="-100."/>
+        <Elm word="out-of-sync" freq="-100."/>
+        <Elm word="error" freq="-100."/>
+        <Elm word="AIX" freq="-100."/>
+        <Elm word="params" freq="-100."/>
+        <Elm word="assert" freq="-100."/>
+        <Elm word="results" freq="-100."/>
+        <Elm word="previous" freq="-100."/>
+        <Elm word="-&gt;" freq="-100."/>
+        <Elm word="Improved" freq="-100."/>
+        <Elm word="wait" freq="-100."/>
+        <Elm word="fail" freq="-100."/>
+        <Elm word="bugfix" freq="-100."/>
+        <Elm word="frm" freq="-100."/>
+        <Elm word="message" freq="-100."/>
+        <Elm word="mysql-test/t/rpl000016.test" freq="-100."/>
+        <Elm word="Increase" freq="-100."/>
+        <Elm word="time" freq="-100."/>
+        <Elm word="ran" freq="-100."/>
+        <Elm word="unbuffered" freq="-100."/>
+        <Elm word="600" freq="-100."/>
+        <Elm word="ChangeLog" freq="-100."/>
+        <Elm word="Make" freq="-100."/>
+        <Elm word="stack" freq="-100."/>
+        <Elm word="slower" freq="-100."/>
+        <Elm word="Cleanup" freq="-100."/>
+        <Elm word="innobase_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="normal" freq="-100."/>
+        <Elm word="trx0undo.c" freq="-100."/>
+        <Elm word="tablespace" freq="-100."/>
+        <Elm word="mysql-test/t/rpl_rotate_logs.test" freq="-100."/>
+        <Elm word="LOCK+modify+OPTIMIZE" freq="-100."/>
+        <Elm word="Start" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="kB" freq="-100."/>
+        <Elm word="typos" freq="-100."/>
+        <Elm word="XP" freq="-100."/>
+        <Elm word="seconds" freq="-100."/>
+        <Elm word="4" freq="-100."/>
+        <Elm word="Rename:" freq="-100."/>
+        <Elm word="threads" freq="-100."/>
+        <Elm word="32" freq="-100."/>
+        <Elm word="erroneously" freq="-100."/>
+        <Elm word="option" freq="-288.365243582"/>
+        <Elm word="-" freq="-288.380976549"/>
+        <Elm word="added" freq="-288.380976549"/>
+        <Elm word="options" freq="-288.380976549"/>
+        <Elm word="configure" freq="-288.380976549"/>
+        <Elm word="sources" freq="-288.441001873"/>
+        <Elm word="lexer" freq="-288.441001873"/>
+        <Elm word="grammar" freq="-288.441001873"/>
+        <Elm word="internal" freq="-288.441001873"/>
+        <Elm word="SQL" freq="-288.441001873"/>
+        <Elm word="interpreter" freq="-288.441001873"/>
+        <Elm word="buf_page_print" freq="-288.999805073"/>
+        <Elm word="typo:" freq="-288.999805073"/>
+        <Elm word="ALTER" freq="-289.028519164"/>
+        <Elm word="Better" freq="-289.028519164"/>
+        <Elm word="Little" freq="-289.028519164"/>
+        <Elm word="alter" freq="-289.028519164"/>
+        <Elm word="tables" freq="-289.028519164"/>
+        <Elm word="nasty" freq="-289.028519164"/>
+        <Elm word="1," freq="-289.034203073"/>
+        <Elm word="starting" freq="-289.034203073"/>
+        <Elm word="0," freq="-289.034203073"/>
+        <Elm word="semaphore" freq="-289.034203073"/>
+        <Elm word="creation" freq="-289.034203073"/>
+        <Elm word="track" freq="-289.034203073"/>
+        <Elm word="innodb_flush_log_at_trx_commit" freq="-289.034203073"/>
+        <Elm word="values" freq="-289.034203073"/>
+        <Elm word="3.23.52" freq="-289.034203073"/>
+        <Elm word="2" freq="-289.034203073"/>
+        <Elm word="failed" freq="-289.034203073"/>
+        <Elm word="diagnostics" freq="-289.034203073"/>
+        <Elm word="innodb_fast_shutdown" freq="-289.042691942"/>
+        <Elm word="shutdown" freq="-289.042691942"/>
+        <Elm word="default)" freq="-289.042691942"/>
+        <Elm word="(=" freq="-289.042691942"/>
+        <Elm word="quickly," freq="-289.042691942"/>
+        <Elm word="did" freq="-289.042691942"/>
+        <Elm word="problematic" freq="-289.048728188"/>
+        <Elm word="drop" freq="-289.048728188"/>
+        <Elm word="used," freq="-289.048728188"/>
+        <Elm word="Allow" freq="-289.048728188"/>
+        <Elm word="CREATE" freq="-289.048728188"/>
+        <Elm word="innodb_force_recovery" freq="-289.048728188"/>
+        <Elm word="DROP" freq="-289.048728188"/>
+        <Elm word="user" freq="-289.048728188"/>
+        <Elm word="code" freq="-289.073907533"/>
+        <Elm word="given" freq="-289.073907533"/>
+        <Elm word="obsolete" freq="-289.073907533"/>
+        <Elm word="rid" freq="-289.073907533"/>
+        <Elm word="text" freq="-289.073907533"/>
+        <Elm word="simplified" freq="-289.073907533"/>
+        <Elm word="Added" freq="-289.073907533"/>
+        <Elm word="match" freq="-289.073907533"/>
+        <Elm word="(get" freq="-289.073907533"/>
+        <Elm word="help" freq="-289.073907533"/>
+        <Elm word="make_options" freq="-289.073907533"/>
+        <Elm word="dependent" freq="-289.073907533"/>
+        <Elm word="rcp)" freq="-289.073907533"/>
+        <Elm word="comments" freq="-289.073907533"/>
+        <Elm word="rsh" freq="-289.073907533"/>
+        <Elm word="reworked" freq="-289.073907533"/>
+        <Elm word="Removed" freq="-289.073907533"/>
+        <Elm word="removed" freq="-289.073907533"/>
+        <Elm word="multiple" freq="-289.073907533"/>
+        <Elm word="GetOptions," freq="-289.073907533"/>
+        <Elm word="Heavily" freq="-289.073907533"/>
+        <Elm word="pieces" freq="-289.073907533"/>
+        <Elm word="available" freq="-289.073907533"/>
+        <Elm word="Reworked" freq="-289.073907533"/>
+        <Elm word="config_options" freq="-289.073907533"/>
+        <Elm word="joined" freq="-289.073907533"/>
+        <Elm word="ones" freq="-289.073907533"/>
+        <Elm word="fixed" freq="-289.074339973"/>
+        <Elm word="enable" freq="-289.074339973"/>
+        <Elm word="possible" freq="-289.074339973"/>
+        <Elm word="--with-other-libc" freq="-289.074339973"/>
+        <Elm word="log" freq="-289.074339973"/>
+        <Elm word="quotes" freq="-289.074339973"/>
+        <Elm word="--raid" freq="-289.074339973"/>
+        <Elm word="--make-options" freq="-289.074339973"/>
+        <Elm word="RAID" freq="-289.074339973"/>
+        <Elm word="oddly-placed" freq="-289.074339973"/>
+        <Elm word="TCP" freq="-289.074339973"/>
+        <Elm word="tree" freq="-289.074339973"/>
+        <Elm word="early" freq="-289.074339973"/>
+        <Elm word="actually" freq="-289.074339973"/>
+        <Elm word="support" freq="-289.074339973"/>
+        <Elm word="--libwrap" freq="-289.074339973"/>
+        <Elm word="applied" freq="-289.074339973"/>
+        <Elm word="4.0" freq="-289.074339973"/>
+        <Elm word="pass" freq="-289.074339973"/>
+        <Elm word="modifications" freq="-289.074339973"/>
+        <Elm word="work" freq="-289.074339973"/>
+        <Elm word="&quot;make&quot;" freq="-289.074339973"/>
+        <Elm word="wrapper" freq="-289.074339973"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1030578081." author="Sinisa@nasamreza.org" document="history annotate diffs \n  \n Little but nasty bug with BDB and alter table \n  \n "/>
+      <Files>
+        <File name="mysql-test/t/bdb-alter-table-2.test" count="1"/>
+        <File name="mysql-test/r/bdb-alter-table-1.result" count="1"/>
+        <File name="mysql-test/r/bdb-alter-table-2.result" count="1"/>
+        <File name="ChangeSet" count="1"/>
+        <File name="mysql-test/t/bdb-alter-table-1.test" count="1"/>
+        <File name="sql/sql_table.cc" count="1"/>
+        <File name="Docs/manual.texi" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="Sinisa@nasamreza.org" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="annotate" freq="-2.1972245773"/>
+        <Elm word="history" freq="-2.1972245773"/>
+        <Elm word="diffs" freq="-2.1972245773"/>
+        <Elm word="bug" freq="-2.1972245773"/>
+        <Elm word="BDB" freq="-2.1972245773"/>
+        <Elm word="table" freq="-2.1972245773"/>
+        <Elm word="Little" freq="-2.1972245773"/>
+        <Elm word="alter" freq="-2.1972245773"/>
+        <Elm word="nasty" freq="-2.1972245773"/>
+        <Elm word="-" freq="-100."/>
+        <Elm word="option" freq="-100."/>
+        <Elm word="added" freq="-100."/>
+        <Elm word="options" freq="-100."/>
+        <Elm word="Remove" freq="-100."/>
+        <Elm word="configure" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="code" freq="-100."/>
+        <Elm word="using" freq="-100."/>
+        <Elm word="Windows" freq="-100."/>
+        <Elm word="fix" freq="-100."/>
+        <Elm word="given" freq="-100."/>
+        <Elm word="files" freq="-100."/>
+        <Elm word="times" freq="-100."/>
+        <Elm word="InnoDB" freq="-100."/>
+        <Elm word="long" freq="-100."/>
+        <Elm word="fixed" freq="-100."/>
+        <Elm word="remove" freq="-100."/>
+        <Elm word="Fixed" freq="-100."/>
+        <Elm word="changelog" freq="-100."/>
+        <Elm word="sure" freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="obsolete" freq="-100."/>
+        <Elm word="latch" freq="-100."/>
+        <Elm word="i/o" freq="-100."/>
+        <Elm word="enable" freq="-100."/>
+        <Elm word="read" freq="-100."/>
+        <Elm word="visible" freq="-100."/>
+        <Elm word="size" freq="-100."/>
+        <Elm word="innodb_fast_shutdown" freq="-100."/>
+        <Elm word="sequential" freq="-100."/>
+        <Elm word="shutdown" freq="-100."/>
+        <Elm word="rid" freq="-100."/>
+        <Elm word="text" freq="-100."/>
+        <Elm word="possible" freq="-100."/>
+        <Elm word="sources" freq="-100."/>
+        <Elm word="--with-other-libc" freq="-100."/>
+        <Elm word="default)" freq="-100."/>
+        <Elm word="log" freq="-100."/>
+        <Elm word="1," freq="-100."/>
+        <Elm word="starting" freq="-100."/>
+        <Elm word="simplified" freq="-100."/>
+        <Elm word="redefined" freq="-100."/>
+        <Elm word="ALTER" freq="-100."/>
+        <Elm word="assertion" freq="-100."/>
+        <Elm word="0," freq="-100."/>
+        <Elm word="out-of-sync" freq="-100."/>
+        <Elm word="caused" freq="-100."/>
+        <Elm word="error" freq="-100."/>
+        <Elm word="Added" freq="-100."/>
+        <Elm word="lexer" freq="-100."/>
+        <Elm word="grammar" freq="-100."/>
+        <Elm word="AIX" freq="-100."/>
+        <Elm word="quotes" freq="-100."/>
+        <Elm word="problematic" freq="-100."/>
+        <Elm word="match" freq="-100."/>
+        <Elm word="--raid" freq="-100."/>
+        <Elm word="--make-options" freq="-100."/>
+        <Elm word="internal" freq="-100."/>
+        <Elm word="assert" freq="-100."/>
+        <Elm word="RAID" freq="-100."/>
+        <Elm word="(get" freq="-100."/>
+        <Elm word="results" freq="-100."/>
+        <Elm word="help" freq="-100."/>
+        <Elm word="oddly-placed" freq="-100."/>
+        <Elm word="TCP" freq="-100."/>
+        <Elm word="-&gt;" freq="-100."/>
+        <Elm word="make_options" freq="-100."/>
+        <Elm word="Improved" freq="-100."/>
+        <Elm word="tree" freq="-100."/>
+        <Elm word="wait" freq="-100."/>
+        <Elm word="fail" freq="-100."/>
+        <Elm word="consistent" freq="-100."/>
+        <Elm word="bugfix" freq="-100."/>
+        <Elm word="semaphore" freq="-100."/>
+        <Elm word="frm" freq="-100."/>
+        <Elm word="early" freq="-100."/>
+        <Elm word="potential" freq="-100."/>
+        <Elm word="message" freq="-100."/>
+        <Elm word="memory" freq="-100."/>
+        <Elm word="drop" freq="-100."/>
+        <Elm word="dependent" freq="-100."/>
+        <Elm word="creation" freq="-100."/>
+        <Elm word="buf_page_print" freq="-100."/>
+        <Elm word="mysql-test/t/rpl000016.test" freq="-100."/>
+        <Elm word="Better" freq="-100."/>
+        <Elm word="Increase" freq="-100."/>
+        <Elm word="time" freq="-100."/>
+        <Elm word="rcp)" freq="-100."/>
+        <Elm word="actually" freq="-100."/>
+        <Elm word="ran" freq="-100."/>
+        <Elm word="comments" freq="-100."/>
+        <Elm word="unbuffered" freq="-100."/>
+        <Elm word="rsh" freq="-100."/>
+        <Elm word="600" freq="-100."/>
+        <Elm word="ChangeLog" freq="-100."/>
+        <Elm word="happened" freq="-100."/>
+        <Elm word="Make" freq="-100."/>
+        <Elm word="support" freq="-100."/>
+        <Elm word="--libwrap" freq="-100."/>
+        <Elm word="stack" freq="-100."/>
+        <Elm word="applied" freq="-100."/>
+        <Elm word="reworked" freq="-100."/>
+        <Elm word="(=" freq="-100."/>
+        <Elm word="SQL" freq="-100."/>
+        <Elm word="track" freq="-100."/>
+        <Elm word="used," freq="-100."/>
+        <Elm word="innodb_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="Removed" freq="-100."/>
+        <Elm word="index" freq="-100."/>
+        <Elm word="allow" freq="-100."/>
+        <Elm word="removed" freq="-100."/>
+        <Elm word="hold" freq="-100."/>
+        <Elm word="slower" freq="-100."/>
+        <Elm word="multiple" freq="-100."/>
+        <Elm word="values" freq="-100."/>
+        <Elm word="interpreter" freq="-100."/>
+        <Elm word="include" freq="-100."/>
+        <Elm word="tables" freq="-100."/>
+        <Elm word="normal" freq="-100."/>
+        <Elm word="unistd.h" freq="-100."/>
+        <Elm word="quickly," freq="-100."/>
+        <Elm word="record" freq="-100."/>
+        <Elm word="trx0undo.c" freq="-100."/>
+        <Elm word="Allow" freq="-100."/>
+        <Elm word="alloca," freq="-100."/>
+        <Elm word="tablespace" freq="-100."/>
+        <Elm word="finding" freq="-100."/>
+        <Elm word="scanned" freq="-100."/>
+        <Elm word="leak" freq="-100."/>
+        <Elm word="current" freq="-100."/>
+        <Elm word="GetOptions," freq="-100."/>
+        <Elm word="3.23.52" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Heavily" freq="-100."/>
+        <Elm word="mysql-test/t/rpl_rotate_logs.test" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="LOCK+modify+OPTIMIZE" freq="-100."/>
+        <Elm word="Start" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="kB" freq="-100."/>
+        <Elm word="pass" freq="-100."/>
+        <Elm word="innodb_force_recovery" freq="-100."/>
+        <Elm word="modifications" freq="-100."/>
+        <Elm word="XP" freq="-100."/>
+        <Elm word="pieces" freq="-100."/>
+        <Elm word="seconds" freq="-100."/>
+        <Elm word="DROP" freq="-100."/>
+        <Elm word="4" freq="-100."/>
+        <Elm word="2" freq="-100."/>
+        <Elm word="work" freq="-100."/>
+        <Elm word="Rename:" freq="-100."/>
+        <Elm word="compilation" freq="-100."/>
+        <Elm word="available" freq="-100."/>
+        <Elm word="&quot;make&quot;" freq="-100."/>
+        <Elm word="Reworked" freq="-100."/>
+        <Elm word="user" freq="-100."/>
+        <Elm word="wrapper" freq="-100."/>
+        <Elm word="config_options" freq="-100."/>
+        <Elm word="threads" freq="-100."/>
+        <Elm word="failed" freq="-100."/>
+        <Elm word="joined" freq="-100."/>
+        <Elm word="typo:" freq="-100."/>
+        <Elm word="32" freq="-100."/>
+        <Elm word="ones" freq="-100."/>
+        <Elm word="erroneously" freq="-100."/>
+        <Elm word="diagnostics" freq="-100."/>
+        <Elm word="did" freq="-100."/>
+        <Elm word="push" freq="-647.226626767"/>
+        <Elm word="Changelog" freq="-648.336750179"/>
+        <Elm word="SCCS" freq="-648.445001719"/>
+        <Elm word="merged" freq="-648.445001719"/>
+        <Elm word="make" freq="-648.857532606"/>
+        <Elm word="Cleanup" freq="-649.08572402"/>
+        <Elm word="Fix" freq="-649.160582581"/>
+        <Elm word="long," freq="-649.543888518"/>
+        <Elm word="params" freq="-649.543888518"/>
+        <Elm word="previous" freq="-649.543888518"/>
+        <Elm word="innobase_flush_log_at_trx_commit" freq="-649.543888518"/>
+        <Elm word="typos" freq="-649.543888518"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="usability" comment="e:added"/>
+      <annotation name="feature" comment="usability"/>
+      <annotation name="ui" comment="usability"/>
+
+      <Document time="1030652268." author="lenz@mysql.com" document="history annotate diffs \n  \n  - applied some modifications made in the 4.0 tree \n  - added option --make-options to pass options to &quot;make&quot; after configure \n  - added option --raid to enable RAID \n  - added option --libwrap to enable TCP wrapper support \n  - make sure to remove log files as early as possible \n  - fixed option --with-other-libc to actually work \n  - fixed some oddly-placed quotes in the configure call \n  \n "/>
+      <Files>
+        <File name="Build-tools/Do-compile" count="1"/>
+        <File name="ChangeSet" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="lenz@mysql.com" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="-" freq="-1.9459101491"/>
+        <Elm word="option" freq="-2.505525937"/>
+        <Elm word="added" freq="-2.7932080094"/>
+        <Elm word="configure" freq="-3.1986731176"/>
+        <Elm word="fixed" freq="-3.1986731176"/>
+        <Elm word="enable" freq="-3.1986731176"/>
+        <Elm word="annotate" freq="-3.8918202981"/>
+        <Elm word="history" freq="-3.8918202981"/>
+        <Elm word="diffs" freq="-3.8918202981"/>
+        <Elm word="options" freq="-3.8918202981"/>
+        <Elm word="make" freq="-3.8918202981"/>
+        <Elm word="files" freq="-3.8918202981"/>
+        <Elm word="remove" freq="-3.8918202981"/>
+        <Elm word="sure" freq="-3.8918202981"/>
+        <Elm word="possible" freq="-3.8918202981"/>
+        <Elm word="--with-other-libc" freq="-3.8918202981"/>
+        <Elm word="log" freq="-3.8918202981"/>
+        <Elm word="quotes" freq="-3.8918202981"/>
+        <Elm word="--raid" freq="-3.8918202981"/>
+        <Elm word="--make-options" freq="-3.8918202981"/>
+        <Elm word="RAID" freq="-3.8918202981"/>
+        <Elm word="oddly-placed" freq="-3.8918202981"/>
+        <Elm word="TCP" freq="-3.8918202981"/>
+        <Elm word="tree" freq="-3.8918202981"/>
+        <Elm word="early" freq="-3.8918202981"/>
+        <Elm word="actually" freq="-3.8918202981"/>
+        <Elm word="support" freq="-3.8918202981"/>
+        <Elm word="--libwrap" freq="-3.8918202981"/>
+        <Elm word="applied" freq="-3.8918202981"/>
+        <Elm word="4.0" freq="-3.8918202981"/>
+        <Elm word="pass" freq="-3.8918202981"/>
+        <Elm word="modifications" freq="-3.8918202981"/>
+        <Elm word="work" freq="-3.8918202981"/>
+        <Elm word="&quot;make&quot;" freq="-3.8918202981"/>
+        <Elm word="wrapper" freq="-3.8918202981"/>
+        <Elm word="Remove" freq="-100."/>
+        <Elm word="using" freq="-100."/>
+        <Elm word="Windows" freq="-100."/>
+        <Elm word="fix" freq="-100."/>
+        <Elm word="SCCS" freq="-100."/>
+        <Elm word="merged" freq="-100."/>
+        <Elm word="times" freq="-100."/>
+        <Elm word="InnoDB" freq="-100."/>
+        <Elm word="Changelog" freq="-100."/>
+        <Elm word="bug" freq="-100."/>
+        <Elm word="push" freq="-100."/>
+        <Elm word="Fixed" freq="-100."/>
+        <Elm word="changelog" freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="latch" freq="-100."/>
+        <Elm word="i/o" freq="-100."/>
+        <Elm word="Fix" freq="-100."/>
+        <Elm word="read" freq="-100."/>
+        <Elm word="size" freq="-100."/>
+        <Elm word="sequential" freq="-100."/>
+        <Elm word="long," freq="-100."/>
+        <Elm word="assertion" freq="-100."/>
+        <Elm word="AIX" freq="-100."/>
+        <Elm word="params" freq="-100."/>
+        <Elm word="assert" freq="-100."/>
+        <Elm word="results" freq="-100."/>
+        <Elm word="previous" freq="-100."/>
+        <Elm word="-&gt;" freq="-100."/>
+        <Elm word="wait" freq="-100."/>
+        <Elm word="fail" freq="-100."/>
+        <Elm word="mysql-test/t/rpl000016.test" freq="-100."/>
+        <Elm word="Increase" freq="-100."/>
+        <Elm word="time" freq="-100."/>
+        <Elm word="ran" freq="-100."/>
+        <Elm word="unbuffered" freq="-100."/>
+        <Elm word="600" freq="-100."/>
+        <Elm word="ChangeLog" freq="-100."/>
+        <Elm word="Make" freq="-100."/>
+        <Elm word="stack" freq="-100."/>
+        <Elm word="slower" freq="-100."/>
+        <Elm word="Cleanup" freq="-100."/>
+        <Elm word="innobase_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="normal" freq="-100."/>
+        <Elm word="trx0undo.c" freq="-100."/>
+        <Elm word="tablespace" freq="-100."/>
+        <Elm word="mysql-test/t/rpl_rotate_logs.test" freq="-100."/>
+        <Elm word="Start" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="kB" freq="-100."/>
+        <Elm word="typos" freq="-100."/>
+        <Elm word="XP" freq="-100."/>
+        <Elm word="seconds" freq="-100."/>
+        <Elm word="4" freq="-100."/>
+        <Elm word="Rename:" freq="-100."/>
+        <Elm word="threads" freq="-100."/>
+        <Elm word="32" freq="-100."/>
+        <Elm word="erroneously" freq="-100."/>
+        <Elm word="out-of-sync" freq="-288.625324204"/>
+        <Elm word="error" freq="-288.625324204"/>
+        <Elm word="Improved" freq="-288.625324204"/>
+        <Elm word="frm" freq="-288.625324204"/>
+        <Elm word="message" freq="-288.625324204"/>
+        <Elm word="redefined" freq="-288.724634353"/>
+        <Elm word="caused" freq="-288.724634353"/>
+        <Elm word="potential" freq="-288.724634353"/>
+        <Elm word="memory" freq="-288.724634353"/>
+        <Elm word="allow" freq="-288.724634353"/>
+        <Elm word="include" freq="-288.724634353"/>
+        <Elm word="unistd.h" freq="-288.724634353"/>
+        <Elm word="alloca," freq="-288.724634353"/>
+        <Elm word="leak" freq="-288.724634353"/>
+        <Elm word="compilation" freq="-288.724634353"/>
+        <Elm word="BDB" freq="-288.73068472"/>
+        <Elm word="TABLE" freq="-288.740738182"/>
+        <Elm word="table" freq="-288.740738182"/>
+        <Elm word="long" freq="-288.787113247"/>
+        <Elm word="visible" freq="-288.787113247"/>
+        <Elm word="consistent" freq="-288.787113247"/>
+        <Elm word="happened" freq="-288.787113247"/>
+        <Elm word="index" freq="-288.787113247"/>
+        <Elm word="hold" freq="-288.787113247"/>
+        <Elm word="record" freq="-288.787113247"/>
+        <Elm word="finding" freq="-288.787113247"/>
+        <Elm word="scanned" freq="-288.787113247"/>
+        <Elm word="current" freq="-288.787113247"/>
+        <Elm word="bugfix" freq="-288.789868661"/>
+        <Elm word="LOCK+modify+OPTIMIZE" freq="-288.789868661"/>
+        <Elm word="sources" freq="-288.83631461"/>
+        <Elm word="lexer" freq="-288.83631461"/>
+        <Elm word="grammar" freq="-288.83631461"/>
+        <Elm word="internal" freq="-288.83631461"/>
+        <Elm word="SQL" freq="-288.83631461"/>
+        <Elm word="interpreter" freq="-288.83631461"/>
+        <Elm word="buf_page_print" freq="-289.395117809"/>
+        <Elm word="typo:" freq="-289.395117809"/>
+        <Elm word="ALTER" freq="-289.4238319"/>
+        <Elm word="Better" freq="-289.4238319"/>
+        <Elm word="Little" freq="-289.4238319"/>
+        <Elm word="alter" freq="-289.4238319"/>
+        <Elm word="tables" freq="-289.4238319"/>
+        <Elm word="nasty" freq="-289.4238319"/>
+        <Elm word="semaphore" freq="-289.42951581"/>
+        <Elm word="creation" freq="-289.42951581"/>
+        <Elm word="diagnostics" freq="-289.42951581"/>
+        <Elm word="1," freq="-289.42951581"/>
+        <Elm word="starting" freq="-289.42951581"/>
+        <Elm word="0," freq="-289.42951581"/>
+        <Elm word="track" freq="-289.42951581"/>
+        <Elm word="innodb_flush_log_at_trx_commit" freq="-289.42951581"/>
+        <Elm word="values" freq="-289.42951581"/>
+        <Elm word="3.23.52" freq="-289.42951581"/>
+        <Elm word="2" freq="-289.42951581"/>
+        <Elm word="failed" freq="-289.42951581"/>
+        <Elm word="(=" freq="-289.438002611"/>
+        <Elm word="innodb_fast_shutdown" freq="-289.438004678"/>
+        <Elm word="shutdown" freq="-289.438004678"/>
+        <Elm word="default)" freq="-289.438004678"/>
+        <Elm word="quickly," freq="-289.438004678"/>
+        <Elm word="did" freq="-289.438004678"/>
+        <Elm word="problematic" freq="-289.444040924"/>
+        <Elm word="drop" freq="-289.444040924"/>
+        <Elm word="used," freq="-289.444040924"/>
+        <Elm word="Allow" freq="-289.444040924"/>
+        <Elm word="CREATE" freq="-289.444040924"/>
+        <Elm word="innodb_force_recovery" freq="-289.444040924"/>
+        <Elm word="DROP" freq="-289.444040924"/>
+        <Elm word="user" freq="-289.444040924"/>
+        <Elm word="code" freq="-289.469220269"/>
+        <Elm word="given" freq="-289.469220269"/>
+        <Elm word="obsolete" freq="-289.469220269"/>
+        <Elm word="rid" freq="-289.469220269"/>
+        <Elm word="text" freq="-289.469220269"/>
+        <Elm word="simplified" freq="-289.469220269"/>
+        <Elm word="Added" freq="-289.469220269"/>
+        <Elm word="match" freq="-289.469220269"/>
+        <Elm word="(get" freq="-289.469220269"/>
+        <Elm word="help" freq="-289.469220269"/>
+        <Elm word="make_options" freq="-289.469220269"/>
+        <Elm word="dependent" freq="-289.469220269"/>
+        <Elm word="rcp)" freq="-289.469220269"/>
+        <Elm word="comments" freq="-289.469220269"/>
+        <Elm word="rsh" freq="-289.469220269"/>
+        <Elm word="reworked" freq="-289.469220269"/>
+        <Elm word="Removed" freq="-289.469220269"/>
+        <Elm word="removed" freq="-289.469220269"/>
+        <Elm word="multiple" freq="-289.469220269"/>
+        <Elm word="GetOptions," freq="-289.469220269"/>
+        <Elm word="Heavily" freq="-289.469220269"/>
+        <Elm word="pieces" freq="-289.469220269"/>
+        <Elm word="available" freq="-289.469220269"/>
+        <Elm word="Reworked" freq="-289.469220269"/>
+        <Elm word="config_options" freq="-289.469220269"/>
+        <Elm word="joined" freq="-289.469220269"/>
+        <Elm word="ones" freq="-289.469220269"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="portability"/>
+      <annotation name="efficiency"/>
+      <annotation name="optimization"/>
+      <annotation name="portability"/>
+      <annotation name="documentation"/>
+
+      <Document time="1031952181." author="heikki@mysql.fi" document="history annotate diffs \n  \n Fix typos in previous push \n  \n "/>
+      <Document time="1031785176." author="heikki@mysql.fi" document="history annotate diffs \n  \n Start using unbuffered i/o again in Windows because sequential read using normal i/o was 4 times slower in XP \n  \n "/>
+      <Document time="1031692957." author="heikki@mysql.fi" document="history annotate diffs \n  \n make innobase_flush_log_at_trx_commit a long, like other params \n  \n "/>
+      <Document time="1031479465." author="heikki@mysql.fi" document="history annotate diffs \n  \n Increase max latch wait time to 600 seconds before we assert \n  \n "/>
+      <Document time="1031096916." author="monty@mysql.fi" document="history annotate diffs \n  \n SCCS merged \n  \n "/>
+      <Document time="1030830115." author="monty@mysql.fi" document="history annotate diffs \n  \n SCCS merged \n  \n "/>
+      <Files>
+        <File name="sql/ha_innobase.h" count="1"/>
+        <File name="Docs/manual.texi" count="2"/>
+        <File name="innobase/include/srv0srv.h" count="1"/>
+        <File name="innobase/srv/srv0srv.c" count="1"/>
+        <File name="sql/mysqld.cc" count="1"/>
+        <File name="innobase/sync/sync0arr.c" count="1"/>
+        <File name="innobase/os/os0file.c" count="1"/>
+        <File name="innobase/row/row0mysql.c" count="1"/>
+        <File name="sql/ha_innobase.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="2"/>
+        <Author name="heikki@mysql.fi" count="4"/>
+      </Authors>
+      <Elements>
+        <Elm word="annotate" freq="-2.1594842494"/>
+        <Elm word="history" freq="-2.1594842494"/>
+        <Elm word="diffs" freq="-2.1594842494"/>
+        <Elm word="using" freq="-3.258096538"/>
+        <Elm word="SCCS" freq="-3.258096538"/>
+        <Elm word="merged" freq="-3.258096538"/>
+        <Elm word="i/o" freq="-3.258096538"/>
+        <Elm word="make" freq="-3.9512437186"/>
+        <Elm word="Windows" freq="-3.9512437186"/>
+        <Elm word="times" freq="-3.9512437186"/>
+        <Elm word="push" freq="-3.9512437186"/>
+        <Elm word="latch" freq="-3.9512437186"/>
+        <Elm word="Fix" freq="-3.9512437186"/>
+        <Elm word="read" freq="-3.9512437186"/>
+        <Elm word="sequential" freq="-3.9512437186"/>
+        <Elm word="long," freq="-3.9512437186"/>
+        <Elm word="params" freq="-3.9512437186"/>
+        <Elm word="assert" freq="-3.9512437186"/>
+        <Elm word="previous" freq="-3.9512437186"/>
+        <Elm word="wait" freq="-3.9512437186"/>
+        <Elm word="Increase" freq="-3.9512437186"/>
+        <Elm word="time" freq="-3.9512437186"/>
+        <Elm word="unbuffered" freq="-3.9512437186"/>
+        <Elm word="600" freq="-3.9512437186"/>
+        <Elm word="slower" freq="-3.9512437186"/>
+        <Elm word="innobase_flush_log_at_trx_commit" freq="-3.9512437186"/>
+        <Elm word="normal" freq="-3.9512437186"/>
+        <Elm word="Start" freq="-3.9512437186"/>
+        <Elm word="max" freq="-3.9512437186"/>
+        <Elm word="typos" freq="-3.9512437186"/>
+        <Elm word="XP" freq="-3.9512437186"/>
+        <Elm word="seconds" freq="-3.9512437186"/>
+        <Elm word="4" freq="-3.9512437186"/>
+        <Elm word="Remove" freq="-100."/>
+        <Elm word="fix" freq="-100."/>
+        <Elm word="InnoDB" freq="-100."/>
+        <Elm word="Changelog" freq="-100."/>
+        <Elm word="bug" freq="-100."/>
+        <Elm word="Fixed" freq="-100."/>
+        <Elm word="changelog" freq="-100."/>
+        <Elm word="sure" freq="-100."/>
+        <Elm word="size" freq="-100."/>
+        <Elm word="assertion" freq="-100."/>
+        <Elm word="AIX" freq="-100."/>
+        <Elm word="results" freq="-100."/>
+        <Elm word="-&gt;" freq="-100."/>
+        <Elm word="fail" freq="-100."/>
+        <Elm word="mysql-test/t/rpl000016.test" freq="-100."/>
+        <Elm word="ran" freq="-100."/>
+        <Elm word="Make" freq="-100."/>
+        <Elm word="Cleanup" freq="-100."/>
+        <Elm word="trx0undo.c" freq="-100."/>
+        <Elm word="tablespace" freq="-100."/>
+        <Elm word="mysql-test/t/rpl_rotate_logs.test" freq="-100."/>
+        <Elm word="kB" freq="-100."/>
+        <Elm word="Rename:" freq="-100."/>
+        <Elm word="threads" freq="-100."/>
+        <Elm word="32" freq="-100."/>
+        <Elm word="erroneously" freq="-100."/>
+        <Elm word="stack" freq="-288.24466513"/>
+        <Elm word="files" freq="-288.327180948"/>
+        <Elm word="remove" freq="-288.395585845"/>
+        <Elm word="Add" freq="-288.455835677"/>
+        <Elm word="ChangeLog" freq="-288.599629428"/>
+        <Elm word="out-of-sync" freq="-288.684747625"/>
+        <Elm word="error" freq="-288.684747625"/>
+        <Elm word="Improved" freq="-288.684747625"/>
+        <Elm word="frm" freq="-288.684747625"/>
+        <Elm word="message" freq="-288.684747625"/>
+        <Elm word="redefined" freq="-288.784057773"/>
+        <Elm word="caused" freq="-288.784057773"/>
+        <Elm word="potential" freq="-288.784057773"/>
+        <Elm word="memory" freq="-288.784057773"/>
+        <Elm word="allow" freq="-288.784057773"/>
+        <Elm word="include" freq="-288.784057773"/>
+        <Elm word="unistd.h" freq="-288.784057773"/>
+        <Elm word="alloca," freq="-288.784057773"/>
+        <Elm word="leak" freq="-288.784057773"/>
+        <Elm word="compilation" freq="-288.784057773"/>
+        <Elm word="BDB" freq="-288.79010814"/>
+        <Elm word="TABLE" freq="-288.800161602"/>
+        <Elm word="table" freq="-288.800161602"/>
+        <Elm word="option" freq="-288.81997974"/>
+        <Elm word="-" freq="-288.835712706"/>
+        <Elm word="added" freq="-288.835712706"/>
+        <Elm word="options" freq="-288.835712706"/>
+        <Elm word="configure" freq="-288.835712706"/>
+        <Elm word="visible" freq="-288.846536666"/>
+        <Elm word="consistent" freq="-288.846536666"/>
+        <Elm word="index" freq="-288.846536666"/>
+        <Elm word="record" freq="-288.846536666"/>
+        <Elm word="current" freq="-288.846536666"/>
+        <Elm word="long" freq="-288.846536668"/>
+        <Elm word="scanned" freq="-288.846536668"/>
+        <Elm word="happened" freq="-288.846536668"/>
+        <Elm word="hold" freq="-288.846536668"/>
+        <Elm word="finding" freq="-288.846536668"/>
+        <Elm word="bugfix" freq="-288.849292081"/>
+        <Elm word="LOCK+modify+OPTIMIZE" freq="-288.849292081"/>
+        <Elm word="sources" freq="-288.89573803"/>
+        <Elm word="lexer" freq="-288.89573803"/>
+        <Elm word="grammar" freq="-288.89573803"/>
+        <Elm word="internal" freq="-288.89573803"/>
+        <Elm word="SQL" freq="-288.89573803"/>
+        <Elm word="interpreter" freq="-288.89573803"/>
+        <Elm word="buf_page_print" freq="-289.45454123"/>
+        <Elm word="typo:" freq="-289.45454123"/>
+        <Elm word="ALTER" freq="-289.483255321"/>
+        <Elm word="Better" freq="-289.483255321"/>
+        <Elm word="Little" freq="-289.483255321"/>
+        <Elm word="alter" freq="-289.483255321"/>
+        <Elm word="tables" freq="-289.483255321"/>
+        <Elm word="nasty" freq="-289.483255321"/>
+        <Elm word="1," freq="-289.48893923"/>
+        <Elm word="starting" freq="-289.48893923"/>
+        <Elm word="0," freq="-289.48893923"/>
+        <Elm word="semaphore" freq="-289.48893923"/>
+        <Elm word="creation" freq="-289.48893923"/>
+        <Elm word="track" freq="-289.48893923"/>
+        <Elm word="innodb_flush_log_at_trx_commit" freq="-289.48893923"/>
+        <Elm word="values" freq="-289.48893923"/>
+        <Elm word="3.23.52" freq="-289.48893923"/>
+        <Elm word="2" freq="-289.48893923"/>
+        <Elm word="failed" freq="-289.48893923"/>
+        <Elm word="diagnostics" freq="-289.48893923"/>
+        <Elm word="(=" freq="-289.49742795"/>
+        <Elm word="innodb_fast_shutdown" freq="-289.497428099"/>
+        <Elm word="shutdown" freq="-289.497428099"/>
+        <Elm word="default)" freq="-289.497428099"/>
+        <Elm word="quickly," freq="-289.497428099"/>
+        <Elm word="did" freq="-289.497428099"/>
+        <Elm word="problematic" freq="-289.503464345"/>
+        <Elm word="drop" freq="-289.503464345"/>
+        <Elm word="used," freq="-289.503464345"/>
+        <Elm word="Allow" freq="-289.503464345"/>
+        <Elm word="CREATE" freq="-289.503464345"/>
+        <Elm word="innodb_force_recovery" freq="-289.503464345"/>
+        <Elm word="DROP" freq="-289.503464345"/>
+        <Elm word="user" freq="-289.503464345"/>
+        <Elm word="code" freq="-289.52864369"/>
+        <Elm word="given" freq="-289.52864369"/>
+        <Elm word="obsolete" freq="-289.52864369"/>
+        <Elm word="rid" freq="-289.52864369"/>
+        <Elm word="text" freq="-289.52864369"/>
+        <Elm word="simplified" freq="-289.52864369"/>
+        <Elm word="Added" freq="-289.52864369"/>
+        <Elm word="match" freq="-289.52864369"/>
+        <Elm word="(get" freq="-289.52864369"/>
+        <Elm word="help" freq="-289.52864369"/>
+        <Elm word="make_options" freq="-289.52864369"/>
+        <Elm word="dependent" freq="-289.52864369"/>
+        <Elm word="rcp)" freq="-289.52864369"/>
+        <Elm word="comments" freq="-289.52864369"/>
+        <Elm word="rsh" freq="-289.52864369"/>
+        <Elm word="reworked" freq="-289.52864369"/>
+        <Elm word="Removed" freq="-289.52864369"/>
+        <Elm word="removed" freq="-289.52864369"/>
+        <Elm word="multiple" freq="-289.52864369"/>
+        <Elm word="GetOptions," freq="-289.52864369"/>
+        <Elm word="Heavily" freq="-289.52864369"/>
+        <Elm word="pieces" freq="-289.52864369"/>
+        <Elm word="available" freq="-289.52864369"/>
+        <Elm word="Reworked" freq="-289.52864369"/>
+        <Elm word="config_options" freq="-289.52864369"/>
+        <Elm word="joined" freq="-289.52864369"/>
+        <Elm word="ones" freq="-289.52864369"/>
+        <Elm word="fixed" freq="-289.529076131"/>
+        <Elm word="enable" freq="-289.529076131"/>
+        <Elm word="possible" freq="-289.529076131"/>
+        <Elm word="--with-other-libc" freq="-289.529076131"/>
+        <Elm word="log" freq="-289.529076131"/>
+        <Elm word="quotes" freq="-289.529076131"/>
+        <Elm word="--raid" freq="-289.529076131"/>
+        <Elm word="--make-options" freq="-289.529076131"/>
+        <Elm word="RAID" freq="-289.529076131"/>
+        <Elm word="oddly-placed" freq="-289.529076131"/>
+        <Elm word="TCP" freq="-289.529076131"/>
+        <Elm word="tree" freq="-289.529076131"/>
+        <Elm word="early" freq="-289.529076131"/>
+        <Elm word="actually" freq="-289.529076131"/>
+        <Elm word="support" freq="-289.529076131"/>
+        <Elm word="--libwrap" freq="-289.529076131"/>
+        <Elm word="applied" freq="-289.529076131"/>
+        <Elm word="4.0" freq="-289.529076131"/>
+        <Elm word="pass" freq="-289.529076131"/>
+        <Elm word="modifications" freq="-289.529076131"/>
+        <Elm word="work" freq="-289.529076131"/>
+        <Elm word="&quot;make&quot;" freq="-289.529076131"/>
+        <Elm word="wrapper" freq="-289.529076131"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1032339654." author="monty@mysql.fi" document="history annotate diffs \n  \n ChangeLog \n  \n "/>
+      <Document time="1030850287." author="serg@mysql.com" document="history annotate diffs \n  \n LOCK+modify+OPTIMIZE bugfix \n  \n "/>
+      <Files>
+        <File name="mysql-test/t/myisam.test" count="1"/>
+        <File name="Docs/manual.texi" count="2"/>
+        <File name="mysql-test/t/binary.test" count="1"/>
+        <File name="sql/item_strfunc.h" count="1"/>
+        <File name="mysql-test/r/myisam.result" count="1"/>
+        <File name="mysql-test/r/binary.result" count="1"/>
+        <File name="sql/ha_myisam.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+        <Author name="serg@mysql.com" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="annotate" freq="-1.5040773968"/>
+        <Elm word="history" freq="-1.5040773968"/>
+        <Elm word="diffs" freq="-1.5040773968"/>
+        <Elm word="bugfix" freq="-2.1972245773"/>
+        <Elm word="ChangeLog" freq="-2.1972245773"/>
+        <Elm word="LOCK+modify+OPTIMIZE" freq="-2.1972245773"/>
+        <Elm word="-" freq="-100."/>
+        <Elm word="option" freq="-100."/>
+        <Elm word="added" freq="-100."/>
+        <Elm word="options" freq="-100."/>
+        <Elm word="Remove" freq="-100."/>
+        <Elm word="configure" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="code" freq="-100."/>
+        <Elm word="using" freq="-100."/>
+        <Elm word="Windows" freq="-100."/>
+        <Elm word="fix" freq="-100."/>
+        <Elm word="given" freq="-100."/>
+        <Elm word="files" freq="-100."/>
+        <Elm word="times" freq="-100."/>
+        <Elm word="InnoDB" freq="-100."/>
+        <Elm word="long" freq="-100."/>
+        <Elm word="bug" freq="-100."/>
+        <Elm word="fixed" freq="-100."/>
+        <Elm word="BDB" freq="-100."/>
+        <Elm word="remove" freq="-100."/>
+        <Elm word="Fixed" freq="-100."/>
+        <Elm word="changelog" freq="-100."/>
+        <Elm word="sure" freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="obsolete" freq="-100."/>
+        <Elm word="latch" freq="-100."/>
+        <Elm word="i/o" freq="-100."/>
+        <Elm word="enable" freq="-100."/>
+        <Elm word="read" freq="-100."/>
+        <Elm word="table" freq="-100."/>
+        <Elm word="visible" freq="-100."/>
+        <Elm word="size" freq="-100."/>
+        <Elm word="innodb_fast_shutdown" freq="-100."/>
+        <Elm word="sequential" freq="-100."/>
+        <Elm word="shutdown" freq="-100."/>
+        <Elm word="rid" freq="-100."/>
+        <Elm word="text" freq="-100."/>
+        <Elm word="possible" freq="-100."/>
+        <Elm word="sources" freq="-100."/>
+        <Elm word="--with-other-libc" freq="-100."/>
+        <Elm word="default)" freq="-100."/>
+        <Elm word="log" freq="-100."/>
+        <Elm word="1," freq="-100."/>
+        <Elm word="starting" freq="-100."/>
+        <Elm word="simplified" freq="-100."/>
+        <Elm word="redefined" freq="-100."/>
+        <Elm word="ALTER" freq="-100."/>
+        <Elm word="assertion" freq="-100."/>
+        <Elm word="0," freq="-100."/>
+        <Elm word="out-of-sync" freq="-100."/>
+        <Elm word="caused" freq="-100."/>
+        <Elm word="error" freq="-100."/>
+        <Elm word="Added" freq="-100."/>
+        <Elm word="lexer" freq="-100."/>
+        <Elm word="grammar" freq="-100."/>
+        <Elm word="AIX" freq="-100."/>
+        <Elm word="quotes" freq="-100."/>
+        <Elm word="problematic" freq="-100."/>
+        <Elm word="match" freq="-100."/>
+        <Elm word="--raid" freq="-100."/>
+        <Elm word="--make-options" freq="-100."/>
+        <Elm word="internal" freq="-100."/>
+        <Elm word="assert" freq="-100."/>
+        <Elm word="RAID" freq="-100."/>
+        <Elm word="(get" freq="-100."/>
+        <Elm word="results" freq="-100."/>
+        <Elm word="help" freq="-100."/>
+        <Elm word="oddly-placed" freq="-100."/>
+        <Elm word="TCP" freq="-100."/>
+        <Elm word="-&gt;" freq="-100."/>
+        <Elm word="make_options" freq="-100."/>
+        <Elm word="Improved" freq="-100."/>
+        <Elm word="tree" freq="-100."/>
+        <Elm word="wait" freq="-100."/>
+        <Elm word="fail" freq="-100."/>
+        <Elm word="consistent" freq="-100."/>
+        <Elm word="semaphore" freq="-100."/>
+        <Elm word="frm" freq="-100."/>
+        <Elm word="early" freq="-100."/>
+        <Elm word="potential" freq="-100."/>
+        <Elm word="message" freq="-100."/>
+        <Elm word="memory" freq="-100."/>
+        <Elm word="drop" freq="-100."/>
+        <Elm word="dependent" freq="-100."/>
+        <Elm word="creation" freq="-100."/>
+        <Elm word="buf_page_print" freq="-100."/>
+        <Elm word="mysql-test/t/rpl000016.test" freq="-100."/>
+        <Elm word="Better" freq="-100."/>
+        <Elm word="Little" freq="-100."/>
+        <Elm word="Increase" freq="-100."/>
+        <Elm word="time" freq="-100."/>
+        <Elm word="rcp)" freq="-100."/>
+        <Elm word="actually" freq="-100."/>
+        <Elm word="ran" freq="-100."/>
+        <Elm word="comments" freq="-100."/>
+        <Elm word="unbuffered" freq="-100."/>
+        <Elm word="rsh" freq="-100."/>
+        <Elm word="600" freq="-100."/>
+        <Elm word="happened" freq="-100."/>
+        <Elm word="Make" freq="-100."/>
+        <Elm word="support" freq="-100."/>
+        <Elm word="--libwrap" freq="-100."/>
+        <Elm word="stack" freq="-100."/>
+        <Elm word="applied" freq="-100."/>
+        <Elm word="reworked" freq="-100."/>
+        <Elm word="(=" freq="-100."/>
+        <Elm word="SQL" freq="-100."/>
+        <Elm word="track" freq="-100."/>
+        <Elm word="used," freq="-100."/>
+        <Elm word="innodb_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="Removed" freq="-100."/>
+        <Elm word="index" freq="-100."/>
+        <Elm word="allow" freq="-100."/>
+        <Elm word="removed" freq="-100."/>
+        <Elm word="hold" freq="-100."/>
+        <Elm word="slower" freq="-100."/>
+        <Elm word="multiple" freq="-100."/>
+        <Elm word="alter" freq="-100."/>
+        <Elm word="values" freq="-100."/>
+        <Elm word="interpreter" freq="-100."/>
+        <Elm word="include" freq="-100."/>
+        <Elm word="tables" freq="-100."/>
+        <Elm word="normal" freq="-100."/>
+        <Elm word="unistd.h" freq="-100."/>
+        <Elm word="quickly," freq="-100."/>
+        <Elm word="record" freq="-100."/>
+        <Elm word="trx0undo.c" freq="-100."/>
+        <Elm word="Allow" freq="-100."/>
+        <Elm word="alloca," freq="-100."/>
+        <Elm word="tablespace" freq="-100."/>
+        <Elm word="finding" freq="-100."/>
+        <Elm word="scanned" freq="-100."/>
+        <Elm word="leak" freq="-100."/>
+        <Elm word="nasty" freq="-100."/>
+        <Elm word="current" freq="-100."/>
+        <Elm word="GetOptions," freq="-100."/>
+        <Elm word="3.23.52" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Heavily" freq="-100."/>
+        <Elm word="mysql-test/t/rpl_rotate_logs.test" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="Start" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="kB" freq="-100."/>
+        <Elm word="pass" freq="-100."/>
+        <Elm word="innodb_force_recovery" freq="-100."/>
+        <Elm word="modifications" freq="-100."/>
+        <Elm word="XP" freq="-100."/>
+        <Elm word="pieces" freq="-100."/>
+        <Elm word="seconds" freq="-100."/>
+        <Elm word="DROP" freq="-100."/>
+        <Elm word="4" freq="-100."/>
+        <Elm word="2" freq="-100."/>
+        <Elm word="work" freq="-100."/>
+        <Elm word="Rename:" freq="-100."/>
+        <Elm word="compilation" freq="-100."/>
+        <Elm word="available" freq="-100."/>
+        <Elm word="&quot;make&quot;" freq="-100."/>
+        <Elm word="Reworked" freq="-100."/>
+        <Elm word="user" freq="-100."/>
+        <Elm word="wrapper" freq="-100."/>
+        <Elm word="config_options" freq="-100."/>
+        <Elm word="threads" freq="-100."/>
+        <Elm word="failed" freq="-100."/>
+        <Elm word="joined" freq="-100."/>
+        <Elm word="typo:" freq="-100."/>
+        <Elm word="32" freq="-100."/>
+        <Elm word="ones" freq="-100."/>
+        <Elm word="erroneously" freq="-100."/>
+        <Elm word="diagnostics" freq="-100."/>
+        <Elm word="did" freq="-100."/>
+        <Elm word="push" freq="-647.226626767"/>
+        <Elm word="Changelog" freq="-648.336750179"/>
+        <Elm word="SCCS" freq="-648.445001719"/>
+        <Elm word="merged" freq="-648.445001719"/>
+        <Elm word="make" freq="-648.857532606"/>
+        <Elm word="Cleanup" freq="-649.08572402"/>
+        <Elm word="Fix" freq="-649.160582581"/>
+        <Elm word="long," freq="-649.543888518"/>
+        <Elm word="params" freq="-649.543888518"/>
+        <Elm word="previous" freq="-649.543888518"/>
+        <Elm word="innobase_flush_log_at_trx_commit" freq="-649.543888518"/>
+        <Elm word="typos" freq="-649.543888518"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1031093585." author="monty@mysql.fi" document="history annotate diffs \n  \n Better fix for ALTER TABLE on BDB tables \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="Docs/manual.texi" count="1"/>
+        <File name="sql/item_cmpfunc.cc" count="1"/>
+        <File name="sql/sql_table.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="annotate" freq="-2.1972245773"/>
+        <Elm word="history" freq="-2.1972245773"/>
+        <Elm word="diffs" freq="-2.1972245773"/>
+        <Elm word="TABLE" freq="-2.1972245773"/>
+        <Elm word="fix" freq="-2.1972245773"/>
+        <Elm word="BDB" freq="-2.1972245773"/>
+        <Elm word="ALTER" freq="-2.1972245773"/>
+        <Elm word="Better" freq="-2.1972245773"/>
+        <Elm word="tables" freq="-2.1972245773"/>
+        <Elm word="-" freq="-100."/>
+        <Elm word="option" freq="-100."/>
+        <Elm word="added" freq="-100."/>
+        <Elm word="options" freq="-100."/>
+        <Elm word="Remove" freq="-100."/>
+        <Elm word="configure" freq="-100."/>
+        <Elm word="code" freq="-100."/>
+        <Elm word="using" freq="-100."/>
+        <Elm word="Windows" freq="-100."/>
+        <Elm word="given" freq="-100."/>
+        <Elm word="files" freq="-100."/>
+        <Elm word="times" freq="-100."/>
+        <Elm word="InnoDB" freq="-100."/>
+        <Elm word="long" freq="-100."/>
+        <Elm word="bug" freq="-100."/>
+        <Elm word="fixed" freq="-100."/>
+        <Elm word="remove" freq="-100."/>
+        <Elm word="Fixed" freq="-100."/>
+        <Elm word="changelog" freq="-100."/>
+        <Elm word="sure" freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="obsolete" freq="-100."/>
+        <Elm word="latch" freq="-100."/>
+        <Elm word="i/o" freq="-100."/>
+        <Elm word="enable" freq="-100."/>
+        <Elm word="read" freq="-100."/>
+        <Elm word="table" freq="-100."/>
+        <Elm word="visible" freq="-100."/>
+        <Elm word="size" freq="-100."/>
+        <Elm word="innodb_fast_shutdown" freq="-100."/>
+        <Elm word="sequential" freq="-100."/>
+        <Elm word="shutdown" freq="-100."/>
+        <Elm word="rid" freq="-100."/>
+        <Elm word="text" freq="-100."/>
+        <Elm word="possible" freq="-100."/>
+        <Elm word="sources" freq="-100."/>
+        <Elm word="--with-other-libc" freq="-100."/>
+        <Elm word="default)" freq="-100."/>
+        <Elm word="log" freq="-100."/>
+        <Elm word="1," freq="-100."/>
+        <Elm word="starting" freq="-100."/>
+        <Elm word="simplified" freq="-100."/>
+        <Elm word="redefined" freq="-100."/>
+        <Elm word="assertion" freq="-100."/>
+        <Elm word="0," freq="-100."/>
+        <Elm word="out-of-sync" freq="-100."/>
+        <Elm word="caused" freq="-100."/>
+        <Elm word="error" freq="-100."/>
+        <Elm word="Added" freq="-100."/>
+        <Elm word="lexer" freq="-100."/>
+        <Elm word="grammar" freq="-100."/>
+        <Elm word="AIX" freq="-100."/>
+        <Elm word="quotes" freq="-100."/>
+        <Elm word="problematic" freq="-100."/>
+        <Elm word="match" freq="-100."/>
+        <Elm word="--raid" freq="-100."/>
+        <Elm word="--make-options" freq="-100."/>
+        <Elm word="internal" freq="-100."/>
+        <Elm word="assert" freq="-100."/>
+        <Elm word="RAID" freq="-100."/>
+        <Elm word="(get" freq="-100."/>
+        <Elm word="results" freq="-100."/>
+        <Elm word="help" freq="-100."/>
+        <Elm word="oddly-placed" freq="-100."/>
+        <Elm word="TCP" freq="-100."/>
+        <Elm word="-&gt;" freq="-100."/>
+        <Elm word="make_options" freq="-100."/>
+        <Elm word="Improved" freq="-100."/>
+        <Elm word="tree" freq="-100."/>
+        <Elm word="wait" freq="-100."/>
+        <Elm word="fail" freq="-100."/>
+        <Elm word="consistent" freq="-100."/>
+        <Elm word="bugfix" freq="-100."/>
+        <Elm word="semaphore" freq="-100."/>
+        <Elm word="frm" freq="-100."/>
+        <Elm word="early" freq="-100."/>
+        <Elm word="potential" freq="-100."/>
+        <Elm word="message" freq="-100."/>
+        <Elm word="memory" freq="-100."/>
+        <Elm word="drop" freq="-100."/>
+        <Elm word="dependent" freq="-100."/>
+        <Elm word="creation" freq="-100."/>
+        <Elm word="buf_page_print" freq="-100."/>
+        <Elm word="mysql-test/t/rpl000016.test" freq="-100."/>
+        <Elm word="Little" freq="-100."/>
+        <Elm word="Increase" freq="-100."/>
+        <Elm word="time" freq="-100."/>
+        <Elm word="rcp)" freq="-100."/>
+        <Elm word="actually" freq="-100."/>
+        <Elm word="ran" freq="-100."/>
+        <Elm word="comments" freq="-100."/>
+        <Elm word="unbuffered" freq="-100."/>
+        <Elm word="rsh" freq="-100."/>
+        <Elm word="600" freq="-100."/>
+        <Elm word="ChangeLog" freq="-100."/>
+        <Elm word="happened" freq="-100."/>
+        <Elm word="Make" freq="-100."/>
+        <Elm word="support" freq="-100."/>
+        <Elm word="--libwrap" freq="-100."/>
+        <Elm word="stack" freq="-100."/>
+        <Elm word="applied" freq="-100."/>
+        <Elm word="reworked" freq="-100."/>
+        <Elm word="(=" freq="-100."/>
+        <Elm word="SQL" freq="-100."/>
+        <Elm word="track" freq="-100."/>
+        <Elm word="used," freq="-100."/>
+        <Elm word="innodb_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="Removed" freq="-100."/>
+        <Elm word="index" freq="-100."/>
+        <Elm word="allow" freq="-100."/>
+        <Elm word="removed" freq="-100."/>
+        <Elm word="hold" freq="-100."/>
+        <Elm word="slower" freq="-100."/>
+        <Elm word="multiple" freq="-100."/>
+        <Elm word="alter" freq="-100."/>
+        <Elm word="values" freq="-100."/>
+        <Elm word="interpreter" freq="-100."/>
+        <Elm word="include" freq="-100."/>
+        <Elm word="normal" freq="-100."/>
+        <Elm word="unistd.h" freq="-100."/>
+        <Elm word="quickly," freq="-100."/>
+        <Elm word="record" freq="-100."/>
+        <Elm word="trx0undo.c" freq="-100."/>
+        <Elm word="Allow" freq="-100."/>
+        <Elm word="alloca," freq="-100."/>
+        <Elm word="tablespace" freq="-100."/>
+        <Elm word="finding" freq="-100."/>
+        <Elm word="scanned" freq="-100."/>
+        <Elm word="leak" freq="-100."/>
+        <Elm word="nasty" freq="-100."/>
+        <Elm word="current" freq="-100."/>
+        <Elm word="GetOptions," freq="-100."/>
+        <Elm word="3.23.52" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Heavily" freq="-100."/>
+        <Elm word="mysql-test/t/rpl_rotate_logs.test" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="LOCK+modify+OPTIMIZE" freq="-100."/>
+        <Elm word="Start" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="kB" freq="-100."/>
+        <Elm word="pass" freq="-100."/>
+        <Elm word="innodb_force_recovery" freq="-100."/>
+        <Elm word="modifications" freq="-100."/>
+        <Elm word="XP" freq="-100."/>
+        <Elm word="pieces" freq="-100."/>
+        <Elm word="seconds" freq="-100."/>
+        <Elm word="DROP" freq="-100."/>
+        <Elm word="4" freq="-100."/>
+        <Elm word="2" freq="-100."/>
+        <Elm word="work" freq="-100."/>
+        <Elm word="Rename:" freq="-100."/>
+        <Elm word="compilation" freq="-100."/>
+        <Elm word="available" freq="-100."/>
+        <Elm word="&quot;make&quot;" freq="-100."/>
+        <Elm word="Reworked" freq="-100."/>
+        <Elm word="user" freq="-100."/>
+        <Elm word="wrapper" freq="-100."/>
+        <Elm word="config_options" freq="-100."/>
+        <Elm word="threads" freq="-100."/>
+        <Elm word="failed" freq="-100."/>
+        <Elm word="joined" freq="-100."/>
+        <Elm word="typo:" freq="-100."/>
+        <Elm word="32" freq="-100."/>
+        <Elm word="ones" freq="-100."/>
+        <Elm word="erroneously" freq="-100."/>
+        <Elm word="diagnostics" freq="-100."/>
+        <Elm word="did" freq="-100."/>
+        <Elm word="push" freq="-647.226626767"/>
+        <Elm word="Changelog" freq="-648.336750179"/>
+        <Elm word="SCCS" freq="-648.445001719"/>
+        <Elm word="merged" freq="-648.445001719"/>
+        <Elm word="make" freq="-648.857532606"/>
+        <Elm word="Cleanup" freq="-649.08572402"/>
+        <Elm word="Fix" freq="-649.160582581"/>
+        <Elm word="long," freq="-649.543888518"/>
+        <Elm word="params" freq="-649.543888518"/>
+        <Elm word="previous" freq="-649.543888518"/>
+        <Elm word="innobase_flush_log_at_trx_commit" freq="-649.543888518"/>
+        <Elm word="typos" freq="-649.543888518"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1032215093." author="monty@mysql.fi" document="history annotate diffs \n  \n changelog \n  \n "/>
+      <Document time="1031716597." author="monty@mysql.fi" document="history annotate diffs \n  \n Fixed changelog \n  \n "/>
+      <Document time="1031095680." author="monty@mysql.fi" document="history annotate diffs \n  \n Fixed results after bug fix \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="sql/sql_base.cc" count="1"/>
+        <File name="Docs/manual.texi" count="2"/>
+        <File name="mysql-test/r/distinct.result" count="1"/>
+        <File name="sql/sql_table.cc" count="1"/>
+        <File name="sql/mysql_priv.h" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="3"/>
+      </Authors>
+      <Elements>
+        <Elm word="annotate" freq="-1.6739764336"/>
+        <Elm word="history" freq="-1.6739764336"/>
+        <Elm word="diffs" freq="-1.6739764336"/>
+        <Elm word="Fixed" freq="-2.0794415417"/>
+        <Elm word="changelog" freq="-2.0794415417"/>
+        <Elm word="fix" freq="-2.7725887222"/>
+        <Elm word="bug" freq="-2.7725887222"/>
+        <Elm word="results" freq="-2.7725887222"/>
+        <Elm word="-" freq="-100."/>
+        <Elm word="option" freq="-100."/>
+        <Elm word="added" freq="-100."/>
+        <Elm word="options" freq="-100."/>
+        <Elm word="Remove" freq="-100."/>
+        <Elm word="configure" freq="-100."/>
+        <Elm word="make" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="using" freq="-100."/>
+        <Elm word="Windows" freq="-100."/>
+        <Elm word="SCCS" freq="-100."/>
+        <Elm word="files" freq="-100."/>
+        <Elm word="merged" freq="-100."/>
+        <Elm word="times" freq="-100."/>
+        <Elm word="InnoDB" freq="-100."/>
+        <Elm word="long" freq="-100."/>
+        <Elm word="Changelog" freq="-100."/>
+        <Elm word="BDB" freq="-100."/>
+        <Elm word="remove" freq="-100."/>
+        <Elm word="sure" freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="latch" freq="-100."/>
+        <Elm word="i/o" freq="-100."/>
+        <Elm word="Fix" freq="-100."/>
+        <Elm word="read" freq="-100."/>
+        <Elm word="table" freq="-100."/>
+        <Elm word="visible" freq="-100."/>
+        <Elm word="size" freq="-100."/>
+        <Elm word="innodb_fast_shutdown" freq="-100."/>
+        <Elm word="sequential" freq="-100."/>
+        <Elm word="shutdown" freq="-100."/>
+        <Elm word="long," freq="-100."/>
+        <Elm word="sources" freq="-100."/>
+        <Elm word="default)" freq="-100."/>
+        <Elm word="1," freq="-100."/>
+        <Elm word="starting" freq="-100."/>
+        <Elm word="redefined" freq="-100."/>
+        <Elm word="ALTER" freq="-100."/>
+        <Elm word="assertion" freq="-100."/>
+        <Elm word="0," freq="-100."/>
+        <Elm word="out-of-sync" freq="-100."/>
+        <Elm word="caused" freq="-100."/>
+        <Elm word="error" freq="-100."/>
+        <Elm word="lexer" freq="-100."/>
+        <Elm word="grammar" freq="-100."/>
+        <Elm word="AIX" freq="-100."/>
+        <Elm word="params" freq="-100."/>
+        <Elm word="problematic" freq="-100."/>
+        <Elm word="--make-options" freq="-100."/>
+        <Elm word="internal" freq="-100."/>
+        <Elm word="assert" freq="-100."/>
+        <Elm word="(get" freq="-100."/>
+        <Elm word="previous" freq="-100."/>
+        <Elm word="-&gt;" freq="-100."/>
+        <Elm word="Improved" freq="-100."/>
+        <Elm word="wait" freq="-100."/>
+        <Elm word="fail" freq="-100."/>
+        <Elm word="consistent" freq="-100."/>
+        <Elm word="bugfix" freq="-100."/>
+        <Elm word="semaphore" freq="-100."/>
+        <Elm word="frm" freq="-100."/>
+        <Elm word="potential" freq="-100."/>
+        <Elm word="message" freq="-100."/>
+        <Elm word="memory" freq="-100."/>
+        <Elm word="drop" freq="-100."/>
+        <Elm word="dependent" freq="-100."/>
+        <Elm word="creation" freq="-100."/>
+        <Elm word="buf_page_print" freq="-100."/>
+        <Elm word="mysql-test/t/rpl000016.test" freq="-100."/>
+        <Elm word="Better" freq="-100."/>
+        <Elm word="Little" freq="-100."/>
+        <Elm word="Increase" freq="-100."/>
+        <Elm word="time" freq="-100."/>
+        <Elm word="ran" freq="-100."/>
+        <Elm word="unbuffered" freq="-100."/>
+        <Elm word="600" freq="-100."/>
+        <Elm word="ChangeLog" freq="-100."/>
+        <Elm word="happened" freq="-100."/>
+        <Elm word="Make" freq="-100."/>
+        <Elm word="--libwrap" freq="-100."/>
+        <Elm word="stack" freq="-100."/>
+        <Elm word="(=" freq="-100."/>
+        <Elm word="SQL" freq="-100."/>
+        <Elm word="track" freq="-100."/>
+        <Elm word="used," freq="-100."/>
+        <Elm word="innodb_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="index" freq="-100."/>
+        <Elm word="allow" freq="-100."/>
+        <Elm word="hold" freq="-100."/>
+        <Elm word="slower" freq="-100."/>
+        <Elm word="Cleanup" freq="-100."/>
+        <Elm word="alter" freq="-100."/>
+        <Elm word="values" freq="-100."/>
+        <Elm word="interpreter" freq="-100."/>
+        <Elm word="include" freq="-100."/>
+        <Elm word="innobase_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="tables" freq="-100."/>
+        <Elm word="normal" freq="-100."/>
+        <Elm word="unistd.h" freq="-100."/>
+        <Elm word="quickly," freq="-100."/>
+        <Elm word="record" freq="-100."/>
+        <Elm word="trx0undo.c" freq="-100."/>
+        <Elm word="Allow" freq="-100."/>
+        <Elm word="alloca," freq="-100."/>
+        <Elm word="tablespace" freq="-100."/>
+        <Elm word="finding" freq="-100."/>
+        <Elm word="scanned" freq="-100."/>
+        <Elm word="leak" freq="-100."/>
+        <Elm word="nasty" freq="-100."/>
+        <Elm word="current" freq="-100."/>
+        <Elm word="3.23.52" freq="-100."/>
+        <Elm word="mysql-test/t/rpl_rotate_logs.test" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="LOCK+modify+OPTIMIZE" freq="-100."/>
+        <Elm word="Start" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="kB" freq="-100."/>
+        <Elm word="pass" freq="-100."/>
+        <Elm word="innodb_force_recovery" freq="-100."/>
+        <Elm word="typos" freq="-100."/>
+        <Elm word="XP" freq="-100."/>
+        <Elm word="seconds" freq="-100."/>
+        <Elm word="DROP" freq="-100."/>
+        <Elm word="4" freq="-100."/>
+        <Elm word="2" freq="-100."/>
+        <Elm word="work" freq="-100."/>
+        <Elm word="Rename:" freq="-100."/>
+        <Elm word="compilation" freq="-100."/>
+        <Elm word="user" freq="-100."/>
+        <Elm word="wrapper" freq="-100."/>
+        <Elm word="threads" freq="-100."/>
+        <Elm word="typo:" freq="-100."/>
+        <Elm word="32" freq="-100."/>
+        <Elm word="erroneously" freq="-100."/>
+        <Elm word="diagnostics" freq="-100."/>
+        <Elm word="failed" freq="-288.310284234"/>
+        <Elm word="did" freq="-288.318773103"/>
+        <Elm word="code" freq="-288.349988694"/>
+        <Elm word="given" freq="-288.349988694"/>
+        <Elm word="obsolete" freq="-288.349988694"/>
+        <Elm word="rid" freq="-288.349988694"/>
+        <Elm word="text" freq="-288.349988694"/>
+        <Elm word="simplified" freq="-288.349988694"/>
+        <Elm word="Added" freq="-288.349988694"/>
+        <Elm word="match" freq="-288.349988694"/>
+        <Elm word="help" freq="-288.349988694"/>
+        <Elm word="make_options" freq="-288.349988694"/>
+        <Elm word="rcp)" freq="-288.349988694"/>
+        <Elm word="comments" freq="-288.349988694"/>
+        <Elm word="rsh" freq="-288.349988694"/>
+        <Elm word="reworked" freq="-288.349988694"/>
+        <Elm word="Removed" freq="-288.349988694"/>
+        <Elm word="removed" freq="-288.349988694"/>
+        <Elm word="multiple" freq="-288.349988694"/>
+        <Elm word="GetOptions," freq="-288.349988694"/>
+        <Elm word="Heavily" freq="-288.349988694"/>
+        <Elm word="pieces" freq="-288.349988694"/>
+        <Elm word="available" freq="-288.349988694"/>
+        <Elm word="Reworked" freq="-288.349988694"/>
+        <Elm word="config_options" freq="-288.349988694"/>
+        <Elm word="joined" freq="-288.349988694"/>
+        <Elm word="ones" freq="-288.349988694"/>
+        <Elm word="fixed" freq="-288.350421134"/>
+        <Elm word="enable" freq="-288.350421134"/>
+        <Elm word="possible" freq="-288.350421134"/>
+        <Elm word="--with-other-libc" freq="-288.350421134"/>
+        <Elm word="log" freq="-288.350421134"/>
+        <Elm word="quotes" freq="-288.350421134"/>
+        <Elm word="--raid" freq="-288.350421134"/>
+        <Elm word="RAID" freq="-288.350421134"/>
+        <Elm word="oddly-placed" freq="-288.350421134"/>
+        <Elm word="TCP" freq="-288.350421134"/>
+        <Elm word="tree" freq="-288.350421134"/>
+        <Elm word="early" freq="-288.350421134"/>
+        <Elm word="actually" freq="-288.350421134"/>
+        <Elm word="support" freq="-288.350421134"/>
+        <Elm word="applied" freq="-288.350421134"/>
+        <Elm word="4.0" freq="-288.350421134"/>
+        <Elm word="modifications" freq="-288.350421134"/>
+        <Elm word="&quot;make&quot;" freq="-288.350421134"/>
+        <Elm word="push" freq="-648.952719202"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="maintainability"/>
+      <annotation name="cleanup"/>
+      <annotation name="portability"/>
+      <annotation name="documentation"/>
+
+      <Document time="1031169917." author="lenz@mysql.com" document="history annotate diffs \n  \n  - Removed some obsolete pieces of code (get rid of using rsh and rcp) \n  - Added some code comments \n  - Reworked help text to match the options available \n  - Heavily reworked GetOptions, removed some obsolete ones and joined others \n  - make_options and config_options can now be given multiple times \n  - simplified code that added configure options dependent on given options \n  \n "/>
+      <Files>
+        <File name="Build-tools/Do-compile" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="lenz@mysql.com" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="-" freq="-2.0583881325"/>
+        <Elm word="options" freq="-2.751535313"/>
+        <Elm word="code" freq="-2.751535313"/>
+        <Elm word="given" freq="-3.1570004212"/>
+        <Elm word="obsolete" freq="-3.1570004212"/>
+        <Elm word="annotate" freq="-3.8501476017"/>
+        <Elm word="history" freq="-3.8501476017"/>
+        <Elm word="diffs" freq="-3.8501476017"/>
+        <Elm word="added" freq="-3.8501476017"/>
+        <Elm word="configure" freq="-3.8501476017"/>
+        <Elm word="using" freq="-3.8501476017"/>
+        <Elm word="times" freq="-3.8501476017"/>
+        <Elm word="rid" freq="-3.8501476017"/>
+        <Elm word="text" freq="-3.8501476017"/>
+        <Elm word="simplified" freq="-3.8501476017"/>
+        <Elm word="Added" freq="-3.8501476017"/>
+        <Elm word="match" freq="-3.8501476017"/>
+        <Elm word="(get" freq="-3.8501476017"/>
+        <Elm word="help" freq="-3.8501476017"/>
+        <Elm word="make_options" freq="-3.8501476017"/>
+        <Elm word="dependent" freq="-3.8501476017"/>
+        <Elm word="rcp)" freq="-3.8501476017"/>
+        <Elm word="comments" freq="-3.8501476017"/>
+        <Elm word="rsh" freq="-3.8501476017"/>
+        <Elm word="reworked" freq="-3.8501476017"/>
+        <Elm word="Removed" freq="-3.8501476017"/>
+        <Elm word="removed" freq="-3.8501476017"/>
+        <Elm word="multiple" freq="-3.8501476017"/>
+        <Elm word="GetOptions," freq="-3.8501476017"/>
+        <Elm word="Heavily" freq="-3.8501476017"/>
+        <Elm word="pieces" freq="-3.8501476017"/>
+        <Elm word="available" freq="-3.8501476017"/>
+        <Elm word="Reworked" freq="-3.8501476017"/>
+        <Elm word="config_options" freq="-3.8501476017"/>
+        <Elm word="joined" freq="-3.8501476017"/>
+        <Elm word="ones" freq="-3.8501476017"/>
+        <Elm word="Remove" freq="-100."/>
+        <Elm word="make" freq="-100."/>
+        <Elm word="Windows" freq="-100."/>
+        <Elm word="fix" freq="-100."/>
+        <Elm word="SCCS" freq="-100."/>
+        <Elm word="files" freq="-100."/>
+        <Elm word="merged" freq="-100."/>
+        <Elm word="InnoDB" freq="-100."/>
+        <Elm word="Changelog" freq="-100."/>
+        <Elm word="bug" freq="-100."/>
+        <Elm word="push" freq="-100."/>
+        <Elm word="Fixed" freq="-100."/>
+        <Elm word="changelog" freq="-100."/>
+        <Elm word="sure" freq="-100."/>
+        <Elm word="latch" freq="-100."/>
+        <Elm word="i/o" freq="-100."/>
+        <Elm word="Fix" freq="-100."/>
+        <Elm word="read" freq="-100."/>
+        <Elm word="size" freq="-100."/>
+        <Elm word="sequential" freq="-100."/>
+        <Elm word="long," freq="-100."/>
+        <Elm word="assertion" freq="-100."/>
+        <Elm word="AIX" freq="-100."/>
+        <Elm word="params" freq="-100."/>
+        <Elm word="assert" freq="-100."/>
+        <Elm word="previous" freq="-100."/>
+        <Elm word="-&gt;" freq="-100."/>
+        <Elm word="wait" freq="-100."/>
+        <Elm word="fail" freq="-100."/>
+        <Elm word="mysql-test/t/rpl000016.test" freq="-100."/>
+        <Elm word="Increase" freq="-100."/>
+        <Elm word="time" freq="-100."/>
+        <Elm word="ran" freq="-100."/>
+        <Elm word="600" freq="-100."/>
+        <Elm word="Make" freq="-100."/>
+        <Elm word="stack" freq="-100."/>
+        <Elm word="slower" freq="-100."/>
+        <Elm word="Cleanup" freq="-100."/>
+        <Elm word="innobase_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="normal" freq="-100."/>
+        <Elm word="trx0undo.c" freq="-100."/>
+        <Elm word="tablespace" freq="-100."/>
+        <Elm word="mysql-test/t/rpl_rotate_logs.test" freq="-100."/>
+        <Elm word="Start" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="kB" freq="-100."/>
+        <Elm word="typos" freq="-100."/>
+        <Elm word="XP" freq="-100."/>
+        <Elm word="seconds" freq="-100."/>
+        <Elm word="Rename:" freq="-100."/>
+        <Elm word="threads" freq="-100."/>
+        <Elm word="32" freq="-100."/>
+        <Elm word="erroneously" freq="-100."/>
+        <Elm word="unbuffered" freq="-288.290704394"/>
+        <Elm word="4" freq="-288.290704394"/>
+        <Elm word="remove" freq="-288.294489728"/>
+        <Elm word="Add" freq="-288.35473956"/>
+        <Elm word="ChangeLog" freq="-288.498533311"/>
+        <Elm word="results" freq="-288.539132527"/>
+        <Elm word="out-of-sync" freq="-288.583651508"/>
+        <Elm word="error" freq="-288.583651508"/>
+        <Elm word="Improved" freq="-288.583651508"/>
+        <Elm word="frm" freq="-288.583651508"/>
+        <Elm word="message" freq="-288.583651508"/>
+        <Elm word="redefined" freq="-288.682961656"/>
+        <Elm word="caused" freq="-288.682961656"/>
+        <Elm word="potential" freq="-288.682961656"/>
+        <Elm word="memory" freq="-288.682961656"/>
+        <Elm word="allow" freq="-288.682961656"/>
+        <Elm word="include" freq="-288.682961656"/>
+        <Elm word="unistd.h" freq="-288.682961656"/>
+        <Elm word="alloca," freq="-288.682961656"/>
+        <Elm word="leak" freq="-288.682961656"/>
+        <Elm word="compilation" freq="-288.682961656"/>
+        <Elm word="BDB" freq="-288.689012023"/>
+        <Elm word="TABLE" freq="-288.699065486"/>
+        <Elm word="table" freq="-288.699065486"/>
+        <Elm word="option" freq="-288.718883623"/>
+        <Elm word="long" freq="-288.745440551"/>
+        <Elm word="visible" freq="-288.745440551"/>
+        <Elm word="consistent" freq="-288.745440551"/>
+        <Elm word="happened" freq="-288.745440551"/>
+        <Elm word="index" freq="-288.745440551"/>
+        <Elm word="hold" freq="-288.745440551"/>
+        <Elm word="record" freq="-288.745440551"/>
+        <Elm word="finding" freq="-288.745440551"/>
+        <Elm word="scanned" freq="-288.745440551"/>
+        <Elm word="current" freq="-288.745440551"/>
+        <Elm word="bugfix" freq="-288.748195965"/>
+        <Elm word="LOCK+modify+OPTIMIZE" freq="-288.748195965"/>
+        <Elm word="sources" freq="-288.794641914"/>
+        <Elm word="lexer" freq="-288.794641914"/>
+        <Elm word="grammar" freq="-288.794641914"/>
+        <Elm word="internal" freq="-288.794641914"/>
+        <Elm word="SQL" freq="-288.794641914"/>
+        <Elm word="interpreter" freq="-288.794641914"/>
+        <Elm word="buf_page_print" freq="-289.353445113"/>
+        <Elm word="typo:" freq="-289.353445113"/>
+        <Elm word="ALTER" freq="-289.382159204"/>
+        <Elm word="Better" freq="-289.382159204"/>
+        <Elm word="Little" freq="-289.382159204"/>
+        <Elm word="alter" freq="-289.382159204"/>
+        <Elm word="tables" freq="-289.382159204"/>
+        <Elm word="nasty" freq="-289.382159204"/>
+        <Elm word="semaphore" freq="-289.387843113"/>
+        <Elm word="creation" freq="-289.387843113"/>
+        <Elm word="diagnostics" freq="-289.387843113"/>
+        <Elm word="1," freq="-289.387843113"/>
+        <Elm word="starting" freq="-289.387843113"/>
+        <Elm word="0," freq="-289.387843113"/>
+        <Elm word="track" freq="-289.387843113"/>
+        <Elm word="innodb_flush_log_at_trx_commit" freq="-289.387843113"/>
+        <Elm word="values" freq="-289.387843113"/>
+        <Elm word="3.23.52" freq="-289.387843113"/>
+        <Elm word="2" freq="-289.387843113"/>
+        <Elm word="failed" freq="-289.387843113"/>
+        <Elm word="innodb_fast_shutdown" freq="-289.396331982"/>
+        <Elm word="shutdown" freq="-289.396331982"/>
+        <Elm word="default)" freq="-289.396331982"/>
+        <Elm word="(=" freq="-289.396331982"/>
+        <Elm word="quickly," freq="-289.396331982"/>
+        <Elm word="did" freq="-289.396331982"/>
+        <Elm word="problematic" freq="-289.402368228"/>
+        <Elm word="drop" freq="-289.402368228"/>
+        <Elm word="used," freq="-289.402368228"/>
+        <Elm word="Allow" freq="-289.402368228"/>
+        <Elm word="CREATE" freq="-289.402368228"/>
+        <Elm word="innodb_force_recovery" freq="-289.402368228"/>
+        <Elm word="DROP" freq="-289.402368228"/>
+        <Elm word="user" freq="-289.402368228"/>
+        <Elm word="fixed" freq="-289.427980014"/>
+        <Elm word="enable" freq="-289.427980014"/>
+        <Elm word="possible" freq="-289.427980014"/>
+        <Elm word="--with-other-libc" freq="-289.427980014"/>
+        <Elm word="log" freq="-289.427980014"/>
+        <Elm word="quotes" freq="-289.427980014"/>
+        <Elm word="--raid" freq="-289.427980014"/>
+        <Elm word="--make-options" freq="-289.427980014"/>
+        <Elm word="RAID" freq="-289.427980014"/>
+        <Elm word="oddly-placed" freq="-289.427980014"/>
+        <Elm word="TCP" freq="-289.427980014"/>
+        <Elm word="tree" freq="-289.427980014"/>
+        <Elm word="early" freq="-289.427980014"/>
+        <Elm word="actually" freq="-289.427980014"/>
+        <Elm word="support" freq="-289.427980014"/>
+        <Elm word="--libwrap" freq="-289.427980014"/>
+        <Elm word="applied" freq="-289.427980014"/>
+        <Elm word="4.0" freq="-289.427980014"/>
+        <Elm word="pass" freq="-289.427980014"/>
+        <Elm word="modifications" freq="-289.427980014"/>
+        <Elm word="work" freq="-289.427980014"/>
+        <Elm word="&quot;make&quot;" freq="-289.427980014"/>
+        <Elm word="wrapper" freq="-289.427980014"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="efficiency"/>
+      <annotation name="optimization"/>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1031467033." author="heikki@mysql.fi" document="history annotate diffs \n  \n The option (= default) innodb_fast_shutdown did not always make the shutdown quickly, fix that \n  \n "/>
+      <Files>
+        <File name="innobase/srv/srv0srv.c" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="heikki@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="annotate" freq="-2.4849066498"/>
+        <Elm word="history" freq="-2.4849066498"/>
+        <Elm word="diffs" freq="-2.4849066498"/>
+        <Elm word="option" freq="-2.4849066498"/>
+        <Elm word="make" freq="-2.4849066498"/>
+        <Elm word="fix" freq="-2.4849066498"/>
+        <Elm word="innodb_fast_shutdown" freq="-2.4849066498"/>
+        <Elm word="shutdown" freq="-2.4849066498"/>
+        <Elm word="default)" freq="-2.4849066498"/>
+        <Elm word="(=" freq="-2.4849066498"/>
+        <Elm word="quickly," freq="-2.4849066498"/>
+        <Elm word="did" freq="-2.4849066498"/>
+        <Elm word="-" freq="-100."/>
+        <Elm word="added" freq="-100."/>
+        <Elm word="options" freq="-100."/>
+        <Elm word="Remove" freq="-100."/>
+        <Elm word="configure" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="using" freq="-100."/>
+        <Elm word="Windows" freq="-100."/>
+        <Elm word="given" freq="-100."/>
+        <Elm word="files" freq="-100."/>
+        <Elm word="times" freq="-100."/>
+        <Elm word="InnoDB" freq="-100."/>
+        <Elm word="long" freq="-100."/>
+        <Elm word="bug" freq="-100."/>
+        <Elm word="fixed" freq="-100."/>
+        <Elm word="BDB" freq="-100."/>
+        <Elm word="remove" freq="-100."/>
+        <Elm word="Fixed" freq="-100."/>
+        <Elm word="changelog" freq="-100."/>
+        <Elm word="sure" freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="obsolete" freq="-100."/>
+        <Elm word="latch" freq="-100."/>
+        <Elm word="i/o" freq="-100."/>
+        <Elm word="Fix" freq="-100."/>
+        <Elm word="enable" freq="-100."/>
+        <Elm word="read" freq="-100."/>
+        <Elm word="table" freq="-100."/>
+        <Elm word="visible" freq="-100."/>
+        <Elm word="size" freq="-100."/>
+        <Elm word="sequential" freq="-100."/>
+        <Elm word="rid" freq="-100."/>
+        <Elm word="long," freq="-100."/>
+        <Elm word="text" freq="-100."/>
+        <Elm word="possible" freq="-100."/>
+        <Elm word="sources" freq="-100."/>
+        <Elm word="--with-other-libc" freq="-100."/>
+        <Elm word="log" freq="-100."/>
+        <Elm word="1," freq="-100."/>
+        <Elm word="starting" freq="-100."/>
+        <Elm word="simplified" freq="-100."/>
+        <Elm word="redefined" freq="-100."/>
+        <Elm word="ALTER" freq="-100."/>
+        <Elm word="assertion" freq="-100."/>
+        <Elm word="0," freq="-100."/>
+        <Elm word="out-of-sync" freq="-100."/>
+        <Elm word="caused" freq="-100."/>
+        <Elm word="error" freq="-100."/>
+        <Elm word="Added" freq="-100."/>
+        <Elm word="lexer" freq="-100."/>
+        <Elm word="grammar" freq="-100."/>
+        <Elm word="AIX" freq="-100."/>
+        <Elm word="quotes" freq="-100."/>
+        <Elm word="params" freq="-100."/>
+        <Elm word="problematic" freq="-100."/>
+        <Elm word="match" freq="-100."/>
+        <Elm word="--raid" freq="-100."/>
+        <Elm word="--make-options" freq="-100."/>
+        <Elm word="internal" freq="-100."/>
+        <Elm word="assert" freq="-100."/>
+        <Elm word="RAID" freq="-100."/>
+        <Elm word="(get" freq="-100."/>
+        <Elm word="results" freq="-100."/>
+        <Elm word="help" freq="-100."/>
+        <Elm word="previous" freq="-100."/>
+        <Elm word="oddly-placed" freq="-100."/>
+        <Elm word="TCP" freq="-100."/>
+        <Elm word="-&gt;" freq="-100."/>
+        <Elm word="make_options" freq="-100."/>
+        <Elm word="Improved" freq="-100."/>
+        <Elm word="tree" freq="-100."/>
+        <Elm word="wait" freq="-100."/>
+        <Elm word="fail" freq="-100."/>
+        <Elm word="consistent" freq="-100."/>
+        <Elm word="bugfix" freq="-100."/>
+        <Elm word="semaphore" freq="-100."/>
+        <Elm word="frm" freq="-100."/>
+        <Elm word="early" freq="-100."/>
+        <Elm word="potential" freq="-100."/>
+        <Elm word="message" freq="-100."/>
+        <Elm word="memory" freq="-100."/>
+        <Elm word="drop" freq="-100."/>
+        <Elm word="dependent" freq="-100."/>
+        <Elm word="creation" freq="-100."/>
+        <Elm word="buf_page_print" freq="-100."/>
+        <Elm word="mysql-test/t/rpl000016.test" freq="-100."/>
+        <Elm word="Better" freq="-100."/>
+        <Elm word="Little" freq="-100."/>
+        <Elm word="Increase" freq="-100."/>
+        <Elm word="time" freq="-100."/>
+        <Elm word="rcp)" freq="-100."/>
+        <Elm word="actually" freq="-100."/>
+        <Elm word="ran" freq="-100."/>
+        <Elm word="comments" freq="-100."/>
+        <Elm word="unbuffered" freq="-100."/>
+        <Elm word="rsh" freq="-100."/>
+        <Elm word="600" freq="-100."/>
+        <Elm word="ChangeLog" freq="-100."/>
+        <Elm word="happened" freq="-100."/>
+        <Elm word="Make" freq="-100."/>
+        <Elm word="support" freq="-100."/>
+        <Elm word="--libwrap" freq="-100."/>
+        <Elm word="stack" freq="-100."/>
+        <Elm word="applied" freq="-100."/>
+        <Elm word="reworked" freq="-100."/>
+        <Elm word="SQL" freq="-100."/>
+        <Elm word="track" freq="-100."/>
+        <Elm word="used," freq="-100."/>
+        <Elm word="innodb_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="Removed" freq="-100."/>
+        <Elm word="index" freq="-100."/>
+        <Elm word="allow" freq="-100."/>
+        <Elm word="removed" freq="-100."/>
+        <Elm word="hold" freq="-100."/>
+        <Elm word="slower" freq="-100."/>
+        <Elm word="Cleanup" freq="-100."/>
+        <Elm word="multiple" freq="-100."/>
+        <Elm word="alter" freq="-100."/>
+        <Elm word="values" freq="-100."/>
+        <Elm word="interpreter" freq="-100."/>
+        <Elm word="include" freq="-100."/>
+        <Elm word="innobase_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="tables" freq="-100."/>
+        <Elm word="normal" freq="-100."/>
+        <Elm word="unistd.h" freq="-100."/>
+        <Elm word="record" freq="-100."/>
+        <Elm word="trx0undo.c" freq="-100."/>
+        <Elm word="Allow" freq="-100."/>
+        <Elm word="alloca," freq="-100."/>
+        <Elm word="tablespace" freq="-100."/>
+        <Elm word="finding" freq="-100."/>
+        <Elm word="scanned" freq="-100."/>
+        <Elm word="leak" freq="-100."/>
+        <Elm word="nasty" freq="-100."/>
+        <Elm word="current" freq="-100."/>
+        <Elm word="GetOptions," freq="-100."/>
+        <Elm word="3.23.52" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Heavily" freq="-100."/>
+        <Elm word="mysql-test/t/rpl_rotate_logs.test" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="LOCK+modify+OPTIMIZE" freq="-100."/>
+        <Elm word="Start" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="kB" freq="-100."/>
+        <Elm word="pass" freq="-100."/>
+        <Elm word="innodb_force_recovery" freq="-100."/>
+        <Elm word="typos" freq="-100."/>
+        <Elm word="modifications" freq="-100."/>
+        <Elm word="XP" freq="-100."/>
+        <Elm word="pieces" freq="-100."/>
+        <Elm word="seconds" freq="-100."/>
+        <Elm word="DROP" freq="-100."/>
+        <Elm word="4" freq="-100."/>
+        <Elm word="2" freq="-100."/>
+        <Elm word="work" freq="-100."/>
+        <Elm word="Rename:" freq="-100."/>
+        <Elm word="compilation" freq="-100."/>
+        <Elm word="available" freq="-100."/>
+        <Elm word="&quot;make&quot;" freq="-100."/>
+        <Elm word="Reworked" freq="-100."/>
+        <Elm word="user" freq="-100."/>
+        <Elm word="wrapper" freq="-100."/>
+        <Elm word="config_options" freq="-100."/>
+        <Elm word="threads" freq="-100."/>
+        <Elm word="failed" freq="-100."/>
+        <Elm word="joined" freq="-100."/>
+        <Elm word="typo:" freq="-100."/>
+        <Elm word="32" freq="-100."/>
+        <Elm word="ones" freq="-100."/>
+        <Elm word="erroneously" freq="-100."/>
+        <Elm word="diagnostics" freq="-100."/>
+        <Elm word="code" freq="-288.062306621"/>
+        <Elm word="push" freq="-648.089672985"/>
+        <Elm word="Changelog" freq="-649.199796396"/>
+        <Elm word="SCCS" freq="-649.308047936"/>
+        <Elm word="merged" freq="-649.308047936"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="maintainability"/>
+      <annotation name="testability"/>
+
+      <Document time="1031469488." author="heikki@mysql.fi" document="history annotate diffs \n  \n Add diagnostics to track why a semaphore creation failed on Windows ME \n  \n "/>
+      <Files>
+        <File name="innobase/os/os0sync.c" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="heikki@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="annotate" freq="-2.302585093"/>
+        <Elm word="history" freq="-2.302585093"/>
+        <Elm word="diffs" freq="-2.302585093"/>
+        <Elm word="Windows" freq="-2.302585093"/>
+        <Elm word="Add" freq="-2.302585093"/>
+        <Elm word="semaphore" freq="-2.302585093"/>
+        <Elm word="creation" freq="-2.302585093"/>
+        <Elm word="track" freq="-2.302585093"/>
+        <Elm word="failed" freq="-2.302585093"/>
+        <Elm word="diagnostics" freq="-2.302585093"/>
+        <Elm word="-" freq="-100."/>
+        <Elm word="option" freq="-100."/>
+        <Elm word="added" freq="-100."/>
+        <Elm word="options" freq="-100."/>
+        <Elm word="Remove" freq="-100."/>
+        <Elm word="configure" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="code" freq="-100."/>
+        <Elm word="using" freq="-100."/>
+        <Elm word="fix" freq="-100."/>
+        <Elm word="given" freq="-100."/>
+        <Elm word="files" freq="-100."/>
+        <Elm word="times" freq="-100."/>
+        <Elm word="InnoDB" freq="-100."/>
+        <Elm word="long" freq="-100."/>
+        <Elm word="bug" freq="-100."/>
+        <Elm word="fixed" freq="-100."/>
+        <Elm word="BDB" freq="-100."/>
+        <Elm word="remove" freq="-100."/>
+        <Elm word="Fixed" freq="-100."/>
+        <Elm word="changelog" freq="-100."/>
+        <Elm word="sure" freq="-100."/>
+        <Elm word="obsolete" freq="-100."/>
+        <Elm word="latch" freq="-100."/>
+        <Elm word="i/o" freq="-100."/>
+        <Elm word="enable" freq="-100."/>
+        <Elm word="read" freq="-100."/>
+        <Elm word="table" freq="-100."/>
+        <Elm word="visible" freq="-100."/>
+        <Elm word="size" freq="-100."/>
+        <Elm word="innodb_fast_shutdown" freq="-100."/>
+        <Elm word="sequential" freq="-100."/>
+        <Elm word="shutdown" freq="-100."/>
+        <Elm word="rid" freq="-100."/>
+        <Elm word="long," freq="-100."/>
+        <Elm word="text" freq="-100."/>
+        <Elm word="possible" freq="-100."/>
+        <Elm word="sources" freq="-100."/>
+        <Elm word="--with-other-libc" freq="-100."/>
+        <Elm word="default)" freq="-100."/>
+        <Elm word="log" freq="-100."/>
+        <Elm word="1," freq="-100."/>
+        <Elm word="starting" freq="-100."/>
+        <Elm word="simplified" freq="-100."/>
+        <Elm word="redefined" freq="-100."/>
+        <Elm word="ALTER" freq="-100."/>
+        <Elm word="assertion" freq="-100."/>
+        <Elm word="0," freq="-100."/>
+        <Elm word="out-of-sync" freq="-100."/>
+        <Elm word="caused" freq="-100."/>
+        <Elm word="error" freq="-100."/>
+        <Elm word="Added" freq="-100."/>
+        <Elm word="lexer" freq="-100."/>
+        <Elm word="grammar" freq="-100."/>
+        <Elm word="AIX" freq="-100."/>
+        <Elm word="quotes" freq="-100."/>
+        <Elm word="params" freq="-100."/>
+        <Elm word="problematic" freq="-100."/>
+        <Elm word="match" freq="-100."/>
+        <Elm word="--raid" freq="-100."/>
+        <Elm word="--make-options" freq="-100."/>
+        <Elm word="internal" freq="-100."/>
+        <Elm word="assert" freq="-100."/>
+        <Elm word="RAID" freq="-100."/>
+        <Elm word="(get" freq="-100."/>
+        <Elm word="results" freq="-100."/>
+        <Elm word="help" freq="-100."/>
+        <Elm word="previous" freq="-100."/>
+        <Elm word="oddly-placed" freq="-100."/>
+        <Elm word="TCP" freq="-100."/>
+        <Elm word="-&gt;" freq="-100."/>
+        <Elm word="make_options" freq="-100."/>
+        <Elm word="Improved" freq="-100."/>
+        <Elm word="tree" freq="-100."/>
+        <Elm word="wait" freq="-100."/>
+        <Elm word="fail" freq="-100."/>
+        <Elm word="consistent" freq="-100."/>
+        <Elm word="bugfix" freq="-100."/>
+        <Elm word="frm" freq="-100."/>
+        <Elm word="early" freq="-100."/>
+        <Elm word="potential" freq="-100."/>
+        <Elm word="message" freq="-100."/>
+        <Elm word="memory" freq="-100."/>
+        <Elm word="drop" freq="-100."/>
+        <Elm word="dependent" freq="-100."/>
+        <Elm word="buf_page_print" freq="-100."/>
+        <Elm word="mysql-test/t/rpl000016.test" freq="-100."/>
+        <Elm word="Better" freq="-100."/>
+        <Elm word="Little" freq="-100."/>
+        <Elm word="Increase" freq="-100."/>
+        <Elm word="time" freq="-100."/>
+        <Elm word="rcp)" freq="-100."/>
+        <Elm word="actually" freq="-100."/>
+        <Elm word="ran" freq="-100."/>
+        <Elm word="comments" freq="-100."/>
+        <Elm word="unbuffered" freq="-100."/>
+        <Elm word="rsh" freq="-100."/>
+        <Elm word="600" freq="-100."/>
+        <Elm word="ChangeLog" freq="-100."/>
+        <Elm word="happened" freq="-100."/>
+        <Elm word="Make" freq="-100."/>
+        <Elm word="support" freq="-100."/>
+        <Elm word="--libwrap" freq="-100."/>
+        <Elm word="stack" freq="-100."/>
+        <Elm word="applied" freq="-100."/>
+        <Elm word="reworked" freq="-100."/>
+        <Elm word="(=" freq="-100."/>
+        <Elm word="SQL" freq="-100."/>
+        <Elm word="used," freq="-100."/>
+        <Elm word="innodb_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="Removed" freq="-100."/>
+        <Elm word="index" freq="-100."/>
+        <Elm word="allow" freq="-100."/>
+        <Elm word="removed" freq="-100."/>
+        <Elm word="hold" freq="-100."/>
+        <Elm word="slower" freq="-100."/>
+        <Elm word="multiple" freq="-100."/>
+        <Elm word="alter" freq="-100."/>
+        <Elm word="values" freq="-100."/>
+        <Elm word="interpreter" freq="-100."/>
+        <Elm word="include" freq="-100."/>
+        <Elm word="innobase_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="tables" freq="-100."/>
+        <Elm word="normal" freq="-100."/>
+        <Elm word="unistd.h" freq="-100."/>
+        <Elm word="quickly," freq="-100."/>
+        <Elm word="record" freq="-100."/>
+        <Elm word="trx0undo.c" freq="-100."/>
+        <Elm word="Allow" freq="-100."/>
+        <Elm word="alloca," freq="-100."/>
+        <Elm word="tablespace" freq="-100."/>
+        <Elm word="finding" freq="-100."/>
+        <Elm word="scanned" freq="-100."/>
+        <Elm word="leak" freq="-100."/>
+        <Elm word="nasty" freq="-100."/>
+        <Elm word="current" freq="-100."/>
+        <Elm word="GetOptions," freq="-100."/>
+        <Elm word="3.23.52" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Heavily" freq="-100."/>
+        <Elm word="mysql-test/t/rpl_rotate_logs.test" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="LOCK+modify+OPTIMIZE" freq="-100."/>
+        <Elm word="Start" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="kB" freq="-100."/>
+        <Elm word="pass" freq="-100."/>
+        <Elm word="innodb_force_recovery" freq="-100."/>
+        <Elm word="typos" freq="-100."/>
+        <Elm word="modifications" freq="-100."/>
+        <Elm word="XP" freq="-100."/>
+        <Elm word="pieces" freq="-100."/>
+        <Elm word="seconds" freq="-100."/>
+        <Elm word="DROP" freq="-100."/>
+        <Elm word="4" freq="-100."/>
+        <Elm word="2" freq="-100."/>
+        <Elm word="work" freq="-100."/>
+        <Elm word="Rename:" freq="-100."/>
+        <Elm word="compilation" freq="-100."/>
+        <Elm word="available" freq="-100."/>
+        <Elm word="&quot;make&quot;" freq="-100."/>
+        <Elm word="Reworked" freq="-100."/>
+        <Elm word="user" freq="-100."/>
+        <Elm word="wrapper" freq="-100."/>
+        <Elm word="config_options" freq="-100."/>
+        <Elm word="threads" freq="-100."/>
+        <Elm word="joined" freq="-100."/>
+        <Elm word="typo:" freq="-100."/>
+        <Elm word="32" freq="-100."/>
+        <Elm word="ones" freq="-100."/>
+        <Elm word="erroneously" freq="-100."/>
+        <Elm word="did" freq="-100."/>
+        <Elm word="push" freq="-647.542708315"/>
+        <Elm word="Changelog" freq="-648.652831726"/>
+        <Elm word="SCCS" freq="-648.761083266"/>
+        <Elm word="merged" freq="-648.761083266"/>
+        <Elm word="make" freq="-649.173614153"/>
+        <Elm word="Cleanup" freq="-649.401805567"/>
+        <Elm word="Fix" freq="-649.476664128"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="unknown"/>
+
+      <Document time="1031644176." author="heikki@mysql.fi" document="history annotate diffs \n  \n innodb_flush_log_at_trx_commit can have values 0, 1, 2 starting from 3.23.52 \n  \n "/>
+      <Files>
+        <File name="sql/ha_innobase.cc" count="1"/>
+        <File name="sql/ha_innobase.h" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="heikki@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="annotate" freq="-2.302585093"/>
+        <Elm word="history" freq="-2.302585093"/>
+        <Elm word="diffs" freq="-2.302585093"/>
+        <Elm word="1," freq="-2.302585093"/>
+        <Elm word="starting" freq="-2.302585093"/>
+        <Elm word="0," freq="-2.302585093"/>
+        <Elm word="innodb_flush_log_at_trx_commit" freq="-2.302585093"/>
+        <Elm word="values" freq="-2.302585093"/>
+        <Elm word="3.23.52" freq="-2.302585093"/>
+        <Elm word="2" freq="-2.302585093"/>
+        <Elm word="-" freq="-100."/>
+        <Elm word="option" freq="-100."/>
+        <Elm word="added" freq="-100."/>
+        <Elm word="options" freq="-100."/>
+        <Elm word="Remove" freq="-100."/>
+        <Elm word="configure" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="code" freq="-100."/>
+        <Elm word="using" freq="-100."/>
+        <Elm word="Windows" freq="-100."/>
+        <Elm word="fix" freq="-100."/>
+        <Elm word="given" freq="-100."/>
+        <Elm word="files" freq="-100."/>
+        <Elm word="times" freq="-100."/>
+        <Elm word="InnoDB" freq="-100."/>
+        <Elm word="long" freq="-100."/>
+        <Elm word="bug" freq="-100."/>
+        <Elm word="fixed" freq="-100."/>
+        <Elm word="BDB" freq="-100."/>
+        <Elm word="remove" freq="-100."/>
+        <Elm word="Fixed" freq="-100."/>
+        <Elm word="changelog" freq="-100."/>
+        <Elm word="sure" freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="obsolete" freq="-100."/>
+        <Elm word="latch" freq="-100."/>
+        <Elm word="i/o" freq="-100."/>
+        <Elm word="enable" freq="-100."/>
+        <Elm word="read" freq="-100."/>
+        <Elm word="table" freq="-100."/>
+        <Elm word="visible" freq="-100."/>
+        <Elm word="size" freq="-100."/>
+        <Elm word="innodb_fast_shutdown" freq="-100."/>
+        <Elm word="sequential" freq="-100."/>
+        <Elm word="shutdown" freq="-100."/>
+        <Elm word="rid" freq="-100."/>
+        <Elm word="long," freq="-100."/>
+        <Elm word="text" freq="-100."/>
+        <Elm word="possible" freq="-100."/>
+        <Elm word="sources" freq="-100."/>
+        <Elm word="--with-other-libc" freq="-100."/>
+        <Elm word="default)" freq="-100."/>
+        <Elm word="log" freq="-100."/>
+        <Elm word="simplified" freq="-100."/>
+        <Elm word="redefined" freq="-100."/>
+        <Elm word="ALTER" freq="-100."/>
+        <Elm word="assertion" freq="-100."/>
+        <Elm word="out-of-sync" freq="-100."/>
+        <Elm word="caused" freq="-100."/>
+        <Elm word="error" freq="-100."/>
+        <Elm word="Added" freq="-100."/>
+        <Elm word="lexer" freq="-100."/>
+        <Elm word="grammar" freq="-100."/>
+        <Elm word="AIX" freq="-100."/>
+        <Elm word="quotes" freq="-100."/>
+        <Elm word="params" freq="-100."/>
+        <Elm word="problematic" freq="-100."/>
+        <Elm word="match" freq="-100."/>
+        <Elm word="--raid" freq="-100."/>
+        <Elm word="--make-options" freq="-100."/>
+        <Elm word="internal" freq="-100."/>
+        <Elm word="assert" freq="-100."/>
+        <Elm word="RAID" freq="-100."/>
+        <Elm word="(get" freq="-100."/>
+        <Elm word="results" freq="-100."/>
+        <Elm word="help" freq="-100."/>
+        <Elm word="previous" freq="-100."/>
+        <Elm word="oddly-placed" freq="-100."/>
+        <Elm word="TCP" freq="-100."/>
+        <Elm word="-&gt;" freq="-100."/>
+        <Elm word="make_options" freq="-100."/>
+        <Elm word="Improved" freq="-100."/>
+        <Elm word="tree" freq="-100."/>
+        <Elm word="wait" freq="-100."/>
+        <Elm word="fail" freq="-100."/>
+        <Elm word="consistent" freq="-100."/>
+        <Elm word="bugfix" freq="-100."/>
+        <Elm word="semaphore" freq="-100."/>
+        <Elm word="frm" freq="-100."/>
+        <Elm word="early" freq="-100."/>
+        <Elm word="potential" freq="-100."/>
+        <Elm word="message" freq="-100."/>
+        <Elm word="memory" freq="-100."/>
+        <Elm word="drop" freq="-100."/>
+        <Elm word="dependent" freq="-100."/>
+        <Elm word="creation" freq="-100."/>
+        <Elm word="buf_page_print" freq="-100."/>
+        <Elm word="mysql-test/t/rpl000016.test" freq="-100."/>
+        <Elm word="Better" freq="-100."/>
+        <Elm word="Little" freq="-100."/>
+        <Elm word="Increase" freq="-100."/>
+        <Elm word="time" freq="-100."/>
+        <Elm word="rcp)" freq="-100."/>
+        <Elm word="actually" freq="-100."/>
+        <Elm word="ran" freq="-100."/>
+        <Elm word="comments" freq="-100."/>
+        <Elm word="unbuffered" freq="-100."/>
+        <Elm word="rsh" freq="-100."/>
+        <Elm word="600" freq="-100."/>
+        <Elm word="ChangeLog" freq="-100."/>
+        <Elm word="happened" freq="-100."/>
+        <Elm word="Make" freq="-100."/>
+        <Elm word="support" freq="-100."/>
+        <Elm word="--libwrap" freq="-100."/>
+        <Elm word="stack" freq="-100."/>
+        <Elm word="applied" freq="-100."/>
+        <Elm word="reworked" freq="-100."/>
+        <Elm word="(=" freq="-100."/>
+        <Elm word="SQL" freq="-100."/>
+        <Elm word="track" freq="-100."/>
+        <Elm word="used," freq="-100."/>
+        <Elm word="Removed" freq="-100."/>
+        <Elm word="index" freq="-100."/>
+        <Elm word="allow" freq="-100."/>
+        <Elm word="removed" freq="-100."/>
+        <Elm word="hold" freq="-100."/>
+        <Elm word="slower" freq="-100."/>
+        <Elm word="multiple" freq="-100."/>
+        <Elm word="alter" freq="-100."/>
+        <Elm word="interpreter" freq="-100."/>
+        <Elm word="include" freq="-100."/>
+        <Elm word="innobase_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="tables" freq="-100."/>
+        <Elm word="normal" freq="-100."/>
+        <Elm word="unistd.h" freq="-100."/>
+        <Elm word="quickly," freq="-100."/>
+        <Elm word="record" freq="-100."/>
+        <Elm word="trx0undo.c" freq="-100."/>
+        <Elm word="Allow" freq="-100."/>
+        <Elm word="alloca," freq="-100."/>
+        <Elm word="tablespace" freq="-100."/>
+        <Elm word="finding" freq="-100."/>
+        <Elm word="scanned" freq="-100."/>
+        <Elm word="leak" freq="-100."/>
+        <Elm word="nasty" freq="-100."/>
+        <Elm word="current" freq="-100."/>
+        <Elm word="GetOptions," freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Heavily" freq="-100."/>
+        <Elm word="mysql-test/t/rpl_rotate_logs.test" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="LOCK+modify+OPTIMIZE" freq="-100."/>
+        <Elm word="Start" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="kB" freq="-100."/>
+        <Elm word="pass" freq="-100."/>
+        <Elm word="innodb_force_recovery" freq="-100."/>
+        <Elm word="typos" freq="-100."/>
+        <Elm word="modifications" freq="-100."/>
+        <Elm word="XP" freq="-100."/>
+        <Elm word="pieces" freq="-100."/>
+        <Elm word="seconds" freq="-100."/>
+        <Elm word="DROP" freq="-100."/>
+        <Elm word="4" freq="-100."/>
+        <Elm word="work" freq="-100."/>
+        <Elm word="Rename:" freq="-100."/>
+        <Elm word="compilation" freq="-100."/>
+        <Elm word="available" freq="-100."/>
+        <Elm word="&quot;make&quot;" freq="-100."/>
+        <Elm word="Reworked" freq="-100."/>
+        <Elm word="user" freq="-100."/>
+        <Elm word="wrapper" freq="-100."/>
+        <Elm word="config_options" freq="-100."/>
+        <Elm word="threads" freq="-100."/>
+        <Elm word="failed" freq="-100."/>
+        <Elm word="joined" freq="-100."/>
+        <Elm word="typo:" freq="-100."/>
+        <Elm word="32" freq="-100."/>
+        <Elm word="ones" freq="-100."/>
+        <Elm word="erroneously" freq="-100."/>
+        <Elm word="diagnostics" freq="-100."/>
+        <Elm word="did" freq="-100."/>
+        <Elm word="push" freq="-647.542708315"/>
+        <Elm word="Changelog" freq="-648.652831726"/>
+        <Elm word="SCCS" freq="-648.761083266"/>
+        <Elm word="merged" freq="-648.761083266"/>
+        <Elm word="make" freq="-649.173614153"/>
+        <Elm word="Cleanup" freq="-649.401805567"/>
+        <Elm word="Fix" freq="-649.476664128"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1031688358." author="heikki@mysql.fi" document="history annotate diffs \n  \n Fix a typo: should be buf_page_print \n  \n "/>
+      <Files>
+        <File name="innobase/os/os0file.c" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="heikki@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="annotate" freq="-1.7917594692"/>
+        <Elm word="history" freq="-1.7917594692"/>
+        <Elm word="diffs" freq="-1.7917594692"/>
+        <Elm word="Fix" freq="-1.7917594692"/>
+        <Elm word="buf_page_print" freq="-1.7917594692"/>
+        <Elm word="typo:" freq="-1.7917594692"/>
+        <Elm word="-" freq="-100."/>
+        <Elm word="option" freq="-100."/>
+        <Elm word="added" freq="-100."/>
+        <Elm word="options" freq="-100."/>
+        <Elm word="configure" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="code" freq="-100."/>
+        <Elm word="using" freq="-100."/>
+        <Elm word="Windows" freq="-100."/>
+        <Elm word="fix" freq="-100."/>
+        <Elm word="given" freq="-100."/>
+        <Elm word="files" freq="-100."/>
+        <Elm word="times" freq="-100."/>
+        <Elm word="InnoDB" freq="-100."/>
+        <Elm word="long" freq="-100."/>
+        <Elm word="bug" freq="-100."/>
+        <Elm word="fixed" freq="-100."/>
+        <Elm word="BDB" freq="-100."/>
+        <Elm word="remove" freq="-100."/>
+        <Elm word="Fixed" freq="-100."/>
+        <Elm word="changelog" freq="-100."/>
+        <Elm word="sure" freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="obsolete" freq="-100."/>
+        <Elm word="i/o" freq="-100."/>
+        <Elm word="enable" freq="-100."/>
+        <Elm word="read" freq="-100."/>
+        <Elm word="table" freq="-100."/>
+        <Elm word="visible" freq="-100."/>
+        <Elm word="size" freq="-100."/>
+        <Elm word="innodb_fast_shutdown" freq="-100."/>
+        <Elm word="sequential" freq="-100."/>
+        <Elm word="shutdown" freq="-100."/>
+        <Elm word="rid" freq="-100."/>
+        <Elm word="text" freq="-100."/>
+        <Elm word="possible" freq="-100."/>
+        <Elm word="sources" freq="-100."/>
+        <Elm word="--with-other-libc" freq="-100."/>
+        <Elm word="default)" freq="-100."/>
+        <Elm word="log" freq="-100."/>
+        <Elm word="1," freq="-100."/>
+        <Elm word="starting" freq="-100."/>
+        <Elm word="simplified" freq="-100."/>
+        <Elm word="redefined" freq="-100."/>
+        <Elm word="ALTER" freq="-100."/>
+        <Elm word="assertion" freq="-100."/>
+        <Elm word="0," freq="-100."/>
+        <Elm word="out-of-sync" freq="-100."/>
+        <Elm word="caused" freq="-100."/>
+        <Elm word="error" freq="-100."/>
+        <Elm word="Added" freq="-100."/>
+        <Elm word="lexer" freq="-100."/>
+        <Elm word="grammar" freq="-100."/>
+        <Elm word="AIX" freq="-100."/>
+        <Elm word="quotes" freq="-100."/>
+        <Elm word="problematic" freq="-100."/>
+        <Elm word="match" freq="-100."/>
+        <Elm word="--raid" freq="-100."/>
+        <Elm word="--make-options" freq="-100."/>
+        <Elm word="internal" freq="-100."/>
+        <Elm word="assert" freq="-100."/>
+        <Elm word="RAID" freq="-100."/>
+        <Elm word="(get" freq="-100."/>
+        <Elm word="results" freq="-100."/>
+        <Elm word="help" freq="-100."/>
+        <Elm word="oddly-placed" freq="-100."/>
+        <Elm word="TCP" freq="-100."/>
+        <Elm word="make_options" freq="-100."/>
+        <Elm word="Improved" freq="-100."/>
+        <Elm word="tree" freq="-100."/>
+        <Elm word="wait" freq="-100."/>
+        <Elm word="fail" freq="-100."/>
+        <Elm word="consistent" freq="-100."/>
+        <Elm word="bugfix" freq="-100."/>
+        <Elm word="semaphore" freq="-100."/>
+        <Elm word="frm" freq="-100."/>
+        <Elm word="early" freq="-100."/>
+        <Elm word="potential" freq="-100."/>
+        <Elm word="message" freq="-100."/>
+        <Elm word="memory" freq="-100."/>
+        <Elm word="drop" freq="-100."/>
+        <Elm word="dependent" freq="-100."/>
+        <Elm word="creation" freq="-100."/>
+        <Elm word="Better" freq="-100."/>
+        <Elm word="Little" freq="-100."/>
+        <Elm word="Increase" freq="-100."/>
+        <Elm word="time" freq="-100."/>
+        <Elm word="rcp)" freq="-100."/>
+        <Elm word="actually" freq="-100."/>
+        <Elm word="ran" freq="-100."/>
+        <Elm word="comments" freq="-100."/>
+        <Elm word="unbuffered" freq="-100."/>
+        <Elm word="rsh" freq="-100."/>
+        <Elm word="600" freq="-100."/>
+        <Elm word="ChangeLog" freq="-100."/>
+        <Elm word="happened" freq="-100."/>
+        <Elm word="Make" freq="-100."/>
+        <Elm word="support" freq="-100."/>
+        <Elm word="--libwrap" freq="-100."/>
+        <Elm word="stack" freq="-100."/>
+        <Elm word="applied" freq="-100."/>
+        <Elm word="reworked" freq="-100."/>
+        <Elm word="(=" freq="-100."/>
+        <Elm word="SQL" freq="-100."/>
+        <Elm word="track" freq="-100."/>
+        <Elm word="used," freq="-100."/>
+        <Elm word="innodb_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="Removed" freq="-100."/>
+        <Elm word="index" freq="-100."/>
+        <Elm word="allow" freq="-100."/>
+        <Elm word="removed" freq="-100."/>
+        <Elm word="hold" freq="-100."/>
+        <Elm word="slower" freq="-100."/>
+        <Elm word="multiple" freq="-100."/>
+        <Elm word="alter" freq="-100."/>
+        <Elm word="values" freq="-100."/>
+        <Elm word="interpreter" freq="-100."/>
+        <Elm word="include" freq="-100."/>
+        <Elm word="tables" freq="-100."/>
+        <Elm word="normal" freq="-100."/>
+        <Elm word="unistd.h" freq="-100."/>
+        <Elm word="quickly," freq="-100."/>
+        <Elm word="record" freq="-100."/>
+        <Elm word="trx0undo.c" freq="-100."/>
+        <Elm word="Allow" freq="-100."/>
+        <Elm word="alloca," freq="-100."/>
+        <Elm word="tablespace" freq="-100."/>
+        <Elm word="finding" freq="-100."/>
+        <Elm word="scanned" freq="-100."/>
+        <Elm word="leak" freq="-100."/>
+        <Elm word="nasty" freq="-100."/>
+        <Elm word="current" freq="-100."/>
+        <Elm word="GetOptions," freq="-100."/>
+        <Elm word="3.23.52" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Heavily" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="LOCK+modify+OPTIMIZE" freq="-100."/>
+        <Elm word="Start" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="kB" freq="-100."/>
+        <Elm word="pass" freq="-100."/>
+        <Elm word="innodb_force_recovery" freq="-100."/>
+        <Elm word="modifications" freq="-100."/>
+        <Elm word="XP" freq="-100."/>
+        <Elm word="pieces" freq="-100."/>
+        <Elm word="seconds" freq="-100."/>
+        <Elm word="DROP" freq="-100."/>
+        <Elm word="4" freq="-100."/>
+        <Elm word="2" freq="-100."/>
+        <Elm word="work" freq="-100."/>
+        <Elm word="compilation" freq="-100."/>
+        <Elm word="available" freq="-100."/>
+        <Elm word="&quot;make&quot;" freq="-100."/>
+        <Elm word="Reworked" freq="-100."/>
+        <Elm word="user" freq="-100."/>
+        <Elm word="wrapper" freq="-100."/>
+        <Elm word="config_options" freq="-100."/>
+        <Elm word="threads" freq="-100."/>
+        <Elm word="failed" freq="-100."/>
+        <Elm word="joined" freq="-100."/>
+        <Elm word="32" freq="-100."/>
+        <Elm word="ones" freq="-100."/>
+        <Elm word="erroneously" freq="-100."/>
+        <Elm word="diagnostics" freq="-100."/>
+        <Elm word="did" freq="-100."/>
+        <Elm word="push" freq="-646.010231443"/>
+        <Elm word="Changelog" freq="-647.120354855"/>
+        <Elm word="SCCS" freq="-647.228606394"/>
+        <Elm word="merged" freq="-647.228606394"/>
+        <Elm word="make" freq="-647.641137282"/>
+        <Elm word="Cleanup" freq="-647.869328695"/>
+        <Elm word="long," freq="-648.327493194"/>
+        <Elm word="params" freq="-648.327493194"/>
+        <Elm word="previous" freq="-648.327493194"/>
+        <Elm word="innobase_flush_log_at_trx_commit" freq="-648.327493194"/>
+        <Elm word="typos" freq="-648.327493194"/>
+        <Elm word="latch" freq="-648.745434457"/>
+        <Elm word="Remove" freq="-648.954213611"/>
+        <Elm word="-&gt;" freq="-648.968215495"/>
+        <Elm word="mysql-test/t/rpl000016.test" freq="-648.968215495"/>
+        <Elm word="mysql-test/t/rpl_rotate_logs.test" freq="-648.968215495"/>
+        <Elm word="Rename:" freq="-648.968215495"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1031950505." author="heikki@mysql.fi" document="history annotate diffs \n  \n Allow CREATE TABLE and DROP TABLE even if innodb_force_recovery is used, the user can drop a problematic table \n  \n "/>
+      <Files>
+        <File name="innobase/row/row0mysql.c" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="heikki@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="TABLE" freq="-1.9459101491"/>
+        <Elm word="annotate" freq="-2.6390573296"/>
+        <Elm word="history" freq="-2.6390573296"/>
+        <Elm word="diffs" freq="-2.6390573296"/>
+        <Elm word="table" freq="-2.6390573296"/>
+        <Elm word="problematic" freq="-2.6390573296"/>
+        <Elm word="drop" freq="-2.6390573296"/>
+        <Elm word="used," freq="-2.6390573296"/>
+        <Elm word="Allow" freq="-2.6390573296"/>
+        <Elm word="CREATE" freq="-2.6390573296"/>
+        <Elm word="innodb_force_recovery" freq="-2.6390573296"/>
+        <Elm word="DROP" freq="-2.6390573296"/>
+        <Elm word="user" freq="-2.6390573296"/>
+        <Elm word="-" freq="-100."/>
+        <Elm word="option" freq="-100."/>
+        <Elm word="added" freq="-100."/>
+        <Elm word="options" freq="-100."/>
+        <Elm word="Remove" freq="-100."/>
+        <Elm word="configure" freq="-100."/>
+        <Elm word="make" freq="-100."/>
+        <Elm word="using" freq="-100."/>
+        <Elm word="Windows" freq="-100."/>
+        <Elm word="fix" freq="-100."/>
+        <Elm word="SCCS" freq="-100."/>
+        <Elm word="files" freq="-100."/>
+        <Elm word="merged" freq="-100."/>
+        <Elm word="times" freq="-100."/>
+        <Elm word="InnoDB" freq="-100."/>
+        <Elm word="long" freq="-100."/>
+        <Elm word="Changelog" freq="-100."/>
+        <Elm word="bug" freq="-100."/>
+        <Elm word="BDB" freq="-100."/>
+        <Elm word="remove" freq="-100."/>
+        <Elm word="Fixed" freq="-100."/>
+        <Elm word="changelog" freq="-100."/>
+        <Elm word="sure" freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="latch" freq="-100."/>
+        <Elm word="i/o" freq="-100."/>
+        <Elm word="Fix" freq="-100."/>
+        <Elm word="read" freq="-100."/>
+        <Elm word="visible" freq="-100."/>
+        <Elm word="size" freq="-100."/>
+        <Elm word="sequential" freq="-100."/>
+        <Elm word="shutdown" freq="-100."/>
+        <Elm word="long," freq="-100."/>
+        <Elm word="possible" freq="-100."/>
+        <Elm word="sources" freq="-100."/>
+        <Elm word="--with-other-libc" freq="-100."/>
+        <Elm word="log" freq="-100."/>
+        <Elm word="1," freq="-100."/>
+        <Elm word="starting" freq="-100."/>
+        <Elm word="redefined" freq="-100."/>
+        <Elm word="ALTER" freq="-100."/>
+        <Elm word="assertion" freq="-100."/>
+        <Elm word="0," freq="-100."/>
+        <Elm word="out-of-sync" freq="-100."/>
+        <Elm word="caused" freq="-100."/>
+        <Elm word="error" freq="-100."/>
+        <Elm word="lexer" freq="-100."/>
+        <Elm word="grammar" freq="-100."/>
+        <Elm word="AIX" freq="-100."/>
+        <Elm word="quotes" freq="-100."/>
+        <Elm word="params" freq="-100."/>
+        <Elm word="match" freq="-100."/>
+        <Elm word="--raid" freq="-100."/>
+        <Elm word="--make-options" freq="-100."/>
+        <Elm word="internal" freq="-100."/>
+        <Elm word="assert" freq="-100."/>
+        <Elm word="RAID" freq="-100."/>
+        <Elm word="(get" freq="-100."/>
+        <Elm word="results" freq="-100."/>
+        <Elm word="help" freq="-100."/>
+        <Elm word="previous" freq="-100."/>
+        <Elm word="oddly-placed" freq="-100."/>
+        <Elm word="TCP" freq="-100."/>
+        <Elm word="-&gt;" freq="-100."/>
+        <Elm word="Improved" freq="-100."/>
+        <Elm word="tree" freq="-100."/>
+        <Elm word="wait" freq="-100."/>
+        <Elm word="fail" freq="-100."/>
+        <Elm word="consistent" freq="-100."/>
+        <Elm word="bugfix" freq="-100."/>
+        <Elm word="semaphore" freq="-100."/>
+        <Elm word="frm" freq="-100."/>
+        <Elm word="early" freq="-100."/>
+        <Elm word="potential" freq="-100."/>
+        <Elm word="message" freq="-100."/>
+        <Elm word="memory" freq="-100."/>
+        <Elm word="dependent" freq="-100."/>
+        <Elm word="creation" freq="-100."/>
+        <Elm word="buf_page_print" freq="-100."/>
+        <Elm word="mysql-test/t/rpl000016.test" freq="-100."/>
+        <Elm word="Better" freq="-100."/>
+        <Elm word="Little" freq="-100."/>
+        <Elm word="Increase" freq="-100."/>
+        <Elm word="time" freq="-100."/>
+        <Elm word="actually" freq="-100."/>
+        <Elm word="ran" freq="-100."/>
+        <Elm word="unbuffered" freq="-100."/>
+        <Elm word="600" freq="-100."/>
+        <Elm word="ChangeLog" freq="-100."/>
+        <Elm word="happened" freq="-100."/>
+        <Elm word="Make" freq="-100."/>
+        <Elm word="support" freq="-100."/>
+        <Elm word="--libwrap" freq="-100."/>
+        <Elm word="stack" freq="-100."/>
+        <Elm word="applied" freq="-100."/>
+        <Elm word="(=" freq="-100."/>
+        <Elm word="SQL" freq="-100."/>
+        <Elm word="track" freq="-100."/>
+        <Elm word="innodb_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="index" freq="-100."/>
+        <Elm word="allow" freq="-100."/>
+        <Elm word="hold" freq="-100."/>
+        <Elm word="slower" freq="-100."/>
+        <Elm word="Cleanup" freq="-100."/>
+        <Elm word="alter" freq="-100."/>
+        <Elm word="values" freq="-100."/>
+        <Elm word="interpreter" freq="-100."/>
+        <Elm word="include" freq="-100."/>
+        <Elm word="innobase_flush_log_at_trx_commit" freq="-100."/>
+        <Elm word="tables" freq="-100."/>
+        <Elm word="normal" freq="-100."/>
+        <Elm word="unistd.h" freq="-100."/>
+        <Elm word="quickly," freq="-100."/>
+        <Elm word="record" freq="-100."/>
+        <Elm word="trx0undo.c" freq="-100."/>
+        <Elm word="alloca," freq="-100."/>
+        <Elm word="tablespace" freq="-100."/>
+        <Elm word="finding" freq="-100."/>
+        <Elm word="scanned" freq="-100."/>
+        <Elm word="leak" freq="-100."/>
+        <Elm word="nasty" freq="-100."/>
+        <Elm word="current" freq="-100."/>
+        <Elm word="3.23.52" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="mysql-test/t/rpl_rotate_logs.test" freq="-100."/>
+        <Elm word="LOCK+modify+OPTIMIZE" freq="-100."/>
+        <Elm word="Start" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="kB" freq="-100."/>
+        <Elm word="pass" freq="-100."/>
+        <Elm word="typos" freq="-100."/>
+        <Elm word="modifications" freq="-100."/>
+        <Elm word="XP" freq="-100."/>
+        <Elm word="seconds" freq="-100."/>
+        <Elm word="4" freq="-100."/>
+        <Elm word="2" freq="-100."/>
+        <Elm word="work" freq="-100."/>
+        <Elm word="Rename:" freq="-100."/>
+        <Elm word="compilation" freq="-100."/>
+        <Elm word="&quot;make&quot;" freq="-100."/>
+        <Elm word="wrapper" freq="-100."/>
+        <Elm word="config_options" freq="-100."/>
+        <Elm word="threads" freq="-100."/>
+        <Elm word="failed" freq="-100."/>
+        <Elm word="typo:" freq="-100."/>
+        <Elm word="32" freq="-100."/>
+        <Elm word="erroneously" freq="-100."/>
+        <Elm word="diagnostics" freq="-100."/>
+        <Elm word="did" freq="-100."/>
+        <Elm word="innodb_fast_shutdown" freq="-288.18524171"/>
+        <Elm word="default)" freq="-288.18524171"/>
+        <Elm word="code" freq="-288.216457301"/>
+        <Elm word="given" freq="-288.216457301"/>
+        <Elm word="obsolete" freq="-288.216457301"/>
+        <Elm word="rid" freq="-288.216457301"/>
+        <Elm word="text" freq="-288.216457301"/>
+        <Elm word="simplified" freq="-288.216457301"/>
+        <Elm word="Added" freq="-288.216457301"/>
+        <Elm word="make_options" freq="-288.216457301"/>
+        <Elm word="rcp)" freq="-288.216457301"/>
+        <Elm word="comments" freq="-288.216457301"/>
+        <Elm word="rsh" freq="-288.216457301"/>
+        <Elm word="reworked" freq="-288.216457301"/>
+        <Elm word="Removed" freq="-288.216457301"/>
+        <Elm word="removed" freq="-288.216457301"/>
+        <Elm word="multiple" freq="-288.216457301"/>
+        <Elm word="GetOptions," freq="-288.216457301"/>
+        <Elm word="Heavily" freq="-288.216457301"/>
+        <Elm word="pieces" freq="-288.216457301"/>
+        <Elm word="available" freq="-288.216457301"/>
+        <Elm word="Reworked" freq="-288.216457301"/>
+        <Elm word="joined" freq="-288.216457301"/>
+        <Elm word="ones" freq="-288.216457301"/>
+        <Elm word="fixed" freq="-288.216889742"/>
+        <Elm word="enable" freq="-288.216889742"/>
+        <Elm word="push" freq="-648.552125024"/>
+      </Elements>
+    </Topic>
+  </Period>
+  

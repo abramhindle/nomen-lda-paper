@@ -1,0 +1,1348 @@
+<Period time="1014347404.">
+    <Documents>
+      <Document time="1014495708." author="serg@mysql.com" document="history annotate diffs \n  \n qsort implementation backported from 4.0 tree, the old one was buggy \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="mysys/mf_qsort.c"/>
+        </Files>
+      </Document>
+      <Document time="1015279461." author="serg@mysql.com" document="history annotate diffs \n  \n apply freebsd/alpha portability patch \n  \n ">
+        <Files>
+          <File name="sql/mysqld.cc"/>
+        </Files>
+      </Document>
+      <Document time="1015368388." author="monty@mysql.fi" document="history annotate diffs \n  \n Cleanup \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="bdb/dist/s_recover"/>
+          <File name="configure.in"/>
+          <File name="libmysql/libmysql.c"/>
+          <File name="mysql-test/mysql-test-run.sh"/>
+          <File name="scripts/safe_mysqld.sh"/>
+          <File name="sql-bench/server-cfg.sh"/>
+          <File name="sql/sql_yacc.yy"/>
+        </Files>
+      </Document>
+      <Document time="1015368571." author="monty@mysql.fi" document="history annotate diffs \n  \n Auto merged \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="mysql-test/mysql-test-run.sh"/>
+        </Files>
+      </Document>
+      <Document time="1015375094." author="monty@mysql.fi" document="history annotate diffs \n  \n Changelog \n  \n configure.in@1.164  2002-03-05 17:38:15+02:00  monty@mysql.fi \n history annotate diffs \n  \n Version change \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="Docs/manual.texi"/>
+          <File name="sql/sql_base.cc"/>
+        </Files>
+      </Document>
+      <Document time="1015464989." author="monty@mysql.fi" document="history annotate diffs \n  \n Fixed typo \n  \n ">
+        <Files>
+          <File name="Build-tools/Do-compile"/>
+          <File name="ChangeSet"/>
+          <File name="Docs/manual.texi"/>
+          <File name="mysql-test/r/type_date.result"/>
+          <File name="mysql-test/t/type_date.test"/>
+          <File name="scripts/mysqlhotcopy.sh"/>
+          <File name="sql/item_timefunc.cc"/>
+          <File name="sql/item_timefunc.h"/>
+        </Files>
+      </Document>
+      <Document time="1015477577." author="monty@mysql.fi" document="history annotate diffs \n  \n Changelog \n  \n acinclude.m4@1.45  2002-03-06 22:06:18+02:00  monty@mysql.fi \n history annotate diffs \n  \n Cleanup --help output \n  \n configure.in@1.165  2002-03-06 22:06:18+02:00  monty@mysql.fi \n history annotate diffs \n  \n Fix for --enable-local-infile \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="Docs/manual.texi"/>
+          <File name="libmysql/libmysql.c"/>
+        </Files>
+      </Document>
+      <Document time="1015958301." author="monty@mysql.fi" document="history annotate diffs \n  \n Changelog \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="Docs/manual.texi"/>
+          <File name="client/mysql.cc"/>
+          <File name="client/mysqlimport.c"/>
+          <File name="include/global.h"/>
+          <File name="mysql-test/r/create.result"/>
+          <File name="mysql-test/t/create.test"/>
+          <File name="scripts/mysqlhotcopy.sh"/>
+          <File name="sql/ha_isam.cc"/>
+          <File name="sql/ha_myisam.cc"/>
+          <File name="sql/ha_myisammrg.cc"/>
+          <File name="sql/mysqld.cc"/>
+          <File name="sql/sql_acl.cc"/>
+        </Files>
+      </Document>
+      <Document time="1016241229." author="monty@mysql.fi" document="history annotate diffs \n  \n Decrease net_buffer_length to not get problems when running against mysqld with same max_allowed_packet \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="client/mysqldump.c"/>
+        </Files>
+      </Document>
+      <Document time="1016254905." author="monty@mysql.fi" document="all diffs diff -Nur style patch Bookmarkable link \n  \n Fix max buffer length \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="client/mysql.cc"/>
+          <File name="client/mysqldump.c"/>
+        </Files>
+      </Document>
+      <Document time="1016758625." author="heikki@mysql.fi" document="history annotate diffs \n  \n Merge InnoDB-3.23.50 \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="innobase/btr/btr0btr.c"/>
+          <File name="innobase/btr/btr0cur.c"/>
+          <File name="innobase/btr/btr0sea.c"/>
+          <File name="innobase/buf/buf0buf.c"/>
+          <File name="innobase/buf/buf0flu.c"/>
+          <File name="innobase/dict/dict0dict.c"/>
+          <File name="innobase/dict/dict0load.c"/>
+          <File name="innobase/fil/fil0fil.c"/>
+          <File name="innobase/fsp/fsp0fsp.c"/>
+          <File name="innobase/include/buf0flu.h"/>
+          <File name="innobase/include/dict0dict.h"/>
+          <File name="innobase/include/fil0fil.h"/>
+          <File name="innobase/include/fsp0fsp.h"/>
+          <File name="innobase/include/log0log.h"/>
+          <File name="innobase/include/log0recv.h"/>
+          <File name="innobase/include/mem0mem.h"/>
+          <File name="innobase/include/os0file.h"/>
+          <File name="innobase/include/row0mysql.h"/>
+          <File name="innobase/include/srv0srv.h"/>
+          <File name="innobase/include/srv0start.h"/>
+          <File name="innobase/include/trx0sys.h"/>
+          <File name="innobase/include/ut0byte.h"/>
+          <File name="innobase/include/ut0rnd.h"/>
+          <File name="innobase/include/ut0ut.h"/>
+          <File name="innobase/log/log0log.c"/>
+          <File name="innobase/log/log0recv.c"/>
+          <File name="innobase/mem/mem0mem.c"/>
+          <File name="innobase/os/os0file.c"/>
+          <File name="innobase/rem/rem0cmp.c"/>
+          <File name="innobase/row/row0ins.c"/>
+          <File name="innobase/row/row0mysql.c"/>
+          <File name="innobase/row/row0sel.c"/>
+          <File name="innobase/row/row0upd.c"/>
+          <File name="innobase/srv/srv0srv.c"/>
+          <File name="innobase/srv/srv0start.c"/>
+          <File name="innobase/trx/trx0sys.c"/>
+          <File name="innobase/ut/ut0mem.c"/>
+          <File name="innobase/ut/ut0ut.c"/>
+          <File name="sql/ha_innobase.cc"/>
+          <File name="sql/ha_innobase.h"/>
+        </Files>
+      </Document>
+      <Document time="1016759118." author="heikki@mysql.fi" document="history annotate diffs \n  \n Add foreign key defs to SHOW CREATE TABLE \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="sql/handler.cc"/>
+          <File name="sql/handler.h"/>
+          <File name="sql/sql_show.cc"/>
+        </Files>
+      </Document>
+      <Document time="1016760229." author="heikki@mysql.fi" document="history annotate diffs \n  \n Forgot to merge these to 3.23.50 \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="innobase/include/sync0rw.ic"/>
+          <File name="innobase/include/ut0byte.ic"/>
+        </Files>
+      </Document>
+      <Document time="1016777206." author="monty@mysql.fi" document="history annotate diffs \n  \n Changelog \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="Docs/manual.texi"/>
+          <File name="client/mysqldump.c"/>
+          <File name="mysql-test/t/range.test"/>
+          <File name="sql/sql_base.cc"/>
+          <File name="sql/sql_rename.cc"/>
+        </Files>
+      </Document>
+      <Document time="1016784214." author="monty@mysql.fi" document="all diffs diff -Nur style patch Bookmarkable link \n  \n Fix for load data infile when no active database \n Fix for Solaris and gethostbyname_r \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="Docs/manual.texi"/>
+          <File name="client/mysql.cc"/>
+          <File name="sql/log_event.h"/>
+          <File name="sql/sql_load.cc"/>
+        </Files>
+      </Document>
+      <Document time="1016805485." author="monty@mysql.fi" document="history annotate diffs \n  \n SCCS merged \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="Docs/manual.texi"/>
+        </Files>
+      </Document>
+      <Document time="1016831021." author="monty@mysql.fi" document="history annotate diffs \n  \n Changelog \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="Docs/manual.texi"/>
+          <File name="myisam/myisampack.c"/>
+          <File name="mysql-test/r/range.result"/>
+          <File name="mysql-test/t/range.test"/>
+          <File name="sql/item_func.cc"/>
+          <File name="sql/item_func.h"/>
+          <File name="sql/sql_base.cc"/>
+          <File name="sql/sql_select.cc"/>
+        </Files>
+      </Document>
+    </Documents>
+    <Files>
+      <File name="innobase/srv/srv0srv.c" count="1"/>
+      <File name="sql/sql_base.cc" count="3"/>
+      <File name="sql/mysqld.cc" count="2"/>
+      <File name="innobase/ut/ut0mem.c" count="1"/>
+      <File name="innobase/include/buf0flu.h" count="1"/>
+      <File name="sql-bench/server-cfg.sh" count="1"/>
+      <File name="innobase/include/ut0rnd.h" count="1"/>
+      <File name="scripts/mysqlhotcopy.sh" count="2"/>
+      <File name="innobase/log/log0log.c" count="1"/>
+      <File name="sql/sql_select.cc" count="1"/>
+      <File name="sql/item_timefunc.cc" count="1"/>
+      <File name="innobase/include/os0file.h" count="1"/>
+      <File name="innobase/buf/buf0flu.c" count="1"/>
+      <File name="innobase/include/fil0fil.h" count="1"/>
+      <File name="innobase/include/ut0byte.ic" count="1"/>
+      <File name="libmysql/libmysql.c" count="2"/>
+      <File name="client/mysqldump.c" count="3"/>
+      <File name="innobase/row/row0mysql.c" count="1"/>
+      <File name="include/global.h" count="1"/>
+      <File name="innobase/btr/btr0cur.c" count="1"/>
+      <File name="innobase/btr/btr0sea.c" count="1"/>
+      <File name="sql/sql_show.cc" count="1"/>
+      <File name="sql/ha_innobase.cc" count="1"/>
+      <File name="sql/log_event.h" count="1"/>
+      <File name="innobase/os/os0file.c" count="1"/>
+      <File name="mysql-test/r/type_date.result" count="1"/>
+      <File name="sql/ha_myisammrg.cc" count="1"/>
+      <File name="innobase/dict/dict0load.c" count="1"/>
+      <File name="sql/sql_rename.cc" count="1"/>
+      <File name="innobase/include/srv0srv.h" count="1"/>
+      <File name="sql/ha_myisam.cc" count="1"/>
+      <File name="innobase/btr/btr0btr.c" count="1"/>
+      <File name="configure.in" count="1"/>
+      <File name="innobase/include/row0mysql.h" count="1"/>
+      <File name="innobase/include/ut0ut.h" count="1"/>
+      <File name="innobase/include/ut0byte.h" count="1"/>
+      <File name="sql/ha_isam.cc" count="1"/>
+      <File name="innobase/include/srv0start.h" count="1"/>
+      <File name="mysql-test/t/range.test" count="2"/>
+      <File name="innobase/mem/mem0mem.c" count="1"/>
+      <File name="sql/sql_yacc.yy" count="1"/>
+      <File name="bdb/dist/s_recover" count="1"/>
+      <File name="sql/sql_load.cc" count="1"/>
+      <File name="innobase/include/mem0mem.h" count="1"/>
+      <File name="innobase/fsp/fsp0fsp.c" count="1"/>
+      <File name="innobase/fil/fil0fil.c" count="1"/>
+      <File name="innobase/include/dict0dict.h" count="1"/>
+      <File name="innobase/include/trx0sys.h" count="1"/>
+      <File name="mysql-test/t/type_date.test" count="1"/>
+      <File name="mysys/mf_qsort.c" count="1"/>
+      <File name="innobase/srv/srv0start.c" count="1"/>
+      <File name="ChangeSet" count="16"/>
+      <File name="innobase/rem/rem0cmp.c" count="1"/>
+      <File name="mysql-test/r/range.result" count="1"/>
+      <File name="innobase/trx/trx0sys.c" count="1"/>
+      <File name="sql/handler.cc" count="1"/>
+      <File name="innobase/row/row0sel.c" count="1"/>
+      <File name="innobase/row/row0upd.c" count="1"/>
+      <File name="innobase/log/log0recv.c" count="1"/>
+      <File name="innobase/ut/ut0ut.c" count="1"/>
+      <File name="innobase/row/row0ins.c" count="1"/>
+      <File name="mysql-test/mysql-test-run.sh" count="2"/>
+      <File name="client/mysql.cc" count="3"/>
+      <File name="innobase/include/log0log.h" count="1"/>
+      <File name="scripts/safe_mysqld.sh" count="1"/>
+      <File name="sql/ha_innobase.h" count="1"/>
+      <File name="mysql-test/r/create.result" count="1"/>
+      <File name="innobase/include/sync0rw.ic" count="1"/>
+      <File name="sql/item_timefunc.h" count="1"/>
+      <File name="client/mysqlimport.c" count="1"/>
+      <File name="innobase/include/log0recv.h" count="1"/>
+      <File name="innobase/include/fsp0fsp.h" count="1"/>
+      <File name="sql/item_func.h" count="1"/>
+      <File name="mysql-test/t/create.test" count="1"/>
+      <File name="sql/handler.h" count="1"/>
+      <File name="innobase/dict/dict0dict.c" count="1"/>
+      <File name="myisam/myisampack.c" count="1"/>
+      <File name="sql/item_func.cc" count="1"/>
+      <File name="Docs/manual.texi" count="8"/>
+      <File name="innobase/buf/buf0buf.c" count="1"/>
+      <File name="Build-tools/Do-compile" count="1"/>
+      <File name="sql/sql_acl.cc" count="1"/>
+    </Files>
+    <Authors>
+      <Author name="monty@mysql.fi" count="12"/>
+      <Author name="serg@mysql.com" count="2"/>
+      <Author name="heikki@mysql.fi" count="3"/>
+    </Authors>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1014495708." author="serg@mysql.com" document="history annotate diffs \n  \n qsort implementation backported from 4.0 tree, the old one was buggy \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="mysys/mf_qsort.c" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="serg@mysql.com" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.302585093"/>
+        <Elm word="history" freq="-2.302585093"/>
+        <Elm word="annotate" freq="-2.302585093"/>
+        <Elm word="tree," freq="-2.302585093"/>
+        <Elm word="backported" freq="-2.302585093"/>
+        <Elm word="4.0" freq="-2.302585093"/>
+        <Elm word="old" freq="-2.302585093"/>
+        <Elm word="implementation" freq="-2.302585093"/>
+        <Elm word="qsort" freq="-2.302585093"/>
+        <Elm word="buggy" freq="-2.302585093"/>
+        <Elm word="22:06:18+02:00" freq="-100."/>
+        <Elm word="2002-03-06" freq="-100."/>
+        <Elm word="problems" freq="-100."/>
+        <Elm word="database" freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="data" freq="-100."/>
+        <Elm word="net_buffer_length" freq="-100."/>
+        <Elm word="infile" freq="-100."/>
+        <Elm word="Solaris" freq="-100."/>
+        <Elm word="Version" freq="-100."/>
+        <Elm word="acinclude.m4@1.45" freq="-100."/>
+        <Elm word="output" freq="-100."/>
+        <Elm word="running" freq="-100."/>
+        <Elm word="Merge" freq="-100."/>
+        <Elm word="key" freq="-100."/>
+        <Elm word="mysqld" freq="-100."/>
+        <Elm word="configure.in@1.165" freq="-100."/>
+        <Elm word="configure.in@1.164" freq="-100."/>
+        <Elm word="defs" freq="-100."/>
+        <Elm word="apply" freq="-100."/>
+        <Elm word="17:38:15+02:00" freq="-100."/>
+        <Elm word="load" freq="-100."/>
+        <Elm word="gethostbyname_r" freq="-100."/>
+        <Elm word="freebsd/alpha" freq="-100."/>
+        <Elm word="portability" freq="-100."/>
+        <Elm word="change" freq="-100."/>
+        <Elm word="max_allowed_packet" freq="-100."/>
+        <Elm word="buffer" freq="-100."/>
+        <Elm word="InnoDB-3.23.50" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="2002-03-05" freq="-100."/>
+        <Elm word="length" freq="-100."/>
+        <Elm word="active" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="Decrease" freq="-100."/>
+        <Elm word="--enable-local-infile" freq="-100."/>
+        <Elm word="--help" freq="-100."/>
+        <Elm word="foreign" freq="-100."/>
+        <Elm word="Changelog" freq="-531.360013946"/>
+        <Elm word="Fixed" freq="-532.569693056"/>
+        <Elm word="typo" freq="-532.569693056"/>
+        <Elm word="merged" freq="-532.690942299"/>
+        <Elm word="SCCS" freq="-532.690942299"/>
+        <Elm word="Auto" freq="-532.690942299"/>
+        <Elm word="patch" freq="-532.924718057"/>
+        <Elm word="Fix" freq="-532.958725781"/>
+        <Elm word="3.23.50" freq="-533.090570089"/>
+        <Elm word="merge" freq="-533.090570089"/>
+        <Elm word="Forgot" freq="-533.090570089"/>
+        <Elm word="Cleanup" freq="-533.682114431"/>
+        <Elm word="diff" freq="-533.758503"/>
+        <Elm word="style" freq="-533.758503013"/>
+        <Elm word="link" freq="-533.758503013"/>
+        <Elm word="Bookmarkable" freq="-533.758503013"/>
+        <Elm word="-Nur" freq="-533.758503013"/>
+        <Elm word="monty@mysql.fi" freq="-533.775186618"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="portability"/>
+
+      <Document time="1015279461." author="serg@mysql.com" document="history annotate diffs \n  \n apply freebsd/alpha portability patch \n  \n "/>
+      <Files>
+        <File name="sql/mysqld.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="serg@mysql.com" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-1.9459101491"/>
+        <Elm word="history" freq="-1.9459101491"/>
+        <Elm word="annotate" freq="-1.9459101491"/>
+        <Elm word="patch" freq="-1.9459101491"/>
+        <Elm word="apply" freq="-1.9459101491"/>
+        <Elm word="freebsd/alpha" freq="-1.9459101491"/>
+        <Elm word="portability" freq="-1.9459101491"/>
+        <Elm word="22:06:18+02:00" freq="-100."/>
+        <Elm word="2002-03-06" freq="-100."/>
+        <Elm word="problems" freq="-100."/>
+        <Elm word="database" freq="-100."/>
+        <Elm word="tree," freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="data" freq="-100."/>
+        <Elm word="net_buffer_length" freq="-100."/>
+        <Elm word="infile" freq="-100."/>
+        <Elm word="backported" freq="-100."/>
+        <Elm word="Solaris" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Version" freq="-100."/>
+        <Elm word="old" freq="-100."/>
+        <Elm word="acinclude.m4@1.45" freq="-100."/>
+        <Elm word="output" freq="-100."/>
+        <Elm word="running" freq="-100."/>
+        <Elm word="Merge" freq="-100."/>
+        <Elm word="key" freq="-100."/>
+        <Elm word="implementation" freq="-100."/>
+        <Elm word="mysqld" freq="-100."/>
+        <Elm word="configure.in@1.165" freq="-100."/>
+        <Elm word="configure.in@1.164" freq="-100."/>
+        <Elm word="defs" freq="-100."/>
+        <Elm word="qsort" freq="-100."/>
+        <Elm word="17:38:15+02:00" freq="-100."/>
+        <Elm word="load" freq="-100."/>
+        <Elm word="gethostbyname_r" freq="-100."/>
+        <Elm word="buggy" freq="-100."/>
+        <Elm word="change" freq="-100."/>
+        <Elm word="max_allowed_packet" freq="-100."/>
+        <Elm word="buffer" freq="-100."/>
+        <Elm word="InnoDB-3.23.50" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="2002-03-05" freq="-100."/>
+        <Elm word="length" freq="-100."/>
+        <Elm word="active" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="Decrease" freq="-100."/>
+        <Elm word="--enable-local-infile" freq="-100."/>
+        <Elm word="--help" freq="-100."/>
+        <Elm word="foreign" freq="-100."/>
+        <Elm word="Changelog" freq="-530.646664058"/>
+        <Elm word="Fixed" freq="-531.856343168"/>
+        <Elm word="typo" freq="-531.856343168"/>
+        <Elm word="merged" freq="-531.977592411"/>
+        <Elm word="SCCS" freq="-531.977592411"/>
+        <Elm word="Auto" freq="-531.977592411"/>
+        <Elm word="Fix" freq="-532.245375893"/>
+        <Elm word="3.23.50" freq="-532.377220201"/>
+        <Elm word="merge" freq="-532.377220201"/>
+        <Elm word="Forgot" freq="-532.377220201"/>
+        <Elm word="Cleanup" freq="-532.968764543"/>
+        <Elm word="diff" freq="-533.045153112"/>
+        <Elm word="style" freq="-533.045153125"/>
+        <Elm word="link" freq="-533.045153125"/>
+        <Elm word="Bookmarkable" freq="-533.045153125"/>
+        <Elm word="-Nur" freq="-533.045153125"/>
+        <Elm word="monty@mysql.fi" freq="-533.06183673"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="maintainability"/>
+      <annotation name="cleanup"/>
+
+      <Document time="1015368388." author="monty@mysql.fi" document="history annotate diffs \n  \n Cleanup \n  \n "/>
+      <Files>
+        <File name="sql/sql_yacc.yy" count="1"/>
+        <File name="sql-bench/server-cfg.sh" count="1"/>
+        <File name="configure.in" count="1"/>
+        <File name="ChangeSet" count="1"/>
+        <File name="mysql-test/mysql-test-run.sh" count="1"/>
+        <File name="libmysql/libmysql.c" count="1"/>
+        <File name="scripts/safe_mysqld.sh" count="1"/>
+        <File name="bdb/dist/s_recover" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-1.3862943611"/>
+        <Elm word="history" freq="-1.3862943611"/>
+        <Elm word="annotate" freq="-1.3862943611"/>
+        <Elm word="Cleanup" freq="-1.3862943611"/>
+        <Elm word="Changelog" freq="-529.527432482"/>
+        <Elm word="Fixed" freq="-530.737111592"/>
+        <Elm word="typo" freq="-530.737111592"/>
+        <Elm word="merged" freq="-530.858360835"/>
+        <Elm word="SCCS" freq="-530.858360835"/>
+        <Elm word="Auto" freq="-530.858360835"/>
+        <Elm word="patch" freq="-531.092136593"/>
+        <Elm word="Fix" freq="-531.126144317"/>
+        <Elm word="3.23.50" freq="-531.257988626"/>
+        <Elm word="merge" freq="-531.257988626"/>
+        <Elm word="Forgot" freq="-531.257988626"/>
+        <Elm word="diff" freq="-531.925921536"/>
+        <Elm word="style" freq="-531.92592155"/>
+        <Elm word="link" freq="-531.92592155"/>
+        <Elm word="Bookmarkable" freq="-531.92592155"/>
+        <Elm word="-Nur" freq="-531.92592155"/>
+        <Elm word="monty@mysql.fi" freq="-531.942605154"/>
+        <Elm word="Merge" freq="-533.184662455"/>
+        <Elm word="InnoDB-3.23.50" freq="-533.184662455"/>
+        <Elm word="apply" freq="-533.244420586"/>
+        <Elm word="freebsd/alpha" freq="-533.244420586"/>
+        <Elm word="portability" freq="-533.244420586"/>
+        <Elm word="problems" freq="-533.277170616"/>
+        <Elm word="Add" freq="-533.277170616"/>
+        <Elm word="net_buffer_length" freq="-533.277170616"/>
+        <Elm word="running" freq="-533.277170616"/>
+        <Elm word="key" freq="-533.277170616"/>
+        <Elm word="mysqld" freq="-533.277170616"/>
+        <Elm word="defs" freq="-533.277170616"/>
+        <Elm word="max_allowed_packet" freq="-533.277170616"/>
+        <Elm word="TABLE" freq="-533.277170616"/>
+        <Elm word="CREATE" freq="-533.277170616"/>
+        <Elm word="Decrease" freq="-533.277170616"/>
+        <Elm word="foreign" freq="-533.277170616"/>
+        <Elm word="tree," freq="-533.28855688"/>
+        <Elm word="backported" freq="-533.28855688"/>
+        <Elm word="4.0" freq="-533.28855688"/>
+        <Elm word="old" freq="-533.28855688"/>
+        <Elm word="implementation" freq="-533.28855688"/>
+        <Elm word="qsort" freq="-533.28855688"/>
+        <Elm word="buggy" freq="-533.28855688"/>
+        <Elm word="buffer" freq="-533.297843425"/>
+        <Elm word="length" freq="-533.297843425"/>
+        <Elm word="max" freq="-533.297843425"/>
+        <Elm word="Version" freq="-533.312078507"/>
+        <Elm word="configure.in@1.164" freq="-533.312078507"/>
+        <Elm word="17:38:15+02:00" freq="-533.312078507"/>
+        <Elm word="change" freq="-533.312078507"/>
+        <Elm word="2002-03-05" freq="-533.312078507"/>
+        <Elm word="database" freq="-533.326692429"/>
+        <Elm word="data" freq="-533.326692429"/>
+        <Elm word="infile" freq="-533.326692429"/>
+        <Elm word="Solaris" freq="-533.326692429"/>
+        <Elm word="load" freq="-533.326692429"/>
+        <Elm word="gethostbyname_r" freq="-533.326692429"/>
+        <Elm word="active" freq="-533.326692429"/>
+        <Elm word="22:06:18+02:00" freq="-533.345863197"/>
+        <Elm word="2002-03-06" freq="-533.345863197"/>
+        <Elm word="acinclude.m4@1.45" freq="-533.345863197"/>
+        <Elm word="output" freq="-533.345863197"/>
+        <Elm word="configure.in@1.165" freq="-533.345863197"/>
+        <Elm word="--enable-local-infile" freq="-533.345863197"/>
+        <Elm word="--help" freq="-533.345863197"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="unknown"/>
+
+      <Document time="1016805485." author="monty@mysql.fi" document="history annotate diffs \n  \n SCCS merged \n  \n "/>
+      <Document time="1016760229." author="heikki@mysql.fi" document="history annotate diffs \n  \n Forgot to merge these to 3.23.50 \n  \n "/>
+      <Document time="1015368571." author="monty@mysql.fi" document="history annotate diffs \n  \n Auto merged \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="3"/>
+        <File name="innobase/include/ut0byte.ic" count="1"/>
+        <File name="Docs/manual.texi" count="1"/>
+        <File name="innobase/include/sync0rw.ic" count="1"/>
+        <File name="mysql-test/mysql-test-run.sh" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="2"/>
+        <Author name="heikki@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-1.6739764336"/>
+        <Elm word="history" freq="-1.6739764336"/>
+        <Elm word="annotate" freq="-1.6739764336"/>
+        <Elm word="merged" freq="-2.0794415417"/>
+        <Elm word="SCCS" freq="-2.7725887222"/>
+        <Elm word="3.23.50" freq="-2.7725887222"/>
+        <Elm word="Auto" freq="-2.7725887222"/>
+        <Elm word="merge" freq="-2.7725887222"/>
+        <Elm word="Forgot" freq="-2.7725887222"/>
+        <Elm word="Fix" freq="-100."/>
+        <Elm word="monty@mysql.fi" freq="-100."/>
+        <Elm word="style" freq="-100."/>
+        <Elm word="link" freq="-100."/>
+        <Elm word="diff" freq="-100."/>
+        <Elm word="22:06:18+02:00" freq="-100."/>
+        <Elm word="Cleanup" freq="-100."/>
+        <Elm word="Bookmarkable" freq="-100."/>
+        <Elm word="-Nur" freq="-100."/>
+        <Elm word="2002-03-06" freq="-100."/>
+        <Elm word="problems" freq="-100."/>
+        <Elm word="database" freq="-100."/>
+        <Elm word="tree," freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="data" freq="-100."/>
+        <Elm word="net_buffer_length" freq="-100."/>
+        <Elm word="infile" freq="-100."/>
+        <Elm word="backported" freq="-100."/>
+        <Elm word="Solaris" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Version" freq="-100."/>
+        <Elm word="old" freq="-100."/>
+        <Elm word="acinclude.m4@1.45" freq="-100."/>
+        <Elm word="output" freq="-100."/>
+        <Elm word="running" freq="-100."/>
+        <Elm word="Merge" freq="-100."/>
+        <Elm word="key" freq="-100."/>
+        <Elm word="implementation" freq="-100."/>
+        <Elm word="mysqld" freq="-100."/>
+        <Elm word="configure.in@1.165" freq="-100."/>
+        <Elm word="configure.in@1.164" freq="-100."/>
+        <Elm word="defs" freq="-100."/>
+        <Elm word="qsort" freq="-100."/>
+        <Elm word="apply" freq="-100."/>
+        <Elm word="17:38:15+02:00" freq="-100."/>
+        <Elm word="load" freq="-100."/>
+        <Elm word="gethostbyname_r" freq="-100."/>
+        <Elm word="buggy" freq="-100."/>
+        <Elm word="freebsd/alpha" freq="-100."/>
+        <Elm word="portability" freq="-100."/>
+        <Elm word="change" freq="-100."/>
+        <Elm word="max_allowed_packet" freq="-100."/>
+        <Elm word="buffer" freq="-100."/>
+        <Elm word="InnoDB-3.23.50" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="2002-03-05" freq="-100."/>
+        <Elm word="length" freq="-100."/>
+        <Elm word="active" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="Decrease" freq="-100."/>
+        <Elm word="--enable-local-infile" freq="-100."/>
+        <Elm word="--help" freq="-100."/>
+        <Elm word="foreign" freq="-100."/>
+        <Elm word="Changelog" freq="-532.300021205"/>
+        <Elm word="Fixed" freq="-533.509700314"/>
+        <Elm word="typo" freq="-533.509700314"/>
+        <Elm word="patch" freq="-533.864725316"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="version" comment=""/>
+      <annotation name="portability"/>
+      <annotation name="documentation"/>
+
+      <Document time="1015375094." author="monty@mysql.fi" document="history annotate diffs \n  \n Changelog \n  \n configure.in@1.164  2002-03-05 17:38:15+02:00  monty@mysql.fi \n history annotate diffs \n  \n Version change \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="sql/sql_base.cc" count="1"/>
+        <File name="Docs/manual.texi" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-1.8718021769"/>
+        <Elm word="history" freq="-1.8718021769"/>
+        <Elm word="annotate" freq="-1.8718021769"/>
+        <Elm word="Changelog" freq="-2.5649493575"/>
+        <Elm word="monty@mysql.fi" freq="-2.5649493575"/>
+        <Elm word="Version" freq="-2.5649493575"/>
+        <Elm word="configure.in@1.164" freq="-2.5649493575"/>
+        <Elm word="17:38:15+02:00" freq="-2.5649493575"/>
+        <Elm word="change" freq="-2.5649493575"/>
+        <Elm word="2002-03-05" freq="-2.5649493575"/>
+        <Elm word="style" freq="-100."/>
+        <Elm word="link" freq="-100."/>
+        <Elm word="diff" freq="-100."/>
+        <Elm word="22:06:18+02:00" freq="-100."/>
+        <Elm word="Cleanup" freq="-100."/>
+        <Elm word="Bookmarkable" freq="-100."/>
+        <Elm word="-Nur" freq="-100."/>
+        <Elm word="2002-03-06" freq="-100."/>
+        <Elm word="problems" freq="-100."/>
+        <Elm word="database" freq="-100."/>
+        <Elm word="tree," freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="data" freq="-100."/>
+        <Elm word="net_buffer_length" freq="-100."/>
+        <Elm word="infile" freq="-100."/>
+        <Elm word="backported" freq="-100."/>
+        <Elm word="Solaris" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="old" freq="-100."/>
+        <Elm word="acinclude.m4@1.45" freq="-100."/>
+        <Elm word="output" freq="-100."/>
+        <Elm word="running" freq="-100."/>
+        <Elm word="Merge" freq="-100."/>
+        <Elm word="key" freq="-100."/>
+        <Elm word="implementation" freq="-100."/>
+        <Elm word="mysqld" freq="-100."/>
+        <Elm word="configure.in@1.165" freq="-100."/>
+        <Elm word="defs" freq="-100."/>
+        <Elm word="qsort" freq="-100."/>
+        <Elm word="apply" freq="-100."/>
+        <Elm word="load" freq="-100."/>
+        <Elm word="gethostbyname_r" freq="-100."/>
+        <Elm word="buggy" freq="-100."/>
+        <Elm word="freebsd/alpha" freq="-100."/>
+        <Elm word="portability" freq="-100."/>
+        <Elm word="max_allowed_packet" freq="-100."/>
+        <Elm word="buffer" freq="-100."/>
+        <Elm word="InnoDB-3.23.50" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="length" freq="-100."/>
+        <Elm word="active" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="Decrease" freq="-100."/>
+        <Elm word="--enable-local-infile" freq="-100."/>
+        <Elm word="--help" freq="-100."/>
+        <Elm word="foreign" freq="-100."/>
+        <Elm word="Fixed" freq="-533.094421584"/>
+        <Elm word="typo" freq="-533.094421584"/>
+        <Elm word="merged" freq="-533.215670828"/>
+        <Elm word="SCCS" freq="-533.215670828"/>
+        <Elm word="Auto" freq="-533.215670828"/>
+        <Elm word="patch" freq="-533.449446586"/>
+        <Elm word="Fix" freq="-533.483454309"/>
+        <Elm word="3.23.50" freq="-533.615298618"/>
+        <Elm word="merge" freq="-533.615298618"/>
+        <Elm word="Forgot" freq="-533.615298618"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="portability"/>
+      <annotation name="documentation"/>
+      <annotation name="unknown"/>
+
+      <Document time="1016831021." author="monty@mysql.fi" document="history annotate diffs \n  \n Changelog \n  \n "/>
+      <Document time="1016777206." author="monty@mysql.fi" document="history annotate diffs \n  \n Changelog \n  \n "/>
+      <Document time="1015958301." author="monty@mysql.fi" document="history annotate diffs \n  \n Changelog \n  \n "/>
+      <Document time="1015464989." author="monty@mysql.fi" document="history annotate diffs \n  \n Fixed typo \n  \n "/>
+      <Files>
+        <File name="myisam/myisampack.c" count="1"/>
+        <File name="sql/item_func.h" count="1"/>
+        <File name="client/mysqlimport.c" count="1"/>
+        <File name="sql/ha_myisam.cc" count="1"/>
+        <File name="mysql-test/r/range.result" count="1"/>
+        <File name="sql/item_timefunc.cc" count="1"/>
+        <File name="mysql-test/t/range.test" count="2"/>
+        <File name="sql/sql_rename.cc" count="1"/>
+        <File name="client/mysql.cc" count="1"/>
+        <File name="sql/sql_acl.cc" count="1"/>
+        <File name="Docs/manual.texi" count="4"/>
+        <File name="sql/ha_myisammrg.cc" count="1"/>
+        <File name="mysql-test/r/type_date.result" count="1"/>
+        <File name="mysql-test/r/create.result" count="1"/>
+        <File name="mysql-test/t/create.test" count="1"/>
+        <File name="scripts/mysqlhotcopy.sh" count="2"/>
+        <File name="sql/ha_isam.cc" count="1"/>
+        <File name="sql/sql_select.cc" count="1"/>
+        <File name="ChangeSet" count="4"/>
+        <File name="Build-tools/Do-compile" count="1"/>
+        <File name="client/mysqldump.c" count="1"/>
+        <File name="sql/item_func.cc" count="1"/>
+        <File name="sql/sql_base.cc" count="2"/>
+        <File name="mysql-test/t/type_date.test" count="1"/>
+        <File name="include/global.h" count="1"/>
+        <File name="sql/mysqld.cc" count="1"/>
+        <File name="sql/item_timefunc.h" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="4"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-1.4469189829"/>
+        <Elm word="history" freq="-1.4469189829"/>
+        <Elm word="annotate" freq="-1.4469189829"/>
+        <Elm word="Changelog" freq="-1.7346010554"/>
+        <Elm word="Fixed" freq="-2.8332133441"/>
+        <Elm word="typo" freq="-2.8332133441"/>
+        <Elm word="Fix" freq="-100."/>
+        <Elm word="monty@mysql.fi" freq="-100."/>
+        <Elm word="patch" freq="-100."/>
+        <Elm word="style" freq="-100."/>
+        <Elm word="link" freq="-100."/>
+        <Elm word="diff" freq="-100."/>
+        <Elm word="22:06:18+02:00" freq="-100."/>
+        <Elm word="Cleanup" freq="-100."/>
+        <Elm word="Bookmarkable" freq="-100."/>
+        <Elm word="-Nur" freq="-100."/>
+        <Elm word="2002-03-06" freq="-100."/>
+        <Elm word="problems" freq="-100."/>
+        <Elm word="database" freq="-100."/>
+        <Elm word="tree," freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="data" freq="-100."/>
+        <Elm word="net_buffer_length" freq="-100."/>
+        <Elm word="infile" freq="-100."/>
+        <Elm word="backported" freq="-100."/>
+        <Elm word="Solaris" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Version" freq="-100."/>
+        <Elm word="old" freq="-100."/>
+        <Elm word="acinclude.m4@1.45" freq="-100."/>
+        <Elm word="output" freq="-100."/>
+        <Elm word="running" freq="-100."/>
+        <Elm word="Merge" freq="-100."/>
+        <Elm word="key" freq="-100."/>
+        <Elm word="implementation" freq="-100."/>
+        <Elm word="mysqld" freq="-100."/>
+        <Elm word="configure.in@1.165" freq="-100."/>
+        <Elm word="configure.in@1.164" freq="-100."/>
+        <Elm word="defs" freq="-100."/>
+        <Elm word="qsort" freq="-100."/>
+        <Elm word="apply" freq="-100."/>
+        <Elm word="17:38:15+02:00" freq="-100."/>
+        <Elm word="load" freq="-100."/>
+        <Elm word="gethostbyname_r" freq="-100."/>
+        <Elm word="buggy" freq="-100."/>
+        <Elm word="freebsd/alpha" freq="-100."/>
+        <Elm word="portability" freq="-100."/>
+        <Elm word="change" freq="-100."/>
+        <Elm word="max_allowed_packet" freq="-100."/>
+        <Elm word="buffer" freq="-100."/>
+        <Elm word="InnoDB-3.23.50" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="2002-03-05" freq="-100."/>
+        <Elm word="length" freq="-100."/>
+        <Elm word="active" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="Decrease" freq="-100."/>
+        <Elm word="--enable-local-infile" freq="-100."/>
+        <Elm word="--help" freq="-100."/>
+        <Elm word="foreign" freq="-100."/>
+        <Elm word="merged" freq="-533.752198801"/>
+        <Elm word="SCCS" freq="-533.752198801"/>
+        <Elm word="Auto" freq="-533.752198801"/>
+        <Elm word="3.23.50" freq="-534.151826591"/>
+        <Elm word="merge" freq="-534.151826591"/>
+        <Elm word="Forgot" freq="-534.151826591"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="maintainability"/>
+      <annotation name="cleanup"/>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1015477577." author="monty@mysql.fi" document="history annotate diffs \n  \n Changelog \n  \n acinclude.m4@1.45  2002-03-06 22:06:18+02:00  monty@mysql.fi \n history annotate diffs \n  \n Cleanup --help output \n  \n configure.in@1.165  2002-03-06 22:06:18+02:00  monty@mysql.fi \n history annotate diffs \n  \n Fix for --enable-local-infile \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="Docs/manual.texi" count="1"/>
+        <File name="libmysql/libmysql.c" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.0368819273"/>
+        <Elm word="history" freq="-2.0368819273"/>
+        <Elm word="annotate" freq="-2.0368819273"/>
+        <Elm word="monty@mysql.fi" freq="-2.4423470354"/>
+        <Elm word="22:06:18+02:00" freq="-2.4423470354"/>
+        <Elm word="2002-03-06" freq="-2.4423470354"/>
+        <Elm word="Changelog" freq="-3.1354942159"/>
+        <Elm word="Fix" freq="-3.1354942159"/>
+        <Elm word="Cleanup" freq="-3.1354942159"/>
+        <Elm word="acinclude.m4@1.45" freq="-3.1354942159"/>
+        <Elm word="output" freq="-3.1354942159"/>
+        <Elm word="configure.in@1.165" freq="-3.1354942159"/>
+        <Elm word="--enable-local-infile" freq="-3.1354942159"/>
+        <Elm word="--help" freq="-3.1354942159"/>
+        <Elm word="patch" freq="-100."/>
+        <Elm word="style" freq="-100."/>
+        <Elm word="link" freq="-100."/>
+        <Elm word="diff" freq="-100."/>
+        <Elm word="Bookmarkable" freq="-100."/>
+        <Elm word="-Nur" freq="-100."/>
+        <Elm word="merged" freq="-100."/>
+        <Elm word="problems" freq="-100."/>
+        <Elm word="database" freq="-100."/>
+        <Elm word="tree," freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="data" freq="-100."/>
+        <Elm word="3.23.50" freq="-100."/>
+        <Elm word="net_buffer_length" freq="-100."/>
+        <Elm word="infile" freq="-100."/>
+        <Elm word="backported" freq="-100."/>
+        <Elm word="Solaris" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Version" freq="-100."/>
+        <Elm word="old" freq="-100."/>
+        <Elm word="running" freq="-100."/>
+        <Elm word="Merge" freq="-100."/>
+        <Elm word="key" freq="-100."/>
+        <Elm word="implementation" freq="-100."/>
+        <Elm word="mysqld" freq="-100."/>
+        <Elm word="configure.in@1.164" freq="-100."/>
+        <Elm word="defs" freq="-100."/>
+        <Elm word="qsort" freq="-100."/>
+        <Elm word="apply" freq="-100."/>
+        <Elm word="17:38:15+02:00" freq="-100."/>
+        <Elm word="load" freq="-100."/>
+        <Elm word="gethostbyname_r" freq="-100."/>
+        <Elm word="buggy" freq="-100."/>
+        <Elm word="freebsd/alpha" freq="-100."/>
+        <Elm word="portability" freq="-100."/>
+        <Elm word="change" freq="-100."/>
+        <Elm word="max_allowed_packet" freq="-100."/>
+        <Elm word="buffer" freq="-100."/>
+        <Elm word="InnoDB-3.23.50" freq="-100."/>
+        <Elm word="merge" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="Forgot" freq="-100."/>
+        <Elm word="2002-03-05" freq="-100."/>
+        <Elm word="length" freq="-100."/>
+        <Elm word="active" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="Decrease" freq="-100."/>
+        <Elm word="foreign" freq="-100."/>
+        <Elm word="Fixed" freq="-534.235511301"/>
+        <Elm word="typo" freq="-534.235511301"/>
+        <Elm word="SCCS" freq="-534.356760545"/>
+        <Elm word="Auto" freq="-534.356760545"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="reliability"/>
+      <annotation name="bug" comment="reliability"/>
+
+      <Document time="1016241229." author="monty@mysql.fi" document="history annotate diffs \n  \n Decrease net_buffer_length to not get problems when running against mysqld with same max_allowed_packet \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="client/mysqldump.c" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.1972245773"/>
+        <Elm word="history" freq="-2.1972245773"/>
+        <Elm word="annotate" freq="-2.1972245773"/>
+        <Elm word="problems" freq="-2.1972245773"/>
+        <Elm word="net_buffer_length" freq="-2.1972245773"/>
+        <Elm word="running" freq="-2.1972245773"/>
+        <Elm word="mysqld" freq="-2.1972245773"/>
+        <Elm word="max_allowed_packet" freq="-2.1972245773"/>
+        <Elm word="Decrease" freq="-2.1972245773"/>
+        <Elm word="22:06:18+02:00" freq="-100."/>
+        <Elm word="2002-03-06" freq="-100."/>
+        <Elm word="database" freq="-100."/>
+        <Elm word="tree," freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="data" freq="-100."/>
+        <Elm word="infile" freq="-100."/>
+        <Elm word="backported" freq="-100."/>
+        <Elm word="Solaris" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Version" freq="-100."/>
+        <Elm word="old" freq="-100."/>
+        <Elm word="acinclude.m4@1.45" freq="-100."/>
+        <Elm word="output" freq="-100."/>
+        <Elm word="Merge" freq="-100."/>
+        <Elm word="key" freq="-100."/>
+        <Elm word="implementation" freq="-100."/>
+        <Elm word="configure.in@1.165" freq="-100."/>
+        <Elm word="configure.in@1.164" freq="-100."/>
+        <Elm word="defs" freq="-100."/>
+        <Elm word="qsort" freq="-100."/>
+        <Elm word="apply" freq="-100."/>
+        <Elm word="17:38:15+02:00" freq="-100."/>
+        <Elm word="load" freq="-100."/>
+        <Elm word="gethostbyname_r" freq="-100."/>
+        <Elm word="buggy" freq="-100."/>
+        <Elm word="freebsd/alpha" freq="-100."/>
+        <Elm word="portability" freq="-100."/>
+        <Elm word="change" freq="-100."/>
+        <Elm word="buffer" freq="-100."/>
+        <Elm word="InnoDB-3.23.50" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="2002-03-05" freq="-100."/>
+        <Elm word="length" freq="-100."/>
+        <Elm word="active" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="--enable-local-infile" freq="-100."/>
+        <Elm word="--help" freq="-100."/>
+        <Elm word="foreign" freq="-100."/>
+        <Elm word="Changelog" freq="-531.149292915"/>
+        <Elm word="Fixed" freq="-532.358972024"/>
+        <Elm word="typo" freq="-532.358972024"/>
+        <Elm word="merged" freq="-532.480221268"/>
+        <Elm word="SCCS" freq="-532.480221268"/>
+        <Elm word="Auto" freq="-532.480221268"/>
+        <Elm word="patch" freq="-532.713997026"/>
+        <Elm word="Fix" freq="-532.748004749"/>
+        <Elm word="3.23.50" freq="-532.879849058"/>
+        <Elm word="merge" freq="-532.879849058"/>
+        <Elm word="Forgot" freq="-532.879849058"/>
+        <Elm word="Cleanup" freq="-533.4713934"/>
+        <Elm word="diff" freq="-533.547781969"/>
+        <Elm word="style" freq="-533.547781982"/>
+        <Elm word="link" freq="-533.547781982"/>
+        <Elm word="Bookmarkable" freq="-533.547781982"/>
+        <Elm word="-Nur" freq="-533.547781982"/>
+        <Elm word="monty@mysql.fi" freq="-533.564465586"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1016254905." author="monty@mysql.fi" document="all diffs diff -Nur style patch Bookmarkable link \n  \n Fix max buffer length \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="client/mysql.cc" count="1"/>
+        <File name="client/mysqldump.c" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.3978952728"/>
+        <Elm word="Fix" freq="-2.3978952728"/>
+        <Elm word="patch" freq="-2.3978952728"/>
+        <Elm word="style" freq="-2.3978952728"/>
+        <Elm word="link" freq="-2.3978952728"/>
+        <Elm word="diff" freq="-2.3978952728"/>
+        <Elm word="Bookmarkable" freq="-2.3978952728"/>
+        <Elm word="-Nur" freq="-2.3978952728"/>
+        <Elm word="buffer" freq="-2.3978952728"/>
+        <Elm word="length" freq="-2.3978952728"/>
+        <Elm word="max" freq="-2.3978952728"/>
+        <Elm word="monty@mysql.fi" freq="-100."/>
+        <Elm word="22:06:18+02:00" freq="-100."/>
+        <Elm word="2002-03-06" freq="-100."/>
+        <Elm word="problems" freq="-100."/>
+        <Elm word="tree," freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="net_buffer_length" freq="-100."/>
+        <Elm word="backported" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Version" freq="-100."/>
+        <Elm word="old" freq="-100."/>
+        <Elm word="acinclude.m4@1.45" freq="-100."/>
+        <Elm word="output" freq="-100."/>
+        <Elm word="running" freq="-100."/>
+        <Elm word="Merge" freq="-100."/>
+        <Elm word="key" freq="-100."/>
+        <Elm word="implementation" freq="-100."/>
+        <Elm word="mysqld" freq="-100."/>
+        <Elm word="configure.in@1.165" freq="-100."/>
+        <Elm word="configure.in@1.164" freq="-100."/>
+        <Elm word="defs" freq="-100."/>
+        <Elm word="qsort" freq="-100."/>
+        <Elm word="apply" freq="-100."/>
+        <Elm word="17:38:15+02:00" freq="-100."/>
+        <Elm word="buggy" freq="-100."/>
+        <Elm word="freebsd/alpha" freq="-100."/>
+        <Elm word="portability" freq="-100."/>
+        <Elm word="change" freq="-100."/>
+        <Elm word="max_allowed_packet" freq="-100."/>
+        <Elm word="InnoDB-3.23.50" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="2002-03-05" freq="-100."/>
+        <Elm word="Decrease" freq="-100."/>
+        <Elm word="--enable-local-infile" freq="-100."/>
+        <Elm word="--help" freq="-100."/>
+        <Elm word="foreign" freq="-100."/>
+        <Elm word="history" freq="-529.812211347"/>
+        <Elm word="annotate" freq="-529.812211347"/>
+        <Elm word="Changelog" freq="-531.550634306"/>
+        <Elm word="Fixed" freq="-532.760313415"/>
+        <Elm word="typo" freq="-532.760313415"/>
+        <Elm word="merged" freq="-532.881562659"/>
+        <Elm word="SCCS" freq="-532.881562659"/>
+        <Elm word="Auto" freq="-532.881562659"/>
+        <Elm word="3.23.50" freq="-533.281190449"/>
+        <Elm word="merge" freq="-533.281190449"/>
+        <Elm word="Forgot" freq="-533.281190449"/>
+        <Elm word="Cleanup" freq="-533.872734791"/>
+        <Elm word="database" freq="-535.349894252"/>
+        <Elm word="data" freq="-535.349894252"/>
+        <Elm word="infile" freq="-535.349894252"/>
+        <Elm word="Solaris" freq="-535.349894252"/>
+        <Elm word="load" freq="-535.349894252"/>
+        <Elm word="gethostbyname_r" freq="-535.349894252"/>
+        <Elm word="active" freq="-535.349894252"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="unknown"/>
+
+      <Document time="1016758625." author="heikki@mysql.fi" document="history annotate diffs \n  \n Merge InnoDB-3.23.50 \n  \n "/>
+      <Files>
+        <File name="innobase/include/srv0srv.h" count="1"/>
+        <File name="innobase/dict/dict0load.c" count="1"/>
+        <File name="innobase/os/os0file.c" count="1"/>
+        <File name="innobase/include/fil0fil.h" count="1"/>
+        <File name="innobase/row/row0upd.c" count="1"/>
+        <File name="innobase/ut/ut0mem.c" count="1"/>
+        <File name="innobase/include/dict0dict.h" count="1"/>
+        <File name="innobase/include/os0file.h" count="1"/>
+        <File name="sql/ha_innobase.h" count="1"/>
+        <File name="innobase/include/trx0sys.h" count="1"/>
+        <File name="innobase/fil/fil0fil.c" count="1"/>
+        <File name="innobase/include/log0recv.h" count="1"/>
+        <File name="innobase/ut/ut0ut.c" count="1"/>
+        <File name="innobase/btr/btr0sea.c" count="1"/>
+        <File name="innobase/include/mem0mem.h" count="1"/>
+        <File name="innobase/include/ut0byte.h" count="1"/>
+        <File name="innobase/row/row0mysql.c" count="1"/>
+        <File name="innobase/log/log0recv.c" count="1"/>
+        <File name="innobase/log/log0log.c" count="1"/>
+        <File name="innobase/include/buf0flu.h" count="1"/>
+        <File name="innobase/rem/rem0cmp.c" count="1"/>
+        <File name="innobase/row/row0sel.c" count="1"/>
+        <File name="innobase/buf/buf0buf.c" count="1"/>
+        <File name="innobase/trx/trx0sys.c" count="1"/>
+        <File name="innobase/include/fsp0fsp.h" count="1"/>
+        <File name="innobase/buf/buf0flu.c" count="1"/>
+        <File name="innobase/btr/btr0cur.c" count="1"/>
+        <File name="innobase/mem/mem0mem.c" count="1"/>
+        <File name="innobase/include/ut0ut.h" count="1"/>
+        <File name="innobase/include/log0log.h" count="1"/>
+        <File name="innobase/row/row0ins.c" count="1"/>
+        <File name="ChangeSet" count="1"/>
+        <File name="innobase/srv/srv0start.c" count="1"/>
+        <File name="innobase/include/srv0start.h" count="1"/>
+        <File name="sql/ha_innobase.cc" count="1"/>
+        <File name="innobase/btr/btr0btr.c" count="1"/>
+        <File name="innobase/fsp/fsp0fsp.c" count="1"/>
+        <File name="innobase/include/row0mysql.h" count="1"/>
+        <File name="innobase/dict/dict0dict.c" count="1"/>
+        <File name="innobase/srv/srv0srv.c" count="1"/>
+        <File name="innobase/include/ut0rnd.h" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="heikki@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-1.6094379124"/>
+        <Elm word="history" freq="-1.6094379124"/>
+        <Elm word="annotate" freq="-1.6094379124"/>
+        <Elm word="Merge" freq="-1.6094379124"/>
+        <Elm word="InnoDB-3.23.50" freq="-1.6094379124"/>
+        <Elm word="22:06:18+02:00" freq="-100."/>
+        <Elm word="2002-03-06" freq="-100."/>
+        <Elm word="problems" freq="-100."/>
+        <Elm word="database" freq="-100."/>
+        <Elm word="tree," freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="data" freq="-100."/>
+        <Elm word="net_buffer_length" freq="-100."/>
+        <Elm word="infile" freq="-100."/>
+        <Elm word="backported" freq="-100."/>
+        <Elm word="Solaris" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Version" freq="-100."/>
+        <Elm word="old" freq="-100."/>
+        <Elm word="acinclude.m4@1.45" freq="-100."/>
+        <Elm word="output" freq="-100."/>
+        <Elm word="running" freq="-100."/>
+        <Elm word="key" freq="-100."/>
+        <Elm word="implementation" freq="-100."/>
+        <Elm word="mysqld" freq="-100."/>
+        <Elm word="configure.in@1.165" freq="-100."/>
+        <Elm word="configure.in@1.164" freq="-100."/>
+        <Elm word="defs" freq="-100."/>
+        <Elm word="qsort" freq="-100."/>
+        <Elm word="apply" freq="-100."/>
+        <Elm word="17:38:15+02:00" freq="-100."/>
+        <Elm word="load" freq="-100."/>
+        <Elm word="gethostbyname_r" freq="-100."/>
+        <Elm word="buggy" freq="-100."/>
+        <Elm word="freebsd/alpha" freq="-100."/>
+        <Elm word="portability" freq="-100."/>
+        <Elm word="change" freq="-100."/>
+        <Elm word="max_allowed_packet" freq="-100."/>
+        <Elm word="buffer" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="2002-03-05" freq="-100."/>
+        <Elm word="length" freq="-100."/>
+        <Elm word="active" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="Decrease" freq="-100."/>
+        <Elm word="--enable-local-infile" freq="-100."/>
+        <Elm word="--help" freq="-100."/>
+        <Elm word="foreign" freq="-100."/>
+        <Elm word="Changelog" freq="-529.973719585"/>
+        <Elm word="Fixed" freq="-531.183398694"/>
+        <Elm word="typo" freq="-531.183398694"/>
+        <Elm word="merged" freq="-531.304647938"/>
+        <Elm word="SCCS" freq="-531.304647938"/>
+        <Elm word="Auto" freq="-531.304647938"/>
+        <Elm word="patch" freq="-531.538423696"/>
+        <Elm word="Fix" freq="-531.57243142"/>
+        <Elm word="3.23.50" freq="-531.704275728"/>
+        <Elm word="merge" freq="-531.704275728"/>
+        <Elm word="Forgot" freq="-531.704275728"/>
+        <Elm word="Cleanup" freq="-532.29582007"/>
+        <Elm word="monty@mysql.fi" freq="-532.388892257"/>
+        <Elm word="style" freq="-745.356362653"/>
+        <Elm word="link" freq="-745.356362653"/>
+        <Elm word="diff" freq="-745.356362653"/>
+        <Elm word="Bookmarkable" freq="-745.356362653"/>
+        <Elm word="-Nur" freq="-745.356362653"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="unknown"/>
+
+      <Document time="1016759118." author="heikki@mysql.fi" document="history annotate diffs \n  \n Add foreign key defs to SHOW CREATE TABLE \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="sql/handler.h" count="1"/>
+        <File name="sql/handler.cc" count="1"/>
+        <File name="sql/sql_show.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="heikki@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="diffs" freq="-2.1972245773"/>
+        <Elm word="history" freq="-2.1972245773"/>
+        <Elm word="annotate" freq="-2.1972245773"/>
+        <Elm word="Add" freq="-2.1972245773"/>
+        <Elm word="key" freq="-2.1972245773"/>
+        <Elm word="defs" freq="-2.1972245773"/>
+        <Elm word="TABLE" freq="-2.1972245773"/>
+        <Elm word="CREATE" freq="-2.1972245773"/>
+        <Elm word="foreign" freq="-2.1972245773"/>
+        <Elm word="22:06:18+02:00" freq="-100."/>
+        <Elm word="2002-03-06" freq="-100."/>
+        <Elm word="problems" freq="-100."/>
+        <Elm word="database" freq="-100."/>
+        <Elm word="tree," freq="-100."/>
+        <Elm word="data" freq="-100."/>
+        <Elm word="net_buffer_length" freq="-100."/>
+        <Elm word="infile" freq="-100."/>
+        <Elm word="backported" freq="-100."/>
+        <Elm word="Solaris" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Version" freq="-100."/>
+        <Elm word="old" freq="-100."/>
+        <Elm word="acinclude.m4@1.45" freq="-100."/>
+        <Elm word="output" freq="-100."/>
+        <Elm word="running" freq="-100."/>
+        <Elm word="Merge" freq="-100."/>
+        <Elm word="implementation" freq="-100."/>
+        <Elm word="mysqld" freq="-100."/>
+        <Elm word="configure.in@1.165" freq="-100."/>
+        <Elm word="configure.in@1.164" freq="-100."/>
+        <Elm word="qsort" freq="-100."/>
+        <Elm word="apply" freq="-100."/>
+        <Elm word="17:38:15+02:00" freq="-100."/>
+        <Elm word="load" freq="-100."/>
+        <Elm word="gethostbyname_r" freq="-100."/>
+        <Elm word="buggy" freq="-100."/>
+        <Elm word="freebsd/alpha" freq="-100."/>
+        <Elm word="portability" freq="-100."/>
+        <Elm word="change" freq="-100."/>
+        <Elm word="max_allowed_packet" freq="-100."/>
+        <Elm word="buffer" freq="-100."/>
+        <Elm word="InnoDB-3.23.50" freq="-100."/>
+        <Elm word="2002-03-05" freq="-100."/>
+        <Elm word="length" freq="-100."/>
+        <Elm word="active" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="Decrease" freq="-100."/>
+        <Elm word="--enable-local-infile" freq="-100."/>
+        <Elm word="--help" freq="-100."/>
+        <Elm word="Changelog" freq="-531.149292915"/>
+        <Elm word="Fixed" freq="-532.358972024"/>
+        <Elm word="typo" freq="-532.358972024"/>
+        <Elm word="merged" freq="-532.480221268"/>
+        <Elm word="SCCS" freq="-532.480221268"/>
+        <Elm word="Auto" freq="-532.480221268"/>
+        <Elm word="patch" freq="-532.713997026"/>
+        <Elm word="Fix" freq="-532.748004749"/>
+        <Elm word="3.23.50" freq="-532.879849058"/>
+        <Elm word="merge" freq="-532.879849058"/>
+        <Elm word="Forgot" freq="-532.879849058"/>
+        <Elm word="Cleanup" freq="-533.4713934"/>
+        <Elm word="diff" freq="-533.547781969"/>
+        <Elm word="style" freq="-533.547781982"/>
+        <Elm word="link" freq="-533.547781982"/>
+        <Elm word="Bookmarkable" freq="-533.547781982"/>
+        <Elm word="-Nur" freq="-533.547781982"/>
+        <Elm word="monty@mysql.fi" freq="-533.564465586"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="portability"/>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1016784214." author="monty@mysql.fi" document="all diffs diff -Nur style patch Bookmarkable link \n  \n Fix for load data infile when no active database \n Fix for Solaris and gethostbyname_r \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="client/mysql.cc" count="1"/>
+        <File name="sql/log_event.h" count="1"/>
+        <File name="Docs/manual.texi" count="1"/>
+        <File name="sql/sql_load.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="monty@mysql.fi" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="Fix" freq="-2.0794415417"/>
+        <Elm word="diffs" freq="-2.7725887222"/>
+        <Elm word="patch" freq="-2.7725887222"/>
+        <Elm word="style" freq="-2.7725887222"/>
+        <Elm word="link" freq="-2.7725887222"/>
+        <Elm word="diff" freq="-2.7725887222"/>
+        <Elm word="Bookmarkable" freq="-2.7725887222"/>
+        <Elm word="-Nur" freq="-2.7725887222"/>
+        <Elm word="database" freq="-2.7725887222"/>
+        <Elm word="data" freq="-2.7725887222"/>
+        <Elm word="infile" freq="-2.7725887222"/>
+        <Elm word="Solaris" freq="-2.7725887222"/>
+        <Elm word="load" freq="-2.7725887222"/>
+        <Elm word="gethostbyname_r" freq="-2.7725887222"/>
+        <Elm word="active" freq="-2.7725887222"/>
+        <Elm word="monty@mysql.fi" freq="-100."/>
+        <Elm word="22:06:18+02:00" freq="-100."/>
+        <Elm word="Cleanup" freq="-100."/>
+        <Elm word="2002-03-06" freq="-100."/>
+        <Elm word="problems" freq="-100."/>
+        <Elm word="tree," freq="-100."/>
+        <Elm word="Add" freq="-100."/>
+        <Elm word="net_buffer_length" freq="-100."/>
+        <Elm word="backported" freq="-100."/>
+        <Elm word="4.0" freq="-100."/>
+        <Elm word="Version" freq="-100."/>
+        <Elm word="old" freq="-100."/>
+        <Elm word="acinclude.m4@1.45" freq="-100."/>
+        <Elm word="output" freq="-100."/>
+        <Elm word="running" freq="-100."/>
+        <Elm word="Merge" freq="-100."/>
+        <Elm word="key" freq="-100."/>
+        <Elm word="implementation" freq="-100."/>
+        <Elm word="mysqld" freq="-100."/>
+        <Elm word="configure.in@1.165" freq="-100."/>
+        <Elm word="configure.in@1.164" freq="-100."/>
+        <Elm word="defs" freq="-100."/>
+        <Elm word="qsort" freq="-100."/>
+        <Elm word="apply" freq="-100."/>
+        <Elm word="17:38:15+02:00" freq="-100."/>
+        <Elm word="buggy" freq="-100."/>
+        <Elm word="freebsd/alpha" freq="-100."/>
+        <Elm word="portability" freq="-100."/>
+        <Elm word="change" freq="-100."/>
+        <Elm word="max_allowed_packet" freq="-100."/>
+        <Elm word="buffer" freq="-100."/>
+        <Elm word="InnoDB-3.23.50" freq="-100."/>
+        <Elm word="TABLE" freq="-100."/>
+        <Elm word="CREATE" freq="-100."/>
+        <Elm word="2002-03-05" freq="-100."/>
+        <Elm word="length" freq="-100."/>
+        <Elm word="max" freq="-100."/>
+        <Elm word="Decrease" freq="-100."/>
+        <Elm word="--enable-local-infile" freq="-100."/>
+        <Elm word="--help" freq="-100."/>
+        <Elm word="foreign" freq="-100."/>
+        <Elm word="history" freq="-530.561598246"/>
+        <Elm word="annotate" freq="-530.561598246"/>
+        <Elm word="Changelog" freq="-532.300021205"/>
+        <Elm word="Fixed" freq="-533.509700314"/>
+        <Elm word="typo" freq="-533.509700314"/>
+        <Elm word="merged" freq="-533.630949558"/>
+        <Elm word="SCCS" freq="-533.630949558"/>
+        <Elm word="Auto" freq="-533.630949558"/>
+        <Elm word="3.23.50" freq="-534.030577348"/>
+        <Elm word="merge" freq="-534.030577348"/>
+        <Elm word="Forgot" freq="-534.030577348"/>
+      </Elements>
+    </Topic>
+  </Period>
+  

@@ -1,0 +1,161 @@
+<Period time="1084331404.">
+    <Documents>
+      <Document time="1086063013." author="bell@is.com.ua" document="history annotate diffs \n  \n correct table_hash_search call \n  \n ">
+        <Files>
+          <File name="sql/sql_acl.cc"/>
+        </Files>
+      </Document>
+      <Document time="1086302317." author="bell@is.com.ua" document="history annotate diffs \n  \n removed incorrect destructor (to prevent deleting item by recursion instead of by list scanning in case of chained OR or AND) \n  \n ">
+        <Files>
+          <File name="sql/item_cmpfunc.h"/>
+        </Files>
+      </Document>
+      <Document time="1086669295." author="gluh@mysql.r18.ru" document="history annotate diffs \n  \n Fix for bug #4036 multiple SELECT DATE_FORMAT, incorrect results \n  \n ">
+        <Files>
+          <File name="ChangeSet"/>
+          <File name="mysql-test/r/type_date.result"/>
+          <File name="mysql-test/t/type_date.test"/>
+          <File name="sql/field.cc"/>
+          <File name="sql/field.h"/>
+        </Files>
+      </Document>
+    </Documents>
+    <Files>
+      <File name="sql/field.cc" count="1"/>
+      <File name="mysql-test/t/type_date.test" count="1"/>
+      <File name="sql/sql_acl.cc" count="1"/>
+      <File name="ChangeSet" count="1"/>
+      <File name="sql/field.h" count="1"/>
+      <File name="mysql-test/r/type_date.result" count="1"/>
+      <File name="sql/item_cmpfunc.h" count="1"/>
+    </Files>
+    <Authors>
+      <Author name="gluh@mysql.r18.ru" count="1"/>
+      <Author name="bell@is.com.ua" count="2"/>
+    </Authors>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1086063013." author="bell@is.com.ua" document="history annotate diffs \n  \n correct table_hash_search call \n  \n "/>
+      <Files>
+        <File name="sql/sql_acl.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="bell@is.com.ua" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="history" freq="-1.6094379124"/>
+        <Elm word="diffs" freq="-1.6094379124"/>
+        <Elm word="annotate" freq="-1.6094379124"/>
+        <Elm word="table_hash_search" freq="-1.6094379124"/>
+        <Elm word="correct" freq="-1.6094379124"/>
+        <Elm word="incorrect" freq="-313.161542633"/>
+        <Elm word="SELECT" freq="-313.846583241"/>
+        <Elm word="Fix" freq="-313.846583241"/>
+        <Elm word="results" freq="-313.846583241"/>
+        <Elm word="bug" freq="-313.846583241"/>
+        <Elm word="#4036" freq="-313.846583241"/>
+        <Elm word="DATE_FORMAT," freq="-313.846583241"/>
+        <Elm word="multiple" freq="-313.846583241"/>
+        <Elm word="instead" freq="-313.862862641"/>
+        <Elm word="AND)" freq="-313.862862641"/>
+        <Elm word="deleting" freq="-313.862862641"/>
+        <Elm word="chained" freq="-313.862862641"/>
+        <Elm word="(to" freq="-313.862862641"/>
+        <Elm word="item" freq="-313.862862641"/>
+        <Elm word="recursion" freq="-313.862862641"/>
+        <Elm word="scanning" freq="-313.862862641"/>
+        <Elm word="case" freq="-313.862862641"/>
+        <Elm word="prevent" freq="-313.862862641"/>
+        <Elm word="destructor" freq="-313.862862641"/>
+        <Elm word="removed" freq="-313.862862641"/>
+        <Elm word="list" freq="-313.862862641"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1086302317." author="bell@is.com.ua" document="history annotate diffs \n  \n removed incorrect destructor (to prevent deleting item by recursion instead of by list scanning in case of chained OR or AND) \n  \n "/>
+      <Files>
+        <File name="sql/item_cmpfunc.h" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="bell@is.com.ua" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="history" freq="-2.8332133441"/>
+        <Elm word="diffs" freq="-2.8332133441"/>
+        <Elm word="annotate" freq="-2.8332133441"/>
+        <Elm word="incorrect" freq="-2.8332133441"/>
+        <Elm word="instead" freq="-2.8332133441"/>
+        <Elm word="AND)" freq="-2.8332133441"/>
+        <Elm word="deleting" freq="-2.8332133441"/>
+        <Elm word="chained" freq="-2.8332133441"/>
+        <Elm word="(to" freq="-2.8332133441"/>
+        <Elm word="item" freq="-2.8332133441"/>
+        <Elm word="recursion" freq="-2.8332133441"/>
+        <Elm word="scanning" freq="-2.8332133441"/>
+        <Elm word="case" freq="-2.8332133441"/>
+        <Elm word="prevent" freq="-2.8332133441"/>
+        <Elm word="destructor" freq="-2.8332133441"/>
+        <Elm word="removed" freq="-2.8332133441"/>
+        <Elm word="list" freq="-2.8332133441"/>
+        <Elm word="table_hash_search" freq="-527.370113745"/>
+        <Elm word="correct" freq="-527.370113745"/>
+        <Elm word="SELECT" freq="-527.48327042"/>
+        <Elm word="Fix" freq="-527.48327042"/>
+        <Elm word="results" freq="-527.48327042"/>
+        <Elm word="bug" freq="-527.48327042"/>
+        <Elm word="#4036" freq="-527.48327042"/>
+        <Elm word="DATE_FORMAT," freq="-527.48327042"/>
+        <Elm word="multiple" freq="-527.48327042"/>
+      </Elements>
+    </Topic>
+    <Topic>
+      <annotation name="functionality"/>
+      <annotation name="correctness"/>
+
+      <Document time="1086669295." author="gluh@mysql.r18.ru" document="history annotate diffs \n  \n Fix for bug #4036 multiple SELECT DATE_FORMAT, incorrect results \n  \n "/>
+      <Files>
+        <File name="ChangeSet" count="1"/>
+        <File name="sql/field.h" count="1"/>
+        <File name="mysql-test/r/type_date.result" count="1"/>
+        <File name="mysql-test/t/type_date.test" count="1"/>
+        <File name="sql/field.cc" count="1"/>
+      </Files>
+      <Authors>
+        <Author name="gluh@mysql.r18.ru" count="1"/>
+      </Authors>
+      <Elements>
+        <Elm word="history" freq="-2.3978952728"/>
+        <Elm word="diffs" freq="-2.3978952728"/>
+        <Elm word="annotate" freq="-2.3978952728"/>
+        <Elm word="incorrect" freq="-2.3978952728"/>
+        <Elm word="SELECT" freq="-2.3978952728"/>
+        <Elm word="Fix" freq="-2.3978952728"/>
+        <Elm word="results" freq="-2.3978952728"/>
+        <Elm word="bug" freq="-2.3978952728"/>
+        <Elm word="#4036" freq="-2.3978952728"/>
+        <Elm word="DATE_FORMAT," freq="-2.3978952728"/>
+        <Elm word="multiple" freq="-2.3978952728"/>
+        <Elm word="table_hash_search" freq="-526.499477603"/>
+        <Elm word="correct" freq="-526.499477603"/>
+        <Elm word="instead" freq="-526.645191003"/>
+        <Elm word="AND)" freq="-526.645191003"/>
+        <Elm word="deleting" freq="-526.645191003"/>
+        <Elm word="chained" freq="-526.645191003"/>
+        <Elm word="(to" freq="-526.645191003"/>
+        <Elm word="item" freq="-526.645191003"/>
+        <Elm word="recursion" freq="-526.645191003"/>
+        <Elm word="scanning" freq="-526.645191003"/>
+        <Elm word="case" freq="-526.645191003"/>
+        <Elm word="prevent" freq="-526.645191003"/>
+        <Elm word="destructor" freq="-526.645191003"/>
+        <Elm word="removed" freq="-526.645191003"/>
+        <Elm word="list" freq="-526.645191003"/>
+      </Elements>
+    </Topic>
+  </Period>
+  
