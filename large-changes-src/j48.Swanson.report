@@ -1,0 +1,2413 @@
+$ + echo ./springframework/Swanson.weka.classifiers.trees.J48.report
+./springframework/Swanson.weka.classifiers.trees.J48.report
++ cat ./springframework/Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+F_backported <= 0
+|   F_javadoc <= 0
+|   |   F_renamed <= 0
+|   |   |   F_reference <= 0
+|   |   |   |   F_commits <= 0
+|   |   |   |   |   F_repository <= 0
+|   |   |   |   |   |   F_sample <= 0
+|   |   |   |   |   |   |   F_ws <= 0
+|   |   |   |   |   |   |   |   F_map <= 0
+|   |   |   |   |   |   |   |   |   F_scripting <= 0
+|   |   |   |   |   |   |   |   |   |   F_initial <= 0
+|   |   |   |   |   |   |   |   |   |   |   F_annotation <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   F_evaluation <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_phonebook <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_first <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_17 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_log <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_introduced <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_null <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_completed <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_by <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_main <= 0: Perfective (145.0/42.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_main > 0: Implementation (8.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_by > 0: Implementation (6.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_completed > 0: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_null > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_introduced > 0: Implementation (28.0/8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_log > 0: Implementation (9.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_17 > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_first > 0: Implementation (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_phonebook > 0: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   F_evaluation > 0: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   F_annotation > 0: Implementation (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   F_initial > 0: Implementation (35.0/5.0)
+|   |   |   |   |   |   |   |   |   F_scripting > 0: Implementation (4.0)
+|   |   |   |   |   |   |   |   F_map > 0: Implementation (4.0)
+|   |   |   |   |   |   |   F_ws > 0: Implementation (6.0)
+|   |   |   |   |   |   F_sample > 0: Implementation (6.0/2.0)
+|   |   |   |   |   F_repository > 0: Implementation (8.0)
+|   |   |   |   F_commits > 0: Implementation (10.0)
+|   |   |   F_reference > 0: Adaptive (6.0/2.0)
+|   |   F_renamed > 0: Perfective (11.0/1.0)
+|   F_javadoc > 0: Adaptive (9.0/2.0)
+F_backported > 0: Corrective (14.0/7.0)
+
+Number of Leaves  : 	23
+
+Size of the tree : 	45
+
+
+Time taken to build model: 1.1 seconds
+Time taken to test model on training data: 0.09 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         254               76.2763 %
+Incorrectly Classified Instances        79               23.7237 %
+Kappa statistic                          0.6193
+Mean absolute error                      0.1465
+Root mean squared error                  0.2707
+Relative absolute error                 56.1367 %
+Root relative squared error             75.0499 %
+Total Number of Instances              333     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   7   0   7   0   0 |   a = Corrective
+   0  13  13   0  10 |   b = Adaptive
+   0   2 113   0  12 |   c = Perfective
+   0   0   8   0   3 |   d = Non-Functional
+   7   2  15   0 121 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         204               61.2613 %
+Incorrectly Classified Instances       129               38.7387 %
+Kappa statistic                          0.3746
+Mean absolute error                      0.1885
+Root mean squared error                  0.3412
+Relative absolute error                 72.1798 %
+Root relative squared error             94.5977 %
+Total Number of Instances              333     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   2   0   7   0   5 |   a = Corrective
+   0   7  17   0  12 |   b = Adaptive
+   1   6  90   0  30 |   c = Perfective
+   0   0   8   0   3 |   d = Non-Functional
+   7   5  27   1 105 |   e = Implementation
+
+$ + echo ./springframework/dir.Swanson.weka.classifiers.trees.J48.report
+./springframework/dir.Swanson.weka.classifiers.trees.J48.report
++ cat ./springframework/dir.Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+spring/src/org/springframework/aop <= 2
+|   spring/src/org/springframework/web/servlet/view/jasperreports <= 0
+|   |   spring/sandbox/src/org/springframework/enums/support <= 0
+|   |   |   spring/test/org/springframework/aop/framework/adapter <= 0
+|   |   |   |   spring-projects/spring-webflow/src/test/org/springframework/webflow <= 1
+|   |   |   |   |   spring/sandbox/src/org/springframework/rules <= 1
+|   |   |   |   |   |   spring-projects/spring-webflow/src/java/org/springframework/webflow/execution/servlet <= 1
+|   |   |   |   |   |   |   spring-projects/spring-webflow-samples/phonebook-portlet/src/java/org/springframework/webflow/samples/phonebook/deploy <= 0
+|   |   |   |   |   |   |   |   spring-projects/spring-webflow/src/test/org/springframework/webflow/portlet <= 0
+|   |   |   |   |   |   |   |   |   spring/tiger/test/org/springframework/orm/jpa/toplink <= 1
+|   |   |   |   |   |   |   |   |   |   spring-projects/spring-webflow/src/java/org/springframework/webflow/executor/support <= 0
+|   |   |   |   |   |   |   |   |   |   |   spring/src/org/springframework/aop/config <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   spring/src/org/springframework/jms <= 23
+|   |   |   |   |   |   |   |   |   |   |   |   |   spring/src/org/springframework/mail <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   spring-beandoc/build <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/src/org/springframework/jms/support <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring-projects/spring-ws-samples/airline <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/maven <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring-projects/spring-binding/src/java/org/springframework/binding/expression/support <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   source <= 1: Adaptive (12.0/5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   source > 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/src/org/springframework/web/filter <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/sandbox/src/org/springframework/jmx/adapters <= 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring-projects/spring-webflow/src/java/org/springframework/webflow/builder <= 3
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/sandbox/src/org/springframework/web/flow/action <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/sandbox/src/org/springframework/web/flow <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring-projects/spring-ws-core <= 2
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/sandbox/src/org/springframework/web/portlet/theme <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring-beandoc <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/samples/lightcountries <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring-projects/spring-ws-core/src/java/org/springframework/ws/endpoint <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/sandbox/src/org/springframework/binding/expression <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/sandbox/src/org/springframework/web/portlet/support <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/src/org/springframework/beans/factory/access <= 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/test/org/springframework/web/context/support <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/tiger/mock/org/springframework/test/jpa <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/tiger/test/org/springframework/aop/aspectj/autoproxy <= 0: Implementation (146.0/46.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/tiger/test/org/springframework/aop/aspectj/autoproxy > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/tiger/mock/org/springframework/test/jpa > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/test/org/springframework/web/context/support > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/src/org/springframework/beans/factory/access > 1: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/sandbox/src/org/springframework/web/portlet/support > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/sandbox/src/org/springframework/binding/expression > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring-projects/spring-ws-core/src/java/org/springframework/ws/endpoint > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/samples/lightcountries > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring-beandoc > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/sandbox/src/org/springframework/web/portlet/theme > 0: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring-projects/spring-ws-core > 2: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/sandbox/src/org/springframework/web/flow > 0: Implementation (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/sandbox/src/org/springframework/web/flow/action > 0: Perfective (14.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring-projects/spring-webflow/src/java/org/springframework/webflow/builder > 3: Perfective (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/sandbox/src/org/springframework/jmx/adapters > 1: Perfective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/src/org/springframework/web/filter > 0: Perfective (6.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring-projects/spring-binding/src/java/org/springframework/binding/expression/support > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 74: Perfective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 74: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/maven > 0: Implementation (5.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring-projects/spring-ws-samples/airline > 0: Implementation (5.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   spring/src/org/springframework/jms/support > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 42: Non-Functional (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 42: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   spring-beandoc/build > 0: Implementation (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   spring/src/org/springframework/mail > 0: Adaptive (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   spring/src/org/springframework/jms > 23: Perfective (5.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   spring/src/org/springframework/aop/config > 0: Perfective (7.0/2.0)
+|   |   |   |   |   |   |   |   |   |   spring-projects/spring-webflow/src/java/org/springframework/webflow/executor/support > 0
+|   |   |   |   |   |   |   |   |   |   |   spring-projects/spring-webflow/src/java/org/springframework/webflow <= 9: Perfective (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   spring-projects/spring-webflow/src/java/org/springframework/webflow > 9: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   spring/tiger/test/org/springframework/orm/jpa/toplink > 1
+|   |   |   |   |   |   |   |   |   |   author = aarendsen: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = colins: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = davison: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = devijvers: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = dkopylenko: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = jhoeller: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   author = johnalewis: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = johnsonr: Implementation (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   author = kdonald: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = kktec: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = klr8: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = mark-fisher: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = markpollack: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = nebhale: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = pawlakjp: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = poutsma: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = robharrop: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = slenderslacks: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = trisberg: Implementation (0.0)
+|   |   |   |   |   |   |   |   spring-projects/spring-webflow/src/test/org/springframework/webflow/portlet > 0: Perfective (5.0)
+|   |   |   |   |   |   |   spring-projects/spring-webflow-samples/phonebook-portlet/src/java/org/springframework/webflow/samples/phonebook/deploy > 0: Implementation (10.0)
+|   |   |   |   |   |   spring-projects/spring-webflow/src/java/org/springframework/webflow/execution/servlet > 1: Perfective (6.0/1.0)
+|   |   |   |   |   spring/sandbox/src/org/springframework/rules > 1: Perfective (6.0/1.0)
+|   |   |   |   spring-projects/spring-webflow/src/test/org/springframework/webflow > 1: Perfective (10.0/1.0)
+|   |   |   spring/test/org/springframework/aop/framework/adapter > 0
+|   |   |   |   other <= 0: Corrective (2.0/1.0)
+|   |   |   |   other > 0: Perfective (4.0)
+|   |   spring/sandbox/src/org/springframework/enums/support > 0: Perfective (9.0)
+|   spring/src/org/springframework/web/servlet/view/jasperreports > 0: Corrective (7.0/4.0)
+spring/src/org/springframework/aop > 2: Adaptive (10.0/4.0)
+
+Number of Leaves  : 	59
+
+Size of the tree : 	100
+
+
+Time taken to build model: 2.66 seconds
+Time taken to test model on training data: 0.18 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         246               73.6527 %
+Incorrectly Classified Instances        88               26.3473 %
+Kappa statistic                          0.5792
+Mean absolute error                      0.1508
+Root mean squared error                  0.2746
+Relative absolute error                 57.7902 %
+Root relative squared error             76.147  %
+Total Number of Instances              334     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   5   0   3   0   6 |   a = Corrective
+   1  17   8   0  10 |   b = Adaptive
+   2   7  87   0  32 |   c = Perfective
+   1   2   3   1   4 |   d = Non-Functional
+   2   4   2   1 136 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         173               51.7964 %
+Incorrectly Classified Instances       161               48.2036 %
+Kappa statistic                          0.2154
+Mean absolute error                      0.2175
+Root mean squared error                  0.3703
+Relative absolute error                 83.3033 %
+Root relative squared error            102.6605 %
+Total Number of Instances              334     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   1   1   7   0   5 |   a = Corrective
+   1   5   8   0  22 |   b = Adaptive
+   3   8  54   1  62 |   c = Perfective
+   0   2   2   0   7 |   d = Non-Functional
+   4   6  21   1 113 |   e = Implementation
+
+$ + echo ./samba/Swanson.weka.classifiers.trees.J48.report
+./samba/Swanson.weka.classifiers.trees.J48.report
++ cat ./samba/Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+F_preparing <= 0
+|   F_than <= 0
+|   |   F_can <= 0
+|   |   |   F_fix <= 1
+|   |   |   |   F_s <= 0
+|   |   |   |   |   F_not <= 0
+|   |   |   |   |   |   F_is <= 0
+|   |   |   |   |   |   |   F_no <= 0
+|   |   |   |   |   |   |   |   F_creating <= 0
+|   |   |   |   |   |   |   |   |   F_jermey <= 0
+|   |   |   |   |   |   |   |   |   |   F_initial <= 0
+|   |   |   |   |   |   |   |   |   |   |   F_compile <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   F_tree <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_new <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_docbook <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_files <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_3 <= 0: Adaptive (145.0/64.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_3 > 0: Implementation (31.0/12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_files > 0: Implementation (19.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_docbook > 0: Adaptive (11.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_new > 0: Adaptive (11.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   F_tree > 0: Implementation (19.0/7.0)
+|   |   |   |   |   |   |   |   |   |   |   F_compile > 0: Implementation (8.0/3.0)
+|   |   |   |   |   |   |   |   |   |   F_initial > 0: Implementation (9.0/1.0)
+|   |   |   |   |   |   |   |   |   F_jermey > 0: Non-Functional (4.0/2.0)
+|   |   |   |   |   |   |   |   F_creating > 0: Adaptive (5.0/2.0)
+|   |   |   |   |   |   |   F_no > 0: Adaptive (17.0/10.0)
+|   |   |   |   |   |   F_is > 0: Implementation (6.0/1.0)
+|   |   |   |   |   F_not > 0: Perfective (20.0/11.0)
+|   |   |   |   F_s > 0: Implementation (13.0/6.0)
+|   |   |   F_fix > 1: Adaptive (8.0/4.0)
+|   |   F_can > 0: Corrective (9.0/4.0)
+|   F_than > 0: Perfective (7.0/2.0)
+F_preparing > 0: Adaptive (146.0/73.0)
+
+Number of Leaves  : 	18
+
+Size of the tree : 	35
+
+
+Time taken to build model: 1.63 seconds
+Time taken to test model on training data: 0.23 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         273               55.9426 %
+Incorrectly Classified Instances       215               44.0574 %
+Kappa statistic                          0.307 
+Mean absolute error                      0.2126
+Root mean squared error                  0.326 
+Relative absolute error                 75.6051 %
+Root relative squared error             87.0121 %
+Total Number of Instances              488     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   5   7   4   0   6 |   a = Corrective
+   0 186   2   0  22 |   b = Adaptive
+   2  11  14   0   6 |   c = Perfective
+   1  85   4   2   5 |   d = Non-Functional
+   1  54   3   2  66 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         192               39.3443 %
+Incorrectly Classified Instances       296               60.6557 %
+Kappa statistic                          0.1225
+Mean absolute error                      0.2352
+Root mean squared error                  0.3712
+Relative absolute error                 83.6304 %
+Root relative squared error             99.0642 %
+Total Number of Instances              488     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e   <-- classified as
+  2  7  4  1  8 |  a = Corrective
+  2 92  9 50 57 |  b = Adaptive
+  5 13  8  2  5 |  c = Perfective
+  1 57  6 29  4 |  d = Non-Functional
+  3 55  5  2 61 |  e = Implementation
+
+$ + echo ./samba/dir.Swanson.weka.classifiers.trees.J48.report
+./samba/dir.Swanson.weka.classifiers.trees.J48.report
++ cat ./samba/dir.Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+other <= 12
+|   testsuite/libsmbclient/src <= 0
+|   |   docs/docbook/manpages <= 0
+|   |   |   source/profile <= 0
+|   |   |   |   source/locking <= 4
+|   |   |   |   |   source/tests <= 0
+|   |   |   |   |   |   source/smbwrapper <= 1
+|   |   |   |   |   |   |   source/script <= 0: Perfective (36.0/22.0)
+|   |   |   |   |   |   |   source/script > 0: Implementation (8.0/3.0)
+|   |   |   |   |   |   source/smbwrapper > 1: Corrective (3.0)
+|   |   |   |   |   source/tests > 0: Implementation (9.0/4.0)
+|   |   |   |   source/locking > 4: Adaptive (5.0/3.0)
+|   |   |   source/profile > 0: Implementation (2.0)
+|   |   docs/docbook/manpages > 0: Adaptive (2.0/1.0)
+|   testsuite/libsmbclient/src > 0: Implementation (3.0/1.0)
+other > 12
+|   source/python <= 2
+|   |   docs/Registry <= 9
+|   |   |   source <= 7
+|   |   |   |   docs/docbook/xslt/db2latex/common <= 0
+|   |   |   |   |   source/rpc_client <= 4
+|   |   |   |   |   |   source/smbwrapper <= 0
+|   |   |   |   |   |   |   docs/docbook/projdoc/imagefiles <= 15: Adaptive (343.0/159.0)
+|   |   |   |   |   |   |   docs/docbook/projdoc/imagefiles > 15: Implementation (4.0/1.0)
+|   |   |   |   |   |   source/smbwrapper > 0: Implementation (16.0/5.0)
+|   |   |   |   |   source/rpc_client > 4: Implementation (7.0/1.0)
+|   |   |   |   docs/docbook/xslt/db2latex/common > 0: Adaptive (23.0/10.0)
+|   |   |   source > 7
+|   |   |   |   source/codepages <= 1: Implementation (10.0)
+|   |   |   |   source/codepages > 1: Perfective (5.0/3.0)
+|   |   docs/Registry > 9: Perfective (5.0/2.0)
+|   source/python > 2: Implementation (8.0/1.0)
+
+Number of Leaves  : 	17
+
+Size of the tree : 	33
+
+
+Time taken to build model: 0.4 seconds
+Time taken to test model on training data: 0.06 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         273               55.8282 %
+Incorrectly Classified Instances       216               44.1718 %
+Kappa statistic                          0.2991
+Mean absolute error                      0.2344
+Root mean squared error                  0.3423
+Relative absolute error                 83.3358 %
+Root relative squared error             91.3521 %
+Total Number of Instances              489     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   3   5   9   0   5 |   a = Corrective
+   0 200   3   0   7 |   b = Adaptive
+   0  13  19   0   1 |   c = Perfective
+   0  87   7   0   3 |   d = Non-Functional
+   0  68   8   0  51 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         217               44.3763 %
+Incorrectly Classified Instances       272               55.6237 %
+Kappa statistic                          0.1279
+Mean absolute error                      0.2498
+Root mean squared error                  0.3769
+Relative absolute error                 88.8005 %
+Root relative squared error            100.5744 %
+Total Number of Instances              489     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   1   5  11   0   5 |   a = Corrective
+   0 168   2  15  25 |   b = Adaptive
+   3  16   8   0   6 |   c = Perfective
+   0  83   2   4   8 |   d = Non-Functional
+   5  77   8   1  36 |   e = Implementation
+
+$ + echo ./enlightenment/Swanson.weka.classifiers.trees.J48.report
+./enlightenment/Swanson.weka.classifiers.trees.J48.report
++ cat ./enlightenment/Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+F_page <= 0
+|   F_warnings <= 0
+|   |   F_nuke <= 0
+|   |   |   F_quite <= 0
+|   |   |   |   F_we <= 0
+|   |   |   |   |   F_better <= 0
+|   |   |   |   |   |   F_all <= 0
+|   |   |   |   |   |   |   F_bug <= 0
+|   |   |   |   |   |   |   |   F_html <= 0
+|   |   |   |   |   |   |   |   |   F_2005 <= 0
+|   |   |   |   |   |   |   |   |   |   F_api <= 0
+|   |   |   |   |   |   |   |   |   |   |   F_fixes <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   F_images <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_hopefully <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_first <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cleanup <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_themes <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_nav <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_structure <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_add <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_bit <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_removed <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_updates <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_stuff <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_argh <= 0: Implementation (240.0/56.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_argh > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_stuff > 0: Adaptive (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_updates > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 69: Adaptive (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 69: Implementation (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_removed > 0: Adaptive (3.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_bit > 0: Perfective (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_add > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_e17 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_forgot <= 0: Adaptive (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_forgot > 0: Perfective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_e17 > 0: Perfective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_structure > 0: Perfective (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_nav > 0: Adaptive (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_themes > 0: Perfective (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cleanup > 0: Perfective (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_first > 0: Implementation (15.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_hopefully > 0: Perfective (5.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   F_images > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   size <= 73: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   size > 73: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   F_fixes > 0
+|   |   |   |   |   |   |   |   |   |   |   |   F_a <= 2: Perfective (6.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   F_a > 2: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   F_api > 0: Perfective (19.0/11.0)
+|   |   |   |   |   |   |   |   |   F_2005 > 0: Perfective (5.0/1.0)
+|   |   |   |   |   |   |   |   F_html > 0: Adaptive (5.0/1.0)
+|   |   |   |   |   |   |   F_bug > 0
+|   |   |   |   |   |   |   |   F_for <= 1: Corrective (6.0/3.0)
+|   |   |   |   |   |   |   |   F_for > 1: Implementation (5.0/1.0)
+|   |   |   |   |   |   F_all > 0: Perfective (11.0/2.0)
+|   |   |   |   |   F_better > 0: Corrective (7.0/4.0)
+|   |   |   |   F_we > 0
+|   |   |   |   |   F_0 <= 1: Adaptive (6.0/1.0)
+|   |   |   |   |   F_0 > 1: Non-Functional (2.0/1.0)
+|   |   |   F_quite > 0: Corrective (8.0/3.0)
+|   |   F_nuke > 0: Perfective (6.0)
+|   F_warnings > 0: Corrective (7.0/3.0)
+F_page > 0
+|   F_about <= 0: Adaptive (9.0/1.0)
+|   F_about > 0: Corrective (3.0/2.0)
+
+Number of Leaves  : 	34
+
+Size of the tree : 	67
+
+
+Time taken to build model: 2.69 seconds
+Time taken to test model on training data: 0.23 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         314               74.7619 %
+Incorrectly Classified Instances       106               25.2381 %
+Kappa statistic                          0.5835
+Mean absolute error                      0.1511
+Root mean squared error                  0.2748
+Relative absolute error                 57.8548 %
+Root relative squared error             76.1635 %
+Total Number of Instances              420     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+  16   3   6   0   5 |   a = Corrective
+   3  38   4   0  12 |   b = Adaptive
+   8   2  49   0  12 |   c = Perfective
+   1   3   1   1  30 |   d = Non-Functional
+   3   1  11   1 210 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         237               56.4286 %
+Incorrectly Classified Instances       183               43.5714 %
+Kappa statistic                          0.242 
+Mean absolute error                      0.2097
+Root mean squared error                  0.3669
+Relative absolute error                 80.2973 %
+Root relative squared error            101.6692 %
+Total Number of Instances              420     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   5   8   7   1   9 |   a = Corrective
+   5  12   9   0  31 |   b = Adaptive
+   9   6  21   2  33 |   c = Perfective
+   1   3   1   0  31 |   d = Non-Functional
+   6   7  11   3 199 |   e = Implementation
+
+$ + echo ./enlightenment/dir.Swanson.weka.classifiers.trees.J48.report
+./enlightenment/dir.Swanson.weka.classifiers.trees.J48.report
++ cat ./enlightenment/dir.Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+web/e/pages <= 0
+|   e17/libs/ewl/src/bin <= 0
+|   |   e17/libs/ewl/tools/ewl_config <= 0
+|   |   |   other <= 33
+|   |   |   |   e16/e/eesh <= 1
+|   |   |   |   |   e16/e/eesh <= 0
+|   |   |   |   |   |   e17/libs/ewl <= 0
+|   |   |   |   |   |   |   e17/libs/imlib2 <= 1
+|   |   |   |   |   |   |   |   eterm/Eterm/src <= 34
+|   |   |   |   |   |   |   |   |   e16/e/src/themes/configs <= 0: Perfective (44.0/27.0)
+|   |   |   |   |   |   |   |   |   e16/e/src/themes/configs > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   eterm/Eterm/src > 34: Implementation (4.0/1.0)
+|   |   |   |   |   |   |   e17/libs/imlib2 > 1: Implementation (3.0/1.0)
+|   |   |   |   |   |   e17/libs/ewl > 0: Corrective (3.0/1.0)
+|   |   |   |   |   e16/e/eesh > 0: Corrective (3.0/1.0)
+|   |   |   |   e16/e/eesh > 1: Non-Functional (4.0)
+|   |   |   other > 33
+|   |   |   |   e17/libs/ewl/test <= 2
+|   |   |   |   |   e17/libs/ewl <= 0
+|   |   |   |   |   |   e17/libs/imlib2/src <= 0: Implementation (272.0/73.0)
+|   |   |   |   |   |   e17/libs/imlib2/src > 0
+|   |   |   |   |   |   |   e17/libs/imlib2/data <= 0: Perfective (5.0)
+|   |   |   |   |   |   |   e17/libs/imlib2/data > 0: Implementation (4.0/1.0)
+|   |   |   |   |   e17/libs/ewl > 0
+|   |   |   |   |   |   test <= 0: Adaptive (5.0/1.0)
+|   |   |   |   |   |   test > 0: Implementation (6.0)
+|   |   |   |   e17/libs/ewl/test > 2
+|   |   |   |   |   test <= 1: Corrective (4.0/1.0)
+|   |   |   |   |   test > 1: Implementation (2.0)
+|   |   e17/libs/ewl/tools/ewl_config > 0: Perfective (11.0/4.0)
+|   e17/libs/ewl/src/bin > 0
+|   |   e17/libs/ewl/m4 <= 0: Perfective (5.0)
+|   |   e17/libs/ewl/m4 > 0: Corrective (3.0/1.0)
+web/e/pages > 0: Adaptive (41.0/3.0)
+
+Number of Leaves  : 	18
+
+Size of the tree : 	35
+
+
+Time taken to build model: 1.03 seconds
+Time taken to test model on training data: 0.2 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         305               72.4466 %
+Incorrectly Classified Instances       116               27.5534 %
+Kappa statistic                          0.5287
+Mean absolute error                      0.1679
+Root mean squared error                  0.2897
+Relative absolute error                 64.1679 %
+Root relative squared error             80.21   %
+Total Number of Instances              421     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+  10   1  10   0  10 |   a = Corrective
+   3  42   4   0   8 |   b = Adaptive
+   1   1  34   0  35 |   c = Perfective
+   0   2   7   4  23 |   d = Non-Functional
+   1   0  10   0 215 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         280               66.5083 %
+Incorrectly Classified Instances       141               33.4917 %
+Kappa statistic                          0.4282
+Mean absolute error                      0.1818
+Root mean squared error                  0.3166
+Relative absolute error                 69.4549 %
+Root relative squared error             87.6441 %
+Total Number of Instances              421     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   7   1  12   1  10 |   a = Corrective
+   4  39   4   0  10 |   b = Adaptive
+  10   1  20   1  39 |   c = Perfective
+   3   2   2   4  25 |   d = Non-Functional
+   5   0   9   2 210 |   e = Implementation
+
+$ + echo ./evolution/Swanson.weka.classifiers.trees.J48.report
+./evolution/Swanson.weka.classifiers.trees.J48.report
++ cat ./evolution/Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+F_zoneinfo <= 0
+|   F_18 <= 0
+|   |   F_translation <= 0
+|   |   |   F_license <= 0
+|   |   |   |   F_gpl <= 0
+|   |   |   |   |   F_copyright <= 0
+|   |   |   |   |   |   F_removing <= 0
+|   |   |   |   |   |   |   F_because <= 0
+|   |   |   |   |   |   |   |   F_directory <= 0
+|   |   |   |   |   |   |   |   |   F_lots <= 0
+|   |   |   |   |   |   |   |   |   |   F_03 <= 0
+|   |   |   |   |   |   |   |   |   |   |   F_except <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   F_nntp <= 0: Implementation (58.0/15.0)
+|   |   |   |   |   |   |   |   |   |   |   |   F_nntp > 0: Perfective (3.0)
+|   |   |   |   |   |   |   |   |   |   |   F_except > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   F_03 > 0: Perfective (4.0/1.0)
+|   |   |   |   |   |   |   |   |   F_lots > 0: Perfective (3.0/1.0)
+|   |   |   |   |   |   |   |   F_directory > 0: Perfective (3.0/1.0)
+|   |   |   |   |   |   |   F_because > 0: Perfective (3.0/1.0)
+|   |   |   |   |   |   F_removing > 0: Non-Functional (2.0)
+|   |   |   |   |   F_copyright > 0: Non-Functional (2.0)
+|   |   |   |   F_gpl > 0: Non-Functional (3.0)
+|   |   |   F_license > 0: Non-Functional (8.0)
+|   |   F_translation > 0: Adaptive (2.0)
+|   F_18 > 0: Adaptive (2.0)
+F_zoneinfo > 0: Adaptive (5.0)
+
+Number of Leaves  : 	14
+
+Size of the tree : 	27
+
+
+Time taken to build model: 0.39 seconds
+Time taken to test model on training data: 0.06 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          81               81      %
+Incorrectly Classified Instances        19               19      %
+Kappa statistic                          0.7127
+Mean absolute error                      0.1187
+Root mean squared error                  0.2436
+Relative absolute error                 42.3431 %
+Root relative squared error             65.2921 %
+Total Number of Instances              100     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e   <-- classified as
+  0  0  0  0  0 |  a = Corrective
+  0  9  2  0  2 |  b = Adaptive
+  0  0 14  0 10 |  c = Perfective
+  0  0  1 15  3 |  d = Non-Functional
+  0  0  1  0 43 |  e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          57               57      %
+Incorrectly Classified Instances        43               43      %
+Kappa statistic                          0.3305
+Mean absolute error                      0.1898
+Root mean squared error                  0.3586
+Relative absolute error                 67.5671 %
+Root relative squared error             95.9944 %
+Total Number of Instances              100     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e   <-- classified as
+  0  0  0  0  0 |  a = Corrective
+  0  5  1  1  6 |  b = Adaptive
+  0  5  3  0 16 |  c = Perfective
+  0  1  0 10  8 |  d = Non-Functional
+  0  2  2  1 39 |  e = Implementation
+
+$ + echo ./evolution/dir.Swanson.weka.classifiers.trees.J48.report
+./evolution/dir.Swanson.weka.classifiers.trees.J48.report
++ cat ./evolution/dir.Swanson.weka.classifiers.trees.J48.report
+$ + echo ./boost/Swanson.weka.classifiers.trees.J48.report
+./boost/Swanson.weka.classifiers.trees.J48.report
++ cat ./boost/Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+F_license <= 0
+|   F_copyright <= 0
+|   |   F_config <= 0
+|   |   |   F_fixes <= 0
+|   |   |   |   F_licence <= 0
+|   |   |   |   |   F_link <= 0
+|   |   |   |   |   |   F_directory <= 0
+|   |   |   |   |   |   |   F_fixed <= 0
+|   |   |   |   |   |   |   |   F_review <= 0
+|   |   |   |   |   |   |   |   |   F_bump <= 0
+|   |   |   |   |   |   |   |   |   |   F_change <= 0
+|   |   |   |   |   |   |   |   |   |   |   F_merge <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   F_submission <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_2 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cvs <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_removed <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_regex <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_specific <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_commit <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_perforce <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_refactoring <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_by <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_main <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_into <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_to <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_move <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_9 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_checkin <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_revision <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_proto2 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_add <= 0: Adaptive (190.0/82.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_add > 0: Implementation (6.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_proto2 > 0: Perfective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_revision > 0: Implementation (15.0/5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_checkin > 0: Implementation (17.0/5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_9 > 0: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_move > 0: Implementation (10.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_to > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_converted <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_move <= 0: Adaptive (21.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_move > 0: Perfective (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_converted > 0: Perfective (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_into > 0: Implementation (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_main > 0: Implementation (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_by > 0: Implementation (5.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_refactoring > 0: Perfective (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_perforce > 0: Non-Functional (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_commit > 0: Implementation (27.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_specific > 0: Implementation (6.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_regex > 0: Implementation (9.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_removed > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cpp <= 0: Non-Functional (17.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cpp > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cvs > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_for <= 0: Implementation (18.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_for > 0: Perfective (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_2 > 0: Implementation (12.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   F_submission > 0: Implementation (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   F_merge > 0: Implementation (10.0/3.0)
+|   |   |   |   |   |   |   |   |   |   F_change > 0: Adaptive (13.0/7.0)
+|   |   |   |   |   |   |   |   |   F_bump > 0
+|   |   |   |   |   |   |   |   |   |   F_0 <= 0: Adaptive (7.0/4.0)
+|   |   |   |   |   |   |   |   |   |   F_0 > 0: Non-Functional (4.0)
+|   |   |   |   |   |   |   |   F_review > 0: Implementation (12.0/3.0)
+|   |   |   |   |   |   |   F_fixed > 0
+|   |   |   |   |   |   |   |   F_preprocessing <= 0: Adaptive (8.0/4.0)
+|   |   |   |   |   |   |   |   F_preprocessing > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   F_directory > 0
+|   |   |   |   |   |   |   F_regex <= 0: Perfective (5.0)
+|   |   |   |   |   |   |   F_regex > 0: Adaptive (7.0/2.0)
+|   |   |   |   |   F_link > 0: Adaptive (9.0/4.0)
+|   |   |   |   F_licence > 0: Non-Functional (10.0/3.0)
+|   |   |   F_fixes > 0
+|   |   |   |   F_cosmetical <= 0
+|   |   |   |   |   F_almost <= 0
+|   |   |   |   |   |   F_boost <= 0: Corrective (48.0/23.0)
+|   |   |   |   |   |   F_boost > 0: Adaptive (6.0/3.0)
+|   |   |   |   |   F_almost > 0: Adaptive (3.0)
+|   |   |   |   F_cosmetical > 0: Perfective (4.0/2.0)
+|   |   F_config > 0: Adaptive (14.0/1.0)
+|   F_copyright > 0
+|   |   F_and <= 0: Non-Functional (17.0/4.0)
+|   |   F_and > 0: Adaptive (6.0/4.0)
+F_license > 0: Non-Functional (44.0/17.0)
+
+Number of Leaves  : 	43
+
+Size of the tree : 	85
+
+
+Time taken to build model: 2.53 seconds
+Time taken to test model on training data: 0.16 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         401               64.16   %
+Incorrectly Classified Instances       224               35.84   %
+Kappa statistic                          0.5015
+Mean absolute error                      0.1991
+Root mean squared error                  0.3155
+Relative absolute error                 67.8729 %
+Root relative squared error             82.4147 %
+Total Number of Instances              625     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+  26  13   0   0   2 |   a = Corrective
+  11 170   2  24  25 |   b = Adaptive
+   3  39  21   2  11 |   c = Perfective
+   1  13   2  64   8 |   d = Non-Functional
+   9  49   4   6 120 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         324               51.84   %
+Incorrectly Classified Instances       301               48.16   %
+Kappa statistic                          0.3323
+Mean absolute error                      0.2283
+Root mean squared error                  0.3655
+Relative absolute error                 77.8025 %
+Root relative squared error             95.4813 %
+Total Number of Instances              625     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+  18  20   1   0   2 |   a = Corrective
+  15 125  16  28  48 |   b = Adaptive
+   3  45  10   4  14 |   c = Perfective
+   2  17   2  55  12 |   d = Non-Functional
+  10  52   3   7 116 |   e = Implementation
+
+$ + echo ./boost/dir.Swanson.weka.classifiers.trees.J48.report
+./boost/dir.Swanson.weka.classifiers.trees.J48.report
++ cat ./boost/dir.Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+boost/boost/mpl/aux_/preprocessed/bcc551 <= 2
+|   boost/libs/fusion/doc/html <= 0
+|   |   boost/boost/mpl/list <= 0
+|   |   |   boost/boost/config <= 0
+|   |   |   |   boost/tools/jam/src <= 32
+|   |   |   |   |   boost/libs/regex/old_include/tests <= 0
+|   |   |   |   |   |   boost/libs/smart_ptr <= 0
+|   |   |   |   |   |   |   boost/libs/mpl/doc/src <= 1
+|   |   |   |   |   |   |   |   boost/libs/regex/test <= 0
+|   |   |   |   |   |   |   |   |   boost/libs/mpl/doc/ref/Reference <= 0
+|   |   |   |   |   |   |   |   |   |   boost/libs/mpl/test <= 0
+|   |   |   |   |   |   |   |   |   |   |   boost/libs/wave/doc <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   boost/boost/asio/ssl/detail <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = agurtovoy
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/boost/mpl <= 16
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 144: Adaptive (5.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 144: Implementation (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/boost/mpl > 16: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = andreas_huber69: Non-Functional (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = beman: Adaptive (0.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = beman_dawes: Adaptive (8.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = bill_kempf: Perfective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = bjorn_karlsson: Non-Functional (1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = chris_kohlhoff
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   source <= 23: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   source > 23: Non-Functional (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = david_abrahams
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/python <= 0: Adaptive (17.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/python > 0: Implementation (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = dgregor
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/boost/graph <= 0: Adaptive (22.0/11.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/boost/graph > 0: Non-Functional (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = djowel
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/boost <= 2
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/more <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/spirit/example/fundamental/calc <= 9
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/spirit/phoenix/test <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/spirit/fusion/test <= 7: Implementation (55.0/19.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/spirit/fusion/test > 7: Adaptive (3.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/spirit/phoenix/test > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/spirit/example/fundamental/more_calculators <= 0: Perfective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/spirit/example/fundamental/more_calculators > 0: Adaptive (12.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/spirit/example/fundamental/calc > 9
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/spirit/doc <= 12: Non-Functional (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/spirit/doc > 12: Adaptive (6.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost > 0: Adaptive (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/more > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/boost > 2: Corrective (3.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = eric_niebler
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/boost/xpressive/detail <= 0: Adaptive (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/boost/xpressive/detail > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 119: Perfective (5.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 119: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = gennaro_prota: Adaptive (1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = grafik: Adaptive (42.0/21.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = hkaiser
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/spirit/example/application/cpp <= 3
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/wave/test/build <= 0: Non-Functional (15.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/wave/test/build > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/spirit/example/application/cpp > 3: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = hubert_holin: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = igaztanaga: Adaptive (10.0/5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = jmaurer: Implementation (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = joaquintides: Implementation (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = joerg_walter
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/numeric/ublas/bench4 <= 1: Adaptive (5.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/numeric/ublas/bench4 > 1: Perfective (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = johnmaddock
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/boost/detail <= 0: Adaptive (40.0/15.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/boost/detail > 0: Non-Functional (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = jsiek: Adaptive (8.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = jsuter: Non-Functional (1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = martin_wille: Perfective (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = mathiaskoch: Adaptive (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = memring: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = mistevens: Adaptive (7.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = nesotto: Adaptive (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = nicoddemus: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = pmenso57
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/preprocessor/docs.1/headers/array <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/preprocessor/docs.1/ref <= 0: Perfective (15.0/7.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/preprocessor/docs.1/ref > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/preprocessor/docs.1/headers/array > 0: Implementation (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = ramey
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/serialization <= 0: Implementation (12.0/5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/serialization > 0: Perfective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = rgarcia: Implementation (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = rogeeff: Adaptive (28.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = rwgk: Adaptive (0.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = turkanis
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/iostreams/doc/classes <= 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/iostreams/doc/classes > 0: Adaptive (13.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = ullrich_koethe: Implementation (6.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = vesa_karvonen: Adaptive (12.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   author = vladimir_prus: Adaptive (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   boost/boost/asio/ssl/detail > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   size <= 215: Perfective (5.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   size > 215: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   boost/libs/wave/doc > 0
+|   |   |   |   |   |   |   |   |   |   |   |   boost/boost <= 0: Adaptive (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   boost/boost > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/wave/doc/theme <= 0: Non-Functional (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   boost/libs/wave/doc/theme > 0: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   boost/libs/mpl/test > 0
+|   |   |   |   |   |   |   |   |   |   |   boost/boost/mpl/aux_ <= 1: Implementation (14.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   boost/boost/mpl/aux_ > 1: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   boost/libs/mpl/doc/ref/Reference > 0
+|   |   |   |   |   |   |   |   |   |   size <= 81: Perfective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   size > 81: Adaptive (6.0/2.0)
+|   |   |   |   |   |   |   |   boost/libs/regex/test > 0
+|   |   |   |   |   |   |   |   |   boost/boost/regex <= 1: Adaptive (4.0)
+|   |   |   |   |   |   |   |   |   boost/boost/regex > 1: Implementation (8.0/1.0)
+|   |   |   |   |   |   |   boost/libs/mpl/doc/src > 1: Implementation (11.0/4.0)
+|   |   |   |   |   |   boost/libs/smart_ptr > 0
+|   |   |   |   |   |   |   boost/libs/compose <= 1: Adaptive (6.0/2.0)
+|   |   |   |   |   |   |   boost/libs/compose > 1: Implementation (6.0)
+|   |   |   |   |   boost/libs/regex/old_include/tests > 0
+|   |   |   |   |   |   boost/libs/regex/example/grep <= 0
+|   |   |   |   |   |   |   boost <= 0: Non-Functional (2.0)
+|   |   |   |   |   |   |   boost > 0: Implementation (7.0/2.0)
+|   |   |   |   |   |   boost/libs/regex/example/grep > 0: Corrective (2.0/1.0)
+|   |   |   |   boost/tools/jam/src > 32
+|   |   |   |   |   size <= 116: Non-Functional (8.0/3.0)
+|   |   |   |   |   size > 116: Implementation (5.0/2.0)
+|   |   |   boost/boost/config > 0
+|   |   |   |   boost/boost/detail <= 0: Non-Functional (3.0/1.0)
+|   |   |   |   boost/boost/detail > 0: Adaptive (8.0/1.0)
+|   |   boost/boost/mpl/list > 0: Implementation (12.0/4.0)
+|   boost/libs/fusion/doc/html > 0: Adaptive (14.0/3.0)
+boost/boost/mpl/aux_/preprocessed/bcc551 > 2
+|   boost/boost/mpl/list <= 6
+|   |   boost/boost/mpl/aux_/preprocessed/dmc <= 9
+|   |   |   source <= 2
+|   |   |   |   boost/boost/mpl <= 1: Implementation (2.0)
+|   |   |   |   boost/boost/mpl > 1: Corrective (9.0/4.0)
+|   |   |   source > 2
+|   |   |   |   size <= 70: Corrective (2.0/1.0)
+|   |   |   |   size > 70: Perfective (6.0/1.0)
+|   |   boost/boost/mpl/aux_/preprocessed/dmc > 9: Corrective (16.0/7.0)
+|   boost/boost/mpl/list > 6
+|   |   size <= 889: Non-Functional (4.0/2.0)
+|   |   size > 889: Implementation (2.0)
+
+Number of Leaves  : 	90
+
+Size of the tree : 	144
+
+
+Time taken to build model: 3.44 seconds
+Time taken to test model on training data: 0.35 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         402               64.2173 %
+Incorrectly Classified Instances       224               35.7827 %
+Kappa statistic                          0.4932
+Mean absolute error                      0.1916
+Root mean squared error                  0.3095
+Relative absolute error                 65.3473 %
+Root relative squared error             80.867  %
+Total Number of Instances              626     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+  19  16   1   0   5 |   a = Corrective
+   6 183   9   5  30 |   b = Adaptive
+   3  33  33   0   7 |   c = Perfective
+   1  29   2  40  16 |   d = Non-Functional
+   7  42   8   4 127 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         262               41.853  %
+Incorrectly Classified Instances       364               58.147  %
+Kappa statistic                          0.173 
+Mean absolute error                      0.256 
+Root mean squared error                  0.4014
+Relative absolute error                 87.3095 %
+Root relative squared error            104.8704 %
+Total Number of Instances              626     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   8  21   2   2   8 |   a = Corrective
+  15 146  18  16  38 |   b = Adaptive
+   6  46   6   2  16 |   c = Perfective
+   2  42   2  15  27 |   d = Non-Functional
+  11  63  12  15  87 |   e = Implementation
+
+$ + echo ./mysql-5_0/Swanson.weka.classifiers.trees.J48.report
+./mysql-5_0/Swanson.weka.classifiers.trees.J48.report
++ cat ./mysql-5_0/Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+F_array <= 0
+|   F_strmov <= 0
+|   |   F_56 <= 0
+|   |   |   F_98 <= 0
+|   |   |   |   F_cacert <= 0
+|   |   |   |   |   F_config <= 0
+|   |   |   |   |   |   F_constants <= 0
+|   |   |   |   |   |   |   F_120 <= 0
+|   |   |   |   |   |   |   |   F_sets <= 0
+|   |   |   |   |   |   |   |   |   F_g <= 0
+|   |   |   |   |   |   |   |   |   |   F_should <= 0
+|   |   |   |   |   |   |   |   |   |   |   F_grant <= 1
+|   |   |   |   |   |   |   |   |   |   |   |   F_r <= 2
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_r <= 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_05 <= 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_engine <= 0: Adaptive (156.0/96.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_engine > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_05 > 1: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_r > 1: Perfective (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   F_r > 2: Corrective (6.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   F_grant > 1: Perfective (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   F_should > 0: Implementation (5.0/2.0)
+|   |   |   |   |   |   |   |   |   F_g > 0: Adaptive (5.0/1.0)
+|   |   |   |   |   |   |   |   F_sets > 0: Perfective (7.0/4.0)
+|   |   |   |   |   |   |   F_120 > 0: Implementation (4.0/1.0)
+|   |   |   |   |   |   F_constants > 0: Non-Functional (6.0/3.0)
+|   |   |   |   |   F_config > 0: Perfective (5.0/2.0)
+|   |   |   |   F_cacert > 0: Implementation (5.0/2.0)
+|   |   |   F_98 > 0: Implementation (6.0/2.0)
+|   |   F_56 > 0: Implementation (5.0/1.0)
+|   F_strmov > 0: Perfective (5.0/1.0)
+F_array > 0: Non-Functional (5.0/2.0)
+
+Number of Leaves  : 	17
+
+Size of the tree : 	33
+
+
+Time taken to build model: 2.47 seconds
+Time taken to test model on training data: 0.2 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         108               46.1538 %
+Incorrectly Classified Instances       126               53.8462 %
+Kappa statistic                          0.2591
+Mean absolute error                      0.2637
+Root mean squared error                  0.3631
+Relative absolute error                 86.028  %
+Root relative squared error             92.7938 %
+Total Number of Instances              234     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e   <-- classified as
+  2 17  2  1  1 |  a = Corrective
+  1 64  2  3  0 |  b = Adaptive
+  1 26 14  1  8 |  c = Perfective
+  2 17  1  6  0 |  d = Non-Functional
+  0 37  6  0 22 |  e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          53               22.6496 %
+Incorrectly Classified Instances       181               77.3504 %
+Kappa statistic                         -0.0591
+Mean absolute error                      0.3122
+Root mean squared error                  0.4307
+Relative absolute error                101.8088 %
+Root relative squared error            110.0318 %
+Total Number of Instances              234     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e   <-- classified as
+  0 16  3  1  3 |  a = Corrective
+  5 34  6  5 20 |  b = Adaptive
+  2 26  6  1 15 |  c = Perfective
+  0 18  2  1  5 |  d = Non-Functional
+  2 41  9  1 12 |  e = Implementation
+
+$ + echo ./mysql-5_0/dir.Swanson.weka.classifiers.trees.J48.report
+./mysql-5_0/dir.Swanson.weka.classifiers.trees.J48.report
++ cat ./mysql-5_0/dir.Swanson.weka.classifiers.trees.J48.report
+$ + echo ./postgresql/Swanson.weka.classifiers.trees.J48.report
+./postgresql/Swanson.weka.classifiers.trees.J48.report
++ cat ./postgresql/Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+F_copyright <= 0
+|   F_did <= 0
+|   |   F_refer <= 0
+|   |   |   F_create <= 0
+|   |   |   |   F_going <= 0
+|   |   |   |   |   F_initial <= 0
+|   |   |   |   |   |   F_support <= 0
+|   |   |   |   |   |   |   F_documentation <= 0
+|   |   |   |   |   |   |   |   F_98 <= 0: Perfective (69.0/15.0)
+|   |   |   |   |   |   |   |   F_98 > 0: Non-Functional (3.0/1.0)
+|   |   |   |   |   |   |   F_documentation > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   F_support > 0: Implementation (3.0/1.0)
+|   |   |   |   |   F_initial > 0: Implementation (2.0)
+|   |   |   |   F_going > 0: Implementation (3.0)
+|   |   |   F_create > 0: Implementation (3.0)
+|   |   F_refer > 0: Corrective (2.0/1.0)
+|   F_did > 0: Non-Functional (2.0)
+F_copyright > 0: Non-Functional (8.0)
+
+Number of Leaves  : 	10
+
+Size of the tree : 	19
+
+
+Time taken to build model: 0.27 seconds
+Time taken to test model on training data: 0.04 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          78               80.4124 %
+Incorrectly Classified Instances        19               19.5876 %
+Kappa statistic                          0.6519
+Mean absolute error                      0.1244
+Root mean squared error                  0.2494
+Relative absolute error                 48.822  %
+Root relative squared error             70.3146 %
+Total Number of Instances               97     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e   <-- classified as
+  1  0  1  0  0 |  a = Corrective
+  0  1  8  1  1 |  b = Adaptive
+  0  0 54  0  0 |  c = Perfective
+  0  0  4 12  0 |  d = Non-Functional
+  1  1  2  0 10 |  e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          57               58.7629 %
+Incorrectly Classified Instances        40               41.2371 %
+Kappa statistic                          0.257 
+Mean absolute error                      0.1908
+Root mean squared error                  0.3622
+Relative absolute error                 74.625  %
+Root relative squared error            101.8698 %
+Total Number of Instances               97     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e   <-- classified as
+  0  0  2  0  0 |  a = Corrective
+  0  0  9  0  2 |  b = Adaptive
+  3  2 47  1  1 |  c = Perfective
+  0  2  6  8  0 |  d = Non-Functional
+  1  3  8  0  2 |  e = Implementation
+
+$ + echo ./postgresql/dir.Swanson.weka.classifiers.trees.J48.report
+./postgresql/dir.Swanson.weka.classifiers.trees.J48.report
++ cat ./postgresql/dir.Swanson.weka.classifiers.trees.J48.report
+$ + echo ./firebird/Swanson.weka.classifiers.trees.J48.report
+./firebird/Swanson.weka.classifiers.trees.J48.report
++ cat ./firebird/Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+F_license <= 0
+|   F_const <= 0
+|   |   F_removed <= 0
+|   |   |   F_moved <= 0
+|   |   |   |   F_cleanup <= 0
+|   |   |   |   |   F_fixed <= 0
+|   |   |   |   |   |   F_stylesheets <= 0
+|   |   |   |   |   |   |   F_remove <= 0
+|   |   |   |   |   |   |   |   F_when <= 0
+|   |   |   |   |   |   |   |   |   F_initial <= 0
+|   |   |   |   |   |   |   |   |   |   F_cleaning <= 0
+|   |   |   |   |   |   |   |   |   |   |   F_names <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   F_fixes <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_progress <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_move <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_deleted <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_updated <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_firebird <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_on <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_split <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_builds <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_msvc7 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_message <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_a <= 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_test <= 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_c <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_warning <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_10 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_in <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_add <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_directories <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_head <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_corrections <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_tabify <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_compile <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cleanups <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_conversion <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_after <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_below <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_changed <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_ironing <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_tests <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_w3 <= 0: Implementation (174.0/70.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_w3 > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_tests > 0: Adaptive (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_ironing > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_changed > 0: Adaptive (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_below > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_after > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_conversion > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cleanups > 0: Adaptive (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_compile > 0: Adaptive (7.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_tabify > 0: Perfective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_corrections > 0: Corrective (5.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_head > 0: Adaptive (43.0/17.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_directories > 0: Adaptive (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_add > 0: Adaptive (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_in > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_a <= 0: Implementation (6.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_a > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_10 > 0: Implementation (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_warning > 0: Adaptive (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_c > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_added <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_add <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_memory <= 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_memory > 0: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_add > 0: Implementation (9.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_added > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_test > 1: Adaptive (12.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_a > 1: Adaptive (5.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_message > 0: Adaptive (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_msvc7 > 0: Adaptive (17.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_builds > 0: Adaptive (6.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_split > 0: Perfective (6.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_on > 0: Adaptive (26.0/12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_firebird > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_firebird <= 1: Adaptive (7.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_firebird > 1: Perfective (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_updated > 0: Adaptive (8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_deleted > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_0 <= 1: Perfective (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_0 > 1: Adaptive (5.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_move > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_change <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_a <= 1: Perfective (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_a > 1: Adaptive (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_change > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_progress > 0: Implementation (8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   F_fixes > 0: Corrective (8.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   F_names > 0: Perfective (8.0/1.0)
+|   |   |   |   |   |   |   |   |   |   F_cleaning > 0: Perfective (10.0/4.0)
+|   |   |   |   |   |   |   |   |   F_initial > 0: Implementation (125.0/42.0)
+|   |   |   |   |   |   |   |   F_when > 0
+|   |   |   |   |   |   |   |   |   F_all <= 0
+|   |   |   |   |   |   |   |   |   |   F_associated <= 0: Adaptive (8.0/4.0)
+|   |   |   |   |   |   |   |   |   |   F_associated > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   F_all > 0: Corrective (3.0/1.0)
+|   |   |   |   |   |   |   F_remove > 0
+|   |   |   |   |   |   |   |   F_3 <= 0: Adaptive (24.0/7.0)
+|   |   |   |   |   |   |   |   F_3 > 0: Perfective (2.0)
+|   |   |   |   |   |   F_stylesheets > 0: Non-Functional (16.0/8.0)
+|   |   |   |   |   F_fixed > 0: Adaptive (22.0/5.0)
+|   |   |   |   F_cleanup > 0: Perfective (38.0/15.0)
+|   |   |   F_moved > 0
+|   |   |   |   F_remove <= 0: Perfective (20.0/6.0)
+|   |   |   |   F_remove > 0: Non-Functional (2.0)
+|   |   F_removed > 0: Perfective (23.0/6.0)
+|   F_const > 0: Perfective (22.0/11.0)
+F_license > 0: Non-Functional (23.0/6.0)
+
+Number of Leaves  : 	56
+
+Size of the tree : 	111
+
+
+Time taken to build model: 4.98 seconds
+Time taken to test model on training data: 0.3 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         520               66.9241 %
+Incorrectly Classified Instances       257               33.0759 %
+Kappa statistic                          0.5392
+Mean absolute error                      0.186 
+Root mean squared error                  0.305 
+Relative absolute error                 63.3594 %
+Root relative squared error             79.6215 %
+Total Number of Instances              777     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+  10  13  17   0   4 |   a = Corrective
+   5 173  15  12  63 |   b = Adaptive
+   2  20 100   1  20 |   c = Perfective
+   2   8   7  27  31 |   d = Non-Functional
+   1  25  10   1 210 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         389               50.0644 %
+Incorrectly Classified Instances       388               49.9356 %
+Kappa statistic                          0.3072
+Mean absolute error                      0.2282
+Root mean squared error                  0.3656
+Relative absolute error                 77.7328 %
+Root relative squared error             95.4336 %
+Total Number of Instances              777     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   2  15  22   1   4 |   a = Corrective
+   6 127  37  15  83 |   b = Adaptive
+  10  33  72   2  26 |   c = Perfective
+   3  15   8  17  32 |   d = Non-Functional
+   3  47  22   4 171 |   e = Implementation
+
+$ + echo ./firebird/dir.Swanson.weka.classifiers.trees.J48.report
+./firebird/dir.Swanson.weka.classifiers.trees.J48.report
++ cat ./firebird/dir.Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+firebird2/builds/win32/msvc7 <= 23
+|   firebird2/doc/sql.extensions <= 0
+|   |   firebird2/builds/win32/msvc6 <= 40
+|   |   |   firebird2/src/jrd/os/vms <= 0
+|   |   |   |   firebird2/src/utilities/gstat <= 1
+|   |   |   |   |   manual/src/docs/docbook/fo <= 0
+|   |   |   |   |   |   firebird2/src/csv <= 0
+|   |   |   |   |   |   |   firebird2/src/v5_examples <= 0
+|   |   |   |   |   |   |   |   firebird2/src/ipserver <= 0
+|   |   |   |   |   |   |   |   |   client-java/src/main/org/firebirdsql/jdbc/field <= 2
+|   |   |   |   |   |   |   |   |   |   author = aafemt: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   author = alexpeshkoff
+|   |   |   |   |   |   |   |   |   |   |   other <= 11: Adaptive (5.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   other > 11: Implementation (9.0/4.0)
+|   |   |   |   |   |   |   |   |   |   author = arnobrinkman
+|   |   |   |   |   |   |   |   |   |   |   source <= 36: Implementation (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   source > 36: Perfective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   author = asfernandes: Implementation (48.0/19.0)
+|   |   |   |   |   |   |   |   |   |   author = awharrison: Implementation (6.0/1.0)
+|   |   |   |   |   |   |   |   |   |   author = bellardo
+|   |   |   |   |   |   |   |   |   |   |   interbase/burp <= 0: Adaptive (13.0/5.0)
+|   |   |   |   |   |   |   |   |   |   |   interbase/burp > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   author = brodsom
+|   |   |   |   |   |   |   |   |   |   |   firebird2/src/intl/collations <= 72
+|   |   |   |   |   |   |   |   |   |   |   |   source <= 26: Adaptive (55.0/34.0)
+|   |   |   |   |   |   |   |   |   |   |   |   source > 26: Perfective (7.0)
+|   |   |   |   |   |   |   |   |   |   |   firebird2/src/intl/collations > 72: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   author = carlosga_fb
+|   |   |   |   |   |   |   |   |   |   |   Net-Provider/Resources <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   NETProvider/NETProvider_15 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   NETProvider/NETProvider_16/source/FirebirdSql.Data.Common/Resources <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   NETProvider/NETProvider_16/source/FirebirdSql.Data.Firebird.UnitTest <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   NETProvider/NETProvider_16 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   source <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   NETProvider/NETProvider_20/source/FirebirdSql/Data/Design/Command <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Net-Provider/source/GDS <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   NETProvider/NETProvider_17/source/FirebirdSql.Data.Firebird <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   NETProvider/NETProvider_16/source/FirebirdSql.Data.Gds <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Net-Provider/doc <= 0: Non-Functional (26.0/10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Net-Provider/doc > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   NETProvider/NETProvider_16/source/FirebirdSql.Data.Gds > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   NETProvider/NETProvider_17/source/FirebirdSql.Data.Firebird > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 77: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 77: Perfective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   Net-Provider/source/GDS > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   NETProvider/NETProvider_20/source/FirebirdSql/Data/Design/Command > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   source > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   NETProvider/NETProvider_16 > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   NETProvider/NETProvider_16/source/FirebirdSql.Data.Firebird.UnitTest > 0: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   NETProvider/NETProvider_16/source/FirebirdSql.Data.Common/Resources > 0: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   NETProvider/NETProvider_15 > 0: Implementation (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   Net-Provider/Resources > 0: Implementation (6.0)
+|   |   |   |   |   |   |   |   |   |   author = d_jencks
+|   |   |   |   |   |   |   |   |   |   |   client-java/src/resources <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   client-java/src/jdbcTest/preparedStatement <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   client-java <= 0: Perfective (7.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   client-java > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   client-java/src/jdbcTest/preparedStatement > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   client-java/src/resources > 0: Adaptive (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   author = dimitr: Adaptive (10.0/4.0)
+|   |   |   |   |   |   |   |   |   |   author = eku: Perfective (1.0)
+|   |   |   |   |   |   |   |   |   |   author = fsg: Implementation (11.0/6.0)
+|   |   |   |   |   |   |   |   |   |   author = georgy_sergeev: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   author = hippoman: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   author = hvlad: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   author = jimstarkey
+|   |   |   |   |   |   |   |   |   |   |   vulcan/install <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   vulcan/builds/VisualStudio7/jrd <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   vulcan/src/jrd <= 25: Implementation (7.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   vulcan/src/jrd > 25: Perfective (5.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   vulcan/builds/VisualStudio7/jrd > 0: Adaptive (8.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   vulcan/install > 0: Adaptive (3.0)
+|   |   |   |   |   |   |   |   |   |   author = kkuznetsov: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = paul_reeves
+|   |   |   |   |   |   |   |   |   |   |   source <= 15: Adaptive (12.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   source > 15: Non-Functional (11.0/8.0)
+|   |   |   |   |   |   |   |   |   |   author = paulvink: Adaptive (5.0/3.0)
+|   |   |   |   |   |   |   |   |   |   author = pcisar
+|   |   |   |   |   |   |   |   |   |   |   qmdb/isql.qms/delete.qms <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   web/website/devel <= 0: Implementation (67.0/31.0)
+|   |   |   |   |   |   |   |   |   |   |   |   web/website/devel > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   qmdb/isql.qms/delete.qms > 0: Adaptive (7.0/3.0)
+|   |   |   |   |   |   |   |   |   |   author = praktik
+|   |   |   |   |   |   |   |   |   |   |   OdbcJdbc/Builds/Bcc55.win <= 0: Implementation (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   OdbcJdbc/Builds/Bcc55.win > 0: Adaptive (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   author = robocop
+|   |   |   |   |   |   |   |   |   |   |   firebird2/examples/api <= 1
+|   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/journal <= 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/common <= 0: Corrective (7.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/common > 0: Perfective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/journal > 1: Perfective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   firebird2/examples/api > 1: Adaptive (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   author = rrokytskyy: Implementation (13.0/5.0)
+|   |   |   |   |   |   |   |   |   |   author = ryanbaldwin
+|   |   |   |   |   |   |   |   |   |   |   size <= 39: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   size > 39: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   author = seanleyne: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = sjardine: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   author = skidder
+|   |   |   |   |   |   |   |   |   |   |   firebird2/src/extern/editline/TEST <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/utilities/ntrace <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/remote/os/win32 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/common/memory <= 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/common/config <= 1: Adaptive (24.0/12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/common/config > 1: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/common/memory > 1: Corrective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/remote/os/win32 > 0: Perfective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/utilities/ntrace > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   firebird2/src/extern/editline/TEST > 0: Implementation (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   author = skywalker
+|   |   |   |   |   |   |   |   |   |   |   web <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/msgs <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/fbutil <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/jrd <= 81: Implementation (52.0/20.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/jrd > 81: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/fbutil > 0: Adaptive (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   firebird2/src/msgs > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   web > 0: Perfective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   author = steve_krueger: Implementation (1.0)
+|   |   |   |   |   |   |   |   |   |   author = tamlin: Implementation (0.0)
+|   |   |   |   |   |   |   |   |   |   author = verbguy
+|   |   |   |   |   |   |   |   |   |   |   firebird/VulcanJ/blg-vulcan/avg <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   test <= 1: Adaptive (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   test > 1: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   firebird/VulcanJ/blg-vulcan/avg > 0: Implementation (12.0/6.0)
+|   |   |   |   |   |   |   |   |   client-java/src/main/org/firebirdsql/jdbc/field > 2
+|   |   |   |   |   |   |   |   |   |   test <= 0: Perfective (8.0/2.0)
+|   |   |   |   |   |   |   |   |   |   test > 0: Adaptive (4.0/2.0)
+|   |   |   |   |   |   |   |   firebird2/src/ipserver > 0
+|   |   |   |   |   |   |   |   |   firebird2/src/common/config <= 0: Perfective (10.0/3.0)
+|   |   |   |   |   |   |   |   |   firebird2/src/common/config > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   firebird2/src/v5_examples > 0: Adaptive (19.0/6.0)
+|   |   |   |   |   |   firebird2/src/csv > 0
+|   |   |   |   |   |   |   firebird2/src/extlib <= 1: Perfective (6.0/1.0)
+|   |   |   |   |   |   |   firebird2/src/extlib > 1: Implementation (6.0/1.0)
+|   |   |   |   |   manual/src/docs/docbook/fo > 0
+|   |   |   |   |   |   author = aafemt: Adaptive (0.0)
+|   |   |   |   |   |   author = alexpeshkoff: Adaptive (0.0)
+|   |   |   |   |   |   author = arnobrinkman: Adaptive (0.0)
+|   |   |   |   |   |   author = asfernandes: Adaptive (0.0)
+|   |   |   |   |   |   author = awharrison: Adaptive (0.0)
+|   |   |   |   |   |   author = bellardo: Adaptive (0.0)
+|   |   |   |   |   |   author = brodsom: Adaptive (0.0)
+|   |   |   |   |   |   author = carlosga_fb: Adaptive (0.0)
+|   |   |   |   |   |   author = d_jencks: Adaptive (7.0/3.0)
+|   |   |   |   |   |   author = dimitr: Adaptive (0.0)
+|   |   |   |   |   |   author = eku: Adaptive (0.0)
+|   |   |   |   |   |   author = fsg: Adaptive (0.0)
+|   |   |   |   |   |   author = georgy_sergeev: Adaptive (0.0)
+|   |   |   |   |   |   author = hippoman: Adaptive (0.0)
+|   |   |   |   |   |   author = hvlad: Adaptive (0.0)
+|   |   |   |   |   |   author = jimstarkey: Adaptive (0.0)
+|   |   |   |   |   |   author = kkuznetsov: Adaptive (0.0)
+|   |   |   |   |   |   author = paul_reeves: Adaptive (0.0)
+|   |   |   |   |   |   author = paulvink: Non-Functional (13.0/6.0)
+|   |   |   |   |   |   author = pcisar: Adaptive (0.0)
+|   |   |   |   |   |   author = praktik: Adaptive (0.0)
+|   |   |   |   |   |   author = robocop: Adaptive (0.0)
+|   |   |   |   |   |   author = rrokytskyy: Adaptive (0.0)
+|   |   |   |   |   |   author = ryanbaldwin: Adaptive (0.0)
+|   |   |   |   |   |   author = seanleyne: Adaptive (0.0)
+|   |   |   |   |   |   author = sjardine: Adaptive (0.0)
+|   |   |   |   |   |   author = skidder: Adaptive (0.0)
+|   |   |   |   |   |   author = skywalker: Adaptive (0.0)
+|   |   |   |   |   |   author = steve_krueger: Adaptive (0.0)
+|   |   |   |   |   |   author = tamlin: Adaptive (0.0)
+|   |   |   |   |   |   author = verbguy: Adaptive (0.0)
+|   |   |   |   firebird2/src/utilities/gstat > 1: Perfective (14.0/7.0)
+|   |   |   firebird2/src/jrd/os/vms > 0
+|   |   |   |   firebird2/src/msgs <= 1
+|   |   |   |   |   firebird2/src/lock <= 2: Perfective (40.0/13.0)
+|   |   |   |   |   firebird2/src/lock > 2: Adaptive (7.0/3.0)
+|   |   |   |   firebird2/src/msgs > 1
+|   |   |   |   |   documentation <= 1: Implementation (5.0)
+|   |   |   |   |   documentation > 1: Adaptive (3.0/1.0)
+|   |   firebird2/builds/win32/msvc6 > 40: Adaptive (18.0)
+|   firebird2/doc/sql.extensions > 0: Adaptive (19.0/6.0)
+firebird2/builds/win32/msvc7 > 23: Adaptive (42.0/3.0)
+
+Number of Leaves  : 	119
+
+Size of the tree : 	179
+
+
+Time taken to build model: 2.54 seconds
+Time taken to test model on training data: 0.32 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         508               65.2956 %
+Incorrectly Classified Instances       270               34.7044 %
+Kappa statistic                          0.5143
+Mean absolute error                      0.1828
+Root mean squared error                  0.3023
+Relative absolute error                 62.2148 %
+Root relative squared error             78.8988 %
+Total Number of Instances              778     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+  11  15  16   2   0 |   a = Corrective
+   2 193   5  12  56 |   b = Adaptive
+   5  31  88   7  12 |   c = Perfective
+   1  12   4  26  33 |   d = Non-Functional
+   1  42  11   3 190 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         374               48.072  %
+Incorrectly Classified Instances       404               51.928  %
+Kappa statistic                          0.2815
+Mean absolute error                      0.2316
+Root mean squared error                  0.3783
+Relative absolute error                 78.8417 %
+Root relative squared error             98.7347 %
+Total Number of Instances              778     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0  17  21   1   5 |   a = Corrective
+  10 136  30  17  75 |   b = Adaptive
+   6  27  73  12  25 |   c = Perfective
+   3  14  16  11  32 |   d = Non-Functional
+   2  57  30   4 154 |   e = Implementation
+
+$ + echo ./everything/Swanson.weka.classifiers.trees.J48.report
+./everything/Swanson.weka.classifiers.trees.J48.report
++ cat ./everything/Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+F_pgindent <= 0
+|   F_preparing <= 0
+|   |   F_license <= 0
+|   |   |   F_msvc7 <= 0
+|   |   |   |   F_refactoring <= 0
+|   |   |   |   |   F_copyright <= 0
+|   |   |   |   |   |   F_initial <= 0
+|   |   |   |   |   |   |   F_imported <= 0
+|   |   |   |   |   |   |   |   F_tinymce <= 0
+|   |   |   |   |   |   |   |   |   F_import <= 0
+|   |   |   |   |   |   |   |   |   |   F_const <= 0
+|   |   |   |   |   |   |   |   |   |   |   F_fixes <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   F_cleanup <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_fixed <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_names <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_boost <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_fix <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_when <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_removed <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_moved <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_check <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_2003 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_removing <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_docbook <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_remove <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_package <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_reworked <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_code <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_no <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_docs <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_build <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_head <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_release <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_sync <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_update <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_by <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_2 <= 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_updated <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_only <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_updates <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_changes <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_commit <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_so <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_directory <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_moving <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_an <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_to <= 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_work <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_6 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_merge <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_patch <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_add <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_msvc <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_empty <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_api <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_used <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_3 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cleaning <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_files <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_added <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_are <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cvs <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_php <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 38
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_integration <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_phonebook <= 0: Perfective (36.0/10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_phonebook > 0: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_integration > 0: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 38
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_config <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_in <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_s <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_regenerate <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_h <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_reverting <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_nuke <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_backport <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_headers <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_logo <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_use <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_i <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_to <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_stuff <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_corrections <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_ascii <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_tweaks <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_javadoc <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_seq <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_w4 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_large <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_reserving <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_licence <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_re <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_crap <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_bit <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_jennings <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_dissolved <= 0: Implementation (246.0/100.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_dissolved > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_jennings > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_bit > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_crap > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_re > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_licence > 0: Perfective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_reserving > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_large > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_w4 > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_seq > 0: Adaptive (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_javadoc > 0: Adaptive (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_tweaks > 0: Adaptive (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_ascii > 0: Adaptive (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_corrections > 0: Corrective (3.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_stuff > 0: Adaptive (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_to > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_at <= 0: Perfective (37.0/20.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_at > 0: Non-Functional (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_i > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_the <= 0: Perfective (5.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_the > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_use > 0: Adaptive (6.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_logo > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 131: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 131: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_headers > 0: Perfective (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_backport > 0: Implementation (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_nuke > 0: Perfective (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_reverting > 0: Adaptive (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_h > 0: Adaptive (6.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_regenerate > 0: Adaptive (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_s > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_on <= 0: Perfective (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_on > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_in > 0: Adaptive (23.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_config > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_jamfiles <= 0: Perfective (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_jamfiles > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_php > 0: Implementation (8.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cvs > 0: Implementation (14.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_are > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_of <= 0: Perfective (6.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_of > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_added > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_c <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_has <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_tests <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cvs <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_tree <= 0: Implementation (58.0/21.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_tree > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cvs > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_tests > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_has > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_c > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_files > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_bsl <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_to <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 114: Implementation (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 114
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_some <= 0: Adaptive (6.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_some > 0: Perfective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_to > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_bsl > 0: Non-Functional (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cleaning > 0: Perfective (10.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_3 > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_7 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_new <= 0: Implementation (28.0/8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_new > 0: Adaptive (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_7 > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_used > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_added <= 0: Perfective (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_added > 0: Implementation (7.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_api > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_added <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cleanups <= 0: Perfective (6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cleanups > 0: Adaptive (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_added > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_empty > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 78
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 37: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 37
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 67: Implementation (9.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 67
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 73: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 73: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 78: Adaptive (12.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_msvc > 0: Adaptive (12.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_add > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_files <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_html <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 175
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_to <= 0: Implementation (22.0/7.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_to > 0: Adaptive (8.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 175: Adaptive (6.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_html > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_files > 0: Adaptive (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_patch > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_2 <= 0: Implementation (11.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_2 > 0: Adaptive (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_merge > 0: Implementation (31.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_6 > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_bump <= 0: Implementation (20.0/7.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_bump > 0: Non-Functional (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_work > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_1 <= 0: Implementation (19.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_1 > 0: Perfective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_to > 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_shell <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_i <= 0: Adaptive (18.0/10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_i > 0: Implementation (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_shell > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_an > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_s <= 0: Implementation (14.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_s > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_moving > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_system <= 0: Perfective (16.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_system > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_directory > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_structure <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_for <= 0: Implementation (6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_for > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_added <= 1: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_added > 1: Implementation (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_structure > 0: Perfective (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_so > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_all <= 0: Implementation (13.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_all > 0: Adaptive (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_commit > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_i <= 0: Implementation (43.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_i > 0: Perfective (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_changes > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_an <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_any <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_linux <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_includes <= 0: Implementation (33.0/12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_includes > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_linux > 0: Adaptive (6.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_any > 0: Adaptive (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_an > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_updates > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_etc <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_other <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 47: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 47: Adaptive (18.0/5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_other > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_etc > 0: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_only > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_based <= 0: Adaptive (16.0/10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_based > 0: Perfective (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_updated > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_6 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_version <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_support <= 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_with <= 0: Adaptive (15.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_with > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_support > 1: Implementation (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_version > 0: Non-Functional (6.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_6 > 0: Non-Functional (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_2 > 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_for <= 0: Implementation (13.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_for > 0: Adaptive (10.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_by > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_anymore <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_added <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_changes <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_patch <= 0: Implementation (23.0/5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_patch > 0: Non-Functional (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_changes > 0: Adaptive (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_added > 0: Adaptive (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_anymore > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_update > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_information <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_allows <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_project <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_documentation <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_some <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_output <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_latest <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_new <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_0 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 86
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 57: Implementation (6.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 57: Non-Functional (10.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 86: Adaptive (10.0/5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_0 > 0: Non-Functional (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_new > 0: Adaptive (8.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_latest > 0: Implementation (6.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_output > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_some > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_documentation > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_project > 0: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_allows > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_information > 0: Non-Functional (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_sync > 0: Implementation (40.0/16.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_release > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_pdb <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_candidate <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_changed <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_creating <= 0: Implementation (39.0/16.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_creating > 0: Adaptive (5.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_changed > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_candidate > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_pdb > 0: Adaptive (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_head > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_10 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_changes <= 0: Implementation (78.0/30.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_changes > 0: Adaptive (31.0/12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_10 > 0: Implementation (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_build > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_main <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_8 <= 0: Adaptive (31.0/10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_8 > 0: Corrective (3.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_main > 0: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_docs > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_changes <= 0: Adaptive (71.0/19.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_changes > 0: Implementation (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_no > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_done <= 0: Perfective (32.0/18.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_done > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_code > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_alex <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_syncml <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cvs <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_before <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_again <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_you <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_add <= 0: Perfective (46.0/19.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_add > 0: Adaptive (8.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_you > 0: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_again > 0: Adaptive (5.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_before > 0: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cvs > 0: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_syncml > 0: Implementation (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_alex > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_reworked > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_completed <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_reworked <= 1
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_of <= 0: Perfective (14.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_of > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_reworked > 1: Implementation (7.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_completed > 0: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_package > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_repository <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_new <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_into <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_adding <= 0: Perfective (17.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_adding > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_into > 0: Implementation (7.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_new > 0: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_repository > 0: Implementation (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_remove > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_stuff <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_one <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_build <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_enable <= 0: Perfective (51.0/20.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_enable > 0: Adaptive (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_build > 0: Adaptive (6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_one > 0: Corrective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_stuff > 0: Non-Functional (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_docbook > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_stylesheets <= 0: Adaptive (12.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_stylesheets > 0: Non-Functional (16.0/8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_removing > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_all <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_tags <= 0: Perfective (23.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_tags > 0: Adaptive (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_all > 0: Non-Functional (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_2003 > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_more <= 0: Implementation (30.0/12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_more > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_check > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_are <= 0: Implementation (23.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_are > 0: Adaptive (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_moved > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_this <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_main <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_introduced <= 0: Perfective (59.0/20.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_introduced > 0: Implementation (7.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_main > 0: Implementation (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_this > 0: Adaptive (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_removed > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_more <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_broken <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_adding <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_10 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_correctly <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_add <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_new <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_update <= 0: Perfective (66.0/21.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_update > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_new > 0: Adaptive (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_add > 0: Perfective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_correctly > 0: Adaptive (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_10 > 0: Adaptive (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_adding > 0: Non-Functional (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_broken > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_more > 0: Implementation (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_when > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_people <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_macros <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_by <= 0: Adaptive (14.0/7.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_by > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 78: Implementation (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 78: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_macros > 0: Corrective (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_people > 0: Perfective (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_fix > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_unix <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_header <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_removed <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_conflicts <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_an <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_bin <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_error <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_eapi <= 0: Adaptive (68.0/33.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_eapi > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_error > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_bin > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_an > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_conflicts > 0: Non-Functional (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_removed > 0: Implementation (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_header > 0: Perfective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_unix > 0: Perfective (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_boost > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_1 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_branch <= 0: Adaptive (21.0/5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_branch > 0: Non-Functional (12.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_1 > 0: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_names > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_h <= 0: Perfective (23.0/9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_h > 0: Implementation (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_fixed > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_api <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_8 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_an <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_email <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_branch <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_admin <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_before <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_old <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_moved <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_preprocessing <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_have <= 0: Adaptive (42.0/17.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_have > 0: Corrective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_preprocessing > 0: Corrective (2.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_moved > 0: Corrective (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_old > 0: Adaptive (6.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_before > 0: Implementation (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_admin > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_branch > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_email > 0: Corrective (3.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_an > 0: Implementation (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_8 > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_api > 0: Perfective (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   F_cleanup > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_unused <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_allow <= 0: Perfective (76.0/28.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_allow > 0: Corrective (3.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_unused > 0: Implementation (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   F_fixes > 0
+|   |   |   |   |   |   |   |   |   |   |   |   F_read <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_there <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_string <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_here <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cosmetical <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_major <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_reflect <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_sgml <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_container <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_message <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_sync <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_to <= 0: Corrective (87.0/43.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_to > 0: Adaptive (58.0/32.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_sync > 0: Perfective (8.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_message > 0: Corrective (6.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_container > 0: Implementation (5.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_sgml > 0: Adaptive (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_reflect > 0: Corrective (3.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_major > 0: Adaptive (6.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_cosmetical > 0: Perfective (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   F_here > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size <= 53: Perfective (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   size > 53: Implementation (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   F_string > 0: Perfective (7.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   F_there > 0: Corrective (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   F_read > 0: Non-Functional (6.0/3.0)
+|   |   |   |   |   |   |   |   |   |   F_const > 0
+|   |   |   |   |   |   |   |   |   |   |   F_head <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   F_avoid <= 0: Perfective (29.0/14.0)
+|   |   |   |   |   |   |   |   |   |   |   |   F_avoid > 0: Implementation (4.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   F_head > 0: Non-Functional (2.0/1.0)
+|   |   |   |   |   |   |   |   |   F_import > 0: Implementation (106.0/29.0)
+|   |   |   |   |   |   |   |   F_tinymce > 0: Implementation (31.0/7.0)
+|   |   |   |   |   |   |   F_imported > 0: Implementation (36.0/15.0)
+|   |   |   |   |   |   F_initial > 0: Implementation (506.0/104.0)
+|   |   |   |   |   F_copyright > 0
+|   |   |   |   |   |   F_some <= 0: Non-Functional (39.0/9.0)
+|   |   |   |   |   |   F_some > 0: Adaptive (14.0/9.0)
+|   |   |   |   F_refactoring > 0: Perfective (33.0/7.0)
+|   |   |   F_msvc7 > 0: Adaptive (26.0/2.0)
+|   |   F_license > 0
+|   |   |   F_as <= 0: Non-Functional (78.0/23.0)
+|   |   |   F_as > 0: Adaptive (2.0)
+|   F_preparing > 0: Adaptive (147.0/74.0)
+F_pgindent > 0: Perfective (27.0)
+
+Number of Leaves  : 	252
+
+Size of the tree : 	503
+
+
+Time taken to build model: 189.13 seconds
+Time taken to test model on training data: 5.02 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances        2433               67.1358 %
+Incorrectly Classified Instances      1191               32.8642 %
+Kappa statistic                          0.5397
+Mean absolute error                      0.1828
+Root mean squared error                  0.3023
+Relative absolute error                 62.2139 %
+Root relative squared error             78.8806 %
+Total Number of Instances             3624     
+
+
+=== Confusion Matrix ===
+
+    a    b    c    d    e   <-- classified as
+   74   59   37    3   17 |    a = Corrective
+   19  552   92   39  220 |    b = Adaptive
+   17   67  468    2   74 |    c = Perfective
+   11  122   36  137  170 |    d = Non-Functional
+   27   94   71   14 1202 |    e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances        1853               51.1313 %
+Incorrectly Classified Instances      1771               48.8687 %
+Kappa statistic                          0.323 
+Mean absolute error                      0.2236
+Root mean squared error                  0.3671
+Relative absolute error                 76.1276 %
+Root relative squared error             95.7817 %
+Total Number of Instances             3624     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+  47  67  46   5  25 |   a = Corrective
+  46 365 154  85 272 |   b = Adaptive
+  39 124 348   6 111 |   c = Perfective
+  12 134  48 104 178 |   d = Non-Functional
+  39 212 131  37 989 |   e = Implementation
+
+$ + echo ./everything/dir.Swanson.weka.classifiers.trees.J48.report
+./everything/dir.Swanson.weka.classifiers.trees.J48.report
++ cat ./everything/dir.Swanson.weka.classifiers.trees.J48.report
+$ + echo ./egroupware/Swanson.weka.classifiers.trees.J48.report
+./egroupware/Swanson.weka.classifiers.trees.J48.report
++ cat ./egroupware/Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+F_removed <= 0
+|   F_fixed <= 0
+|   |   F_new <= 0
+|   |   |   F_crap <= 0
+|   |   |   |   F_directory <= 0
+|   |   |   |   |   F_remove <= 0: Implementation (477.0/142.0)
+|   |   |   |   |   F_remove > 0: Perfective (8.0/4.0)
+|   |   |   |   F_directory > 0: Perfective (6.0/1.0)
+|   |   |   F_crap > 0: Perfective (2.0)
+|   |   F_new > 0
+|   |   |   F_as <= 0
+|   |   |   |   F_old <= 0
+|   |   |   |   |   F_system <= 0
+|   |   |   |   |   |   F_to <= 0
+|   |   |   |   |   |   |   F_first <= 0: Implementation (17.0/5.0)
+|   |   |   |   |   |   |   F_first > 0: Adaptive (3.0/1.0)
+|   |   |   |   |   |   F_to > 0: Perfective (3.0/1.0)
+|   |   |   |   |   F_system > 0: Adaptive (2.0)
+|   |   |   |   F_old > 0: Perfective (2.0)
+|   |   |   F_as > 0: Non-Functional (2.0)
+|   F_fixed > 0: Corrective (13.0/7.0)
+F_removed > 0: Perfective (15.0/3.0)
+
+Number of Leaves  : 	12
+
+Size of the tree : 	23
+
+
+Time taken to build model: 1.23 seconds
+Time taken to test model on training data: 0.18 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         386               70.1818 %
+Incorrectly Classified Instances       164               29.8182 %
+Kappa statistic                          0.283 
+Mean absolute error                      0.1829
+Root mean squared error                  0.3024
+Relative absolute error                 84.5206 %
+Root relative squared error             92.1341 %
+Total Number of Instances              550     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   6   0   0   0   8 |   a = Corrective
+   0   4   2   0  19 |   b = Adaptive
+   1   1  27   0  21 |   c = Perfective
+   2   0   5   2  99 |   d = Non-Functional
+   4   0   2   0 347 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         354               64.3636 %
+Incorrectly Classified Instances       196               35.6364 %
+Kappa statistic                          0.1066
+Mean absolute error                      0.2003
+Root mean squared error                  0.33  
+Relative absolute error                 92.549  %
+Root relative squared error            100.5551 %
+Total Number of Instances              550     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   2   0   2   0  10 |   a = Corrective
+   0   1   2   0  22 |   b = Adaptive
+   1   1  11   2  35 |   c = Perfective
+   2   0   3   0 103 |   d = Non-Functional
+   3   1   8   1 340 |   e = Implementation
+
+$ + echo ./egroupware/dir.Swanson.weka.classifiers.trees.J48.report
+./egroupware/dir.Swanson.weka.classifiers.trees.J48.report
++ cat ./egroupware/dir.Swanson.weka.classifiers.trees.J48.report
+
+J48 pruned tree
+------------------
+
+manual/setup <= 0
+|   bookmarks/setup <= 0
+|   |   jinn/inc <= 0: Implementation (515.0/173.0)
+|   |   jinn/inc > 0
+|   |   |   other <= 19: Perfective (3.0)
+|   |   |   other > 19: Implementation (9.0/4.0)
+|   bookmarks/setup > 0
+|   |   bookmarks <= 0: Implementation (6.0/3.0)
+|   |   bookmarks > 0: Perfective (6.0/2.0)
+manual/setup > 0
+|   projects/setup <= 1
+|   |   headlines/templates/idots/images <= 0
+|   |   |   other <= 44: Non-Functional (3.0/1.0)
+|   |   |   other > 44: Adaptive (4.0/1.0)
+|   |   headlines/templates/idots/images > 0: Non-Functional (2.0/1.0)
+|   projects/setup > 1: Corrective (3.0/1.0)
+
+Number of Leaves  : 	9
+
+Size of the tree : 	17
+
+
+Time taken to build model: 1.73 seconds
+Time taken to test model on training data: 0.34 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         365               66.2432 %
+Incorrectly Classified Instances       186               33.7568 %
+Kappa statistic                          0.1117
+Mean absolute error                      0.2038
+Root mean squared error                  0.3192
+Relative absolute error                 93.9315 %
+Root relative squared error             97.1259 %
+Total Number of Instances              551     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   2   0   1   0  11 |   a = Corrective
+   0   3   0   1  22 |   b = Adaptive
+   0   0   7   0  43 |   c = Perfective
+   1   0   0   3 104 |   d = Non-Functional
+   0   1   1   1 350 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         346               62.7949 %
+Incorrectly Classified Instances       205               37.2051 %
+Kappa statistic                          0.0227
+Mean absolute error                      0.2131
+Root mean squared error                  0.3357
+Relative absolute error                 98.1614 %
+Root relative squared error            102.1389 %
+Total Number of Instances              551     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0   1   1   1  11 |   a = Corrective
+   1   2   0   1  22 |   b = Adaptive
+   0   0   1   0  49 |   c = Perfective
+   2   2   0   0 104 |   d = Non-Functional
+   0   2   2   6 343 |   e = Implementation
+
+$ 

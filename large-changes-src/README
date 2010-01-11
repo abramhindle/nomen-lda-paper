@@ -1,0 +1,16 @@
+run-exp.sh: generates a makefile of all report files necessary
+            sh run-exp.sh | Makefile -c - all 
+               should work
+
+mk-alt-arffs.sh: generates second style arff files (not bayesian)
+
+weka.sh: starts weka
+
+TextCount.pl: turns markup_report markup_report.orig into arff files of word counts
+arff-join.pl: combine arff files into one
+arff-mapper.pl: map tags from detailed to the subtags
+                
+convert-abez-style-to-postgresql-style.pl: convert our markup stuff to a nice csv style?
+convert-abez-style-to-second.pl: convert our reports to a nice arff file
+
+csv2tex.pl: make latex out of a csv file

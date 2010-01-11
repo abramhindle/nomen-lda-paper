@@ -1,0 +1,1027 @@
+$ + echo ./springframework/Swanson.weka.classifiers.rules.JRip.report
+./springframework/Swanson.weka.classifiers.rules.JRip.report
++ cat ./springframework/Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(F_header >= 1) => class=Non-Functional (3.0/0.0)
+(F_javadoc >= 1) => class=Adaptive (9.0/2.0)
+(F_to >= 1) and (size >= 61) => class=Perfective (26.0/5.0)
+(F_of >= 1) and (F_initial <= 0) => class=Perfective (31.0/10.0)
+(F_package >= 1) and (F_introduced <= 0) and (F_and <= 0) => class=Perfective (19.0/4.0)
+(F_reorganized >= 1) => class=Perfective (7.0/1.0)
+ => class=Implementation (238.0/105.0)
+
+Number of Rules : 7
+
+
+Time taken to build model: 1.6 seconds
+Time taken to test model on training data: 0.1 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         206               61.8619 %
+Incorrectly Classified Instances       127               38.1381 %
+Kappa statistic                          0.3541
+Mean absolute error                      0.2153
+Root mean squared error                  0.3281
+Relative absolute error                 82.4766 %
+Root relative squared error             90.9687 %
+Total Number of Instances              333     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0   0   1   0  13 |   a = Corrective
+   0   7   6   0  23 |   b = Adaptive
+   0   2  63   0  62 |   c = Perfective
+   0   0   1   3   7 |   d = Non-Functional
+   0   0  12   0 133 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         168               50.4505 %
+Incorrectly Classified Instances       165               49.5495 %
+Kappa statistic                          0.172 
+Mean absolute error                      0.2378
+Root mean squared error                  0.3538
+Relative absolute error                 91.0622 %
+Root relative squared error             98.0836 %
+Total Number of Instances              333     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   1   0   1   0  12 |   a = Corrective
+   0   7   5   0  24 |   b = Adaptive
+   0   2  47   2  76 |   c = Perfective
+   0   0   4   0   7 |   d = Non-Functional
+   6   1  25   0 113 |   e = Implementation
+
+$ + echo ./springframework/dir.Swanson.weka.classifiers.rules.JRip.report
+./springframework/dir.Swanson.weka.classifiers.rules.JRip.report
++ cat ./springframework/dir.Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(spring/src/org/springframework/jms/connection >= 5) => tag=Non-Functional (2.0/0.0)
+(spring/src/org/springframework/aop >= 3) => tag=Adaptive (9.0/3.0)
+(author = kdonald) and (size >= 46) => tag=Perfective (46.0/13.0)
+(author = jhoeller) and (spring/src/org/springframework/util <= 1) and (other <= 5) => tag=Perfective (61.0/23.0)
+(spring/sandbox/src/org/springframework/web/flow/action >= 4) => tag=Perfective (11.0/2.0)
+ => tag=Implementation (205.0/86.0)
+
+Number of Rules : 6
+
+
+Time taken to build model: 2.87 seconds
+Time taken to test model on training data: 0.16 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         207               61.976  %
+Incorrectly Classified Instances       127               38.024  %
+Kappa statistic                          0.361 
+Mean absolute error                      0.2185
+Root mean squared error                  0.3305
+Relative absolute error                 83.7128 %
+Root relative squared error             91.6477 %
+Total Number of Instances              334     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0   0   4   0  10 |   a = Corrective
+   0   6   5   0  25 |   b = Adaptive
+   0   2  80   0  46 |   c = Perfective
+   0   1   3   2   5 |   d = Non-Functional
+   0   0  26   0 119 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         183               54.7904 %
+Incorrectly Classified Instances       151               45.2096 %
+Kappa statistic                          0.2321
+Mean absolute error                      0.2345
+Root mean squared error                  0.3513
+Relative absolute error                 89.8122 %
+Root relative squared error             97.4022 %
+Total Number of Instances              334     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0   0   5   0   9 |   a = Corrective
+   0   2  10   1  23 |   b = Adaptive
+   0   2  64   0  62 |   c = Perfective
+   0   1   3   0   7 |   d = Non-Functional
+   0   0  28   0 117 |   e = Implementation
+
+$ + echo ./samba/Swanson.weka.classifiers.rules.JRip.report
+./samba/Swanson.weka.classifiers.rules.JRip.report
++ cat ./samba/Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(F_not >= 1) and (F_functionality <= 0) => class=Perfective (22.0/10.0)
+(F_preparing <= 0) and (size >= 122) and (size <= 338) => class=Implementation (75.0/29.0)
+(F_preparing <= 0) and (F_0 >= 1) and (size <= 111) => class=Implementation (37.0/13.0)
+ => class=Adaptive (354.0/176.0)
+
+Number of Rules : 4
+
+
+Time taken to build model: 2.99 seconds
+Time taken to test model on training data: 0.21 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         260               53.2787 %
+Incorrectly Classified Instances       228               46.7213 %
+Kappa statistic                          0.2531
+Mean absolute error                      0.2512
+Root mean squared error                  0.3544
+Relative absolute error                 89.333  %
+Root relative squared error             94.5823 %
+Total Number of Instances              488     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0  16   4   0   2 |   a = Corrective
+   0 178   2   0  30 |   b = Adaptive
+   0  18  12   0   3 |   c = Perfective
+   0  88   2   0   7 |   d = Non-Functional
+   0  54   2   0  70 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         198               40.5738 %
+Incorrectly Classified Instances       290               59.4262 %
+Kappa statistic                          0.0726
+Mean absolute error                      0.2614
+Root mean squared error                  0.3676
+Relative absolute error                 92.9413 %
+Root relative squared error             98.1039 %
+Total Number of Instances              488     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0  18   2   0   2 |   a = Corrective
+   0 129   1  46  34 |   b = Adaptive
+   0  24   1   0   8 |   c = Perfective
+   0  59   2  32   4 |   d = Non-Functional
+   0  90   0   0  36 |   e = Implementation
+
+$ + echo ./samba/dir.Swanson.weka.classifiers.rules.JRip.report
+./samba/dir.Swanson.weka.classifiers.rules.JRip.report
++ cat ./samba/dir.Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(source >= 1) and (source/auth >= 1) and (source/lib >= 18) => tag=Implementation (17.0/2.0)
+(source >= 1) and (source/script >= 1) and (source/nmbd <= 3) => tag=Implementation (38.0/12.0)
+ => tag=Adaptive (434.0/233.0)
+
+Number of Rules : 3
+
+
+Time taken to build model: 0.9 seconds
+Time taken to test model on training data: 0.05 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         242               49.4888 %
+Incorrectly Classified Instances       247               50.5112 %
+Kappa statistic                          0.1434
+Mean absolute error                      0.2632
+Root mean squared error                  0.3627
+Relative absolute error                 93.5593 %
+Root relative squared error             96.7935 %
+Total Number of Instances              489     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0  20   0   0   2 |   a = Corrective
+   0 201   0   0   9 |   b = Adaptive
+   0  31   0   0   2 |   c = Perfective
+   0  96   0   0   1 |   d = Non-Functional
+   0  86   0   0  41 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         224               45.8078 %
+Incorrectly Classified Instances       265               54.1922 %
+Kappa statistic                          0.1454
+Mean absolute error                      0.2586
+Root mean squared error                  0.3659
+Relative absolute error                 91.9201 %
+Root relative squared error             97.6338 %
+Total Number of Instances              489     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0  13   2   0   7 |   a = Corrective
+   0 157   0  29  24 |   b = Adaptive
+   2  21   5   0   5 |   c = Perfective
+   0  69   2  17   9 |   d = Non-Functional
+   3  79   0   0  45 |   e = Implementation
+
+$ + echo ./enlightenment/Swanson.weka.classifiers.rules.JRip.report
+./enlightenment/Swanson.weka.classifiers.rules.JRip.report
++ cat ./enlightenment/Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(F_bug >= 1) and (F_and <= 1) => class=Corrective (10.0/4.0)
+(size <= 67) and (F_updates >= 1) => class=Adaptive (6.0/0.0)
+(F_page >= 1) and (F_but <= 1) => class=Adaptive (6.0/0.0)
+(F_initial <= 0) and (F_nuke >= 1) => class=Perfective (6.0/0.0)
+(F_major >= 1) => class=Perfective (6.0/0.0)
+ => class=Implementation (386.0/161.0)
+
+Number of Rules : 6
+
+
+Time taken to build model: 5.75 seconds
+Time taken to test model on training data: 0.19 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         255               60.7143 %
+Incorrectly Classified Instances       165               39.2857 %
+Kappa statistic                          0.2064
+Mean absolute error                      0.2305
+Root mean squared error                  0.3395
+Relative absolute error                 88.2795 %
+Root relative squared error             94.0821 %
+Total Number of Instances              420     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   6   0   0   0  24 |   a = Corrective
+   0  12   0   0  45 |   b = Adaptive
+   3   0  12   0  56 |   c = Perfective
+   0   0   0   0  36 |   d = Non-Functional
+   1   0   0   0 225 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         222               52.8571 %
+Incorrectly Classified Instances       198               47.1429 %
+Kappa statistic                          0.0178
+Mean absolute error                      0.2565
+Root mean squared error                  0.3657
+Relative absolute error                 98.1975 %
+Root relative squared error            101.3422 %
+Total Number of Instances              420     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   1   3   1   0  25 |   a = Corrective
+   3   1   0   0  53 |   b = Adaptive
+   2   0   0   0  69 |   c = Perfective
+   0   1   0   0  35 |   d = Non-Functional
+   1   3   2   0 220 |   e = Implementation
+
+$ + echo ./enlightenment/dir.Swanson.weka.classifiers.rules.JRip.report
+./enlightenment/dir.Swanson.weka.classifiers.rules.JRip.report
++ cat ./enlightenment/dir.Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(e16/e/src >= 70) and (e16/e/scripts >= 3) => tag=Non-Functional (4.0/0.0)
+(web/e/pages >= 1) => tag=Adaptive (41.0/3.0)
+ => tag=Implementation (376.0/150.0)
+
+Number of Rules : 3
+
+
+Time taken to build model: 3.37 seconds
+Time taken to test model on training data: 0.17 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         268               63.658  %
+Incorrectly Classified Instances       153               36.342  %
+Kappa statistic                          0.2826
+Mean absolute error                      0.2154
+Root mean squared error                  0.3281
+Relative absolute error                 82.3164 %
+Root relative squared error             90.8474 %
+Total Number of Instances              421     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0   1   0   0  30 |   a = Corrective
+   0  38   0   0  19 |   b = Adaptive
+   0   0   0   0  71 |   c = Perfective
+   0   2   0   4  30 |   d = Non-Functional
+   0   0   0   0 226 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         264               62.7078 %
+Incorrectly Classified Instances       157               37.2922 %
+Kappa statistic                          0.2838
+Mean absolute error                      0.2159
+Root mean squared error                  0.3322
+Relative absolute error                 82.4903 %
+Root relative squared error             91.9742 %
+Total Number of Instances              421     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0   1   5   2  23 |   a = Corrective
+   0  37   2   0  18 |   b = Adaptive
+   0   0   4   0  67 |   c = Perfective
+   0   2   1   2  31 |   d = Non-Functional
+   0   0   4   1 221 |   e = Implementation
+
+$ + echo ./evolution/Swanson.weka.classifiers.rules.JRip.report
+./evolution/Swanson.weka.classifiers.rules.JRip.report
++ cat ./evolution/Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(F_zoneinfo >= 1) => class=Adaptive (5.0/0.0)
+(F_translation >= 1) => class=Adaptive (2.0/0.0)
+(F_18 >= 1) => class=Adaptive (2.0/0.0)
+(F_license >= 1) => class=Non-Functional (8.0/0.0)
+(F_update >= 1) => class=Non-Functional (7.0/2.0)
+(F_and >= 1) and (F_c <= 0) => class=Perfective (10.0/1.0)
+ => class=Implementation (66.0/25.0)
+
+Number of Rules : 7
+
+
+Time taken to build model: 0.63 seconds
+Time taken to test model on training data: 0.05 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          72               72      %
+Incorrectly Classified Instances        28               28      %
+Kappa statistic                          0.5662
+Mean absolute error                      0.164 
+Root mean squared error                  0.2863
+Relative absolute error                 58.4942 %
+Root relative squared error             76.7407 %
+Total Number of Instances              100     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e   <-- classified as
+  0  0  0  0  0 |  a = Corrective
+  0  9  0  0  4 |  b = Adaptive
+  0  0  9  0 15 |  c = Perfective
+  0  0  0 13  6 |  d = Non-Functional
+  0  0  1  2 41 |  e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          53               53      %
+Incorrectly Classified Instances        47               47      %
+Kappa statistic                          0.2463
+Mean absolute error                      0.2222
+Root mean squared error                  0.3561
+Relative absolute error                 79.1036 %
+Root relative squared error             95.323  %
+Total Number of Instances              100     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e   <-- classified as
+  0  0  0  0  0 |  a = Corrective
+  0  5  1  1  6 |  b = Adaptive
+  0  0  1  0 23 |  c = Perfective
+  0  0  0 10  9 |  d = Non-Functional
+  0  1  3  3 37 |  e = Implementation
+
+$ + echo ./evolution/dir.Swanson.weka.classifiers.rules.JRip.report
+./evolution/dir.Swanson.weka.classifiers.rules.JRip.report
++ cat ./evolution/dir.Swanson.weka.classifiers.rules.JRip.report
+$ + echo ./boost/Swanson.weka.classifiers.rules.JRip.report
+./boost/Swanson.weka.classifiers.rules.JRip.report
++ cat ./boost/Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(F_fixes >= 1) and (size >= 95) and (F_merge <= 0) and (size <= 215) => class=Corrective (17.0/7.0)
+(F_refactoring >= 1) => class=Perfective (6.0/1.0)
+(F_license >= 1) => class=Non-Functional (44.0/17.0)
+(F_the >= 2) and (size >= 86) => class=Non-Functional (14.0/2.0)
+(F_copyright >= 1) and (F_and <= 0) => class=Non-Functional (14.0/4.0)
+(F_licence >= 1) => class=Non-Functional (10.0/3.0)
+(F_initial >= 1) => class=Implementation (58.0/15.0)
+(F_spirit >= 1) => class=Implementation (49.0/20.0)
+(F_to <= 0) and (F_version >= 1) => class=Implementation (20.0/5.0)
+(F_checkin >= 1) => class=Implementation (8.0/2.0)
+(F_merged >= 1) => class=Implementation (12.0/3.0)
+ => class=Adaptive (373.0/198.0)
+
+Number of Rules : 12
+
+
+Time taken to build model: 3.6 seconds
+Time taken to test model on training data: 0.14 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         348               55.68   %
+Incorrectly Classified Instances       277               44.32   %
+Kappa statistic                          0.3542
+Mean absolute error                      0.2398
+Root mean squared error                  0.3462
+Relative absolute error                 81.7364 %
+Root relative squared error             90.4408 %
+Total Number of Instances              625     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+  10  31   0   0   0 |   a = Corrective
+   3 175   1  22  31 |   b = Adaptive
+   2  59   5   1   9 |   c = Perfective
+   2  25   0  56   5 |   d = Non-Functional
+   0  83   0   3 102 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         314               50.24   %
+Incorrectly Classified Instances       311               49.76   %
+Kappa statistic                          0.2808
+Mean absolute error                      0.2533
+Root mean squared error                  0.3643
+Relative absolute error                 86.3298 %
+Root relative squared error             95.1673 %
+Total Number of Instances              625     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+  13  25   1   0   2 |   a = Corrective
+   7 163   4  21  37 |   b = Adaptive
+   1  63   1   3   8 |   c = Perfective
+   2  35   0  47   4 |   d = Non-Functional
+   9  81   1   7  90 |   e = Implementation
+
+$ + echo ./boost/dir.Swanson.weka.classifiers.rules.JRip.report
+./boost/dir.Swanson.weka.classifiers.rules.JRip.report
++ cat ./boost/dir.Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(boost/boost/mpl/aux_/preprocessed/no_ttp >= 5) and (boost/boost/mpl/map/aux_ <= 1) => tag=Corrective (27.0/13.0)
+(author = hkaiser) and (other >= 68) => tag=Non-Functional (20.0/5.0)
+(author = djowel) and (boost/libs/spirit/phoenix/test <= 0) => tag=Implementation (75.0/37.0)
+ => tag=Adaptive (504.0/302.0)
+
+Number of Rules : 4
+
+
+Time taken to build model: 7.21 seconds
+Time taken to test model on training data: 0.23 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         269               42.9712 %
+Incorrectly Classified Instances       357               57.0288 %
+Kappa statistic                          0.132 
+Mean absolute error                      0.2788
+Root mean squared error                  0.3733
+Relative absolute error                 95.0771 %
+Root relative squared error             97.5428 %
+Total Number of Instances              626     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+  14  25   0   0   2 |   a = Corrective
+   4 202   0   2  25 |   b = Adaptive
+   3  68   0   0   5 |   c = Perfective
+   0  68   0  15   5 |   d = Non-Functional
+   6 141   0   3  38 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         248               39.6166 %
+Incorrectly Classified Instances       378               60.3834 %
+Kappa statistic                          0.072 
+Mean absolute error                      0.2847
+Root mean squared error                  0.383 
+Relative absolute error                 97.075  %
+Root relative squared error            100.0716 %
+Total Number of Instances              626     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   4  35   0   1   1 |   a = Corrective
+   5 204   0   5  19 |   b = Adaptive
+   3  68   0   2   3 |   c = Perfective
+   0  67   0  13   8 |   d = Non-Functional
+   3 155   0   3  27 |   e = Implementation
+
+$ + echo ./mysql-5_0/Swanson.weka.classifiers.rules.JRip.report
+./mysql-5_0/Swanson.weka.classifiers.rules.JRip.report
++ cat ./mysql-5_0/Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(F_auto >= 1) => class=Implementation (71.0/34.0)
+ => class=Adaptive (163.0/106.0)
+
+Number of Rules : 2
+
+
+Time taken to build model: 2.44 seconds
+Time taken to test model on training data: 0.2 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          94               40.1709 %
+Incorrectly Classified Instances       140               59.8291 %
+Kappa statistic                          0.1542
+Mean absolute error                      0.2908
+Root mean squared error                  0.3813
+Relative absolute error                 94.8665 %
+Root relative squared error             97.4441 %
+Total Number of Instances              234     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e   <-- classified as
+  0 23  0  0  0 |  a = Corrective
+  0 57  0  0 13 |  b = Adaptive
+  0 32  0  0 18 |  c = Perfective
+  0 23  0  0  3 |  d = Non-Functional
+  0 28  0  0 37 |  e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          82               35.0427 %
+Incorrectly Classified Instances       152               64.9573 %
+Kappa statistic                          0.0823
+Mean absolute error                      0.2977
+Root mean squared error                  0.3895
+Relative absolute error                 97.0829 %
+Root relative squared error             99.5188 %
+Total Number of Instances              234     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e   <-- classified as
+  0 23  0  0  0 |  a = Corrective
+  0 55  0  2 13 |  b = Adaptive
+  0 34  0  0 16 |  c = Perfective
+  0 23  0  0  3 |  d = Non-Functional
+  0 38  0  0 27 |  e = Implementation
+
+$ + echo ./mysql-5_0/dir.Swanson.weka.classifiers.rules.JRip.report
+./mysql-5_0/dir.Swanson.weka.classifiers.rules.JRip.report
++ cat ./mysql-5_0/dir.Swanson.weka.classifiers.rules.JRip.report
+$ + echo ./postgresql/Swanson.weka.classifiers.rules.JRip.report
+./postgresql/Swanson.weka.classifiers.rules.JRip.report
++ cat ./postgresql/Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(F_are >= 1) and (F_it >= 1) => class=Implementation (5.0/0.0)
+(F_create >= 1) => class=Implementation (2.0/0.0)
+(F_revision >= 1) => class=Implementation (2.0/0.0)
+(F_types >= 1) => class=Implementation (2.0/0.0)
+(F_copyright >= 1) => class=Non-Functional (8.0/0.0)
+(F_did >= 1) => class=Non-Functional (2.0/0.0)
+ => class=Perfective (76.0/22.0)
+
+Number of Rules : 7
+
+
+Time taken to build model: 0.45 seconds
+Time taken to test model on training data: 0.05 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances          75               77.3196 %
+Incorrectly Classified Instances        22               22.6804 %
+Kappa statistic                          0.5724
+Mean absolute error                      0.146 
+Root mean squared error                  0.2701
+Relative absolute error                 57.2694 %
+Root relative squared error             76.1551 %
+Total Number of Instances               97     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e   <-- classified as
+  0  0  2  0  0 |  a = Corrective
+  0  0 11  0  0 |  b = Adaptive
+  0  0 54  0  0 |  c = Perfective
+  0  0  6 10  0 |  d = Non-Functional
+  0  0  3  0 11 |  e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances          58               59.7938 %
+Incorrectly Classified Instances        39               40.2062 %
+Kappa statistic                          0.1911
+Mean absolute error                      0.2138
+Root mean squared error                  0.3489
+Relative absolute error                 83.6361 %
+Root relative squared error             98.1376 %
+Total Number of Instances               97     
+
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e   <-- classified as
+  0  0  2  0  0 |  a = Corrective
+  0  0 11  0  0 |  b = Adaptive
+  0  0 50  0  4 |  c = Perfective
+  0  0  8  7  1 |  d = Non-Functional
+  0  0 13  0  1 |  e = Implementation
+
+$ + echo ./postgresql/dir.Swanson.weka.classifiers.rules.JRip.report
+./postgresql/dir.Swanson.weka.classifiers.rules.JRip.report
++ cat ./postgresql/dir.Swanson.weka.classifiers.rules.JRip.report
+$ + echo ./firebird/Swanson.weka.classifiers.rules.JRip.report
+./firebird/Swanson.weka.classifiers.rules.JRip.report
++ cat ./firebird/Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(F_license >= 1) => class=Non-Functional (23.0/6.0)
+(F_cleanup >= 1) => class=Perfective (48.0/20.0)
+(F_removed >= 1) => class=Perfective (23.0/6.0)
+(F_moved >= 1) => class=Perfective (22.0/8.0)
+(F_initial >= 1) => class=Implementation (125.0/42.0)
+(F_to <= 0) and (size >= 151) and (size <= 554) => class=Implementation (46.0/19.0)
+ => class=Adaptive (490.0/279.0)
+
+Number of Rules : 7
+
+
+Time taken to build model: 8.69 seconds
+Time taken to test model on training data: 0.24 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         397               51.094  %
+Incorrectly Classified Instances       380               48.906  %
+Kappa statistic                          0.2888
+Mean absolute error                      0.2532
+Root mean squared error                  0.3558
+Relative absolute error                 86.2488 %
+Root relative squared error             92.8969 %
+Total Number of Instances              777     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0  32  11   0   1 |   a = Corrective
+   0 211  10   6  41 |   b = Adaptive
+   0  83  59   0   1 |   c = Perfective
+   0  34   6  17  18 |   d = Non-Functional
+   0 130   7   0 110 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         385               49.5495 %
+Incorrectly Classified Instances       392               50.4505 %
+Kappa statistic                          0.2736
+Mean absolute error                      0.2551
+Root mean squared error                  0.3621
+Relative absolute error                 86.8662 %
+Root relative squared error             94.5433 %
+Total Number of Instances              777     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0  31  13   0   0 |   a = Corrective
+   3 201  15  12  37 |   b = Adaptive
+   3  82  57   0   1 |   c = Perfective
+   1  30   3  17  24 |   d = Non-Functional
+   0 122  13   2 110 |   e = Implementation
+
+$ + echo ./firebird/dir.Swanson.weka.classifiers.rules.JRip.report
+./firebird/dir.Swanson.weka.classifiers.rules.JRip.report
++ cat ./firebird/dir.Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(other <= 42) and (author = robocop) => tag=Perfective (43.0/18.0)
+(author = robocop) => tag=Perfective (25.0/12.0)
+(other >= 75) and (source >= 51) => tag=Implementation (133.0/58.0)
+(documentation >= 2) and (test >= 2) => tag=Implementation (20.0/5.0)
+ => tag=Adaptive (557.0/337.0)
+
+Number of Rules : 5
+
+
+Time taken to build model: 7.23 seconds
+Time taken to test model on training data: 0.23 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         348               44.7301 %
+Incorrectly Classified Instances       430               55.2699 %
+Kappa statistic                          0.181 
+Mean absolute error                      0.2724
+Root mean squared error                  0.369 
+Relative absolute error                 92.7075 %
+Root relative squared error             96.3122 %
+Total Number of Instances              778     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0  27  16   0   1 |   a = Corrective
+   0 220   8   0  40 |   b = Adaptive
+   0 101  38   0   4 |   c = Perfective
+   0  55   3   0  18 |   d = Non-Functional
+   0 154   3   0  90 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         316               40.617  %
+Incorrectly Classified Instances       462               59.383  %
+Kappa statistic                          0.1256
+Mean absolute error                      0.2775
+Root mean squared error                  0.3782
+Relative absolute error                 94.435  %
+Root relative squared error             98.7114 %
+Total Number of Instances              778     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0  22  17   0   5 |   a = Corrective
+   0 190  17   0  61 |   b = Adaptive
+   0  87  37   0  19 |   c = Perfective
+   0  46   5   0  25 |   d = Non-Functional
+   0 153   5   0  89 |   e = Implementation
+
+$ + echo ./everything/Swanson.weka.classifiers.rules.JRip.report
+./everything/Swanson.weka.classifiers.rules.JRip.report
++ cat ./everything/Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(F_license >= 1) and (F_from <= 0) => class=Non-Functional (65.0/15.0)
+(F_initial <= 0) and (F_cleanup >= 1) and (F_link <= 0) => class=Perfective (77.0/26.0)
+(F_initial <= 0) and (F_moved >= 1) and (F_this <= 0) => class=Perfective (95.0/41.0)
+(F_initial <= 0) and (F_removed >= 1) and (F_of <= 0) and (F_all <= 0) => class=Perfective (55.0/23.0)
+(F_and >= 1) and (F_pgindent >= 1) => class=Perfective (9.0/0.0)
+(F_initial <= 0) and (F_build >= 1) => class=Adaptive (125.0/50.0)
+(F_initial <= 0) and (F_docs >= 1) and (size <= 206) => class=Adaptive (98.0/33.0)
+ => class=Implementation (3100.0/1758.0)
+
+Number of Rules : 8
+
+
+Time taken to build model: 248.28 seconds
+Time taken to test model on training data: 6.35 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances        1678               46.3024 %
+Incorrectly Classified Instances      1946               53.6976 %
+Kappa statistic                          0.1588
+Mean absolute error                      0.2754
+Root mean squared error                  0.3711
+Relative absolute error                 93.7561 %
+Root relative squared error             96.8337 %
+Total Number of Instances             3624     
+
+
+=== Confusion Matrix ===
+
+    a    b    c    d    e   <-- classified as
+    0   10   14    0  166 |    a = Corrective
+    0  140   29   15  738 |    b = Adaptive
+    0   25  146    0  457 |    c = Perfective
+    0   14   15   50  397 |    d = Non-Functional
+    0   34   32    0 1342 |    e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances        1684               46.468  %
+Incorrectly Classified Instances      1940               53.532  %
+Kappa statistic                          0.1713
+Mean absolute error                      0.2711
+Root mean squared error                  0.3702
+Relative absolute error                 92.2719 %
+Root relative squared error             96.5893 %
+Total Number of Instances             3624     
+
+
+=== Confusion Matrix ===
+
+    a    b    c    d    e   <-- classified as
+   15    9   16    0  150 |    a = Corrective
+   13  178   28   44  659 |    b = Adaptive
+    6   27  102    0  493 |    c = Perfective
+    2   74    9   59  332 |    d = Non-Functional
+   10   43   24    1 1330 |    e = Implementation
+
+$ + echo ./everything/dir.Swanson.weka.classifiers.rules.JRip.report
+./everything/dir.Swanson.weka.classifiers.rules.JRip.report
++ cat ./everything/dir.Swanson.weka.classifiers.rules.JRip.report
+$ + echo ./egroupware/Swanson.weka.classifiers.rules.JRip.report
+./egroupware/Swanson.weka.classifiers.rules.JRip.report
++ cat ./egroupware/Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(F_removed >= 1) => class=Perfective (15.0/3.0)
+(F_directory >= 1) => class=Perfective (6.0/1.0)
+ => class=Implementation (529.0/176.0)
+
+Number of Rules : 3
+
+
+Time taken to build model: 2.05 seconds
+Time taken to test model on training data: 0.17 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         370               67.2727 %
+Incorrectly Classified Instances       180               32.7273 %
+Kappa statistic                          0.137 
+Mean absolute error                      0.2004
+Root mean squared error                  0.3165
+Relative absolute error                 92.6115 %
+Root relative squared error             96.4432 %
+Total Number of Instances              550     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0   0   0   0  14 |   a = Corrective
+   0   0   2   0  23 |   b = Adaptive
+   0   0  17   0  33 |   c = Perfective
+   0   0   2   0 106 |   d = Non-Functional
+   0   0   0   0 353 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         364               66.1818 %
+Incorrectly Classified Instances       186               33.8182 %
+Kappa statistic                          0.1014
+Mean absolute error                      0.2028
+Root mean squared error                  0.3217
+Relative absolute error                 93.6719 %
+Root relative squared error             98.0238 %
+Total Number of Instances              550     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0   0   0   0  14 |   a = Corrective
+   0   0   2   0  23 |   b = Adaptive
+   1   0  12   0  37 |   c = Perfective
+   0   0   2   0 106 |   d = Non-Functional
+   0   0   1   0 352 |   e = Implementation
+
+$ + echo ./egroupware/dir.Swanson.weka.classifiers.rules.JRip.report
+./egroupware/dir.Swanson.weka.classifiers.rules.JRip.report
++ cat ./egroupware/dir.Swanson.weka.classifiers.rules.JRip.report
+
+JRIP rules:
+===========
+
+(size <= 94) and (other >= 37) and (author = ceb) => tag=Perfective (7.0/0.0)
+ => tag=Implementation (544.0/191.0)
+
+Number of Rules : 2
+
+
+Time taken to build model: 6.37 seconds
+Time taken to test model on training data: 0.22 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         360               65.3358 %
+Incorrectly Classified Instances       191               34.6642 %
+Kappa statistic                          0.0537
+Mean absolute error                      0.2094
+Root mean squared error                  0.3236
+Relative absolute error                 96.5358 %
+Root relative squared error             98.4632 %
+Total Number of Instances              551     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0   0   0   0  14 |   a = Corrective
+   0   0   0   0  26 |   b = Adaptive
+   0   0   7   0  43 |   c = Perfective
+   0   0   0   0 108 |   d = Non-Functional
+   0   0   0   0 353 |   e = Implementation
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         357               64.7913 %
+Incorrectly Classified Instances       194               35.2087 %
+Kappa statistic                          0.0391
+Mean absolute error                      0.2105
+Root mean squared error                  0.3256
+Relative absolute error                 96.9692 %
+Root relative squared error             99.0568 %
+Total Number of Instances              551     
+
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   <-- classified as
+   0   0   0   0  14 |   a = Corrective
+   0   0   0   0  26 |   b = Adaptive
+   0   0   5   0  45 |   c = Perfective
+   0   0   1   0 107 |   d = Non-Functional
+   0   1   0   0 352 |   e = Implementation
+
+$ 
