@@ -3,7 +3,7 @@
 def load_period(period): 
     """ load the xml file with the data """
     period_file = period + '.xml'
-    data_dir = "/Users/nernst/Documents/papers/current-papers/abram/naming-paper/data/maxdb-tagged/"
+    data_dir = "../../data/maxdb-tagged/"
     
     import lxml.etree
     doc = lxml.etree.parse(data_dir + period_file)
