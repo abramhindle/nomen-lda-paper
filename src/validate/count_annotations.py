@@ -4,11 +4,14 @@ from lxml.builder import E
 from collections import defaultdict
 
 # * TODO
-#   - [ ] Per Period annotation plot (1 period)
-#   - [ ] Per PERIODS annotation plot (everything)
-#   - [ ] for all periods PER period annotation plot
+#   - [X] Per Period annotation plot (1 period)
+#   - [X] Per PERIODS annotation plot (everything)
+#   - [X] for all periods PER period annotation plot
+#   - [ ] Global sum of all periods plot
+#   - [ ] Time-wise plot of annotation count
+#   - [ ] Time-wise plot of annotations [stacked]? [rotated?]
 #   - [ ] Topic Plots?
-
+#   - [ ] CLean up data
 
 
 def hist_add(hist1,hist2):
@@ -113,33 +116,35 @@ def load_period_file( ndir, period ):
     tree = lxml.etree.parse( period_file( ndir, period ) )
     return tree
 
-def boxplot( plot_name, column_names, column_counts ):
+def boxplot( plot_name, column_names, row_name, column_counts ):
     plot =  E.boxplot(
               E.plot_name( plot_name ),
+              E.row_names( E.row_name(row_name) ),
               E.column_names( *[E.column_name(x) for x in column_names] ), #note the *
               E.rows(  "\t".join([str(x) for x in column_counts]) )
               )
     stri = lxml.etree.tostring(plot, pretty_print=True)
     return stri
 
-def stacked_boxplot( plot_name, column_names, rows ):
+def stacked_boxplot( plot_name, column_names, row_names, rows ):
     plot =  E.stacked_boxplot(
                E.plot_name( plot_name ),
+               E.row_names( *[E.row_name(x) for x in row_names] ),
                E.column_names( *[E.column_name(x) for x in column_names] ),
                E.rows( "\n".join( [ "\t".join([str(y) for y in x]) for x in rows ] ))
                )
     stri = lxml.etree.tostring(plot, pretty_print=True)
     return stri
 
-def boxplot_to_file( bpfile, period_name, annotation_names, lcnt ):
-    data = boxplot( period_name, annotation_names, lcnt )
+def boxplot_to_file( bpfile, period_name, annotation_names, row_name, lcnt ):
+    data = boxplot( period_name, annotation_names, row_name, lcnt )
     FILE = open( bpfile, "w" )
     FILE.write( data )
     FILE.close()
     return True
 
-def stacked_boxplot_to_file( bpfile, name, annotation_names, lcnts ):
-    data = stacked_boxplot( name, annotation_names, lcnts )
+def stacked_boxplot_to_file( bpfile, name, annotation_names, row_names, lcnts ):
+    data = stacked_boxplot( name, annotation_names, row_names, lcnts )
     FILE = open( bpfile, "w" )
     FILE.write( data )
     FILE.close()
@@ -171,12 +176,12 @@ def per_period_reports( name , ndir , periods, odir ):
             lcnt[ index_dict[key] ] += cnt
         bpfile = odir + "/" + name + ".period." + period_name  + ".boxplot.xml"
         print "Generating boxplot"
-        boxplot_to_file( bpfile, period_name, annotation_names, lcnt )
+        boxplot_to_file( bpfile, period_name, annotation_names, period_name,  lcnt )
         lcnts.append( lcnt ) # saving the output
     # now each period has its own fil
     print "Generating stacked plot"
     sbpfile = odir + "/" + name + ".stacked_boxplot.xml"
-    stacked_boxplot_to_file( sbpfile, name, annotation_names, lcnts )
+    stacked_boxplot_to_file( sbpfile, name, annotation_names, periods,  lcnts )
     return True
     
 # The main for this program

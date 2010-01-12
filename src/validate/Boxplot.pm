@@ -132,14 +132,25 @@ sub add_data_files {
         }
     }
 }
-sub add_named_rows {
-    my ($self,
+# zipped_name_rows is ([name,row],[name,row])
+#                     [ string , [ number] ] list
+sub add_data_rows {
+    my ($self, @zipped_name_rows) = @_;
+    warn "Warning: Clearing internal rows (did you add_data_rows??)" if exists $self->{internal_data};
+    $self->{internal_data} = [];
+    foreach my $e (@zipped_name_rows) {
+        my ($name,$row) = @$e;
+        # warning hack
+        $self->add_data_file($name,$name);
+        push @{$self->{internal_data}}, $row;
+    }
 }
+#warning this is called from add_data_rows as well
 sub add_data_file {
     my $self = shift;
     my $title = shift;
     my $datafile = shift;
-    die "No datafile set in add_data_file!" unless defined $datafile;
+    die "No datafile set in add_data_file! [$title, $datafile]" unless defined $datafile;
     $self->{data_files} = [] unless (defined($self->{data_files}));
     my $n = scalar(@{$self->{data_files}});
     push @{$self->{data_files}}, [$title,$datafile];
@@ -173,6 +184,7 @@ sub generate_data_file {
     my $rows = $self->count_column_labels;
     my @file_arrays;
     if (defined $self->{internal_data}) {
+        warn "Warning USING interal_data, not external data files!";
         @file_arrays = @{$self->{internal_data}};
     } else {
         @file_arrays = map {
