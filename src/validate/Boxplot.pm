@@ -132,7 +132,9 @@ sub add_data_files {
         }
     }
 }
-
+sub add_named_rows {
+    my ($self,
+}
 sub add_data_file {
     my $self = shift;
     my $title = shift;
@@ -165,25 +167,26 @@ sub count_data_files {
 
 sub generate_data_file {
     my $self = shift;
-    if (exists $self->{internal_data} && defined $self->{internal_data})  {
-        my $data_file = $self->data_file_output;
-        
-        return $data_file;
-    }
+    
     my $data_file = $self->data_file_output;
     my $n = $self->count_data_files;
     my $rows = $self->count_column_labels;
-    my @file_arrays = map {
-        my $fd = open_or_die($_);
-        my @a = ();
-        while(my $line = <$fd>) {
-            chomp($line);
-            my ($i,$v) = split(/\s+/,$line);
-            $a[$i] = $v;
-        }
-        close($fd);
-        \@a;
+    my @file_arrays;
+    if (defined $self->{internal_data}) {
+        @file_arrays = @{$self->{internal_data}};
+    } else {
+        @file_arrays = map {
+            my $fd = open_or_die($_);
+            my @a = ();
+            while(my $line = <$fd>) {
+                chomp($line);
+                my ($i,$v) = split(/\s+/,$line);
+                $a[$i] = $v;
+            }
+            close($fd);
+            \@a;
         } ($self->data_files);
+    }
     my $fd = open_for_write($data_file);
     foreach my $row (0..($rows-1)) {
         my @res = map { $a = $_->[$row]; (defined($a))?$a:0 } @file_arrays;
