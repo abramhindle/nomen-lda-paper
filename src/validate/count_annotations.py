@@ -7,7 +7,7 @@ from collections import defaultdict
 #   - [X] Per Period annotation plot (1 period)
 #   - [X] Per PERIODS annotation plot (everything)
 #   - [X] for all periods PER period annotation plot
-#   - [ ] Global sum of all periods plot
+#   - [X] Global sum of all periods plot
 #   - [ ] Time-wise plot of annotation count
 #   - [ ] Time-wise plot of annotations [stacked]? [rotated?]
 #   - [ ] Topic Plots?
@@ -182,6 +182,13 @@ def per_period_reports( name , ndir , periods, odir ):
     print "Generating stacked plot"
     sbpfile = odir + "/" + name + ".stacked_boxplot.xml"
     stacked_boxplot_to_file( sbpfile, name, annotation_names, periods,  lcnts )
+
+    # sum all of lcnts per column
+    count_lct = [ sum([ l[x] for l in lcnts ]) for x in range(total_tations) ]
+
+    tbpfile = odir + "/" + name + ".total.boxplot.xml"
+    boxplot_to_file( tbpfile, name, annotation_names, "Total", count_lct )
+    
     return True
     
 # The main for this program
