@@ -21,6 +21,15 @@ def hist_add(hist1,hist2):
             rdict[key] += val
     return rdict
 
+#mutates the histogram
+#mhist1 is a defaultdict
+def mutable_hist_add(mhist1, chist2):
+    for hist in [ chist2 ] :
+        for (key,val) in hist.iteritems ():
+            mhist1[key] += val
+    return mhist1
+
+
 def summarize_periods(periods):
     """
     This counts annotations over a few periods
@@ -40,6 +49,25 @@ def summarize_both_period_and_periods(periods):
     periodslist = reduce(hist_add, alist ,rdict) #sum 
     return (alist, periodslist)
 
+# returns 2 dicts
+#   ikdict is index to key
+#   kidict is key to index
+def map_words_to_index ( words_dict , cnt = 0 ):
+    """
+    Assumption! name is not a integer!
+    """
+    rev = [ (x[1],x[0]) for x in words_dict.items() ]
+    rev.sort() #rev mutated >:(
+    rev.reverse() #ascending (mutated!)
+    ikdict = {}
+    kidict = {}
+    # cnt is index
+    for (count, name) in rev:        
+        ikdict[cnt] = name
+        kidict[name] = cnt
+        cnt = cnt + 1
+    return ikdict, kidict
+    
 
 def map_annotations_to_index( annotation_count_dict ):
     """
@@ -61,8 +89,10 @@ def summarize_annotations_of_period(period):
     returns a dictionary of keys and counts of annotations in the period
     expects xml periods
     """
-    counts = {}
     topics = get_topics(period)
+    return summarize_annotations_of_topics( topics )
+
+def summarize_annotations_of_topics( topics ):
     simple_annotations = [ get_simple_annotations(x) for x in topics ]
     total_annotations = flatten(simple_annotations)
     ann_hist = histogram(total_annotations)
@@ -150,12 +180,16 @@ def stacked_boxplot_to_file( bpfile, name, annotation_names, row_names, lcnts ):
     FILE.close()
     return True
 
+def load_periods( ndir, periods ):
+    xperiods = [ load_period_file( ndir , p ) for p in periods ]
+    return xperiods
+
 def per_period_reports( name , ndir , periods, odir ):
     """
     this writes to files in odir!
     """
     print "Loading periods"
-    xperiods = [ load_period_file( ndir , p ) for p in periods ]
+    xperiods = load_periods( ndir, periods ) 
     print "Summarizing periods"
     res = summarize_both_period_and_periods( xperiods )
     annotated_periods = res[0]
