@@ -61,13 +61,14 @@ def to_arff( name, xperiods ): #name, inputdir, periods ):
     ncolumns = nannos + nwords
     allcolumns = words + annos
     # header is a list of strings
-    header = arff_header( name , ["W_"+arff_escape(w)+" INTEGER" for w in words] + ["A_"+arff_escape(a)+" {No,Yes}" for a in annos] )
+    # too much arff right here.. oh well
+    header = arff_header( name , ["W_"+arff_escape(w)+" INTEGER" for w in words] + ["A_"+arff_escape(a)+" {0,1}" for a in annos] )
     data = []
     for t in topics:
         tannotations, twords = V.create_element_list( t )
-        l = [ 0 for x in range(nwords) ] + [ "No" for x in range(nannos) ]
+        l = [ 0 for x in range(nwords) ] + [ "0" for x in range(nannos) ]
         for tanno in tannotations:
-            l[annotoindex[tanno]] = "Yes"
+            l[annotoindex[tanno]] = "1"
         for tword in twords:
             l[wordtoindex[tword]] += 1
         sgen = ( str(x) for x in l )
