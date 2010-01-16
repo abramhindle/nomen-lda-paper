@@ -101,13 +101,13 @@ def index_matching_wordlists( thresh_el, annotations, quality_map ):
 
 def info_report_string(key, tp, fp, fn, tn):
     s1 = key + "\t"+ "\t".join(["tp","fp","fn","tn"])+"\n"
-    s2 = key + "\t"+ "\t".join([str(x) for x in [tp[key],fp[key],fn[key],tn[key]]])+"\n"
-    im = info_theory.info_measures(tp[key],tn[key],fp[key],fn[key])
+    s2 = key + "\t"+ "\t".join([str(x) for x in [tp,fp,fn,tn]])+"\n"
+    im = info_theory.info_measures(tp,tn,fp,fn)
     ik = im.keys()
     ik.sort()
     strhead = key + "\t" + "\t".join(ik)
-    strb = key + "\t" + "\t".join([im[x] for x in ik])
-    "\n".join([s1,s2,strhead,strb]) + "\n"
+    strb = key + "\t" + "\t".join([str(y) for y in [im[x] for x in ik]])
+    return "\n".join([s1,s2,strhead,strb]) + "\n"
 
 
 
@@ -146,7 +146,7 @@ if __name__ == '__main__':
                 topics = load_period(period, data_dir = ddir)
                 for t in topics:
                     annotations, thresh_el = create_element_list(t)
-                    res, _, stats = index_matching_wordlists(thresh_el, annotations, quality_map)
+                    res, ma, stats = index_matching_wordlists(thresh_el, annotations, quality_map)
                     anno_matches = ma[0]
                     matches = ma[1] #matching qualities
                     matching_words = ma[2]
@@ -190,8 +190,10 @@ if __name__ == '__main__':
             fnc = sum(fn.values(),0)
             for key in quality_map:
                 istr = info_report_string(key, tp[key], fp[key], fn[key], tn[key])
+                print istr
                 rfile.write(istr)
             istr = info_report_string("total", tpc, fpc, fnc, tnc)
+            print istr
             rfile.write(istr)
                 
             # 

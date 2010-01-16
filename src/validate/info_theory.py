@@ -1,20 +1,25 @@
+from math import sqrt
+
 def precision(tp,fp):
+    if (tp + fp == 0): return 0
     return tp / (1.0 * tp + fp)
 def recall(tp,fn):
+    if (tp + fn == 0): return 0
     return tp / (1.0 * tp + fn)
 def true_negative_rate(tn,fp):
     return tn / (1.0 * tn + fp)
 def specificity(tn,fp):
     return true_negative_rate(tn,fp)
-def false_positive_rate(fp,tn)
+def false_positive_rate(fp,tn):
     return fp / (1.0*(fp + tn))
 def accuracy(tp,tn,fp,fn):
-    return tp + tn / (1.0 * tp + tn + fp + fn)
+    return (tp + tn)/ (1.0 * tp + tn + fp + fn)
 def true_positive_rate(tp,fn):
     return tp /(1.0 * ( tp + fn))
 def sensitivity(tp,fn):
     return true_positive_rate(tp,fn)
 def fmeasure(precision,recall):
+    if (precision + recall == 0): return 0
     return 2.0 * (precision * recall) / (1.0 * (precision + recall))
 
 def matthews_correlation(tp,tn,fp,fn):
@@ -23,9 +28,11 @@ def matthews_correlation(tp,tn,fp,fn):
     N = fp + tn
     P1 = tp + fp
     N1 = fn + tn
+    sqpnp1n1 = sqrt(P*N*P1*N1)
+    if (sqpnp1n1==0): return 0
     return (tp * tn - fp * fn)/sqrt(P*N*P1*N1)
     
-def roc_area(tp,fn,fp,fn):
+def roc_area(tp,fn,fp,tn):
     """
     Area under ROC Curve. The curve is plotted by FPR X TPR
     We want the area under it
