@@ -3,6 +3,7 @@
 use List::Util qw(sum max min reduce);
 use strict;
 my @mprojects = slurp('projects');
+my @projects = @mprojects;
 my @columns = slurp('project-columns');
 my %cols = ();
 foreach my $column (@columns) {
