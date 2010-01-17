@@ -3,6 +3,14 @@ I use emacs org-mode to view this, but anything would work.
 Neil this is the first stab at tacking this down I suggest you rip
 into it.
 
+* TODO Current todo (top of head) [/]
+  - [ ] Mulan
+  - [ ] Mulan Results
+  - [ ] Extract Weka Results
+  - [ ] Summarize Weka Results
+  - [ ] Skeleton
+
+
 * Planning for Topic Naming Paper
 ** Authors
    - Abram Hindle
@@ -50,7 +58,7 @@ few weeks hiatus.
       version to something big like ICSE 2011
     - Neil: seems like a plan. I think ICSE would require greater
       amount of data collection (another domain, for e.g.)
-** Naming Paper Task Overview [4/10]
+** Naming Paper Task Overview [10/19]
 Neil: I think somewhere we should make clear why supervised
 (Cleland-Huang) methods are not useful (too time-consuming, domain
 specific, etc). 
@@ -60,13 +68,13 @@ figure out a way to handle this - what prec/recall will we accept?
    - [X] Extract topics of maxdb
    - [X] annotate mysql
    - [X] annotate maxdb
-   - [ ] Evaluate automatic annotation using just words alone
-   - [ ] Evaluate automatic annotation with wordnet
-   - [ ] Evaluate automatic annotation with machine learners
-   - [ ] Evaluate with default learner for comparison
+   - [X] Evaluate automatic annotation using just words alone
+   - [X] Evaluate automatic annotation with wordnet
+   - [X] Evaluate automatic annotation with machine learners
+   - [X] Evaluate with default learner for comparison
    - [ ] Machine Learner testing system
-   - [ ] Script/build system for evaluation so we can run again easily!
-   - [ ] Get precision, recall, f-measure of evaluations
+   - [X] Script/build system for evaluation so we can run again easily!
+   - [X] Get precision, recall, f-measure of evaluations
    - [ ] Write up Planning
    - [ ] Write up skeleton
    - [ ] Write up
@@ -86,17 +94,29 @@ figure out a way to handle this - what prec/recall will we accept?
    - [ ] Need a partial SE wordnet implementation
    - [ ] Need a domain level implementation
    - [ ] Need a project level implementation
-** TODO Machine Learning System [0/2]
-   - [ ] Look at old setup, we can automate it
-   - [ ] Generate ARFF files
-** Schedule
+** TODO Machine Learning System [2/2]
+   - [X] Look at old setup, we can automate it
+   - [X] Generate ARFF files
+   - [ ] Extract into reports
+** Mulan Machine learning
+   - [ ] Automate Mulan
+   - [ ] Extract Mulan
+** New Schedule
+   - Jan 20th
+     Have mulan running, have results extracted (weka output read)
+   - Jan 21th 
+     Start writing and consider figures
+   - Jan 22nd Paper Skeleton
+   - March 13th
+     Paper due
+** Old Schedule
    - Nov 1st to 7th  
-     - get all projects automated and eval'd
+     - [X] get all projects automated and eval'd
    - Nov 8th to 14th 
    - Nov 15 th 21st  
-     - get all machine learning w/ weka done
+     - [X] get all machine learning w/ weka done 
    - Nov 22nd to 28th   
-     - get report tables from evaluation
+     - [X] get report tables from evaluation
    - Nov 29th to Dec 5th
      - skeleton of paper 
    - Dec 6th to 12th
