@@ -1,4 +1,3 @@
-
 use TagMap;
 use List::Util qw(sum max min reduce);
 use strict;
@@ -53,7 +52,7 @@ foreach my $dir (undef , "dir", "big", "wauthor", "noauthor", "onlyauthor", "onl
             }
         }
         close($fd);
-    }
+    } # per category
     
     {
         open(my $fd, ">", "latex-out/${odir}category-learner-table.tex");
