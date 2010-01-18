@@ -2,7 +2,9 @@ import lxml.etree
 import operator
 from lxml.builder import E
 from collections import defaultdict
-import get_exps
+import get_exps as G
+import quality_map as Q
+
 
 # * TODO
 #   - [X] Per Period annotation plot (1 period)
@@ -121,14 +123,14 @@ def get_topics(period):
 def get_simple_annotations(topic):
     annotations = get_annotations(topic)
     annotationnames = [x.attrib['name'] for x in annotations]
-    return annotationnames
+    return Q.annotations_to_qualities( annotationnames )
 
 def get_annotations(topic):
     anno = topic.findall('Annotation') or topic.findall('annotation')
     return anno
 
 def get_exps():
-    get_exps.get_exps()
+    return G.get_exps()
 
 def period_file( ndir, period ):
     period_file = ndir + period + '.xml'

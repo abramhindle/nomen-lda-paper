@@ -48,8 +48,8 @@ def create_element_list(topic):
     anno = topic.findall('Annotation') or topic.findall('annotation')
     for a in anno:
         annotations.append(a.attrib['name'])
-    Q.annotations_to_qualities( annotations )
-    return annotations, thresh_el
+    annotations2 = Q.annotations_to_qualities( annotations )
+    return annotations2, thresh_el
     
 def index_matching_wordlists( thresh_el, annotations, quality_map ):
     el_results = {}

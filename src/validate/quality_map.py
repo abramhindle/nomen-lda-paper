@@ -40,20 +40,19 @@ e_a_m = ext_annotation_map()
 def annotation_to_quality( annotation_name ):
     ann = annotation_name.lower()
     try:
-        return t.find_signifier( ann )
+        return t.find_signifier( ann ).lower()
     except NameError:
         if ann in e_a_m:
-            return e_a_m[ann]
+            return e_a_m[ann].lower()
         else:
             raise NameError("I don't know the annotation ["+annotation_name+"]")
 
 def annotations_to_qualities( annotations ):
     """ This cuts down the total annoations """
-    def f(x):
-        False if (x == "") else True
-    l = [ annotation_to_quality(x) for x in annotations ]
-    fl = filter(f,l)
+    ann = [x.lower() for x in annotations]
+    l = [ annotation_to_quality(x) for x in ann ]
     d = {}
-    for k in fl:
-        d[k] = True
+    for k in l:
+        if (not (k == "")):
+            d[k] = True
     return d.keys()

@@ -297,7 +297,7 @@ sub generate_plot_file {
         my $start = $k + 2;
         
         my $sum = gen_sum($start,($n+1)); #map { "\$".($_) } ($start..($n+1));        
-        my $sum = ($self->proportional())?"1:($sum/$maxsum)":"1:$sum";
+        my $sum = ($self->proportional())?"1:($sum/$maxsum+1e-160)":"1:$sum";
         my $title = $data_file_titles[$k];
         "\"${data_file}\" using ${sum} title \"${title}\" with boxes";
     } (0..($n-1));
