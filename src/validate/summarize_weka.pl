@@ -49,9 +49,9 @@ my $table_file = "${latex_dir}/table.tex";
                 $hash{$project}->{$column}->{$learner}->{roc} = $roc;
                 
                 my $learnername = learner_name($learner);
-                my $projectname = TagMap::get_project_name($project);
+                my $projectname = $project;#TagMap::get_project_name($project);
                 ($percent,$ipercent) = map { sprintf('%0.2f',$_) } ($percent,$ipercent);
-                print $fd join(" & ", $projectname , $learnername , $percent, $ipercent, $count, $icount)." \\\\ $/";
+                print $fd join(" & ", $projectname , $column, $learnername , $roc, $percent, $ipercent, $count, $icount)." \\\\ $/";
                 
             }
         }
@@ -59,18 +59,25 @@ my $table_file = "${latex_dir}/table.tex";
     close($fd);
 }
 
-{
+{ # this doesn't make sense til we unify columns!
     foreach my $project (@projects) {
-        open(my $fd, ">", "latex-out/$project-column-learner-table.tex");
+        open(my $fd, ">", "latex-out/$project-column-learner-table-tprate.tex");
+        open(my $fdr, ">", "latex-out/$project-column-learner-table-roc.tex");
+
         foreach my $column (proj_columns($project)) {
             foreach my $learner (@learners) {
                 my @correct = map { $hash{$_}->{$column}->{$learner}->{percent}  } @projects;
+                my @rcorrect = map { $hash{$_}->{$column}->{$learner}->{roc}  } @projects;
                 my ($avg, $var, $std, $min, $max, $sum, $n) = stats(@correct);
                 my $learnername = learner_name($learner);
                 print $fd join(" & ", $column, $learnername, $avg, $std, $min, $max)." \\\\ $/";
+                my ($avg, $var, $std, $min, $max, $sum, $n) = stats(@rcorrect);
+                my $learnername = learner_name($learner);
+                print $fdr join(" & ", $column, $learnername, $avg, $std, $min, $max)." \\\\
             }
         }
         close($fd);
+        close($fdr);
     }
 }
 
@@ -141,8 +148,8 @@ my $table_file = "${latex_dir}/table.tex";
             my $zerordiff = $hash{$project}->{$column}->{$bestlearner}->{zerordiff};
             my $fmeasure = $hash{$project}->{$column}->{$bestlearner}->{fmeasure};
             my $roc = $hash{$project}->{$column}->{$bestlearner}->{roc};
-            my $projectname = TagMap::get_project_name($project);
-            my $catname = TagMap::get_short_tag_name($column);
+            my $projectname = $project;#TagMap::get_project_name($project);
+            my $catname = $column;#TagMap::get_short_tag_name($column);
             my $learnername = learner_name($bestlearner);
             #print $fd join(" &  ", $projectname, $catname, $learnername, (map { format_float($_) } ($bestlearnerv , $zeror, $zerordiff, $fmeasure, $roc)))." \\\\ $/";
             print $fd join(" &  ", $catname, $projectname, $learnername, (map { format_float($_) } ($bestlearnerv , $zeror, $zerordiff, $fmeasure, $roc)))." \\\\ $/";

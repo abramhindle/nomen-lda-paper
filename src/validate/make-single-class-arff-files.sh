@@ -17,7 +17,7 @@ do
 	echo -e "\tjava" -cp weka-36.jar weka.filters.unsupervised.attribute.Remove -V -R 1-${WATTRS},$file -i $BASE/$FILE.arff -o ${ARFF}
 	for classifier in `cat weka-classifiers`
 	do
-		REPORT=output/mysql.$file.$classifier.txt 
+		REPORT=output/$FILE.$file.$classifier.txt 
 		echo "$REPORT:" ${ARFF}
 		echo -e "\tsh" -x weka-classifier.sh $classifier -i -t $ARFF -c last \| tee $REPORT
 		ALL="$REPORT $ALL"

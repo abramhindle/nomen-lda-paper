@@ -1,4 +1,5 @@
 import count_annotations as A
+import get_exps as G
 import check_validity as V
 from collections import defaultdict
 
@@ -84,7 +85,7 @@ def save_arff( filename, lines):
     
 
 if __name__ == '__main__':
-    exps = A.get_exps()
+    exps = G.get_exps()
     xp = []
     outputdir = "output"
     for e in exps:

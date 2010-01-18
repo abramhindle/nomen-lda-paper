@@ -1,6 +1,7 @@
 # Suite of functions to parse word lists
 import get_exps
 import info_theory
+import quality_map as Q
 from collections import defaultdict
 
 def make_count():
@@ -47,6 +48,7 @@ def create_element_list(topic):
     anno = topic.findall('Annotation') or topic.findall('annotation')
     for a in anno:
         annotations.append(a.attrib['name'])
+    Q.annotations_to_qualities( annotations )
     return annotations, thresh_el
     
 def index_matching_wordlists( thresh_el, annotations, quality_map ):
