@@ -190,6 +190,7 @@ sub get_correct_incorrect {
     my ($tp,$fp,$precision,$recall,$fmeasure, $roc) = (0,0,0,0,0,0);
     while($state != $DONE) {
         my $line = <$fd>;
+	$state = $DONE unless defined $line;	
         chomp($line);
         if ($state == $NOTFOUND) {
             if ($line =~ /Stratified/) {
@@ -222,6 +223,8 @@ sub get_correct_incorrect {
             }
         } elsif ($state == $WEIGHTED) {
             $state = $DONE;
+        } elsif ($state == $DONE) {
+	    #must've been an empty file
         } else {
             die "Bad state! [$state]";
         }
