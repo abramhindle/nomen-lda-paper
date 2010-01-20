@@ -16,3 +16,6 @@ boxplots: graphs boxplotit.pl
 	perl convert-plots.sh
 
 noweka: arff-files validity-report graphs boxplots
+
+categories: make_categories.py
+	python make_categories.py

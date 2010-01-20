@@ -4,6 +4,9 @@
 use strict;
 use ARFF;
 
+my @classifiers = slurp('weka-classifiers');
+
+
 my $BASE="output";
 mkdir($BASE);
 my $tmp = "$BASE/tmp";
@@ -12,17 +15,21 @@ my $project = $ARGV[0] || die "No Project Specified!";
 my $arff_file = "$BASE/$project.arff";
 my $arff = ARFF->new( filename => $arff_file );
 my @attrs = $arff->get_attributes();
-my @classes = grep /^A_/ @attrs; # get our annotations!
+my @classes = grep {/^A_/} @attrs; # get our annotations!
 my @classnames = sort(@classes);
 
 my @arffs = ();
 foreach my $class (@classes) {
+
     my $arff = $arff->copy(); # replace with a copy
     my $classname = $class;
     $classname =~ s/^A_//;
-    $arff->drop_columns( grep { $_ ne $class } @classes );
+    my @drop_columns = grep { $_ ne $class } @classes;
+    warn "Dropping: @drop_columns";
+    $arff->drop_columns( @drop_columns  );
     #$arff is mutated
     my $ofile = "$BASE/tmp/$project.$classname.arff";
+    warn "Writing $ofile";
     $arff->writeout( $ofile );
     push @classnames, $classname;
 }
@@ -31,12 +38,12 @@ foreach my $class (@classes) {
 
 open(MF,">","Makefile.$project");
 my @reports = ();
-foreach my $class (@classname) {
-    foreach my $classifer (@classifiers) {
+foreach my $class (@classnames) {
+    foreach my $classifier (@classifiers) {
         my $report = "$BASE/$project.$class.$classifier.txt";
         my $arfffile = "$BASE/tmp/$project.$class.arff";
-	print MF "$REPORT: ${arfffile}$/";
-        print MF "\tsh -x weka-classifier.sh $classifier -i -t $arfffile -c last | tee $report";
+	print MF "$report: ${arfffile}$/";
+        print MF "\tsh -x weka-classifier.sh $classifier -i -t $arfffile -c last | tee $report$/";
         push @reports, $report;
     }
 }
@@ -44,6 +51,12 @@ print MF "all: ".join(" ",@reports).$/;
 close(MF);
 	
 	
+sub slurp {
+    open(SLURPFD,$_[0]) or die "can't open $_[0]";
+    my @lines = <SLURPFD>;
+    chomp(@lines);
+    return @lines;
+}
 
 
 __DATA__
@@ -70,3 +83,4 @@ do
 	done
 done
 echo "all: $ALL"
+

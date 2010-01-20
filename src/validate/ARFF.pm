@@ -75,8 +75,10 @@ sub _gen_type {
     my ($type, @classes) = @_;
     if ($type eq "REAL") {
         return "REAL";
-    if (uc($type) eq "INT") {
-        return "INT";
+    } elsif (uc($type) eq "INTEGER") {
+        return "INTEGER";
+    } elsif (uc($type) eq "NUMERIC") {
+        return "NUMERIC";
     } elsif ($type eq "CLASS") {
         return "{" . join(",",@classes) . "}";
     } else {
@@ -110,6 +112,7 @@ sub join_arffs {
     my $superdata = join_data($superheader,\@headers,\@datas);
 
     return ARFF->new(data=>$superdata, header=>$superheader);
+
 }
 
 sub join_arff_files {
@@ -118,6 +121,7 @@ sub join_arff_files {
     my @ARFF = map { ARFF->new( filename => $_ ) }  @ARGV;
     return join_arffs(@ARFF);
 }
+
 
 
 sub join_data {
@@ -178,6 +182,14 @@ sub print_header {
         print $fd "\@ATTRIBUTE $attr ".$superheader{type}->{$attr}.$/;
     }
     print $fd "\@DATA$/";
+}
+
+sub attributes {
+    my ($self,@more) = @_;
+    if (@more) {
+        die "You can't set attributes this way!";
+    }
+    return $self->get_attributes();
 }
 
 sub get_attributes {
@@ -425,7 +437,7 @@ sub drop_columns {
     my $nattr = scalar @attributes;
     my %indices = map { $header->{indices}->{$_} => 1 } @columns;
     my @cindices = grep { !exists $indices{$_} } (0..($nattr-1));
-
+    my @new_attributes = map { $attributes[$_] } @cindices;
     my $data = $self->data();
     my @o = ();
     foreach my $row (@$data) {
@@ -437,8 +449,9 @@ sub drop_columns {
     $self->data(\@o);
 
     # now modify the header
-    my @new_attributes = grep { exists $columns{$_} } @columns;
+    # my @new_attributes = grep { exists $columns{$_} } @columns;
     # remove the type
+    $header->{attributes} = \@new_attributes;
     foreach my $c (@columns) {
         delete $header->{type}->{$c};
     }

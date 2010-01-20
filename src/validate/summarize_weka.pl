@@ -4,14 +4,14 @@ use List::Util qw(sum max min reduce);
 use strict;
 my @mprojects = slurp('projects');
 my @projects = @mprojects;
-my @columns = slurp('project-columns');
+my @categories = slurp('categories');
 my %cols = ();
-foreach my $column (@columns) {
-    chomp($column);
-    my ($project,$start,$end) = split(/\s+/,$column);
-    $cols{$project}->{start} = $start;
-    $cols{$project}->{end} = $end;
-}
+#foreach my $column (@columns) {
+#    chomp($column);
+#    my ($project,$start,$end) = split(/\s+/,$column);
+#    $cols{$project}->{start} = $start;
+#    $cols{$project}->{end} = $end;
+#}
 my @learners = slurp('weka-classifiers');
 
 my $ZEROR = "weka.classifiers.rules.ZeroR";
@@ -20,10 +20,10 @@ my ($DONE,$NOTFOUND,$STRATIFIED,$CORRECT,$INCORRECT,$WEIGHTED) = (1..100);
 
 my $dir="";
 
-sub proj_columns {
-    my $project = shift;
-    return ($cols{$project}->{start}..$cols{$project}->{end});
-}
+#sub proj_columns {
+#    my $project = shift;
+#    return ($cols{$project}->{start}..$cols{$project}->{end});
+#}
 
 my %hash = ();
 mkdir($latex_dir);
@@ -32,7 +32,7 @@ my $table_file = "${latex_dir}/table.tex";
     open(my $fd, ">", $table_file) or die "Couldn't open $table_file";
     foreach my $project (@projects) {
         warn $project;
-        foreach my $column (proj_columns($project)) {
+        foreach my $column (@categories) {
             my %zero = get_correct_incorrect($project,$column,$ZEROR);
             foreach my $learner (@learners) {
                 my %ret = get_correct_incorrect($project,$column,$learner,$dir);
@@ -64,7 +64,7 @@ my $table_file = "${latex_dir}/table.tex";
         open(my $fd, ">", "latex-out/$project-column-learner-table-tprate.tex");
         open(my $fdr, ">", "latex-out/$project-column-learner-table-roc.tex");
 
-        foreach my $column (proj_columns($project)) {
+        foreach my $column (@categories) {
             foreach my $learner (@learners) {
                 my @correct = map { $hash{$_}->{$column}->{$learner}->{percent}  } @projects;
                 my @rcorrect = map { $hash{$_}->{$column}->{$learner}->{roc}  } @projects;
@@ -82,48 +82,48 @@ my $table_file = "${latex_dir}/table.tex";
 }
 
 # This doesn't make sense to me 
-#{
-#
-#    open(my $fd, ">", "latex-out/best-avg-learner-table.tex");
-#    warn 'open(my $fd, ">", "latex-out/best-avg-learner-table.tex");';
-#    
-#    foreach my $category (@categories) {
-#        my $bestlearner = $learners[0];
-#        my $bestlearnerv = 0;
-#        foreach my $learner (@learners) {
-#            my @correct = map { $hash{$_}->{$category}->{$learner}->{percent}  } @projects;
-#            my ($avg, $var, $std, $min, $max, $sum, $n) = stats(@correct);
-#            if ($avg >  $bestlearnerv) {
-#                $bestlearner = $learner;
-#                $bestlearnerv = $avg;
-#            }
-#        }
-#        my $catname = TagMap::tag_map($category);
-#        my $learnername = learner_name($bestlearner);
-#        
-#        my @zeror = map { $hash{$_}->{$category}->{$bestlearner}->{zerorpercent} } @projects;
-#        my @zerordiff = map { $hash{$_}->{$category}->{$bestlearner}->{zerordiff} } @projects;
-#        my @fmeasure = map { $hash{$_}->{$category}->{$bestlearner}->{fmeasure} } @projects;
-#        my @roc = map { $hash{$_}->{$category}->{$bestlearner}->{roc} } @projects;
-#        
-#        my ($zeror_avg) = stats(@zeror);
-#        my ($zerordiff_avg) = stats(@zerordiff);
-#        my ($fmeasure_avg) = stats(@fmeasure);
-#        my ($roc_avg) = stats(@roc);
-#        
-#        
-#        
-#        print $fd " & ".join(" &  ", $catname, $learnername, (map { format_float($_) } ($bestlearnerv, $zeror_avg, $zerordiff_avg, $fmeasure_avg, $roc_avg)))." \\\\ $/";
-#    }
-#    close($fd);
-#}
+ {
+ 
+     open(my $fd, ">", "latex-out/best-avg-learner-table.tex");
+     warn 'open(my $fd, ">", "latex-out/best-avg-learner-table.tex");';
+     
+     foreach my $category (@categories) {
+         my $bestlearner = $learners[0];
+         my $bestlearnerv = 0;
+         foreach my $learner (@learners) {
+             my @correct = map { $hash{$_}->{$category}->{$learner}->{percent}  } @projects;
+             my ($avg, $var, $std, $min, $max, $sum, $n) = stats(@correct);
+             if ($avg >  $bestlearnerv) {
+                 $bestlearner = $learner;
+                 $bestlearnerv = $avg;
+             }
+         }
+         my $catname = TagMap::tag_map($category);
+         my $learnername = learner_name($bestlearner);
+         
+         my @zeror = map { $hash{$_}->{$category}->{$bestlearner}->{zerorpercent} } @projects;
+         my @zerordiff = map { $hash{$_}->{$category}->{$bestlearner}->{zerordiff} } @projects;
+         my @fmeasure = map { $hash{$_}->{$category}->{$bestlearner}->{fmeasure} } @projects;
+         my @roc = map { $hash{$_}->{$category}->{$bestlearner}->{roc} } @projects;
+         
+         my ($zeror_avg) = stats(@zeror);
+         my ($zerordiff_avg) = stats(@zerordiff);
+         my ($fmeasure_avg) = stats(@fmeasure);
+         my ($roc_avg) = stats(@roc);
+         
+         
+         
+         print $fd " & ".join(" &  ", $catname, $learnername, (map { format_float($_) } ($bestlearnerv, $zeror_avg, $zerordiff_avg, $fmeasure_avg, $roc_avg)))." \\\\ $/";
+     }
+     close($fd);
+ }
 
 {
     # note we're going to have to extract column names
     open(my $fd, ">", "latex-out/best-learner-per-project-table.tex");
     warn "open(my \$fd, '>', 'latex-out/best-learner-per-project-table.tex');";
     foreach my $project (@projects) {
-        foreach my $column (proj_columns($project)) {
+        foreach my $column (@categories) {
             my $bestlearner = $learners[0];
             my $bestlearnerv = 0;
     
@@ -140,7 +140,7 @@ my $table_file = "${latex_dir}/table.tex";
         }
     }
     foreach my $project (@projects) {
-        foreach my $column (proj_columns($project)) {
+        foreach my $column (@categories) {
 
             my $bestlearner = $hash{$project}->{$column}->{best_learner}->{name};
             my $bestlearnerv = $hash{$project}->{$column}->{best_learner}->{val};
