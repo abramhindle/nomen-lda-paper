@@ -1,0 +1,66 @@
+
+JRIP rules:
+===========
+
+ => A_efficiency=0 (389.0/45.0)
+
+Number of Rules : 1
+
+
+Time taken to build model: 8.43 seconds
+Time taken to test model on training data: 1.51 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         344               88.4319 %
+Incorrectly Classified Instances        45               11.5681 %
+Kappa statistic                          0     
+Mean absolute error                      0.2046
+Root mean squared error                  0.3198
+Relative absolute error                 99.2669 %
+Root relative squared error             99.9981 %
+Total Number of Instances              389     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         1          0.884     1         0.939      0.5      0
+                 0         0          0         0         0          0.5      1
+Weighted Avg.    0.884     0.884      0.782     0.884     0.83       0.5  
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 344   0 |   a = 0
+  45   0 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         337               86.6324 %
+Incorrectly Classified Instances        52               13.3676 %
+Kappa statistic                         -0.0321
+Mean absolute error                      0.2095
+Root mean squared error                  0.3322
+Relative absolute error                101.5436 %
+Root relative squared error            103.8306 %
+Total Number of Instances              389     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.98      1          0.882     0.98      0.928      0.473    0
+                 0         0.02       0         0         0          0.473    1
+Weighted Avg.    0.866     0.887      0.78      0.866     0.821      0.473
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 337   7 |   a = 0
+  45   0 |   b = 1
+

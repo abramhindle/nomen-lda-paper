@@ -1,0 +1,62 @@
+
+IB1 instance-based classifier
+using 1 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0.06 seconds
+Time taken to test model on training data: 20.48 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         389              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0026
+Root mean squared error                  0.0026
+Relative absolute error                  1.2409 %
+Root relative squared error              0.7996 %
+Total Number of Instances              389     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        0
+                 1         0          1         1         1          1        1
+Weighted Avg.    1         0          1         1         1          1    
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 344   0 |   a = 0
+   0  45 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         339               87.1465 %
+Incorrectly Classified Instances        50               12.8535 %
+Kappa statistic                          0.0908
+Mean absolute error                      0.1381
+Root mean squared error                  0.363 
+Relative absolute error                 66.9335 %
+Root relative squared error            113.4805 %
+Total Number of Instances              389     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.974     0.911      0.891     0.974     0.931      0.51     0
+                 0.089     0.026      0.308     0.089     0.138      0.51     1
+Weighted Avg.    0.871     0.809      0.823     0.871     0.839      0.51 
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 335   9 |   a = 0
+  41   4 |   b = 1
+

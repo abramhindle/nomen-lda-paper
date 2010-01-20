@@ -1,0 +1,66 @@
+
+JRIP rules:
+===========
+
+ => A_usability=0 (586.0/32.0)
+
+Number of Rules : 1
+
+
+Time taken to build model: 2.95 seconds
+Time taken to test model on training data: 0.48 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         554               94.5392 %
+Incorrectly Classified Instances        32                5.4608 %
+Kappa statistic                          0     
+Mean absolute error                      0.1033
+Root mean squared error                  0.2272
+Relative absolute error                 98.7099 %
+Root relative squared error             99.9978 %
+Total Number of Instances              586     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         1          0.945     1         0.972      0.5      0
+                 0         0          0         0         0          0.5      1
+Weighted Avg.    0.945     0.945      0.894     0.945     0.919      0.5  
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 554   0 |   a = 0
+  32   0 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         550               93.8567 %
+Incorrectly Classified Instances        36                6.1433 %
+Kappa statistic                          0.0799
+Mean absolute error                      0.0986
+Root mean squared error                  0.231 
+Relative absolute error                 94.0885 %
+Root relative squared error            101.6657 %
+Total Number of Instances              586     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.989     0.938      0.948     0.989     0.968      0.558    0
+                 0.063     0.011      0.25      0.063     0.1        0.558    1
+Weighted Avg.    0.939     0.887      0.91      0.939     0.921      0.558
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 548   6 |   a = 0
+  30   2 |   b = 1
+

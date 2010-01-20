@@ -1,0 +1,67 @@
+
+J48 pruned tree
+------------------
+: 0 (586.0/32.0)
+
+Number of Leaves  : 	1
+
+Size of the tree : 	1
+
+
+Time taken to build model: 5.16 seconds
+Time taken to test model on training data: 0.76 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         554               94.5392 %
+Incorrectly Classified Instances        32                5.4608 %
+Kappa statistic                          0     
+Mean absolute error                      0.1033
+Root mean squared error                  0.2272
+Relative absolute error                 98.7099 %
+Root relative squared error             99.9978 %
+Total Number of Instances              586     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         1          0.945     1         0.972      0.5      0
+                 0         0          0         0         0          0.5      1
+Weighted Avg.    0.945     0.945      0.894     0.945     0.919      0.5  
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 554   0 |   a = 0
+  32   0 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         552               94.198  %
+Incorrectly Classified Instances        34                5.802  %
+Kappa statistic                         -0.0065
+Mean absolute error                      0.1046
+Root mean squared error                  0.2346
+Relative absolute error                 99.8053 %
+Root relative squared error            103.2513 %
+Total Number of Instances              586     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.996     1          0.945     0.996     0.97       0.484    0
+                 0         0.004      0         0         0          0.484    1
+Weighted Avg.    0.942     0.946      0.894     0.942     0.917      0.484
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 552   2 |   a = 0
+  32   0 |   b = 1
+

@@ -1,0 +1,62 @@
+
+IB1 instance-based classifier
+using 1 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0.07 seconds
+Time taken to test model on training data: 31.67 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         389              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0026
+Root mean squared error                  0.0026
+Relative absolute error                  0.7232 %
+Root relative squared error              0.6089 %
+Total Number of Instances              389     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        0
+                 1         0          1         1         1          1        1
+Weighted Avg.    1         0          1         1         1          1    
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 300   0 |   a = 0
+   0  89 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         300               77.1208 %
+Incorrectly Classified Instances        89               22.8792 %
+Kappa statistic                          0     
+Mean absolute error                      0.2299
+Root mean squared error                  0.4774
+Relative absolute error                 64.9893 %
+Root relative squared error            113.6542 %
+Total Number of Instances              389     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         1          0.771     1         0.871      0.455    0
+                 0         0          0         0         0          0.455    1
+Weighted Avg.    0.771     0.771      0.595     0.771     0.672      0.455
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 300   0 |   a = 0
+  89   0 |   b = 1
+
