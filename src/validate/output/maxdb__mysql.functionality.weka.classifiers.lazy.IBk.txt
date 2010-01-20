@@ -1,0 +1,62 @@
+
+IB1 instance-based classifier
+using 1 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0.07 seconds
+Time taken to test model on training data: 121.91 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         975              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.001 
+Root mean squared error                  0.001 
+Relative absolute error                  0.2163 %
+Root relative squared error              0.2099 %
+Total Number of Instances              975     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        0
+                 1         0          1         1         1          1        1
+Weighted Avg.    1         0          1         1         1          1    
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 622   0 |   a = 0
+   0 353 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         669               68.6154 %
+Incorrectly Classified Instances       306               31.3846 %
+Kappa statistic                          0.1738
+Mean absolute error                      0.3043
+Root mean squared error                  0.5343
+Relative absolute error                 65.8546 %
+Root relative squared error            111.1809 %
+Total Number of Instances              975     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.987     0.844      0.673     0.987     0.801      0.618    0
+                 0.156     0.013      0.873     0.156     0.264      0.618    1
+Weighted Avg.    0.686     0.543      0.746     0.686     0.606      0.618
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 614   8 |   a = 0
+ 298  55 |   b = 1
+

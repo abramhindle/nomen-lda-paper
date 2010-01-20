@@ -1,0 +1,209 @@
+
+J48 pruned tree
+------------------
+
+W_Linux <= 0
+|   W_information <= 0
+|   |   W_Added <= 0
+|   |   |   W_Removed <= 0
+|   |   |   |   W__SYSDD80_uunix_ <= 0
+|   |   |   |   |   W_link <= 0
+|   |   |   |   |   |   W_make <= 0
+|   |   |   |   |   |   |   W__ <= 0
+|   |   |   |   |   |   |   |   W_update <= 0
+|   |   |   |   |   |   |   |   |   W_Fixed <= 0
+|   |   |   |   |   |   |   |   |   |   W_history <= 0
+|   |   |   |   |   |   |   |   |   |   |   W_fixed <= 0: 0 (205.0/16.0)
+|   |   |   |   |   |   |   |   |   |   |   W_fixed > 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_windows <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_linux <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_abort <= 0: 0 (23.0/2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_abort > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_linux > 0: 1 (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_windows > 0: 1 (5.0)
+|   |   |   |   |   |   |   |   |   |   W_history > 0
+|   |   |   |   |   |   |   |   |   |   |   W_fix <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_case <= 0: 0 (242.0/57.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_case > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_Add <= 0: 0 (10.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_Add > 0: 1 (3.0)
+|   |   |   |   |   |   |   |   |   |   |   W_fix > 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_Portability <= 0: 0 (31.0/4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_Portability > 0: 1 (6.0)
+|   |   |   |   |   |   |   |   |   W_Fixed > 0
+|   |   |   |   |   |   |   |   |   |   W_changes <= 0
+|   |   |   |   |   |   |   |   |   |   |   W_file <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_memory <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_optimization <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_diffs <= 0: 0 (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_diffs > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_error <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_type <= 0: 0 (27.0/6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_type > 0: 1 (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_error > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_optimization > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_memory > 0: 1 (4.0)
+|   |   |   |   |   |   |   |   |   |   |   W_file > 0: 0 (6.0)
+|   |   |   |   |   |   |   |   |   |   W_changes > 0: 1 (3.0)
+|   |   |   |   |   |   |   |   W_update > 0
+|   |   |   |   |   |   |   |   |   W_output <= 0
+|   |   |   |   |   |   |   |   |   |   W_Changelog <= 0
+|   |   |   |   |   |   |   |   |   |   |   W_correction <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_duplicate <= 0: 0 (19.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_duplicate > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   W_correction > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   W_Changelog > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   W_output > 0: 1 (3.0)
+|   |   |   |   |   |   |   W__ > 0
+|   |   |   |   |   |   |   |   W_table <= 0
+|   |   |   |   |   |   |   |   |   W_test <= 0
+|   |   |   |   |   |   |   |   |   |   W_message <= 0
+|   |   |   |   |   |   |   |   |   |   |   W_set <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_number <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_created <= 0: 1 (25.0/5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_created > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_number > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   W_set > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   W_message > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   W_test > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   W_table > 0: 0 (3.0)
+|   |   |   |   |   |   W_make > 0
+|   |   |   |   |   |   |   W_option <= 0
+|   |   |   |   |   |   |   |   W_windows <= 0
+|   |   |   |   |   |   |   |   |   W_open <= 0
+|   |   |   |   |   |   |   |   |   |   W_users <= 0: 1 (25.0/7.0)
+|   |   |   |   |   |   |   |   |   |   W_users > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   W_open > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   W_windows > 0: 0 (2.0)
+|   |   |   |   |   |   |   W_option > 0: 0 (2.0)
+|   |   |   |   |   W_link > 0
+|   |   |   |   |   |   W_Portability <= 0
+|   |   |   |   |   |   |   W_V75_ <= 0
+|   |   |   |   |   |   |   |   W_manual <= 0
+|   |   |   |   |   |   |   |   |   W_donna_mysql_com__home_my_bk_mysql <= 0
+|   |   |   |   |   |   |   |   |   |   W_database <= 0: 0 (48.0/15.0)
+|   |   |   |   |   |   |   |   |   |   W_database > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   W_donna_mysql_com__home_my_bk_mysql > 0: 1 (3.0)
+|   |   |   |   |   |   |   |   W_manual > 0: 1 (4.0)
+|   |   |   |   |   |   |   W_V75_ > 0: 1 (4.0)
+|   |   |   |   |   |   W_Portability > 0: 1 (6.0)
+|   |   |   |   W__SYSDD80_uunix_ > 0: 0 (29.0/1.0)
+|   |   |   W_Removed > 0
+|   |   |   |   W_patch <= 0
+|   |   |   |   |   W_return <= 0
+|   |   |   |   |   |   W_add <= 0
+|   |   |   |   |   |   |   W_version <= 0
+|   |   |   |   |   |   |   |   W_test <= 0: 1 (11.0/1.0)
+|   |   |   |   |   |   |   |   W_test > 0: 0 (2.0)
+|   |   |   |   |   |   |   W_version > 0: 1 (4.0)
+|   |   |   |   |   |   W_add > 0: 0 (3.0/1.0)
+|   |   |   |   |   W_return > 0: 0 (2.0)
+|   |   |   |   W_patch > 0: 0 (3.0)
+|   |   W_Added > 0
+|   |   |   W_add <= 0
+|   |   |   |   W_version <= 0
+|   |   |   |   |   W_3_23 <= 0
+|   |   |   |   |   |   W_manual <= 0
+|   |   |   |   |   |   |   W_patch <= 0
+|   |   |   |   |   |   |   |   W_Add <= 0
+|   |   |   |   |   |   |   |   |   W_typo <= 0
+|   |   |   |   |   |   |   |   |   |   W_option <= 0
+|   |   |   |   |   |   |   |   |   |   |   W_replication <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_copyright <= 0: 1 (60.0/13.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_copyright > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   W_replication > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   W_option > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   W_typo > 0: 0 (3.0)
+|   |   |   |   |   |   |   |   W_Add > 0: 0 (2.0)
+|   |   |   |   |   |   |   W_patch > 0: 0 (16.0/5.0)
+|   |   |   |   |   |   W_manual > 0: 1 (9.0/1.0)
+|   |   |   |   |   W_3_23 > 0: 0 (4.0)
+|   |   |   |   W_version > 0: 1 (7.0)
+|   |   |   W_add > 0
+|   |   |   |   W_PTS <= 0: 0 (8.0)
+|   |   |   |   W_PTS > 0: 1 (2.0)
+|   W_information > 0
+|   |   W_V75_ <= 0
+|   |   |   W_load <= 0
+|   |   |   |   W_based <= 0
+|   |   |   |   |   W_deleted <= 0: 1 (20.0)
+|   |   |   |   |   W_deleted > 0
+|   |   |   |   |   |   W_join <= 0: 0 (2.0)
+|   |   |   |   |   |   W_join > 0: 1 (2.0)
+|   |   |   |   W_based > 0
+|   |   |   |   |   W_fixed <= 0: 0 (2.0)
+|   |   |   |   |   W_fixed > 0: 1 (2.0)
+|   |   |   W_load > 0: 0 (2.0)
+|   |   W_V75_ > 0: 0 (2.0)
+W_Linux > 0
+|   W_strategy <= 0
+|   |   W_fixed <= 0
+|   |   |   W_diffs <= 0
+|   |   |   |   W_make <= 0: 0 (3.0)
+|   |   |   |   W_make > 0: 1 (3.0)
+|   |   |   W_diffs > 0: 1 (4.0)
+|   |   W_fixed > 0: 1 (14.0)
+|   W_strategy > 0: 0 (2.0)
+
+Number of Leaves  : 	72
+
+Size of the tree : 	143
+
+
+Time taken to build model: 62.16 seconds
+Time taken to test model on training data: 6.62 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         836               85.7436 %
+Incorrectly Classified Instances       139               14.2564 %
+Kappa statistic                          0.6621
+Mean absolute error                      0.2232
+Root mean squared error                  0.334 
+Relative absolute error                 49.6797 %
+Root relative squared error             70.492  %
+Total Number of Instances              975     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.956     0.334      0.847     0.956     0.898      0.887    0
+                 0.666     0.044      0.888     0.666     0.761      0.887    1
+Weighted Avg.    0.857     0.235      0.861     0.857     0.852      0.887
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 615  28 |   a = 0
+ 111 221 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         666               68.3077 %
+Incorrectly Classified Instances       309               31.6923 %
+Kappa statistic                          0.2501
+Mean absolute error                      0.3714
+Root mean squared error                  0.4986
+Relative absolute error                 82.6618 %
+Root relative squared error            105.2221 %
+Total Number of Instances              975     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.823     0.587      0.731     0.823     0.774      0.631    0
+                 0.413     0.177      0.546     0.413     0.47       0.631    1
+Weighted Avg.    0.683     0.448      0.668     0.683     0.67       0.631
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 529 114 |   a = 0
+ 195 137 |   b = 1
+

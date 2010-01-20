@@ -1,0 +1,111 @@
+
+J48 pruned tree
+------------------
+
+W_avoid <= 0
+|   W_message <= 0
+|   |   W_memory <= 0
+|   |   |   W_index <= 0
+|   |   |   |   W_added <= 0: 0 (768.0/71.0)
+|   |   |   |   W_added > 0
+|   |   |   |   |   W_information <= 0
+|   |   |   |   |   |   W_statement <= 0
+|   |   |   |   |   |   |   W_dump <= 0: 0 (64.0/7.0)
+|   |   |   |   |   |   |   W_dump > 0: 1 (4.0/1.0)
+|   |   |   |   |   |   W_statement > 0: 1 (4.0/1.0)
+|   |   |   |   |   W_information > 0: 1 (5.0)
+|   |   |   W_index > 0
+|   |   |   |   W_small <= 0
+|   |   |   |   |   W_InnoDB <= 0: 0 (24.0/2.0)
+|   |   |   |   |   W_InnoDB > 0: 1 (5.0/2.0)
+|   |   |   |   W_small > 0: 1 (2.0)
+|   |   W_memory > 0
+|   |   |   W_diffs <= 0: 0 (14.0)
+|   |   |   W_diffs > 0
+|   |   |   |   W_Merge <= 0
+|   |   |   |   |   W_bug <= 0: 1 (10.0/1.0)
+|   |   |   |   |   W_bug > 0: 0 (3.0/1.0)
+|   |   |   |   W_Merge > 0: 0 (2.0)
+|   W_message > 0
+|   |   W_process <= 0
+|   |   |   W_server <= 0
+|   |   |   |   W_bug <= 0
+|   |   |   |   |   W_monty_mysql_fi <= 0
+|   |   |   |   |   |   W_read <= 0
+|   |   |   |   |   |   |   W_crash <= 0: 0 (28.0/4.0)
+|   |   |   |   |   |   |   W_crash > 0: 1 (3.0/1.0)
+|   |   |   |   |   |   W_read > 0: 1 (2.0)
+|   |   |   |   |   W_monty_mysql_fi > 0: 1 (2.0)
+|   |   |   |   W_bug > 0: 1 (2.0)
+|   |   |   W_server > 0: 1 (3.0)
+|   |   W_process > 0: 1 (5.0)
+W_avoid > 0
+|   W_code <= 0
+|   |   W_bug <= 0
+|   |   |   W_called <= 0: 0 (12.0/1.0)
+|   |   |   W_called > 0: 1 (2.0)
+|   |   W_bug > 0: 1 (4.0)
+|   W_code > 0: 1 (7.0)
+
+Number of Leaves  : 	23
+
+Size of the tree : 	45
+
+
+Time taken to build model: 58.16 seconds
+Time taken to test model on training data: 5.35 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         883               90.5641 %
+Incorrectly Classified Instances        92                9.4359 %
+Kappa statistic                          0.4966
+Mean absolute error                      0.1678
+Root mean squared error                  0.2896
+Relative absolute error                 68.0664 %
+Root relative squared error             82.5894 %
+Total Number of Instances              975     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.993     0.614      0.906     0.993     0.947      0.709    0
+                 0.386     0.007      0.9       0.386     0.54       0.709    1
+Weighted Avg.    0.906     0.527      0.905     0.906     0.889      0.709
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 829   6 |   a = 0
+  86  54 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         827               84.8205 %
+Incorrectly Classified Instances       148               15.1795 %
+Kappa statistic                          0.1505
+Mean absolute error                      0.211 
+Root mean squared error                  0.3638
+Relative absolute error                 85.6107 %
+Root relative squared error            103.7346 %
+Total Number of Instances              975     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.966     0.857      0.871     0.966     0.916      0.622    0
+                 0.143     0.034      0.417     0.143     0.213      0.622    1
+Weighted Avg.    0.848     0.739      0.805     0.848     0.815      0.622
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 807  28 |   a = 0
+ 120  20 |   b = 1
+
