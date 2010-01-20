@@ -58,109 +58,108 @@ my $table_file = "${latex_dir}/table.tex";
     }
     close($fd);
 }
-
+my @measures = qw(percent roc recall precision fmeasure);
 { # this doesn't make sense til we unify columns!
     foreach my $project (@projects) {
-        open(my $fd, ">", "latex-out/$project-column-learner-table-tprate.tex");
-        open(my $fdr, ">", "latex-out/$project-column-learner-table-roc.tex");
-
-        foreach my $column (@categories) {
-            foreach my $learner (@learners) {
-                my @correct = map { $hash{$_}->{$column}->{$learner}->{percent}  } @projects;
-                my @rcorrect = map { $hash{$_}->{$column}->{$learner}->{roc}  } @projects;
-                my ($avg, $var, $std, $min, $max, $sum, $n) = stats(@correct);
-                my $learnername = learner_name($learner);
-                print $fd join(" & ", $column, $learnername, $avg, $std, $min, $max)." \\\\ $/";
-                my ($avg, $var, $std, $min, $max, $sum, $n) = stats(@rcorrect);
-                my $learnername = learner_name($learner);
-                print $fdr join(" & ", $column, $learnername, $avg, $std, $min, $max)." \\\\
+        foreach my $measure (@measures) {
+            open(my $fd, ">", "${latex_dir}/$project-column-learner-${measure}-table.tex");
+            foreach my $column (@categories) {
+                foreach my $learner (@learners) {
+                    my @correct = map { $hash{$_}->{$column}->{$learner}->{$measure}  } @projects;
+                    my ($avg, $var, $std, $min, $max, $sum, $n) = stats(@correct);
+                    my $learnername = learner_name($learner);
+                    print $fd join(" & ", $column, $learnername, $avg, $std, $min, $max)." \\\\ $/";
+                }
             }
+            close($fd);
         }
-        close($fd);
-        close($fdr);
     }
 }
 
 # This doesn't make sense to me 
  {
  
-     open(my $fd, ">", "latex-out/best-avg-learner-table.tex");
-     warn 'open(my $fd, ">", "latex-out/best-avg-learner-table.tex");';
+     foreach my $measure (@measures) {
+
+         open(my $fd, ">", "${latex_dir}/best-avg-learner-${measure}-table.tex");
+         warn 'open(my $fd, ">", "${latex_dir}/best-avg-learner-${measure}-table.tex");';
      
-     foreach my $category (@categories) {
-         my $bestlearner = $learners[0];
-         my $bestlearnerv = 0;
-         foreach my $learner (@learners) {
-             my @correct = map { $hash{$_}->{$category}->{$learner}->{percent}  } @projects;
-             my ($avg, $var, $std, $min, $max, $sum, $n) = stats(@correct);
-             if ($avg >  $bestlearnerv) {
-                 $bestlearner = $learner;
-                 $bestlearnerv = $avg;
+         foreach my $category (@categories) {
+             my $bestlearner = $learners[0];
+             my $bestlearnerv = 0;
+             foreach my $learner (@learners) {
+                 my @correct = map { $hash{$_}->{$category}->{$learner}->{$measure}  } @projects;
+                 my ($avg, $var, $std, $min, $max, $sum, $n) = stats(@correct);
+                 if ($avg >  $bestlearnerv) {
+                     $bestlearner = $learner;
+                     $bestlearnerv = $avg;
+                 }
              }
+             my $catname = $category;#TagMap::tag_map($category);
+             my $learnername = learner_name($bestlearner);
+         
+             my @zeror = map { $hash{$_}->{$category}->{$bestlearner}->{zerorpercent} } @projects;
+             my @zerordiff = map { $hash{$_}->{$category}->{$bestlearner}->{zerordiff} } @projects;
+             my @fmeasure = map { $hash{$_}->{$category}->{$bestlearner}->{fmeasure} } @projects;
+             my @roc = map { $hash{$_}->{$category}->{$bestlearner}->{roc} } @projects;
+         
+             my ($zeror_avg) = stats(@zeror);
+             my ($zerordiff_avg) = stats(@zerordiff);
+             my ($fmeasure_avg) = stats(@fmeasure);
+             my ($roc_avg) = stats(@roc);
+         
+         
+         
+             print $fd " & ".join(" &  ", $catname, $learnername, (map { format_float($_) } ($bestlearnerv, $zeror_avg, $zerordiff_avg, $fmeasure_avg, $roc_avg)))." \\\\ $/";
          }
-         my $catname = TagMap::tag_map($category);
-         my $learnername = learner_name($bestlearner);
-         
-         my @zeror = map { $hash{$_}->{$category}->{$bestlearner}->{zerorpercent} } @projects;
-         my @zerordiff = map { $hash{$_}->{$category}->{$bestlearner}->{zerordiff} } @projects;
-         my @fmeasure = map { $hash{$_}->{$category}->{$bestlearner}->{fmeasure} } @projects;
-         my @roc = map { $hash{$_}->{$category}->{$bestlearner}->{roc} } @projects;
-         
-         my ($zeror_avg) = stats(@zeror);
-         my ($zerordiff_avg) = stats(@zerordiff);
-         my ($fmeasure_avg) = stats(@fmeasure);
-         my ($roc_avg) = stats(@roc);
-         
-         
-         
-         print $fd " & ".join(" &  ", $catname, $learnername, (map { format_float($_) } ($bestlearnerv, $zeror_avg, $zerordiff_avg, $fmeasure_avg, $roc_avg)))." \\\\ $/";
+         close($fd);
      }
-     close($fd);
  }
 
 {
-    # note we're going to have to extract column names
-    open(my $fd, ">", "latex-out/best-learner-per-project-table.tex");
-    warn "open(my \$fd, '>', 'latex-out/best-learner-per-project-table.tex');";
-    foreach my $project (@projects) {
-        foreach my $column (@categories) {
-            my $bestlearner = $learners[0];
-            my $bestlearnerv = 0;
-    
-            foreach my $learner (@learners) {
-                my $correct = $hash{$project}->{$column}->{$learner}->{percent};
-                if ($correct >  $bestlearnerv) {
-                    $bestlearner = $learner;
-                    $bestlearnerv = $correct;
+    foreach my $measure (@measures) {
+        # note we're going to have to extract column names
+        open(my $fd, ">", "latex-out/best-learner-per-project-${measure}-table.tex");
+        warn "open(my \$fd, '>', 'latex-out/best-learner-per-project-${measure}-table.tex');";
+        foreach my $project (@projects) {
+            foreach my $column (@categories) {
+                my $bestlearner = $learners[0];
+                my $bestlearnerv = 0;
+                
+                foreach my $learner (@learners) {
+                    my $correct = $hash{$project}->{$column}->{$learner}->{$measure};
+                    if ($correct >  $bestlearnerv) {
+                        $bestlearner = $learner;
+                        $bestlearnerv = $correct;
+                    }
                 }
+                $hash{$project}->{$column}->{best_learner}->{name} = $bestlearner;
+                $hash{$project}->{$column}->{best_learner}->{val} = $bestlearnerv;
+                
             }
-            $hash{$project}->{$column}->{best_learner}->{name} = $bestlearner;
-            $hash{$project}->{$column}->{best_learner}->{val} = $bestlearnerv;
-            
         }
+        foreach my $project (@projects) {
+            foreach my $column (@categories) {
+                
+                my $bestlearner = $hash{$project}->{$column}->{best_learner}->{name};
+                my $bestlearnerv = $hash{$project}->{$column}->{best_learner}->{val};
+                my $zeror = $hash{$project}->{$column}->{$bestlearner}->{zerorpercent};
+                my $zerordiff = $hash{$project}->{$column}->{$bestlearner}->{zerordiff};
+                my $fmeasure = $hash{$project}->{$column}->{$bestlearner}->{fmeasure};
+                my $roc = $hash{$project}->{$column}->{$bestlearner}->{roc};
+                my $projectname = $project;#TagMap::get_project_name($project);
+                my $catname = $column;#TagMap::get_short_tag_name($column);
+                my $learnername = learner_name($bestlearner);
+                #print $fd join(" &  ", $projectname, $catname, $learnername, (map { format_float($_) } ($bestlearnerv , $zeror, $zerordiff, $fmeasure, $roc)))." \\\\ $/";
+                print $fd join(" &  ", $catname, $projectname, $learnername, (map { format_float($_) } ($bestlearnerv , $zeror, $zerordiff, $fmeasure, $roc)))." \\\\ $/";
+            }
+            print $fd " \\hline $/";
+        }
+        
+        close($fd);
     }
-    foreach my $project (@projects) {
-        foreach my $column (@categories) {
 
-            my $bestlearner = $hash{$project}->{$column}->{best_learner}->{name};
-            my $bestlearnerv = $hash{$project}->{$column}->{best_learner}->{val};
-            my $zeror = $hash{$project}->{$column}->{$bestlearner}->{zerorpercent};
-            my $zerordiff = $hash{$project}->{$column}->{$bestlearner}->{zerordiff};
-            my $fmeasure = $hash{$project}->{$column}->{$bestlearner}->{fmeasure};
-            my $roc = $hash{$project}->{$column}->{$bestlearner}->{roc};
-            my $projectname = $project;#TagMap::get_project_name($project);
-            my $catname = $column;#TagMap::get_short_tag_name($column);
-            my $learnername = learner_name($bestlearner);
-            #print $fd join(" &  ", $projectname, $catname, $learnername, (map { format_float($_) } ($bestlearnerv , $zeror, $zerordiff, $fmeasure, $roc)))." \\\\ $/";
-            print $fd join(" &  ", $catname, $projectname, $learnername, (map { format_float($_) } ($bestlearnerv , $zeror, $zerordiff, $fmeasure, $roc)))." \\\\ $/";
-        }
-        print $fd " \\hline $/";
-    }
-    
-    close($fd);
 }
-
-
 
 
 

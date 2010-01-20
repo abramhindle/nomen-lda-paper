@@ -16,14 +16,16 @@ my $arff_file = "$BASE/$project.arff";
 my $arff = ARFF->new( filename => $arff_file );
 my @attrs = $arff->get_attributes();
 my @classes = grep {/^A_/} @attrs; # get our annotations!
-my @classnames = sort(@classes);
+#my @classnames = sort(@classes);
 
+my @classnames = ();
 my @arffs = ();
 foreach my $class (@classes) {
 
     my $arff = $arff->copy(); # replace with a copy
     my $classname = $class;
     $classname =~ s/^A_//;
+    warn $classname;
     my @drop_columns = grep { $_ ne $class } @classes;
     warn "Dropping: @drop_columns";
     $arff->drop_columns( @drop_columns  );
