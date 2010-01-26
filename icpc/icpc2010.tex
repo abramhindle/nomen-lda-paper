@@ -33,11 +33,12 @@
 \begin{document}
  
 \author{
-\IEEEauthorblockN{Neil A. Ernst, John Mylopoulos}
-\IEEEauthorblockA{Department of Computer Science\\ University of Toronto\\ jm,nernst@cs.toronto.edu}
-\and
 \IEEEauthorblockN{Abram Hindle}
-\IEEEauthorblockA{University of Waterloo\\ ahindle@uwaterloo.ca\\}
+\IEEEauthorblockA{Department of Computer Science\\University of Waterloo\\ ahindle@uwaterloo.ca\\}
+\and
+\IEEEauthorblockN{Neil A. Ernst}
+\IEEEauthorblockA{Department of Computer Science\\ University of Toronto\\ jm,nernst@cs.toronto.edu}
+
 }
 
 
@@ -47,36 +48,34 @@
 \thispagestyle{empty}
 
 \begin{abstract}
-  The field of automated repository mining in software engineering has
-  been a fruitful one. However, while techniques such as topic modeling and concept location have been used, there has not been any
-  investigation into the latent topics these classifiers represent. In
-  particular, we would like to know whether such groups can be
+  In automated mining of software repositories, most approaches, such as topic modeling and concept location, focus on applying standard machine learning algorithms to corpora. This approach does not make any use of domain-specific information to better understand results. While too much specificity can produce non-generalizable results, too little produces broad learners that don't provide much useful detail.%There has not been any   investigation into the latent topics these classifiers represent. 
+In this paper, we investigate the latent topics classifier produce, and examine  whether such topics can be
   generalized across software products. We focus on software quality
   as a potential generalization, since there is some shared belief
   that these qualities apply broadly across software products. We
   wanted to name topics based on a static ontology of non-functional
-  requirements and software qualities. Our overarching goal is to use
-  individual topic models to create a list of terms that can be shared
-  across software projects. In essence, this would be adding some form
+  requirements and software qualities. %Our overarching goal is to use   individual topic models to create a list of terms that can be shared   across software projects. 
+In essence, this would be adding some form
   of context to general-purpose ontologies such as Wordnet. In this
   paper, we discuss how to use domain knowledge about software
   development in order to better annotate topics of development that
   are extracted from the change log messages in configuration
-  management systems such as CVS.
+  management systems such as CVS. Since our taxonomy is global, our results allow us to compare the relative importance of particular qualities between projects.
 \end{abstract}
 
 
 
-\Section{Introduction}
-In this paper we are going to show how one can `name' topic models generated with a topic modeling technique, Latent Dirichlet Allocation. We also show that these topics can be generalized
-across products.
+\section{Introduction}
+In this paper we `name' topic models generated with a topic modeling technique, Latent Dirichlet Allocation. We also show that these topics can be generalized across products.
 
-Traditionally topic modeling has been used to characterize the subject of single software projects~\cite{}. This paper introduces \emph{named topic models}, topic models  
+Traditionally topic modeling has required manual annotation to derive domain-relevant information. This paper introduces \emph{named topic models}, topic models which are automatically named using a cross-project taxonomy. We start with an unsupervised topic learning algorithm, then manually annotate the topics using the ontology. From the annotated topics, we apply supervised classifiers to find labels for the remaining topics. 
 
-Typically what is distinct is the software's particular functionality -- whether it offers email composition, prepares tax returns, and so on. What is common, however, is the non-functional, or quality requirements, that the software focuses on. 
+Typically what is distinct is the software's particular functionality -- whether it offers email composition, prepares tax returns, and so on. What is common, however, is the non-functional, or quality requirements, that the software focuses on. Our approach makes use of software quality taxonomies in order to compare different projects on similar concepts. For example, how is the Security quality treated over time by product A versus product B? Does product A care about it more as it matures? Does the quality occur more often in software commits?
+
+We first introduce some important terminology for our work. We then describe our methodology, including our datasets, then highlight our results. We conclude with a look at related work and possible improvements.
 
 \section{Background}
-
+We provide a brief overview of software repository mining and information retrieval.
 \subsection{Definitions}
 A \emph{message} is a block of text written by a developer. In this
 paper, messages will be the CVS and BitKeeper commit log comments made
@@ -98,31 +97,31 @@ project.
 \emph{ROC} values reflect a score, similar to school letter-grades, reflecting how well a particular learner performed for the given data. A ROC result of 0.5 would be equivalent to a random learner (randomly classifying data). ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) vs. the false positive rate (1 - specificity). A perfect learner has a value of 1.0, reflecting perfect recall and precision.
 
 \subsection{Topic models}
-Topic analysis uses tools such as Latent Dirichlet Allocation (LDA) and Latent Semantic Indexing (LSI) to extract
+Topic analysis uses tools such as Latent Dirichlet Allocation (LDA)~\cite{Blei2003} and Latent Semantic Indexing (LSI) to extract
 independent word distributions (topics) from
-documents (commit log comments)~\cite{marcus04wcre,Poshyvanyk2007,lukins08wcre,Linstead2007}.
+	documents (commit log comments). %~\cite{marcus04wcre,Poshyvanyk2007,lukins08wcre,Linstead2007}
 Ideally these extracted topics 
 correlate with actual development topics that the developers discussed
-during the development of the software project. 
-Topic analysis often allows for a single document, such as a commit
-message, to be related to multiple topics. Documents represented as a mixture of topics maps well to commits
-to source code, which often have more than one purpose.  A topic
+during the development of the software project. For example, our technique might identify a collection of words: `list next has iterator add', which we then identify (manually) as concerning the topics of collections and the Iterator pattern.
+In topic analysis a single document, such as a commit message, can be related to multiple topics. Representing documents as a mixture of topics maps well to commits to source code repositories, which often have more than one purpose.  A topic
 represents both a word distribution and a group of commit log comments
-that are related to each other by their content.  In this case a topic
+that are related to each other by their content.  In this paper a topic
 is a set of tokens extracted from commit messages found within a
-projects source control system (SCS).
+project's source control system (SCS).
 
-One issue that arises with use of unsupervised techniques is how to label the topics. While the topic models themselves are generated automatically, what to make of them is less clear. For example, in both our previous work, and in \cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. E.g., for the word list ``listener change remove add fire", Baldi et al. assign the keyword `event-handling'. The labels are reasonable enough, but still require some expert in the field to determine them. Our technique is automated, because we match keywords from Wordnet to words in the topic model. 
+In this paper we use LDA to identify topics. The input to the algorithm is a set of documents, with contents treated as a bag of words, and a parameter to set the number of topics to generate. The algorithm returns a word-document matrix relating the occurrence frequency of a 
+
+One issue that arises with use of unsupervised techniques is how to label the topics. While the topic models themselves are generated automatically, what to make of them is less clear. For example, in our previous work~\cite{Hindle09ICSM}, and in \cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. E.g., for the word list ``listener change remove add fire", Baldi et al. assign the keyword `event-handling'. The labels are reasonable enough, but still require some expert in the field to determine them. Our technique is automated, because we match keywords from Wordnet to words in the topic model. 
 
 \subsection{Supervised learning}
+While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, supervised learners have the advantage of domain knowledge. This typically results in improved results. In supervised learning, the data is divided into slices. One slice is manually annotated by the domain expert
 
+ 
 \section{Methodology}
 We leveraged the data we gathered in \cite{Hindle09ICSM} for this work. To gather the data, we first extract the commit log comments from a
 project's SCS repository. We filter out stop words and produce word distributions from these messages. These distributions are bucketed
-into windows, and then each window is subject to topic analysis and then we analyze and visualize the results. Figure \ref{fig:commits}
-depicts the general process for processing and analyzing the commit
-messages.
-
+into 30-day non-overlapping windows. Each window is subject to LDA and then we analyze and visualize the results. %Figure \ref{fig:commits}
+depicts the general process for processing and analyzing the commit messages.
 
 
 Find two projects with open, accessible source code in similar fields. We selected MySQL and MaxDB, open-source, near-commercial quality database software. We used source code commit data (the message attached to the commit). A typical message might look like ``". From that dataset, we created an XML file which grouped commits into temporal periods, each approximately X weeks wide. Given a text file full of commits, indexed by date and time, we then ran Latent Dirichlet Allocation ~\cite{Blei2003} on the data. LDA works by creating topic models -- word frequency distributions -- for each period. A topic model is a statistical summary of the important subjects for that dataset. E.g., in Period 1, the most important topic might have been ``security", with ``sql'' second, down on to less relevant topics. The idea is similar to other IR approaches like TF/IDF (term frequency/inverse document frequency), which find uncommon words that aren't found in other wordlists. These approaches are unsupervised in that they rely solely on the source data with no human intervention.
@@ -137,46 +136,51 @@ To compare our LDA approach, we used a suite of supervised classifiers from WEKA
 
 We present a ROC curve in Fig. \ref{}. The chart shows each learner measured in terms of precision and recall. In general, we prefer techniques which are closer to the upper-left corner (maximizing precision and maximizing recall). 
 
-- Extract topics from changes
-- Annotate topics of multiple projects
--- mysql
--- maxdb
-- Try simple word matching
-- Try simple word match of wordnet words (related words)
-- Try machine learning
-- Make a simple wordnet?
-- Try it
+% - Extract topics from changes
+% - Annotate topics of multiple projects
+% -- mysql
+% -- maxdb
+% - Try simple word matching
+% - Try simple word match of wordnet words (related words)
+% - Try machine learning
+% - Make a simple wordnet?
+% - Try it
+
 \subsection{Project characteristics}
 MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.5, released April 2007, the project has 940 thousand lines of C source code\footnote{generated using David A. Wheeler's `SLOCCount'.}. There are approximately ... developers working on it. MySQL 3.23, released in early 2001, contains 320 thousand lines of C and C++ source code. The MySQL project started in 1994.
 
 \section{Observations and evaluation}
 
 \section{Related work}
-
-One issue is presenting these results to non-experts. ConcernLines~\cite{treude09cl}, for instance, show topic occurrence using color intensity. We maintain that these results require more substantive manipulation before being reported to, for example, management. Like any large-scale data analysis project, it requires skill to derive the implications. Hooking the backend results directly to a reporting tool is unlikely to produce useful results. 
-
 Part of our effort with this project is to understand the qualitative and intentional aspects of requirements in software evolution, a notion we first discussed in \cite{ernst07icsm}. That idea is derived from, in part, work on narratives of software systems shown in academic work like \cite{anton01}, or more general-purpose works like \cite{waldo93}.
 
-Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (quality requirements) in \cite{Cleland-Huang2006}. One approach they tried was similar to this one, with keywords mined from NFR catalogues found in~\cite{chung99}. They managed recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. Instead, they developed a supervised classifier by using human experts to identify an NFR training set. There are several reasons we did not follow this route. One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. Secondly, we wanted to compare across projects. Their technique was not compared across different projects and the applicability of the training set to different corpora is unclear. A common taxonomy allows us to make inter-project comparison (subject to the assumption that all projects conceive of these terms in the same way). %Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) our study assumes these NFRs are latent in the textual documents of the project. 
+The idea of extracting higher-level `concerns' (also known as `concepts', `aspects' or `requirements') has been attacked in two ways.
+
+Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (quality requirements) in \cite{Cleland-Huang2006}. One approach they tried was similar to this one, with keywords mined from NFR catalogues found in~\cite{chung99}. They managed recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. Instead, they developed a supervised classifier by using human experts to identify an NFR training set. There are several reasons we did not follow this route. One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. Secondly, we wanted to compare across projects. Their technique was not compared across different projects and the applicability of the training set to different corpora is unclear. A common taxonomy allows us to make inter-project comparison (subject to the assumption that all projects conceive of these terms in the same way). Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) our study assumes these NFRs are latent in the textual documents of the project. 
 Finally, the source text we use is less structured than their requirements documents.
+
+The other approach is to start with code repositories, and try to extract concerns from there. In \cite{marcus04wcre}, the authors describe their use of Latent Semantic Indexing to identify commonly occurring concerns for software maintenance. Some results were interesting, but their precision was quite low.  (such as 
+ConcernLines~\cite{treude09cl} shows tag occurrence using color intensity. They mined change request tags (such as `milestone 3') and used these to make evolutionary analyses of a single product. The presence of a well-maintained set of tags is obviously essential to the success of this technique.
+%We maintain that these results require more substantive manipulation before being reported to, for example, management. Like any large-scale data analysis project, it requires skill to derive the implications. Hooking the backend results directly to a reporting tool is unlikely to produce useful results.
 
 % There has been an explosion of interest in mining OSS repositories. Godfrey and Tu \cite{godfrey00} were among the first to use this data to assess software evolution. They discussed how well the growth of Linux was predicted by laws that Lehman and colleagues \cite{lehman85} proposed. More recently, Herraiz et al. \cite{herraiz07icsm} predicted OSS growth using time series analysis. Like us, they refer to release windows as a useful unit of analysis. 
 
 Mens et al. \cite{mens08icsm} conducted an empirical study of Eclipse, the OSS code editor, to verify the claims of Lehman~\cite{lehman97sms}. They concerned themselves with source code only, and found Law Seven, ``Declining Quality'', to be too difficult to assess: ``[we lacked an] appropriate measurement of the evolving quality of the system as perceived by the users \cite[p. 388]{mens08icsm}''. This paper examines the notions of quality in terms of a consistent ontology, as Mens et al. call for in their conclusions.
 
-	 Massey~\cite{massey02icse} and Scacchi (\cite{scacchi02,scacchi05b}) looked at the topic of requirements in open-source software. Their work discusses the source of the requirements and how they are used in the development process. German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
+Massey~\cite{massey02icse} and Scacchi (\cite{scacchi02,scacchi05b}) looked at the topic of requirements in open-source software. Their work discusses the source of the requirements and how they are used in the development process. German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
 
-% Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
+Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
 
-% Most of this related research examined project source code. Software mining of other project corpora is less common. Similarities exist with approaches that begin with structured taxonomies, as with the Hismo software ontology \cite{girba06}. Rigby and Hassan \cite{rigby07msr} used a general purpose taxonomy to classify developer email according to temperament.
+Most of this related research examined project source code. Software mining of other project corpora is less common. Similarities exist with approaches that begin with structured taxonomies, as with the Hismo software ontology \cite{girba06}. Rigby and Hassan \cite{rigby07msr} used a general purpose taxonomy to classify developer email according to temperament.
+
 \section{Conclusion}
-``Can a domain specific wordnet for
-   software development provide better accuracy for labelling and other
-   lexical related tasks than wordnet and other machine learning
-   techniques''.
+% ``Can a domain specific wordnet for
+%    software development provide better accuracy for labelling and other
+%    lexical related tasks than wordnet and other machine learning
+%    techniques''.
 
 
-\bibliographystyle{IEEETran}
+\bibliographystyle{IEEEtran}
 \bibliography{icpc}
 
 \end{document}
