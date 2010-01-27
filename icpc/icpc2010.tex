@@ -146,48 +146,50 @@ From each project, we used source code commit data (the message attached to the 
 
 From that dataset, we created an XML file which grouped commits into temporal periods, each 30 days wide. This size of period is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze. Given a text file full of commits, indexed by date and time, we then ran an LDA modeler on each period, to generate a list of topics per period. E.g., in Period 1, the most important topic might have been ``security", with ``sql'' second, down on to less relevant topics. We arbitrarily set the number of topics to generate to 20, because past experimentation showed that fewer topics might aggregate multiple unique topics while any more topics seemed to dilute the results and create indistinct topics.
 
-\subsection{Associating names}
+\subsection{Associating labels}
 % We would like to `name' our topic models for each period. In this way, we can see how certain words -- subjects -- occur more or less often with each period.
-Once we had topics for each period, we compared them with lists of keywords to assess to what extent our topics mapped into word lists. Recall that topics are lists of words and associated frequencies. We performed simple string matching between the topics and our lists, `naming' a topic if it contained that word or words. We used several different word lists for comparison. 
+Once we had topics for each period, we tried to associate them with a label from a list of keywords and related terms. Recall that topics are lists of words and associated frequencies. We performed simple string matching between these topics and our lists, `naming' a topic if it contained that word or words. We used several different word lists for comparison. 
 
-Our first list, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519}. That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. The word list we used:
+Our first list, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519}. That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. The labels we used:
 \begin{quotation}
-\small \noindent 
+\small \noindent \textsf{
 integrity, security,
 interoperability, testability, maintainability, traceability,
 accuracy, modifiability, understandability, availability, modularity,
 usability, correctness, performance, verifiability, efficiency,
-portability, flexibility, reliability.
+portability, flexibility, reliability.}
 \end{quotation}
 
-Our second list, we relied on the ISO quality model~\cite{iso9126}. It describes six high-level quality requirements (listed in Table \ref{tbl:wnsig}). There is some debate about the significance and importance of the terms in this model. However, it is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Bøegh2008},'' which is sufficient for the purposes of this research. %exp2
+Our second list relied on the ISO quality model~\cite{iso9126}. It describes six high-level quality requirements (listed in Table \ref{tbl:wnsig}). There is some debate about the significance and importance of the terms in this model. However, it is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Bøegh2008},'' which is sufficient for the purposes of this research. However, these terms may not capture all words associated with the labels.  For example, the term ‘user friendly’ is one most would agree is relevant to discussion of usability, but is not in the standard. Therefore we took the words from the taxonomy and expanded them.
 
-\begin{table*}
+To construct our expanded sets, we also used Wordnet~\cite{Fellbaum1998}, an English-language ‘lexical database’ that contains semantic relations between words, including meronymy and synonymy. We then added Boehm’s 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven ‘ilities’ into their respective ISO9126 qualities. We did the same for the quality model produced by McCall et al. \cite{mccall1977}. Finally, we analyzed two mailing lists from the KDE project to enhance the specificity of the sets. We selected KDE-Usability, which focuses on usability discussions for KDE as a whole; and KDE-Konqueror, a list about a long-lived web browser project. For each high-level quality in ISO9126, we first searched for our existing labels; we then randomly sampled twenty-five mail messages that were relevant to that quality, and selected co-occurring terms relevant to that quality. For example, we add the term ‘performance’ to the synonyms for \emph{Efficiency}, since this term occurs in most KDE mail messages that discuss efficiency.
+%exp2
+
+For the third -- \textsf{exp3} -- list of quality labels, we extended the list from \textsf{exp2} using unfiltered Wordnet similarity matches. 
+
+\begin{table*}[h]
 	\caption{Qualities and associated signifiers – Wordnet version (\textsf{exp2})}
 	\centering
 	\label{tbl:wnsig}
 \begin{tabular}{c|p{9cm}}
 \toprule
-\textbf{Quality} & \textbf{Signifiers} \\
-\midrule 
+\textbf{Label} & \textbf{Related terms} \\
+\midrule
 \emph{Maintainability} &
-testability changeability analyzability stability maintain maintainable modularity modifiability understandability\\ \hline
+testability changeability analyzability stability maintain maintainable modularity modifiability understandability + interdependent dependency encapsulation decentralized modular\\ \hline
 \emph{Functionality} &
-security compliance accuracy interoperability suitability functional practicality functionality\\ \hline
+security compliance accuracy interoperability suitability functional practicality functionality + compliant exploit certificate secured “buffer overflow” policy malicious trustworthy vulnerable vulnerability accurate secure vulnerability correctness accuracy\\ \hline
 \emph{Portability} &
-conformance adaptability replaceability installability portable movableness movability portability\\ \hline
+conformance adaptability replaceability installability portable movableness movability portability + specification migration standardized l10n localization i18n internationalization documentation interoperability transferability\\ \hline
 \emph{Efficiency} &
-“resource behaviour” “time behaviour” efficient efficiency\\ \hline
+“resource behaviour” “time behaviour” efficient efficiency + performance profiled optimize sluggish factor penalty slower faster slow fast optimization\\ \hline
 \emph{Usability} &
-operability understandability learnability useable usable serviceable usefulness utility useableness usableness serviceableness serviceability usability\\ \hline
+operability understandability learnability useable usable serviceable usefulness utility useableness usableness serviceableness serviceability usability + gui accessibility menu configure convention standard feature focus ui mouse icons ugly dialog guidelines click default human convention friendly user screen interface flexibility\\ \hline
 \emph{Reliability} &
-“fault tolerance” recoverability maturity reliable dependable responsibleness responsibility reliableness reliability dependableness dependability\\ 
+“fault tolerance” recoverability maturity reliable dependable responsibleness responsibility reliableness reliability dependableness dependability + resilience integrity stability stable crash bug fails redundancy error failure\\ 
 \bottomrule
 \end{tabular}
 \end{table*}
-
-We then extended our word lists with related words using Wordnet. %exp3
-
 
 \subsection{Supervised learning}
 To check our outcomes, we manually annotated each period with the same quality model. In other words, we looked at each period, and tried to assess what the LDA analysis output told us was the topic for that period.
@@ -199,8 +201,24 @@ To compare our LDA approach, we used a suite of supervised classifiers from WEKA
 \section{Observations and evaluation}
 
 \subsection{Word list similarity}
-We named topics by matching words from a list to the words in that topic model. We determined if a word list was similar to a topic if they shared one or more words in common.
+In general, this approach did not work out well. The related words for \emph{correctness}, for example, tended to be too lengthy and non-specific. Table \ref{tbl:wordlist} lists results. A \emph{named topic} is a topic with a matching label. There are \{periods X 20\} topics per project. All experiments were run on MaxDB data.
 
+\begin{table*}[h]
+	\caption{Results for automatic topic labeling}
+	\centering
+	\label{tbl:wordlist}
+\begin{tabular}{c|c|c|c}
+\toprule
+Measure &		 \textsf{exp1} &	 \textsf{exp2} &	 \textsf{exp3} \\
+\midrule
+Topics &			500		 &			500  	 & 		500  \\
+Named topics &		281      &			125      &		328  \\
+Unnamed topics &	139      &			295      &      92   \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+For \textsf{exp1}, our best performing labels (the labels matched with the most topics) were correctness (182 topics) and testability (121). We did not get good results for usability or accuracy, which were associated with fewer than ten topics.
 
 \subsection{Classifying topics}
 We present a ROC chart in Fig. \ref{}. The chart shows each learner measured in terms of precision and recall. In general, we prefer techniques which are closer to the upper-left corner (maximizing precision and maximizing recall). 
