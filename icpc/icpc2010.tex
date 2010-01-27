@@ -139,7 +139,7 @@ While unsupervised techniques (LSI and LDA are both unsupervised) are appealing 
 % into 30-day non-overlapping windows. Each window is subject to LDA analysis. %Figure \ref{fig:commits}
 % depicts the general process for processing and analyzing the commit messages.
 
-We wanted to compare two projects with open, accessible source code in similar functional areas. This allows us to partially control for differences in functional requirements. We selected MySQL and MaxDB, open-source, near-commercial quality database software. MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.5, released April 2007, the project has 940 thousand lines of C source code\footnote{generated using David A. Wheeler's `SLOCCount'.}. There are approximately ... developers working on it. MySQL 3.23, released in early 2001, contains 320 thousand lines of C and C++ source code. The MySQL project started in 1994.
+We wanted to compare two projects with open, accessible source code in similar functional areas. This allows us to partially control for differences in functional requirements. We selected MySQL and MaxDB, open-source, near-commercial quality database software. MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project has 940 thousand lines of C source code\footnote{generated using David A. Wheeler's `SLOCCount'.}. There are approximately ... developers working on it. MySQL 3.23, released in early 2001, contains 320 thousand lines of C and C++ source code. The MySQL project started in 1994.
 
 \subsection{Generating the data}
 From each project, we used source code commit data (the message attached to the commit). We leveraged the data we gathered in \cite{Hindle09ICSM} for this work. A typical commit message is: ``history annotate diffs bug fixed (if mysql\_real\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course) ". We extracted these messages and indexed them by creation time. We apply stop-word removal to eliminate common English words like `the', `at', and so on.
@@ -160,7 +160,7 @@ usability, correctness, performance, verifiability, efficiency,
 portability, flexibility, reliability.
 \end{quotation}
 
-Our second list, we relied on the ISO quality model~\cite{iso9126}. It describes six high-level quality requirements (listed in Table \ref{tbl:wnsig}). There is some debate about the significance and importance of the terms in this model. However, it is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Bøegh2008},'' which is sufficient for the purposes of this research. %exp2	
+Our second list, we relied on the ISO quality model~\cite{iso9126}. It describes six high-level quality requirements (listed in Table \ref{tbl:wnsig}). There is some debate about the significance and importance of the terms in this model. However, it is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Bøegh2008},'' which is sufficient for the purposes of this research. %exp2
 
 \begin{table*}
 	\caption{Qualities and associated signifiers – Wordnet version (\textsf{exp2})}
