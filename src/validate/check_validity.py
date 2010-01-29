@@ -10,10 +10,7 @@ def make_count():
 
 # As far as I can tell this script is meant to see if
 # the annotations match or don't match portability efficiency reliability etc..
-
-
-
-def load_period(period, data_dir = "/Users/nernst/Documents/papers/current-papers/abram/naming-paper/data/maxdb-tagged/"): 
+def load_period(period, data_dir = "../../data/maxdb-tagged/"): 
     """ load the xml file with the data """
     period_file = period + '.xml'
     
@@ -102,14 +99,14 @@ def index_matching_wordlists( thresh_el, annotations, quality_map ):
     #     return "no match"
 
 def info_report_string(key, tp, fp, fn, tn):
-    s1 = key + "\t"+ "\t".join(["tp","fp","fn","tn"])+"\n"
-    s2 = key + "\t"+ "\t".join([str(x) for x in [tp,fp,fn,tn]])+"\n"
+    #s1 = key + ","+ ",".join(["tp","fp","fn","tn"])+"\n"
+    #s2 = key + ","+ ",".join([str(x) for x in [tp,fp,fn,tn]])+"\n"
     im = info_theory.info_measures(tp,tn,fp,fn)
     ik = im.keys()
     ik.sort()
-    strhead = key + "\t" + "\t".join(ik)
-    strb = key + "\t" + "\t".join([str(y) for y in [im[x] for x in ik]])
-    return "\n".join([s1,s2,strhead,strb]) + "\n"
+    #strhead = key + "," + ",".join(ik)
+    strb = key + "," + ",".join([str(y) for y in [im[x] for x in ik]])
+    return "\n" + strb #+ "\n"#join([s1,s2,strhead,strb]) + "\n"
 
 
 
@@ -129,6 +126,7 @@ if __name__ == '__main__':
         quality_map = load_wordlists( wld )
         
         for exp in exps:
+            #print exp
             ddir = exp[1]
             periods = exp[2]
             report = exp[0]
@@ -143,8 +141,8 @@ if __name__ == '__main__':
             
             for period in periods:
                 pstr = "Period #" + period
-                print pstr
-                rfile.write(pstr+'\n')
+                #print pstr
+                #rfile.write(pstr+'\n')
                 topics = load_period(period, data_dir = ddir)
                 for t in topics:
                     annotations, thresh_el = create_element_list(t)
@@ -183,8 +181,8 @@ if __name__ == '__main__':
                     ress = "Yes"
                     if not res:
                         ress = "No"
-                    print res
-                    rfile.write(ress+'\n')
+                    #print res
+                    #rfile.write(ress+'\n')
                  
             tpc = sum(tp.values(),0)        
             fpc = sum(fp.values(),0)        
@@ -194,7 +192,7 @@ if __name__ == '__main__':
                 istr = info_report_string(key, tp[key], fp[key], fn[key], tn[key])
                 print istr
                 rfile.write(istr)
-            istr = info_report_string("total", tpc, fpc, fnc, tnc)
+            istr = info_report_string("\ntotal", tpc, fpc, fnc, tnc)
             print istr
             rfile.write(istr)
                 
