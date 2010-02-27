@@ -1,4 +1,5 @@
 package LatexTable;
+use strict;
 
 sub layout {
     my $obj = shift;
@@ -9,29 +10,40 @@ sub layout {
     my $form = "l|".("r"x$cols);
     my @o = ("\\begin{tabular}{$form}$/", $head, "\\hline \\\\$/");
     my $rows = $obj->{rows};
-    for my $i (0..$#rows) {
+    my $nrows = scalar(@$rows);
+    for my $i (0..($nrows-1)) {
+        warn $i;
         my @colnames = @$colnames;
         my $rowname = $rownames->[$i];
         my @rows = @{$rows->[$i]};
+        my @format = ();
         for my $i (0..($cols-1)) {
             my $colname =  $colnames->[$i];
             push @format, our_format($obj, $rowname, $colname,  $rows[$i]);
         }
-        push @o, join(" & ", ($rownames{$i}, @format))." \\\\$/";
+        push @o, join(" & ", ($rowname, @format))." \\\\$/";
     }
     push @o, "\\end{tabular}$/";
     return join($/,@o);
 }
 
 sub create_table {
-    my %h = @_;
+    my @args = @_;
+    my %h;
+    if (scalar(@args) == 0 || scalar(@args) % 2 == 0) {
+        %h = @args;
+    } else {
+        my $c = shift;
+        %h = @args;
+    }
+    my $rownames = $h{rownames} || [];
     my $s = {
             latex_table           => 1,
-            rownames              => $h{rownames} || [],
-            colnames              => $h{colnames} || [],
-            rows                  => $h{rows} || [],
-            default_number_format => $h{default_number_format} || '%0.2f',
-            formats               => $h{formats} || {},
+            rownames              => $rownames,
+            colnames              => ($h{colnames} || []),
+            rows                  => ($h{rows} || []),
+            default_number_format => ($h{default_number_format} || '%0.2f'),
+            formats               => ($h{formats} || {}),
     };
     bless($s,"LatexTable");
     return $s;
@@ -45,7 +57,7 @@ sub transpose {
     my $rows = $obj->{rows};
     my $i = 0;
     for my $row (@$rows) {
-        $j = 0;
+        my $j = 0;
         for my $elm (@$row) {
             $o->[$j]->[$i] = $elm;
             $j++;
@@ -61,6 +73,9 @@ sub transpose {
             }
         }
     }
+    # transpose these
+    my $colnames = $obj->{rownames};
+    my $rownames = $obj->{colnames};
     
     return  create_table(
                          rownames => $rownames,
@@ -73,7 +88,7 @@ sub transpose {
 
 sub our_format {
     my ($obj, $rowname, $colname, $val) = @_;
-    my $format = undef
+    my $format = undef;
     if (exists $obj->{formats}->{$colname}->{$rowname}) {
         $format = $obj->{formats}->{$colname}->{$rowname};
     }
@@ -84,15 +99,25 @@ sub our_format {
     } elsif ($format) {
         return sprintf($format, $val);
     } else {
-        retrun $val;
+        return $val;
     }
 }
 
+sub rows {
+    my ($obj,$rows) = @_;
+    if ($rows) {
+        $obj->{rows} = $rows;
+    }
+    return $obj->{rows};
+}
+
 sub set_value {
+    die "Doesn't work";
     my ($obj, $col_name, $row_name, $value) = @_;
     my $r = 0;
     my $c = 0;
     foreach my $col (@{$obj->{colnames}}) {
+        warn "$col $col_name";
         last if $col_name eq $col;
         $r++;
     }
@@ -100,5 +125,13 @@ sub set_value {
         last if $row_name eq $row;
         $c++;
     }
+    warn "$r $c";
     $obj->{rows}->[$r]->[$c] = $value;
 }
+sub is_num {
+    my ($a) = @_;
+    if ($a =~ /^[\+\-]?\d+$/) { return 1 }
+    elsif ($a =~ /^[\+\-]?\d+\.?\d*$/) { return 1 }
+    else { return 0 }
+}
+1;

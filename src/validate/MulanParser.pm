@@ -32,48 +32,71 @@ sub mulan_parser {
     my $micro = 0;
     my $macro = 0;
     my $mm = "";
+    my $csv;
     my %db = ();
     while(@lines) {
         my ($line) = shift @lines;
         chomp($line);
         if ($line =~ /Loading the data set/) {
-            
+        } elsif ($line =~ /^\[/) {
+        } elsif ($line =~ /^Constructing the label/) {
+        } elsif ($line =~ /^Creating the hierarchical data set/) {
+        } elsif ($line =~ /^Computed.*Probabilities/) {
+        } elsif ($line =~ /^Label \d+/) {
+        } elsif ($line =~ /^\d+ neighbours/) {
         } elsif ($state == $NAME) {
             $name = $line;
-            $db{$name} = {};
+            #warn $name;
+            #$db{$name} = {};
             $state = $EXAMPLE;
         } elsif ($state == $EXAMPLE && $line =~ /====+Example/) {
             $state = $EXAMPLEDATA;
+            #warn "Found Example";
         } elsif ($state == $EXAMPLEDATA && $line =~ /===+Label/) {
             $state = $LABEL;
+            #warn "Found Label";
         } elsif ($state == $EXAMPLEDATA) {
             my ($label, $v) = lsplit($line);
             $db{$name}->{"example-$label"} = trim($v)
+        } elsif ($state == $EXAMPLE) {
+            #so there was a failure.. there was no example?
+            #warn "Found a new name!";
+            $name = $line;
+            #$db{$name} = {};
+            #warn $name;
+            $state = $EXAMPLE;
         } elsif ($state == $LABEL && $line =~ /MICRO/) {
             $micro = 1;
             $macro = 0;
             $mm = "micro";
+            #warn "micro";
         } elsif ($state == $LABEL && $line =~ /MACRO/) {
             $micro = 0;
             $macro = 1;
             $mm = "macro";
+            #warn "macro";
         } elsif ($state == $LABEL && $line =~ /===+Rank/) {
             $state = $RANK;
+            #warn "Found rank";
         } elsif ($state == $LABEL) {
             my ($label, $v) = lsplit($line);
             $db{$name}->{"label-$mm-$label"} = trim($v);
+        } elsif ($state == $RANK && !($line =~ /\:/)) {
+            #warn "Switch to CSV";
+            $state = $CSV;
         } elsif ($state == $RANK) {
             my ($label, $v) = lsplit($line);
             $db{$name}->{"rank-$label"} = trim($v);
-        } elsif ($state == $RANK && !($line =~ /\:/)) {
-            $state = $CSV;
         } elsif ($state == $CSV && $line =~ /;/) {
             $state = $NAME;
             my @a = split(/;/,$line);
             unshift @a, $name;
-            $db{csv} = \@a;
+            $csv = \@a;
+        } else {
+            #warn "Unhandled: $state [$line]";
         }
     }
+    return (\%db, $csv) if wantarray;
     return \%db;
 }
 
@@ -93,6 +116,9 @@ sub trim {
 sub test {
     my @data = <DATA>;
     my $h = mulan_parser(@data);
+    my @keys = keys %$h;
+    #warn "Keys @keys";
+    die "Not enough keys!" unless (@keys > 5);
     foreach my $key (keys %$h) {
         ("NaN" eq $h->{$key}->{"label-macro-AUC"}) or die "[$key] died: ".Dumper($h);
         ($h->{$key}->{"rank-AvgPrecision"} > 0) or die "[$key] AvgPrecision not greater than 0!";
