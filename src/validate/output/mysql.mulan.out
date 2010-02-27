@@ -4,10 +4,16 @@ Constructing the label hierarchy
 [A_functionality, A_usability, MetaLabel 1, A_efficiency, MetaLabel 2, A_reliability, MetaLabel 3, A_maintainability, A_portability]
 Creating the hierarchical data set
 Constructing the label hierarchy
-[A_functionality, A_usability, MetaLabel 1, A_efficiency, A_reliability, MetaLabel 2, MetaLabel 3, A_maintainability, A_portability]
+[A_functionality, A_usability, MetaLabel 1, A_reliability, A_efficiency, MetaLabel 2, MetaLabel 3, A_maintainability, A_portability]
 Creating the hierarchical data set
 Constructing the label hierarchy
-[A_functionality, A_usability, MetaLabel 1, A_efficiency, A_reliability, MetaLabel 2, MetaLabel 3, A_maintainability, A_portability]
+[A_functionality, A_usability, MetaLabel 1, A_efficiency, MetaLabel 2, A_reliability, MetaLabel 3, A_maintainability, A_portability]
+Creating the hierarchical data set
+Constructing the label hierarchy
+[A_functionality, A_usability, MetaLabel 1, A_efficiency, MetaLabel 2, A_reliability, MetaLabel 3, A_maintainability, A_portability]
+Creating the hierarchical data set
+Constructing the label hierarchy
+[A_functionality, A_usability, MetaLabel 1, A_reliability, MetaLabel 2, A_efficiency, MetaLabel 3, A_maintainability, A_portability]
 Creating the hierarchical data set
 Constructing the label hierarchy
 [A_functionality, A_usability, MetaLabel 1, A_reliability, MetaLabel 2, A_efficiency, MetaLabel 3, A_maintainability, A_portability]
@@ -16,13 +22,7 @@ Constructing the label hierarchy
 [A_functionality, A_usability, MetaLabel 1, A_reliability, A_efficiency, MetaLabel 2, MetaLabel 3, A_maintainability, A_portability]
 Creating the hierarchical data set
 Constructing the label hierarchy
-[A_functionality, A_usability, MetaLabel 1, MetaLabel 2, A_reliability, A_efficiency, MetaLabel 3, A_maintainability, A_portability]
-Creating the hierarchical data set
-Constructing the label hierarchy
-[A_functionality, A_usability, MetaLabel 1, A_efficiency, MetaLabel 2, A_reliability, MetaLabel 3, A_maintainability, A_portability]
-Creating the hierarchical data set
-Constructing the label hierarchy
-[A_functionality, A_usability, MetaLabel 1, A_efficiency, MetaLabel 2, A_reliability, MetaLabel 3, A_maintainability, A_portability]
+[A_functionality, A_usability, MetaLabel 1, A_reliability, A_efficiency, MetaLabel 2, MetaLabel 3, A_maintainability, A_portability]
 Creating the hierarchical data set
 Constructing the label hierarchy
 [A_functionality, A_usability, MetaLabel 1, A_reliability, MetaLabel 2, A_efficiency, MetaLabel 3, A_maintainability, A_portability]
@@ -31,31 +31,32 @@ Constructing the label hierarchy
 [A_functionality, A_usability, MetaLabel 1, A_reliability, A_efficiency, MetaLabel 2, MetaLabel 3, A_maintainability, A_portability]
 Creating the hierarchical data set
 ========Example Based Measures========
-HammingLoss    : 0.18120007792713813
-Accuracy       : 0.5071259497369958
-Precision      : 0.5908386908240794
-Recall         : 0.5840249366842003
-Fmeasure       : 0.5868916440650342
-SubsetAccuracy : 0.3325540619520748
+HammingLoss    : 0.1783167738164816
+Accuracy       : 0.501549775959478
+Precision      : 0.5998806740697447
+Recall         : 0.5848918760958505
+Fmeasure       : 0.5913852060654602
+SubsetAccuracy : 0.3103448275862069
 ========Label Based Measures========
 MICRO
-Precision    : 0.6474193393131118
-Recall       : 0.5785981713292057
-F1           : 0.6102168473348495
+Precision    : 0.6627620352443059
+Recall       : 0.5639437617170453
+F1           : 0.6081147686470226
 MACRO
-Precision    : 0.4607506961684589
-Recall       : 0.415653309728663
-F1           : 0.4269891852313926
+Precision    : 0.48581310307608916
+Recall       : 0.4019409729053205
+F1           : 0.43122662180265997
 MICRO
-AUC          : 0.758262822418473
+AUC          : 0.7682875062661565
 MACRO
-AUC          : 0.6428638914961065
+AUC          : 0.6379769543200234
 ========Ranking Based Measures========
-One-error    : 0.493249561659848
-Coverage     : 2.0666277030976037
-Ranking Loss : 0.29407783715468894
-AvgPrecision : 0.6774648356220403
+One-error    : 0.4726767971946231
+Coverage     : 1.9424021040327293
+Ranking Loss : 0.2676657889072502
+AvgPrecision : 0.6942815595500141
 
+0.1783167738164816;0.501549775959478;0.5998806740697447;0.5848918760958505;0.5913852060654602;0.3103448275862069;0.6627620352443059;0.5639437617170453;0.6081147686470226;0.48581310307608916;0.4019409729053205;0.43122662180265997;0.7682875062661565;0.6379769543200234;0.4726767971946231;1.9424021040327293;0.2676657889072502;0.6942815595500141;
 BR
 ========Example Based Measures========
 HammingLoss    : 0.2383839859731151
@@ -83,6 +84,7 @@ Coverage     : 1.5119228521332555
 Ranking Loss : 0.18511792707528293
 AvgPrecision : 0.7597894209468652
 
+0.2383839859731151;0.44702707968049865;0.49754091174751613;0.6498977206312098;0.5629300419844944;0.19263588544710694;0.5121181823289158;0.6834330199614292;0.585149586961918;0.4085369761623735;0.5604882981348662;0.4575352431295075;0.81041591005662;0.7379061243416618;0.40090590298071305;1.5119228521332555;0.18511792707528293;0.7597894209468652;
 CLR
 ========Example Based Measures========
 HammingLoss    : 0.18915351646210793
@@ -110,6 +112,7 @@ Coverage     : 1.4680596142606661
 Ranking Loss : 0.17620770470975072
 AvgPrecision : 0.7673517479350034
 
+0.18915351646210793;0.40272696278979153;0.5130338008961621;0.45781950126631604;0.48322283273216193;0.24228521332554065;0.6869319756143215;0.4312203719854457;0.5281395155280912;0.4115792517452787;0.2605718246690446;0.30393977411740514;0.8118173555718299;0.657378841013774;0.3923728813559322;1.4680596142606661;0.17620770470975072;0.7673517479350034;
 MLkNN
 Computed Prior Probabilities
 Label 1: 0.5425330812854442
@@ -1597,4 +1600,118 @@ Coverage     : 1.5419345412039742
 Ranking Loss : 0.1914578992535094
 AvgPrecision : 0.7557338683537008
 
+0.20308299240210398;0.33391340346775766;0.44347847262809276;0.36575832846288725;0.3997517491762158;0.2031268264172998;0.6916951383715974;0.3427822865703788;0.4496883861437143;0.340640205869695;0.18927519449177907;0.22163162112179718;0.796191108005742;0.5935675812883576;0.3976621858562244;1.5419345412039742;0.1914578992535094;0.7557338683537008;
 MC-Copy
+IncludeLabels
+========Example Based Measures========
+HammingLoss    : 0.18919248003117087
+Accuracy       : 0.3961533216442626
+Precision      : 0.5166764075589324
+Recall         : 0.43627508279758426
+Fmeasure       : 0.47258466958121526
+SubsetAccuracy : 0.24056107539450616
+========Label Based Measures========
+MICRO
+Precision    : 0.7057622166487214
+Recall       : 0.40629297928997865
+F1           : 0.5138835673873864
+MACRO
+Precision    : 0.3926092200111625
+Recall       : 0.2362595120563288
+F1           : 0.2821595445154229
+MICRO
+AUC          : 0.773161288978274
+MACRO
+AUC          : 0.59658257785285
+========Ranking Based Measures========
+One-error    : 0.4368205727644652
+Coverage     : 1.7196668614845119
+Ranking Loss : 0.2247736319941998
+AvgPrecision : 0.7228690491719459
+
+0.18919248003117087;0.3961533216442626;0.5166764075589324;0.43627508279758426;0.47258466958121526;0.24056107539450616;0.7057622166487214;0.40629297928997865;0.5138835673873864;0.3926092200111625;0.2362595120563288;0.2821595445154229;0.773161288978274;0.59658257785285;0.4368205727644652;1.7196668614845119;0.2247736319941998;0.7228690491719459;
+MC-Ignore
+RAkEL
+========Example Based Measures========
+HammingLoss    : 0.17009546074420415
+Accuracy       : 0.47584599649327874
+Precision      : 0.5952367036820572
+Recall         : 0.5185490940970194
+Fmeasure       : 0.5534651786484123
+SubsetAccuracy : 0.30897136177673873
+========Label Based Measures========
+MICRO
+Precision    : 0.7304974835474248
+Recall       : 0.4926890206182296
+F1           : 0.5871286895163831
+MACRO
+Precision    : 0.5222833111762879
+Recall       : 0.3315530125244677
+F1           : 0.3914209461131916
+MICRO
+AUC          : 0.7876733378421502
+MACRO
+AUC          : 0.6746912263500209
+========Ranking Based Measures========
+One-error    : 0.36350087668030395
+Coverage     : 1.9985388661601404
+Ranking Loss : 0.2752927440978722
+AvgPrecision : 0.7318870148324491
+
+0.17009546074420415;0.47584599649327874;0.5952367036820572;0.5185490940970194;0.5534651786484123;0.30897136177673873;0.7304974835474248;0.4926890206182296;0.5871286895163831;0.5222833111762879;0.3315530125244677;0.3914209461131916;0.7876733378421502;0.6746912263500209;0.36350087668030395;1.9985388661601404;0.2752927440978722;0.7318870148324491;
+LP
+========Example Based Measures========
+HammingLoss    : 0.23302162478082994
+Accuracy       : 0.40211036430937064
+Precision      : 0.5172949542178064
+Recall         : 0.4672511202026106
+Fmeasure       : 0.4904334291794652
+SubsetAccuracy : 0.2319111630625365
+========Label Based Measures========
+MICRO
+Precision    : 0.5340779882267264
+Recall       : 0.4771414683245804
+F1           : 0.5022183981607573
+MACRO
+Precision    : 0.3676715153908602
+Recall       : 0.313970393950752
+F1           : 0.3247788113383811
+MICRO
+AUC          : 0.6553565568914812
+MACRO
+AUC          : 0.5577755109590008
+========Ranking Based Measures========
+One-error    : 0.6261835184102864
+Coverage     : 2.99354178842782
+Ranking Loss : 0.5209800394532375
+AvgPrecision : 0.5306411205104368
+
+0.23302162478082994;0.40211036430937064;0.5172949542178064;0.4672511202026106;0.4904334291794652;0.2319111630625365;0.5340779882267264;0.4771414683245804;0.5022183981607573;0.3676715153908602;0.313970393950752;0.3247788113383811;0.6553565568914812;0.5577755109590008;0.6261835184102864;2.99354178842782;0.5209800394532375;0.5306411205104368;
+MLStacking
+========Example Based Measures========
+HammingLoss    : 0.19311805961426065
+Accuracy       : 0.3845563023572959
+Precision      : 0.5023232028053769
+Recall         : 0.4302722579388272
+Fmeasure       : 0.46221141083311135
+SubsetAccuracy : 0.22697253068381068
+========Label Based Measures========
+MICRO
+Precision    : 0.704145393440984
+Recall       : 0.40851088676889014
+F1           : 0.5066188718265578
+MACRO
+Precision    : 0.34370991360811365
+Recall       : 0.23493143345394207
+F1           : 0.26523309788212396
+MICRO
+AUC          : 0.7951170705594369
+MACRO
+AUC          : 0.5794516211595714
+========Ranking Based Measures========
+One-error    : 0.43489187609585034
+Coverage     : 1.5671537112799532
+Ranking Loss : 0.20002091117805892
+AvgPrecision : 0.7379511958914091
+
+0.19311805961426065;0.3845563023572959;0.5023232028053769;0.4302722579388272;0.46221141083311135;0.22697253068381068;0.704145393440984;0.40851088676889014;0.5066188718265578;0.34370991360811365;0.23493143345394207;0.26523309788212396;0.7951170705594369;0.5794516211595714;0.43489187609585034;1.5671537112799532;0.20002091117805892;0.7379511958914091;
