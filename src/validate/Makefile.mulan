@@ -1,0 +1,14 @@
+mulanout=output/maxdb.mulan.out output/mysql.mulan.out 
+mulantex=output/maxdb.mulan.out.tex output/mysql.mulan.out.tex
+all=$(mulanout) $(mulantex)
+
+all: $(all)
+
+output/mysql.mulan.out: output/mysql.arff output/mysql.xml
+	sh run-mulan.sh mysql
+output/maxdb.mulan.out: output/maxdb.arff output/maxdb.xml
+	sh run-mulan.sh maxdb
+output/mysql.mulan.out.tex: output/mysql.mulan.out
+	perl mulan-parser.pl output/mysql.mulan.out
+output/maxdb.mulan.out.tex: output/maxdb.mulan.out
+	perl mulan-parser.pl output/maxdb.mulan.out
