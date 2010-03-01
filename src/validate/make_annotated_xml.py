@@ -1,3 +1,7 @@
+# This program takes all of the experimental data and produced new lda.report.xml
+# files stripped of the previous annotations and annotated solely with our quality mapping
+
+
 import quality_map as Q
 import count_annotations as C
 import get_exps as G
