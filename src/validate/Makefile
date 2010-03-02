@@ -19,3 +19,7 @@ noweka: arff-files validity-report graphs boxplots
 
 categories: make_categories.py
 	python make_categories.py
+
+mulan:	Makefile.mulan
+	make -fMakefile.mulan all
+	
