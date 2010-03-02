@@ -2063,7 +2063,7 @@
       <Author name="julian" count="1"/>
       <Author name="scrappy" count="125"/>
     </Authors>
-    <Topic>
+    <Topic><Annotation name="usability" /><Annotation name="maintainability" /><Annotation name="reliability" />
       <Document time="841198500." author="scrappy" document="Remove all traces of machine.h and redundant calls to c.h where postgres.h already pulled in (postgres.h includes c.h) "/>
       <Document time="841140650." author="scrappy" document="Create support for a &quot;common&quot; include directory for the source tree, instead of having include files all over the place...  Immediate goal...a 'config.h' file so that we can make #ifdef's being used throughout the code more a rarity as far as porting is concerned "/>
       <Document time="841053889." author="scrappy" document="Roll in patch that fixes problem with sed 3.0  submitted by: Dan McGuirk "/>
@@ -3044,7 +3044,7 @@
         <Elm word="applications" freq="-711.982957624"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="functionality" />
       <Document time="840977020." author="scrappy" document="Fixed some commits that were missed dealing with Bryan's recent patches "/>
       <Document time="840497761." author="scrappy" document="BSD44_derived required -ltermcap as well... "/>
       <Document time="840475540." author="scrappy" document="Fixes:  When you connect to a database with PQsetdb, as with psql, depending on how your uninitialized variables are set, you can get a failure with a &quot;There is no connection to the backend&quot; message.  The fix is to move a call to PQexec() from inside connectDB() to PQsetdb() after connectDB() returns to PQsetdb().  That way a connection doesn't have to be already established in order to establish it!   From:  bryanh@giraffe.netgate.net (Bryan Henderson) "/>
@@ -4023,7 +4023,7 @@
         <Elm word="applications" freq="-714.943212942"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="maintainability" /><Annotation name="portability" />
       <Document time="841145455." author="scrappy" document="One file at a time, one directory after the other...this is going to be one helluva chore to clean up... "/>
       <Document time="841056783." author="scrappy" document="Take a chance that I'm correct:  attno is used in an if statement, yet isn't defined, nor used anywhere else (~line 945) "/>
       <Document time="840528372." author="scrappy" document="Added a comment aruond the HISTORY_LIB/INC defines "/>
@@ -5006,7 +5006,7 @@
         <Elm word="applications" freq="-711.853080191"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="reliability" />
       <Document time="841052799." author="scrappy" document="Fix prototype for dumpClasses "/>
       <Document time="841052736." author="scrappy" document="Fix the prototype for pg_dump's dumpClasses "/>
       <Document time="840476084." author="scrappy" document="Fixes:  Here's a couple more small fixes that I've made to make my runtime checker happy with the code.  More along the lines of those that I sent in the past, ie, a pointer to an array != the name of an array.  The last patch is that I mailed about yesterday -- I got two replies of &quot;do it&quot;, so it's done.  As far as I can tell, however, the function in question is never called by pg95, so either way it can't hurt...  From: &quot;Kurt J. Lidl&quot; &lt;lidl@va.pubnix.com&gt; "/>
@@ -5982,7 +5982,7 @@
         <Elm word="applications" freq="-714.300821318"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="portability" /><Annotation name="reliability" />
       <Document time="841145545." author="scrappy" document="At this rate, maybe next year sometime I'll get this done...  Goals: reduce the difficulty of porting from platform to platform,        release to release, but moving as much as possible into config.h "/>
       <Document time="840601361." author="julian" document="command line flag for expanded display '-x' had logic reversed "/>
       <Document time="840109164." author="scrappy" document="Fixes:  CLUSTER command couldn't rename correctly the new created heap relation. The table base name resulted in some &quot;temp_XXXX&quot; instead of the correct base name.  Submitted by: Dirk Koeser &lt;koeser@informatik.uni-rostock.de&gt; "/>
@@ -6961,7 +6961,7 @@
         <Elm word="applications" freq="-711.786854058"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="maintainability" />
       <Document time="841209839." author="scrappy" document="c.h is included in postgres.h already "/>
       <Document time="840528980." author="scrappy" document="i Improvements to Makefiles to compensate for errors in compiling  From: bryanh@giraffe.netgate.net (Bryan Henderson) "/>
       <Document time="840528635." author="scrappy" document="i Improvements to Makefiles to compensate for errors in compiling  From: bryanh@giraffe.netgate.net (Bryan Henderson) "/>
@@ -7935,7 +7935,7 @@
         <Elm word="extent" freq="-711.900310013"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="maintainability" /><Annotation name="portability" />
       <Document time="841209217." author="scrappy" document="More sync ups... "/>
       <Document time="841198826." author="scrappy" document="Remove include of machine.h "/>
       <Document time="841198592." author="scrappy" document="Remove include of machine.h "/>
@@ -8925,7 +8925,7 @@
         <Elm word="applications" freq="-713.656152901"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="functionality" />
       <Document time="841211716." author="scrappy" document="Moved the include files to src/include/regex "/>
       <Document time="841181847." author="scrappy" document="Another mis-sync... "/>
       <Document time="841106089." author="scrappy" document="The following patch makes postmaster -D work.  -D specifies a different PGDATA directory.  The code that looks for the pg_hba file doesn't use it, though, so the postmaster uses the wrong pg_hba file.  Also, when the postmaster looks in one directory and the user thinks it is looking in another directory, the error messages don't give enough information to solve the problem.  I extended the error message for this.   Submitted by: Bryan "/>
@@ -9908,7 +9908,7 @@
         <Elm word="applications" freq="-711.918440599"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="usability" />
       <Document time="840476820." author="scrappy" document="file rusagestub.h was initially added on branch Release_1_0_3. "/>
       <Document time="840476816." author="scrappy" document="file port.c was initially added on branch Release_1_0_3. "/>
       <Document time="840476814." author="scrappy" document="file port-protos.h was initially added on branch Release_1_0_3. "/>
@@ -10886,7 +10886,7 @@
         <Elm word="applications" freq="-712.293616529"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="functionality" />
       <Document time="840934389." author="scrappy" document="The patch does several things:          It adds a WITH OIDS option to the copy command, which allows dumping and loading of oids.          If a copy command tried to load in an oid that is greater than its current system max oid, the system max oid is incremented.  No checking is done to see if other backends are running and have cached oids.          pg_dump as its first step when using the -o (oid) option, will copy in a dummy row to set the system max oid value so as rows are loaded in, they are certain to be lower than the system oid.          pg_dump now creates indexes at the end to speed loading   Submitted by:  Bruce Momjian &lt;maillist@candle.pha.pa.us&gt; "/>
       <Document time="840934337." author="scrappy" document="The patch does several things:          It adds a WITH OIDS option to the copy command, which allows dumping and loading of oids.          If a copy command tried to load in an oid that is greater than its current system max oid, the system max oid is incremented.  No checking is done to see if other backends are running and have cached oids.          pg_dump as its first step when using the -o (oid) option, will copy in a dummy row to set the system max oid value so as rows are loaded in, they are certain to be lower than the system oid.          pg_dump now creates indexes at the end to speed loading   Submitted by:  Bruce Momjian &lt;maillist@candle.pha.pa.us&gt; "/>
       <Document time="840934062." author="scrappy" document="The patch does several things:          It adds a WITH OIDS option to the copy command, which allows dumping and loading of oids.          If a copy command tried to load in an oid that is greater than its current system max oid, the system max oid is incremented.  No checking is done to see if other backends are running and have cached oids.          pg_dump as its first step when using the -o (oid) option, will copy in a dummy row to set the system max oid value so as rows are loaded in, they are certain to be lower than the system oid.          pg_dump now creates indexes at the end to speed loading   Submitted by:  Bruce Momjian &lt;maillist@candle.pha.pa.us&gt; "/>
@@ -11875,7 +11875,7 @@
         <Elm word="applications" freq="-716.354956574"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="reliability" />
       <Document time="841287763." author="scrappy" document="modifications required to reflect centralized include files "/>
       <Document time="841287607." author="scrappy" document="modifications required to reflect centralized include files "/>
       <Document time="841287017." author="scrappy" document="modifications required to reflect centralized include files "/>
@@ -12859,7 +12859,7 @@
         <Elm word="applications" freq="-714.219518714"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="functionality" />
       <Document time="841140869." author="scrappy" document="Its a start... "/>
       <Document time="840108622." author="scrappy" document="FixesSEMICOLON   Postgres is not able to cluster a relation on which an rtree index is  defined. Postmaster gives the following error message:   Too Large Allocation Request(&quot;!(0 &lt; (size) &amp;&amp; (size) &lt;= (0xfffffff)):size=0  [0x0]&quot;, File:&quot;/export/home/postgres/src/backend/utils/mmgr/mcxt.c&quot;, Line: 220)   !(0 &lt;(size) &amp;&amp; (size) &lt;= (0xfffffff)) (0) [No such file or directory]  Submitted by: Dirk Koeser &lt;koeser@informatik.uni-rostock.de&gt; "/>
       <Document time="840015865." author="scrappy" document="This patch can be installed as part of 1.02.1 so people can properly pg_dump and load to 2.0.  I haven't gotten any feedback on whether people want it, so I am submitting it for others to decide.  I would recommend an install in 1.02.1.  I had said that the 2.0 pg_dump could dump a 1.02.1 database, but I was wrong.  The copy is actually performed by the backend, and the 2.0 database will not be able to read 1.02.1 databases because of the new system columns.  This patch does several things.  It copies nulls out as BACKSLASHN, so they can be distinguished from '' strings.  It fixes a problem where backslashes in the input stream were not output as double-backslashes.  Without this patch, backslashes copied out were deleted upon input, or interpreted as special characters.  Third, input is now terminated by backslash-period. This can not be part of a normal input stream.  I tested this by creating a database with all sorts of nulls, backslash, and period fields and dumped the database and reloaded into a new database and compared them.  Submitted by: Bruce "/>
@@ -13833,7 +13833,7 @@
         <Elm word="applications" freq="-716.564411283"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="reliability" />
       <Document time="841211401." author="scrappy" document="Redundant -I pointer to port/&lt;portname&gt; "/>
       <Document time="841104121." author="scrappy" document="Oops, thanks to Dan McGuirk for pointing out that I missed part of the commit :(  Here's the rest of the GiST code thta was missing... "/>
       <Document time="841103955." author="scrappy" document="Quick fix of the PG-GiST import pointed out by Dan "/>
@@ -14931,7 +14931,7 @@
         <Elm word="applications" freq="-715.239587906"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="reliability" />
       <Document time="840615937." author="scrappy" document="Here's a patch for Versions 1 and 2 that fixes the following bug:  When you try to do any UPDATE of the catalog class pg_class, such as to change ownership of a class, the backend crashes.  This is really two serial bugs: 1) there is a hardcoded copy of the schema of pg_class in the postgres program, and it doesn't match the actual class that initdb creates in the databaseSEMICOLON 2) Parts of postgres determine whether to pass an attribute value by value or by reference based on the attbyval attribute of the attribute in class pg_attribute.  Other parts of postgres have it hardcoded.  For the relacl[] attribute in class pg_class, attbyval does not match the hardcoded expectation.  The fix is to correct the hardcoded schema for pg_attribute and to change the fetchatt macro so it ignores attbyval for all variable length attributes.  The fix also adds a bunch of logic documentation and extends genbki.sh so it allows source files to contain such documentation.  -- Bryan Henderson                                    Phone 408-227-6803 San Jose, California "/>
       <Document time="840615787." author="scrappy" document="Here's a patch for Versions 1 and 2 that fixes the following bug:  When you try to do any UPDATE of the catalog class pg_class, such as to change ownership of a class, the backend crashes.  This is really two serial bugs: 1) there is a hardcoded copy of the schema of pg_class in the postgres program, and it doesn't match the actual class that initdb creates in the databaseSEMICOLON 2) Parts of postgres determine whether to pass an attribute value by value or by reference based on the attbyval attribute of the attribute in class pg_attribute.  Other parts of postgres have it hardcoded.  For the relacl[] attribute in class pg_class, attbyval does not match the hardcoded expectation.  The fix is to correct the hardcoded schema for pg_attribute and to change the fetchatt macro so it ignores attbyval for all variable length attributes.  The fix also adds a bunch of logic documentation and extends genbki.sh so it allows source files to contain such documentation.  -- Bryan Henderson                                    Phone 408-227-6803 San Jose, California "/>
       <Document time="840434017." author="scrappy" document="From: Dan McGuirk &lt;mcguirk@indirect.com&gt;  fixed the spelling of 'nonexistent' in a few places... "/>
@@ -15909,7 +15909,7 @@
         <Elm word="applications" freq="-716.311523602"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="maintainability" /><Annotation name="reliability" />
       <Document time="841198894." author="scrappy" document="Should finish cleaning out the machine.h includes "/>
       <Document time="841198150." author="scrappy" document="#ifndef the include file like the rest, so that it doesn't get pulled in twice... "/>
       <Document time="841197621." author="scrappy" document="#include &quot;postgres.h&quot; exists in most .c files in system, so adding #include &quot;config.h&quot; here will (should?) ensure that any platform dependencies defined in config.h should be reflected in all .c files... "/>
@@ -16987,7 +16987,7 @@
         <Elm word="applications" freq="-715.575282566"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="functionality" /><Annotation name="portability" />
       <Document time="841055350." author="scrappy" document="There, now we support GiST...now what? :) "/>
       <Document time="841055197." author="scrappy" document="There, now we support GiST...now what? :) "/>
       <Document time="840531846." author="scrappy" document="Bring in changes to READLINE/HISTORY defines "/>
@@ -17997,7 +17997,7 @@
         <Elm word="applications" freq="-715.965871463"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="portability" />
       <Document time="841197007." author="scrappy" document="Moved from backend/access to include/access "/>
       <Document time="840709645." author="mcguirk" document="Changed genbki.sh block comment patch to avoid triggering an apparent bug in GNU sed 3.0. "/>
       <Document time="840569129." author="scrappy" document="No wonder the Linux version kept screwing up...err() was fixed in the wrong file...  Pointed out by: Philip Plane &lt;P.J.Plane@massey.ac.nz&gt; "/>
@@ -19002,7 +19002,7 @@
         <Elm word="applications" freq="-590.972242042"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="functionality" /><Annotation name="maintainability" />
       <Document time="841231669." author="scrappy" document="Clean up th ecompile process by centralizing the include files  - code compile tested, but due to a yet unresolved problem with           parse.h's creation, compile not completed... "/>
       <Document time="841231444." author="scrappy" document="Clean up th ecompile process by centralizing the include files  - code compile tested, but due to a yet unresolved problem with           parse.h's creation, compile not completed... "/>
       <Document time="841230840." author="scrappy" document="Clean up th ecompile process by centralizing the include files  - code compile tested, but due to a yet unresolved problem with           parse.h's creation, compile not completed... "/>
@@ -20379,7 +20379,7 @@
         <Elm word="applications" freq="-716.164389775"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="reliability" />
       <Document time="840933536." author="scrappy" document="Here's the fix for the problem that Evan Champion reported today.  This presumably corrects a problem of initdb failing on systems that have an awk that is sensitive to this.  -- Bryan Henderson                                    Phone 408-227-6803 San Jose, California "/>
       <Document time="840933493." author="scrappy" document="Here's the fix for the problem that Evan Champion reported today.  This presumably corrects a problem of initdb failing on systems that have an awk that is sensitive to this.  Submitted by:  bryanh@giraffe.netgate.net (Bryan Henderson) "/>
       <Document time="840616082." author="scrappy" document="Here is a patch for Versions 1 and 2 that corrects the following makefile bugs:    1) linker flags LDFLAGS are missing on some of the links.    2) libpq.a is not listed as a dependency for the src/bin programs      that depend on it.  -- Bryan Henderson                                    Phone 408-227-6803 San Jose, California "/>
@@ -21351,7 +21351,7 @@
         <Elm word="applications" freq="-711.296952016"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="portability" /><Annotation name="maintainability" />
       <Document time="841211716." author="scrappy" document="Moved the include files to src/include/regex "/>
       <Document time="841198079." author="scrappy" document="Oops, win32 does have one more thing in its machine.h...move that define to config.h "/>
       <Document time="841196923." author="scrappy" document="The use of include files is a mess...alot of redundancy, it seems...  First Step: Centralize them under on src/include hierarchy "/>
