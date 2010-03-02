@@ -11,6 +11,7 @@
 \usepackage{color}
 
 
+\usepackage{comment}
 \newtheorem{mydef}{definition}
 \usepackage{graphicx}
 \newcommand{\slbl}[1]{\textbf{\textsf{#1}}}
@@ -100,9 +101,11 @@ We first introduce some important terminology for our work. We then describe our
 \section{Background}
 
 We provide a brief overview of software repository mining and information retrieval.
+This work is related to the mining software repositories (MSR)~\cite{msr} research community as it deals expressly with analyzing a project's source control repository, and the messages associated with revisions therein.
 
 
 \subsection{Definitions}
+We will use the following terminology in the rest of the paper.
 A \emph{message} is a block of text written by a developer. In this
 paper, messages will be the CVS and BitKeeper commit log comments made
 when the user commits changes to files in a repository. A \emph{word
@@ -118,19 +121,24 @@ top 10 most frequent words of their word distribution.  A \emph{trend}
 is one or more similar topics that recur over time.  Trends are
 particularly important, as they indicate long-lived and recurring
 topics that may provide key insights into the development of the
-project.
+project. A \emph{label} is part of a title we attach to a topic, whether manually or automatically.
 
 % area under the ROC 
 % check
-\emph{Area of ROC Curve} is the area under the Reciever Operating Characteric curve, we will refer to this as \emph{ROC}. ROC values reflect a score, similar to school letter-grades, reflecting how well a particular learner performed for the given data. A ROC result of 0.5 would be equivalent to a random learner (randomly classifying data). ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) vs. the false positive rate (1 - specificity). A perfect learner has a value of 1.0, reflecting perfect recall and precision.
+\emph{Area of ROC Curve} is the area under the Reciever Operating Characteric curve, we will refer to this as \emph{ROC} although it is sometimes referred to as \emph{AUC}. ROC values reflect a score, similar to school letter-grades (A is 0.9, C is 0.6), reflecting how well a particular learner performed for the given data. A ROC result of 0.5 would be equivalent to a random learner (randomly classifying data). ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) vs. the false positive rate (1 - specificity). A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision.
 
-\subsection{Topic models}
+\subsection{Topic and Concept Extraction}
 Topic analysis uses tools such as Latent Dirichlet Allocation (LDA)~\cite{Blei2003} and Latent Semantic Indexing (LSI) to extract
 independent word distributions (topics) from
-	documents (commit log comments). %~\cite{marcus04wcre,Poshyvanyk2007,lukins08wcre,Linstead2007}
+	documents (commit log comments). Many researchers~\cite{marcus04wcre,Poshyvanyk2007,lukins08wcre,Linstead2007} have applied tools like LSI and LDA for mining repositories, in particular analyzing source code, bugs or developer comments.
+\begin{comments}
 Ideally these extracted topics 
 correlate with actual development topics that the developers discussed
-during the development of the software project. For example, our technique might identify a collection of words: `list next has iterator add', which we then identify (manually) as concerning the topics of collections and the Iterator pattern.
+during the development of the software project. For example, our technique might identify a collection of words: ``list next has iterator add'', which we then identify (manually) as concerning the topics of collections and the Iterator pattern.
+\end{comments}
+
+Typically a topic analysis tool like LDA will try to find $N$ indepdent word distributions found from within the word distributions of all the messages. 
+
 In topic analysis a single document, such as a commit message, can be related to multiple topics. Representing documents as a mixture of topics maps well to commits to source code repositories, which often have more than one purpose.  A topic
 represents both a word distribution and a group of commit log comments
 that are related to each other by their content.  In this paper a topic
