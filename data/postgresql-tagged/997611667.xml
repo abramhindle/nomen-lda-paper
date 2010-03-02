@@ -33112,7 +33112,7 @@
         <Elm word="continue" freq="-723.137345889"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="functionality" /><Annotation name="maintainability" />
       <Document time="1000180323." author="petere" document="When testing for source and build tree equality, and test -ef doesn't work, fall back to `cd $srcdir &amp;&amp; /bin/pwd` = `/bin/pwd`.  One of these ought to work, and if not, prep_buildtree is harmless. "/>
       <Document time="1000173526." author="petere" document="Markup and spell-check run over Programmer's Guide (rather incomplete still). "/>
       <Document time="1000117843." author="ishii" document="Example program lacks RETURN "/>
@@ -35893,7 +35893,7 @@
         <Elm word="reduces" freq="-713.069265259"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="maintainability" /><Annotation name="reliability" />
       <Document time="1000147893." author="momjian" document="&gt; NOTE: in the command.c in three places there (I believe) is a typo: &gt; &gt; &quot;parse error at [the] end of line&quot; &gt; &gt; Attached patch also fixes it. I noticed this while editing the po file. &gt; If I'm wrong, please ignore the command.c.patch. I will revert my translation &gt; as well then. &gt; &gt; -- &gt; Serguei A. Mokhov "/>
       <Document time="1000120621." author="ishii" document="The usage of kill is incorrect (lacks &quot;data&quot;). Anyway we should use pg_ctl instead. "/>
       <Document time="1000113623." author="ishii" document="Fix initlocation messages "/>
@@ -38624,7 +38624,7 @@
         <Elm word="Bartunov" freq="-714.543910372"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="maintainability" />
       <Document time="1000199385." author="momjian" document="Update TODO list. "/>
       <Document time="1000149680." author="momjian" document="Update TODO list. "/>
       <Document time="1000101757." author="momjian" document="Update TODO list. "/>
@@ -41349,7 +41349,7 @@
         <Elm word="incorporated" freq="-719.705785999"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="reliability" /><Annotation name="maintainability" />
       <Document time="1000147752." author="momjian" document="The attached patch should be sufficient to fix libpgtcl. It requires PostgreSQL to support unicode-conversion, but retains binary compatibility among Tcl versions.  However, it neither checks at compile time not at runtime, if support for unicode-conversion does really exist and it doesn't prevent the user from changing the client encoding after initialization. I think there should be warnings about this somewhere in the documentation.  Reinhard Max "/>
       <Document time="999973815." author="momjian" document="&gt; &gt;  A simple and robus solution is in the begin of mbutils.c set default &gt; &gt; ClientEncoding to SQL_ASCII (like default DatabaseEncoding). Bruce, can &gt; &gt; you change it? It's one line change. Again thanks.   Forget it! A default client encoding must be set by actual database encoding... Please apply the small attached patch that solve it better.  Karel Zak "/>
       <Document time="999925819." author="tgl" document="Clean up some confusion about where and how to set whereToSendOutput. We will no longer try to send elog messages to the client before we have initialized backend libpq (oops)SEMICOLON however, reporting bogus commandline switches via elog does work now (not irrelevant, because of PGOPTIONS). Fix problem with inappropriate sending of checkpoint-process messages to stderr. "/>
@@ -44078,7 +44078,7 @@
         <Elm word="(unless" freq="-717.465006107"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="reliability" /><Annotation name="functionality" /><Annotation name="maintainability" />
       <Document time="1000131210." author="inoue" document="Change dialog windows. "/>
       <Document time="999914273." author="momjian" document="Here is my much-promised patch to let people add UNIQUE constraints after table creation time.  Big deal you say - but this patch is the basis of the next thing which is adding PRIMARY KEYs after table creation time.  (Which is currently impossible without twiddling catalogs)  Rundown -------  * I have made the makeObjectName function of analyze.c non-static, and exported it in analyze.h  * I have included analyze.h and defrem.h into command.c, to support makingObjectNames and creating indices  * I removed the 'case CONSTR_PRIMARY' clause so that it properly fails and says you can't add primary keys, rather than just doing nothing and reporting nothing!!!  * I have modified the docs.  Algorithm ---------  * If name specified is null, search for a new valid constraint name.  I'm not sure if I should &quot;lock&quot; my generated name somehow tho - should I open the relation before doing this step?  * Open relation in access exclusive mode  * Check that the constraint does not already exist  * Define the new index  * Warn if they're doubling up on an existing index  Christopher Kings-Lynne "/>
       <Document time="999808246." author="momjian" document="Add to syntax error reporting. "/>
@@ -46815,7 +46815,7 @@
         <Elm word="Sep" freq="-715.725749926"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="functionality" /><Annotation name="reliability" />
       <Document time="1000164858." author="petere" document="Remove extra space at end of line. "/>
       <Document time="1000148108." author="momjian" document="On Fri, 07 Sep 2001 01:34:46 -0400, Tom Lane wrote: &gt;there is still an unpatched reference to pg_description in &gt;getColumns(), in both jdbc1 and jdbc2.  This was introduced by Jeroen's patch (see http://fts.postgresql.org/db/mw/msg.html?mid=1032468). Attached is a patch that returns getColumns() to using &quot;select obj_description()&quot; instead of direct access to pg_description, as per the request by Tom.  I've incorporated Jeroen's fix to left outer join with pg_attrdef instead of inner join, so getColumns() also returns columns without a default value.  I have, however, not included Jeroen's attempt to combine multiple queries into one huge multi-join query for better performance, because: 1) I don't know how to do that using obj_description() instead of direct access to pg_description 2) I don't think a performance improvement (if any) in this method is very important  Because of the outer join, getColumns() will only work with a backend &gt;= 7.1. Since the conditional coding for 7.1/7.2 and jdbc1/jdbc2 is already giving me headaches I didn't pursue a pre-7.1 solution.  Regards, Ren? Pijlman &lt;rene@lab.applinet.nl&gt; "/>
       <Document time="1000110074." author="momjian" document="Remove INV_ARCHIVE mention in python readme. "/>
@@ -49561,7 +49561,7 @@
         <Elm word="driver" freq="-712.044144243"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="maintainability" /><Annotation name="functionality" />
       <Document time="1000199939." author="ishii" document="Implement following item in TODO:  * Reject character sequences those are not valid in their charset "/>
       <Document time="1000198236." author="ishii" document="Implement following item in TODO:  * Reject character sequences those are not valid in their charset "/>
       <Document time="999856939." author="inoue" document="1) Most driver options could be set per DSN. 2) Keep FE/BE protocol more precisely. 3) Improve procedure calls. 4) A trial to avoid PREMATURE execution(#ifdef'd now).  Hiroshi Inoue "/>
@@ -52330,7 +52330,7 @@
         <Elm word="properly" freq="-710.973193356"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="maintainability" /><Annotation name="reliability" />
       <Document time="1000148878." author="momjian" document="Attached is a patch that fixes DatabaseMetaDataTest in the JDBC driver's test suite. With previous patches applied, this reduces the number of failures of the test suite from 6 to 4. The patch fixes the test case itself, rather than the driver.  Details:  1) The driver correctly provided DatabaseMetaData about the sort order of NULLs. This was confirmed by Peter Eisentraut on pgsql-hackers. I fixed the test to accept/require the current behaviour, and made it dependent on the backend version. See nullsAreSortedAtStart(), nullsAreSortedAtEnd(), nullsAreSortedHigh() and nullsAreSortedLow().  2) DatabaseMetaData.supportsOrderByUnrelated() correctly returned true (an ORDER BY clause can contain columns that are not in the SELECT clause), but the test case required false. Fixed that.  3) Replaced deprecated assert() of junit.framework.TestCase by assertEquals(), assertTrue() and assertNotNull(). This is because assert will be a new keyword in Java 1.4.  4) Replaced assert(message,false) by the more elegant fail(message).  Regards, Ren? Pijlman &lt;rene@lab.applinet.nl&gt; "/>
       <Document time="999839510." author="tgl" document="Fix a number of places where pg_dump was careless about explicitly coercing OID literals to OID in its queries.  Depending on the query and the server version, this could cause failures for OIDs over 2 billion. "/>
       <Document time="999756168." author="tgl" document="Add some debugging details to some of the elog(STOP) conditions for WAL. Standardize on %X/%X as the formatting for XLOG position display --- we had a couple of different formats before, and none of 'em were as useful as hex offsets IMHO. "/>
@@ -55027,7 +55027,7 @@
         <Elm word="Field" freq="-712.798383454"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="portability" /><Annotation name="functionality" /><Annotation name="maintainability" />
       <Document time="999760961." author="momjian" document=" - new to_char(interval, text)  - new millisecond (ms) and microsecond (us) support  - more robus parsing from string - used is separator checking for    non-exact formats like to_date('2001-9-1', 'YYYY-MM-DD')  - SGML docs are included  Karel Zak "/>
       <Document time="999654137." author="tgl" document="Fix code so that we recover cleanly if there are no free semaphores available in freeSemMap.  As noted by Tatsuo, this is now a likely scenario for detecting MaxBackends-exceededSEMICOLON if MaxBackends is a multiple of PROC_NSEMS_PER_SET then we will fail here and not in sinval.c.  The cleanup path did not work correctly before, anyway. "/>
       <Document time="998887135." author="petere" document="Do not install the odbc header files, per discussion on odbc list. "/>
