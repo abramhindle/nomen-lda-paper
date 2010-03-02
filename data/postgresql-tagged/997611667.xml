@@ -3125,7 +3125,7 @@
       <Author name="scrappy" count="2"/>
       <Author name="inoue" count="11"/>
     </Authors>
-    <Topic>
+    <Topic><Annotation name="reliability" />
       <Document time="1000199519." author="ishii" document="Add single quote (example given here does not work) "/>
       <Document time="1000012511." author="ishii" document="Backout Karel's patch "/>
       <Document time="999823419." author="momjian" document="&gt;Well, if it is that easy, I can do it.  Patch attached and applied. &gt; &gt;&gt; On Mon, 3 Sep 2001 22:01:17 -0500, you wrote: &gt;&gt;     public boolean isWritable(int column) throws SQLException &gt;&gt;     { &gt;&gt;         return !isReadOnly(column)SEMICOLON &gt;&gt;     }  Actually, I think this change has a consequence for this method in the same class:      public boolean isDefinitelyWritable(int column)         throws SQLException     {         return isWritable(column)SEMICOLON     }  This is from the JDBC spec (http://java.sun.com/j2se/1.3/docs/api/java/sql/ResultSetMetaData.html):    isReadOnly() - Indicates whether the designated column is definitely not writable.    isWritable() - Indicates whether it is possible for a write on the designated column to succeed.    isDefinitelyWritable() - Indicates whether a write on the designated column will definitely succeed.  At this time we don't really implement the fine semantics of these methods. I would suggest the following defaults:    isReadOnly()             false   isWritable()             true   isDefinitelyWritable()   false  And that would mean that your patch is correct, but isDefinitelyWritable() would need to be patched accordingly:      public boolean isDefinitelyWritable(int column)         throws SQLException     {         return falseSEMICOLON     }  Again, both in jdbc1 and jdbc2.  Regards, Ren? Pijlman &lt;rene@lab.applinet.nl&gt; "/>
@@ -5809,7 +5809,7 @@
         <Elm word="patch," freq="-720.334833676"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="reliability" /><Annotation name="maintainability" />
       <Document time="1000120288." author="ishii" document="Fix typo. split does not produce &quot;.&quot;. "/>
       <Document time="1000118134." author="ishii" document="Fix typo. "/>
       <Document time="1000115842." author="ishii" document="Fix typo. "/>
@@ -8554,7 +8554,7 @@
         <Elm word="TypeOid," freq="-717.811677169"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="portability" /><Annotation name="efficiency" />
       <Document time="999915355." author="momjian" document="Patch for jdbc2 ResultSet.java.  Looks like performance improvement.  Joseph Shraibman "/>
       <Document time="999914100." author="momjian" document="&gt;has anyone ever successfully done copy to/from stdout with the &gt;tcl-extension for postgreSQL. &gt;I'm currently using 7.0 and always getting a seg fault when I try to &gt;read from the database connection after issueing a &quot;COPY table TO &gt;stdoutSEMICOLON&quot; (I'm using the connection handle, *not* the result handle). &gt;Maybe this is fixed in a later release. &gt;The README file in src/interfaces/libpgtcl tells me, that this should &gt;work, but unforunately it doesn't.  Yes, it seems broken. It is a bug in libpgtcl.  Are you running Tcl &gt;= 8.3.2? That's when the Tcl team changed the data structure for channel callbacks.  The change itself was designed to be backward compatible, but I suspect a related change made the code more sensitive to errors in the structure (NULL pointers where functions are required).  Either that, or nobody has tried to use libpgtcl with COPY in a long time.  First, I have to say I can't think of a good reason to use PostgreSQL's COPY command from a Tcl application. I think it should only be used with psql for importing data from another source into PostgreSQL, or for exporting PostgreSQL data into another database (but why would anyone do that?) If it was me, I would stick with SELECT and INSERT and be &quot;SQL Compliant&quot;.  OK, editorial is over. Try applying the patch below to fix       src/interfaces/libpgtcl/pgtclId.c and let us know if it works. I did little testing on it, but my test did segfault before and ran fine (copy in and copy out) after the patch.  This is for PostgreSQL-7.1.2 - since you are running older 7.0, I don't know if this will work, but I suspect it will.  PS It's the absence of PgWatchProc which kills it. I didn't upgrade it to the &quot;V2&quot; channel type structure, so it should be compatible with older Tcl's. But aside from gets and puts, I doubt any other file operations would work on the handle during a copy.  ljb "/>
       <Document time="999912344." author="momjian" document="Create pgjindent for java. "/>
@@ -11242,7 +11242,7 @@
         <Elm word="working" freq="-720.183250758"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="portability" /><Annotation name="reliability" /><Annotation name="maintainability" />
       <Document time="1000199519." author="ishii" document="Add single quote (example given here does not work) "/>
       <Document time="1000019756." author="ishii" document="Add -U, -P, -C options. See README.pgbench for more details. "/>
       <Document time="999847931." author="ishii" document="Add missing files. "/>
@@ -13990,7 +13990,7 @@
         <Elm word="TransactionIdFollows," freq="-714.425517167"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="reliability" /><Annotation name="functionality" />
       <Document time="1000148825." author="momjian" document="Attached is a patch to add bytea support to JDBC.   This patch does the following:  - Adds binary datatype support (bytea) - Changes getXXXStream()/setXXXStream() methods to be spec compliant - Adds ability to revert to old behavior  Details:  Adds support for the binary type bytea.  The ResultSet.getBytes() and PreparedStatement.setBytes() methods now work against columns of bytea type.  This is a change in behavior from the previous code which assumed the column type was OID and thus a LargeObject.  The new behavior is more complient with the JDBC spec as BLOB/CLOB are to be used for LargeObjects and the getBytes()/setBytes() methods are for the databases binary datatype (which is bytea in postgres).  Changes the behavior of the getBinaryStream(), getAsciiStream(), getCharacterStream(), getUnicodeStream() and their setXXXStream() counterparts.  These methos now work against either the bytea type (BinaryStream) or the text types (AsciiStream, CharacterStream, UnicodeStream).  The previous behavior was that these all assumed the underlying column was of type OID and thus a LargeObject.  The spec/javadoc for these methods indicate that they are for LONGVARCHAR and LONGVARBINARY datatypes, which are distinct from the BLOB/CLOB datatypes.  Given that the bytea and text types support upto 1G, they are the LONGVARBINARY and LONGVARCHAR datatypes in postgres.  Added support for turning off the above new functionality.  Given that the changes above are not backwardly compatible (however they are more spec complient), I added the ability to revert back to the old behavior.   The Connection now takes an optional parameter named 'compatible'.  If the value of '7.1' is passed, the driver reverts to the 7.1 behavior. If the parameter is not passed or the value '7.2' is passed the behavior is the new behavior.  The mechanism put in place can be used in the future when/if similar needs arise to change behavior.  This is patterned after how Oracle does this (i.e. Oracle has a 'compatible' parameter that behaves in a similar manner).  Misc fixes.  Cleaned up a few things I encountered along the way.   Note that in testing the patch I needed to ignore whitespace differences in order to get it to apply cleanly (i.e. patch -l -i byteapatch.diff). Also this patch introduces a new file (src/interfaces/jdbc/org/postgresql/util/PGbytea.java).  Barry Lind "/>
       <Document time="1000147990." author="momjian" document="Bug #1: attribute name when column is type cast:  Given the following table:  test=# BACKSLASHd f           Table &quot;f&quot;  Column|  Type| Modifiers --------+---------+-----------  i| integer|  test| text|  If I do the following:  test=# insert into f values(1,'test')SEMICOLON INSERT 139549 1 test=# select i::int8,test from fSEMICOLON  ?column?| test ----------+------         1| test (1 row)  It doesn't make much sense that the first column should be called '?column?'.  The patch results in the output appearing like this:  test=# select i::int8,test from fSEMICOLON  i| test ---+------  1| test (1 row)  ----------  Gavin Sherry "/>
       <Document time="1000109741." author="momjian" document="Remove mention of INV_ARCHIVE. "/>
@@ -16701,7 +16701,7 @@
         <Elm word="view" freq="-711.345307504"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="portability" /><Annotation name="maintainability" />
       <Document time="1000126406." author="inoue" document="1) Fix SQLForeignKeys() in multibyte mode. 2) Fix a bug with NUMERIC scale in case of Parse   statement option. 3) Remove a no longer needed loop in CC_send_query().  Hiroshi Inoue "/>
       <Document time="999931733." author="momjian" document="Move updateCommon() into Win32 block because it is only used there. "/>
       <Document time="999907144." author="momjian" document="Add CRED alignment for NetBSD. "/>
@@ -19407,7 +19407,7 @@
         <Elm word="now)." freq="-713.002154933"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="maintainability" /><Annotation name="reliability" />
       <Document time="1000189492." author="ishii" document="Fix regression test in the case of building as root. "/>
       <Document time="999919034." author="tgl" document="Change addlit() to not assume its input is null-terminated, so that we don't have more bugs like the quote-quote-quote-quote one.  Propagate fix into ecpg lexer, too. "/>
       <Document time="999914552." author="momjian" document="I've attached the fixed version of the patch below.  After the discussion on pgsql-hackers (especially the frightening memory dump in &lt;12273.999562219@sss.pgh.pa.us&gt;), we decided that it is best not to use identifiers from an untrusted source at all.  Therefore, all claims of the suitability of PQescapeString() for identifiers have been removed.  Florian Weimer "/>
@@ -22217,7 +22217,7 @@
         <Elm word="simple" freq="-712.81950037"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="portability" /><Annotation name="reliability" />
       <Document time="999760830." author="momjian" document="Attached is a patch for JDBC's getColumn() function that was broken / flawed in the following ways:  1. Only returned columns that had a default value defined, rather than all columns in a table 2. Used 2 * N + 1 queries to find out attributes, comments and typenames for N columns.  By using some outer join syntax it is possible to retrieve all necessary information in just one SQL statement. This means this version is only suitable for PostgreSQL &gt;= 7.1. Don't know whether that's a problem.  I've tested this function with current sources and 7.1.3 and patched both jdbc1 and jdbc2. I haven't compiled nor tested the jdbc1 version though, as I have no JDK 1.1 available.  Note the discussion in http://fts.postgresql.org/db/mw/msg.html?mid=1029626 regarding differences in obtaining comments on database object in 7.1 and 7.2. I was unable to use the following syntax (or similar ones):  select      ...,      description from      ...      left outer join col_description(a.attrelid, a.attnum) description order by      c.relname, a.attnumSEMICOLON  (the error was parse error at or near '(') so I had to paste the actual code for the col_description function into the left outer join. Maybe someone who is more knowledgable about outer joins might provide me with a better SQL statement.  Jeroen van Vianen "/>
       <Document time="999191823." author="petere" document="For INSERTs, one can now tab complete DEFAULT VALUES.  from Liam Stewart "/>
       <Document time="998599833." author="tgl" document="Bring chkpass build process into sync with other contrib modulesSEMICOLON make it use Makefile.shlib, etc. "/>
@@ -24917,7 +24917,7 @@
         <Elm word="good" freq="-716.476959836"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="efficiency" /><Annotation name="reliability" />
       <Document time="1000126006." author="ishii" document="Short version of install procedure fails due to lacking chown. "/>
       <Document time="999760692." author="momjian" document="This fixes clashing defines of ERROR. On win32, winapi.h is included, which includes windows.h, which #defines ERROR to 0. PostgreSQL's logging functions define ERROR to -1. This patch redefines ERROR to -1 to avoid current or future breakage of the logging functions.  Gerhard H?ring "/>
       <Document time="999760047." author="momjian" document="Apply jdbc error changes. "/>
@@ -27636,7 +27636,7 @@
         <Elm word="reduces" freq="-712.787523361"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="reliability" /><Annotation name="portability" />
       <Document time="1000148062." author="momjian" document="Attached is a patch that fixes ConnectionTest.testTransactionIsolation() in the JDBC driver's test suite. This reduces the number of failures of the test suite from 7 to 6. The patch fixes the test case itself, rather than the driver.  In addition to the change described in my posting below, I fixed the part of the test with autocommit enabled. The author of the test assumed that setting the transaction isolation level would have no effect, but in fact it does. Perhaps the test case worked with pre-7.1 behaviour, when the JDBC driver set the isolation level in every transaction, instead of using &quot;set session characteristics&quot;. Anyway, now it works with a backend built from current CVS and the behaviour is JDBC compliant.  I also extended the test case by changing the isolation level before beginning a transaction and verifying it inside the transaction.  Regards, Ren? Pijlman "/>
       <Document time="999913542." author="momjian" document="Add Java testsuite info. "/>
       <Document time="999798222." author="momjian" document="Add -rpath for BSD/OS, from Peter E. "/>
@@ -30334,7 +30334,7 @@
         <Elm word="assert()" freq="-726.864247792"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="portability" /><Annotation name="reliability" /><Annotation name="efficiency" />
       <Document time="1000178939." author="petere" document="Make prep_buildtree harmless when run on top of the source tree.  from Ian Lance Taylor "/>
       <Document time="1000175148." author="petere" document="Add explicit '-print' to 'find' commands.  (partially) from Ian Lance Taylor "/>
       <Document time="999981994." author="petere" document="fix markup "/>
