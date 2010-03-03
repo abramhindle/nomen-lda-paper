@@ -153,13 +153,16 @@ While unsupervised techniques (LSI and LDA are both unsupervised) are appealing 
 In this paper, we employ the WEKA and Mulan machine learning frameworks in order to test supervised learning.
  
 \section{Methodology}
- % To gather the data, we first extract the commit log comments from a
+
+\begin{comment}
+% To gather the data, we first extract the commit log comments from a
 % project's SCS repository. We filter out stop words and produce word distributions from these messages. These distributions are bucketed
 % into 30-day non-overlapping windows. Each window is subject to LDA analysis. %Figure \ref{fig:commits}
 % depicts the general process for processing and analyzing the commit messages.
+\end{comment}
 
 % XXX how many do we have
-We wanted to compare two mature software projects, that had open repositories, within the same domain. This allows us to partially control for differences in functional requirements. We selected MySQL and MaxDB, open-source, near-commercial quality database software. MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project has 940 thousand lines of C source code\footnote{generated using David A. Wheeler's `SLOCCount'.}. There are approximately ... developers working on it. MySQL 3.23, released in early 2001, contains 320 thousand lines of C and C++ source code. The MySQL project started in 1994.
+We wanted to compare two mature software projects, that had open repositories, within the same domain. This allows us to partially control for differences in functional requirements. We selected MySQL and MaxDB, open-source, near-commercial quality database software. MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project has 940 thousand lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}.}. There are approximately ... developers working on it. MySQL 3.23, released in early 2001, contains 320 thousand lines of C and C++ source code. The MySQL project started in 1994.
 
 \subsection{Generating the data}
 From each project, we used source code commit data (the message attached to the commit). We leveraged the data we gathered in \cite{Hindle09ICSM} for this work. A typical commit message is: ``history annotate diffs bug fixed (if mysql\_real\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course) ". We extracted these messages and indexed them by creation time. We apply stop-word removal to eliminate common English words like `the', `at', and so on.
