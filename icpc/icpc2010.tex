@@ -203,7 +203,7 @@ We arbitrarily set the number of topics to generate to $20$, because past experi
 % We would like to `name' our topic models for each period. In this way, we can see how certain words -- subjects -- occur more or less often with each period.
 \end{comment}
 
-Topics are word distributions, essentially lists of words ranked by frequency, thus they can be burdensome to interpret and hard to distinguish.
+Topics are word distributions: essentially lists of words ranked by frequency, thus they can be burdensome to interpret and hard to distinguish and understand.
 Once we had topics for each period, we tried to associate them with a label from a list of keywords and related terms. We performed simple string matching between these topics and our lists, `naming' a topic if it contained that word or words. We used several different word lists for comparison. 
 
 Our first list, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519}. That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. The labels we used:
@@ -217,10 +217,13 @@ portability, flexibility, reliability.
 }
 \end{quotation}
 
-Our second list relied on the ISO quality model (ISO9126)~\cite{iso9126}. It describes six high-level quality requirements (listed in Table \ref{tbl:wnsig}). There is some debate about the significance and importance of the terms in this model. However, it is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Bøegh2008},'' which is sufficient for the purposes of this research. However, these terms may not capture all words associated with the labels.  For example, the term ‘user friendly’ is one most would agree is relevant to discussion of usability, but is not in the standard. Therefore we took the words from the taxonomy and expanded them.
+Our second list, \textsf{exp2}, relied on the ISO quality model (ISO9126)~\cite{iso9126}. It describes six high-level quality requirements (listed in Table \ref{tbl:wnsig}). There is some debate about the significance and importance of the terms in this model. However, it is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Bøegh2008},'' which is sufficient for the purposes of this research. However, these terms may not capture all words associated with the labels.  For example, the term ‘user friendly’ is one most would agree is relevant to discussion of usability, but is not in the standard. Therefore we took the words from the taxonomy and expanded them.
 
 %Cite mockus et al
-To construct our expanded sets, we also used Wordnet~\cite{Fellbaum1998}, an English-language ‘lexical database’ that contains semantic relations between words, including meronymy and synonymy. We then added Boehm’s 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven ‘ilities’ into their respective ISO9126 qualities. We did the same for the quality model produced by McCall et al. \cite{mccall1977}. Finally, we analyzed two mailing lists from the KDE project to enhance the specificity of the sets. We selected KDE-Usability, which focuses on usability discussions for KDE as a whole; and KDE-Konqueror, a list about a long-lived web browser project. For each high-level quality in ISO9126, we first searched for our existing labels; we then randomly sampled twenty-five mail messages that were relevant to that quality, and selected co-occurring terms relevant to that quality. For example, we add the term ‘performance’ to the synonyms for \emph{Efficiency}, since this term occurs in most KDE mail messages that discuss efficiency.
+
+%This is confusing/confused
+%XXX redo this 
+To construct our expanded wordlists, we used Wordnet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including meronymy and synonymy. We then added Boehm’s 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven ‘ilities’ into their respective ISO9126 qualities. We did the same for the quality model produced by McCall et al. \cite{mccall1977}. Finally, we analyzed two mailing lists from the KDE project to enhance the specificity of the sets. We selected KDE-Usability, which focuses on usability discussions for KDE as a whole; and KDE-Konqueror, a list about a long-lived web browser project. For each high-level quality in ISO9126, we first searched for our existing labels; we then randomly sampled twenty-five mail messages that were relevant to that quality, and selected co-occurring terms relevant to that quality. For example, we add the term ‘performance’ to the synonyms for \emph{Efficiency}, since this term occurs in most KDE mail messages that discuss efficiency.
 %exp2
 
 For the third -- \textsf{exp3} -- list of quality labels, we extended the list from \textsf{exp2} using unfiltered Wordnet similarity matches. Similarity in Wordnet means siblings in a hypernym tree. We do not include these words here for space considerations (but see the Appendix for our data repository). It isn't clear the words associated with our labels are specific enough, however: for example, the label \emph{maintainability} is associated with words \emph{ease} and \emph{ownership}.
@@ -250,17 +253,22 @@ operability understandability learnability useable usable serviceable usefulness
 \end{table*}
 
 \subsection{Supervised learning}
-To check our outcomes, we manually annotated each topic in each period with the same quality labels as \textsf{exp2}. We looked at each period's topics, and assessed what the data -- consisting of the frequency-weighted word lists and messages -- suggested was the topic for that period. For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. This provided us with manually classified topics for the second phase of our analysis, supervised learning (classification).
+
+In order to validate how effective these wordbag approaches to topic labelling would be we had to make a data set to test against.  For MySQL and MaxDB, we manually annotated each extracted topic in each period with the same quality labels as \textsf{exp2} (software qualities). We looked at each period's topics, and assessed what the data -- consisting of the frequency-weighted word lists and messages -- suggested was the topic for that period. We were able to pinpoint the appropriate label using auxillary information as well, such as the actual revisions and files that were related to this topic. For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. We compared against this dataset but we also used it for our supervised learning based topic classification.
 %inter-rater reliability 
 
 We first compared our previous analysis using label matching to our manual classifications to get an error rate for that process (described below). 
 
-For supervised learning, we used a suite of supervised classifiers from WEKA~\cite{weka09}. WEKA contains a suite of machine learning tools (e.g., support vector machines and Bayesian nets). We also used the multi-labeling add-on for WEKA, Mulan\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic (much like our manual classification found overlaps). 
+For supervised learning, we used a suite of supervised classifiers from WEKA~\cite{weka09}. WEKA contains a suite of machine learning tools such as support vector machines and Bayes nets. We also used the multi-labeling add-on for WEKA, Mulan\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, much like our manual classification found overlaps. 
 
-To assess the performance of the supervised learners, we did a 10-fold cross-over analysis (using 1 period to train the learner on the tags, and the other 9 to attempt to learn, changing the training set each time). We report these results below.
+To assess the performance of the supervised learners, we did a 10-fold cross-validation. This is when a set is partitioned into 10 partitions and then each partition is used once as a test set and 9 other times as part of the training set of 9 paritions. We haved reported these results below.
 
 % enumerate?
-Finally, using this data, we evaluated two research questions: 1) Do label frequencies change over time? That is, is a certain quality of more interest at one point in the lifecycle than some other? 2) Do the different projects differ in their relative topic interest? That is, is a particular quality more important to one project than the other projects?  
+Finally, using this data, we evaluated two research questions:
+\begin{enumerate}
+\item Do label frequencies change over time? That is, is a certain quality of more interest at one point in the life-cycle than some other? 
+\item  Do the different projects differ in their relative topic interest? That is, is a particular quality more important to one project than the other projects?  
+\end{enumerate}
 
 \section{Observations and evaluation}
 
@@ -268,8 +276,9 @@ Finally, using this data, we evaluated two research questions: 1) Do label frequ
 
 % word list similarity
 
-In general, this approach did not work out well. The related words for \emph{correctness}, for example, tended to be too lengthy and non-specific. Table \ref{tbl:wordlist} lists results. A \emph{named topic} is a topic with a matching label. There are \{periods X 20\} topics per project. All experiments were run on MaxDB data.
+In general, this approach did not work out well. The related words for \emph{correctness}, for example, tended to be too lengthy and non-specific. Table \ref{tbl:wordlist} lists results. A \emph{named   topic} is a topic with a matching label. There are \{periods X 20\} topics per project. All experiments were run on MaxDB data.
 
+%XXX this table should have mysql
 \begin{table*}[h]
 	\caption{Automatic topic labeling}
 	\centering
@@ -285,7 +294,9 @@ Unnamed topics &	139      &			295      &      92   \\
 \end{tabular}
 \end{table*}
 
-For \textsf{exp1}, our best performing labels (the labels matched with the most topics) were correctness (182 topics) and testability (121). We did not get good results for usability or accuracy, which were associated with fewer than ten topics. We also looked for correlation between our labels: Excluding double matches (self-correlation), our highest co-occurring terms were verifiability and traceability, and testability and correctness (76 and 62 matches, respectively).
+%This is the counts
+
+For \textsf{exp1}, our best performing labels (the labels matched with the most topics) were \emph{correctness} (182 topics) and \emph{testability} (121). We did not get good results for usability or accuracy, which were associated with fewer than ten topics. We also looked for correlation between our labels: Excluding double matches (self-correlation), our highest co-occurring terms were verifiability and traceability, and testability and correctness (76 and 62 matches, respectively).
 
 For \textsf{exp2}, there are many more unnamed topics. Only reliability produces a lot of matches, mostly with the `error' word. Co-occurrence results were poor.
 
@@ -295,12 +306,12 @@ For \textsf{exp3}, we had many more named topics. As we mentioned, the wordlists
 Based on the labels, and our manual topic labeling, we compared the results of the unsupervised word matching approach. For each quality we tried to assess whether the manual tag matched the unsupervised label assigned. Table \ref{tbl:maxdb-unsup-results} shows our results for MaxDB. In general results are poor. Using the F-Measure, the weighted average of precision and recall, where 1 is perfect, our best results are 0.6, a few at 0.4, and most around 0.2. Similar results using the Matthew's correlation coefficient (used to measure efficacy where classes are of different sizes), and the receiver operating characteristic area under curve. 
 
 \begin{table*}[h]
-	\caption{Results for automatic topic labeling. f1 = f-measure, mcc = Matthew's correlation coeff., roca = ROC area}
+	\caption{Results for automatic topic labeling. f1 = f-measure, mcc = Matthew's correlation coeff., ROC = Area under ROC curve}
 	\centering
 	\label{tbl:maxdb-unsup-results}
 \begin{tabular}{c|c|c|c|c|c|c}
 \toprule
-Experiment & label & f1 & mcc & precision & recall & roca  \\ 
+Experiment & label & f1 & mcc & precision & recall & ROC  \\ 
 \midrule
 MaxDB exp2 & portability & 0.228 & 0.182 & 0.520 & 0.146 & 0.553 \\ 
  & efficiency & 0.217 & 0.125 & 0.237 & 0.200 & 0.558\\ 
@@ -338,20 +349,26 @@ mysql exp3 & portability & 0.413 & 0.170 & 0.564 & 0.325 & 0.574 \\
 \end{table*}
 
 \subsection{Classifying topics}
+%XXX oh god more more more wtf
 We present a ROC chart in Fig. \ref{}. The chart shows each learner measured in terms of precision and recall. In general, we prefer techniques which are closer to the upper-left corner (maximizing precision and maximizing recall). 
 
 \subsection{Comparing topic use between projects}
 
+%XXX do we have time here
+
 \subsection{Topic change over time}
 
+%XXX I don't know!
+
 \subsection{Threats to validity}
-\textbf{Construct validity} – Focus on code commit messages, rather than mail or bug trackers. Choice of taxonomy
+\textbf{Construct validity} -- Focus on code commit messages, rather than mail or bug trackers. Choice of taxonomy
 
 \textbf{Internal validity} -- inter-rater reliability.
 
-\textbf{External validity} – Our data originated from open-source projects in the database domain. Of these, the open-source nature of the project seems most problematic for external validity. However, both projects are developed by commercial entities. Our technique is dependent on development practices including meaningful commit messages, which might not be true in other domains.
+\textbf{External validity} -- Our data originated from open-source projects in the database domain. Of these, the open-source nature of the project seems most problematic for external validity. However, both projects are developed by commercial entities. Our technique is dependent on development practices including meaningful commit messages, which might not be true in other domains.
 
 \section{Related work}
+
 Part of our effort with this project is to understand the qualitative and intentional aspects of requirements in software evolution, a notion we first discussed in \cite{ernst07icsm}. That idea is derived from, in part, work on narratives of software systems shown in academic work like \cite{anton01}, or more general-purpose works like \cite{waldo93}.
 
 The idea of extracting higher-level `concerns' (also known as `concepts', `aspects' or `requirements') has been attacked in two ways.
@@ -376,7 +393,13 @@ Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed th
 Most of this related research examined project source code. Software mining of other project corpora is less common. Similarities exist with approaches that begin with structured taxonomies, as with the Hismo software ontology \cite{girba06}. Rigby and Hassan \cite{rigby07msr} used a general purpose taxonomy to classify developer email according to temperament.
 
 \section{Conclusions and future work}
-In this paper we showed that a domain specific wordnet for software development provides better accuracy for labelling topic models than unsupervised approaches.
+
+% No we didn't!
+% In this paper we showed that a domain specific wordnet for software % development provides better accuracy for labelling topic models than % unsupervised approaches.
+%
+
+% XXX WRITE THIS
+
 
 This paper has not considered the interpretation of attitudes towards qualities (e.g., do developers feel this helps security).
 
