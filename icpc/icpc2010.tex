@@ -1,6 +1,7 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
-\documentclass[10pt, conference, compsocconf]{IEEEtran}
+%\documentclass[10pt, conference, compsocconf]{IEEEtran}
+\documentclass{acm_proc_article-sp}
 \usepackage{fontspec}
 \usepackage{xunicode}
 \usepackage{xltxtra}
@@ -131,15 +132,15 @@ project. A \emph{label} is part of a title we attach to a topic, whether manuall
 Topic extraction, sometimes called concept extraction, uses tools such as Latent Dirichlet Allocation (LDA)~\cite{Blei2003} and Latent Semantic Indexing (LSI) to extract
 independent word distributions (topics) from
 	documents (commit log comments). Many researchers~\cite{marcus04wcre,Poshyvanyk2007,lukins08wcre,Linstead2007} have applied tools like LSI and LDA for mining repositories, in particular analyzing source code, bugs or developer comments.
-\begin{comments}
+\begin{comment}
 Ideally these extracted topics 
 correlate with actual development topics that the developers discussed
 during the development of the software project. For example, our technique might identify a collection of words: ``list next has iterator add'', which we then identify (manually) as concerning the topics of collections and the Iterator pattern.
-\end{comments}
+\end{comment}
 
 Typically a topic analysis tool like LDA will try to find $N$ independent word distributions found within the word distributions of all the messages. Linear combinations of these $N$ word distributions are then meant to be able to recreate the word distributions of all of the underlying messages. These $N$ word distributions effectively form topics: cross cutting collections of words relevant to 1 or more documents. Our problem is that these topics are not easy to interpret and we feel that automatic labelling or naming of these topics would be helpful with respect to interpreting what a topic is about. LDA's topics extracted in an unsupervised manner, LDA relies solely on the source data with no human intervention.
 
-In topic analysis a single document, such as a commit message, can be related to multiple topics. Representing documents as a mixture of topics maps well to commits to source code repositories, which often have more than one purpose~\cite{hindle09icsm}.  A topic represents both a word distribution and a group of commit log comments that are related to each other by their content.  In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
+In topic analysis a single document, such as a commit message, can be related to multiple topics. Representing documents as a mixture of topics maps well to commits to source code repositories, which often have more than one purpose~\cite{Hindle09ICSM}.  A topic represents both a word distribution and a group of commit log comments that are related to each other by their content.  In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
 
 \begin{comment}
 In this paper we use LDA to identify topics.  LDA works by creating topic models for each period. A topic model is a statistical summary of the important subjects for that dataset.  The input to the algorithm is a set of documents, with contents treated as a bag of words, and a parameter to set the number of topics to generate. The algorithm returns a word-document matrix relating the occurrence frequency of a 
@@ -169,7 +170,7 @@ We wanted to compare two mature software projects, that had open repositories, w
 The MySQL project started in 1994 but MySQL 3.23 was released in early 2001. MySQL contains 320 thousand lines of C and C++ source code. 
 
 \subsection{Generating the data}
-From each project, we used source control commit comments, these are the messages that programmers write when they commit revisions to a source control repository. We leveraged the data that we gathered in \cite{Hindle09ICSM} for this work. An example of a typical commit message is: ``history annotate diffs bug fixed (if mysql\_real\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''. We extracted these messages and indexed them by creation time. We summarized each message as a word distribution but removed stop-words such as   common English words like \emph{the} and \emph{at}.
+From each project, we used source control commit comments, these are the messages that programmers write when they commit revisions to a source control repository. We leveraged the data that we gathered in \cite{Hindle09ICSM} for this work. An example of a typical commit message is: ``history annotate diffs bug fixed (if mysql\_real\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''. We extracted these messages and indexed them by creation time. We summarized each emessage as a word distribution but removed stop-words such as   common English words like \emph{the} and \emph{at}.
 
 From that dataset, we created an XML file which windowed commits into
 monthly windows. This size of period is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze. We applied an Blei's LDA implementation against the word distributions of these commits, and generated list of topics per period. 
@@ -181,8 +182,8 @@ We arbitrarily set the number of topics to generate to $20$, because past experi
 % We would like to `name' our topic models for each period. In this way, we can see how certain words -- subjects -- occur more or less often with each period.
 \end{comment}
 
-Topics are word distributions, essentially ranked lists of words, thus they can be burdensome to interpret and hard to distinguish.
-Once we had topics for each period, we tried to associate them with a label from a list of keywords and related terms. Recall that topics are lists of words and associated frequencies. We performed simple string matching between these topics and our lists, `naming' a topic if it contained that word or words. We used several different word lists for comparison. 
+Topics are word distributions, essentially lists of words ranked by frequency, thus they can be burdensome to interpret and hard to distinguish.
+Once we had topics for each period, we tried to associate them with a label from a list of keywords and related terms. We performed simple string matching between these topics and our lists, `naming' a topic if it contained that word or words. We used several different word lists for comparison. 
 
 Our first list, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519}. That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. The labels we used:
 \begin{quotation}
@@ -195,7 +196,7 @@ portability, flexibility, reliability.
 }
 \end{quotation}
 
-Our second list relied on the ISO quality model~\cite{iso9126}. It describes six high-level quality requirements (listed in Table \ref{tbl:wnsig}). There is some debate about the significance and importance of the terms in this model. However, it is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Bøegh2008},'' which is sufficient for the purposes of this research. However, these terms may not capture all words associated with the labels.  For example, the term ‘user friendly’ is one most would agree is relevant to discussion of usability, but is not in the standard. Therefore we took the words from the taxonomy and expanded them.
+Our second list relied on the ISO quality model (ISO9126)~\cite{iso9126}. It describes six high-level quality requirements (listed in Table \ref{tbl:wnsig}). There is some debate about the significance and importance of the terms in this model. However, it is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Bøegh2008},'' which is sufficient for the purposes of this research. However, these terms may not capture all words associated with the labels.  For example, the term ‘user friendly’ is one most would agree is relevant to discussion of usability, but is not in the standard. Therefore we took the words from the taxonomy and expanded them.
 
 %Cite mockus et al
 To construct our expanded sets, we also used Wordnet~\cite{Fellbaum1998}, an English-language ‘lexical database’ that contains semantic relations between words, including meronymy and synonymy. We then added Boehm’s 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven ‘ilities’ into their respective ISO9126 qualities. We did the same for the quality model produced by McCall et al. \cite{mccall1977}. Finally, we analyzed two mailing lists from the KDE project to enhance the specificity of the sets. We selected KDE-Usability, which focuses on usability discussions for KDE as a whole; and KDE-Konqueror, a list about a long-lived web browser project. For each high-level quality in ISO9126, we first searched for our existing labels; we then randomly sampled twenty-five mail messages that were relevant to that quality, and selected co-occurring terms relevant to that quality. For example, we add the term ‘performance’ to the synonyms for \emph{Efficiency}, since this term occurs in most KDE mail messages that discuss efficiency.
