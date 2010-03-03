@@ -3560,7 +3560,7 @@
       <Author name="julian" count="5"/>
       <Author name="scrappy" count="144"/>
     </Authors>
-    <Topic>
+    <Topic><Annotation name="reliability" /><Annotation name="maintainability" />
       <Document time="838847989." author="scrappy" document="Re-arrange KRBVERS postition  Suggested by: Daniel Kalchev &lt;daniel@digsys.bg&gt; "/>
       <Document time="838449645." author="scrappy" document="Further modifications for fixing createuser bug...  Submitted by: Rick Weldon &lt;rick@wisetech.com&gt; "/>
       <Document time="838427943." author="scrappy" document="Missed a small patch fro mBruce for BSDi "/>
@@ -5456,7 +5456,7 @@
         <Elm word="unsafe" freq="-390.679768149"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="functionality" />
       <Document time="839363873." author="scrappy" document="Fixes:  Previously Postgres95 wouldn't accept 'order by' clauses with fields referred to as '&lt;table&gt;.&lt;field&gt;', e.g.:          select t1.field1, t2.field2 from table1 t1, table2 t2                 order by t2.field2SEMICOLON  This syntax is required by the ODBC SQL spec.  Submitted by: Dan McGuirk &lt;mcguirk@indirect.com&gt; "/>
       <Document time="838092640." author="scrappy" document="More of Dr. George's changes...         - src/backend/catalog/*                 - no changes         - src/backend/executor/*                 - change how nodeHash.c handles running out of memory         - src/backend/optimizer/*                 - mostly cosmetic changes "/>
       <Document time="838090767." author="scrappy" document="More merges from Dr. George's tree...         - src/backend/tcop/*                 - cosmetic changes to OPENLINK patches         - src/backend/storage/*                 - more changes, mostly cosmetic         - src/backend/ports/*                 - merge in patches for aix and i386_solaris "/>
@@ -7348,7 +7348,7 @@
         <Elm word="unsafe" freq="-245.663938341"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="reliability" />
       <Document time="839306412." author="julian" document="added patch from kurt that fixes memory leak (didn't free line buffer for slash commands) "/>
       <Document time="838637641." author="scrappy" document="Modifications for bsdi from Kurt(sp?) "/>
       <Document time="838448875." author="scrappy" document="My patch to fe-connect.c introduced a new bug which is triggered only, if Kerberos is being used (attempt to free static memory). The error was caused by a confusing doublespeak of fe_getauthname(): Returns a pointer to static memory, if you authenticate via Kerberos, a pointer to dynamic memory otherwise.  Submitted by: Erich Stamberger &lt;eberger@gewi.kfunigraz.ac.at&gt; "/>
@@ -8379,7 +8379,7 @@
         <Elm word="variables" freq="-389.240839166"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="maintainability" /><Annotation name="reliability" />
       <Document time="838943206." author="scrappy" document="Fixes:  make TCL conditinal compilation work  Submitted by: Dr_George_D_Detlefsen &lt;drgeorge@madmax.ilt.com&gt; "/>
       <Document time="838853940." author="scrappy" document="Move port includes from bin/pg_dump/Makefile to Makefile.global "/>
       <Document time="838853749." author="scrappy" document="Move port includes from bin/pg_dump/Makefile to Makefile.global "/>
@@ -9422,7 +9422,7 @@
         <Elm word="unsafe" freq="-389.913783644"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="portability" /><Annotation name="reliability" />
       <Document time="838853296." author="scrappy" document="This prevent gcc from complaining about casting a short to a char * and fixes another complaint.  More fixes from Bruce... "/>
       <Document time="838853207." author="scrappy" document="This prevent gcc from complaining about casting a short to a char * and fixes another complaint.  More fixes from Bruce... "/>
       <Document time="838551255." author="scrappy" document="small port fixes for sparc_solaris  submitted by: jason "/>
@@ -10462,7 +10462,7 @@
         <Elm word="unsafe" freq="-245.616844464"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="reliability" />
       <Document time="839210413." author="scrappy" document="Fix a bug in pg_class  submitted by: &quot;Peter Daum&quot; &lt;gator@cs.tu-berlin.de&gt; "/>
       <Document time="838807786." author="scrappy" document="A &quot;lost in the archives&quot; patch from Chris Dunlop &lt;chris@atlas.onthe.net.au&gt; "/>
       <Document time="838687944." author="scrappy" document="clean up /tmp behind itself  submitted by: bruce "/>
@@ -11503,7 +11503,7 @@
         <Elm word="unsafe" freq="-389.412410997"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="functionality" />
       <Document time="839364677." author="scrappy" document="Fixes:  Also, I think that an extra source of noise in the diff of regress.out and expected.out is caused by not substituting the shared library file extension in the regression.input file (much like the paths and the usernames are sub'ed). This seems to be fixed with the following patches to regression.input and the Makefile... If I'm off base here, please tell!  Submitted by:  Wayde Nie &lt;niew@phoenix.cis.mcmaster.ca&gt; "/>
       <Document time="837774854." author="scrappy" document="Fixes:  Select queries with an isnull or notnull clause, like &quot;select * where somefield isnull&quot;, crash the backend if the table has at least one index. If the indices are deleted the queries work again. Also the explain command fail in the same way. The is caused by a bug in subroutine of the optimizer which doesn't check null values in the clauses.  Submitted by: Massimo Dal Zotto &lt;dz@cs.unitn.it&gt; "/>
       <Document time="837774806." author="scrappy" document="Fixes:  Select queries with an isnull or notnull clause, like &quot;select * where somefield isnull&quot;, crash the backend if the table has at least one index. If the indices are deleted the queries work again. Also the explain command fail in the same way. The is caused by a bug in subroutine of the optimizer which doesn't check null values in the clauses.  Submitted by: Massimo Dal Zotto &lt;dz@cs.unitn.it&gt; "/>
@@ -12531,7 +12531,7 @@
         <Elm word="unsafe" freq="-390.130210814"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="reliability" /><Annotation name="portability" />
       <Document time="838848913." author="scrappy" document="Fix for &lt;machine.h&gt; bug  Submitted by: Bruce "/>
       <Document time="838727243." author="scrappy" document="More cleanups by &quot;Kurt J. Lidl&quot; &lt;lidl@va.pubnix.com&gt; "/>
       <Document time="838727097." author="scrappy" document="More cleanups by &quot;Kurt J. Lidl&quot; &lt;lidl@va.pubnix.com&gt; "/>
@@ -13599,7 +13599,7 @@
         <Elm word="unsafe" freq="-390.234812129"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="functionality" /><Annotation name="reliability" />
       <Document time="839363268." author="scrappy" document="Fixes:  While a normal SELECT statement can contain a GROUP BY clause, a cursor declaration cannot. This was not the case in PG-1.0. Was there a good reason why this was changed? Are cursors being phased out? Is there any way to get data with just a SELECT (and without a DECLARE CURSOR ...)?  The patch below seems to fix things. If anyone can see a problem with it, please let me know. Thanks.  Submitted by:  David Smith &lt;dasmith@perseus.tufts.edu&gt; "/>
       <Document time="838793483." author="scrappy" document="Fixes:          updates the psql.1 manual page for BACKSLASH options         add row count and ties it to the header option         updated manual pages and comment for above change         got BACKSLASH? to display in one screen-full (almost, BACKSLASH? scrolls off top)         moved BACKSLASHr to BACKSLASHE, and BACKSLASHz to BACKSLASHr (for historical reasons with monitor)         small code alignment cleanup  Submitted by: Bruce Momjian &lt;maillist@candle.pha.pa.us&gt; "/>
       <Document time="838291595." author="julian" document="Large re-write/enhancement. In pg-101 Jolly only included a smaller part of my (proff) patch. This is the rest of it, with a few, mainly aesthetic changes. I've removed a lot of redundency from the original code, added support for the new PQprint() routines in libpq, expanded tables, and a few generally nifty ways of massaging data in and out of the backend. Still needs some good stress testing. "/>
@@ -14637,7 +14637,7 @@
         <Elm word="unsafe" freq="-390.637058766"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="functionality" /><Annotation name="maintainability" />
       <Document time="838688322." author="scrappy" document="The decode function in psql.c doesn't return anything, so its declaration is incorrect.  -Kurt "/>
       <Document time="838290071." author="julian" document="PQprint() routines. The older code is still there for historical compatibility. There isn't much difference here against my previous PQprint() code, except that you can add optional arguments to the &lt;table args&gt; in html. "/>
       <Document time="838269002." author="scrappy" document="comment out USE_TCL...having USE_TCL=true seems to imply that you have to have TCL to use postgres95, which you don't "/>
@@ -15674,7 +15674,7 @@
         <Elm word="place" freq="-245.432826619"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="portability" /><Annotation name="functionality" />
       <Document time="839219107." author="scrappy" document="Fixes:  Someone asked me if the bpchar type could be extended to do case-insensitive regular expression searches.   Submitted by: &quot;Alistair G. Crooks&quot; &lt;azcb0@juts.ccc.amdahl.com&gt; "/>
       <Document time="838853038." author="scrappy" document="More patches for BSDi from Bruce "/>
       <Document time="838794498." author="scrappy" document="already exists in the contrib directory "/>
@@ -16726,7 +16726,7 @@
         <Elm word="unsafe" freq="-389.892684819"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="portability" /><Annotation name="reliability" />
       <Document time="838794578." author="scrappy" document="Moved src/extend to contrib "/>
       <Document time="838551388." author="scrappy" document="fixes: It appears several routines use lcons to store integers rather than pointers.  submitted by: bruce "/>
       <Document time="838550922." author="julian" document="bugfix: if NOREADLINE was not defined and input was not from a tty, then         the getopt() was not executed. "/>
@@ -17782,7 +17782,7 @@
         <Elm word="unsafe" freq="-245.546155305"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="maintainability" /><Annotation name="portability" />
       <Document time="838963440." author="scrappy" document="Okay...*last* commit, now to create a release...  README file for regresssion tests from Dr. George "/>
       <Document time="838852809." author="scrappy" document="Row count patch from Bruce "/>
       <Document time="838794059." author="scrappy" document="Added &lt;sys/termios.h&gt; for i386_solaris port  Submitted by: Dr_George_D_Detlefsen &lt;drgeorge@ilt.com&gt; "/>
@@ -18816,7 +18816,7 @@
         <Elm word="variables" freq="-389.102853423"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="reliability" />
       <Document time="838341406." author="scrappy" document="Fix applied for NESTLOOP bug  submitted by: vadim@sable.krasnoyarsk.su (Vadim B. Mikheev) "/>
       <Document time="838294092." author="scrappy" document="moved the FLEX stuf from Makefile.global to here "/>
       <Document time="838292066." author="scrappy" document="Removed monitor from compile/install (will eventually be removed completely) "/>
@@ -19849,7 +19849,7 @@
         <Elm word="unsafe" freq="-245.729276394"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="functionality" />
       <Document time="838450511." author="scrappy" document="and now, the long awaited PAGER patches from Bruce...  Submitted by: Bruce Momjian &lt;maillist@candle.pha.pa.us&gt; "/>
       <Document time="838107311." author="scrappy" document="Alot of &quot;changes&quot; from Dr. George's source tree...  Most of the changes in here look to b epurely cosmetic, and don't affect anything...  ...and some stuff is completely questionable...in that I may have reversed some of the stuf fwe already had :( "/>
       <Document time="838105523." author="scrappy" document="spelling error...and correction "/>
@@ -20892,7 +20892,7 @@
         <Elm word="unsafe" freq="-389.344758649"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="none" />
       <Document time="839362602." author="scrappy" document="Fixes for:  Here are a few minor fixes to Postgres95.  Mostly I have added const to some of the char pointers.  There was also a missing header file and a place where it looks like &quot;==&quot; was used when &quot;=&quot; was meant. I also changed some variables from Pfin and Pfout tp pfin and pfout because the latter shadow global variables and that just seems like an unsafe practice which I like to avoid.  Submitted by:  &quot;D'Arcy J.M. Cain&quot; &lt;darcy@druid.druid.com&gt; "/>
       <Document time="837770901." author="scrappy" document="fixes for textcat(), but headers were missing from archive :( "/>
       <Files>
@@ -21920,7 +21920,7 @@
         <Elm word="Removed" freq="-648.981717683"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="portability" /><Annotation name="maintainability" /><Annotation name="reliability" />
       <Document time="839364186." author="scrappy" document="Fixes:  I've enclosed two patches.  The first affects Solaris compilability.  The bug stems from netdb.h (where MAXHOSTNAMELEN is defined on a stock system).  If the user has installed the header files from BIND 4.9.x, there will be no definition of MAXHOSTNAMELEN.  The patch will, if all else fails, try to include &lt;arpa/nameser.h&gt; and set MAXHOSTNAMELEN to MAXDNAME, which is 256 (just like MAXHOSTNAMELEN on a stock system).  The second patch adds aliases for &quot;ISNULL&quot; to &quot;IS NULL&quot; and likewise for &quot;NOTNULL&quot; to &quot;IS NOT NULL&quot;.  I have not removed the postgres specific ISNULL and NOTNULL.  I noticed this on the TODO list, and figured it would be easy to remove.  The full semantics are:         [ expression IS NULL ]         [ expression IS NOT NULL ]  --Jason   Submitted by: Jason Wright &lt;jason@oozoo.vnet.net&gt; "/>
       <Document time="838890693." author="scrappy" document="Fixes:  Originally, I thought the problem was caused by a function that gets called as a normal function where we want to return a value, and as a signal handler where we need to have it accept a parameter (the signal number) and it returns nothing, I was going to case the function name in the signal call as (void (*)(int)).  Looking at all the source, it turns out this function only gets used as a signal handler, so I set an int parameter and return void.  I have removed the Linux defines because they are not needed.  BSD let this sloppiness slide.  Linux gave a compile error.   Submitted by: Bruce Momjian &lt;maillist@candle.pha.pa.us&gt; "/>
       <Document time="838890616." author="scrappy" document="Fixes:  Originally, I thought the problem was caused by a function that gets called as a normal function where we want to return a value, and as a signal handler where we need to have it accept a parameter (the signal number) and it returns nothing, I was going to case the function name in the signal call as (void (*)(int)).  Looking at all the source, it turns out this function only gets used as a signal handler, so I set an int parameter and return void.  I have removed the Linux defines because they are not needed.  BSD let this sloppiness slide.  Linux gave a compile error.   Submitted by: Bruce Momjian &lt;maillist@candle.pha.pa.us&gt; "/>
@@ -22957,7 +22957,7 @@
         <Elm word="unsafe" freq="-391.232274902"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="functionality" /><Annotation name="reliability" />
       <Document time="838890269." author="scrappy" document="Change the TEMPDIR to be obj instead of /tmp  Suggested by: Michael Babcock &lt;michael@kanji.com&gt; "/>
       <Document time="838687901." author="scrappy" document="Change ordering of &quot;user modified variables&quot; so that they are at the top of th efile instead of scattered throughout  Turned off default behavior of compiling with -g enabled  submitted bySEMICOLON bruce "/>
       <Document time="838425801." author="scrappy" document="Minor bug fix "/>
@@ -23992,7 +23992,7 @@
         <Elm word="unsafe" freq="-389.970125398"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="reliability" />
       <Document time="839377394." author="julian" document="applied kurt's patch to fix unlikely, but potential, string underflow problem in psql "/>
       <Document time="839361956." author="scrappy" document="Had a space in CFLAGS+= -I ..  Submitted by:  Andrew Martin &lt;martin@biochemistry.ucl.ac.uk&gt; "/>
       <Document time="838727760." author="scrappy" document="Fixes:  &gt;   INDEXED searches in some cases DO NOT WORK. &gt;   Although simple search expressions (i.e. with a constant value on &gt; the right side of an operator) work, performing a join (by putting &gt; a field of some other table on the right side of an operator) produces &gt; empty output. &gt;   WITHOUT indices, everything works fine. &gt;  submitted by: &quot;Vadim B. Mikheev&quot; &lt;root@ais.sable.krasnoyarsk.su&gt; "/>
@@ -25040,7 +25040,7 @@
         <Elm word="Hash" freq="-664.989340022"/>
       </Elements>
     </Topic>
-    <Topic>
+    <Topic><Annotation name="portability" /><Annotation name="reliability" />
       <Document time="839207003." author="scrappy" document="Quick patch for compiling under BSD/OS 2.0 from Bruce "/>
       <Document time="838963085." author="scrappy" document="Update to expected.input from Dr. George "/>
       <Document time="838889602." author="scrappy" document="An actual README file for the regression tests  Submitted by: Dr. George "/>
