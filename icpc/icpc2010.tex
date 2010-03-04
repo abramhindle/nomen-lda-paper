@@ -402,8 +402,11 @@ We applied the Mulan library for Multi-Label learning to our dataset because we 
 
 Another aspect of multi-label learning is the micro versus macro measurements. Macro measurements are aggregated at a class or label level. Micro measurements are aggregated at a decision level. So a macro-ROC measurment is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. Unfortunately for MaxDB the macro-ROC values are undefined because of poor performance of one of the labels.
 
-Binary Relevance, CLR and HOMER did \XXX{finish this}
+\XXX{Maybe cite these} Binary Relevance (BR), Calibrated Label Ranking (CLR) and Hierarchy Of Multilabel classifiERs (HOMER), performed the best. HOMER and BR acts as a hierarchy of learners, BR is flat while HOMER tries to build a deeper hierarchy in order to build a more accurate learner. We feels these classifiers performed because because they have the best micro and macro ROC scores
 
+
+\XXX{finish this}
+\XXX{Clean up tables with labels}
 \begin{table*}
 \begin{tabular}{l|rrrrrrrr}
 
@@ -423,7 +426,7 @@ example-Recall & 0.65 & 0.46 & 0.58 & 0.44 & 0.47 & 0.43 & 0.37 & 0.52 \\
 
 example-SubsetAccuracy & 0.19 & 0.24 & 0.31 & 0.24 & 0.23 & 0.23 & 0.20 & 0.31 \\
 
-label-macro-AUC & 0.74 & 0.66 & 0.64 & 0.60 & 0.56 & 0.58 & 0.59 & 0.67 \\
+label-macro-ROC & 0.74 & 0.66 & 0.64 & 0.60 & 0.56 & 0.58 & 0.59 & 0.67 \\
 
 label-macro-F1 & 0.46 & 0.30 & 0.43 & 0.28 & 0.32 & 0.27 & 0.22 & 0.39 \\
 
@@ -431,7 +434,7 @@ label-macro-Precision & 0.41 & 0.41 & 0.49 & 0.39 & 0.37 & 0.34 & 0.34 & 0.52 \\
 
 label-macro-Recall & 0.56 & 0.26 & 0.40 & 0.24 & 0.31 & 0.23 & 0.19 & 0.33 \\
 
-label-micro-AUC & 0.81 & 0.81 & 0.77 & 0.77 & 0.66 & 0.80 & 0.80 & 0.79 \\
+label-micro-ROC & 0.81 & 0.81 & 0.77 & 0.77 & 0.66 & 0.80 & 0.80 & 0.79 \\
 
 label-micro-F1 & 0.59 & 0.53 & 0.61 & 0.51 & 0.50 & 0.51 & 0.45 & 0.59 \\
 
@@ -513,6 +516,22 @@ rank-Ranking Loss & 0.41 & 0.35 & 0.41 & 0.58 & 0.60 & 0.32 & 0.33 & 0.46 \\
 \subsection{Visualization}
 
 \XXX{We need to have some of the visualizations here}
+
+\begin{figure*}
+  \centering
+  \includegraphics[height=.9\textheight]{small-maxdb-time-smear-plot-Equal}
+  \caption{MaxDB: Labelled topics over time}
+  \label{fig:maxdb}
+\end{figure*}
+
+\begin{figure*}
+  \centering
+  \includegraphics[width=.99\textwidth]{small-mysql-time-smear-plot-Equal}
+  \caption{MySQL: Labelled topics over time}
+  \label{fig:mysql}
+\end{figure*}
+
+
 
 \subsection{Comparing topic use between projects}
 
