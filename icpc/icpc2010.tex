@@ -349,8 +349,39 @@ mysql exp3 & portability & 0.413 & 0.170 & 0.564 & 0.325 & 0.574 \\
 \end{table*}
 
 \subsection{Classifying topics}
-%XXX oh god more more more wtf
-We present a ROC chart in Fig. \ref{}. The chart shows each learner measured in terms of precision and recall. In general, we prefer techniques which are closer to the upper-left corner (maximizing precision and maximizing recall). 
+
+%XXX Describe table 
+
+We present a ROC chart in Figure \ref{fig:best-learn-per-tag}. The chart shows each learner measured in terms of precision and recall. In general, we prefer techniques which are closer to the upper-left corner (maximizing precision and maximizing recall). 
+
+% Cribbed from: 
+% src/validate/latex-out/best-learner-per-project-roc-table.tx
+\begin{table*}
+\begin{tabular}{ccc|rrrr}
+Word & Project & Learner & ROC & ZeroR Acc. & ZeroR. Diff & Fmeasure\\
+\hline
+portability &  mysql &  NaiveBayesMultinomial &  0.74 &  58.53 &  11.43 &  0.70  \\ 
+efficiency &  mysql &  NaiveBayes &  0.67 &  93.69 &  -7.68 &  0.88 \\ 
+reliability &  mysql &  NaiveBayes &  0.73 &  83.11 &  -12.80 &  0.74 \\ 
+functionality &  mysql &  DMNBtext &  0.81 &  54.44 &  21.67 &  0.76 \\ 
+maintainability &  mysql &  DMNBtext &  0.78 &  76.62 &  3.41 &  0.75 \\ 
+usability &  mysql &  NaiveBayes &  0.75 &  94.54 &  -5.80 &  0.90  \\ 
+ \hline 
+portability &  maxdb &  NaiveBayes &  0.84 &  77.12 &  2.06 &  0.80 \\ 
+efficiency &  maxdb &  NaiveBayes &  0.62 &  88.43 &  -11.31 &  0.79 \\ 
+reliability &  maxdb &  DMNBtext &  0.84 &  89.46 &  3.86 &  0.92  \\ 
+functionality &  maxdb &  NaiveBayes &  0.67 &  91.26 &  -6.94 &  0.86  \\ 
+maintainability &  maxdb &  NaiveBayes &  0.70 &  79.43 &  -9.25 &  0.72  \\ 
+usability &  maxdb &  NaiveBayes &  0.56 &  95.37 &  -4.37 &  0.91  \\ 
+ \hline 
+\end{tabular}
+\caption{Per label, per project, the best learner for that label}
+\label{fig:best-learner-per-tag}
+\end{table*}
+
+\subsection{Classifying multiple topic tagging}
+
+%XXX put mulan stuff here
 
 \subsection{Comparing topic use between projects}
 
