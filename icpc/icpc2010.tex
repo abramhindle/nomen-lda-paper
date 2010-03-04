@@ -189,7 +189,7 @@ In this paper, we employ the WEKA and Mulan machine learning frameworks in order
 We wanted to compare two mature software projects, that had open repositories, within the same application domain. This allows us to partially control for differences in functional requirements. We selected MySQL and MaxDB, open-source, near-commercial quality database software. MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project has 940 thousand lines of C source code~\footnote{generated using David A. Wheeler's \emph{SLOCCount}.}.
 %How many developers?
 %There are approximately ... developers working on it. 
-\{XXX version #?}
+\XXX{version number?}
 The MySQL project started in 1994 but MySQL 3.23 was released in early 2001. MySQL contains 320 thousand lines of C and C++ source code. 
 
 \subsection{Generating the data}
@@ -357,7 +357,13 @@ mysql exp3 & portability & 0.413 & 0.170 & 0.564 & 0.325 & 0.574 \\
 
 \XXX{Describe learners}
 
-We present a ROC chart in Figure \ref{fig:best-learn-per-tag}. The chart shows each learner measured in terms of precision and recall. In general, we prefer techniques which are closer to the upper-left corner (maximizing precision and maximizing recall). 
+We took our annotated dataset and applied supervised learner to it. Because our dataset was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well.  Table \ref{tab:best-learn-per-tag} shows the performance of the best performing learner per label.  We considered the best learner for a label to be the one which had the highest ROC value for that label. Table \ref{tab:best-learn-per-tag} shows the ROC value, the accuracy of a ZeroR learner ( a learner which just chooses the largest category all of the time), the difference in accuracy between the best learner and ZeroR, and the F-measure for that particular learner. The ZeroR difference is often negative, but in particular for labels which are not as common this can be expected because any miscategorization will hurt accuracy, this is why the Fmeasure and the ROC values are useful as they can better present performance on labels which are not applicable to the majority of samples.
+
+Table \ref{tab:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, the ROC values for reliability and functionality seem swapped between projects. It should be noted that for both project Bayesian techniques did the best out of a wide variety of machine learners tested. Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes theorem and all assume, naively, that the features are independent. The features we used are word counts per message. One beneficial aspect of this result is that it suggests we can have very fast training times since Naive Bayes can be calculated in $O(N)$ for $N$ features.
+%http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
+
+It seems like the smaller the label the harder it is to get accurate results. Although these results seem better than our previous word bag results of \textsf{exp2} and \textsf{exp3}.
+
 
 % Cribbed from: 
 % src/validate/latex-out/best-learner-per-project-roc-table.tx
@@ -381,10 +387,22 @@ usability &  maxdb &  NaiveBayes &  0.56 &  95.37 &  -4.37 &  0.91  \\
  \hline 
 \end{tabular}
 \caption{Per label, per project, the best learner for that label}
-\label{fig:best-learner-per-tag}
+\label{tab:best-learner-per-tag}
 \end{table*}
 
-\subsection{Classifying multiple topic tagging}
+\XXX{What are some words that these classifiers liked?}
+
+\XXX{Summarize the numeric results, is it good/bad}
+
+The limitation of the approach we took here is that we only checked independently for each label. Labels could be correlated with each other, as well as we did not evaluate how well the learners performed together.
+
+\subsection{Applying multiple labels to topics}
+
+We applied the Mulan library for Multi-Label learning to our dataset because we feel that topics can have more like one label, much like how a revision can have more than one topic. Multi-label learning is more than just classifying entities with more than one label. It also includes methods for determining the performance of such techniques. Consider that the problem has changed, instead of looking at the precision and recall of applying one label, we have to rank multiple labels at once. We have to check if the full subset of labels was applied and then how much of that subset was applied.
+
+Another aspect of multi-label learning is the micro versus macro measurements. Macro measurements are aggregated at a class or label level. Micro measurements are aggregated at a decision level. So a macro-ROC measurment is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. Unfortunately for MaxDB the macro-ROC values are undefined because of poor performance of one of the labels.
+
+Binary Relevance, CLR and HOMER did \XXX{finish this}
 
 \begin{table*}
 \begin{tabular}{l|rrrrrrrr}
@@ -491,6 +509,11 @@ rank-Ranking Loss & 0.41 & 0.35 & 0.41 & 0.58 & 0.60 & 0.32 & 0.33 & 0.46 \\
 \XXX{Compare the results of Exp2 and Exp3}
 %    versus the mulan results and weka results
 
+
+\subsection{Visualization}
+
+\XXX{We need to have some of the visualizations here}
+
 \subsection{Comparing topic use between projects}
 
 \XXX{do we have time here}
@@ -498,6 +521,10 @@ rank-Ranking Loss & 0.41 & 0.35 & 0.41 & 0.58 & 0.60 & 0.32 & 0.33 & 0.46 \\
 \subsection{Topic change over time}
 
 \XXX{I don't know!}
+
+\subsection{Results Discussion}
+
+\XXX{Discuss how these are CHEAP techniques and although somewhat inaccurate they don't require a tonne of work}
 
 \subsection{Threats to validity}
 \textbf{Construct validity} -- Focus on code commit messages, rather than mail or bug trackers. Choice of taxonomy
@@ -543,6 +570,8 @@ Most of this related research examined project source code. Software mining of o
 This paper has not considered the interpretation of attitudes towards qualities (e.g., do developers feel this helps security).
 
 It is difficult to map abstract qualities to particular messages. If the message is about a particular bug fix, do we map that to reliability? Maintainability? Is it a performance bug or a usability bug? Is a `quality' discussion about more than just corrective maintenance, in other words? In this study we take the position that any type of maintenance has to do with software quality.
+
+\XXX{Boost/COmbine wordbag w/ bayes}
 
 \section{Acknowledgements and appendix}
 Our data and scripts are available at \url{http://softwareprocess.es/icpc2010}
