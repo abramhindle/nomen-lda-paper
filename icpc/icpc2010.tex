@@ -381,6 +381,104 @@ usability &  maxdb &  NaiveBayes &  0.56 &  95.37 &  -4.37 &  0.91  \\
 
 \subsection{Classifying multiple topic tagging}
 
+\begin{table*}
+\begin{tabular}{l|rrrrrrrr}
+
+  & BR & CLR & HOMER & IncludeLabels & LP & MLStacking & MLkNN & RAkEL \\
+
+\hline \\
+
+example-Accuracy & 0.45 & 0.40 & 0.50 & 0.40 & 0.40 & 0.38 & 0.33 & 0.48 \\
+
+example-Fmeasure & 0.56 & 0.48 & 0.59 & 0.47 & 0.49 & 0.46 & 0.40 & 0.55 \\
+
+example-HammingLoss & 0.24 & 0.19 & 0.18 & 0.19 & 0.23 & 0.19 & 0.20 & 0.17 \\
+
+example-Precision & 0.50 & 0.51 & 0.60 & 0.52 & 0.52 & 0.50 & 0.44 & 0.60 \\
+
+example-Recall & 0.65 & 0.46 & 0.58 & 0.44 & 0.47 & 0.43 & 0.37 & 0.52 \\
+
+example-SubsetAccuracy & 0.19 & 0.24 & 0.31 & 0.24 & 0.23 & 0.23 & 0.20 & 0.31 \\
+
+label-macro-AUC & 0.74 & 0.66 & 0.64 & 0.60 & 0.56 & 0.58 & 0.59 & 0.67 \\
+
+label-macro-F1 & 0.46 & 0.30 & 0.43 & 0.28 & 0.32 & 0.27 & 0.22 & 0.39 \\
+
+label-macro-Precision & 0.41 & 0.41 & 0.49 & 0.39 & 0.37 & 0.34 & 0.34 & 0.52 \\
+
+label-macro-Recall & 0.56 & 0.26 & 0.40 & 0.24 & 0.31 & 0.23 & 0.19 & 0.33 \\
+
+label-micro-AUC & 0.81 & 0.81 & 0.77 & 0.77 & 0.66 & 0.80 & 0.80 & 0.79 \\
+
+label-micro-F1 & 0.59 & 0.53 & 0.61 & 0.51 & 0.50 & 0.51 & 0.45 & 0.59 \\
+
+label-micro-Precision & 0.51 & 0.69 & 0.66 & 0.71 & 0.53 & 0.70 & 0.69 & 0.73 \\
+
+label-micro-Recall & 0.68 & 0.43 & 0.56 & 0.41 & 0.48 & 0.41 & 0.34 & 0.49 \\
+
+rank-AvgPrecision & 0.76 & 0.77 & 0.69 & 0.72 & 0.53 & 0.74 & 0.76 & 0.73 \\
+
+rank-Coverage & 1.51 & 1.47 & 1.94 & 1.72 & 2.99 & 1.57 & 1.54 & 2.00 \\
+
+rank-One-error & 0.40 & 0.39 & 0.47 & 0.44 & 0.63 & 0.43 & 0.40 & 0.36 \\
+
+rank-Ranking Loss & 0.19 & 0.18 & 0.27 & 0.22 & 0.52 & 0.20 & 0.19 & 0.28 \\
+
+\end{tabular}
+\caption{Mysql Mulan results per Mulan learner}
+\end{table*}
+
+
+\begin{table*}
+% Cribbed from:
+% src/validate/output/maxdb.mulan.out.tex
+\begin{tabular}{l|rrrrrrrr}
+
+  & BR & CLR & HOMER & IncludeLabels & LP & MLStacking & MLkNN & RAkEL \\
+
+\hline \\
+
+example-Accuracy & 0.49 & 0.47 & 0.51 & 0.44 & 0.42 & 0.47 & 0.43 & 0.48 \\
+
+example-Fmeasure & 0.55 & 0.50 & 0.53 & 0.45 & 0.44 & 0.48 & 0.43 & 0.50 \\
+
+example-HammingLoss & 0.19 & 0.14 & 0.14 & 0.14 & 0.17 & 0.13 & 0.13 & 0.13 \\
+
+example-Precision & 0.50 & 0.49 & 0.53 & 0.45 & 0.45 & 0.49 & 0.43 & 0.51 \\
+
+example-Recall & 0.61 & 0.50 & 0.53 & 0.45 & 0.43 & 0.47 & 0.43 & 0.50 \\
+
+example-SubsetAccuracy & 0.40 & 0.43 & 0.45 & 0.43 & 0.38 & 0.43 & 0.43 & 0.43 \\
+
+label-macro-AUC & NaN & NaN & NaN & NaN & NaN & NaN & NaN & NaN \\
+
+label-macro-F1 & 0.32 & 0.19 & 0.23 & 0.11 & 0.19 & 0.12 & 0.00 & 0.26 \\
+
+label-macro-Precision & 0.29 & 0.31 & 0.32 & 0.21 & 0.23 & 0.18 & 0.00 & 0.40 \\
+
+label-macro-Recall & 0.38 & 0.15 & 0.20 & 0.08 & 0.17 & 0.10 & 0.00 & 0.23 \\
+
+label-micro-AUC & 0.76 & 0.66 & 0.62 & 0.55 & 0.62 & 0.68 & 0.65 & 0.68 \\
+
+label-micro-F1 & 0.39 & 0.27 & 0.34 & 0.13 & 0.25 & 0.21 & 0.00 & 0.34 \\
+
+label-micro-Precision & 0.34 & 0.42 & 0.49 & 0.33 & 0.30 & 0.49 & 0.00 & 0.49 \\
+
+label-micro-Recall & 0.47 & 0.21 & 0.26 & 0.09 & 0.22 & 0.14 & 0.00 & 0.27 \\
+
+rank-AvgPrecision & 0.54 & 0.57 & 0.54 & 0.40 & 0.40 & 0.60 & 0.58 & 0.51 \\
+
+rank-Coverage & 1.40 & 1.23 & 1.43 & 1.84 & 1.93 & 1.16 & 1.20 & 1.54 \\
+
+rank-One-error & 0.81 & 0.79 & 0.81 & 0.90 & 0.89 & 0.76 & 0.79 & 0.79 \\
+
+rank-Ranking Loss & 0.41 & 0.35 & 0.41 & 0.58 & 0.60 & 0.32 & 0.33 & 0.46 \\
+
+\end{tabular}
+
+\caption{Maxdb Mulan results per Mulan learner}
+
+\end{table*}
 %XXX put mulan stuff here
 
 \subsection{Comparing topic use between projects}
