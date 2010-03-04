@@ -11,6 +11,8 @@
 %\usepackage{amsthm}
 \usepackage{color}
 
+\newcommand{\XXX}[1]{\textcolor{red}{{\it \textbf{[XXX: #1]}}}}
+
 
 \usepackage{comment}
 \newtheorem{mydef}{definition}
@@ -303,7 +305,8 @@ For \textsf{exp2}, there are many more unnamed topics. Only reliability produces
 For \textsf{exp3}, we had many more named topics. As we mentioned, the wordlists are quite broad, so there are likely to be false-positives. See the following sections for our error analysis. We found a high of 265 topics for usability, with a low of 44 topics for maintainability. Common co-occurrences were reliability and usability, efficiency and reliability, and efficiency and usability (200, 190, and 150 topics in common, respectively). 
 
 \subsubsection{Analysing the unsupervised labeling}
-Based on the labels, and our manual topic labeling, we compared the results of the unsupervised word matching approach. For each quality we tried to assess whether the manual tag matched the unsupervised label assigned. Table \ref{tbl:maxdb-unsup-results} shows our results for MaxDB. In general results are poor. Using the F-Measure, the weighted average of precision and recall, where 1 is perfect, our best results are 0.6, a few at 0.4, and most around 0.2. Similar results using the Matthew's correlation coefficient (used to measure efficacy where classes are of different sizes), and the receiver operating characteristic area under curve. 
+
+Based on the labels, and our manual topic labeling, we compared the results of the unsupervised word matching approach. For each quality we tried to assess whether the manual tag matched the unsupervised label assigned. Table \ref{tbl:maxdb-unsup-results} shows our results for MaxDB and MySQL. In general results are poor. Using the F-Measure, the weighted average of precision and recall, where 1 is perfect, our best results are 0.6, a few at 0.4, and most around 0.2. Similar results using the Matthew's correlation coefficient (used to measure efficacy where classes are of different sizes), and the receiver operating characteristic area under curve. 
 
 \begin{table*}[h]
 	\caption{Results for automatic topic labeling. f1 = f-measure, mcc = Matthew's correlation coeff., ROC = Area under ROC curve}
@@ -351,6 +354,8 @@ mysql exp3 & portability & 0.413 & 0.170 & 0.564 & 0.325 & 0.574 \\
 \subsection{Classifying topics}
 
 %XXX Describe table 
+
+%XXX Describe learners
 
 We present a ROC chart in Figure \ref{fig:best-learn-per-tag}. The chart shows each learner measured in terms of precision and recall. In general, we prefer techniques which are closer to the upper-left corner (maximizing precision and maximizing recall). 
 
@@ -480,6 +485,11 @@ rank-Ranking Loss & 0.41 & 0.35 & 0.41 & 0.58 & 0.60 & 0.32 & 0.33 & 0.46 \\
 
 \end{table*}
 %XXX put mulan stuff here
+
+\subsection{Summary of techniques}
+
+%XXX Compare the results of Exp2 and Exp3 
+%    versus the mulan results and weka results
 
 \subsection{Comparing topic use between projects}
 
