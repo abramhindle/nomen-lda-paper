@@ -103,7 +103,7 @@ If a topic has a name or a label we immediately understand and register what it 
 Traditionally topic extraction has required manual annotation to derive domain-relevant information. This paper attempts to implement \emph{labelled topic extraction}, topic extracted are given labels relating to a cross-project taxonomy. This is an ontological approach where we attempt to relate networks of words to labels and then search for these terms in our topic. We also compare this approach to machine leaners.
 %We start with an unsupervised topic learning algorithm, then manually %annotate the topics using the ontology. From the annotated topics, we %apply automated classifiers to find labels for the remaining topics. 
 
-% XXX Not sure about this
+\XXX{Not sure about this}
 \begin{comment}
 Typically what is distinct is the software's particular functionality -- whether it offers email composition, prepares tax returns, and so on. What is common, however, is the non-functional, or quality requirements, that the software focuses on. Our approach makes use of software quality taxonomies in order to compare different projects on similar concepts. For example, how is the Security quality treated over time by product A versus product B? Does product A care about it more as it matures? Does the quality occur more often in software commits?
 \end{comment}
@@ -185,11 +185,11 @@ In this paper, we employ the WEKA and Mulan machine learning frameworks in order
 % depicts the general process for processing and analyzing the commit messages.
 \end{comment}
 
-% XXX how many do we have
+\XXX{how many do we have}
 We wanted to compare two mature software projects, that had open repositories, within the same application domain. This allows us to partially control for differences in functional requirements. We selected MySQL and MaxDB, open-source, near-commercial quality database software. MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project has 940 thousand lines of C source code~\footnote{generated using David A. Wheeler's \emph{SLOCCount}.}.
 %How many developers?
 %There are approximately ... developers working on it. 
-%XXX version #?
+\{XXX version #?}
 The MySQL project started in 1994 but MySQL 3.23 was released in early 2001. MySQL contains 320 thousand lines of C and C++ source code. 
 
 \subsection{Generating the data}
@@ -224,7 +224,7 @@ Our second list, \textsf{exp2}, relied on the ISO quality model (ISO9126)~\cite{
 %Cite mockus et al
 
 %This is confusing/confused
-%XXX redo this 
+\XXX{redo this}
 To construct our expanded wordlists, we used Wordnet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including meronymy and synonymy. We then added Boehm’s 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven ‘ilities’ into their respective ISO9126 qualities. We did the same for the quality model produced by McCall et al. \cite{mccall1977}. Finally, we analyzed two mailing lists from the KDE project to enhance the specificity of the sets. We selected KDE-Usability, which focuses on usability discussions for KDE as a whole; and KDE-Konqueror, a list about a long-lived web browser project. For each high-level quality in ISO9126, we first searched for our existing labels; we then randomly sampled twenty-five mail messages that were relevant to that quality, and selected co-occurring terms relevant to that quality. For example, we add the term ‘performance’ to the synonyms for \emph{Efficiency}, since this term occurs in most KDE mail messages that discuss efficiency.
 %exp2
 
@@ -280,7 +280,7 @@ Finally, using this data, we evaluated two research questions:
 
 In general, this approach did not work out well. The related words for \emph{correctness}, for example, tended to be too lengthy and non-specific. Table \ref{tbl:wordlist} lists results. A \emph{named   topic} is a topic with a matching label. There are \{periods X 20\} topics per project. All experiments were run on MaxDB data.
 
-%XXX this table should have mysql
+\XXX{this table should have mysql}
 \begin{table*}[h]
 	\caption{Automatic topic labeling}
 	\centering
@@ -353,9 +353,9 @@ mysql exp3 & portability & 0.413 & 0.170 & 0.564 & 0.325 & 0.574 \\
 
 \subsection{Classifying topics}
 
-%XXX Describe table 
+\XXX{Describe table}
 
-%XXX Describe learners
+\XXX{Describe learners}
 
 We present a ROC chart in Figure \ref{fig:best-learn-per-tag}. The chart shows each learner measured in terms of precision and recall. In general, we prefer techniques which are closer to the upper-left corner (maximizing precision and maximizing recall). 
 
@@ -484,20 +484,20 @@ rank-Ranking Loss & 0.41 & 0.35 & 0.41 & 0.58 & 0.60 & 0.32 & 0.33 & 0.46 \\
 \caption{Maxdb Mulan results per Mulan learner}
 
 \end{table*}
-%XXX put mulan stuff here
+\XXX{put mulan stuff here}
 
 \subsection{Summary of techniques}
 
-%XXX Compare the results of Exp2 and Exp3 
+\XXX{Compare the results of Exp2 and Exp3}
 %    versus the mulan results and weka results
 
 \subsection{Comparing topic use between projects}
 
-%XXX do we have time here
+\XXX{do we have time here}
 
 \subsection{Topic change over time}
 
-%XXX I don't know!
+\XXX{I don't know!}
 
 \subsection{Threats to validity}
 \textbf{Construct validity} -- Focus on code commit messages, rather than mail or bug trackers. Choice of taxonomy
@@ -537,7 +537,7 @@ Most of this related research examined project source code. Software mining of o
 % In this paper we showed that a domain specific wordnet for software % development provides better accuracy for labelling topic models than % unsupervised approaches.
 %
 
-% XXX WRITE THIS
+\XXX{WRITE THIS}
 
 
 This paper has not considered the interpretation of attitudes towards qualities (e.g., do developers feel this helps security).
