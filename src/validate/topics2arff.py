@@ -76,46 +76,44 @@ def to_arff( name, xperiods ): #name, inputdir, periods ):
         data.append(",".join(sgen) + "\n")
     return header + data
 
-def to_arff_data( xperiod, nwords, nannos, l, annotoindex, wordtoindex ):
-    topics = A.flatten([ A.get_topics(x) for x in xperiods ])
-    data = []
-    for t in topics:
-        tannotations, twords = V.create_element_list( t )
-        l = [ 0 for x in range(nwords) ] + [ "0" for x in range(nannos) ]
-        for tanno in tannotations:
-            l[annotoindex[tanno]] = "1"
-        for tword in twords:
-            l[wordtoindex[tword]] += 1
-        sgen = ( str(x) for x in l )
-        data.append(",".join(sgen) + "\n")
-    return data
-
-def to_arff2( name, xperiod1, xperiod2 ): #name, inputdir, periods ):
-    xperiods1 = []
-    xperiods1.append(xperiod1)
-    xperiods1.append(xperiod2)
-    xperiods = A.flatten(xperiods1)
-    topics = A.flatten([ A.get_topics(x) for x in xperiods ])
-    # summarize the words and order by most common
-    word_counts = word_count_of_topics( topics )
-    indextoword, wordtoindex = A.map_words_to_index( word_counts )
-    nwords = len( word_counts.keys() )
-    words = [indextoword[i] for i in range(nwords)]
-    # summarize the annotations and order by most common
-    anno_hist = A.summarize_annotations_of_topics( topics )
-    indextoanno, annotoindex = A.map_words_to_index( anno_hist, cnt = nwords )
-    nannos = len( anno_hist.keys() )
-    # note the + nwords part
-    annos = [indextoanno[i + nwords] for i in range(nannos)]
-    # total # of columns
-    ncolumns = nannos + nwords
-    allcolumns = words + annos
-    # header is a list of strings
-    # too much arff right here.. oh well
-    header = arff_header( name , ["W_"+arff_escape(w)+" INTEGER" for w in words] + ["A_"+arff_escape(a)+" {0,1}" for a in annos] )
-    data1 = to_arff_data( xperiod1, nwords, nannos, l, annotoindex, wordtoindex )
-    data2 = to_arff_data( xperiod2, nwords, nannos, l, annotoindex, wordtoindex )
-    return ((header + data1), (header+data2))
+# def to_arff_data( xperiod, nwords, nannos, annotoindex, wordtoindex ):
+#     topics = A.flatten([ A.get_topics(x) for x in xperiods ])
+#     data = []
+#     for t in topics:
+#         tannotations, twords = V.create_element_list( t )
+#         l = [ 0 for x in range(nwords) ] + [ "0" for x in range(nannos) ]
+#         for tanno in tannotations:
+#             l[annotoindex[tanno]] = "1"
+#         for tword in twords:
+#             l[wordtoindex[tword]] += 1
+#         sgen = ( str(x) for x in l )
+#         data.append(",".join(sgen) + "\n")
+#     return data
+# 
+# def to_arff2( name, xperiod1, xperiod2 ): #name, inputdir, periods ):
+#     xperiodst = [ xperiod1, xperiod2 ]
+#     xperiods = A.flatten(xperiodst)
+#     topics = A.flatten([ A.get_topics(x) for x in xperiods ])
+#     # summarize the words and order by most common
+#     word_counts = word_count_of_topics( topics )
+#     indextoword, wordtoindex = A.map_words_to_index( word_counts )
+#     nwords = len( word_counts.keys() )
+#     words = [indextoword[i] for i in range(nwords)]
+#     # summarize the annotations and order by most common
+#     anno_hist = A.summarize_annotations_of_topics( topics )
+#     indextoanno, annotoindex = A.map_words_to_index( anno_hist, cnt = nwords )
+#     nannos = len( anno_hist.keys() )
+#     # note the + nwords part
+#     annos = [indextoanno[i + nwords] for i in range(nannos)]
+#     # total # of columns
+#     ncolumns = nannos + nwords
+#     allcolumns = words + annos
+#     # header is a list of strings
+#     # too much arff right here.. oh well
+#     header = arff_header( name , ["W_"+arff_escape(w)+" INTEGER" for w in words] + ["A_"+arff_escape(a)+" {0,1}" for a in annos] )
+#     data1 = to_arff_data( xperiod1, nwords, nannos, annotoindex, wordtoindex )
+#     data2 = to_arff_data( xperiod2, nwords, nannos, annotoindex, wordtoindex )
+#     return [(header + data1), (header+data2)]
 
 def save_arff( filename, lines):
     FILE = open(filename, "w")
@@ -128,6 +126,7 @@ def save_arff( filename, lines):
 if __name__ == '__main__':
     exps = G.get_exps()
     xp = []
+    xps = [0,0]
     outputdir = "output"
     for e in exps:
         print ("Dealing with " + e[0])
@@ -137,18 +136,17 @@ if __name__ == '__main__':
         xperiods = A.load_periods( ndir, periods )
         xp.append( xperiods )
         arff = to_arff( name, xperiods )
-        # commented temporarily
-        #save_arff( outputdir + "/" + name + ".arff" , arff )
+        save_arff( outputdir + "/" + name + ".arff" , arff )
     # now do everything at once ALL PROJECTS
     names = [e[0] for e in exps]
     name = "__".join(names)
     print("Now dealing with "+name)
     arff = to_arff( name, A.flatten( xp ) )
     # commented temporarily
-    #save_arff( outputdir + "/" + name + ".arff" , arff )
-    (arff1, arff2) = to_arff2( name, xp[0], xp[1]
-    save_arff( outputdir + "/1-" + name + ".arff" , arff2 )
-    save_arff( outputdir + "/2-" + name + ".arff" , arff2 )
+    save_arff( outputdir + "/" + name + ".arff" , arff )
+    # arffs = to_arff2( name, xp[0], xp[1] )
+    # save_arff( outputdir + "/1-" + name + ".arff" , arffs[0] )
+    # save_arff( outputdir + "/2-" + name + ".arff" , arffs[1] )
     
 	
 	
