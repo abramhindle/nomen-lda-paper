@@ -70,7 +70,7 @@ Abram Hindle\\
 
   
 
-  Within the field of mining software repositories, many approaches,   such as topic modeling and concept location, rely on the automated   application of machine learning algorithms to corpora.  This kind of   approach typically makes no use of domain-specific knowledge to   improve the results or put them into a context that a developer can   relate to.  While too much specificity can produce non-generalizable   results, too little produces broad learners that do not provide much   immediately useful detail.  In this paper, we investigate what   topics the latent topics extractors produces, and examine whether   such topics can be generalized across software products.  We focus   on non-functional requirements related to software quality as a   potential generalization, since there is some shared belief that   these qualities apply broadly across many software systems and their   development artifacts.  In our approach, we name topics based on a   static ontology of non-functional requirements and software   qualities; in essence, this adds context to general-purpose   ontologies such as Wordnet.  In this paper, we discuss how we use   this software development domain knowledge to better annotate topics   of development that are extracted from the change log messages in   configuration management systems such as CVS.  Since our taxonomy is   global in scope, our results allow us to compare the relative   importance of particular qualities across different projects. With   in the topics extracted from MySQL and MaxDB we found that   non-functional requirements were common and often were trends across   time. Our automated techniques produce acceptable results without a   lot of loss in computational performance.
+  Within the field of mining software repositories, many approaches,   such as topic modeling and concept location, rely on the automated   application of machine learning algorithms to corpora.  This kind of   approach typically makes no use of domain-specific knowledge to   improve the results or put them into a context that a developer can   relate to.  While too much specificity can produce non-generalizable   results, too little produces broad learners that do not provide much   immediately useful detail.  In this paper, we investigate what   topics the latent topic extractors produce, and examine whether   such topics can be generalized across software products.  We focus   on non-functional requirements related to software quality as a   potential generalization, since there is some shared belief that   these qualities apply broadly across many software systems and their   development artifacts.  In our approach, we name topics based on a   static ontology of non-functional requirements and software   qualities; in essence, this adds context to general-purpose   ontologies such as Wordnet.  In this paper, we discuss how we use   this software development domain knowledge to better annotate topics   of development that are extracted from the change log messages in   configuration management systems such as CVS.  Since our taxonomy is   global in scope, our results allow us to compare the relative   importance of particular qualities across different projects. With   in the topics extracted from MySQL and MaxDB we found that   non-functional requirements were common and often were trends across   time. Our automated techniques can label topics without much computational overhead.
 
 \end{abstract}
 %\XXX{abstract too abstract}
@@ -83,6 +83,18 @@ Abram Hindle\\
 	By any other name would smell as sweet;}
 	\begin{flushright} -- Romeo and Juliet, II:ii\end{flushright}
 \end{quote}
+
+Few would argue that software development is a bed of roses.  To most of us, the important properties of a rose are sensual in nature, and concern appearance, odour, and feel.  While horticulturalists and botanists may see more semantic depth than this, one rose is often just as pleasing to us as another.  Software development artifacts, on the other hand, are abstract and intangible.  They are often unnamed and ephemeral --- even more so than roses --- and maybe partially derived from other unnamed and ephemeral artifacts.  Yet to have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for our work topics and be able to categorize the development artifacts as belonging to one or more of these topics. 
+
+
+%Original is here:
+
+%Unlike the poetic license Shakespeare uses, we show that names are
+%indeed important. The rose has its own tangible properties which
+%allow us to sense it. Unfortunately when we are dealing with data
+%abstracted from program source code, we are already dealing with
+%abstract entities that are not tangible.
+
 
 Unlike the poetic license Shakespeare uses, we show that names are indeed important. The rose has its own tangible properties which allow us to sense it. Unfortunately when we are dealing with data abstracted from program source code, we are already dealing with abstract entities that are not tangible.
 
@@ -212,13 +224,11 @@ portability, flexibility, reliability.
 }
 \end{quotation}
 
-Our second list, \textsf{exp2}, relied on the ISO quality model (ISO9126)~\cite{iso9126}. It describes six high-level quality requirements (listed in Table \ref{tbl:wnsig}). There is some debate about the significance and importance of the terms in this model. However, it is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Bøegh2008},'' which is sufficient for the purposes of this research. However, these terms may not capture all words associated with the labels.  For example, the term ‘user friendly’ is one most would agree is relevant to discussion of usability, but is not in the standard. Therefore we took the words from the taxonomy and expanded them.
+Our second list, \textsf{exp2}, relied on the ISO quality model (ISO9126)~\cite{iso9126}. It describes six high-level quality requirements (listed in Table \ref{tbl:wnsig}). There is some debate about the significance and importance of the terms in this model. However, it is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Bøegh2008},'' which is sufficient for the purposes of this research. However, these terms may not capture all words associated with the labels.  For example, the term ``user friendly'' is one most would agree is relevant to discussion of usability, but is not in the standard. Therefore we took the words from the taxonomy and expanded them.
 
 %Cite mockus et al
 
-%This is confusing/confused
-\XXX{exp2}
-To construct our expanded wordlists, we used Wordnet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including meronymy and synonymy. We then added Boehm’s 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven ‘ilities’ into their respective ISO9126 qualities. We did the same for the quality model produced by McCall et al. \cite{mccall1977}. Finally, we analyzed two mailing lists from the KDE project to enhance the specificity of the sets. We selected KDE-Usability, which focuses on usability discussions for KDE as a whole; and KDE-Konqueror, a list about a long-lived web browser project. For each high-level quality in ISO9126, we first searched for our existing labels; we then randomly sampled twenty-five mail messages that were relevant to that quality, and selected co-occurring terms relevant to that quality. For example, we add the term ‘performance’ to the synonyms for \emph{Efficiency}, since this term occurs in most KDE mail messages that discuss efficiency.
+To construct our expanded wordlists, we used Wordnet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including meronymy and synonymy. We then added Boehm’s 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven ‘ilities’ into their respective ISO9126 qualities. We did the same for the quality model produced by McCall et al. \cite{mccall1977}. Finally, we analyzed two mailing lists from the KDE project to enhance the specificity of the sets. We selected KDE-Usability, which focuses on usability discussions for KDE as a whole; and KDE-Konqueror, a list about a long-lived web browser project. For each high-level quality in ISO9126, we first searched for our existing labels; we then randomly sampled twenty-five mail messages that were relevant to that quality, and selected co-occurring terms relevant to that quality. For example, we add the term ``performance'' to the synonyms for \emph{efficiency}, since this term occurs in most KDE mail messages that discuss efficiency.
 %exp2
 
 For the third -- \textsf{exp3} -- list of quality labels, we extended the list from \textsf{exp2} using unfiltered Wordnet similarity matches. Similarity in Wordnet means siblings in a hypernym tree. We do not include these words here for space considerations (but see the Appendix for our data repository). It isn't clear the words associated with our labels are specific enough, however: for example, the label \emph{maintainability} is associated with words \emph{ease} and \emph{ownership}.
@@ -555,9 +565,14 @@ We have created two visualizations of the manually labelled data. A problem we f
 
 \subsection{Comparing MaxDB and MySQL}
 
-\XXX{Not sure there's enough here to do that!}
+%\XXX{Not sure there's enough here to do that!}
 
 We observed that MySQL had more topic subsets than MaxDB.
+
+* we had more MySQL recorded
+* both shared functionality maintainability and portability
+
+
 
 %\subsection{Topic change over time}
 
