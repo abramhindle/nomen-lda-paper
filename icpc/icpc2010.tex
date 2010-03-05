@@ -68,6 +68,8 @@ Abram Hindle\\
 
 \begin{abstract}
 
+  
+
   Within the field of mining software repositories, many approaches,   such as topic modeling and concept location, rely on the automated   application of machine learning algorithms to corpora.  This kind of   approach typically makes no use of domain-specific knowledge to   improve the results or put them into a context that a developer can   relate to.  While too much specificity can produce non-generalizable   results, too little produces broad learners that do not provide much   immediately useful detail.  In this paper, we investigate what   topics the latent topics extractors produces, and examine whether   such topics can be generalized across software products.  We focus   on non-functional requirements related to software quality as a   potential generalization, since there is some shared belief that   these qualities apply broadly across many software systems and their   development artifacts.  In our approach, we name topics based on a   static ontology of non-functional requirements and software   qualities; in essence, this adds context to general-purpose   ontologies such as Wordnet.  In this paper, we discuss how we use   this software development domain knowledge to better annotate topics   of development that are extracted from the change log messages in   configuration management systems such as CVS.  Since our taxonomy is   global in scope, our results allow us to compare the relative   importance of particular qualities across different projects. With   in the topics extracted from MySQL and MaxDB we found that   non-functional requirements were common and often were trends across   time. Our automated techniques produce acceptable results without a   lot of loss in computational performance.
 
 \end{abstract}
@@ -166,7 +168,7 @@ One issue that arises with use of unsupervised techniques is how to label the to
 
 \subsection{Supervised learning}
 While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, supervised learners have the advantage of domain knowledge. This typically results in improved results. In supervised learning, the data is divided into slices. One slice is manually annotated by the domain expert
-In this paper, we employ the WEKA~\cite{weka09} and Mulan machine learning frameworks in order to test supervised learning.
+In this paper, we employ the WEKA~\cite{weka09} and Mulan~\cite{mulan} machine learning frameworks in order to test supervised learning.
  
 \section{Methodology}
 
@@ -252,7 +254,7 @@ In order to validate how effective these wordbag approaches to topic labelling w
 
 We first compared our previous analysis using label matching to our manual classifications to get an error rate for that process (described below). 
 
-For supervised learning, we used a suite of supervised classifiers from WEKA~\cite{weka09}. WEKA contains a suite of machine learning tools such as support vector machines and Bayes nets. We also used the multi-labeling add-on for WEKA, Mulan\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, much like our manual classification found overlaps. 
+For supervised learning, we used a suite of supervised classifiers from WEKA~\cite{weka09}. WEKA contains a suite of machine learning tools such as support vector machines and Bayes nets. We also used the multi-labeling add-on for WEKA, Mulan~\cite{mulan}\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, much like our manual classification found overlaps. 
 
 To assess the performance of the supervised learners, we did a 10-fold cross-validation. This is when a set is partitioned into 10 partitions and then each partition is used once as a test set and 9 other times as part of the training set of 9 paritions. We haved reported these results below.
 
@@ -389,11 +391,11 @@ The limitation of the approach we took here is that we only checked independentl
 
 \subsection{Applying multiple labels to topics}
 
-We applied the Mulan library for Multi-Label learning to our dataset because we feel that topics can have more like one label, much like how a revision can have more than one topic. Multi-label learning is more than just classifying entities with more than one label. It also includes methods for determining the performance of such techniques. Consider that the problem has changed, instead of looking at the precision and recall of applying one label, we have to rank multiple labels at once. We have to check if the full subset of labels was applied and then how much of that subset was applied.
+We applied the Mulan~\cite{mulan} library for Multi-Label learning to our dataset because we feel that topics can have more like one label, much like how a revision can have more than one topic. Multi-label learning is more than just classifying entities with more than one label. It also includes methods for determining the performance of such techniques. Consider that the problem has changed, instead of looking at the precision and recall of applying one label, we have to rank multiple labels at once. We have to check if the full subset of labels was applied and then how much of that subset was applied.
 
 Another aspect of multi-label learning is the micro versus macro measurements. Macro measurements are aggregated at a class or label level. Micro measurements are aggregated at a decision level. So a macro-ROC measurment is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. Unfortunately for MaxDB the macro-ROC values are undefined because of poor performance of one of the labels.
 
-\XXX{Maybe cite these} Binary Relevance (BR), Calibrated Label Ranking (CLR) and Hierarchy Of Multilabel classifiERs (HOMER), performed the best. HOMER and BR acts as a hierarchy of learners, BR is flat while HOMER tries to build a deeper hierarchy in order to build a more accurate learner. We feels these classifiers performed better because they have the best micro and macro ROC scores than the other classifiers.
+ Binary Relevance (BR), Calibrated Label Ranking (CLR) and Hierarchy Of Multilabel classifiERs (HOMER), performed the best. HOMER and BR acts as a hierarchy of learners, BR is flat while HOMER tries to build a deeper hierarchy in order to build a more accurate learner~\cite{mulan}. We feels these classifiers performed better because they have the best micro and macro ROC scores than the other classifiers.
 
 
 \XXX{finish this}
