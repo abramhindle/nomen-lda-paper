@@ -608,17 +608,19 @@ Most of this related research examined project source code. Software mining of o
 % In this paper we showed that a domain specific wordnet for software % development provides better accuracy for labelling topic models than % unsupervised approaches.
 %
 
-* Demonstrated that domain specific knowledge is valuable
-* Demonstrated the feasibility of static approaches and supervised approaches
-* Showed that non functional requirement pervade much many of the topics that are extracted
+%* Demonstrated that domain specific knowledge is valuable
+%* Demonstrated the feasibility of static approaches and supervised %approaches
+%* Showed that non functional requirement pervade much many of the %topics that are extracted
 
 In conclusion we have demonstrated that static but domain specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment had fewer terms but performed mostly just as well as \textsf{exp3} which used more general terms. We then showed that with some supervision, and by using efficient machine learners like Naive Bayesian classifiers, we could improve the accuracy of automatic labelling event further.
 
+Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted dealt with non-functional requirements and the topics related to non-functional requirements often occurred across the entire history of a project. In the case of MaxDB and MySQL portability was a constant maintenance concern was prevalent through the entire lifetime of the projects.
 
-We want to investigate developer attitudes related to these labels, when we label a topic did was the developer expressing positive or negative qualities about that label.
-It is difficult to map abstract qualities to particular messages. If the message is about a particular bug fix, do we map that to reliability? Maintainability? Is it a performance bug or a usability bug? Is a `quality' discussion about more than just corrective maintenance, in other words? In this study we take the position that any type of maintenance has to do with software quality.
+Thus we have shown that non-functional requirements are often trending topics, that non-functional requirements are quite common in developer topics and that there are efficient methods of semi-automating and automating topic labelling.
 
-\XXX{Boost/COmbine wordbag w/ bayes}
+There are many avenues of further investigation.  We want to investigate developer attitudes related to these labels, when we label a topic did was the developer expressing positive or negative qualities about that label.  It is difficult to map abstract qualities to particular messages. If the message is about a particular bug fix, do we map that to reliability? Maintainability? Is it a performance bug or a usability bug? Is a `quality' discussion about more than just corrective maintenance, in other words? In this study we take the position that any type of maintenance has to do with software quality.
+
+% \XXX{Boost/COmbine wordbag w/ bayes}
 
 \section{Acknowledgements and appendix}
 Our data and scripts are available at \url{http://softwareprocess.es/nomen/}
