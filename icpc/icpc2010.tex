@@ -368,8 +368,9 @@ It seems like the smaller the label the harder it is to get accurate results. Al
 % Cribbed from: 
 % src/validate/latex-out/best-learner-per-project-roc-table.tx
 \begin{table*}
+\centering
 \begin{tabular}{ccc|rrrr}
-Word & Project & Learner & ROC & ZeroR Acc. & ZeroR. Diff & Fmeasure\\
+Label & Project & Learner & ROC & ZeroR Acc. & ZeroR. Diff & Fmeasure\\
 \hline
 portability &  mysql &  NaiveBayesMultinomial &  0.74 &  58.53 &  11.43 &  0.70  \\ 
 efficiency &  mysql &  NaiveBayes &  0.67 &  93.69 &  -7.68 &  0.88 \\ 
@@ -377,6 +378,7 @@ reliability &  mysql &  NaiveBayes &  0.73 &  83.11 &  -12.80 &  0.74 \\
 functionality &  mysql &  DMNBtext &  0.81 &  54.44 &  21.67 &  0.76 \\ 
 maintainability &  mysql &  DMNBtext &  0.78 &  76.62 &  3.41 &  0.75 \\ 
 usability &  mysql &  NaiveBayes &  0.75 &  94.54 &  -5.80 &  0.90  \\ 
+%total & mysql & NaibeBayes & 0.75 & 
  \hline 
 portability &  maxdb &  NaiveBayes &  0.84 &  77.12 &  2.06 &  0.80 \\ 
 efficiency &  maxdb &  NaiveBayes &  0.62 &  88.43 &  -11.31 &  0.79 \\ 
@@ -408,6 +410,7 @@ Another aspect of multi-label learning is the micro versus macro measurements. M
 \XXX{finish this}
 \XXX{Clean up tables with labels}
 \begin{table*}
+\centering
 \begin{tabular}{l|rrrrrrrr}
 
   & BR & CLR & HOMER & IncludeLabels & LP & MLStacking & MLkNN & RAkEL \\
@@ -458,6 +461,7 @@ rank-Ranking Loss & 0.19 & 0.18 & 0.27 & 0.22 & 0.52 & 0.20 & 0.19 & 0.28 \\
 \begin{table*}
 % Cribbed from:
 % src/validate/output/maxdb.mulan.out.tex
+\centering
 \begin{tabular}{l|rrrrrrrr}
 
   & BR & CLR & HOMER & IncludeLabels & LP & MLStacking & MLkNN & RAkEL \\
@@ -509,9 +513,36 @@ rank-Ranking Loss & 0.41 & 0.35 & 0.41 & 0.58 & 0.60 & 0.32 & 0.33 & 0.46 \\
 
 \subsection{Summary of techniques}
 
-\XXX{Compare the results of Exp2 and Exp3}
+%\XXX{Compare the results of Exp2 and Exp3}
 %    versus the mulan results and weka results
 
+Very rarely did exp2 and exp3 ever perform as well as the machine learners. For MaxDB reliability was slightly better detected using the static word list of \textsf{exp2}. In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. In both MySQL and MaxDB usability was better served by \textsf{exp2}.
+
+We found that the multilabel learners of BR, CLR and HOMER did not do as well for Macro-ROC and Micro-F1 as NaiveBayes and other NaiveBayes derived learners did. This suggests that by sticking together multiple NaiveBayes leaners we could probably label topics effectively, but it'd require a separate NaiveBayes learner per label.
+
+\begin{comment}
+MySQL Macro ROC 0.746 Micro F1 0.78 Mulan BR ROC 0.74 / 0.81 F1 0.46/0.59/0.56 
+MaxDB Macro ROC 0.7   Micro F1 0.83 Mulan BR ROC NaN  / 0.76 F1 0.32/0.39/0.55
+
+\end{comment}
+
+
+\begin{comment}
+           exp2 exp3 learn  B 2nd
+maxdb port 0.55 0.66 0.74   L 3
+maxdb eff  0.55 0.64 0.67   L 3
+maxdb rel  0.76 0.65 0.73   2 2
+maxdb fun  0.52 0.66 0.81   L 3
+maxdb main 0.52 0.56 0.78   L 3
+maxdb use  0.62 0.59 0.75   L 2
+
+mysql port 0.53 0.57 0.85   L 3
+mysql eff  0.62 0.60 0.62   2 2 
+mysql rel  0.66 0.66 0.84   L 3
+mysql fun  0.5  0.62 0.67   L 3
+mysql main 0.5  0.5  0.70   L 3
+mysql use  0.56 0.51 0.56   L 2
+\end{comment}
 
 \subsection{Visualization}
 
@@ -535,7 +566,9 @@ We have created two visualizations of the manually labelled data. A problem we f
 
 \subsection{Comparing topic use between projects}
 
-\XXX{do we have time here}
+\XXX{Not sure there's enough here to do that!}
+
+We observed that MySQL had more topic subsets than MaxDB.
 
 \subsection{Topic change over time}
 
@@ -543,7 +576,12 @@ We have created two visualizations of the manually labelled data. A problem we f
 
 \subsection{Results Discussion}
 
-\XXX{Discuss how these are CHEAP techniques and although somewhat inaccurate they don't require a tonne of work}
+%\XXX{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
+
+With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these attempts. \textsf{exp2} and \textsf{exp3} both indicate that static information can be used to help label topics without any training whatsoever. If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques we could probably reduce the training effort. 
+Both Naive Bayesian learners and the wordlist approaches were computationally efficient. Thus these results are promising because the results are accurate enough to be useful and cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
+
+
 
 \subsection{Threats to validity}
 \textbf{Construct validity} -- Focus on code commit messages, rather than mail or bug trackers. Choice of taxonomy
