@@ -515,19 +515,19 @@ rank-Ranking Loss & 0.41 & 0.35 & 0.41 & 0.58 & 0.60 & 0.32 & 0.33 & 0.46 \\
 
 \subsection{Visualization}
 
-\XXX{We need to have some of the visualizations here}
+We have created two visualizations of the manually labelled data. A problem we faced while visualizing was how to display tag overlaps. Our solution, while not optimal, was to assign a separate colour to each distinct set of annotations. Figures \ref{fig:maxdb} and \ref{fig:mysql} show extracted topics grouped by annotations. Annotations or labels that occur in adjacent windows are joined together as trends. For MaxDB (Figure \ref{fig:maxdb}) the largest trends were related to maintainability and portability. MaxDB supports numerous platforms and portability was a constant issue facing the project's develop. MySQL was different, maybe topics overlapped, so there were many different subsets. Functionality trends were prevalent throughout its history (the largest reddish streak across the top). Two combination  tags of ``functionality portability'' (orange) and ``maintainability portability'' (teal) streaked across most of the history MySQL. Since this was MySQL 3.23 and was a stable branch we expect that issues dealings with portability and maintenance would be the primary concerns of this branch: developers probably wanted it to work with current systems and thus had to update it.
 
 \begin{figure*}
   \centering
   \includegraphics[height=.9\textheight]{small-maxdb-time-smear-plot-Equal}
-  \caption{MaxDB: Labelled topics over time}
+  \caption{MaxDB 7.500: Labelled topics over time, continuous topics are trends that occur across time}
   \label{fig:maxdb}
 \end{figure*}
 
 \begin{figure*}
   \centering
   \includegraphics[width=.99\textwidth]{small-mysql-time-smear-plot-Equal}
-  \caption{MySQL: Labelled topics over time}
+  \caption{MySQL 3.23: Labelled topics over time, continuous topics are trends that occur across time}
   \label{fig:mysql}
 \end{figure*}
 
