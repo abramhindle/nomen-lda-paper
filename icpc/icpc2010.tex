@@ -59,26 +59,19 @@ Abram Hindle\\
    \affaddr{Toronto, Ontario, CANADA}\\
    \email{jm@cs.toronto.edu}}
 
-\title{What's in a name? On the (automated) topic naming of software maintenance activities}
+\title{What's in a name? On the automated topic naming of software maintenance activities}
 
 \maketitle
 \thispagestyle{empty}
 
+%There has not been any   investigation into the latent topics these %classifiers represent. 
+
 \begin{abstract}
-  In the automated mining of software repositories, most approaches, such as topic modeling and concept location, focus on applying standard machine learning algorithms to corpora. This approach does not make any use of domain-specific information to better understand results. While too much specificity can produce non-generalizable results, too little produces broad learners that don't provide much useful detail.%There has not been any   investigation into the latent topics these classifiers represent. 
-In this paper, we investigate what topics the latent topics classifier produce, and examine  whether such topics can be
-  generalized across software products. We focus on nonfunctional requirements related to software quality
-  as a potential generalization, since there is some shared belief
-  that these qualities apply broadly across software products. We
-  wanted to name topics based on a static ontology of non-functional
-  requirements and software qualities. %Our overarching goal is to use   individual topic models to create a list of terms that can be shared   across software projects. 
-In essence, this would be adding some form
-  of context to general-purpose ontologies such as Wordnet. In this
-  paper, we discuss how to use domain knowledge about software
-  development in order to better annotate topics of development that
-  are extracted from the change log messages in configuration
-  management systems such as CVS. Since our taxonomy is global, our results allow us to compare the relative importance of particular qualities between projects.
+
+  Within the field of mining software repositories, many approaches,   such as topic modeling and concept location, rely on the automated   application of machine learning algorithms to corpora.  This kind of   approach typically makes no use of domain-specific knowledge to   improve the results or put them into a context that a developer can   relate to.  While too much specificity can produce non-generalizable   results, too little produces broad learners that do not provide much   immediately useful detail.  In this paper, we investigate what   topics the latent topics extractors produces, and examine whether   such topics can be generalized across software products.  We focus   on non-functional requirements related to software quality as a   potential generalization, since there is some shared belief that   these qualities apply broadly across many software systems and their   development artifacts.  In our approach, we name topics based on a   static ontology of non-functional requirements and software   qualities; in essence, this adds context to general-purpose   ontologies such as Wordnet.  In this paper, we discuss how we use   this software development domain knowledge to better annotate topics   of development that are extracted from the change log messages in   configuration management systems such as CVS.  Since our taxonomy is   global in scope, our results allow us to compare the relative   importance of particular qualities across different projects. With   in the topics extracted from MySQL and MaxDB we found that   non-functional requirements were common and often were trends across   time. Our automated techniques produce acceptable results without a   lot of loss in computational performance.
+
 \end{abstract}
+%\XXX{abstract too abstract}
 
 
 
@@ -91,19 +84,19 @@ In essence, this would be adding some form
 
 Unlike the poetic license Shakespeare uses, we show that names are indeed important. The rose has its own tangible properties which allow us to sense it. Unfortunately when we are dealing with data abstracted from program source code, we are already dealing with abstract entities that are not tangible.
 
-During the development of a software project developers touch on many issues integral to the purpose and specification of the software project. These issues are often referred to as topics. These topics can sometimes be automatically extracted from the changelog comments that developers create while committing revisions to the project's source control repository. Our previous work dealt with topic-trends, topics that repeat overtime. It seemed that these trends were often nonfunctional requirements. 
+During the development of a software project developers touch on many issues integral to the purpose of the software project. These issues are often referred to as topics. These topics can sometimes be automatically extracted from the changelog comments that developers create while committing revisions to the project's source control repository. Our previous work dealt with topic-trends~\cite{Hindle09ICSM}, topics that repeat overtime. It seemed that these trends were often non-functional requirements. 
 
-Topics in this paper and the previous paper are word bags or word distributions. These word distributions are found via Latent Dirichlet Allocation~\cite{Blei2003}, which find independent word distributions shared among documents (changelog comments). The unfortunate aspect of topics that are word distributions is that they lack the tangibility of a rose. They do not self idea themselves due to their tangible properties. Topics have to be identified by interpretting the prevelant words in the word distribution and by inspecting related documents. This is tiresome when one has to handle more than one hundred different topics. It would be nice if we could, at a glance at , have some idea what the topic is about. This is the power of labelling and naming.
+Topics in this paper and the previous paper are word bags or word distributions. These word distributions are found via Latent Dirichlet Allocation~\cite{Blei2003}, which finds independent word distributions shared among documents (changelog comments). The unfortunate aspect of topics that are word distributions is that they lack the tangibility of a rose. They do not self identify themselves with their tangible properties. Topics have to be identified by interpreting the prevalent words in the word distribution and by inspecting related documents. This is impractical when one has to handle more than one hundred different topics. It would be nice if we could have automatic assistance to determine what the topic is about. This is the power of labelling and naming.
 
-If a topic has a name or a label we immediately understand and register what it is. In our case the name is the bit of information, the summary, that was missing from our topics to make them useful and complete. Although we are convinced that accurate naming is not completely feasible, so we have focussed on labelling topics by non-functional requirements.
+If a topic has a name or a label we immediately have a good idea of  what it is. In our case the name is the bit of information, the summary, that was missing from our topics to make them useful and complete. Although we are convinced that accurate naming is not completely feasible, so we have focussed on labelling topics by non-functional requirements.
 
 %In this paper we \textit{name} and \textit{label} topics generated by %a topic modeling technique, Latent Dirichlet %Allocation~\cite{Blei2003}. We use these topic models to train %supervised learners to classify larger datasets. We also show that %these topics can be generalized across products.
 
 % Clean this up
-Traditionally topic extraction has required manual annotation to derive domain-relevant information. This paper attempts to implement \emph{labelled topic extraction}, topic extracted are given labels relating to a cross-project taxonomy. This is an ontological approach where we attempt to relate networks of words to labels and then search for these terms in our topic. We also compare this approach to machine leaners.
+Traditionally topic extraction has required manual annotation to derive domain-relevant labelling information. This paper attempts to implement \emph{labelled topic extraction}, in which topic are extracted and given labels relating to a cross-project taxonomy. This is an ontological approach where we attempt to relate networks of words to labels and then search for these terms in our topic. We also compare this approach to machine leaners.
 %We start with an unsupervised topic learning algorithm, then manually %annotate the topics using the ontology. From the annotated topics, we %apply automated classifiers to find labels for the remaining topics. 
 
-\XXX{Not sure about this}
+%\XXX{Not sure about this}
 \begin{comment}
 Typically what is distinct is the software's particular functionality -- whether it offers email composition, prepares tax returns, and so on. What is common, however, is the non-functional, or quality requirements, that the software focuses on. Our approach makes use of software quality taxonomies in order to compare different projects on similar concepts. For example, how is the Security quality treated over time by product A versus product B? Does product A care about it more as it matures? Does the quality occur more often in software commits?
 \end{comment}
@@ -113,9 +106,8 @@ Our contributions include:
 \item  We introduce labelled topic extraction, and demonstrate its usefulness
   compared to other approaches.
 % unsure about this
-\item We show that these topics can be learned and used to classify other datasets.
-\item We present a number of visualizations of named topics and their trends over time to aid
-  communication and analysis.
+\item We show that these labels with their topics can be learned and used to classify other datasets.
+\item We present visualizations of named topics and their trends over time to aid communication and analysis.
 \item We use an exploratory case study of
   several open source database systems to show how named topics can be compared between projects.
 \end{itemize}
@@ -174,7 +166,7 @@ One issue that arises with use of unsupervised techniques is how to label the to
 
 \subsection{Supervised learning}
 While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, supervised learners have the advantage of domain knowledge. This typically results in improved results. In supervised learning, the data is divided into slices. One slice is manually annotated by the domain expert
-In this paper, we employ the WEKA and Mulan machine learning frameworks in order to test supervised learning.
+In this paper, we employ the WEKA~\cite{weka09} and Mulan machine learning frameworks in order to test supervised learning.
  
 \section{Methodology}
 
@@ -185,11 +177,10 @@ In this paper, we employ the WEKA and Mulan machine learning frameworks in order
 % depicts the general process for processing and analyzing the commit messages.
 \end{comment}
 
-\XXX{how many do we have}
+%\XXX{how many do we have}
 We wanted to compare two mature software projects, that had open repositories, within the same application domain. This allows us to partially control for differences in functional requirements. We selected MySQL and MaxDB, open-source, near-commercial quality database software. MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project has 940 thousand lines of C source code~\footnote{generated using David A. Wheeler's \emph{SLOCCount}.}.
 %How many developers?
 %There are approximately ... developers working on it. 
-\XXX{version number?}
 The MySQL project started in 1994 but MySQL 3.23 was released in early 2001. MySQL contains 320 thousand lines of C and C++ source code. 
 
 \subsection{Generating the data}
@@ -224,7 +215,7 @@ Our second list, \textsf{exp2}, relied on the ISO quality model (ISO9126)~\cite{
 %Cite mockus et al
 
 %This is confusing/confused
-\XXX{redo this}
+\XXX{exp2}
 To construct our expanded wordlists, we used Wordnet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including meronymy and synonymy. We then added Boehm’s 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven ‘ilities’ into their respective ISO9126 qualities. We did the same for the quality model produced by McCall et al. \cite{mccall1977}. Finally, we analyzed two mailing lists from the KDE project to enhance the specificity of the sets. We selected KDE-Usability, which focuses on usability discussions for KDE as a whole; and KDE-Konqueror, a list about a long-lived web browser project. For each high-level quality in ISO9126, we first searched for our existing labels; we then randomly sampled twenty-five mail messages that were relevant to that quality, and selected co-occurring terms relevant to that quality. For example, we add the term ‘performance’ to the synonyms for \emph{Efficiency}, since this term occurs in most KDE mail messages that discuss efficiency.
 %exp2
 
@@ -278,7 +269,9 @@ Finally, using this data, we evaluated two research questions:
 
 % word list similarity
 
-In general, this approach did not work out well. The related words for \emph{correctness}, for example, tended to be too lengthy and non-specific. Table \ref{tbl:wordlist} lists results. A \emph{named   topic} is a topic with a matching label. There are \{periods X 20\} topics per project. All experiments were run on MaxDB data.
+In general, this approach did not work out well as common labels dominated the less common labels. The related words for \emph{correctness}, for example, tended to be too lengthy and non-specific. Table \ref{tbl:wordlist} lists results. A \emph{named   topic} is a topic with a matching label. There are \{periods X 20\} topics per project. All experiments were run on MaxDB and MySQL data.
+
+
 
 \XXX{this table should have mysql}
 \begin{table*}[h]
@@ -353,11 +346,7 @@ mysql exp3 & portability & 0.413 & 0.170 & 0.564 & 0.325 & 0.574 \\
 
 \subsection{Classifying topics}
 
-\XXX{Describe table}
-
-\XXX{Describe learners}
-
-We took our annotated dataset and applied supervised learner to it. Because our dataset was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well.  Table \ref{tab:best-learn-per-tag} shows the performance of the best performing learner per label.  We considered the best learner for a label to be the one which had the highest ROC value for that label. Table \ref{tab:best-learn-per-tag} shows the ROC value, the accuracy of a ZeroR learner ( a learner which just chooses the largest category all of the time), the difference in accuracy between the best learner and ZeroR, and the F-measure for that particular learner. The ZeroR difference is often negative, but in particular for labels which are not as common this can be expected because any miscategorization will hurt accuracy, this is why the Fmeasure and the ROC values are useful as they can better present performance on labels which are not applicable to the majority of samples.
+We took our annotated dataset and applied supervised learner to it. Because our dataset was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. We also tried other learners that WEKA~\cite{weka09} provides: rule learners, tree learners, vector space learners, and support vector machines.  Table \ref{tab:best-learn-per-tag} shows the performance of the best performing learner per label.  We considered the best learner for a label to be the one which had the highest ROC value for that label. Table \ref{tab:best-learn-per-tag} shows the ROC value, the accuracy of a ZeroR learner ( a learner which just chooses the largest category all of the time), the difference in accuracy between the best learner and ZeroR, and the F-measure for that particular learner. The ZeroR difference is often negative, but in particular for labels which are not as common this can be expected because any miscategorization will hurt accuracy, this is why the Fmeasure and the ROC values are useful as they can better present performance on labels which are not applicable to the majority of samples.
 
 Table \ref{tab:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, the ROC values for reliability and functionality seem swapped between projects. It should be noted that for both project Bayesian techniques did the best out of a wide variety of machine learners tested. Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes theorem and all assume, naively, that the features are independent. The features we used are word counts per message. One beneficial aspect of this result is that it suggests we can have very fast training times since Naive Bayes can be calculated in $O(N)$ for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
@@ -404,7 +393,7 @@ We applied the Mulan library for Multi-Label learning to our dataset because we 
 
 Another aspect of multi-label learning is the micro versus macro measurements. Macro measurements are aggregated at a class or label level. Micro measurements are aggregated at a decision level. So a macro-ROC measurment is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. Unfortunately for MaxDB the macro-ROC values are undefined because of poor performance of one of the labels.
 
-\XXX{Maybe cite these} Binary Relevance (BR), Calibrated Label Ranking (CLR) and Hierarchy Of Multilabel classifiERs (HOMER), performed the best. HOMER and BR acts as a hierarchy of learners, BR is flat while HOMER tries to build a deeper hierarchy in order to build a more accurate learner. We feels these classifiers performed because because they have the best micro and macro ROC scores
+\XXX{Maybe cite these} Binary Relevance (BR), Calibrated Label Ranking (CLR) and Hierarchy Of Multilabel classifiERs (HOMER), performed the best. HOMER and BR acts as a hierarchy of learners, BR is flat while HOMER tries to build a deeper hierarchy in order to build a more accurate learner. We feels these classifiers performed better because they have the best micro and macro ROC scores than the other classifiers.
 
 
 \XXX{finish this}
@@ -509,12 +498,10 @@ rank-Ranking Loss & 0.41 & 0.35 & 0.41 & 0.58 & 0.60 & 0.32 & 0.33 & 0.46 \\
 \caption{Maxdb Mulan results per Mulan learner}
 
 \end{table*}
-\XXX{put mulan stuff here}
+
 
 \subsection{Summary of techniques}
 
-%\XXX{Compare the results of Exp2 and Exp3}
-%    versus the mulan results and weka results
 
 Very rarely did exp2 and exp3 ever perform as well as the machine learners. For MaxDB reliability was slightly better detected using the static word list of \textsf{exp2}. In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. In both MySQL and MaxDB usability was better served by \textsf{exp2}.
 
@@ -564,17 +551,17 @@ We have created two visualizations of the manually labelled data. A problem we f
 
 
 
-\subsection{Comparing topic use between projects}
+\subsection{Comparing MaxDB and MySQL}
 
 \XXX{Not sure there's enough here to do that!}
 
 We observed that MySQL had more topic subsets than MaxDB.
 
-\subsection{Topic change over time}
+%\subsection{Topic change over time}
 
-\XXX{I don't know!}
+%\XXX{I don't know!}
 
-\subsection{Results Discussion}
+\subsection{Effectiveness}
 
 %\XXX{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
 
@@ -624,14 +611,13 @@ Most of this related research examined project source code. Software mining of o
 \XXX{WRITE THIS}
 
 
-This paper has not considered the interpretation of attitudes towards qualities (e.g., do developers feel this helps security).
-
+We want to investigate developer attitudes related to these labels, when we label a topic did was the developer expressing positive or negative qualities about that label.
 It is difficult to map abstract qualities to particular messages. If the message is about a particular bug fix, do we map that to reliability? Maintainability? Is it a performance bug or a usability bug? Is a `quality' discussion about more than just corrective maintenance, in other words? In this study we take the position that any type of maintenance has to do with software quality.
 
 \XXX{Boost/COmbine wordbag w/ bayes}
 
 \section{Acknowledgements and appendix}
-Our data and scripts are available at \url{http://softwareprocess.es/icpc2010}
+Our data and scripts are available at \url{http://softwareprocess.es/nomen/}
 
 \bibliographystyle{IEEEtran}
 \bibliography{icpc}
