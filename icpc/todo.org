@@ -1,4 +1,4 @@
-* Last minute todo [11/25]
+* Last minute todo [16/29]
   - [X] Ric Edits
   - [X] Our data and scripts are available at http://softwareprocess. es/icpc2010
     Pick a conference neutral-name!
@@ -51,8 +51,60 @@
   - [X] XXX{exp2}
   - [ ] XXX{should have mysql}
   - [ ] Abstract is a little long, but I'm not sure how to compress it.
-  - [ ] Comparing MaxDB and MySQL
+  - [X] Comparing MaxDB and MySQL
+  - [X] "self identify themselves"
+	  redundant: "self identify" or "identify themselves"
+  - [X] "If a topic has a name or a label we immediately have a good
+        idea of what it is. In our case the name is the bit of
+        information, the summary, that was missing from our topics to
+        make them useful and complete. Although we are convinced that
+        accurate naming is not completely feasible, so we have
+        focussed on labelling topics by non-functional requirements."
+
+         This paragraph is confusing to me.  You already said that a
+         topic is a word distribution, but how would it get a label
+         unless we select one?  How about this:
+
+     A topic --- that is, a word distribution in our world --- needs a
+     suggestive name to succinctly convey its intent, and make it easy
+     to use in discussions and analyses about the development of the
+     system.  Our previous experience leads us to believe that
+     automated topic naming is currently infeasible in the general
+     case, so we have decided to focus on topic labels from the
+     subdomain of non-functional requirements.
+
+
   - [X] Classifying topics - mention all of the learners we used!
+
+  - [X] " to partially control for differences in functional requirements."
+
+    Not sure what you mean by this.  How about this:
+
+    To evaluate our approach, we sought candidate systems that were
+    mature projects and had openly accessible artifact repositories.
+    We also decided to select systems from the same application
+    domain, as we felt the functional requirements would probably be
+    broadly similar.
+
+  -  [why is this important?]   We selected MySQL and MaxDB [...]
+
+  - [X]
+      Our second list, exp2, relied on the ISO quality model (ISO9126)
+      [1]. It describes six high-level quality requirements (listed in
+      Table 1). There is some debate about the significance and
+      importance of the terms in this model. However, it is
+       ...
+
+     - I would nuke most of this paragraph as it sounds too defensive.  
+
+     - Who debates this standard, exactly?
+
+     - "User friendly" is a dangerous term, as it's basically
+       meaningless (it's often cited as an example of a motherhood
+       requirement, which no one would ever not want).  Is there
+       another one you could substitute in?
+
+
   - [ ] What words did J48 like?
   - [ ] Clean up mulan tables
   - [ ] Edit related work

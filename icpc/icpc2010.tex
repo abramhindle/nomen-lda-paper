@@ -73,7 +73,7 @@ Abram Hindle\\
   Within the field of mining software repositories, many approaches,   such as topic modeling and concept location, rely on the automated   application of machine learning algorithms to corpora.  This kind of   approach typically makes no use of domain-specific knowledge to   improve the results or put them into a context that a developer can   relate to.  While too much specificity can produce non-generalizable   results, too little produces broad learners that do not provide much   immediately useful detail.  In this paper, we investigate what   topics the latent topic extractors produce, and examine whether   such topics can be generalized across software products.  We focus   on non-functional requirements related to software quality as a   potential generalization, since there is some shared belief that   these qualities apply broadly across many software systems and their   development artifacts.  In our approach, we name topics based on a   static ontology of non-functional requirements and software   qualities; in essence, this adds context to general-purpose   ontologies such as Wordnet.  In this paper, we discuss how we use   this software development domain knowledge to better annotate topics   of development that are extracted from the change log messages in   configuration management systems such as CVS.  Since our taxonomy is   global in scope, our results allow us to compare the relative   importance of particular qualities across different projects. With   in the topics extracted from MySQL and MaxDB we found that   non-functional requirements were common and often were trends across   time. Our automated techniques can label topics without much computational overhead.
 
 \end{abstract}
-%\XXX{abstract too abstract}
+
 
 
 
@@ -101,9 +101,14 @@ As development of a software project progresses, developers must concern themsel
 
 %During the development of a software project developers touch on many %issues integral to the purpose of the software project. These issues %are often referred to as topics. These topics can sometimes be %automatically extracted from the changelog comments that developers %create while committing revisions to the project's source control %repository. Our previous work dealt with %topic-trends~\cite{Hindle09ICSM}, topics that repeat overtime. It %seemed that these trends were often non-functional requirements. 
 
-Topics in this paper and the previous paper are word bags or word distributions. These word distributions are found via Latent Dirichlet Allocation~\cite{Blei2003}, which finds independent word distributions shared among documents (changelog comments). The unfortunate aspect of topics that are word distributions is that they lack the tangibility of a rose. They do not self identify themselves with their tangible properties. Topics have to be identified by interpreting the prevalent words in the word distribution and by inspecting related documents. This is impractical when one has to handle more than one hundred different topics. It would be nice if we could have automatic assistance to determine what the topic is about. This is the power of labelling and naming.
+Topics in this paper and the previous paper are word bags or word distributions. These word distributions are found via Latent Dirichlet Allocation~\cite{Blei2003}, which finds independent word distributions shared among documents (changelog comments). The unfortunate aspect of topics that are word distributions is that they lack the tangibility of a rose. They do not self identify with their tangible properties. Topics have to be identified by interpreting the prevalent words in the word distribution and by inspecting related documents. This is impractical when one has to handle more than one hundred different topics. It would be nice if we could have automatic assistance to determine what the topic is about. This is the power of labelling and naming.
 
-If a topic has a name or a label we immediately have a good idea of  what it is. In our case the name is the bit of information, the summary, that was missing from our topics to make them useful and complete. Although we are convinced that accurate naming is not completely feasible, so we have focussed on labelling topics by non-functional requirements.
+
+%If a topic has a name or a label we immediately have a good idea of  %what it is. In our case the name is the bit of information, the %summary, that was missing from our topics to make them useful and %complete. Although we are convinced that accurate naming is not %completely feasible, so we have focussed on labelling topics by %non-functional requirements.
+
+A topic --- that is, a word distribution in our world --- needs a suggestive name to succinctly convey its intent, and make it easy to use in discussions and analyses about the development of the system. Our previous experience leads us to believe that automated topic naming is currently infeasible in the general case, so we have decided to focus on topic labels from the sub-domain of non-functional requirements related to software quality.
+
+
 
 %In this paper we \textit{name} and \textit{label} topics generated by %a topic modeling technique, Latent Dirichlet %Allocation~\cite{Blei2003}. We use these topic models to train %supervised learners to classify larger datasets. We also show that %these topics can be generalized across products.
 
@@ -174,7 +179,7 @@ In topic analysis a single document, such as a commit message, can be related to
 
 \begin{comment}
 In this paper we use LDA to identify topics.  LDA works by creating topic models for each period. A topic model is a statistical summary of the important subjects for that dataset.  The input to the algorithm is a set of documents, with contents treated as a bag of words, and a parameter to set the number of topics to generate. The algorithm returns a word-document matrix relating the occurrence frequency of a 
- The idea is similar to other IR approaches like TF/IDF (term frequency/inverse document frequency), which find uncommon words that aren't found in other wordlists. These approaches are unsupervised in that they rely solely on the source data with no human intervention.
+ The idea is similar to other IR approaches like TF/IDF (term frequency/inverse document frequency), which find uncommon words that are not found in other wordlists. These approaches are unsupervised in that they rely solely on the source data with no human intervention.
 \end{comment}
 
 One issue that arises with use of unsupervised techniques is how to label the topics. While the topic models themselves are generated automatically, what to make of them is less clear. For example, in our previous work~\cite{Hindle09ICSM}, and in \cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. E.g., for the word list ``listener change remove add fire'', Baldi et al. assign the keyword \emph{event-handling}. The labels are reasonable enough, but still require some expert in the field to determine them. Our technique is automated, because we match keywords from Wordnet to words in the topic model. 
@@ -192,8 +197,15 @@ In this paper, we employ the WEKA~\cite{weka09} and Mulan~\cite{mulan} machine l
 % depicts the general process for processing and analyzing the commit messages.
 \end{comment}
 
-%\XXX{how many do we have}
-We wanted to compare two mature software projects, that had open repositories, within the same application domain. This allows us to partially control for differences in functional requirements. We selected MySQL and MaxDB, open-source, near-commercial quality database software. MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project has 940 thousand lines of C source code~\footnote{generated using David A. Wheeler's \emph{SLOCCount}.}.
+
+To evaluate our approach, we sought candidate systems that were
+mature projects and had openly accessible artifact repositories.
+We also decided to select systems from the same application
+domain, as we felt the functional requirements would probably be
+broadly similar.
+%We wanted to compare two mature software projects, that had open %repositories, within the same application domain. 
+% This allows us to partially control for differences in functional %requirements. 
+We selected MySQL and MaxDB as they were open-source, partially-commercial database systems. MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project has 940 thousand lines of C source code~\footnote{generated using David A. Wheeler's \emph{SLOCCount}.}.
 %How many developers?
 %There are approximately ... developers working on it. 
 The MySQL project started in 1994 but MySQL 3.23 was released in early 2001. MySQL contains 320 thousand lines of C and C++ source code. 
@@ -225,14 +237,18 @@ portability, flexibility, reliability.
 }
 \end{quotation}
 
-Our second list, \textsf{exp2}, relied on the ISO quality model (ISO9126)~\cite{iso9126}. It describes six high-level quality requirements (listed in Table \ref{tbl:wnsig}). There is some debate about the significance and importance of the terms in this model. However, it is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Bøegh2008},'' which is sufficient for the purposes of this research. However, these terms may not capture all words associated with the labels.  For example, the term ``user friendly'' is one most would agree is relevant to discussion of usability, but is not in the standard. Therefore we took the words from the taxonomy and expanded them.
+Our second list, \textsf{exp2}, relied on the ISO quality model (ISO9126)~\cite{iso9126}. ISO9126 describes six high-level quality requirements (listed in Table \ref{tbl:wnsig}). 
+%There is some debate about the significance and importance of the %terms in this model. 
+%However, it is ``an international standard and thus provides an %internationally accepted terminology for software quality \cite[p. %58]{Bøegh2008},'' which is sufficient for the purposes of this %research. 
+ISO9126 is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Bøegh2008},'' that is sufficient for the purposes of this research.
+However, the terms extracted from ISO9126 may not capture all words associated with the labels.  For example, the term ``redundancy'' is one most would agree is relevant to discussion of reliability, but is not in the standard. Therefore we took the words from the taxonomy and expanded them.
 
 %Cite mockus et al
 
 To construct our expanded wordlists, we used Wordnet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including meronymy and synonymy. We then added Boehm’s 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven ‘ilities’ into their respective ISO9126 qualities. We did the same for the quality model produced by McCall et al. \cite{mccall1977}. Finally, we analyzed two mailing lists from the KDE project to enhance the specificity of the sets. We selected KDE-Usability, which focuses on usability discussions for KDE as a whole; and KDE-Konqueror, a list about a long-lived web browser project. For each high-level quality in ISO9126, we first searched for our existing labels; we then randomly sampled twenty-five mail messages that were relevant to that quality, and selected co-occurring terms relevant to that quality. For example, we add the term ``performance'' to the synonyms for \emph{efficiency}, since this term occurs in most KDE mail messages that discuss efficiency.
 %exp2
 
-For the third -- \textsf{exp3} -- list of quality labels, we extended the list from \textsf{exp2} using unfiltered Wordnet similarity matches. Similarity in Wordnet means siblings in a hypernym tree. We do not include these words here for space considerations (but see the Appendix for our data repository). It isn't clear the words associated with our labels are specific enough, however: for example, the label \emph{maintainability} is associated with words \emph{ease} and \emph{ownership}.
+For the third -- \textsf{exp3} -- list of quality labels, we extended the list from \textsf{exp2} using unfiltered Wordnet similarity matches. Similarity in Wordnet means siblings in a hypernym tree. We do not include these words here for space considerations (but see the Appendix for our data repository). It is not clear the words associated with our labels are specific enough, however: for example, the label \emph{maintainability} is associated with words \emph{ease} and \emph{ownership}.
 
 \begin{table*}[h]
 	\caption{Qualities and associated signifiers – Wordnet version (\textsf{exp2})}
@@ -286,7 +302,7 @@ In general, this approach did not work out well as common labels dominated the l
 
 
 
-\XXX{this table should have mysql}
+%\XXX{this table should have mysql}
 \begin{table}
 	\caption{Automatic topic labeling}
 	\centering
@@ -364,7 +380,9 @@ We took our annotated dataset and applied supervised learner to it. Because our 
 Table \ref{tab:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, the ROC values for reliability and functionality seem swapped between projects. It should be noted that for both project Bayesian techniques did the best out of a wide variety of machine learners tested. Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes theorem and all assume, naively, that the features are independent. The features we used are word counts per message. One beneficial aspect of this result is that it suggests we can have very fast training times since Naive Bayes can be calculated in $O(N)$ for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
 
-It seems like the smaller the label the harder it is to get accurate results. Although these results seem better than our previous word bag results of \textsf{exp2} and \textsf{exp3}.
+It seems like the smaller the label the harder it is to get accurate results. Although these results seem better than our previous word bag results of \textsf{exp2} and \textsf{exp3} because the ROC values are sufficiently higher in most cases other than MaxDB reliability and MySQL efficiency.
+
+The limitation of the approach we took here is that we only checked independently for each label. Labels could be correlated with each other, as well as we did not evaluate how well the learners performed together.
 
 
 % Cribbed from: 
@@ -394,11 +412,8 @@ usability &  maxdb &  NaiveBayes &  0.56 &  95.37 &  -4.37 &  0.91  \\
 \label{tab:best-learner-per-tag}
 \end{table*}
 
-\XXX{What are some words that these classifiers liked?}
 
-\XXX{Summarize the numeric results, is it good/bad}
 
-The limitation of the approach we took here is that we only checked independently for each label. Labels could be correlated with each other, as well as we did not evaluate how well the learners performed together.
 
 \subsection{Applying multiple labels to topics}
 
@@ -511,12 +526,14 @@ rank-Ranking Loss & 0.41 & 0.35 & 0.41 & 0.58 & 0.60 & 0.32 & 0.33 & 0.46 \\
 \end{table*}
 
 
+
+
 \subsection{Summary of techniques}
 
 
 Very rarely did exp2 and exp3 ever perform as well as the machine learners. For MaxDB reliability was slightly better detected using the static word list of \textsf{exp2}. In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. In both MySQL and MaxDB usability was better served by \textsf{exp2}.
 
-We found that the multilabel learners of BR, CLR and HOMER did not do as well for Macro-ROC and Micro-F1 as NaiveBayes and other NaiveBayes derived learners did. This suggests that by sticking together multiple NaiveBayes leaners we could probably label topics effectively, but it'd require a separate NaiveBayes learner per label.
+We found that the multilabel learners of BR, CLR and HOMER did not do as well for Macro-ROC and Micro-F1 as NaiveBayes and other NaiveBayes derived learners did. This suggests that by sticking together multiple NaiveBayes leaners we could probably label topics effectively, but it would require a separate NaiveBayes learner per label.
 
 \begin{comment}
 MySQL Macro ROC 0.746 Micro F1 0.78 Mulan BR ROC 0.74 / 0.81 F1 0.46/0.59/0.56 
@@ -568,15 +585,38 @@ We have created two visualizations of the manually labelled data. A problem we f
 
 We observed that MySQL had more topic subsets than MaxDB. MySQL 3.23 also had more topics and a longer recorded history than MaxDB 7.500. We tagged more MySQL topics with annotations than MaxDB topics yet both shared similarities. In terms of non-functional requirements both projects had long running trends that focused on functionality, maintainability, and portability, yet MaxDB had more of a focus on efficiency and reliability. We feel that MaxDB differed from MySQL because MaxDB was being actively developed where was by half way through our history of MySQL 3.23, other versions of MySQL were being actively developed: MySQL versions 4.0 and 4.1 and eventually 5.0 and 5.1. MySQL 3.23 was being maintained rather than actively developed where as MaxDB 7.500 was being actively developed into MaxDB 7.6, and then maintained thereafter.
 
+MySQL and MaxDB's machine learners did dispatch off of some shared words. Words that were used to classify topics that were shared between MySQL and MaxDB included: bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test. Potentially adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while still being domain specific.
 
+\begin{comment}
+ shared-report.sh ; cat output/shared-j48-words 
 
-%\subsection{Topic change over time}
+      2 bug
+      2 code
+      2 compiler
+      2 database
+      2 Delete_
+      2 HP_UX
+      2 memory
+      2 missing
+      2 monty_mysql_com
+      2 monty_mysql_fi
+      2 problems
+      2 Removed
+      2 work__home_bk_mysql
+      4 4_0
+      4 Add
+      4 added
+      4 Changed
+      4 problem
+      6 Added
+      6 test
 
-%\XXX{I don't know!}
+\end{comment}
+
 
 \subsection{Effectiveness}
 
-%\XXX{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
+%{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
 
 With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these attempts. \textsf{exp2} and \textsf{exp3} both indicate that static information can be used to help label topics without any training whatsoever. If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques we could probably reduce the training effort. 
 Both Naive Bayesian learners and the wordlist approaches were computationally efficient. Thus these results are promising because the results are accurate enough to be useful and cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
@@ -634,7 +674,7 @@ Thus we have shown that non-functional requirements are often trending topics, t
 
 There are many avenues of further investigation.  We want to investigate developer attitudes related to these labels, when we label a topic, was the developer expressing positive or negative qualities about that label.  It is difficult to map abstract qualities to particular messages. If the message is about a particular bug fix, do we map that to reliability or maintainability? Is it a performance bug or a usability bug? We ask is a ``quality'' discussion about more than just corrective maintenance? In this study we take the position that any type of maintenance has to do with software quality.
 
-% \XXX{Boost/COmbine wordbag w/ bayes}
+
 
 \section{Acknowledgements and appendix}
 Our data and scripts are available at \url{http://softwareprocess.es/nomen/}
