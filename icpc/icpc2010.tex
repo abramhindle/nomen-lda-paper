@@ -274,7 +274,7 @@ In general, this approach did not work out well as common labels dominated the l
 
 
 \XXX{this table should have mysql}
-\begin{table*}[h]
+\begin{table}
 	\caption{Automatic topic labeling}
 	\centering
 	\label{tbl:wordlist}
@@ -287,7 +287,7 @@ Named topics &		281      &			125      &		328  \\
 Unnamed topics &	139      &			295      &      92   \\
 \bottomrule
 \end{tabular}
-\end{table*}
+\end{table}
 
 %This is the counts
 
@@ -608,7 +608,11 @@ Most of this related research examined project source code. Software mining of o
 % In this paper we showed that a domain specific wordnet for software % development provides better accuracy for labelling topic models than % unsupervised approaches.
 %
 
-\XXX{WRITE THIS}
+* Demonstrated that domain specific knowledge is valuable
+* Demonstrated the feasibility of static approaches and supervised approaches
+* Showed that non functional requirement pervade much many of the topics that are extracted
+
+In conclusion we have demonstrated that static but domain specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment had fewer terms but performed mostly just as well as \textsf{exp3} which used more general terms. 
 
 
 We want to investigate developer attitudes related to these labels, when we label a topic did was the developer expressing positive or negative qualities about that label.
