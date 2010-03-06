@@ -101,10 +101,10 @@ Our labelled topic extraction technique allowed us to devise appropriate, contex
 
 
 \begin{abstract}
-%  Within the field of mining software repositories, many approaches,   such as topic modeling and concept location, rely on the automated   application of machine learning algorithms to corpora.  
-To have a meaningful discussion about the progress of software development, we must be able to devise appropriate labels for development topics. We can then categorize development artifacts as belonging to one or more of these topics. 
-In order to do this, approaches such as topic modeling and concept location rely on the automated application of machine learning algorithms to development artifacts. 
-However, these approaches neither use domain-specific knowledge to improve results, nor contextualize those results for developers. These extracted topics are often difficult to distinguish and interpret.  While too much specificity can produce non-generalizable results, too little produces broad learners that do not provide much immediately useful detail. 
+ Within the field of mining software repositories, many approaches,   such as topic modeling and concept location, rely on the automated   application of machine learning algorithms to corpora.  
+Unfortunately the output of these tools is often difficult to distinguish and interpret as they are often so abstract.
+Thus to have a meaningful discussion about the topics of software development, we must be able to devise appropriate labels for extracted topics. 
+However, these approaches neither use domain-specific knowledge to improve results, nor contextualize those results for developers.   While too much specificity can produce non-generalizable results, too little produces broad learners that do not provide much immediately useful detail. 
 This paper implements \emph{labelled topic extraction}, in which topics are extracted from commit comments and given labels relating to a cross-project taxonomy. We focus on non-functional requirements related to software quality as a potential generalization, since there is some shared belief that these qualities apply broadly across many software systems and their development artifacts.  
 We evaluated our approach with an experimental study on two large-scale database projects, MySQL and MaxDB. We extracted topics using Latent Dirichlet Allocation (LDA) from the commit log comments of their version control systems (CVS and BitKeeper). Our results were generalizable across the two projects, showing that non-functional requirements were commonly discussed, and we identified topic trends over time. 	
 Our labelled topic extraction technique allowed us to devise appropriate, context-sensitive labels across these two projects, providing insight into software development activities.
