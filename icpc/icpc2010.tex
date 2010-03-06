@@ -332,7 +332,8 @@ For \textsf{exp3}, we had many more named topics. As we mentioned, the word-list
 \label{sec:unsuplabelling}
 
 Based on the labels, and our manual topic labelling, we compared the results of the unsupervised word matching approach. For each quality we tried to assess whether the manual tag matched the unsupervised label assigned. Table \ref{tbl:maxdb-unsup-results} shows our results for MaxDB and MySQL. In general results are poor. Using the F-Measure, the weighted average of precision and recall, where 1 is perfect, our best results are 0.6, a few at 0.4, and most around 0.2. We achieved similar results using the Matthew's correlation coefficient (used to measure efficacy where classes are of different sizes) and ROC.  
-\begin{table*}[h]
+
+\begin{table*}%[h]
 	\centering
 
 \begin{tabular}{c|c|c|c|c|c|c}
@@ -643,6 +644,17 @@ We have created two visualizations of the manually labelled data. A problem we f
 We observed that MySQL had more topic subsets than MaxDB. MySQL 3.23 also had more topics and a longer recorded history than MaxDB 7.500. We tagged more MySQL topics with annotations than MaxDB topics yet both shared similarities. In terms of non-functional requirements both projects had long running trends that focused on functionality, maintainability, and portability, yet MaxDB had more of a focus on efficiency and reliability. We feel that MaxDB differed from MySQL because MaxDB was being actively developed where was by half way through our history of MySQL 3.23, other versions of MySQL were being actively developed: MySQL versions 4.0, 4.1, and eventually 5.0 and 5.1. MySQL 3.23 was being maintained rather than actively developed where as MaxDB 7.500 was being actively developed into MaxDB 7.6, and then maintained thereafter.
 
 MySQL and MaxDB's machine learners did make decisions based off some shared words. Words that were used to classify topics that were shared between MySQL and MaxDB included: bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test. Adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
+
+\paragraph{Do label frequencies change over time?} Yes, MySQL's label
+frequencies decreased as it got older. Usability and reliability
+labels became more and more infrequent as it matured. Maintainability topics
+became more prevalent as MaxDB matured.
+
+\paragraph{Do the different projects differ in their relative topic
+  interest?} Yes they do, MySQL 3.23 had more proportionally more
+functionality labelled topics while MaxDB had proportionally more
+efficiency and portability related topics.
+ 
 
 \begin{comment}
  shared-report.sh ; cat output/shared-j48-words 
