@@ -649,6 +649,17 @@ We observed that MySQL had more topic subsets than MaxDB. MySQL 3.23 also had mo
 
 MySQL and MaxDB's machine learners did make decisions based off some shared words. Words that were used to classify topics that were shared between MySQL and MaxDB included: bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test. Adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
 
+\paragraph{Do label frequencies change over time?} Yes, MySQL's label
+frequencies decreased as it got older. Usability and reliability
+labels became more and more infrequent as it matured. Maintainability topics
+became more prevalent as MaxDB matured.
+
+\paragraph{Do the different projects differ in their relative topic
+  interest?} Yes they do, MySQL 3.23 had more proportionally more
+functionality labelled topics while MaxDB had proportionally more
+efficiency and portability related topics.
+ 
+
 \begin{comment}
  shared-report.sh ; cat output/shared-j48-words 
 
