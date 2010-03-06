@@ -235,7 +235,7 @@ The MySQL project started in 1994 but MySQL 3.23 was released in early 2001. MyS
 For each project, we used source control commit comments, the messages that programmers write when they commit revisions to a source control repository. We leveraged the data that we gathered in \cite{Hindle09ICSM} for this work. An example of a typical commit message is: \textit{``history annotate diffs bug fixed (if mysql\_real\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. We extracted these messages and indexed them by creation time. We summarized each message as a word distribution but removed stop-words such as common English words like \emph{the} and \emph{at}.
 
 From that data-set, we created an XML file which separated commits into
-monthly windows. This size of period is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze. We applied Blei's LDA implementation~\cite{Blei2003} against the word distributions of these commits, and generated list of topics per period. 
+monthly windows. This size of period is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze. We applied Blei's LDA implementation~\cite{Blei2003} against the word distributions of these commits, and generated lists of topics per period. 
 %A topic extracted in the first period Period 1, the most important %topic might have been ``security", with ``sql'' second, down on to %less relevant topics. 
 We arbitrarily set the number of topics to generate to $20$, because past experimentation showed that fewer topics might aggregate multiple unique topics while any more topics seemed to dilute the results and create indistinct topics. As well, more than $20$ topics quickly became infeasible for inspection and it was difficult to discern the difference in topics.
 
@@ -269,7 +269,7 @@ However, the terms extracted from ISO9126 may not capture all words associated w
 
 %Cite mockus et al
 
-To construct these expanded word-lists, we used WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including meronymy and synonymy. We then added Boehm’s 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven ‘ilities’ into their respective ISO9126 qualities. We did the same for the quality model produced by McCall et al. \cite{mccall1977}. Finally, we analyzed two mailing lists from the KDE project to enhance the specificity of the sets. We selected KDE-Usability, which focuses on usability discussions for KDE as a whole; and KDE-Konqueror, a list about a long-lived web browser project. For each high-level quality in ISO9126, we first searched for our existing labels; we then randomly sampled twenty-five mail messages that were relevant to that quality, and selected co-occurring terms relevant to that quality. For example, we add the term ``performance'' to the synonyms for \emph{efficiency}, since this term occurs in most KDE mail messages that discuss efficiency.
+To construct these expanded word-lists, we used WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including meronymy and synonymy. We then added Boehm’s 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven ‘ilities’ into their respective ISO9126 qualities. We did the same for the quality model produced by McCall et al. \cite{mccall1977}. Finally, we analyzed two mailing lists from the KDE project to enhance the specificity of the sets. We selected KDE-Usability, which focuses on usability discussions for KDE as a whole; and KDE-Konqueror, a mailing list about a long-lived web browser project. For each high-level quality in ISO9126, we first searched for our existing labels; we then randomly sampled twenty-five mail messages that were relevant to that quality, and selected co-occurring terms relevant to that quality. For example, we add the term ``performance'' to the synonyms for \emph{efficiency}, since this term occurs in most KDE mail messages that discuss efficiency.
 %exp2
 
 For the third -- \textsf{exp3} -- list of quality labels, we extended the list from \textsf{exp2} using unfiltered WordNet similarity matches. Similarity in WordNet means siblings in a hypernym tree. We do not include these words here for space considerations (but see the Appendix for our data repository). It is not clear the words associated with our labels are specific enough, however: for example, the label \emph{maintainability} is associated with words \emph{ease} and \emph{ownership}.
@@ -412,7 +412,7 @@ MySQL exp3 & portability & 0.413 & 0.170 & 0.564 & 0.325 & 0.574 \\
 	\label{tbl:maxdb-unsup-results}
 \end{table*}
 
-Based on these results we find that reliability and usability worked well for MaxDB in \textsf{exp2} and better in \textsf{exp3}. MySQL had reasonable results within \textsf{exp2} for reliability and efficiency. MySQL's results for efficiency did not improve in \textsf{exp3} but other qualities such as functionality did improve. If a \emph{C} grade performance has a ROC value of $0.6$ then most of these tests scored \emph{C} or less, but our results were still better than random chance.
+Based on these results we find that reliability and usability worked well for MaxDB in \textsf{exp2} and better in \textsf{exp3}. MySQL had reasonable results within \textsf{exp2} for reliability and efficiency. MySQL's results for efficiency did not improve in \textsf{exp3} but other qualities such as functionality did improve. If a \emph{C} grade performance has a ROC value of $0.6$ then most of these tests scored a grade of \emph{C} or less, but our results were still better than random chance.
 
 %\subsection{Classifying topics}
 \shrink
@@ -648,7 +648,7 @@ label micro-Recall & 0.68 & 0.43 & 0.56 &         0.47  &  0.21  &  0.26 \\
 
 Very rarely did \textsf{exp2} and \textsf{exp3} (naive word matching) ever perform as well as the machine learners. For MaxDB, reliability was slightly better detected using the static word list of \textsf{exp2}. In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. For both MySQL and MaxDB usability was better served by \textsf{exp2}. Usability was a very infrequent label, however.
 
-We found that the multi-label learners of BR, CLR and HOMER did not do as well for Macro-ROC and Micro-F1 as NaiveBayes and other NaiveBayes derived learners did. This suggests that by sticking together multiple NaiveBayes learners we could probably label topics effectively, but it would require a separate NaiveBayes learner per label.
+We found that the multi-label learners of BR, CLR and HOMER did not do as well for Macro-ROC and Micro-F1 as NaiveBayes and other NaiveBayes derived learners did. This suggests that by sticking together multiple NaiveBayes learners we could probably label sets of topics effectively, but it would require a separate NaiveBayes learner per label.
 
 \begin{comment}
 MySQL Macro ROC 0.746 Micro F1 0.78 Mulan BR ROC 0.74 / 0.81 F1 0.46/0.59/0.56 
@@ -682,8 +682,8 @@ We have created two visualizations of the manually labelled data. A problem we f
 \begin{figure*}
   \centering
   % hi-res version
-  % \includegraphics[height=.55\textheight]{maxdb-time-smear-plot-Equal}
-  \includegraphics[height=.57\textheight]{small-maxdb-time-smear-plot-Equal}
+  \includegraphics[height=.55\textheight]{maxdb-time-smear-plot-Equal}
+  % \includegraphics[height=.57\textheight]{small-maxdb-time-smear-plot-Equal}
   \caption{MaxDB 7.500: Labelled topics related to non-functional software qualities plotted over time, continuous topics are trends that occur across time}
   \label{fig:maxdb}
 \end{figure*}
@@ -691,8 +691,8 @@ We have created two visualizations of the manually labelled data. A problem we f
 \begin{figure*}%[h]
   \centering
   % hi-res version
-  % \includegraphics[width=.97\textwidth]{mysql-time-smear-plot-Equal}
-  \includegraphics[width=.97\textwidth]{small-mysql-time-smear-plot-Equal}
+  \includegraphics[width=.97\textwidth]{mysql-time-smear-plot-Equal}
+  %\includegraphics[width=.97\textwidth]{small-mysql-time-smear-plot-Equal}
   \caption{MySQL 3.23: Labelled topics related to non-functional software qualities plotted over time, continuous topics are trends that occur across time}
   \label{fig:mysql}
 \end{figure*}
