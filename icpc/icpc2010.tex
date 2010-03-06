@@ -425,6 +425,7 @@ We applied the Mulan~\cite{mulan} library for Multi-Label learning to our datase
 
 Another aspect of multi-label learning is the micro versus macro measurements. Macro measurements are aggregated at a class or label level. Micro measurements are aggregated at a decision level. So a macro-ROC measurment is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. Unfortunately for MaxDB the macro-ROC values are undefined because of poor performance of one of the labels.
 
+We have presented the results of Mulan's multi-label learners in Table \ref{tab:mulan}.
 Binary Relevance (BR), Calibrated Label Ranking (CLR) and Hierarchy Of Multilabel classifiERs (HOMER), performed the best. HOMER and BR acts as a hierarchy of learners, BR is flat while HOMER tries to build a deeper hierarchy in order to build a more accurate learner~\cite{mulan}. We feel that these classifiers performed better because they have the best micro and macro ROC scores than the other classifiers.
 
 \begin{comment}
