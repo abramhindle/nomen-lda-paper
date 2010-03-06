@@ -331,7 +331,7 @@ For \textsf{exp3}, we had many more named topics. As we mentioned, the word-list
 
 Based on the labels, and our manual topic labelling, we compared the results of the unsupervised word matching approach. For each quality we tried to assess whether the manual tag matched the unsupervised label assigned. Table \ref{tbl:maxdb-unsup-results} shows our results for MaxDB and MySQL. In general results are poor. Using the F-Measure, the weighted average of precision and recall, where 1 is perfect, our best results are 0.6, a few at 0.4, and most around 0.2. We achieved similar results using the Matthew's correlation coefficient (used to measure efficacy where classes are of different sizes) and ROC.  
 
-Based on these results we find that reliability and usability worked well for MaxDB in \textsf{exp2} and better in \textsf{exp3}. MySQL reasonable results within \textsf{exp2} were for reliability and efficiency. MySQL's results for efficiency did not improve in \textsf{exp3} but other qualities such as functionality did improve. If a \emph{C} grade performance has a ROC value of $0.6$ then most of these tests scored \emph{C} or less, but our results were still better than random chance.
+Based on these results we find that reliability and usability worked well for MaxDB in \textsf{exp2} and better in \textsf{exp3}. MySQL had reasonable results within \textsf{exp2} for reliability and efficiency. MySQL's results for efficiency did not improve in \textsf{exp3} but other qualities such as functionality did improve. If a \emph{C} grade performance has a ROC value of $0.6$ then most of these tests scored \emph{C} or less, but our results were still better than random chance.
 
 
 \begin{table*}[h]
@@ -419,9 +419,6 @@ usability &  MaxDB &  NaiveBayes &  0.56 &  95.37 &  -4.37 &  0.91  \\
 \caption{Per label, per project, the best learner for that label}
 \label{tab:best-learner-per-tag}
 \end{table*}
-
-
-
 
 \subsection{Applying multiple labels to topics}
 
