@@ -123,49 +123,25 @@ Our labelled topic extraction technique allowed us to devise appropriate, contex
 
 Few would argue that software development is a bed of roses.  To most of us, the important properties of a rose are sensual in nature, and concern appearance, odour, and feel.  While horticulturalists and botanists may see more semantic depth than this, one rose is often just as pleasing to us as another.  Software development artifacts, on the other hand, are abstract and intangible.  They are often unnamed and ephemeral --- even more so than roses --- and maybe partially derived from other unnamed and ephemeral artifacts.  Yet to have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for our development topics and be able to categorize the development artifacts as belonging to one or more of these topics. 
 
-%Original is here:
-
-%Unlike the poetic license Shakespeare uses, we show that names are
-%indeed important. The rose has its own tangible properties which
-%allow us to sense it. Unfortunately when we are dealing with data
-%abstracted from program source code, we are already dealing with
-%abstract entities that are not tangible.
-
-% To have meaningful discussions about how software development is progressing, we must devise appropriate labels for our work topics, in contrast to the quote above. We can then categorize development artifacts as belonging to one or more of these topics. 
 
 
 Topics arise from the wide variety of issues which occur during a software project's life-cycle. These topics can relate to, among others, the problem domain, the processes and tools used, or the development artifacts themselves.  The set of development topics for a given project can sometimes be extracted automatically by analyzing artifacts within software repositories, such as change-log comments that developers create when committing revisions to the project's source control system.  Our previous work dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. We observed that topic trends were often non-functional requirements.
 
 
-%As development of a software project progresses, developers must concern themselves with a wide variety of issues --- or ``topics'' --- that relate to the problem domain, the processes and tools used, the development artifacts themselves, etc.  The set of development topics for a given project can sometimes be extracted automatically by analyzing artifacts within software repositories, such as change-log comments that developers create when committing revisions to the project's source control system.  Our previous work dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. We observed that topic trends were often non-functional requirements.
-
-%During the development of a software project developers touch on many %issues integral to the purpose of the software project. These issues %are often referred to as topics. These topics can sometimes be %automatically extracted from the changelog comments that developers %create while committing revisions to the project's source control %repository. Our previous work dealt with %topic-trends~\cite{Hindle09ICSM}, topics that repeat overtime. It %seemed that these trends were often non-functional requirements. 
 
 Topics in this paper and the previous paper are word bags or word distributions. These word distributions are found via Latent Dirichlet Allocation~\cite{Blei2003}, which finds independent word distributions shared among documents (change-log comments). The unfortunate aspect of topics that are word distributions is that they lack the tangibility of a rose. They do not self identify with their tangible properties. Topics have to be identified by interpreting the prevalent words in the word distribution and by inspecting related documents. This is impractical when one has to handle more than one hundred different topics. It would be nice if we could have automatic assistance to determine what the topic is about. This is the power of labelling and naming.
 
 
-%If a topic has a name or a label we immediately have a good idea of  %what it is. In our case the name is the bit of information, the %summary, that was missing from our topics to make them useful and %complete. Although we are convinced that accurate naming is not %completely feasible, so we have focussed on labelling topics by %non-functional requirements.
-
 A topic --- that is, a word distribution in our world --- needs a suggestive name to succinctly convey its intent, and make it easy to use in discussions and analyses about the development of the system. Our previous experience leads us to believe that automated topic naming is currently infeasible in the general case. We have therefore decided to focus on topic labels from the sub-domain of non-functional requirements related to software quality.
 
-%In this paper we \textit{name} and \textit{label} topics generated by %a topic modeling technique, Latent Dirichlet %Allocation~\cite{Blei2003}. We use these topic models to train %supervised learners to classify larger datasets. We also show that %these topics can be generalized across products.
-
-% Clean this up
 
 Traditionally topic extraction has required manual annotation to derive domain-relevant labels. This paper implements \emph{labelled topic extraction}, in which topics are extracted and given labels relating to a cross-project taxonomy. This is an ontological approach where we attempt to relate networks of words to labels and then search for these terms within our topics. We also compare this approach to machine learners.
-
-%We start with an unsupervised topic learning algorithm, then manually %annotate the topics using the ontology. From the annotated topics, we %apply automated classifiers to find labels for the remaining topics. 
-
-%\XXX{Not sure about this}
-\begin{comment}
-Typically what is distinct is the software's particular functionality -- whether it offers email composition, prepares tax returns, and so on. What is common, however, is the non-functional, or quality requirements, that the software focuses on. Our approach makes use of software quality taxonomies in order to compare different projects on similar concepts. For example, how is the Security quality treated over time by product A versus product B? Does product A care about it more as it matures? Does the quality occur more often in software commits?
-\end{comment}
 
 Our contributions include:
 \begin{itemize}
 \item  We introduce labelled topic extraction, and demonstrate its usefulness
   compared to other approaches.
-% unsure about this
+
 \item We show that these labels with their topics can be learnt and used to classify other data-sets.
 \item We present visualizations of named topics and their trends over time to aid communication and analysis.
 \item We use an exploratory case study of
