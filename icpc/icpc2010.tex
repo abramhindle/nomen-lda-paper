@@ -302,9 +302,7 @@ Finally, using this data, we evaluated two research questions:
 
 % word list similarity
 
-In general, this approach did not work out well as common labels dominated the less common labels. The related words for \emph{correctness}, for example, tended to be too lengthy and non-specific. Table \ref{tbl:wordlist} lists results. A \emph{named   topic} is a topic with a matching label. There are \{periods X 20\} topics per project. All experiments were run on MaxDB and MySQL data.
-
-
+In general, this approach did not work out well as common labels dominated the less common labels. The related words for \emph{correctness}, for example, tended to be too lengthy and non-specific. Table \ref{tbl:wordlist} lists results. A \emph{named   topic} is a topic with a matching label. There are \{periods X 20\} topics per project as we told LDA to extract 20 topics per period. All experiments were run on MaxDB 7.500 and MySQL 3.23 data.
 
 %\XXX{this table should have mysql}
 \begin{table}
@@ -327,15 +325,18 @@ Unnamed topics &	139      &			295      &      92   \\
 
 For \textsf{exp1}, our best performing labels (the labels matched with the most topics) were \emph{correctness} (182 topics) and \emph{testability} (121). We did not get good results for usability or accuracy, which were associated with fewer than ten topics. We also looked for correlation between our labels: Excluding double matches (self-correlation), our highest co-occurring terms were verifiability and traceability, and testability and correctness (76 and 62 matches, respectively).
 
-For \textsf{exp2}, there are many more unnamed topics. Only reliability produces a lot of matches, mostly with the `error' word. Co-occurrence results were poor.
+For \textsf{exp2}, there are many more unnamed topics. Only reliability produces a lot of matches, mostly with the word `error'. Co-occurrence results were poor.
 
 For \textsf{exp3}, we had many more named topics. As we mentioned, the word-lists are quite broad, so there are likely to be false-positives. See the following sections for our error analysis. We found a high of 265 topics for usability, with a low of 44 topics for maintainability. Common co-occurrences were reliability and usability, efficiency and reliability, and efficiency and usability (200, 190, and 150 topics in common, respectively). 
 
-\subsection{Analysis the unsupervised labelling}
+\subsection{Analysis of the unsupervised labelling}
 
 \label{sec:unsuplabelling}
 
-Based on the labels, and our manual topic labelling, we compared the results of the unsupervised word matching approach. For each quality we tried to assess whether the manual tag matched the unsupervised label assigned. Table \ref{tbl:maxdb-unsup-results} shows our results for MaxDB and MySQL. In general results are poor. Using the F-Measure, the weighted average of precision and recall, where 1 is perfect, our best results are 0.6, a few at 0.4, and most around 0.2. Similar results using the Matthew's correlation coefficient (used to measure efficacy where classes are of different sizes), and the receiver operating characteristic area under curve. 
+Based on the labels, and our manual topic labelling, we compared the results of the unsupervised word matching approach. For each quality we tried to assess whether the manual tag matched the unsupervised label assigned. Table \ref{tbl:maxdb-unsup-results} shows our results for MaxDB and MySQL. In general results are poor. Using the F-Measure, the weighted average of precision and recall, where 1 is perfect, our best results are 0.6, a few at 0.4, and most around 0.2. We achieved similar results using the Matthew's correlation coefficient (used to measure efficacy where classes are of different sizes) and ROC.  
+
+Based on these results we find that reliability and usability worked well for MaxDB in \textsf{exp2} and better in \textsf{exp3}. MySQL reasonable results within \textsf{exp2} were for reliability and efficiency. MySQL's results for efficiency did not improve in \textsf{exp3} but other qualities such as functionality did improve. If a \emph{C} grade performance has a ROC value of $0.6$ then most of these tests scored \emph{C} or less, but our results were still better than random chance.
+
 
 \begin{table*}[h]
 	\centering
@@ -385,7 +386,7 @@ MySQL exp3 & portability & 0.413 & 0.170 & 0.564 & 0.325 & 0.574 \\
 \subsection{Analysis of the supervised labelling}
 \label{sec:suplabelling}
 
-We took our annotated dataset and applied supervised learner to it. Because our dataset was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. We also tried other learners that WEKA~\cite{weka09} provides: rule learners, tree learners, vector space learners, and support vector machines.  Table \ref{tab:best-learn-per-tag} shows the performance of the best performing learner per label.  We considered the best learner for a label to be the one which had the highest ROC value for that label. Table \ref{tab:best-learn-per-tag} shows the ROC value, the accuracy of a ZeroR learner ( a learner which just chooses the largest category all of the time), the difference in accuracy between the best learner and ZeroR, and the F-measure for that particular learner. The ZeroR difference is often negative, but in particular for labels which are not as common this can be expected because any miscategorization will hurt accuracy, this is why the F1 (F-measure) and the ROC values are useful as they can better present performance on labels which are not applicable to the majority of samples.
+We took our annotated dataset and applied supervised learners to it. Because our dataset was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. We also tried other learners that WEKA~\cite{weka09} provides: rule learners, tree learners, vector space learners, and support vector machines.  Table \ref{tab:best-learn-per-tag} shows the performance of the best performing learner per label.  We considered the best learner for a label to be the one which had the highest ROC value for that label. Table \ref{tab:best-learn-per-tag} shows the ROC value, the accuracy of a ZeroR learner ( a learner which just chooses the largest category all of the time), the difference in accuracy between the best learner and ZeroR, and the F-measure for that particular learner. The ZeroR difference is often negative, but in particular for labels which are not as common this can be expected because any miscategorization will hurt accuracy, this is why the F1 (F-measure) and the ROC values are useful as they can better present performance on labels which are not applicable to the majority of samples.
 
 Table \ref{tab:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, the ROC values for reliability and functionality seem swapped between projects. It should be noted that for both project Bayesian techniques did the best out of a wide variety of machine learners tested. Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes theorem and all assume, naively, that the features are independent. The features we used are word counts per message. One beneficial aspect of this result is that it suggests we can have very fast training times since Naive Bayes can be calculated in $O(N)$ for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
