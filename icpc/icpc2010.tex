@@ -645,8 +645,6 @@ We observed that MySQL had more topic subsets than MaxDB. MySQL 3.23 also had mo
 
 MySQL and MaxDB's machine learners did dispatch off of some shared words. Words that were used to classify topics that were shared between MySQL and MaxDB included: bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test. Potentially adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while still being domain specific.
 
-
-
 \begin{comment}
  shared-report.sh ; cat output/shared-j48-words 
 
@@ -672,6 +670,14 @@ MySQL and MaxDB's machine learners did dispatch off of some shared words. Words 
       6 test
 
 \end{comment}
+
+\subsection{Annotation Observations}
+
+We also found there were quite a few topics that were not non-functional requirements but were often related to them. For instance concurrency was mentioned often in the commit logs and was related to correctness and reliability because concurrency was troublesome. Configuration management and source control related changes appeared often and sometimes had topics dedicated to configuration management, these kinds of changes are slightly related to maintainability. A non-functional change that was not quality related was licensing and copyright, many changes were simply to do with updating copyrights or ensuring copyright or licenses headers were applied to files.
+
+We noticed that sometimes the names of modules would conflict with words related to other non-functional requirements. For instance optimizers are very common modules in database systems, both MySQL and MaxDB have optimizer modules. In MySQL the optimizer is mentioned but often the change is deals with correctness or another quality, yet the name of the module has the potential to confuse automated approaches. This is why we feel that perhaps a project specific word-bags are needed in order to avoid automated mistakes due to the names of entities and modules with the software project.
+
+
 
 \begin{comment}
 A quick mind dump before I forget:
