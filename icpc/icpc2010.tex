@@ -315,7 +315,7 @@ Named topics &		281      &			125      &		328  \\
 Unnamed topics &	139      &			295      &      92   \\
 \bottomrule
 \end{tabular}
-	\caption{Automatic topic labeling}
+	\caption{Automatic topic labeling for MaxDB 7.500}
 	\label{tbl:wordlist}
 
 \end{table}
@@ -645,6 +645,8 @@ We observed that MySQL had more topic subsets than MaxDB. MySQL 3.23 also had mo
 
 MySQL and MaxDB's machine learners did dispatch off of some shared words. Words that were used to classify topics that were shared between MySQL and MaxDB included: bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test. Potentially adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while still being domain specific.
 
+
+
 \begin{comment}
  shared-report.sh ; cat output/shared-j48-words 
 
@@ -669,6 +671,24 @@ MySQL and MaxDB's machine learners did dispatch off of some shared words. Words 
       6 Added
       6 test
 
+\end{comment}
+
+\begin{comment}
+A quick mind dump before I forget:
+* portability was very popular
+* there were many instances of concurrency
+* There were often topics of crap commits with no comment
+* might need more than the top words to compare
+* Things like tests were noticable more by file type
+* Configuration management is not part of the software quality ontology?
+* I didn't tag none I tagged unknown, so that's some inconsistency between us
+* There were a lot of copyright changes in mysql
+* mysql had optimizer module which did not mean optimization
+* I tried to assign reliability/bug for reliability bugs
+  and Functionality/Correctness for fixes
+* Some security changes came later
+* Mysql 3.23 transitioned from a project being developped to
+  a project being maintained, more frequent backport bugfixes
 \end{comment}
 
 
