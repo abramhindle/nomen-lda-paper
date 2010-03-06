@@ -1,7 +1,7 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 %\documentclass[10pt, conference, compsocconf]{IEEEtran}
-\documentclass{acm_proc_article-sp}
+\documentclass[letterpaper]{acm_proc_article-sp}
 %\usepackage{fontspec}
 %\usepackage{xunicode}
 %\usepackage{xltxtra}
@@ -68,23 +68,48 @@ Abram Hindle\\
 
 %There has not been any   investigation into the latent topics these %classifiers represent. 
 
-\begin{abstract}
-To have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for work topics. We can then categorize development artifacts as belonging to one or more of these topics. 
+%  Within the field of mining software repositories, many approaches,   such as topic modeling and concept location, rely on the automated   application of machine learning algorithms to corpora.  
+%This kind of   approach typically makes no use of domain-specific knowledge to   improve the results or put them into a context that a developer can   relate to.  
+%While too much specificity can produce non-generalizable   results, too little produces broad learners that do not provide much   immediately useful detail.  
+%In this paper, we investigate what   topics the latent topic extractors produce, and examine whether   such topics can be generalized across software products.  
+%We focus   on non-functional requirements related to software quality as a   potential generalization, since there is some shared belief that   these qualities apply broadly across many software systems and their   development artifacts.  
+%In our approach, we name topics based on a   static ontology of non-functional requirements and software   qualities; in essence, this adds context to general-purpose   ontologies such as WordNet.  
+%In this paper, we discuss how we use   this software development domain knowledge to better annotate topics   of development that are extracted from the change log messages in   configuration management systems such as CVS. 
+% Since our taxonomy is   global in scope, our results allow us to compare the relative   importance of particular qualities across different projects. 
+%Within the topics extracted from MySQL and MaxDB we found that   non-functional requirements were common and often were trends across   time. 
+%Our automated techniques can label topics without much computational overhead.
+
+
+\begin{comment}
+ Within the field of mining software repositories, 
+to have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for work topics. We can then categorize development artifacts as belonging to one or more of these topics. 
 % Other approaches
 In order to do this, approaches such as topic modeling and concept location rely on the automated application of machine learning algorithms to development artifacts. 
 %limitations
 However, these approaches neither use domain-specific knowledge to improve results, nor contextualize those results for developers.  While too much specificity can produce non-generalizable results, too little produces broad learners that do not provide much immediately useful detail. 
 %introduce idea
-This paper implements \emph{labelled topic extraction}, in which topics are extracted and given labels relating to a cross-project taxonomy. We focus on non-functional requirements related to software quality as a potential generalization, since there is some shared belief that these qualities apply broadly across many software systems and their development artifacts.  
+This paper implements \emph{labelled topic extraction}, in which topics are extracted from commit comments and given labels relating to a cross-project taxonomy. We focus on non-functional requirements related to software quality as a potential generalization, since there is some shared belief that these qualities apply broadly across many software systems and their development artifacts.  
 %In our approach, we name topics based on a static ontology of non-functional requirements and software qualities; in essence, this adds context to general-purpose ontologies such as WordNet.  
 %elaborate
 %We discuss how we use this software development domain knowledge to better annotate topics of development that are extracted from the change log messages in configuration management systems such as CVS. 
-We evaluated our approach with an experimental study on two large-scale database projects, MySQL and MaxDB. Our results were generalizable across the two projects, showing that non-functional requirements were commonly discussed, and we identified topic trends over time. 	
+We evaluated our approach with an experimental study on two large-scale database projects, MySQL and MaxDB. We extracted topics from their version control commit logs comments. Our results were generalizable across the two projects, showing that non-functional requirements were commonly discussed, and we identified topic trends over time. 	
 %Our automated techniques can label topics with little computational overhead.  
 %sum up
 % Since our taxonomy is global in scope, our results allow us to compare the relative importance of particular qualities across different projects.
 Our labelled topic extraction technique allowed us to devise appropriate, context-sensitive labels across these two projects, providing insight into software development activities.
+\end{comment}
+
+
+\begin{abstract}
+To have a meaningful discussion about how software development is progressing, we must be able to devise appropriate labels for development topics. We can then categorize development artifacts as belonging to one or more of these topics. 
+In order to do this, approaches such as topic modeling and concept location rely on the automated application of machine learning algorithms to development artifacts. 
+However, these approaches neither use domain-specific knowledge to improve results, nor contextualize those results for developers. These extracted topics are often difficult to distinguish and interpret.  While too much specificity can produce non-generalizable results, too little produces broad learners that do not provide much immediately useful detail. 
+This paper implements \emph{labelled topic extraction}, in which topics are extracted from commit comments and given labels relating to a cross-project taxonomy. We focus on non-functional requirements related to software quality as a potential generalization, since there is some shared belief that these qualities apply broadly across many software systems and their development artifacts.  
+We evaluated our approach with an experimental study on two large-scale database projects, MySQL and MaxDB. We extracted topics using Latent Dirichlet Allocation (LDA) from the commit log comments of their version control systems (CVS and BitKeeper). Our results were generalizable across the two projects, showing that non-functional requirements were commonly discussed, and we identified topic trends over time. 	
+Our labelled topic extraction technique allowed us to devise appropriate, context-sensitive labels across these two projects, providing insight into software development activities.
 \end{abstract}
+
+%\vspace*{4em} % push intro down
 
 \newcommand{\shrink}{}
 
@@ -95,7 +120,7 @@ Our labelled topic extraction technique allowed us to devise appropriate, contex
 	\begin{flushright} -- Romeo and Juliet, II:ii\end{flushright}
 \end{quote}
 
-Few would argue that software development is a bed of roses.  To most of us, the important properties of a rose are sensual in nature, and concern appearance, odour, and feel.  While horticulturalists and botanists may see more semantic depth than this, one rose is often just as pleasing to us as another.  Software development artifacts, on the other hand, are abstract and intangible.  They are often unnamed and ephemeral --- even more so than roses --- and maybe partially derived from other unnamed and ephemeral artifacts.  Yet to have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for our work topics and be able to categorize the development artifacts as belonging to one or more of these topics. 
+Few would argue that software development is a bed of roses.  To most of us, the important properties of a rose are sensual in nature, and concern appearance, odour, and feel.  While horticulturalists and botanists may see more semantic depth than this, one rose is often just as pleasing to us as another.  Software development artifacts, on the other hand, are abstract and intangible.  They are often unnamed and ephemeral --- even more so than roses --- and maybe partially derived from other unnamed and ephemeral artifacts.  Yet to have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for our development topics and be able to categorize the development artifacts as belonging to one or more of these topics. 
 
 %Original is here:
 
@@ -261,7 +286,8 @@ portability, flexibility, reliability.
 Our second word list set, \textsf{exp2}, relied on the ISO quality model (ISO9126)~\cite{iso9126}. ISO9126 describes six high-level quality requirements (listed in Table \ref{tbl:wnsig}). 
 %There is some debate about the significance and importance of the %terms in this model. 
 %However, it is ``an international standard and thus provides an %internationally accepted terminology for software quality \cite[p. %58]{Boegh2008},'' which is sufficient for the purposes of this %research. 
-ISO9126 is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Bøegh2008},'' that is sufficient for the purposes of this research.
+% NOTE I HAD TO CHANGE THE O HERE IN THE BIBTEX
+ISO9126 is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.
 However, the terms extracted from ISO9126 may not capture all words associated with the labels.  For example, the term ``redundancy'' is one most would agree is relevant to discussion of reliability, but is not in the standard. We therefore took the words from the taxonomy and expanded them.
 
 %Cite mockus et al
@@ -680,7 +706,7 @@ We have created two visualizations of the manually labelled data. A problem we f
   \centering
   % hi-res version
   % \includegraphics[height=.55\textheight]{maxdb-time-smear-plot-Equal}
-  \includegraphics[height=.55\textheight]{small-maxdb-time-smear-plot-Equal}
+  \includegraphics[height=.57\textheight]{small-maxdb-time-smear-plot-Equal}
   \caption{MaxDB 7.500: Labelled topics related to non-functional software qualities plotted over time, continuous topics are trends that occur across time}
   \label{fig:maxdb}
 \end{figure*}
