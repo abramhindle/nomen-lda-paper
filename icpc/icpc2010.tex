@@ -184,7 +184,7 @@ project. A \emph{label} is part of a title we attach to a topic, whether manuall
 \subsection{Topic and Concept Extraction}
 Topic extraction, sometimes called concept extraction, uses tools such as Latent Dirichlet Allocation (LDA)~\cite{Blei2003} and Latent Semantic Indexing (LSI) to extract
 independent word distributions (topics) from
-	documents (commit log comments). Many researchers~\cite{marcus04wcre,Poshyvanyk2007,lukins08wcre,Linstead2007} have applied tools like LSI and LDA for mining software repositories, in particular analyzing source code, bugs or developer comments.
+	documents (commit log comments). Many researchers~\cite{marcus04wcre,Poshyvanyk2007,lukins08wcre,Linstead2007} have applied tools like LSI and LDA to mining software repositories, in particular analyzing source code, bugs or developer comments.
 \begin{comment}
 Ideally these extracted topics 
 correlate with actual development topics that the developers discussed
@@ -232,7 +232,7 @@ The MySQL project started in 1994 but MySQL 3.23 was released in early 2001. MyS
 
 \shrink
 \subsection{Generating the data}
-From each project, we used source control commit comments, the messages that programmers write when they commit revisions to a source control repository. We leveraged the data that we gathered in \cite{Hindle09ICSM} for this work. An example of a typical commit message is: \textit{``history annotate diffs bug fixed (if mysql\_real\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. We extracted these messages and indexed them by creation time. We summarized each message as a word distribution but removed stop-words such as common English words \emph{the} and \emph{at}.
+For each project, we used source control commit comments, the messages that programmers write when they commit revisions to a source control repository. We leveraged the data that we gathered in \cite{Hindle09ICSM} for this work. An example of a typical commit message is: \textit{``history annotate diffs bug fixed (if mysql\_real\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. We extracted these messages and indexed them by creation time. We summarized each message as a word distribution but removed stop-words such as common English words like \emph{the} and \emph{at}.
 
 From that data-set, we created an XML file which separated commits into
 monthly windows. This size of period is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze. We applied Blei's LDA implementation~\cite{Blei2003} against the word distributions of these commits, and generated list of topics per period. 
