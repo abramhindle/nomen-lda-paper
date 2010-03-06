@@ -75,12 +75,15 @@ In order to do this, approaches such as topic modeling and concept location rely
 %limitations
 However, these approaches neither use domain-specific knowledge to improve results, nor contextualize those results for developers.  While too much specificity can produce non-generalizable results, too little produces broad learners that do not provide much immediately useful detail. 
 %introduce idea
-This paper implements \emph{labelled topic extraction}, in which topics are extracted and given labels relating to a cross-project taxonomy. We focus on non-functional requirements related to software quality as a potential generalization, since there is some shared belief that these qualities apply broadly across many software systems and their development artifacts.  In our approach, we name topics based on a static ontology of non-functional requirements and software qualities; in essence, this adds context to general-purpose ontologies such as WordNet.  
+This paper implements \emph{labelled topic extraction}, in which topics are extracted and given labels relating to a cross-project taxonomy. We focus on non-functional requirements related to software quality as a potential generalization, since there is some shared belief that these qualities apply broadly across many software systems and their development artifacts.  
+%In our approach, we name topics based on a static ontology of non-functional requirements and software qualities; in essence, this adds context to general-purpose ontologies such as WordNet.  
 %elaborate
-In this paper, we discuss how we use this software development domain knowledge to better annotate topics of development that are extracted from the change log messages in configuration management systems such as CVS.  Since our taxonomy is global in scope, our results allow us to compare the relative importance of particular qualities across different projects. 
+%We discuss how we use this software development domain knowledge to better annotate topics of development that are extracted from the change log messages in configuration management systems such as CVS. 
+We evaluated our approach with an experimental study on two large-scale database projects, MySQL and MaxDB. Our results were generalizable across the two projects, showing that non-functional requirements were commonly discussed, and we identified topic trends over time. 	
+%Our automated techniques can label topics with little computational overhead.  
 %sum up
-Within the topics extracted from MySQL and MaxDB we found that non-functional requirements were common and often were trends across time. Our automated techniques can label topics with little computational overhead.
-
+% Since our taxonomy is global in scope, our results allow us to compare the relative importance of particular qualities across different projects.
+Our labelled topic extraction technique allowed us to devise appropriate, context-sensitive labels across these two projects, providing insight into software development activities.
 \end{abstract}
 
 \newcommand{\shrink}{}
