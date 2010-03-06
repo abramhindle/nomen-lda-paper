@@ -279,16 +279,17 @@ operability understandability learnability useable usable serviceable usefulness
 
 \subsection{Supervised learning}
 
-In order to validate how effective these word-bag approaches to topic labelling would be we had to make a data set to test against.  For MySQL and MaxDB, we manually annotated each extracted topic in each period with the same quality labels as \textsf{exp2} (software qualities). We looked at each period's topics, and assessed what the data -- consisting of the frequency-weighted word lists and messages -- suggested was the topic for that period. We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to this topic. For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. We compared against this data-set but we also used it for our supervised learning based topic classification.
+\label{sec:suplearn}
+
+In order to validate how effective these word-bag approaches to topic labelling would be we had to make a data set to test against.  For MySQL 3.23 and MaxDB 7.500, we manually annotated each extracted topic in each period with the same quality labels as \textsf{exp2} (software qualities). We looked at each period's topics, and assessed what the data -- consisting of the frequency-weighted word lists and messages -- suggested was the topic for that period. We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to this topic. For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. We compared against this data-set but we also used it for our supervised learning based topic classification.
 %inter-rater reliability 
 
-We first compared our previous analysis using label matching to our manual classifications to get an error rate for that process (described below). 
+We first compared our previous analysis using label matching to our manual classifications to get an error rate for that process described below in Section \ref{sec:unsuplabelling}. 
 
-For supervised learning, we used a suite of supervised classifiers from WEKA~\cite{weka09}. WEKA contains a suite of machine learning tools such as support vector machines and Bayes nets. We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, much like our manual classification found overlaps. 
+For supervised learning, we used a suite of supervised classifiers from WEKA~\cite{weka09}. WEKA contains a suite of machine learning tools such as support vector machines and Bayes nets. We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, which maps to what we observed while manually labelling topics.
 
-To assess the performance of the supervised learners, we did a 10-fold cross-validation. This is when a set is partitioned into 10 partitions and then each partition is used once as a test set and 9 other times as part of the training set of 9 partitions. We have reported these results below.
+To assess the performance of the supervised learners, we did a 10-fold cross-validation. This is when a set is partitioned into 10 partitions and then each partition is used once as a test set and 9 other times as part of the training set of 9 partitions. We have reported these results below in Section \ref{sec:suplabelling}.
 
-% enumerate?
 Finally, using this data, we evaluated two research questions:
 \begin{enumerate}
 \item Do label frequencies change over time? That is, is a certain quality of more interest at one point in the life-cycle than some other? 
@@ -330,7 +331,9 @@ For \textsf{exp2}, there are many more unnamed topics. Only reliability produces
 
 For \textsf{exp3}, we had many more named topics. As we mentioned, the word-lists are quite broad, so there are likely to be false-positives. See the following sections for our error analysis. We found a high of 265 topics for usability, with a low of 44 topics for maintainability. Common co-occurrences were reliability and usability, efficiency and reliability, and efficiency and usability (200, 190, and 150 topics in common, respectively). 
 
-\subsubsection{Analyzing the unsupervised labelling}
+\subsection{Analysis the unsupervised labelling}
+
+\label{sec:unsuplabelling}
 
 Based on the labels, and our manual topic labelling, we compared the results of the unsupervised word matching approach. For each quality we tried to assess whether the manual tag matched the unsupervised label assigned. Table \ref{tbl:maxdb-unsup-results} shows our results for MaxDB and MySQL. In general results are poor. Using the F-Measure, the weighted average of precision and recall, where 1 is perfect, our best results are 0.6, a few at 0.4, and most around 0.2. Similar results using the Matthew's correlation coefficient (used to measure efficacy where classes are of different sizes), and the receiver operating characteristic area under curve. 
 
@@ -378,7 +381,9 @@ MySQL exp3 & portability & 0.413 & 0.170 & 0.564 & 0.325 & 0.574 \\
 	\label{tbl:maxdb-unsup-results}
 \end{table*}
 
-\subsection{Classifying topics}
+%\subsection{Classifying topics}
+\subsection{Analysis of the supervised labelling}
+\label{sec:suplabelling}
 
 We took our annotated dataset and applied supervised learner to it. Because our dataset was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. We also tried other learners that WEKA~\cite{weka09} provides: rule learners, tree learners, vector space learners, and support vector machines.  Table \ref{tab:best-learn-per-tag} shows the performance of the best performing learner per label.  We considered the best learner for a label to be the one which had the highest ROC value for that label. Table \ref{tab:best-learn-per-tag} shows the ROC value, the accuracy of a ZeroR learner ( a learner which just chooses the largest category all of the time), the difference in accuracy between the best learner and ZeroR, and the F-measure for that particular learner. The ZeroR difference is often negative, but in particular for labels which are not as common this can be expected because any miscategorization will hurt accuracy, this is why the F1 (F-measure) and the ROC values are useful as they can better present performance on labels which are not applicable to the majority of samples.
 
