@@ -168,7 +168,7 @@ project. A \emph{label} is part of a title we attach to a topic, whether manuall
 \subsection{Topic and Concept Extraction}
 Topic extraction, sometimes called concept extraction, uses tools such as Latent Dirichlet Allocation (LDA)~\cite{Blei2003} and Latent Semantic Indexing (LSI) to extract
 independent word distributions (topics) from
-	documents (commit log comments). Many researchers~\cite{marcus04wcre,Poshyvanyk2007,lukins08wcre,Linstead2007} have applied tools like LSI and LDA for mining repositories, in particular analyzing source code, bugs or developer comments.
+	documents (commit log comments). Many researchers~\cite{marcus04wcre,Poshyvanyk2007,lukins08wcre,Linstead2007} have applied tools like LSI and LDA for mining software repositories, in particular analyzing source code, bugs or developer comments.
 \begin{comment}
 Ideally these extracted topics 
 correlate with actual development topics that the developers discussed
@@ -184,7 +184,7 @@ In this paper we use LDA to identify topics.  LDA works by creating topic models
  The idea is similar to other IR approaches like TF/IDF (term frequency/inverse document frequency), which find uncommon words that are not found in other word-lists. These approaches are unsupervised in that they rely solely on the source data with no human intervention.
 \end{comment}
 
-One issue that arises with use of unsupervised techniques is how to label the topics. While the topic models themselves are generated automatically, what to make of them is less clear. For example, in our previous work~\cite{Hindle09ICSM}, and in \cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. E.g., for the word list ``listener change remove add fire'', Baldi et al. assign the keyword \emph{event-handling}. The labels are reasonable enough, but still require some expert in the field to determine them. Our technique is automated, because we match keywords from WordNet to words in the topic model. 
+One issue that arises with the use of unsupervised techniques is how to label the topics. While the topic models themselves are generated automatically, what to make of them is less clear. For example, in our previous work~\cite{Hindle09ICSM}, and in \cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. For example, given the word list ``listener change remove add fire'', Baldi et al. assign the keyword \emph{event-handling}. The labels are reasonable enough, but still require some expert in the field to determine them. Our technique is automated, because we match keywords from WordNet to words in the topic model. 
 
 \subsection{Supervised learning}
 While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, supervised learners have the advantage of domain knowledge. This typically results in improved results. In supervised learning, the data is divided into slices. One slice is manually annotated by the domain expert
