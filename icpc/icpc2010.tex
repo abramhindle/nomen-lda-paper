@@ -353,10 +353,7 @@ For \textsf{exp3}, we had many more named topics. As we mentioned, the word-list
 
 Based on the labels, and our manual topic labelling, we compared the results of the unsupervised word matching approach. For each quality we tried to assess whether the manual tag matched the unsupervised label assigned. Table \ref{tbl:maxdb-unsup-results} shows our results for MaxDB and MySQL. In general results are poor. Using the F-Measure, the weighted average of precision and recall, where 1 is perfect, our best results are 0.6, a few at 0.4, and most around 0.2. We achieved similar results using the Matthew's correlation coefficient (used to measure efficacy where classes are of different sizes) and ROC.  
 
-Based on these results we find that reliability and usability worked well for MaxDB in \textsf{exp2} and better in \textsf{exp3}. MySQL reasonable results within \textsf{exp2} were for reliability and efficiency. MySQL's results for efficiency did not improve in \textsf{exp3} but other qualities such as functionality did improve. If a \emph{C} grade performance has a ROC value of $0.6$ then most of these tests scored \emph{C} or less, but our results were still better than random chance.
-
-
-\begin{table*}%[h]
+\begin{table*}[ht]
 	\centering
 
 \begin{tabular}{c|c|c|c|c|c|c}
@@ -400,19 +397,21 @@ MySQL exp3 & portability & 0.413 & 0.170 & 0.564 & 0.325 & 0.574 \\
 	\label{tbl:maxdb-unsup-results}
 \end{table*}
 
+Based on these results we find that reliability and usability worked well for MaxDB in \textsf{exp2} and better in \textsf{exp3}. MySQL had reasonable results within \textsf{exp2} for reliability and efficiency. MySQL's results for efficiency did not improve in \textsf{exp3} but other qualities such as functionality did improve. If a \emph{C} grade performance has a ROC value of $0.6$ then most of these tests scored \emph{C} or less, but our results were still better than random chance.
+
 %\subsection{Classifying topics}
 \shrink
 \subsection{Analysis of the supervised labelling}
 \label{sec:suplabelling}
 
-We took our annotated data-set and applied supervised learners to it. Because our data-set was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. We also tried other learners that WEKA~\cite{weka09} provides: rule learners, tree learners, vector space learners, and support vector machines.  Table \ref{tab:best-learn-per-tag} shows the performance of the best performing learner per label.  We considered the best learner for a label to be the one which had the highest ROC value for that label. Table \ref{tab:best-learn-per-tag} shows the ROC value, the accuracy of a ZeroR learner ( a learner which just chooses the largest category all of the time), the difference in accuracy between the best learner and ZeroR, and the F-measure for that particular learner. The ZeroR difference is often negative, but in particular for labels which are not as common this can be expected because any miscategorization will hurt accuracy, this is why the F1 (F-measure) and the ROC values are useful as they can better present performance on labels which are not applicable to the majority of samples.
+We took our annotated data-set and applied supervised learners to it. Because our data-set was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. We also tried other learners that WEKA~\cite{weka09} provides: rule learners, tree learners, vector space learners, and support vector machines.  Table \ref{tab:best-learn-per-tag} shows the performance of the best performing learner per label.  We considered the best learner for a label to be the one which had the highest ROC value for that label. Table \ref{tab:best-learn-per-tag} uses the ZeroR learner as a baseline, since it naively chooses the largest category all of the time. The ZeroR difference is often negative. For labels which are not as common, this can be expected because any miscategorization will hurt accuracy. This is why the F1 (F-measure) and the ROC values are useful, as they can better present performance on labels which are not applicable to the majority of samples.
 
-Table \ref{tab:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, the ROC values for reliability and functionality seem swapped between projects. It should be noted that for both projects Bayesian techniques did the best out of a wide variety of machine learners tested. Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes theorem and all assume, naively, that the features are independent. The features we used are word counts per message. One beneficial aspect of this result is that it suggests we can have very fast training and classifying  since Naive Bayes can be calculated in $O(N)$ for $N$ features.
+Table \ref{tab:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, as the ROC values for reliability and functionality seem swapped between projects. It should be noted that for both projects Bayesian techniques did the best out of a wide variety of machine learners tested. Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes's theorem and all assume, naively, that the features are independent. The features we used are word counts per message. One beneficial aspect of this result is that it suggests we can have very fast training and classifying  since Naive Bayes can be calculated in $O(N)$ for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
 
-It seems like the smaller the label the harder it is to get accurate results. Although these results seem better than our previous word bag results of \textsf{exp2} and \textsf{exp3} because the ROC values are sufficiently higher in most cases other than MaxDB reliability and MySQL efficiency.
+The smaller the label the harder it is to get accurate results. Nevertheless, these results are better than our previous word bag results of \textsf{exp2} and \textsf{exp3}, because the ROC values are sufficiently higher in most cases (other than MaxDB reliability and MySQL efficiency).
 
-The limitation of the approach we took here is that we only checked independently for each label. Labels could be correlated with each other, as well as we did not evaluate how well the learners performed together.
+The limitation of the approach we took here is that we assume labels are independent; however, labels could be correlated with each other. We also did not evaluate how well the learners performed together.
 
 
 % Cribbed from: 
@@ -439,20 +438,19 @@ maintainability &  MaxDB &  NaiveBayes &  0.70 &  79.43 &  -9.25 &  0.72  \\
 usability &  MaxDB &  NaiveBayes &  0.56 &  95.37 &  -4.37 &  0.91  \\ 
  \hline 
 \end{tabular}
-\caption{Per label, per project, the best learner for that label}
-\label{tab:best-learner-per-tag}
+\caption{Per label, per project, the best learner for that label. ROC value rates learner performance, compared with the ZeroR learner ( a learner which just chooses the largest category all of the time). F1 is the F-measure for that particular learner.}
+\label{tab:best-learn-per-tag}
 \end{table*}
-
 
 
 \shrink
 \subsection{Applying multiple labels to topics}
 
-We applied the Mulan~\cite{mulan} library for Multi-Label learning to our data-set because we feel that topics can have more like one label, much like how a revision can have more than one topic. Multi-label learning is more than just classifying entities with more than one label. It also includes methods for determining the performance of such techniques. Consider that the problem has changed, instead of looking at the precision and recall of applying one label, we have to rank multiple labels at once. We have to check if the full subset of labels was applied and then how much of that subset was applied.
+We applied the Mulan~\cite{mulan} library for Multi-Label learning to our data-set because intuitively, topics can have more than one label, much like how a particular source code revision can have more than one topic. Multi-label learning is more than just classifying entities with more than one label. It also includes methods for determining the performance of such techniques. The problem framed in the learners above has changed; instead of looking at the precision and recall of applying one label, we rank multiple labels at once. We must check if the full subset of labels was applied, and then how much of that subset was applied.
 
-Another aspect of multi-label learning is the micro versus macro measurements. Macro measurements are aggregated at a class or label level. Micro measurements are aggregated at a decision level. So a macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. Unfortunately for MaxDB the macro-ROC values are undefined because of poor performance of one of the labels.
+Another aspect of multi-label learning are micro versus macro measurements. Macro measurements are aggregated at a class or label level. Micro measurements are aggregated at a decision level. So a macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. Unfortunately for MaxDB, the macro-ROC values are undefined because of poor performance of one of the labels.
 
-We have presented the results of Mulan's multi-label learners in Table \ref{tab:mulan}.  Binary Relevance (BR), Calibrated Label Ranking (CLR) and Hierarchy Of Multi-label classifiERs (HOMER), performed the best. HOMER and BR acts as a hierarchy of learners, BR is flat while HOMER tries to build a deeper hierarchy in order to build a more accurate learner~\cite{mulan}. We feel that these classifiers performed better than other multi-label classifiers because they have the best micro and macro ROC scores than the other classifiers although their results seem comparable to the naive Bayesian learners we used in Section \ref{sec:suplabelling}.
+We have presented the results of Mulan's multi-label learners in Table \ref{tab:mulan}.  Binary Relevance (BR), Calibrated Label Ranking (CLR) and Hierarchy Of Multi-label classifiERs (HOMER), performed the best. HOMER and BR act as a hierarchy of learners: BR is flat, while HOMER tries to build a deeper hierarchy to build a more accurate learner~\cite{mulan}. These classifiers performed better than other multi-label classifiers. They have the best micro and macro ROC scores, although their results seem comparable to the naive Bayesian learners we used in Section \ref{sec:suplabelling}.
 
 \begin{comment}
 
@@ -560,7 +558,7 @@ rank-Ranking Loss & 0.41 & 0.35 & 0.41 & 0.58 & 0.60 & 0.32 & 0.33 & 0.46 \\
 \end{comment}
 
 
-\begin{table*}
+\begin{table*}[h]
 \centering
 \begin{tabular}{l|ccc|ccc}
 \toprule
@@ -614,7 +612,7 @@ label micro-Recall & 0.68 & 0.43 & 0.56 &         0.47  &  0.21  &  0.26 \\
 \shrink
 \subsection{Summary of techniques}
 
-Very rarely did \textsf{exp2} and \textsf{exp3} ever perform as well as the machine learners. For MaxDB reliability was slightly better detected using the static word list of \textsf{exp2}. In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. For both MySQL and MaxDB usability was better served by \textsf{exp2}.
+Very rarely did \textsf{exp2} and \textsf{exp3} (naive word matching) ever perform as well as the machine learners. For MaxDB, reliability was slightly better detected using the static word list of \textsf{exp2}. In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. For both MySQL and MaxDB usability was better served by \textsf{exp2}. Usability was a very infrequent label, however.
 
 We found that the multi-label learners of BR, CLR and HOMER did not do as well for Macro-ROC and Micro-F1 as NaiveBayes and other NaiveBayes derived learners did. This suggests that by sticking together multiple NaiveBayes learners we could probably label topics effectively, but it would require a separate NaiveBayes learner per label.
 
@@ -645,7 +643,7 @@ mysql use  0.56 0.51 0.56   L 2
 \shrink
 \subsection{Visualization}
 
-We have created two visualizations of the manually labelled data. A problem we faced while visualizing was how to display tag overlaps. Our solution, while not optimal, was to assign a separate colour to each distinct set of annotations. Figures \ref{fig:maxdb} and \ref{fig:mysql} show extracted topics grouped by annotations. Annotations or labels that occur in adjacent windows are joined together as trends. For MaxDB (Figure \ref{fig:maxdb}) the largest trends were related to maintainability and portability. MaxDB supports numerous platforms and portability was a constant issue facing the project's development. MySQL was different, many topics overlapped, so there were many different subsets. Functionality trends were prevalent throughout its history (the largest reddish streak across the top). Two combination  tags of ``functionality portability'' (orange) and ``maintainability portability'' (teal) streaked across most of the history MySQL. Since this was MySQL 3.23 and was a stable branch we expect that issues dealings with portability and maintenance would be the primary concerns of this branch: developers probably wanted it to work with current systems and thus had to update it.
+We have created two visualizations of the manually labelled data. A problem we faced while visualizing was how to display tag overlaps. Our solution, while not optimal, was to assign a separate colour to each distinct set of annotations. Figures \ref{fig:maxdb} and \ref{fig:mysql} show extracted topics grouped by annotations. Annotations or labels that occur in adjacent windows are joined together as trends. For MaxDB (Figure \ref{fig:maxdb}) the largest trends were related to maintainability and portability. MaxDB supports numerous platforms and portability was a constant issue facing the project's development. MySQL was different, with many topics overlapping, so there were many different subsets. Functionality trends were prevalent throughout its history (the largest reddish streak across the top). Two combination  tags of ``functionality portability'' (orange) and ``maintainability portability'' (teal) streaked across most of the history of MySQL. Since this was MySQL 3.23, a stable branch, we expect that issues dealing with portability and maintenance would be the primary concerns of this branch: developers probably wanted it to work with current systems and thus had to update it.
 
 \begin{figure*}
   \centering
@@ -668,18 +666,19 @@ We have created two visualizations of the manually labelled data. A problem we f
 \label{sec:comparison}
 %\XXX{Not sure there's enough here to do that!}
 
-We observed that MySQL had more topic subsets than MaxDB. MySQL 3.23 also had more topics and a longer recorded history than MaxDB 7.500. We tagged more MySQL topics with annotations than MaxDB topics yet both shared similarities. In terms of non-functional requirements both projects had long running trends that focused on functionality, maintainability, and portability, yet MaxDB had more of a focus on efficiency and reliability. We feel that MaxDB differed from MySQL because MaxDB was being actively developed where was by half way through our history of MySQL 3.23, other versions of MySQL were being actively developed: MySQL versions 4.0, 4.1, and eventually 5.0 and 5.1. MySQL 3.23 was being maintained rather than actively developed where as MaxDB 7.500 was being actively developed into MaxDB 7.6, and then maintained thereafter.
+We observed that MySQL had more topic subsets than MaxDB. MySQL 3.23 also had more topics and a longer recorded history than MaxDB 7.500. We tagged more MySQL topics with annotations than MaxDB topics yet both shared similarities. In terms of non-functional requirements both projects had long running trends that focused on functionality, maintainability, and portability, yet MaxDB had more of a focus on efficiency and reliability. MaxDB differed from MySQL since MaxDB was being actively developed, whereas halfway through our history of MySQL 3.23, other versions of MySQL were being actively developed: MySQL versions 4.0, 4.1, and eventually 5.0 and 5.1. In other words, MySQL 3.23 was being maintained rather than actively developed, whereas MaxDB 7.500 was being actively developed into MaxDB 7.6, and then maintained thereafter.
 
-MySQL and MaxDB's machine learners did make decisions based off some shared words. Words that were used to classify topics that were shared between MySQL and MaxDB included: bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test. Adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
+MySQL and MaxDB's machine learners did make decisions based off some shared words. Words that were used to classify topics that were shared between MySQL and MaxDB included: \textsf{bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test}. Adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
 
-\emph{Do label frequencies change over time?} Yes, MySQL's label
+With respect to the questions raised in section \ref{sec:suplearn}:
+\textbf{Do label frequencies change over time?} -- Yes, MySQL's label
 frequencies decreased as it got older. Usability and reliability
 labels became more and more infrequent as it matured. Maintainability topics
 became more prevalent as MaxDB matured.
 
-\emph{Do the different projects differ in their relative topic
-  interest?} Yes they do, MySQL 3.23 had more proportionally more
-functionality labelled topics while MaxDB had proportionally more
+\textbf{Do the different projects differ in their relative topic
+  interest?} -- Yes. MySQL 3.23 had proportionally more
+functionality labelled topics, while MaxDB had proportionally more
 efficiency and portability related topics.
  
 
@@ -712,11 +711,9 @@ efficiency and portability related topics.
 \shrink
 \subsection{Annotation observations}
 
-We found many topics that were not non-functional requirements but were often related to them. For instance concurrency was mentioned often in the commit logs and was related to correctness and reliability because concurrency was troublesome. Configuration management and source control related changes appeared often and sometimes there were topics dedicated to configuration management, these kinds of changes are slightly related to maintainability. A non-functional change that was not quality related was licensing and copyright, many changes were simply to do with updating copyrights or ensuring copyright or licenses headers were applied to files.
+We found many topics that were not non-functional requirements (NFRs) but were often related to them. For instance, concurrency was mentioned often in the commit logs and was related to correctness and reliability, because concurrency was troublesome. Configuration management and source control related changes appeared often and sometimes there were topics dedicated to configuration management. These kinds of changes are slightly related to maintainability. A non-functional change that was not quality-related was licensing and copyright; many changes were simply to do with updating copyrights or ensuring copyright or licenses headers were applied to files.
 
-We noticed that sometimes the names of modules would conflict with words related to other non-functional requirements. For instance optimizers are very common modules in database systems, both MySQL and MaxDB have optimizer modules. In MySQL the optimizer is mentioned but often the change is deals with correctness or another quality, yet the name of the module could indicate the change was always about efficiency. This is why we feel that perhaps a project specific word-bags are needed in order to avoid automated mistakes due to the names of entities and modules with the software project.
-
-
+We noticed that occasionally the names of modules would conflict with words related to other non-functional requirements. For instance, optimizers are very common modules in database systems: both MySQL and MaxDB have optimizer modules. In MySQL the optimizer is mentioned but often the change deals with correctness or another quality. Despite this difference, the name of the module could fool our learners into believing the change was always about efficiency. Perhaps a project specific word-bag is needed in order to avoid automated mistakes due to the names of entities and modules with the software project.
 
 \begin{comment}
 A quick mind dump before I forget:
@@ -742,8 +739,7 @@ A quick mind dump before I forget:
 %{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
 
 With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these attempts. \textsf{exp2} and \textsf{exp3} both indicate that static information can be used to help label topics without any training whatsoever. If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques we could probably reduce the training effort. 
-Both Naive Bayesian learners and the word-list approaches were computationally efficient. Thus these results are promising because the results are accurate enough to be useful and cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
-
+Both Naive Bayesian learners and the word-list approaches were computationally efficient.  These results are promising, because the results are accurate enough to be useful, while still cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
 
 \shrink
 \subsection{Threats to validity}
@@ -756,7 +752,7 @@ Both Naive Bayesian learners and the word-list approaches were computationally e
 \textbf{External validity} -- Our data originated from open-source projects in the database domain. Of these, the open-source nature of the project seems most problematic for external validity. However, both projects are developed by commercial entities. Our technique is dependent on development practises including meaningful commit messages, which might not be true in other domains.
 \end{comment}
 
-Our study suffers from multiple threats to validity. \emph{Construct validity} issues include that used only commit messages rather than mail or bug tracker messages, as well we chose our taxonomy and the data to study. \emph{Internal validity} issues are to do with inter-rater reliability. \emph{External validity} issues are that our data originated from OSS database projects and thus might not be applicable to commercially developed software, as well our analysis techniques relies on a project's commitment to meaningful commit messages.
+Our study suffers from multiple threats to validity. \emph{Construct validity} issues include that we used only commit messages rather than mail or bug tracker messages. We also chose our taxonomy and the data to study. \emph{Internal validity} issues are to do with inter-rater reliability. \emph{External validity} issues are that our data originated from OSS database projects and thus might not be applicable to commercially developed software. Furthermore, our analysis techniques rely on a project's use of meaningful commit messages.
 
 \shrink
 \section{Related work}
@@ -801,14 +797,13 @@ In \cite{ernst10refsq}, we describe our earlier project, similar to this, to ide
 \shrink
 \section{Conclusions and future work}
 
-In conclusion, we have demonstrated that static but domain specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet. We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
+We demonstrated that static but domain-specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet. We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
 
-Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted dealt with non-functional requirements and these topics were spread across the entire history of a project. In the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
+Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted topics dealt with non-functional requirements, and these topics were spread across the entire history of a project. In the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
 
-Thus we have shown that non-functional requirements are often trending topics, that non-functional requirements are quite common in developer topics, and that there are efficient methods of semi-automating and automating topic labelling.
+We showed that non-functional requirements are often trending topics, that non-functional requirements are quite common in developer topics, and that there are efficient methods of semi-automating and automating topic labelling.
 
-There are many avenues of further investigation.  We want to investigate developer attitudes related to these labels, when we label a topic, was the developer expressing positive or negative qualities about that label.  It is difficult to map abstract qualities to particular messages. If the message is about a particular bug fix, do we map that to reliability or maintainability? Is it a performance bug or a usability bug? We ask is a ``quality'' discussion about more than just corrective maintenance? In this study we take the position that any type of maintenance has to do with software quality.
-
+There are many avenues of further investigation.  We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  It is difficult to map abstract qualities to particular messages. Is a ``quality'' discussion about more than just corrective maintenance? %In this study we take the position that any type of maintenance has to do with software quality.
 
 %\section{Acknowledgements and appendix}
 Our data and scripts are available at \url{http://softwareprocess.es/nomen/}
