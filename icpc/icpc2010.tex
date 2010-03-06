@@ -187,8 +187,8 @@ In this paper we use LDA to identify topics.  LDA works by creating topic models
 One issue that arises with the use of unsupervised techniques is how to label the topics. While the topic models themselves are generated automatically, what to make of them is less clear. For example, in our previous work~\cite{Hindle09ICSM}, and in \cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. For example, given the word list ``listener change remove add fire'', Baldi et al. assign the keyword \emph{event-handling}. The labels are reasonable enough, but still require some expert in the field to determine them. Our technique is automated, because we match keywords from WordNet to words in the topic model. 
 
 \subsection{Supervised learning}
-While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, supervised learners have the advantage of domain knowledge. This typically results in improved results. In supervised learning, the data is divided into slices. One slice is manually annotated by the domain expert
-In this paper, we employ the WEKA~\cite{weka09} and Mulan~\cite{mulan} machine learning frameworks in order to test supervised learning.
+While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, supervised learners have the advantage of domain knowledge. This typically produces improved results. In supervised learning, the data is divided into slices. One slice is manually annotated by the domain expert
+In this paper, we employ the WEKA~\cite{weka09} and Mulan~\cite{mulan} machine learning frameworks in order to test various supervised learners on our annotated data-set.
  
 \section{Methodology}
 
