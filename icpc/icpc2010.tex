@@ -715,20 +715,26 @@ Both Naive Bayesian learners and the word-list approaches were computationally e
 
 \subsection{Threats to validity}
 
+\begin{comment}
 \textbf{Construct validity} -- Focus on code commit messages, rather than mail or bug trackers. Choice of taxonomy
 
 \textbf{Internal validity} -- inter-rater reliability.
 
 \textbf{External validity} -- Our data originated from open-source projects in the database domain. Of these, the open-source nature of the project seems most problematic for external validity. However, both projects are developed by commercial entities. Our technique is dependent on development practises including meaningful commit messages, which might not be true in other domains.
+\end{comment}
+
+Our study suffers from multiple threats to validity. \emph{Construct validity} issues include that used only commit messages rather than mail or bug tracker messages, as well we chose our taxonomy and the data to study. \emph{Internal validity} issues are to do with inter-rater reliability. \emph{External validity} issues are that our data originated from OSS database projects and thus might not be applicable to commercially developed software, as well our analysis techniques relies on a project's commitment to meaningful commit messages.
 
 \section{Related work}
 
+\begin{comment}
 % Part of our effort with this project is to understand the qualitative and intentional aspects of requirements in software evolution, a notion we first discussed in \cite{ernst07icsm}. That idea is derived from, in part, work on narratives of software systems shown in academic work from Ant\'{o}n et al.~\cite{anton01}, or more general-purpose work from Waldo~\cite{waldo93}.
 
 % Part of our effort with this project is to understand the qualitative and intentional aspects of requirements in software evolution, a notion we first discussed in \cite{ernst07icsm}. That idea is derived from, in part, work on narratives of software systems shown in academic work like \cite{anton01}, or more general-purpose works like \cite{waldo93}. 
 
 
 % Not sure how do handle this
+\end{comment}
 The idea of extracting higher-level `concerns' (also known as `concepts', `aspects' or `requirements') has been attacked in two ways. 
 
 Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. They managed recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. Instead, they developed a supervised classifier by using human experts to identify an NFR training set. There are several reasons we did not follow this route. One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. Secondly, we wanted to compare across projects. Their technique was not compared across different projects and the applicability of the training set to different corpora is unclear. A common taxonomy allows us to make inter-project comparison (subject to the assumption that all projects conceive of these terms in the same way). Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) our study assumes these NFRs are latent in the textual documents of the project. Finally, the source text we use is less structured than their requirements documents.
@@ -736,6 +742,7 @@ Cleland-Huang and her colleagues published work on mining requirements documents
 In the same vein, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. They also leveraged WordNet, but only for word roots. They felt the synonyms would be non-specific and cause errors. A nice contribution was access to system developers, with whom they could validate their labels. Since we try to bridge different organizations, these interviews are infeasible (particularly in the distributed world of open-source software).
 
 The other approach is to start with code repositories, and try to extract concerns from there. Marcus et al.~\cite{marcus04wcre} describe their use of Latent Semantic Indexing to identify commonly occurring concerns for software maintenance. Some results were interesting, but their precision was quite low. ConcernLines~\cite{treude09cl} shows tag occurrence using colour intensity. They mined change request tags (such as `milestone 3') and used these to make evolutionary analyses of a single product. The presence of a well-maintained set of tags is obviously essential to the success of this technique.
+
 \begin{comment}
 %We maintain that these results require more substantive manipulation before being reported to, for example, management. Like any large-scale data analysis project, it requires skill to derive the implications. Hooking the backend results directly to a reporting tool is unlikely to produce useful results.
 
@@ -748,24 +755,17 @@ Mens et al.~\cite{mens08icsm} conducted an empirical study of Eclipse, the open 
 Mei et al.~\cite{Mei2007} use context information to automatically name topics. They describe probabilistic labelling, using the frequency distribution of words in a topic to create a meaningful phrase. They do not use external domain-specific information as we do.
 In \cite{ernst10refsq}, we describe an application similar to this to identify change in quality requirements in GNOME software projects; our approach is solely text-matching, however, and does not leverage machine learning strategies.
 
+\begin{comment}
 % comment out or not
 % Massey~\cite{massey02icse} and Scacchi~\cite{scacchi02,scacchi05b} looked at the topic of requirements in open-source software. Their work discusses the source of the requirements and how they are used in the development process. German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
 
 % Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
-
+\end{comment}
 
 Most of this related research examined project source code. Software mining of other project corpora is less common. Similarities exist with approaches that begin with structured taxonomies, as with the Hismo software ontology~\cite{girba06}. Rigby and Hassan~\cite{rigby07msr} used a general purpose taxonomy to classify developer email according to temperament.
 
 
 \section{Conclusions and future work}
-
-% No we didn't!
-% In this paper we showed that a domain specific wordnet for software % development provides better accuracy for labelling topic models than % unsupervised approaches.
-%
-
-%* Demonstrated that domain specific knowledge is valuable
-%* Demonstrated the feasibility of static approaches and supervised %approaches
-%* Showed that non functional requirement pervade much many of the %topics that are extracted
 
 In conclusion we have demonstrated that static but domain specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet. We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
 
