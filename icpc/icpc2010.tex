@@ -7,7 +7,7 @@
 \usepackage{xltxtra}
 \usepackage{booktabs}
 \defaultfontfeatures{Mapping=tex-text}
-\setmainfont{Times New Roman}
+% \setmainfont{Times New Roman}
 %\usepackage{amsthm}
 \usepackage{color}
 
@@ -334,7 +334,7 @@ For \textsf{exp3}, we had many more named topics. As we mentioned, the word-list
 
 Based on the labels, and our manual topic labelling, we compared the results of the unsupervised word matching approach. For each quality we tried to assess whether the manual tag matched the unsupervised label assigned. Table \ref{tbl:maxdb-unsup-results} shows our results for MaxDB and MySQL. In general results are poor. Using the F-Measure, the weighted average of precision and recall, where 1 is perfect, our best results are 0.6, a few at 0.4, and most around 0.2. We achieved similar results using the Matthew's correlation coefficient (used to measure efficacy where classes are of different sizes) and ROC.  
 
-\begin{table*}%[h]
+\begin{table*}[ht]
 	\centering
 
 \begin{tabular}{c|c|c|c|c|c|c}
@@ -536,7 +536,7 @@ rank-Ranking Loss & 0.41 & 0.35 & 0.41 & 0.58 & 0.60 & 0.32 & 0.33 & 0.46 \\
 \end{comment}
 
 
-\begin{table*}
+\begin{table*}[h]
 \centering
 \begin{tabular}{l|ccc|ccc}
 \toprule
@@ -620,7 +620,7 @@ mysql use  0.56 0.51 0.56   L 2
 
 \subsection{Visualization}
 
-We have created two visualizations of the manually labelled data. A problem we faced while visualizing was how to display tag overlaps. Our solution, while not optimal, was to assign a separate colour to each distinct set of annotations. Figures \ref{fig:maxdb} and \ref{fig:mysql} show extracted topics grouped by annotations. Annotations or labels that occur in adjacent windows are joined together as trends. For MaxDB (Figure \ref{fig:maxdb}) the largest trends were related to maintainability and portability. MaxDB supports numerous platforms and portability was a constant issue facing the project's development. MySQL was different, many topics overlapped, so there were many different subsets. Functionality trends were prevalent throughout its history (the largest reddish streak across the top). Two combination  tags of ``functionality portability'' (orange) and ``maintainability portability'' (teal) streaked across most of the history MySQL. Since this was MySQL 3.23 and was a stable branch we expect that issues dealings with portability and maintenance would be the primary concerns of this branch: developers probably wanted it to work with current systems and thus had to update it.
+We have created two visualizations of the manually labelled data. A problem we faced while visualizing was how to display tag overlaps. Our solution, while not optimal, was to assign a separate colour to each distinct set of annotations. Figures \ref{fig:maxdb} and \ref{fig:mysql} show extracted topics grouped by annotations. Annotations or labels that occur in adjacent windows are joined together as trends. For MaxDB (Figure \ref{fig:maxdb}) the largest trends were related to maintainability and portability. MaxDB supports numerous platforms and portability was a constant issue facing the project's development. MySQL was different, with many topics overlapping, so there were many different subsets. Functionality trends were prevalent throughout its history (the largest reddish streak across the top). Two combination  tags of ``functionality portability'' (orange) and ``maintainability portability'' (teal) streaked across most of the history of MySQL. Since this was MySQL 3.23, a stable branch, we expect that issues dealing with portability and maintenance would be the primary concerns of this branch: developers probably wanted it to work with current systems and thus had to update it.
 
 \begin{figure*}
   \centering
@@ -643,18 +643,19 @@ We have created two visualizations of the manually labelled data. A problem we f
 \label{sec:comparison}
 %\XXX{Not sure there's enough here to do that!}
 
-We observed that MySQL had more topic subsets than MaxDB. MySQL 3.23 also had more topics and a longer recorded history than MaxDB 7.500. We tagged more MySQL topics with annotations than MaxDB topics yet both shared similarities. In terms of non-functional requirements both projects had long running trends that focused on functionality, maintainability, and portability, yet MaxDB had more of a focus on efficiency and reliability. We feel that MaxDB differed from MySQL because MaxDB was being actively developed where was by half way through our history of MySQL 3.23, other versions of MySQL were being actively developed: MySQL versions 4.0, 4.1, and eventually 5.0 and 5.1. MySQL 3.23 was being maintained rather than actively developed where as MaxDB 7.500 was being actively developed into MaxDB 7.6, and then maintained thereafter.
+We observed that MySQL had more topic subsets than MaxDB. MySQL 3.23 also had more topics and a longer recorded history than MaxDB 7.500. We tagged more MySQL topics with annotations than MaxDB topics yet both shared similarities. In terms of non-functional requirements both projects had long running trends that focused on functionality, maintainability, and portability, yet MaxDB had more of a focus on efficiency and reliability. MaxDB differed from MySQL since MaxDB was being actively developed, whereas halfway through our history of MySQL 3.23, other versions of MySQL were being actively developed: MySQL versions 4.0, 4.1, and eventually 5.0 and 5.1. In other words, MySQL 3.23 was being maintained rather than actively developed, whereas MaxDB 7.500 was being actively developed into MaxDB 7.6, and then maintained thereafter.
 
-MySQL and MaxDB's machine learners did make decisions based off some shared words. Words that were used to classify topics that were shared between MySQL and MaxDB included: bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test. Adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
+MySQL and MaxDB's machine learners did make decisions based off some shared words. Words that were used to classify topics that were shared between MySQL and MaxDB included: \textsf{bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test}. Adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
 
-\paragraph{Do label frequencies change over time?} Yes, MySQL's label
+With respect to the questions raised in section \ref{sec:suplearn}:
+\textbf{Do label frequencies change over time?} -- Yes, MySQL's label
 frequencies decreased as it got older. Usability and reliability
 labels became more and more infrequent as it matured. Maintainability topics
 became more prevalent as MaxDB matured.
 
-\paragraph{Do the different projects differ in their relative topic
-  interest?} Yes they do, MySQL 3.23 had more proportionally more
-functionality labelled topics while MaxDB had proportionally more
+\textbf{Do the different projects differ in their relative topic
+  interest?} -- Yes. MySQL 3.23 had proportionally more
+functionality labelled topics, while MaxDB had proportionally more
 efficiency and portability related topics.
  
 
@@ -686,11 +687,9 @@ efficiency and portability related topics.
 
 \subsection{Annotation observations}
 
-We found many topics that were not non-functional requirements but were often related to them. For instance concurrency was mentioned often in the commit logs and was related to correctness and reliability because concurrency was troublesome. Configuration management and source control related changes appeared often and sometimes there were topics dedicated to configuration management, these kinds of changes are slightly related to maintainability. A non-functional change that was not quality related was licensing and copyright, many changes were simply to do with updating copyrights or ensuring copyright or licenses headers were applied to files.
+We found many topics that were not non-functional requirements (NFRs) but were often related to them. For instance, concurrency was mentioned often in the commit logs and was related to correctness and reliability, because concurrency was troublesome. Configuration management and source control related changes appeared often and sometimes there were topics dedicated to configuration management. These kinds of changes are slightly related to maintainability. A non-functional change that was not quality-related was licensing and copyright; many changes were simply to do with updating copyrights or ensuring copyright or licenses headers were applied to files.
 
-We noticed that sometimes the names of modules would conflict with words related to other non-functional requirements. For instance optimizers are very common modules in database systems, both MySQL and MaxDB have optimizer modules. In MySQL the optimizer is mentioned but often the change is deals with correctness or another quality, yet the name of the module could indicate the change was always about efficiency. This is why we feel that perhaps a project specific word-bags are needed in order to avoid automated mistakes due to the names of entities and modules with the software project.
-
-
+We noticed that occasionally the names of modules would conflict with words related to other non-functional requirements. For instance, optimizers are very common modules in database systems: both MySQL and MaxDB have optimizer modules. In MySQL the optimizer is mentioned but often the change deals with correctness or another quality. Despite this difference, the name of the module could fool our learners into believing the change was always about efficiency. Perhaps a project specific word-bag is needed in order to avoid automated mistakes due to the names of entities and modules with the software project.
 
 \begin{comment}
 A quick mind dump before I forget:
@@ -716,8 +715,7 @@ A quick mind dump before I forget:
 %{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
 
 With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these attempts. \textsf{exp2} and \textsf{exp3} both indicate that static information can be used to help label topics without any training whatsoever. If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques we could probably reduce the training effort. 
-Both Naive Bayesian learners and the word-list approaches were computationally efficient. Thus these results are promising because the results are accurate enough to be useful and cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
-
+Both Naive Bayesian learners and the word-list approaches were computationally efficient.  These results are promising, because the results are accurate enough to be useful, while still cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
 
 
 \subsection{Threats to validity}
@@ -730,7 +728,7 @@ Both Naive Bayesian learners and the word-list approaches were computationally e
 \textbf{External validity} -- Our data originated from open-source projects in the database domain. Of these, the open-source nature of the project seems most problematic for external validity. However, both projects are developed by commercial entities. Our technique is dependent on development practises including meaningful commit messages, which might not be true in other domains.
 \end{comment}
 
-Our study suffers from multiple threats to validity. \emph{Construct validity} issues include that used only commit messages rather than mail or bug tracker messages, as well we chose our taxonomy and the data to study. \emph{Internal validity} issues are to do with inter-rater reliability. \emph{External validity} issues are that our data originated from OSS database projects and thus might not be applicable to commercially developed software, as well our analysis techniques relies on a project's commitment to meaningful commit messages.
+Our study suffers from multiple threats to validity. \emph{Construct validity} issues include that we used only commit messages rather than mail or bug tracker messages. We also chose our taxonomy and the data to study. \emph{Internal validity} issues are to do with inter-rater reliability. \emph{External validity} issues are that our data originated from OSS database projects and thus might not be applicable to commercially developed software. Furthermore, our analysis techniques rely on a project's use of meaningful commit messages.
 
 \section{Related work}
 
@@ -774,14 +772,13 @@ In \cite{ernst10refsq}, we describe our earlier project, similar to this, to ide
 
 \section{Conclusions and future work}
 
-In conclusion, we have demonstrated that static but domain specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet. We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
+We demonstrated that static but domain-specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet. We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
 
-Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted dealt with non-functional requirements and these topics were spread across the entire history of a project. In the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
+Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted topics dealt with non-functional requirements, and these topics were spread across the entire history of a project. In the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
 
-Thus we have shown that non-functional requirements are often trending topics, that non-functional requirements are quite common in developer topics, and that there are efficient methods of semi-automating and automating topic labelling.
+We showed that non-functional requirements are often trending topics, that non-functional requirements are quite common in developer topics, and that there are efficient methods of semi-automating and automating topic labelling.
 
-There are many avenues of further investigation.  We want to investigate developer attitudes related to these labels, when we label a topic, was the developer expressing positive or negative qualities about that label.  It is difficult to map abstract qualities to particular messages. If the message is about a particular bug fix, do we map that to reliability or maintainability? Is it a performance bug or a usability bug? We ask is a ``quality'' discussion about more than just corrective maintenance? In this study we take the position that any type of maintenance has to do with software quality.
-
+There are many avenues of further investigation.  We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  It is difficult to map abstract qualities to particular messages. Is a ``quality'' discussion about more than just corrective maintenance? %In this study we take the position that any type of maintenance has to do with software quality.
 
 \section{Acknowledgements and appendix}
 Our data and scripts are available at \url{http://softwareprocess.es/nomen/}
