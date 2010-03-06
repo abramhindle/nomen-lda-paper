@@ -70,7 +70,7 @@ Abram Hindle\\
 
   
 
-  Within the field of mining software repositories, many approaches,   such as topic modeling and concept location, rely on the automated   application of machine learning algorithms to corpora.  This kind of   approach typically makes no use of domain-specific knowledge to   improve the results or put them into a context that a developer can   relate to.  While too much specificity can produce non-generalizable   results, too little produces broad learners that do not provide much   immediately useful detail.  In this paper, we investigate what   topics the latent topic extractors produce, and examine whether   such topics can be generalized across software products.  We focus   on non-functional requirements related to software quality as a   potential generalization, since there is some shared belief that   these qualities apply broadly across many software systems and their   development artifacts.  In our approach, we name topics based on a   static ontology of non-functional requirements and software   qualities; in essence, this adds context to general-purpose   ontologies such as Wordnet.  In this paper, we discuss how we use   this software development domain knowledge to better annotate topics   of development that are extracted from the change log messages in   configuration management systems such as CVS.  Since our taxonomy is   global in scope, our results allow us to compare the relative   importance of particular qualities across different projects. With   in the topics extracted from MySQL and MaxDB we found that   non-functional requirements were common and often were trends across   time. Our automated techniques can label topics without much computational overhead.
+  Within the field of mining software repositories, many approaches,   such as topic modeling and concept location, rely on the automated   application of machine learning algorithms to corpora.  This kind of   approach typically makes no use of domain-specific knowledge to   improve the results or put them into a context that a developer can   relate to.  While too much specificity can produce non-generalizable   results, too little produces broad learners that do not provide much   immediately useful detail.  In this paper, we investigate what   topics the latent topic extractors produce, and examine whether   such topics can be generalized across software products.  We focus   on non-functional requirements related to software quality as a   potential generalization, since there is some shared belief that   these qualities apply broadly across many software systems and their   development artifacts.  In our approach, we name topics based on a   static ontology of non-functional requirements and software   qualities; in essence, this adds context to general-purpose   ontologies such as WordNet.  In this paper, we discuss how we use   this software development domain knowledge to better annotate topics   of development that are extracted from the change log messages in   configuration management systems such as CVS.  Since our taxonomy is   global in scope, our results allow us to compare the relative   importance of particular qualities across different projects. With   in the topics extracted from MySQL and MaxDB we found that   non-functional requirements were common and often were trends across   time. Our automated techniques can label topics without much computational overhead.
 
 \end{abstract}
 
@@ -96,12 +96,12 @@ Few would argue that software development is a bed of roses.  To most of us, the
 %abstract entities that are not tangible.
 
 
-As development of a software project progresses, developers must concern themselves with a wide variety of issues --- or ``topics'' --- that relate to the problem domain, the processes and tools used, the development artifacts themselves, etc.  The set of development topics for a given project can sometimes be extracted automatically by analyzing artifacts within software repositories, such as changelog comments that developers create when committing revisions to the project's source control system.  Our previous work dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. We observed that topic trends were often non-functional requirements.
+As development of a software project progresses, developers must concern themselves with a wide variety of issues --- or ``topics'' --- that relate to the problem domain, the processes and tools used, the development artifacts themselves, etc.  The set of development topics for a given project can sometimes be extracted automatically by analyzing artifacts within software repositories, such as change-log comments that developers create when committing revisions to the project's source control system.  Our previous work dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. We observed that topic trends were often non-functional requirements.
 
 
 %During the development of a software project developers touch on many %issues integral to the purpose of the software project. These issues %are often referred to as topics. These topics can sometimes be %automatically extracted from the changelog comments that developers %create while committing revisions to the project's source control %repository. Our previous work dealt with %topic-trends~\cite{Hindle09ICSM}, topics that repeat overtime. It %seemed that these trends were often non-functional requirements. 
 
-Topics in this paper and the previous paper are word bags or word distributions. These word distributions are found via Latent Dirichlet Allocation~\cite{Blei2003}, which finds independent word distributions shared among documents (changelog comments). The unfortunate aspect of topics that are word distributions is that they lack the tangibility of a rose. They do not self identify with their tangible properties. Topics have to be identified by interpreting the prevalent words in the word distribution and by inspecting related documents. This is impractical when one has to handle more than one hundred different topics. It would be nice if we could have automatic assistance to determine what the topic is about. This is the power of labelling and naming.
+Topics in this paper and the previous paper are word bags or word distributions. These word distributions are found via Latent Dirichlet Allocation~\cite{Blei2003}, which finds independent word distributions shared among documents (change-log comments). The unfortunate aspect of topics that are word distributions is that they lack the tangibility of a rose. They do not self identify with their tangible properties. Topics have to be identified by interpreting the prevalent words in the word distribution and by inspecting related documents. This is impractical when one has to handle more than one hundred different topics. It would be nice if we could have automatic assistance to determine what the topic is about. This is the power of labelling and naming.
 
 
 %If a topic has a name or a label we immediately have a good idea of  %what it is. In our case the name is the bit of information, the %summary, that was missing from our topics to make them useful and %complete. Although we are convinced that accurate naming is not %completely feasible, so we have focussed on labelling topics by %non-functional requirements.
@@ -113,7 +113,7 @@ A topic --- that is, a word distribution in our world --- needs a suggestive nam
 %In this paper we \textit{name} and \textit{label} topics generated by %a topic modeling technique, Latent Dirichlet %Allocation~\cite{Blei2003}. We use these topic models to train %supervised learners to classify larger datasets. We also show that %these topics can be generalized across products.
 
 % Clean this up
-Traditionally topic extraction has required manual annotation to derive domain-relevant labelling information. This paper attempts to implement \emph{labelled topic extraction}, in which topic are extracted and given labels relating to a cross-project taxonomy. This is an ontological approach where we attempt to relate networks of words to labels and then search for these terms in our topic. We also compare this approach to machine leaners.
+Traditionally topic extraction has required manual annotation to derive domain-relevant labelling information. This paper attempts to implement \emph{labelled topic extraction}, in which topic are extracted and given labels relating to a cross-project taxonomy. This is an ontological approach where we attempt to relate networks of words to labels and then search for these terms in our topic. We also compare this approach to machine learners.
 %We start with an unsupervised topic learning algorithm, then manually %annotate the topics using the ontology. From the annotated topics, we %apply automated classifiers to find labels for the remaining topics. 
 
 %\XXX{Not sure about this}
@@ -126,13 +126,13 @@ Our contributions include:
 \item  We introduce labelled topic extraction, and demonstrate its usefulness
   compared to other approaches.
 % unsure about this
-\item We show that these labels with their topics can be learned and used to classify other datasets.
+\item We show that these labels with their topics can be learnt and used to classify other data-sets.
 \item We present visualizations of named topics and their trends over time to aid communication and analysis.
 \item We use an exploratory case study of
   several open source database systems to show how named topics can be compared between projects.
 \end{itemize}
 
-We first introduce some important terminology for our work. We then describe our methodology, including our datasets, then highlight our results. We conclude with a look at related work and possible improvements.
+We first introduce some important terminology for our work. We then describe our methodology, including our data-sets, then highlight our results. We conclude with a look at related work and possible improvements.
 
 \section{Background}
 
@@ -161,7 +161,7 @@ project. A \emph{label} is part of a title we attach to a topic, whether manuall
 
 % area under the ROC 
 % check
-\emph{Area of ROC Curve} is the area under the Reciever Operating Characteric curve, we will refer to this as \emph{ROC} although it is sometimes referred to as \emph{AUC}. ROC values reflect a score, similar to school letter-grades (A is 0.9, C is 0.6), reflecting how well a particular learner performed for the given data. A ROC result of 0.5 would be equivalent to a random learner (randomly classifying data). ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) vs. the false positive rate (1 - specificity). A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision.
+\emph{Area of ROC Curve} is the area under the Receiver Operating Characteristic curve, we will refer to this as \emph{ROC} although it is sometimes referred to as \emph{AUC}. ROC values reflect a score, similar to school letter-grades (A is 0.9, C is 0.6), reflecting how well a particular learner performed for the given data. A ROC result of 0.5 would be equivalent to a random learner (randomly classifying data). ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) vs. the false positive rate (1 - specificity). A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision.
 
 \subsection{Topic and Concept Extraction}
 Topic extraction, sometimes called concept extraction, uses tools such as Latent Dirichlet Allocation (LDA)~\cite{Blei2003} and Latent Semantic Indexing (LSI) to extract
@@ -178,11 +178,11 @@ Typically a topic analysis tool like LDA will try to find $N$ independent word d
 In topic analysis a single document, such as a commit message, can be related to multiple topics. Representing documents as a mixture of topics maps well to commits to source code repositories, which often have more than one purpose~\cite{Hindle09ICSM}.  A topic represents both a word distribution and a group of commit log comments that are related to each other by their content.  In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
 
 \begin{comment}
-In this paper we use LDA to identify topics.  LDA works by creating topic models for each period. A topic model is a statistical summary of the important subjects for that dataset.  The input to the algorithm is a set of documents, with contents treated as a bag of words, and a parameter to set the number of topics to generate. The algorithm returns a word-document matrix relating the occurrence frequency of a 
- The idea is similar to other IR approaches like TF/IDF (term frequency/inverse document frequency), which find uncommon words that are not found in other wordlists. These approaches are unsupervised in that they rely solely on the source data with no human intervention.
+In this paper we use LDA to identify topics.  LDA works by creating topic models for each period. A topic model is a statistical summary of the important subjects for that data-set.  The input to the algorithm is a set of documents, with contents treated as a bag of words, and a parameter to set the number of topics to generate. The algorithm returns a word-document matrix relating the occurrence frequency of a 
+ The idea is similar to other IR approaches like TF/IDF (term frequency/inverse document frequency), which find uncommon words that are not found in other word-lists. These approaches are unsupervised in that they rely solely on the source data with no human intervention.
 \end{comment}
 
-One issue that arises with use of unsupervised techniques is how to label the topics. While the topic models themselves are generated automatically, what to make of them is less clear. For example, in our previous work~\cite{Hindle09ICSM}, and in \cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. E.g., for the word list ``listener change remove add fire'', Baldi et al. assign the keyword \emph{event-handling}. The labels are reasonable enough, but still require some expert in the field to determine them. Our technique is automated, because we match keywords from Wordnet to words in the topic model. 
+One issue that arises with use of unsupervised techniques is how to label the topics. While the topic models themselves are generated automatically, what to make of them is less clear. For example, in our previous work~\cite{Hindle09ICSM}, and in \cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. E.g., for the word list ``listener change remove add fire'', Baldi et al. assign the keyword \emph{event-handling}. The labels are reasonable enough, but still require some expert in the field to determine them. Our technique is automated, because we match keywords from WordNet to words in the topic model. 
 
 \subsection{Supervised learning}
 While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, supervised learners have the advantage of domain knowledge. This typically results in improved results. In supervised learning, the data is divided into slices. One slice is manually annotated by the domain expert
@@ -211,9 +211,9 @@ We selected MySQL and MaxDB as they were open-source, partially-commercial datab
 The MySQL project started in 1994 but MySQL 3.23 was released in early 2001. MySQL contains 320 thousand lines of C and C++ source code. 
 
 \subsection{Generating the data}
-From each project, we used source control commit comments, these are the messages that programmers write when they commit revisions to a source control repository. We leveraged the data that we gathered in \cite{Hindle09ICSM} for this work. An example of a typical commit message is: ``history annotate diffs bug fixed (if mysql\_real\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''. We extracted these messages and indexed them by creation time. We summarized each emessage as a word distribution but removed stop-words such as   common English words like \emph{the} and \emph{at}.
+From each project, we used source control commit comments, these are the messages that programmers write when they commit revisions to a source control repository. We leveraged the data that we gathered in \cite{Hindle09ICSM} for this work. An example of a typical commit message is: ``history annotate diffs bug fixed (if mysql\_real\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''. We extracted these messages and indexed them by creation time. We summarized each message as a word distribution but removed stop-words such as   common English words like \emph{the} and \emph{at}.
 
-From that dataset, we created an XML file which windowed commits into
+From that data-set, we created an XML file which windowed commits into
 monthly windows. This size of period is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze. We applied an Blei's LDA implementation against the word distributions of these commits, and generated list of topics per period. 
 %A topic extracted in the first period Period 1, the most important %topic might have been ``security", with ``sql'' second, down on to %less relevant topics. 
 We arbitrarily set the number of topics to generate to $20$, because past experimentation showed that fewer topics might aggregate multiple unique topics while any more topics seemed to dilute the results and create indistinct topics. As well, more than $20$ topics quickly became infeasible for inspection and it was difficult to discern the difference in topics.
@@ -245,10 +245,10 @@ However, the terms extracted from ISO9126 may not capture all words associated w
 
 %Cite mockus et al
 
-To construct our expanded wordlists, we used Wordnet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including meronymy and synonymy. We then added Boehm’s 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven ‘ilities’ into their respective ISO9126 qualities. We did the same for the quality model produced by McCall et al. \cite{mccall1977}. Finally, we analyzed two mailing lists from the KDE project to enhance the specificity of the sets. We selected KDE-Usability, which focuses on usability discussions for KDE as a whole; and KDE-Konqueror, a list about a long-lived web browser project. For each high-level quality in ISO9126, we first searched for our existing labels; we then randomly sampled twenty-five mail messages that were relevant to that quality, and selected co-occurring terms relevant to that quality. For example, we add the term ``performance'' to the synonyms for \emph{efficiency}, since this term occurs in most KDE mail messages that discuss efficiency.
+To construct our expanded word-lists, we used WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including meronymy and synonymy. We then added Boehm’s 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven ‘ilities’ into their respective ISO9126 qualities. We did the same for the quality model produced by McCall et al. \cite{mccall1977}. Finally, we analyzed two mailing lists from the KDE project to enhance the specificity of the sets. We selected KDE-Usability, which focuses on usability discussions for KDE as a whole; and KDE-Konqueror, a list about a long-lived web browser project. For each high-level quality in ISO9126, we first searched for our existing labels; we then randomly sampled twenty-five mail messages that were relevant to that quality, and selected co-occurring terms relevant to that quality. For example, we add the term ``performance'' to the synonyms for \emph{efficiency}, since this term occurs in most KDE mail messages that discuss efficiency.
 %exp2
 
-For the third -- \textsf{exp3} -- list of quality labels, we extended the list from \textsf{exp2} using unfiltered Wordnet similarity matches. Similarity in Wordnet means siblings in a hypernym tree. We do not include these words here for space considerations (but see the Appendix for our data repository). It is not clear the words associated with our labels are specific enough, however: for example, the label \emph{maintainability} is associated with words \emph{ease} and \emph{ownership}.
+For the third -- \textsf{exp3} -- list of quality labels, we extended the list from \textsf{exp2} using unfiltered WordNet similarity matches. Similarity in WordNet means siblings in a hypernym tree. We do not include these words here for space considerations (but see the Appendix for our data repository). It is not clear the words associated with our labels are specific enough, however: for example, the label \emph{maintainability} is associated with words \emph{ease} and \emph{ownership}.
 
 \begin{table*}
 	\centering
@@ -270,21 +270,21 @@ operability understandability learnability useable usable serviceable usefulness
 “fault tolerance” recoverability maturity reliable dependable responsibleness responsibility reliableness reliability dependableness dependability + resilience integrity stability stable crash bug fails redundancy error failure\\ 
 \bottomrule
 \end{tabular}
-	\caption{Qualities and associated signifiers – Wordnet version (\textsf{exp2})}
+	\caption{Qualities and associated signifiers – WordNet version (\textsf{exp2})}
 	\label{tbl:wnsig}
 
 \end{table*}
 
 \subsection{Supervised learning}
 
-In order to validate how effective these wordbag approaches to topic labelling would be we had to make a data set to test against.  For MySQL and MaxDB, we manually annotated each extracted topic in each period with the same quality labels as \textsf{exp2} (software qualities). We looked at each period's topics, and assessed what the data -- consisting of the frequency-weighted word lists and messages -- suggested was the topic for that period. We were able to pinpoint the appropriate label using auxillary information as well, such as the actual revisions and files that were related to this topic. For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. We compared against this dataset but we also used it for our supervised learning based topic classification.
+In order to validate how effective these word-bag approaches to topic labelling would be we had to make a data set to test against.  For MySQL and MaxDB, we manually annotated each extracted topic in each period with the same quality labels as \textsf{exp2} (software qualities). We looked at each period's topics, and assessed what the data -- consisting of the frequency-weighted word lists and messages -- suggested was the topic for that period. We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to this topic. For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. We compared against this data-set but we also used it for our supervised learning based topic classification.
 %inter-rater reliability 
 
 We first compared our previous analysis using label matching to our manual classifications to get an error rate for that process (described below). 
 
-For supervised learning, we used a suite of supervised classifiers from WEKA~\cite{weka09}. WEKA contains a suite of machine learning tools such as support vector machines and Bayes nets. We also used the multi-labeling add-on for WEKA, Mulan~\cite{mulan}\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, much like our manual classification found overlaps. 
+For supervised learning, we used a suite of supervised classifiers from WEKA~\cite{weka09}. WEKA contains a suite of machine learning tools such as support vector machines and Bayes nets. We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, much like our manual classification found overlaps. 
 
-To assess the performance of the supervised learners, we did a 10-fold cross-validation. This is when a set is partitioned into 10 partitions and then each partition is used once as a test set and 9 other times as part of the training set of 9 paritions. We haved reported these results below.
+To assess the performance of the supervised learners, we did a 10-fold cross-validation. This is when a set is partitioned into 10 partitions and then each partition is used once as a test set and 9 other times as part of the training set of 9 partitions. We have reported these results below.
 
 % enumerate?
 Finally, using this data, we evaluated two research questions:
@@ -315,7 +315,7 @@ Named topics &		281      &			125      &		328  \\
 Unnamed topics &	139      &			295      &      92   \\
 \bottomrule
 \end{tabular}
-	\caption{Automatic topic labeling for MaxDB 7.500}
+	\caption{Automatic topic labelling for MaxDB 7.500}
 	\label{tbl:wordlist}
 
 \end{table}
@@ -326,11 +326,11 @@ For \textsf{exp1}, our best performing labels (the labels matched with the most 
 
 For \textsf{exp2}, there are many more unnamed topics. Only reliability produces a lot of matches, mostly with the `error' word. Co-occurrence results were poor.
 
-For \textsf{exp3}, we had many more named topics. As we mentioned, the wordlists are quite broad, so there are likely to be false-positives. See the following sections for our error analysis. We found a high of 265 topics for usability, with a low of 44 topics for maintainability. Common co-occurrences were reliability and usability, efficiency and reliability, and efficiency and usability (200, 190, and 150 topics in common, respectively). 
+For \textsf{exp3}, we had many more named topics. As we mentioned, the word-lists are quite broad, so there are likely to be false-positives. See the following sections for our error analysis. We found a high of 265 topics for usability, with a low of 44 topics for maintainability. Common co-occurrences were reliability and usability, efficiency and reliability, and efficiency and usability (200, 190, and 150 topics in common, respectively). 
 
-\subsubsection{Analysing the unsupervised labeling}
+\subsubsection{Analyzing the unsupervised labelling}
 
-Based on the labels, and our manual topic labeling, we compared the results of the unsupervised word matching approach. For each quality we tried to assess whether the manual tag matched the unsupervised label assigned. Table \ref{tbl:maxdb-unsup-results} shows our results for MaxDB and MySQL. In general results are poor. Using the F-Measure, the weighted average of precision and recall, where 1 is perfect, our best results are 0.6, a few at 0.4, and most around 0.2. Similar results using the Matthew's correlation coefficient (used to measure efficacy where classes are of different sizes), and the receiver operating characteristic area under curve. 
+Based on the labels, and our manual topic labelling, we compared the results of the unsupervised word matching approach. For each quality we tried to assess whether the manual tag matched the unsupervised label assigned. Table \ref{tbl:maxdb-unsup-results} shows our results for MaxDB and MySQL. In general results are poor. Using the F-Measure, the weighted average of precision and recall, where 1 is perfect, our best results are 0.6, a few at 0.4, and most around 0.2. Similar results using the Matthew's correlation coefficient (used to measure efficacy where classes are of different sizes), and the receiver operating characteristic area under curve. 
 
 \begin{table*}[h]
 	\centering
@@ -372,13 +372,13 @@ MySQL exp3 & portability & 0.413 & 0.170 & 0.564 & 0.325 & 0.574 \\
  & total & 0.362 & 0.076 & 0.284 & 0.499 & 0.544 \\
 \bottomrule
 \end{tabular}
-	\caption{Results for automatic topic labeling. F1 = f-measure, MCC = Matthew's correlation coeff., ROC = Area under ROC curve}
+	\caption{Results for automatic topic labelling. F1 = f-measure, MCC = Matthew's correlation coeff., ROC = Area under ROC curve}
 	\label{tbl:maxdb-unsup-results}
 \end{table*}
 
 \subsection{Classifying topics}
 
-We took our annotated dataset and applied supervised learner to it. Because our dataset was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. We also tried other learners that WEKA~\cite{weka09} provides: rule learners, tree learners, vector space learners, and support vector machines.  Table \ref{tab:best-learn-per-tag} shows the performance of the best performing learner per label.  We considered the best learner for a label to be the one which had the highest ROC value for that label. Table \ref{tab:best-learn-per-tag} shows the ROC value, the accuracy of a ZeroR learner ( a learner which just chooses the largest category all of the time), the difference in accuracy between the best learner and ZeroR, and the F-measure for that particular learner. The ZeroR difference is often negative, but in particular for labels which are not as common this can be expected because any miscategorization will hurt accuracy, this is why the Fmeasure and the ROC values are useful as they can better present performance on labels which are not applicable to the majority of samples.
+We took our annotated dataset and applied supervised learner to it. Because our dataset was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. We also tried other learners that WEKA~\cite{weka09} provides: rule learners, tree learners, vector space learners, and support vector machines.  Table \ref{tab:best-learn-per-tag} shows the performance of the best performing learner per label.  We considered the best learner for a label to be the one which had the highest ROC value for that label. Table \ref{tab:best-learn-per-tag} shows the ROC value, the accuracy of a ZeroR learner ( a learner which just chooses the largest category all of the time), the difference in accuracy between the best learner and ZeroR, and the F-measure for that particular learner. The ZeroR difference is often negative, but in particular for labels which are not as common this can be expected because any miscategorization will hurt accuracy, this is why the F1 (F-measure) and the ROC values are useful as they can better present performance on labels which are not applicable to the majority of samples.
 
 Table \ref{tab:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, the ROC values for reliability and functionality seem swapped between projects. It should be noted that for both project Bayesian techniques did the best out of a wide variety of machine learners tested. Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes theorem and all assume, naively, that the features are independent. The features we used are word counts per message. One beneficial aspect of this result is that it suggests we can have very fast training times since Naive Bayes can be calculated in $O(N)$ for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
@@ -394,7 +394,7 @@ The limitation of the approach we took here is that we only checked independentl
 \centering
 \begin{tabular}{ccc|rrrr}
 \toprule
-Label & Project & Learner & ROC & ZeroR Acc. & ZeroR. Diff & Fmeasure\\
+Label & Project & Learner & ROC & ZeroR Acc. & ZeroR. Diff & F1\\
 \midrule
 portability &  MySQL &  NaiveBayesMultinomial &  0.74 &  58.53 &  11.43 &  0.70  \\ 
 efficiency &  MySQL &  NaiveBayes &  0.67 &  93.69 &  -7.68 &  0.88 \\ 
@@ -421,9 +421,9 @@ usability &  MaxDB &  NaiveBayes &  0.56 &  95.37 &  -4.37 &  0.91  \\
 
 \subsection{Applying multiple labels to topics}
 
-We applied the Mulan~\cite{mulan} library for Multi-Label learning to our dataset because we feel that topics can have more like one label, much like how a revision can have more than one topic. Multi-label learning is more than just classifying entities with more than one label. It also includes methods for determining the performance of such techniques. Consider that the problem has changed, instead of looking at the precision and recall of applying one label, we have to rank multiple labels at once. We have to check if the full subset of labels was applied and then how much of that subset was applied.
+We applied the Mulan~\cite{mulan} library for Multi-Label learning to our data-set because we feel that topics can have more like one label, much like how a revision can have more than one topic. Multi-label learning is more than just classifying entities with more than one label. It also includes methods for determining the performance of such techniques. Consider that the problem has changed, instead of looking at the precision and recall of applying one label, we have to rank multiple labels at once. We have to check if the full subset of labels was applied and then how much of that subset was applied.
 
-Another aspect of multi-label learning is the micro versus macro measurements. Macro measurements are aggregated at a class or label level. Micro measurements are aggregated at a decision level. So a macro-ROC measurment is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. Unfortunately for MaxDB the macro-ROC values are undefined because of poor performance of one of the labels.
+Another aspect of multi-label learning is the micro versus macro measurements. Macro measurements are aggregated at a class or label level. Micro measurements are aggregated at a decision level. So a macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. Unfortunately for MaxDB the macro-ROC values are undefined because of poor performance of one of the labels.
 
 We have presented the results of Mulan's multi-label learners in Table \ref{tab:mulan}.
 Binary Relevance (BR), Calibrated Label Ranking (CLR) and Hierarchy Of Multilabel classifiERs (HOMER), performed the best. HOMER and BR acts as a hierarchy of learners, BR is flat while HOMER tries to build a deeper hierarchy in order to build a more accurate learner~\cite{mulan}. We feel that these classifiers performed better because they have the best micro and macro ROC scores than the other classifiers.
@@ -591,7 +591,7 @@ rank Ranking Loss & 0.19 & 0.18 & 0.27 &          0.41  &  0.35  &  0.41 \\
 
 Very rarely did exp2 and exp3 ever perform as well as the machine learners. For MaxDB reliability was slightly better detected using the static word list of \textsf{exp2}. In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. In both MySQL and MaxDB usability was better served by \textsf{exp2}.
 
-We found that the multilabel learners of BR, CLR and HOMER did not do as well for Macro-ROC and Micro-F1 as NaiveBayes and other NaiveBayes derived learners did. This suggests that by sticking together multiple NaiveBayes leaners we could probably label topics effectively, but it would require a separate NaiveBayes learner per label.
+We found that the multi-label learners of BR, CLR and HOMER did not do as well for Macro-ROC and Micro-F1 as NaiveBayes and other NaiveBayes derived learners did. This suggests that by sticking together multiple NaiveBayes learners we could probably label topics effectively, but it would require a separate NaiveBayes learner per label.
 
 \begin{comment}
 MySQL Macro ROC 0.746 Micro F1 0.78 Mulan BR ROC 0.74 / 0.81 F1 0.46/0.59/0.56 
@@ -693,8 +693,8 @@ A quick mind dump before I forget:
 * I tried to assign reliability/bug for reliability bugs
   and Functionality/Correctness for fixes
 * Some security changes came later
-* Mysql 3.23 transitioned from a project being developped to
-  a project being maintained, more frequent backport bugfixes
+* Mysql 3.23 transitioned from a project being developed to
+  a project being maintained, more frequent back-port bug-fixes
 \end{comment}
 
 
@@ -703,7 +703,7 @@ A quick mind dump before I forget:
 %{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
 
 With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these attempts. \textsf{exp2} and \textsf{exp3} both indicate that static information can be used to help label topics without any training whatsoever. If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques we could probably reduce the training effort. 
-Both Naive Bayesian learners and the wordlist approaches were computationally efficient. Thus these results are promising because the results are accurate enough to be useful and cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
+Both Naive Bayesian learners and the word-list approaches were computationally efficient. Thus these results are promising because the results are accurate enough to be useful and cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
 
 
 
@@ -712,7 +712,7 @@ Both Naive Bayesian learners and the wordlist approaches were computationally ef
 
 \textbf{Internal validity} -- inter-rater reliability.
 
-\textbf{External validity} -- Our data originated from open-source projects in the database domain. Of these, the open-source nature of the project seems most problematic for external validity. However, both projects are developed by commercial entities. Our technique is dependent on development practices including meaningful commit messages, which might not be true in other domains.
+\textbf{External validity} -- Our data originated from open-source projects in the database domain. Of these, the open-source nature of the project seems most problematic for external validity. However, both projects are developed by commercial entities. Our technique is dependent on development practises including meaningful commit messages, which might not be true in other domains.
 
 \section{Related work}
 
@@ -726,9 +726,9 @@ The idea of extracting higher-level `concerns' (also known as `concepts', `aspec
 
 Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. They managed recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. Instead, they developed a supervised classifier by using human experts to identify an NFR training set. There are several reasons we did not follow this route. One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. Secondly, we wanted to compare across projects. Their technique was not compared across different projects and the applicability of the training set to different corpora is unclear. A common taxonomy allows us to make inter-project comparison (subject to the assumption that all projects conceive of these terms in the same way). Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) our study assumes these NFRs are latent in the textual documents of the project. Finally, the source text we use is less structured than their requirements documents.
 
-In the same vein, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. They also leveraged Wordnet, but only for word roots. They felt the synonyms would be non-specific and cause errors. A nice contribution was access to system developers, with whom they could validate their labels. Since we try to bridge different organizations, these interviews are infeasible (particularly in the distributed world of open-source software).
+In the same vein, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. They also leveraged WordNet, but only for word roots. They felt the synonyms would be non-specific and cause errors. A nice contribution was access to system developers, with whom they could validate their labels. Since we try to bridge different organizations, these interviews are infeasible (particularly in the distributed world of open-source software).
 
-The other approach is to start with code repositories, and try to extract concerns from there. Marcus et al.~\cite{marcus04wcre} describe their use of Latent Semantic Indexing to identify commonly occurring concerns for software maintenance. Some results were interesting, but their precision was quite low. ConcernLines~\cite{treude09cl} shows tag occurrence using color intensity. They mined change request tags (such as `milestone 3') and used these to make evolutionary analyses of a single product. The presence of a well-maintained set of tags is obviously essential to the success of this technique.
+The other approach is to start with code repositories, and try to extract concerns from there. Marcus et al.~\cite{marcus04wcre} describe their use of Latent Semantic Indexing to identify commonly occurring concerns for software maintenance. Some results were interesting, but their precision was quite low. ConcernLines~\cite{treude09cl} shows tag occurrence using colour intensity. They mined change request tags (such as `milestone 3') and used these to make evolutionary analyses of a single product. The presence of a well-maintained set of tags is obviously essential to the success of this technique.
 \begin{comment}
 %We maintain that these results require more substantive manipulation before being reported to, for example, management. Like any large-scale data analysis project, it requires skill to derive the implications. Hooking the backend results directly to a reporting tool is unlikely to produce useful results.
 
@@ -738,7 +738,7 @@ The other approach is to start with code repositories, and try to extract concer
 
 Mens et al.~\cite{mens08icsm} conducted an empirical study of Eclipse, the open source software (OSS) source code editor, to verify the claims of Lehman~\cite{lehman97sms}. They concerned themselves with source code only, and found Law Seven, ``Declining Quality'', to be too difficult to assess: ``[we lacked an] appropriate measurement of the evolving quality of the system as perceived by the users \cite[p. 388]{mens08icsm}''. This paper examines the notions of quality in terms of a consistent ontology, as Mens et al. call for in their conclusions.
 
-Mei et al.~\cite{Mei2007} use context information to automatically name topics. They describe probabilistic labeling, using the frequency distribution of words in a topic to create a meaningful phrase. They do not use external domain-specific information as we do.
+Mei et al.~\cite{Mei2007} use context information to automatically name topics. They describe probabilistic labelling, using the frequency distribution of words in a topic to create a meaningful phrase. They do not use external domain-specific information as we do.
 In \cite{ernst10refsq}, we describe an application similar to this to identify change in quality requirements in GNOME software projects; our approach is solely text-matching, however, and does not leverage machine learning strategies.
 
 % comment out or not
