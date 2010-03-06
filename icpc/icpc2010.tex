@@ -93,9 +93,11 @@ Few would argue that software development is a bed of roses.  To most of us, the
 
 % To have meaningful discussions about how software development is progressing, we must devise appropriate labels for our work topics, in contrast to the quote above. We can then categorize development artifacts as belonging to one or more of these topics. 
 
-Topics arise from the wide variety of issues which occur during a software project's lifecycle. These topics can relate to, among others, the problem domain, the processes and tools used, or the development artifacts themselves.  The set of development topics for a given project can sometimes be extracted automatically by analyzing artifacts within software repositories, such as change-log comments that developers create when committing revisions to the project's source control system.  Our previous work dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. We observed that topic trends were often non-functional requirements.
+
+Topics arise from the wide variety of issues which occur during a software project's life-cycle. These topics can relate to, among others, the problem domain, the processes and tools used, or the development artifacts themselves.  The set of development topics for a given project can sometimes be extracted automatically by analyzing artifacts within software repositories, such as change-log comments that developers create when committing revisions to the project's source control system.  Our previous work dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. We observed that topic trends were often non-functional requirements.
 
 
+%As development of a software project progresses, developers must concern themselves with a wide variety of issues --- or ``topics'' --- that relate to the problem domain, the processes and tools used, the development artifacts themselves, etc.  The set of development topics for a given project can sometimes be extracted automatically by analyzing artifacts within software repositories, such as change-log comments that developers create when committing revisions to the project's source control system.  Our previous work dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. We observed that topic trends were often non-functional requirements.
 
 %During the development of a software project developers touch on many %issues integral to the purpose of the software project. These issues %are often referred to as topics. These topics can sometimes be %automatically extracted from the changelog comments that developers %create while committing revisions to the project's source control %repository. Our previous work dealt with %topic-trends~\cite{Hindle09ICSM}, topics that repeat overtime. It %seemed that these trends were often non-functional requirements. 
 
@@ -382,7 +384,7 @@ MySQL exp3 & portability & 0.413 & 0.170 & 0.564 & 0.325 & 0.574 \\
 \subsection{Analysis of the supervised labelling}
 \label{sec:suplabelling}
 
-We took our annotated dataset and applied supervised learners to it. Because our dataset was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. We also tried other learners that WEKA~\cite{weka09} provides: rule learners, tree learners, vector space learners, and support vector machines.  Table \ref{tab:best-learn-per-tag} shows the performance of the best performing learner per label.  We considered the best learner for a label to be the one which had the highest ROC value for that label. Table \ref{tab:best-learn-per-tag} shows the ROC value, the accuracy of a ZeroR learner ( a learner which just chooses the largest category all of the time), the difference in accuracy between the best learner and ZeroR, and the F-measure for that particular learner. The ZeroR difference is often negative, but in particular for labels which are not as common this can be expected because any miscategorization will hurt accuracy, this is why the F1 (F-measure) and the ROC values are useful as they can better present performance on labels which are not applicable to the majority of samples.
+We took our annotated data-set and applied supervised learners to it. Because our data-set was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. We also tried other learners that WEKA~\cite{weka09} provides: rule learners, tree learners, vector space learners, and support vector machines.  Table \ref{tab:best-learn-per-tag} shows the performance of the best performing learner per label.  We considered the best learner for a label to be the one which had the highest ROC value for that label. Table \ref{tab:best-learn-per-tag} shows the ROC value, the accuracy of a ZeroR learner ( a learner which just chooses the largest category all of the time), the difference in accuracy between the best learner and ZeroR, and the F-measure for that particular learner. The ZeroR difference is often negative, but in particular for labels which are not as common this can be expected because any miscategorization will hurt accuracy, this is why the F1 (F-measure) and the ROC values are useful as they can better present performance on labels which are not applicable to the majority of samples.
 
 Table \ref{tab:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, the ROC values for reliability and functionality seem swapped between projects. It should be noted that for both projects Bayesian techniques did the best out of a wide variety of machine learners tested. Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes theorem and all assume, naively, that the features are independent. The features we used are word counts per message. One beneficial aspect of this result is that it suggests we can have very fast training and classifying  since Naive Bayes can be calculated in $O(N)$ for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
@@ -426,7 +428,7 @@ We applied the Mulan~\cite{mulan} library for Multi-Label learning to our data-s
 
 Another aspect of multi-label learning is the micro versus macro measurements. Macro measurements are aggregated at a class or label level. Micro measurements are aggregated at a decision level. So a macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. Unfortunately for MaxDB the macro-ROC values are undefined because of poor performance of one of the labels.
 
-We have presented the results of Mulan's multi-label learners in Table \ref{tab:mulan}.  Binary Relevance (BR), Calibrated Label Ranking (CLR) and Hierarchy Of Multilabel classifiERs (HOMER), performed the best. HOMER and BR acts as a hierarchy of learners, BR is flat while HOMER tries to build a deeper hierarchy in order to build a more accurate learner~\cite{mulan}. We feel that these classifiers performed better than other multilabel classifiers because they have the best micro and macro ROC scores than the other classifiers although their results seem comparable to the naive Bayesian learners we used in Section \ref{sec:suplabelling}.
+We have presented the results of Mulan's multi-label learners in Table \ref{tab:mulan}.  Binary Relevance (BR), Calibrated Label Ranking (CLR) and Hierarchy Of Multi-label classifiERs (HOMER), performed the best. HOMER and BR acts as a hierarchy of learners, BR is flat while HOMER tries to build a deeper hierarchy in order to build a more accurate learner~\cite{mulan}. We feel that these classifiers performed better than other multi-label classifiers because they have the best micro and macro ROC scores than the other classifiers although their results seem comparable to the naive Bayesian learners we used in Section \ref{sec:suplabelling}.
 
 \begin{comment}
 
@@ -588,8 +590,7 @@ rank Ranking Loss & 0.19 & 0.18 & 0.27 &          0.41  &  0.35  &  0.41 \\
 
 \subsection{Summary of techniques}
 
-
-Very rarely did exp2 and exp3 ever perform as well as the machine learners. For MaxDB reliability was slightly better detected using the static word list of \textsf{exp2}. In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. In both MySQL and MaxDB usability was better served by \textsf{exp2}.
+Very rarely did \textsf{exp2} and \textsf{exp3} ever perform as well as the machine learners. For MaxDB reliability was slightly better detected using the static word list of \textsf{exp2}. In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. For both MySQL and MaxDB usability was better served by \textsf{exp2}.
 
 We found that the multi-label learners of BR, CLR and HOMER did not do as well for Macro-ROC and Micro-F1 as NaiveBayes and other NaiveBayes derived learners did. This suggests that by sticking together multiple NaiveBayes learners we could probably label topics effectively, but it would require a separate NaiveBayes learner per label.
 
@@ -619,19 +620,19 @@ mysql use  0.56 0.51 0.56   L 2
 
 \subsection{Visualization}
 
-We have created two visualizations of the manually labelled data. A problem we faced while visualizing was how to display tag overlaps. Our solution, while not optimal, was to assign a separate colour to each distinct set of annotations. Figures \ref{fig:maxdb} and \ref{fig:mysql} show extracted topics grouped by annotations. Annotations or labels that occur in adjacent windows are joined together as trends. For MaxDB (Figure \ref{fig:maxdb}) the largest trends were related to maintainability and portability. MaxDB supports numerous platforms and portability was a constant issue facing the project's develop. MySQL was different, maybe topics overlapped, so there were many different subsets. Functionality trends were prevalent throughout its history (the largest reddish streak across the top). Two combination  tags of ``functionality portability'' (orange) and ``maintainability portability'' (teal) streaked across most of the history MySQL. Since this was MySQL 3.23 and was a stable branch we expect that issues dealings with portability and maintenance would be the primary concerns of this branch: developers probably wanted it to work with current systems and thus had to update it.
+We have created two visualizations of the manually labelled data. A problem we faced while visualizing was how to display tag overlaps. Our solution, while not optimal, was to assign a separate colour to each distinct set of annotations. Figures \ref{fig:maxdb} and \ref{fig:mysql} show extracted topics grouped by annotations. Annotations or labels that occur in adjacent windows are joined together as trends. For MaxDB (Figure \ref{fig:maxdb}) the largest trends were related to maintainability and portability. MaxDB supports numerous platforms and portability was a constant issue facing the project's development. MySQL was different, many topics overlapped, so there were many different subsets. Functionality trends were prevalent throughout its history (the largest reddish streak across the top). Two combination  tags of ``functionality portability'' (orange) and ``maintainability portability'' (teal) streaked across most of the history MySQL. Since this was MySQL 3.23 and was a stable branch we expect that issues dealings with portability and maintenance would be the primary concerns of this branch: developers probably wanted it to work with current systems and thus had to update it.
 
 \begin{figure*}
   \centering
   \includegraphics[height=.9\textheight]{small-maxdb-time-smear-plot-Equal}
-  \caption{MaxDB 7.500: Labelled topics over time, continuous topics are trends that occur across time}
+  \caption{MaxDB 7.500: Labelled topics related to non-functional software qualities plotted over time, continuous topics are trends that occur across time}
   \label{fig:maxdb}
 \end{figure*}
 
 \begin{figure*}[h]
   \centering
   \includegraphics[width=.99\textwidth]{small-mysql-time-smear-plot-Equal}
-  \caption{MySQL 3.23: Labelled topics over time, continuous topics are trends that occur across time}
+  \caption{MySQL 3.23: Labelled topics related to non-functional software qualities plotted over time, continuous topics are trends that occur across time}
   \label{fig:mysql}
 \end{figure*}
 
@@ -641,9 +642,9 @@ We have created two visualizations of the manually labelled data. A problem we f
 
 %\XXX{Not sure there's enough here to do that!}
 
-We observed that MySQL had more topic subsets than MaxDB. MySQL 3.23 also had more topics and a longer recorded history than MaxDB 7.500. We tagged more MySQL topics with annotations than MaxDB topics yet both shared similarities. In terms of non-functional requirements both projects had long running trends that focused on functionality, maintainability, and portability, yet MaxDB had more of a focus on efficiency and reliability. We feel that MaxDB differed from MySQL because MaxDB was being actively developed where was by half way through our history of MySQL 3.23, other versions of MySQL were being actively developed: MySQL versions 4.0 and 4.1 and eventually 5.0 and 5.1. MySQL 3.23 was being maintained rather than actively developed where as MaxDB 7.500 was being actively developed into MaxDB 7.6, and then maintained thereafter.
+We observed that MySQL had more topic subsets than MaxDB. MySQL 3.23 also had more topics and a longer recorded history than MaxDB 7.500. We tagged more MySQL topics with annotations than MaxDB topics yet both shared similarities. In terms of non-functional requirements both projects had long running trends that focused on functionality, maintainability, and portability, yet MaxDB had more of a focus on efficiency and reliability. We feel that MaxDB differed from MySQL because MaxDB was being actively developed where was by half way through our history of MySQL 3.23, other versions of MySQL were being actively developed: MySQL versions 4.0, 4.1, and eventually 5.0 and 5.1. MySQL 3.23 was being maintained rather than actively developed where as MaxDB 7.500 was being actively developed into MaxDB 7.6, and then maintained thereafter.
 
-MySQL and MaxDB's machine learners did dispatch off of some shared words. Words that were used to classify topics that were shared between MySQL and MaxDB included: bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test. Potentially adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while still being domain specific.
+MySQL and MaxDB's machine learners did make decisions based off some shared words. Words that were used to classify topics that were shared between MySQL and MaxDB included: bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test. Adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
 
 \begin{comment}
  shared-report.sh ; cat output/shared-j48-words 
@@ -671,11 +672,11 @@ MySQL and MaxDB's machine learners did dispatch off of some shared words. Words 
 
 \end{comment}
 
-\subsection{Annotation Observations}
+\subsection{Annotation observations}
 
-We also found there were quite a few topics that were not non-functional requirements but were often related to them. For instance concurrency was mentioned often in the commit logs and was related to correctness and reliability because concurrency was troublesome. Configuration management and source control related changes appeared often and sometimes had topics dedicated to configuration management, these kinds of changes are slightly related to maintainability. A non-functional change that was not quality related was licensing and copyright, many changes were simply to do with updating copyrights or ensuring copyright or licenses headers were applied to files.
+We found many topics that were not non-functional requirements but were often related to them. For instance concurrency was mentioned often in the commit logs and was related to correctness and reliability because concurrency was troublesome. Configuration management and source control related changes appeared often and sometimes there were topics dedicated to configuration management, these kinds of changes are slightly related to maintainability. A non-functional change that was not quality related was licensing and copyright, many changes were simply to do with updating copyrights or ensuring copyright or licenses headers were applied to files.
 
-We noticed that sometimes the names of modules would conflict with words related to other non-functional requirements. For instance optimizers are very common modules in database systems, both MySQL and MaxDB have optimizer modules. In MySQL the optimizer is mentioned but often the change is deals with correctness or another quality, yet the name of the module has the potential to confuse automated approaches. This is why we feel that perhaps a project specific word-bags are needed in order to avoid automated mistakes due to the names of entities and modules with the software project.
+We noticed that sometimes the names of modules would conflict with words related to other non-functional requirements. For instance optimizers are very common modules in database systems, both MySQL and MaxDB have optimizer modules. In MySQL the optimizer is mentioned but often the change is deals with correctness or another quality, yet the name of the module could indicate the change was always about efficiency. This is why we feel that perhaps a project specific word-bags are needed in order to avoid automated mistakes due to the names of entities and modules with the software project.
 
 
 
@@ -708,20 +709,27 @@ Both Naive Bayesian learners and the word-list approaches were computationally e
 
 
 \subsection{Threats to validity}
+
+\begin{comment}
 \textbf{Construct validity} -- Focus on code commit messages, rather than mail or bug trackers. Choice of taxonomy
 
 \textbf{Internal validity} -- inter-rater reliability.
 
 \textbf{External validity} -- Our data originated from open-source projects in the database domain. Of these, the open-source nature of the project seems most problematic for external validity. However, both projects are developed by commercial entities. Our technique is dependent on development practises including meaningful commit messages, which might not be true in other domains.
+\end{comment}
+
+Our study suffers from multiple threats to validity. \emph{Construct validity} issues include that used only commit messages rather than mail or bug tracker messages, as well we chose our taxonomy and the data to study. \emph{Internal validity} issues are to do with inter-rater reliability. \emph{External validity} issues are that our data originated from OSS database projects and thus might not be applicable to commercially developed software, as well our analysis techniques relies on a project's commitment to meaningful commit messages.
 
 \section{Related work}
 
+\begin{comment}
 % Part of our effort with this project is to understand the qualitative and intentional aspects of requirements in software evolution, a notion we first discussed in \cite{ernst07icsm}. That idea is derived from, in part, work on narratives of software systems shown in academic work from Ant\'{o}n et al.~\cite{anton01}, or more general-purpose work from Waldo~\cite{waldo93}.
 
 % Part of our effort with this project is to understand the qualitative and intentional aspects of requirements in software evolution, a notion we first discussed in \cite{ernst07icsm}. That idea is derived from, in part, work on narratives of software systems shown in academic work like \cite{anton01}, or more general-purpose works like \cite{waldo93}. 
 
 
 % Not sure how do handle this
+\end{comment}
 The idea of extracting higher-level `concerns' (also known as `concepts', `aspects' or `requirements') has been attacked in two ways. 
 
 Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. They managed recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. Instead, they developed a supervised classifier by using human experts to identify an NFR training set. There are several reasons we did not follow this route. One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. Secondly, we wanted to compare across projects. Their technique was not compared across different projects and the applicability of the training set to different corpora is unclear. A common taxonomy allows us to make inter-project comparison (subject to the assumption that all projects conceive of these terms in the same way). Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) our study assumes these NFRs are latent in the textual documents of the project. Finally, the source text we use is less structured than their requirements documents.
@@ -729,6 +737,7 @@ Cleland-Huang and her colleagues published work on mining requirements documents
 In the same vein, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. They also leveraged WordNet, but only for word roots. They felt the synonyms would be non-specific and cause errors. A nice contribution was access to system developers, with whom they could validate their labels. Since we try to bridge different organizations, these interviews are infeasible (particularly in the distributed world of open-source software).
 
 The other approach is to start with code repositories, and try to extract concerns from there. Marcus et al.~\cite{marcus04wcre} describe their use of Latent Semantic Indexing to identify commonly occurring concerns for software maintenance. Some results were interesting, but their precision was quite low. ConcernLines~\cite{treude09cl} shows tag occurrence using colour intensity. They mined change request tags (such as `milestone 3') and used these to make evolutionary analyses of a single product. The presence of a well-maintained set of tags is obviously essential to the success of this technique.
+
 \begin{comment}
 %We maintain that these results require more substantive manipulation before being reported to, for example, management. Like any large-scale data analysis project, it requires skill to derive the implications. Hooking the backend results directly to a reporting tool is unlikely to produce useful results.
 
@@ -741,33 +750,25 @@ Mens et al.~\cite{mens08icsm} conducted an empirical study of Eclipse, the open 
 Mei et al.~\cite{Mei2007} use context information to automatically name topics. They describe probabilistic labelling, using the frequency distribution of words in a topic to create a meaningful phrase. They do not use external domain-specific information as we do.
 In \cite{ernst10refsq}, we describe our earlier project, similar to this, to identify change in quality requirements in GNOME software projects; our approach is solely text-matching, however, and does not leverage machine learning strategies.
 
+\begin{comment}
 % comment out or not
 % Massey~\cite{massey02icse} and Scacchi~\cite{scacchi02,scacchi05b} looked at the topic of requirements in open-source software. Their work discusses the source of the requirements and how they are used in the development process. German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
 
 % Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
-
+\end{comment}
 
 % Most of this related research examined project source code. Software mining of other project corpora is less common. Similarities exist with approaches that begin with structured taxonomies, as with the Hismo software ontology~\cite{girba06}. Rigby and Hassan~\cite{rigby07msr} used a general purpose taxonomy to classify developer email according to temperament.
 
 
 \section{Conclusions and future work}
 
-% No we didn't!
-% In this paper we showed that a domain specific wordnet for software % development provides better accuracy for labelling topic models than % unsupervised approaches.
-%
-
-%* Demonstrated that domain specific knowledge is valuable
-%* Demonstrated the feasibility of static approaches and supervised %approaches
-%* Showed that non functional requirement pervade much many of the %topics that are extracted
-
-We have demonstrated that static but domain specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet. We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
+In conclusion, we have demonstrated that static but domain specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet. We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
 
 Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted dealt with non-functional requirements and these topics were spread across the entire history of a project. In the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
 
 Thus we have shown that non-functional requirements are often trending topics, that non-functional requirements are quite common in developer topics, and that there are efficient methods of semi-automating and automating topic labelling.
 
 There are many avenues of further investigation.  We want to investigate developer attitudes related to these labels, when we label a topic, was the developer expressing positive or negative qualities about that label.  It is difficult to map abstract qualities to particular messages. If the message is about a particular bug fix, do we map that to reliability or maintainability? Is it a performance bug or a usability bug? We ask is a ``quality'' discussion about more than just corrective maintenance? In this study we take the position that any type of maintenance has to do with software quality.
-
 
 
 \section{Acknowledgements and appendix}
