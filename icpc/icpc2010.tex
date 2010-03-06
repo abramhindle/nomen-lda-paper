@@ -226,9 +226,9 @@ We arbitrarily set the number of topics to generate to $20$, because past experi
 \end{comment}
 
 Topics are word distributions: essentially lists of words ranked by frequency, thus they can be burdensome to interpret and hard to distinguish and understand.
-Once we had topics for each period, we tried to associate them with a label from a list of keywords and related terms. We performed simple string matching between these topics and our lists, `naming' a topic if it contained that word or words. We used several different word lists for comparison. 
+Once we had topics for each period, we tried to associate them with a label from a list of keywords and related terms. We performed simple string matching between these topics and our lists, `naming' a topic if it contained that a word from our word list. We used several different word lists for comparison. 
 
-Our first list, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519}. That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. The labels we used:
+Our first word list set, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519}. That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. The labels we used:
 \begin{quotation}
 \small \noindent \textsf{
 integrity, security,
@@ -239,7 +239,7 @@ portability, flexibility, reliability.
 }
 \end{quotation}
 
-Our second list, \textsf{exp2}, relied on the ISO quality model (ISO9126)~\cite{iso9126}. ISO9126 describes six high-level quality requirements (listed in Table \ref{tbl:wnsig}). 
+Our second word list set, \textsf{exp2}, relied on the ISO quality model (ISO9126)~\cite{iso9126}. ISO9126 describes six high-level quality requirements (listed in Table \ref{tbl:wnsig}). 
 %There is some debate about the significance and importance of the %terms in this model. 
 %However, it is ``an international standard and thus provides an %internationally accepted terminology for software quality \cite[p. %58]{Bøegh2008},'' which is sufficient for the purposes of this %research. 
 ISO9126 is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Bøegh2008},'' that is sufficient for the purposes of this research.
