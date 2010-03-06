@@ -2,7 +2,7 @@ IMAGES=
 default: view
 
 view: icpc2010.pdf
-	xpdf $<
+	open -a skim $<
 
 icpc2010-pre.pdf: icpc2010.tex icpc.bib
 	xelatex icpc2010
