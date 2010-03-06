@@ -74,9 +74,6 @@ Abram Hindle\\
 
 \end{abstract}
 
-
-
-
 \section{Introduction}
 \begin{quote}
 	\emph{What's in a name? that which we call a rose\\
@@ -84,9 +81,7 @@ Abram Hindle\\
 	\begin{flushright} -- Romeo and Juliet, II:ii\end{flushright}
 \end{quote}
 
-Few would argue that software development is a bed of roses.  To most of us, the important properties of a rose are sensual in nature, and concern appearance, odour, and feel.  While horticulturalists and botanists may see more semantic depth than this, one rose is often just as pleasing to us as another.  Software development artifacts, on the other hand, are abstract and intangible.  They are often unnamed and ephemeral --- even more so than roses --- and maybe partially derived from other unnamed and ephemeral artifacts.  Yet to have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for our work topics and be able to categorize the development artifacts as belonging to one or more of these topics. 
-
-
+% Few would argue that software development is a bed of roses.  To most of us, the important properties of a rose are sensual in nature, and concern appearance, odour, and feel.  While horticulturalists and botanists may see more semantic depth than this, one rose is often just as pleasing to us as another.  Software development artifacts, on the other hand, are abstract and intangible.  They are often unnamed and ephemeral --- even more so than roses --- and maybe partially derived from other unnamed and ephemeral artifacts.  Yet to have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for our work topics and be able to categorize the development artifacts as belonging to one or more of these topics. 
 %Original is here:
 
 %Unlike the poetic license Shakespeare uses, we show that names are
@@ -95,8 +90,9 @@ Few would argue that software development is a bed of roses.  To most of us, the
 %abstracted from program source code, we are already dealing with
 %abstract entities that are not tangible.
 
+To have meaningful discussions about how software development is progressing, we must devise appropriate labels for our work topics, in contrast to the quote above. We can then categorize development artifacts as belonging to one or more of these topics. 
 
-As development of a software project progresses, developers must concern themselves with a wide variety of issues --- or ``topics'' --- that relate to the problem domain, the processes and tools used, the development artifacts themselves, etc.  The set of development topics for a given project can sometimes be extracted automatically by analyzing artifacts within software repositories, such as change-log comments that developers create when committing revisions to the project's source control system.  Our previous work dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. We observed that topic trends were often non-functional requirements.
+Topics arise from the wide variety of issues which occurs during a software project's lifecycle. These topics can relate to, among others, the problem domain, the processes and tools used, or the development artifacts themselves.  The set of development topics for a given project can sometimes be extracted automatically by analyzing artifacts within software repositories, such as change-log comments that developers create when committing revisions to the project's source control system.  Our previous work dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. We observed that topic trends were often non-functional requirements.
 
 
 %During the development of a software project developers touch on many %issues integral to the purpose of the software project. These issues %are often referred to as topics. These topics can sometimes be %automatically extracted from the changelog comments that developers %create while committing revisions to the project's source control %repository. Our previous work dealt with %topic-trends~\cite{Hindle09ICSM}, topics that repeat overtime. It %seemed that these trends were often non-functional requirements. 
@@ -716,7 +712,7 @@ Both Naive Bayesian learners and the word-list approaches were computationally e
 
 \section{Related work}
 
-Part of our effort with this project is to understand the qualitative and intentional aspects of requirements in software evolution, a notion we first discussed in \cite{ernst07icsm}. That idea is derived from, in part, work on narratives of software systems shown in academic work from Ant\'{o}n et al.~\cite{anton01}, or more general-purpose work from Waldo~\cite{waldo93}.
+% Part of our effort with this project is to understand the qualitative and intentional aspects of requirements in software evolution, a notion we first discussed in \cite{ernst07icsm}. That idea is derived from, in part, work on narratives of software systems shown in academic work from Ant\'{o}n et al.~\cite{anton01}, or more general-purpose work from Waldo~\cite{waldo93}.
 
 % Part of our effort with this project is to understand the qualitative and intentional aspects of requirements in software evolution, a notion we first discussed in \cite{ernst07icsm}. That idea is derived from, in part, work on narratives of software systems shown in academic work like \cite{anton01}, or more general-purpose works like \cite{waldo93}. 
 
@@ -742,7 +738,7 @@ Mei et al.~\cite{Mei2007} use context information to automatically name topics. 
 In \cite{ernst10refsq}, we describe an application similar to this to identify change in quality requirements in GNOME software projects; our approach is solely text-matching, however, and does not leverage machine learning strategies.
 
 % comment out or not
-Massey~\cite{massey02icse} and Scacchi~\cite{scacchi02,scacchi05b} looked at the topic of requirements in open-source software. Their work discusses the source of the requirements and how they are used in the development process. German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
+% Massey~\cite{massey02icse} and Scacchi~\cite{scacchi02,scacchi05b} looked at the topic of requirements in open-source software. Their work discusses the source of the requirements and how they are used in the development process. German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
 
 % Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
 
