@@ -76,6 +76,8 @@ Abram Hindle\\
 
 \end{abstract}
 
+\newcommand{\shrink}{}
+
 \section{Introduction}
 \begin{quote}
 	\emph{What's in a name? that which we call a rose\\
@@ -134,12 +136,13 @@ Our contributions include:
 
 We first introduce some important terminology for our work. We then describe our methodology, including our data-sets, then highlight our results. We conclude with a look at related work and possible improvements.
 
+\shrink
 \section{Background}
 
 We provide a brief overview of software repository mining and information retrieval.
 This work is related to the mining software repositories (MSR)~\cite{msr} research community as it deals expressly with analyzing a project's source control repository, and the messages associated with revisions therein.
 
-
+\shrink
 \subsection{Definitions}
 We will use the following terminology in the rest of the paper.
 A \emph{message} is a block of text written by a developer. In this
@@ -163,7 +166,7 @@ project. A \emph{label} is part of a title we attach to a topic, whether manuall
 % check
 \emph{Area of ROC Curve} is the area under the Receiver Operating Characteristic (ROC) curve, sometimes referred to as \emph{AUC}. ROC values reflect a score, similar to school letter-grades (A is 0.9, C is 0.6), reflecting how well a particular learner performed for the given data. A ROC result of 0.5 would be equivalent to a random learner (randomly classifying data). ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) vs. the false positive rate (1 - specificity). A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision.
 
-
+\shrink
 \subsection{Topic and Concept Extraction}
 Topic extraction, sometimes called concept extraction, uses tools such as Latent Dirichlet Allocation (LDA)~\cite{Blei2003} and Latent Semantic Indexing (LSI) to extract
 independent word distributions (topics) from
@@ -185,10 +188,12 @@ In this paper we use LDA to identify topics.  LDA works by creating topic models
 
 One issue that arises with use of unsupervised techniques is how to label the topics. While the topic models themselves are generated automatically, what to make of them is less clear. For example, in our previous work~\cite{Hindle09ICSM}, as well as in Baldi et al.~\cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. E.g., for the word list \emph{``listener change remove add fire''}, Baldi et al. assign the keyword \emph{event-handling}. The labels are reasonable enough, but still require an expert in the field to determine them. Our technique is automated, because we match keywords from WordNet~\cite{Fellbaum1998} to words in the topic model. 
 
+\shrink
 \subsection{Supervised learning}
 While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, and thus lower effort, supervised learners have the advantage of domain knowledge which typically means improved results. In supervised learning, the data is divided into slices. One slice is manually annotated by the domain expert, and the classifications he/she determines are applied to the remaining slices. In this paper, we employ the WEKA~\cite{weka09} and Mulan~\cite{mulan} machine learning frameworks in order to test supervised learning.
 
- 
+
+\shrink 
 \section{Methodology}
 
 \begin{comment}
@@ -211,6 +216,7 @@ We selected MySQL and MaxDB as they were open-source, partially-commercial datab
 %There are approximately ... developers working on it. 
 The MySQL project started in 1994 but MySQL 3.23 was released in early 2001. MySQL contains 320 thousand lines of C and C++ source code. 
 
+\shrink
 \subsection{Generating the data}
 From each project, we used source control commit comments, the messages that programmers write when they commit revisions to a source control repository. We leveraged the data that we gathered in \cite{Hindle09ICSM} for this work. An example of a typical commit message is: \textit{``history annotate diffs bug fixed (if mysql\_real\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. We extracted these messages and indexed them by creation time. We summarized each message as a word distribution but removed stop-words such as common English words \emph{the} and \emph{at}.
 
@@ -219,6 +225,7 @@ monthly windows. This size of period is smaller than the time between minor rele
 %A topic extracted in the first period Period 1, the most important %topic might have been ``security", with ``sql'' second, down on to %less relevant topics. 
 We arbitrarily set the number of topics to generate to $20$, because past experimentation showed that fewer topics might aggregate multiple unique topics while any more topics seemed to dilute the results and create indistinct topics. As well, more than $20$ topics quickly became infeasible for inspection and it was difficult to discern the difference in topics.
 
+\shrink
 \subsection{Associating labels}
 \begin{comment}
 % We would like to `name' our topic models for each period. In this way, we can see how certain words -- subjects -- occur more or less often with each period.
@@ -277,6 +284,7 @@ operability understandability learnability useable usable serviceable usefulness
 
 \end{table*}
 
+\shrink
 \subsection{Supervised learning}
 
 \label{sec:suplearn}
@@ -297,14 +305,22 @@ Section \ref{sec:comparison}):
 \item  Do the different projects differ in their relative topic interest? That is, is a particular quality more important to one project than the other projects?  
 \end{enumerate}
 
+\shrink
 \section{Observations and evaluation}
 
+\shrink
 \subsection{Word list similarity}
 
 % word list similarity
 
-In general, this approach did not work out well as common labels dominated the less common labels. The related words for \emph{correctness}, for example, tended to be too lengthy and non-specific. Table \ref{tbl:wordlist} lists results. A \emph{named   topic} is a topic with a matching label. There are \{periods X 20\} topics per project as we told LDA to extract 20 topics per period. All experiments were run on MaxDB 7.500 and MySQL 3.23 data.
+In general, this approach did not work out well as common labels
+dominated the less common labels. The related words for
+\emph{correctness}, for example, tended to be too lengthy and
+non-specific. 
+%Table \ref{tbl:wordlist} lists results. 
+A \emph{named   topic} is a topic with a matching label. There are \{periods X 20\} topics per project as we told LDA to extract 20 topics per period. All experiments were run on MaxDB 7.500 and MySQL 3.23 data.
 
+\begin{comment}
 %\XXX{this table should have mysql}
 \begin{table}
 	\centering
@@ -321,7 +337,7 @@ Unnamed topics &	139      &			295      &      92   \\
 	\label{tbl:wordlist}
 
 \end{table}
-
+\end{comment}
 %This is the counts
 
 For \textsf{exp1}, our best performing labels (the labels matched with the most topics) were \emph{correctness} (182 topics) and \emph{testability} (121). We did not get good results for usability or accuracy, which were associated with fewer than ten topics. We also looked for correlation between our labels: Excluding double matches (self-correlation), our highest co-occurring terms were verifiability and traceability, and testability and correctness (76 and 62 matches, respectively).
@@ -330,6 +346,7 @@ For \textsf{exp2}, there are many more unnamed topics. Only reliability produces
 
 For \textsf{exp3}, we had many more named topics. As we mentioned, the word-lists are quite broad, so there are likely to be false-positives. See the following sections for our error analysis. We found a high of 265 topics for usability, with a low of 44 topics for maintainability. Common co-occurrences were reliability and usability, efficiency and reliability, and efficiency and usability (200, 190, and 150 topics in common, respectively). 
 
+\shrink
 \subsection{Analysis of the unsupervised labelling}
 
 \label{sec:unsuplabelling}
@@ -384,6 +401,7 @@ MySQL exp3 & portability & 0.413 & 0.170 & 0.564 & 0.325 & 0.574 \\
 \end{table*}
 
 %\subsection{Classifying topics}
+\shrink
 \subsection{Analysis of the supervised labelling}
 \label{sec:suplabelling}
 
@@ -427,7 +445,7 @@ usability &  MaxDB &  NaiveBayes &  0.56 &  95.37 &  -4.37 &  0.91  \\
 
 
 
-
+\shrink
 \subsection{Applying multiple labels to topics}
 
 We applied the Mulan~\cite{mulan} library for Multi-Label learning to our data-set because we feel that topics can have more like one label, much like how a revision can have more than one topic. Multi-label learning is more than just classifying entities with more than one label. It also includes methods for determining the performance of such techniques. Consider that the problem has changed, instead of looking at the precision and recall of applying one label, we have to rank multiple labels at once. We have to check if the full subset of labels was applied and then how much of that subset was applied.
@@ -593,7 +611,7 @@ rank Ranking Loss & 0.19 & 0.18 & 0.27 &          0.41  &  0.35  &  0.41 \\
 \label{tab:mulan}
 \end{table*}
 
-
+\shrink
 \subsection{Summary of techniques}
 
 Very rarely did \textsf{exp2} and \textsf{exp3} ever perform as well as the machine learners. For MaxDB reliability was slightly better detected using the static word list of \textsf{exp2}. In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. For both MySQL and MaxDB usability was better served by \textsf{exp2}.
@@ -624,26 +642,27 @@ mysql main 0.5  0.5  0.70   L 3
 mysql use  0.56 0.51 0.56   L 2
 \end{comment}
 
+\shrink
 \subsection{Visualization}
 
 We have created two visualizations of the manually labelled data. A problem we faced while visualizing was how to display tag overlaps. Our solution, while not optimal, was to assign a separate colour to each distinct set of annotations. Figures \ref{fig:maxdb} and \ref{fig:mysql} show extracted topics grouped by annotations. Annotations or labels that occur in adjacent windows are joined together as trends. For MaxDB (Figure \ref{fig:maxdb}) the largest trends were related to maintainability and portability. MaxDB supports numerous platforms and portability was a constant issue facing the project's development. MySQL was different, many topics overlapped, so there were many different subsets. Functionality trends were prevalent throughout its history (the largest reddish streak across the top). Two combination  tags of ``functionality portability'' (orange) and ``maintainability portability'' (teal) streaked across most of the history MySQL. Since this was MySQL 3.23 and was a stable branch we expect that issues dealings with portability and maintenance would be the primary concerns of this branch: developers probably wanted it to work with current systems and thus had to update it.
 
 \begin{figure*}
   \centering
-  \includegraphics[height=.9\textheight]{small-maxdb-time-smear-plot-Equal}
+  \includegraphics[height=.55\textheight]{small-maxdb-time-smear-plot-Equal}
   \caption{MaxDB 7.500: Labelled topics related to non-functional software qualities plotted over time, continuous topics are trends that occur across time}
   \label{fig:maxdb}
 \end{figure*}
 
-\begin{figure*}[h]
+\begin{figure*}%[h]
   \centering
-  \includegraphics[width=.99\textwidth]{small-mysql-time-smear-plot-Equal}
+  \includegraphics[width=.97\textwidth]{small-mysql-time-smear-plot-Equal}
   \caption{MySQL 3.23: Labelled topics related to non-functional software qualities plotted over time, continuous topics are trends that occur across time}
   \label{fig:mysql}
 \end{figure*}
 
 
-
+\shrink
 \subsection{Comparing MaxDB and MySQL}
 
 \label{sec:comparison}
@@ -653,12 +672,12 @@ We observed that MySQL had more topic subsets than MaxDB. MySQL 3.23 also had mo
 
 MySQL and MaxDB's machine learners did make decisions based off some shared words. Words that were used to classify topics that were shared between MySQL and MaxDB included: bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test. Adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
 
-\paragraph{Do label frequencies change over time?} Yes, MySQL's label
+\emph{Do label frequencies change over time?} Yes, MySQL's label
 frequencies decreased as it got older. Usability and reliability
 labels became more and more infrequent as it matured. Maintainability topics
 became more prevalent as MaxDB matured.
 
-\paragraph{Do the different projects differ in their relative topic
+\emph{Do the different projects differ in their relative topic
   interest?} Yes they do, MySQL 3.23 had more proportionally more
 functionality labelled topics while MaxDB had proportionally more
 efficiency and portability related topics.
@@ -690,6 +709,7 @@ efficiency and portability related topics.
 
 \end{comment}
 
+\shrink
 \subsection{Annotation observations}
 
 We found many topics that were not non-functional requirements but were often related to them. For instance concurrency was mentioned often in the commit logs and was related to correctness and reliability because concurrency was troublesome. Configuration management and source control related changes appeared often and sometimes there were topics dedicated to configuration management, these kinds of changes are slightly related to maintainability. A non-functional change that was not quality related was licensing and copyright, many changes were simply to do with updating copyrights or ensuring copyright or licenses headers were applied to files.
@@ -716,7 +736,7 @@ A quick mind dump before I forget:
   a project being maintained, more frequent back-port bug-fixes
 \end{comment}
 
-
+\shrink
 \subsection{Effectiveness}
 
 %{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
@@ -725,7 +745,7 @@ With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these
 Both Naive Bayesian learners and the word-list approaches were computationally efficient. Thus these results are promising because the results are accurate enough to be useful and cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
 
 
-
+\shrink
 \subsection{Threats to validity}
 
 \begin{comment}
@@ -738,6 +758,7 @@ Both Naive Bayesian learners and the word-list approaches were computationally e
 
 Our study suffers from multiple threats to validity. \emph{Construct validity} issues include that used only commit messages rather than mail or bug tracker messages, as well we chose our taxonomy and the data to study. \emph{Internal validity} issues are to do with inter-rater reliability. \emph{External validity} issues are that our data originated from OSS database projects and thus might not be applicable to commercially developed software, as well our analysis techniques relies on a project's commitment to meaningful commit messages.
 
+\shrink
 \section{Related work}
 
 \begin{comment}
@@ -777,7 +798,7 @@ In \cite{ernst10refsq}, we describe our earlier project, similar to this, to ide
 
 % Most of this related research examined project source code. Software mining of other project corpora is less common. Similarities exist with approaches that begin with structured taxonomies, as with the Hismo software ontology~\cite{girba06}. Rigby and Hassan~\cite{rigby07msr} used a general purpose taxonomy to classify developer email according to temperament.
 
-
+\shrink
 \section{Conclusions and future work}
 
 In conclusion, we have demonstrated that static but domain specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet. We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
@@ -789,7 +810,7 @@ Thus we have shown that non-functional requirements are often trending topics, t
 There are many avenues of further investigation.  We want to investigate developer attitudes related to these labels, when we label a topic, was the developer expressing positive or negative qualities about that label.  It is difficult to map abstract qualities to particular messages. If the message is about a particular bug fix, do we map that to reliability or maintainability? Is it a performance bug or a usability bug? We ask is a ``quality'' discussion about more than just corrective maintenance? In this study we take the position that any type of maintenance has to do with software quality.
 
 
-\section{Acknowledgements and appendix}
+%\section{Acknowledgements and appendix}
 Our data and scripts are available at \url{http://softwareprocess.es/nomen/}
 
 \bibliographystyle{abbrv}

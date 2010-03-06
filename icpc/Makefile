@@ -5,12 +5,20 @@ view: icpc2010.pdf
 	xpdf $<
 
 icpc2010-pre.pdf: icpc2010.tex icpc.bib
+	#	pdflatex icpc2010
+	#pdflatex icpc2010
+	#bibtex icpc2010
+	#pdflatex icpc2010
+	#pdflatex icpc2010
+	#mv icpc2010.pdf icpc2010-pre.pdf
 	xelatex icpc2010
 	xelatex icpc2010
 	bibtex icpc2010
 	xelatex icpc2010
 	xelatex icpc2010
 	mv icpc2010.pdf icpc2010-pre.pdf
+
+
 
 icpc2010.pdf: icpc2010-pre.pdf
 	gs -q -dNOPAUSE -dBATCH -dPDFSETTINGS=/prepress -dDownsampleColorImages=false -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -sDEVICE=pdfwrite -sOutputFile=icpc2010.pdf icpc2010-pre.pdf
