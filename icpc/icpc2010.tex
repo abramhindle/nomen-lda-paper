@@ -12,7 +12,7 @@
 \usepackage{color}
 
 \newcommand{\XXX}[1]{\textcolor{red}{{\it \textbf{[XXX: #1]}}}}
-
+\hyphenation{Max-DB}
 
 \usepackage{comment}
 \newtheorem{mydef}{definition}
@@ -69,10 +69,13 @@ Abram Hindle\\
 %There has not been any   investigation into the latent topics these %classifiers represent. 
 
 \begin{abstract}
+  Within the field of mining software repositories, approaches such as topic modeling and concept location rely on the automated   application of machine learning algorithms to corpora.  %What is a 'topic'?
 
-  
+% Other approaches
 
-  Within the field of mining software repositories, many approaches,   such as topic modeling and concept location, rely on the automated   application of machine learning algorithms to corpora.  This kind of   approach typically makes no use of domain-specific knowledge to   improve the results or put them into a context that a developer can   relate to.  While too much specificity can produce non-generalizable   results, too little produces broad learners that do not provide much   immediately useful detail.  In this paper, we investigate what   topics the latent topic extractors produce, and examine whether   such topics can be generalized across software products.  We focus   on non-functional requirements related to software quality as a   potential generalization, since there is some shared belief that   these qualities apply broadly across many software systems and their   development artifacts.  In our approach, we name topics based on a   static ontology of non-functional requirements and software   qualities; in essence, this adds context to general-purpose   ontologies such as WordNet.  In this paper, we discuss how we use   this software development domain knowledge to better annotate topics   of development that are extracted from the change log messages in   configuration management systems such as CVS.  Since our taxonomy is   global in scope, our results allow us to compare the relative   importance of particular qualities across different projects. Within the topics extracted from MySQL and MaxDB we found that   non-functional requirements were common and often were trends across   time. Our automated techniques can label topics without much computational overhead.
+This kind of approach typically makes no use of domain-specific knowledge to improve the results or put them into a context that a developer can relate to.  While too much specificity can produce non-generalizable results, too little produces broad learners that do not provide much immediately useful detail. 
+
+ In this paper, we investigate what topics the latent topic extractors produce, and examine whether such topics can be generalized across software products.  We focus on non-functional requirements related to software quality as a potential generalization, since there is some shared belief that these qualities apply broadly across many software systems and their development artifacts.  In our approach, we name topics based on a static ontology of non-functional requirements and software qualities; in essence, this adds context to general-purpose ontologies such as WordNet.  In this paper, we discuss how we use this software development domain knowledge to better annotate topics of development that are extracted from the change log messages in configuration management systems such as CVS.  Since our taxonomy is global in scope, our results allow us to compare the relative importance of particular qualities across different projects. Within the topics extracted from MySQL and MaxDB we found that non-functional requirements were common and often were trends across time. Our automated techniques can label topics without much computational overhead.
 
 \end{abstract}
 
@@ -318,7 +321,7 @@ dominated the less common labels. The related words for
 \emph{correctness}, for example, tended to be too lengthy and
 non-specific. 
 Table \ref{tbl:wordlist} lists results. 
-A \emph{named   topic} is a topic with a matching label. There are \{periods X 20\} topics per project as we told LDA to extract 20 topics per period. All experiments were run on MaxDB 7.500 and MySQL 3.23 data.
+A \emph{named topic} is a topic with a matching label. There are \{periods X 20\} topics per project as we told LDA to extract 20 topics per period. All experiments were run on MaxDB 7.500 and MySQL 3.23 data.
 
 %\begin{comment}
 %\XXX{this table should have mysql}
@@ -765,7 +768,7 @@ Our study suffers from multiple threats to validity. \emph{Construct validity} i
 
 % Not sure how do handle this
 \end{comment}
-The idea of extracting higher-level `concerns' (also known as `concepts', `aspects' or `requirements') has been attacked in two ways. 
+The idea of extracting higher-level `concerns' (also known as `concepts', `aspects' or `requirements') has been approached in two ways. 
 
 Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. They managed recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. Instead, they developed a supervised classifier by using human experts to identify an NFR training set. There are several reasons we did not follow this route. One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. Secondly, we wanted to compare across projects. Their technique was not compared across different projects and the applicability of the training set to different corpora is unclear. A common taxonomy allows us to make inter-project comparison (subject to the assumption that all projects conceive of these terms in the same way). Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) our study assumes these NFRs are latent in the textual documents of the project. Finally, the source text we use is less structured than their requirements documents.
 
