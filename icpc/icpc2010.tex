@@ -415,28 +415,47 @@ The limitation of the approach we took here is that we assume labels are indepen
 
 
 % Cribbed from: 
-% src/validate/latex-out/best-learner-per-project-roc-table.tx
+% src/validate/latex-out/best-learner-per-project-roc-table.txt
 \begin{table*}
 \centering
 \begin{tabular}{ccc|rrrr}
 \toprule
 Label & Project & Learner & ROC & ZeroR Acc. & ZeroR. Diff & F1\\
 \midrule
-portability &  MySQL &  NaiveBayesMultinomial &  0.74 &  58.53 &  11.43 &  0.70  \\ 
-efficiency &  MySQL &  NaiveBayes &  0.67 &  93.69 &  -7.68 &  0.88 \\ 
-reliability &  MySQL &  NaiveBayes &  0.73 &  83.11 &  -12.80 &  0.74 \\ 
-functionality &  MySQL &  DMNBtext &  0.81 &  54.44 &  21.67 &  0.76 \\ 
-maintainability &  MySQL &  DMNBtext &  0.78 &  76.62 &  3.41 &  0.75 \\ 
-usability &  MySQL &  NaiveBayes &  0.75 &  94.54 &  -5.80 &  0.90  \\ 
-%total & MySQL & NaibeBayes & 0.75 & 
+
+portability &  MySQL &  NaiveBayesMultinomial &  0.74 &  58.53 &  11.43 &  0.62 \\
+efficiency &  MySQL &  NaiveBayes &  0.67 &  93.69 &  -7.68 &  0.23 \\ 
+reliability &  MySQL &  NaiveBayes &  0.73 &  83.11 &  -12.80 &  0.41 \\ 
+functionality &  MySQL &  DMNBtext &  0.81 &  54.44 &  21.67 &  0.77  \\ 
+maintainability &  MySQL &  DMNBtext &  0.78 &  76.62 &  3.41 &  0.32  \\ 
+usability &  MySQL &  NaiveBayes &  0.75 &  94.54 &  -5.80 &  0.21  \\ 
  \hline 
-portability &  MaxDB &  NaiveBayes &  0.84 &  77.12 &  2.06 &  0.80 \\ 
-efficiency &  MaxDB &  NaiveBayes &  0.62 &  88.43 &  -11.31 &  0.79 \\ 
-reliability &  MaxDB &  DMNBtext &  0.84 &  89.46 &  3.86 &  0.92  \\ 
-functionality &  MaxDB &  NaiveBayes &  0.67 &  91.26 &  -6.94 &  0.86  \\ 
-maintainability &  MaxDB &  NaiveBayes &  0.70 &  79.43 &  -9.25 &  0.72  \\ 
-usability &  MaxDB &  NaiveBayes &  0.56 &  95.37 &  -4.37 &  0.91  \\ 
+portability &  MaxDB &  NaiveBayes &  0.84 &  77.12 &  2.06 &  0.61 \\ 
+efficiency &  MaxDB &  NaiveBayes &  0.62 &  88.43 &  -11.31 &  0.25  \\ 
+reliability &  MaxDB &  DMNBtext &  0.84 &  89.46 &  3.86 &  0.57  \\ 
+functionality &  MaxDB &  NaiveBayes &  0.67 &  91.26 &  -6.94 &  0.31  \\ 
+maintainability &  MaxDB &  NaiveBayes &  0.70 &  79.43 &  -9.25 &  0.42  \\ 
+usability &  MaxDB &  NaiveBayes &  0.56 &  95.37 &  -4.37 &  0.00  \\ 
  \hline 
+
+
+% this was before I fixed an fmeasure bug
+% 
+% portability &  MySQL &  NaiveBayesMultinomial &  0.74 &  58.53 &  11.43 &  0.70  \\ 
+% efficiency &  MySQL &  NaiveBayes &  0.67 &  93.69 &  -7.68 &  0.88 \\ 
+% reliability &  MySQL &  NaiveBayes &  0.73 &  83.11 &  -12.80 &  0.74 \\ 
+% functionality &  MySQL &  DMNBtext &  0.81 &  54.44 &  21.67 &  0.76 \\ 
+% maintainability &  MySQL &  DMNBtext &  0.78 &  76.62 &  3.41 &  0.75 \\ 
+% usability &  MySQL &  NaiveBayes &  0.75 &  94.54 &  -5.80 &  0.90  \\ 
+% %total & MySQL & NaibeBayes & 0.75 & 
+%  \hline 
+% portability &  MaxDB &  NaiveBayes &  0.84 &  77.12 &  2.06 &  0.80 \\ 
+% efficiency &  MaxDB &  NaiveBayes &  0.62 &  88.43 &  -11.31 &  0.79 \\ 
+% reliability &  MaxDB &  DMNBtext &  0.84 &  89.46 &  3.86 &  0.92  \\ 
+% functionality &  MaxDB &  NaiveBayes &  0.67 &  91.26 &  -6.94 &  0.86  \\ 
+% maintainability &  MaxDB &  NaiveBayes &  0.70 &  79.43 &  -9.25 &  0.72  \\ 
+% usability &  MaxDB &  NaiveBayes &  0.56 &  95.37 &  -4.37 &  0.91  \\ 
+
 \end{tabular}
 \caption{Per label, per project, the best learner for that label. ROC value rates learner performance, compared with the ZeroR learner ( a learner which just chooses the largest category all of the time). F1 is the F-measure for that particular learner.}
 \label{tab:best-learn-per-tag}
@@ -671,10 +690,12 @@ We observed that MySQL had more topic subsets than MaxDB. MySQL 3.23 also had mo
 MySQL and MaxDB's machine learners did make decisions based off some shared words. Words that were used to classify topics that were shared between MySQL and MaxDB included: \textsf{bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test}. Adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
 
 With respect to the questions raised in section \ref{sec:suplearn}:
+
 \textbf{Do label frequencies change over time?} -- Yes, MySQL's label
 frequencies decreased as it got older. Usability and reliability
 labels became more and more infrequent as it matured. Maintainability topics
 became more prevalent as MaxDB matured.
+
 \textbf{Do the different projects differ in their relative topic
   interest?} -- Yes. MySQL 3.23 had proportionally more
 functionality labelled topics, while MaxDB had proportionally more
