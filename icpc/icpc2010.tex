@@ -81,7 +81,8 @@ Abram Hindle\\
 	\begin{flushright} -- Romeo and Juliet, II:ii\end{flushright}
 \end{quote}
 
- Few would argue that software development is a bed of roses.  To most of us, the important properties of a rose are sensual in nature, and concern appearance, odour, and feel.  While horticulturalists and botanists may see more semantic depth than this, one rose is often just as pleasing to us as another.  Software development artifacts, on the other hand, are abstract and intangible.  They are often unnamed and ephemeral --- even more so than roses --- and maybe partially derived from other unnamed and ephemeral artifacts.  Yet to have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for our work topics and be able to categorize the development artifacts as belonging to one or more of these topics. 
+
+Few would argue that software development is a bed of roses.  To most of us, the important properties of a rose are sensual in nature, and concern appearance, odour, and feel.  While horticulturalists and botanists may see more semantic depth than this, one rose is often just as pleasing to us as another.  Software development artifacts, on the other hand, are abstract and intangible.  They are often unnamed and ephemeral --- even more so than roses --- and maybe partially derived from other unnamed and ephemeral artifacts.  Yet to have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for our work topics and be able to categorize the development artifacts as belonging to one or more of these topics. 
 
 %Original is here:
 
@@ -91,14 +92,16 @@ Abram Hindle\\
 %abstracted from program source code, we are already dealing with
 %abstract entities that are not tangible.
 
-%To have meaningful discussions about how software development is progressing, we must devise appropriate labels for our work topics, in contrast to the quote above. We can then categorize development artifacts as belonging to one or more of these topics. 
+
+% To have meaningful discussions about how software development is progressing, we must devise appropriate labels for our work topics, in contrast to the quote above. We can then categorize development artifacts as belonging to one or more of these topics. 
 
 
-% This correlates issues with topics
-As development of a software project progresses, developers must concern themselves with a wide variety of issues --- or ``topics'' --- that relate to the problem domain, the processes and tools used, the development artifacts themselves, etc.  The set of development topics for a given project can sometimes be extracted automatically by analyzing artifacts within software repositories, such as change-log comments that developers create when committing revisions to the project's source control system.  Our previous work dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. We observed that topic trends were often non-functional requirements.
+Topics arise from the wide variety of issues which occur during a software project's lifecycle. These topics can relate to, among others, the problem domain, the processes and tools used, or the development artifacts themselves.  The set of development topics for a given project can sometimes be extracted automatically by analyzing artifacts within software repositories, such as change-log comments that developers create when committing revisions to the project's source control system.  Our previous work dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. We observed that topic trends were often non-functional requirements.
 
- 
-%Topics arise from the wide variety of issues which occurs during a software project's lifecycle. These topics can relate to, among others, the problem domain, the processes and tools used, or the development artifacts themselves.  The set of development topics for a given project can sometimes be extracted automatically by analyzing artifacts within software repositories, such as change-log comments that developers create when committing revisions to the project's source control system.  Our previous work dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. We observed that topic trends were often non-functional requirements.
+
+
+%As development of a software project progresses, developers must concern themselves with a wide variety of issues --- or ``topics'' --- that relate to the problem domain, the processes and tools used, the development artifacts themselves, etc.  The set of development topics for a given project can sometimes be extracted automatically by analyzing artifacts within software repositories, such as change-log comments that developers create when committing revisions to the project's source control system.  Our previous work dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. We observed that topic trends were often non-functional requirements.
+
 
 
 %During the development of a software project developers touch on many %issues integral to the purpose of the software project. These issues %are often referred to as topics. These topics can sometimes be %automatically extracted from the changelog comments that developers %create while committing revisions to the project's source control %repository. Our previous work dealt with %topic-trends~\cite{Hindle09ICSM}, topics that repeat overtime. It %seemed that these trends were often non-functional requirements. 
@@ -108,9 +111,7 @@ Topics in this paper and the previous paper are word bags or word distributions.
 
 %If a topic has a name or a label we immediately have a good idea of  %what it is. In our case the name is the bit of information, the %summary, that was missing from our topics to make them useful and %complete. Although we are convinced that accurate naming is not %completely feasible, so we have focussed on labelling topics by %non-functional requirements.
 
-A topic --- that is, a word distribution in our world --- needs a suggestive name to succinctly convey its intent, and make it easy to use in discussions and analyses about the development of the system. Our previous experience leads us to believe that automated topic naming is currently infeasible in the general case, so we have decided to focus on topic labels from the sub-domain of non-functional requirements related to software quality.
-
-
+A topic --- that is, a word distribution in our world --- needs a suggestive name to succinctly convey its intent, and make it easy to use in discussions and analyses about the development of the system. Our previous experience leads us to believe that automated topic naming is currently infeasible in the general case. We have therefore decided to focus on topic labels from the sub-domain of non-functional requirements related to software quality.
 
 %In this paper we \textit{name} and \textit{label} topics generated by %a topic modeling technique, Latent Dirichlet %Allocation~\cite{Blei2003}. We use these topic models to train %supervised learners to classify larger datasets. We also show that %these topics can be generalized across products.
 
@@ -155,7 +156,7 @@ distribution, i.e., a set of words that form a word distribution that is
 unique and independent within the set of documents in our total
 corpus. One could think of a topic as a distribution of the centroid
 of a group of messages. In this paper we often summarize topics by the
-top 10 most frequent words of their word distribution.  A \emph{trend}
+top ten most frequent words of their word distribution.  A \emph{trend}
 is one or more similar topics that recur over time.  Trends are
 particularly important, as they indicate long-lived and recurring
 topics that may provide key insights into the development of the
@@ -163,7 +164,8 @@ project. A \emph{label} is part of a title we attach to a topic, whether manuall
 
 % area under the ROC 
 % check
-\emph{Area of ROC Curve} is the area under the Receiver Operating Characteristic curve, we will refer to this as \emph{ROC} although it is sometimes referred to as \emph{AUC}. ROC values reflect a score, similar to school letter-grades (an \emph{A} is $0.9$, a \emph{C} is $0.6$), reflecting how well a particular learner performed for the given data. A ROC result of 0.5 would be equivalent to a random learner (randomly classifying data). ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) vs. the false positive rate (1 - specificity). A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision.
+\emph{Area of ROC Curve} is the area under the Receiver Operating Characteristic (ROC) curve, sometimes referred to as \emph{AUC}. ROC values reflect a score, similar to school letter-grades (A is 0.9, C is 0.6), reflecting how well a particular learner performed for the given data. A ROC result of 0.5 would be equivalent to a random learner (randomly classifying data). ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) vs. the false positive rate (1 - specificity). A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision.
+
 
 \subsection{Topic and Concept Extraction}
 Topic extraction, sometimes called concept extraction, uses tools such as Latent Dirichlet Allocation (LDA)~\cite{Blei2003} and Latent Semantic Indexing (LSI) to extract
@@ -175,20 +177,20 @@ correlate with actual development topics that the developers discussed
 during the development of the software project. For example, our technique might identify a collection of words: ``list next has iterator add'', which we then identify (manually) as concerning the topics of collections and the Iterator pattern.
 \end{comment}
 
-Typically a topic analysis tool like LDA will try to find $N$ independent word distributions found within the word distributions of all the messages. Linear combinations of these $N$ word distributions are then meant to be able to recreate the word distributions of all of the underlying messages. These $N$ word distributions effectively form topics: cross cutting collections of words relevant to 1 or more documents. Our problem is that these topics are not easy to interpret and we feel that automatic labelling or naming of these topics would be helpful with respect to interpreting what a topic is about. LDA's topics extracted in an unsupervised manner, LDA relies solely on the source data with no human intervention.
+Typically a topic analysis tool like LDA will try to find $N$ independent word distributions found within the word distributions of all the messages. Linear combinations of these $N$ word distributions are then meant to be able to recreate the word distributions of all of the underlying messages. These $N$ word distributions effectively form topics: cross cutting collections of words relevant to one or more documents. Our problem is that these topics are not easy to interpret, as the underlying pattern is not clear. We feel that automatic labelling or naming of these topics would be helpful with respect to interpreting the subject of a topic. LDA extracts topics in an unsupervised manner; the algorithm relies solely on the source data with no human intervention.
 
-In topic analysis a single document, such as a commit message, can be related to multiple topics. Representing documents as a mixture of topics maps well to commits to source code repositories, which often have more than one purpose~\cite{Hindle09ICSM}.  A topic represents both a word distribution and a group of commit log comments that are related to each other by their content.  In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
+In topic analysis a single document, such as a commit message, can be related to multiple topics. Representing documents as a mixture of topics maps well to source code repository commits, which often have more than one purpose~\cite{Hindle09ICSM}.  A topic represents both a word distribution and a group of commit log comments that are related to each other by their content.  In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
 
 \begin{comment}
 In this paper we use LDA to identify topics.  LDA works by creating topic models for each period. A topic model is a statistical summary of the important subjects for that data-set.  The input to the algorithm is a set of documents, with contents treated as a bag of words, and a parameter to set the number of topics to generate. The algorithm returns a word-document matrix relating the occurrence frequency of a 
  The idea is similar to other IR approaches like TF/IDF (term frequency/inverse document frequency), which find uncommon words that are not found in other word-lists. These approaches are unsupervised in that they rely solely on the source data with no human intervention.
 \end{comment}
 
-One issue that arises with the use of unsupervised techniques is how to label the topics. While the topic models themselves are generated automatically, what to make of them is less clear. For example, in our previous work~\cite{Hindle09ICSM}, and in \cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. For example, given the word list ``listener change remove add fire'', Baldi et al. assign the keyword \emph{event-handling}. The labels are reasonable enough, but still require some expert in the field to determine them. Our technique is automated, because we match keywords from WordNet to words in the topic model. 
+One issue that arises with use of unsupervised techniques is how to label the topics. While the topic models themselves are generated automatically, what to make of them is less clear. For example, in our previous work~\cite{Hindle09ICSM}, as well as in \cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. E.g., for the word list \emph{``listener change remove add fire''}, Baldi et al. assign the keyword \emph{event-handling}. The labels are reasonable enough, but still require an expert in the field to determine them. Our technique is automated, because we match keywords from WordNet~\cite{Fellbaum1998} to words in the topic model. 
 
 \subsection{Supervised learning}
-While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, supervised learners have the advantage of domain knowledge. This typically produces improved results. In supervised learning, the data is divided into slices. One slice is manually annotated by the domain expert
-In this paper, we employ the WEKA~\cite{weka09} and Mulan~\cite{mulan} machine learning frameworks in order to test various supervised learners on our annotated data-set.
+While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, and thus lower effort, supervised learners have the advantage of domain knowledge which typically means improved results. In supervised learning, the data is divided into slices. One slice is manually annotated by the domain expert, and the classifications he/she determines are applied to the remaining slices. In this paper, we employ the WEKA~\cite{weka09} and Mulan~\cite{mulan} machine learning frameworks in order to test supervised learning.
+
  
 \section{Methodology}
 
@@ -213,10 +215,10 @@ We selected MySQL and MaxDB as they were open-source, partially-commercial datab
 The MySQL project started in 1994 but MySQL 3.23 was released in early 2001. MySQL contains 320 thousand lines of C and C++ source code. 
 
 \subsection{Generating the data}
-From each project, we used source control commit comments, these are the messages that programmers write when they commit revisions to a source control repository. We leveraged the data that we gathered in \cite{Hindle09ICSM} for this work. An example of a typical commit message is: ``history annotate diffs bug fixed (if mysql\_real\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''. We extracted these messages and indexed them by creation time. We summarized each message as a word distribution but removed stop-words such as   common English words like \emph{the} and \emph{at}.
+From each project, we used source control commit comments, the messages that programmers write when they commit revisions to a source control repository. We leveraged the data that we gathered in \cite{Hindle09ICSM} for this work. An example of a typical commit message is: \textit{``history annotate diffs bug fixed (if mysql\_real\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. We extracted these messages and indexed them by creation time. We summarized each message as a word distribution but removed stop-words such as common English words \emph{the} and \emph{at}.
 
-From that data-set, we created an XML file which windowed commits into
-monthly windows. This size of period is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze. We applied an Blei's LDA implementation against the word distributions of these commits, and generated list of topics per period. 
+From that data-set, we created an XML file which separated commits into
+monthly windows. This size of period is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze. We applied Blei's LDA implementation~\cite{Blei2003} against the word distributions of these commits, and generated list of topics per period. 
 %A topic extracted in the first period Period 1, the most important %topic might have been ``security", with ``sql'' second, down on to %less relevant topics. 
 We arbitrarily set the number of topics to generate to $20$, because past experimentation showed that fewer topics might aggregate multiple unique topics while any more topics seemed to dilute the results and create indistinct topics. As well, more than $20$ topics quickly became infeasible for inspection and it was difficult to discern the difference in topics.
 
@@ -225,8 +227,9 @@ We arbitrarily set the number of topics to generate to $20$, because past experi
 % We would like to `name' our topic models for each period. In this way, we can see how certain words -- subjects -- occur more or less often with each period.
 \end{comment}
 
-Topics are word distributions: essentially lists of words ranked by frequency, thus they can be burdensome to interpret and hard to distinguish and understand.
-Once we had topics for each period, we tried to associate them with a label from a list of keywords and related terms. We performed simple string matching between these topics and our lists, `naming' a topic if it contained that a word from our word list. We used several different word lists for comparison. 
+Topics are word distributions: essentially lists of words ranked by frequency, which can be burdensome to interpret and hard to distinguish and understand.
+Once we had topics for each period, we tried to associate them with a label from a list of keywords and related terms. We performed simple string matching between these topics and our lists, `naming' a topic if it contained that word or words. We used several different word lists for comparison. 
+
 
 Our first word list set, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519}. That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. The labels we used:
 \begin{quotation}
@@ -753,7 +756,7 @@ The other approach is to start with code repositories, and try to extract concer
 Mens et al.~\cite{mens08icsm} conducted an empirical study of Eclipse, the open source software (OSS) source code editor, to verify the claims of Lehman~\cite{lehman97sms}. They concerned themselves with source code only, and found Law Seven, ``Declining Quality'', to be too difficult to assess: ``[we lacked an] appropriate measurement of the evolving quality of the system as perceived by the users \cite[p. 388]{mens08icsm}''. This paper examines the notions of quality in terms of a consistent ontology, as Mens et al. call for in their conclusions.
 
 Mei et al.~\cite{Mei2007} use context information to automatically name topics. They describe probabilistic labelling, using the frequency distribution of words in a topic to create a meaningful phrase. They do not use external domain-specific information as we do.
-In \cite{ernst10refsq}, we describe an application similar to this to identify change in quality requirements in GNOME software projects; our approach is solely text-matching, however, and does not leverage machine learning strategies.
+In \cite{ernst10refsq}, we describe our earlier project, similar to this, to identify change in quality requirements in GNOME software projects; our approach is solely text-matching, however, and does not leverage machine learning strategies.
 
 \begin{comment}
 % comment out or not
@@ -762,19 +765,18 @@ In \cite{ernst10refsq}, we describe an application similar to this to identify c
 % Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
 \end{comment}
 
-Most of this related research examined project source code. Software mining of other project corpora is less common. Similarities exist with approaches that begin with structured taxonomies, as with the Hismo software ontology~\cite{girba06}. Rigby and Hassan~\cite{rigby07msr} used a general purpose taxonomy to classify developer email according to temperament.
+% Most of this related research examined project source code. Software mining of other project corpora is less common. Similarities exist with approaches that begin with structured taxonomies, as with the Hismo software ontology~\cite{girba06}. Rigby and Hassan~\cite{rigby07msr} used a general purpose taxonomy to classify developer email according to temperament.
 
 
 \section{Conclusions and future work}
 
-In conclusion we have demonstrated that static but domain specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet. We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
+In conclusion, we have demonstrated that static but domain specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet. We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
 
 Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted dealt with non-functional requirements and these topics were spread across the entire history of a project. In the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
 
 Thus we have shown that non-functional requirements are often trending topics, that non-functional requirements are quite common in developer topics, and that there are efficient methods of semi-automating and automating topic labelling.
 
 There are many avenues of further investigation.  We want to investigate developer attitudes related to these labels, when we label a topic, was the developer expressing positive or negative qualities about that label.  It is difficult to map abstract qualities to particular messages. If the message is about a particular bug fix, do we map that to reliability or maintainability? Is it a performance bug or a usability bug? We ask is a ``quality'' discussion about more than just corrective maintenance? In this study we take the position that any type of maintenance has to do with software quality.
-
 
 
 \section{Acknowledgements and appendix}
