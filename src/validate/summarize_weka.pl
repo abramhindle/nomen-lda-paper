@@ -16,7 +16,7 @@ my @learners = slurp('weka-classifiers');
 
 my $ZEROR = "weka.classifiers.rules.ZeroR";
 my $latex_dir = "latex-out";
-my ($DONE,$NOTFOUND,$STRATIFIED,$CORRECT,$INCORRECT,$WEIGHTED) = (1..100);
+my ($DONE,$NOTFOUND,$STRATIFIED,$CORRECT,$INCORRECT,$CONFUSION,$WEIGHTED) = (1..100);
 
 my $dir="";
 
@@ -163,6 +163,46 @@ my @measures = qw(percent roc recall precision fmeasure);
 
 
 
+sub precision {
+    my ($tp,$fp) = @_;
+    if ($tp + $fp == 0) { return 0 }
+    return $tp / (1.0 * $tp + $fp)
+}
+sub recall { 
+    my ($tp,$fn) = @_;
+    if ($tp + $fn == 0){ return 0 }
+    return $tp / (1.0 * $tp + $fn)
+}
+sub true_negative_rate { 
+    my ($tn,$fp) = @_;
+    return $tn / (1.0 * $tn + $fp)
+}
+sub specificity { 
+    my ($tn,$fp) = @_;
+    return true_negative_rate($tn,$fp)
+}
+sub false_positive_rate {
+    my ($fp,$tn) = @_;
+    return $fp / (1.0*($fp + $tn))
+}
+sub accuracy { 
+    my ($tp,$tn,$fp,$fn) = @_;
+    return ($tp + $tn)/ (1.0 * $tp + $tn + $fp + $fn);
+}
+sub true_positive_rate {
+    my ($tp,$fn) = @_;
+    return $tp /(1.0 * ( $tp + $fn))
+}
+sub sensitivity { 
+    my ($tp,$fn) = @_;
+    return true_positive_rate($tp,$fn)
+}
+sub fmeasure{
+    my ($precision,$recall) = @_;
+    if ($precision + $recall == 0){ return 0 }
+    return 2.0 * ($precision * $recall) / (1.0 * ($precision + $recall))
+}
+
 
 
 
@@ -187,7 +227,7 @@ sub get_correct_incorrect {
     my $correct_percent = 0;
     my $incorrect_count = 0;
     my $incorrect_percent = 0;
-    my ($tp,$fp,$precision,$recall,$fmeasure, $roc) = (0,0,0,0,0,0);
+    my ($tp,$fp,$precision,$recall,$fmeasure, $roc,$tn,$fn) = (0,0,0,0,0,0,0,0,0);
     while($state != $DONE) {
         my $line = <$fd>;
 	$state = $DONE unless defined $line;	
@@ -217,10 +257,29 @@ sub get_correct_incorrect {
                 ($tp,$fp,$precision,$recall,$fmeasure,$roc) = split(/\s+/,$vals);
                 warn "Weighted AVG    ($tp,$fp,$precision,$recall,$fmeasure,$roc) = splits(/\s+/,$vals)";
 
-                $state = $WEIGHTED;
+                $state = $CONFUSION;
             } elsif ($line =~ /Confusion Matrix/) {
-                $state = $WEIGHTED;
+                $state = $CONFUSION;
             }
+        } elsif ($state == $CONFUSION) {
+            if ($line =~ /Confusion Matrix/) {
+                $state = $CONFUSION;
+            } elsif ($line =~ /^\s*$/) {
+                #nothing
+            } elsif ($line =~ /classified as/) {
+                #nothing
+            } elsif ($line =~ /^\s*(\d+\.?\d*)\s+(\d+\.?\d*)\s*\|\s*(\w)\s*=/) {
+                my ($a,$b,$c) = ($1,$2,$3);
+                if ($c eq "a") {
+                    $tn = $a; #true negative true a not b
+                    $fp = $b; # is an a but classified as a b
+                } elsif ($c eq "b") {
+                    $fn = $a;# is a b but classified as an a
+                    $tp = $b;# is a b but is a b
+                    $state = $DONE;
+                }
+            }
+
         } elsif ($state == $WEIGHTED) {
             $state = $DONE;
         } elsif ($state == $DONE) {
@@ -229,6 +288,9 @@ sub get_correct_incorrect {
             die "Bad state! [$state]";
         }
     }
+    $precision = precision($tp,$fp);
+    $recall    = recall($tp,$fn);
+    $fmeasure  = fmeasure($precision, $recall);
     die "Ended on the wrong state! Ours:[$state] vs wanted:[$DONE]" unless $state == $DONE;
     return (
             correct => $correct_count,
@@ -238,6 +300,8 @@ sub get_correct_incorrect {
             roc => $roc,
             tp => $tp,
             fp => $fp,
+            tn => $tn,
+            fn => $fn,
             precision => $precision,
             recall => $recall,
             fmeasure => $fmeasure,
