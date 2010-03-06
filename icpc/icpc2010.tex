@@ -353,7 +353,7 @@ For \textsf{exp3}, we had many more named topics. As we mentioned, the word-list
 
 Based on the labels, and our manual topic labelling, we compared the results of the unsupervised word matching approach. For each quality we tried to assess whether the manual tag matched the unsupervised label assigned. Table \ref{tbl:maxdb-unsup-results} shows our results for MaxDB and MySQL. In general results are poor. Using the F-Measure, the weighted average of precision and recall, where 1 is perfect, our best results are 0.6, a few at 0.4, and most around 0.2. We achieved similar results using the Matthew's correlation coefficient (used to measure efficacy where classes are of different sizes) and ROC.  
 
-\begin{table*}[ht]
+\begin{table*}%[ht]
 	\centering
 
 \begin{tabular}{c|c|c|c|c|c|c}
@@ -558,7 +558,7 @@ rank-Ranking Loss & 0.41 & 0.35 & 0.41 & 0.58 & 0.60 & 0.32 & 0.33 & 0.46 \\
 \end{comment}
 
 
-\begin{table*}[h]
+\begin{table*}%[h]
 \centering
 \begin{tabular}{l|ccc|ccc}
 \toprule
@@ -675,7 +675,6 @@ With respect to the questions raised in section \ref{sec:suplearn}:
 frequencies decreased as it got older. Usability and reliability
 labels became more and more infrequent as it matured. Maintainability topics
 became more prevalent as MaxDB matured.
-
 \textbf{Do the different projects differ in their relative topic
   interest?} -- Yes. MySQL 3.23 had proportionally more
 functionality labelled topics, while MaxDB had proportionally more
