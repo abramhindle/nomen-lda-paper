@@ -1,0 +1,114 @@
+Abram this is the first stab at tacking this down I suggest you rip
+into it.
+* Planning for ICSE Paper
+** Authors
+   - Abram Hindle
+   - Neil Ernst
+** Questions to answer
+*** Why: 
+    - We wanted to name topics based on a static ontology of non
+      functional requirements, and software qualities.
+*** What:
+    
+
+    
+    - Abram Hindle
+    - And their illustrious supervisors
+*** When:
+    - ICSE papers are due Aug 20
+*** How:
+    - Extract topics from changes
+    - Annotate topics of multiple projects
+    - Try simple word matching
+    - Try simple word match of wordnet words
+    - Try machine learning
+    - Make a simple wordnet?
+    - Try it
+*** Quality: 
+
+** Reviewer comments
+*** Reviewer 1
+**** better visualization
+**** lost in details
+*** Reviewer 2
+****  did not understand how it relates to software engineers and  how TOPICS could be useful
+**** keeps harping on lack of motivation
+**** research questions aren't obvious/clear?
+**** worried about overfitting but didn't understand cross fold validation
+**** table 2 at issue
+*** reviewer 3
+**** fixed parameters bad
+**** table 1 inappropriate?
+**** discuss contributions better
+*** Wife comments
+**** rose metaphor not clear, gets in the way
+**** Definitions,......I don't get them, this should be in the introduction or lit review section so The reader has something to relate them to.  Otherwise i get bored and just skim over them.
+**** The figures...the multiple colour one is way tooooo much info. Also no journal nor conference publishes in colour. Also for the figures he doesn't say what the results mean in terms of their importance or relevance.
+**** This paper doesn't convince me that you did something important...harsh yes, but it can be fixed if you tied each section to some end goal that was beyond finding a label for something. Why do you want to label these things in the first place?
+
+** Needed for ICSE Paper? [0/5]
+*** TODO Motivation
+****  topics are unmotivated, we relied too much on what other researchers suggested
+**** Use a clever project title like NOMEN
+**** - the point that previous research does this manually is not  clear enough
+**** in background there's a mild motivation but it doesn't pick on   other research hard enough
+**** our research questions are sorta dumb/obvious
+**** - maybe add a more obvious one about can we do this    automatically!
+**** can understand the criticism about how does this relate to    SE and why is it important.
+**** Maybe we ought to motivate auto labelling by suggesting how long it took us to label these!
+*** TODO Visualizations
+**** finding the results hard to read
+**** the visualization labels should be embedded or we should use Icons
+**** he visualization needs sexing up. It isn't clear what it shows. I think it needs to be fairly instantaneous and obvious, and in particular, needs to be related to the message we have in the paper ("what names are good for").
+**** can we leverage the ConcernLines metaphor that Christoph Treude used for aspect mining? e.g. we show where a particular NFR is mentioned more or less over time. The focus of the 'names' becomes showing which NFRs are relevant at a particular time. Then, we could determine what activity was driving that change (similar to my paper).
+*** TODO Tie in visualization to text
+*** TODO Minor nits
+**** should cite the KDE mailinglist stuff
+**** i'm a little concerned about inter-rater reliability as a threat to validity. If we both characterized the topics differently then the results are hard to reproduce. On the other hand we can probably leave that for now - a lot of people don't seem to understand this anyway.
+**** I don't understand why the reviewers complained about table 1
+****  what is with table 2. I don't understand it anymore
+**** maybe we can reduce the previous work a bit since we have a background section already and use that space to talk about the results, the relevance the importance.
+*** TODO Conclusions (the conclusions should be clarified and expanded
+**** we found topics were useless without names, we named them, we named them automatically both supervised and unsupervised
+**** we had good results here .. and bad results ...
+**** many recurring topics were NFR related
+**** evidence that NFRs are pretty important and cross cutting
+**** at the moment the conclusions were more about summarizing the results than really saying hey this is valuable stuff,  we showed you why
+      
+** New Schedule
+*** Aug 7: work on visualization
+*** Aug 7: rewrite intro and motivate
+*** Aug 10: send to migod for review
+*** Aug 20: papers due
+** Old Schedule
+   - Nov 1st to 7th  
+     - [X] get all projects automated and eval'd
+   - Nov 8th to 14th 
+   - Nov 15 th 21st  
+     - [X] get all machine learning w/ weka done 
+   - Nov 22nd to 28th   
+     - [X] get report tables from evaluation
+   - Nov 29th to Dec 5th
+     - skeleton of paper 
+   - Dec 6th to 12th
+     - assign sections/do writing etc.
+   - Dec 13 to 19th
+     - draft
+   - Dec 20th to 26st
+   - Dec 27 to Jan 2nd
+   - Jan 3rd to 9th
+     - revise draft
+   - Jan 10 to 16th - MSR Due
+     - MSR submit
+   - Future: more SE Wordnet?
+   - Jan 20th
+     Have mulan running, have results extracted (weka output read)
+   - Jan 21th 
+     Start writing and consider figures
+   - Jan 22nd Paper Skeleton
+   - March 13th
+     Paper due
+     
+
+
+     
