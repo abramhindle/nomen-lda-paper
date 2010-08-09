@@ -1,0 +1,246 @@
+*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=
+
+First reviewer's review:
+
+         >>> Summary of the submission <<<
+
+The authors present an approach to automatically label software maintenance
+activities. They analyze the commit logs of two large and long-lived systems,
+and through the use of both unsupervised and supervised machine learners they
+extract topics. Since topics are automatically extracted using LDA and are just
+word distributions, it is necessary to give them a representative name that
+abstract their content.
+The authors use both unsupervised and supervised approaches for labelling the
+topics. They consider commits from two database management systems, and split
+them in monthly windows. Then they manually label each extracted topic, and
+used this benchmark to evaluate unsupervised techniques based on word matching
+and to train and evaluate supervised approaches based on a number of machine
+learning techniques.
+Supervised techniques significantly outperformed unsupervised ones.
+Finally, the authors present visualizations of the manually extracted topic.
+
+         >>> Evaluation <<<
+
+The paper starts off very well, solidly explaining the problem context and the
+envisioned solution. The methodology is very sound, and the way the authors
+composed exp1, exp2, and exp3 sounds reasonable, although I was a bit puzzled
+by how they used the two KDE mailing lists to expand the 9126 ISO qualities. A
+bit more details should be provided here.
+
+That the results with unsupervised learning are below par does not come as a
+surprise. BTW, I didn't get why the values in table two sum up to 420, while
+the authors say there are 500 topics. Did I misunderstand something? If so, the
+authors should provide some more details about that table. The values with
+supervised learning are better, which is promising. I was puzzled by the
+sentence (section 4.3) that "for MaxDB and MySQL the ROC values for reliability
+and functionality seem swapped". What exactly do the authors mean? They should
+elaborate.
+
+In the topic labelling section, it is difficult to understand the steps
+conducted for the experiment. For example, it is not clear:
+- How the word matching is conducted;
+- Why stemming was not used (even though it could have seriously changed the
+results);
+- Whether and how a different number of topics for the LDA classification would
+have changed the results. In the paper, only 20 topics have been used, why?
+- Why only labels about software quality have been used, and why only
+twenty-five e-mails were inspected for the exp2.
+- Whether the manual labelling has been biased by the fact that it was
+conducted after defining the terms for the unsupervised techniques;
+- Why such an old version of MySQL was considered;
+
+The weakest parts of the paper are 1. the visualization and 2. the rest
+
+1. The visualization is not very clear. While the horizontal axis naturally
+maps time, it's not clear how the vertical axis is being used, and it's not
+explained by the authors. Also, the quality of the figures is doubtful, and I'm
+not sure this is just a bit of wasted space.
+
+In the context of the visualization I also saw that the topics include numbers,
+which are probably references to bug ids? In any case, I wondering if numbers
+should not be filtered, as they bear at least by themselves no semantics, and
+thus introduce noise. Also, the authors should think about (or motivate why
+not) removing words like "changelist" and "Perforce" which appear always (in
+the case of MaxDB, that is). Don't they just add noise?
+
+2. The rest: it's not clear and not explained by the authors how this work can
+be put to practice. Retroactive labelling of the system history? Augmentation
+of the commit comments? They should spend some words the usefulness of all this
+work.
+
+Overall, the paper seems to address many different topics, but without
+detailing them enough. Even though the authors probably conducted a careful
+analysis and experiment, this unfortunately does not emerge from the
+explanation given in the paper. Considering the limited space of a conference
+paper, it might be more effective to concentrate on fewer topics: either the
+topic labelling or the visualization technique.
+
+Minor remarks:
+
+- at the end of section 1 the authors say they analyzed "several" systems. 2 is
+not several, right?
+- the fact that the authors make their data and scripts publicly available is
+excellent!
+
+*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*
+
+Second reviewer's review:
+
+         >>> Summary of the submission <<<
+
+This paper explores how "topics" (lists of words algorithmically
+extracted from documents) can be automatically labeled with a unique
+concept/tag for ease of recognition by stakeholders. The paper
+analyses commit messages (and their resulting topics) taken from two
+OSS projects. To achieve labeled topic extraction, the authors
+manually constructed lists of generic labels using existing SE concept
+taxonomies from standards and other documents. The labels were then
+associated with a number of additional words using manual approaches
+and WordNet. Topics from the OSS projects were assigned one or more
+of these labels by matching topic-words to words appearing in each of
+the created word list sets. The authors also evaluated several
+supervised machine learning techniques that were trained using
+manually classified topics derived from one of the benchmark word
+lists. The paper evaluates the general accuracy and precision of both
+techniques on a number of manually classified topics. The results
+indicate that labeled topic extraction performs worse than the machine
+learning algorithms.
+
+         >>> Evaluation <<<
+
+The paper reports on an application of machine learning on data
+derived from software engineering artifacts (commit comments). As far
+as I can tell the application is reasonable and conducted with
+state-of-the-practice resources (WEKA, WordNet).
+
+The main issue with the paper is that it does not explain how the work
+advances software engineering. There is a piece missing in the logic
+underlying the work. Given a topic, I can see why one would want to
+automatically label it with some measure of reliability. However, I do
+not see why one would need "topics". The paper presents no
+insight into this matter. Even a small example of how knowledge of
+"topics" could help us design/maintain software better would be
+useful. Without this motivation the work comes across as a data mining
+exercise.
+
+Even if one is willing to consider the work as algorithm
+development, the synthetic context poses a problem by making it
+impossible to evaluate whether assumptions made as part of the
+evaluation are reasonable. Without a known application, is it
+reasonable to consider only two databases? Are the word lists
+exhaustive? Why consider commit messages and not documentation? Bug
+reports? Mailing lists? A general comment for improvement would be to
+make the introduction much clearer about what can be expected from the
+work from an SE perspective. To me the discussion about roses was more
+confusing than helpful.
+
+Somewhat related to the motivation, an other general issue is that the
+implications for the two research questions at the end of Section 3
+aren't obvious. What does it really mean that labeled frequencies
+change over time or differ between projects? Is this bad? Good? Do we
+need to do something about it?
+
+Besides the motivation there are also a number of technical
+issues with the following:
+
+* 3.2, How does the approach deal with multi-classification since a
+ single word match triggers a labeling and some keywords (like
+ "understandability") are associated with more than one label (Table 1).
+
+* Why were KDE mailing lists specifically used to create word lists?
+ What other kind of strategies should be used to create the initial
+ label sets? From Table 3, it seems that labeled topic extraction
+ has fairly low precision and recall. Should one be worried about
+ this?
+
+* To build their training set, the authors basically refine a
+ classification based on the exp2 benchmark by exploring a richer set
+ of relationships between the commits and the labels. And then they
+ train on the refined classification. Given this process, is it
+ really surprising that the machine learners, trained on a refined
+ benchmark, are better than the basic approach that uses the seed
+ benchmark?
+
+ * The paper states that "labels... can be learnt and used to classify
+ other data-sets". I am not convinced that this has been achieved. In
+ particular, it seems that the learned models may have been overfitted
+ to the training data. Training a model on 90% of the -entire- data
+ set often results in overfitting. To convince readers that the
+ results in Tables 4 and 5 hold in general, the results of different
+ partition splits (85-15, 80-20) could be presented. Alternatively,
+ as there seem to be a sizeable number of topics, separate training
+ and test sets could be used to train and then evaluate each of the ML
+ approaches.
+
+ * The paper also states that it "shows how named topics can be
+ compared between projects". I am not sure how this has been
+ achieved. The two conclusions in Section 4.7 are based on a manual
+ comparison of manually applied labels to topics of two OSS
+ projects.
+
+* In 4.1 the authors state that common labels dominated less common
+ ones and refer to Table 2, but Table 2 does not show distribution
+ per label. Why not include this level of precision since it's
+ discussed in the paper?
+
+ * In Table 2, why don't the named and unnamed topics
+ combined add up to the total topics. That wasn't self-evident.
+
+*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*
+
+Third reviewer's review:
+
+         >>> Summary of the submission <<<
+
+The paper presents an approach for program comprehension based on the analysis
+of its past maintenances. It applies mining techniques over the commit comments
+in a configuration management repository, extracting meaningful words and
+ranking them. Non-functional requirements are the key to evaluate system
+evolution over time and a combination of different requirement taxonomies is
+adopted. Visualization techniques are employed to facilitate results analysis
+and comprehension.
+
+         >>> Evaluation <<<
+
+Points in favour:
+- The use of taxonomies related to non-functional requirements facilitates
+system comprehension and approach generalization, since all software systems
+are subject to this kind of requirement.
+- Effective comparison with related work.
+- Good schema of information visualization helping maintenance comprehension.
+- A case study was performed and different aspects evaluated.
+
+Points against:
+- Fixed parameters were used in the approach. For example: monthly windows for
+annotations; number of topics to generate to 20. Should these parameters be
+configurable? If they were defined in past experimentations, which were these
+past experimentations? References are missing.
+- Table 1 title is not adequate to its content. Moreover, it should be
+interesting to provide a discussion about how evolvable the lists can be as the
+approach is applied in new case studies and new terms are discovered.
+- There is not any third part using the approach. Therefore, it is not clear
+its contributions for program comprehension apart from the authors' evaluation.
+- Section 4.2 should better explore results presented in Table 3 that do not
+really favour the approach efficacy.
+
+Other Comments:
+- In the last paragraph of Section 1, the specific sections could be named
+after each statement, e.g., "We first introduce some important terminology for
+our work (Section 2)."
+- In the last paragraph of Section 2.2 the year or number of reference is
+missing in the citation to "Baldi et al.". The same occurs for citation to
+"Mens et al." in Related Work Section, 5th paragraph, and in some other
+places.
+- KDE project in Section 3.2 should be better defined.
+- Second paragraph of Section 3.3: avoid using "below", "above"... E.g. "below
+in Section 4.2.". Sections position in the paper depends on paper format.
+- It would enrich the paper if a discussion were included in Future Work on how
+the approach could be generalized to other specific domains, which should have
+a related taxonomy. Considering also, where applicable, functional
+requirements.
+- Moreover, a study in a context where there are system experts to validate the
+findings would be beneficial to validate the approach contributions.
+- Contributions of automated and semi-automated approaches for naming and
+program comprehension should be further discussed.
+
+*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*=--=*

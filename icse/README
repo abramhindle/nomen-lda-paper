@@ -1,0 +1,38 @@
+Files relevant to ICSE paper:
+
+../src
+A series of wordlists that change with each experiment.
+
+../src/validate - main files for processing data for ICSE paper
+Makefile.mulan  runs the mulan infrastructure to run
+  cross validation across mysql and maxdb with mulan. Not sure how
+  to interpret the results but a latex table is created.
+  - MulanParser.pm
+  - mulan-parser.pl
+  - LatexTable.pm
+  - Makefile.mulan
+  - Makefile - make mulan
+In order to generate even better visualizations we have to take
+    commands from a XML file. So make_annotated_xml.py was created to
+    do this. It reads in the period files and makes a new XML file in
+    the output dir. This XML file has its annotations stripped and
+    replaced which those suggested in quality_map.py
+
+  - To plot these xml files
+    file:/home/abez/projects/hiraldo_grok/hs/Xml_lda_render.hs
+    was created. This takes in an xml file and uses annotation
+    similarity or equality to draw boxes with our plotter.
+    Since we multiple annotations the largest subset are chosen for
+    equality of course. The problem is we need to make a legend on
+    these colors :(
+
+- Generate plots of non-Mulan data:
+the python code does the stats on the annotations then it
+  produces a boxplot xml file, this xml file is read by perl and then
+  plotted by gnuplot into a boxplot graph (which can fixed later).
+cd src/validate/
+mkdir output
+python count_annotations.py
+perl boxplotit.pl output/*.xml #needs gnuplot
+
+../data
