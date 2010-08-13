@@ -1,0 +1,59 @@
+% \section{Background}
+
+% We provide a brief overview of software repository mining and information retrieval.
+% This work is related to the mining software repositories (MSR)~\cite{msr} research community as it deals expressly with analyzing a project's source control repository, and the messages associated with revisions therein.
+
+% \subsection{Definitions}
+% We will use the following terminology in the rest of the paper.
+% A \emph{message} is a block of text written by a developer. In this
+% paper, messages will be the CVS and BitKeeper commit log comments made
+% when a developer commits changes to files in a repository. A \emph{word
+%   distribution} is the summary of a message by word count. Each word
+% distribution will be over the words in all messages. However, most
+% words will not appear in each message. A word distribution is effectively
+% a word count divided by the message size. A \emph{topic} is a word
+% distribution, i.e., a set of words that form a word distribution that is
+% unique and independent within the set of documents in our total
+% corpus. One could think of a topic as a distribution of the centroid
+% of a group of messages. In this paper we often summarize topics by the
+% top ten most frequent words of their word distribution.  A \emph{trend}
+% is one or more similar topics that recur over time.  Trends are
+% particularly important, as they indicate long-lived and recurring
+% topics that may provide key insights into the development of the
+% project. A \emph{label} is part of a title we attach to a topic, whether manually or automatically.
+
+% % area under the ROC 
+% % check
+% 
+
+% \shrink
+% \subsection{Topic and Concept Extraction}
+% Topic extraction, sometimes called concept extraction, uses tools such as Latent Dirichlet Allocation (LDA)~\cite{Blei2003} and Latent Semantic Indexing (LSI) to extract
+
+
+
+% independent word distributions (topics) from
+% 	documents (commit log comments). Many researchers~\cite{marcus04wcre,Poshyvanyk2007,lukins08wcre,Linstead2007} have applied tools like LSI and LDA to mining software repositories, in particular analyzing source code, bugs or developer comments.
+% \begin{comment}
+% Ideally these extracted topics 
+% correlate with actual development topics that the developers discussed
+% during the development of the software project. For example, our technique might identify a collection of words: ``list next has iterator add'', which we then identify (manually) as concerning the topics of collections and the Iterator pattern.
+% \end{comment}
+
+% Typically a topic analysis tool like LDA will try to find $N$ independent word distributions found within the word distributions of all the messages. Linear combinations of these $N$ word distributions are then meant to be able to recreate the word distributions of all of the underlying messages. These $N$ word distributions effectively form topics: cross cutting collections of words relevant to one or more documents. Our problem is that these topics are not easy to interpret, as the underlying pattern is not clear. We feel that automatic labelling or naming of these topics would be helpful with respect to interpreting the subject of a topic. LDA extracts topics in an unsupervised manner; the algorithm relies solely on the source data with no human intervention.
+
+% In topic analysis a single document, such as a commit message, can be related to multiple topics. Representing documents as a mixture of topics maps well to source code repository commits, which often have more than one purpose~\cite{Hindle09ICSM}.  A topic represents both a word distribution and a group of commit log comments that are related to each other by their content.  In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
+
+% One issue that arises with use of unsupervised techniques is how to label the topics. While the topic models themselves are generated automatically, what to make of them is less clear. For example, in our previous work~\cite{Hindle09ICSM}, as well as in Baldi et al.~\cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. E.g., for the word list \emph{``listener change remove add fire''}, Baldi et al. assign the keyword \emph{event-handling}. The labels are reasonable enough, but still require an expert in the field to determine them. Our technique is automated, because we match keywords from WordNet~\cite{Fellbaum1998} to words in the topic model. 
+
+% \shrink
+% \subsection{Supervised learning}
+% While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, and thus lower effort, supervised learners have the advantage of domain knowledge which typically means improved results. In supervised learning, the data is divided into slices. One slice is manually annotated by the domain expert, and the classifications he/she determines are applied to the remaining slices. In this paper, we employ the WEKA~\cite{weka09} and Mulan~\cite{mulan} machine learning frameworks in order to test supervised learning.
+
+
+
+% To gather the data, we first extract the commit log comments from a  project's SCS repository. We filter out stop words and produce word distributions from these messages. These distributions are bucketed
+% into 30-day non-overlapping windows (periods). Each window is subject to LDA analysis. We arbitrarily create 20 topics, vectors of important words according to LDA. 
+
+%Figure \ref{fig:commits}
+% depicts the general process for processing and analyzing the commit messages.
