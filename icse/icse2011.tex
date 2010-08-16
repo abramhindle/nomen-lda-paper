@@ -69,9 +69,9 @@ Abram Hindle\\
 \newcommand{\shrink}{}
 
 \section{Introduction}
-The act of developing software generates many artifacts, including source code, bug reports, commit messages, and test cases. It does not take long for a software project to grow to a point where keeping track of these artifacts exceeds easy comprehension. For these projects, developers interact with abstractions of these artifacts, rather than the artifact itself. Such abstractions include project dashboards~\cite{}, tags (Peggy/Christoph), and complexity metrics (\cite{mccabe}). 
+The act of developing software generates many artifacts, including source code, bug reports, commit messages, and test cases. It does not take long for a software project to grow to a point where keeping track of these artifacts exceeds easy comprehension. For these projects, developers interact with abstractions of these artifacts, rather than the artifact itself. Such abstractions include project dashboards~\cite{kersten2005mylar}, tags~\cite{treude2010}, and complexity metrics \cite{mccabe1976complexity}. 
 
-Developers do more than merely observe these abstractions, however \cite{}. They must also use them to assess progress and work with colleagues. To have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for our development artifacts. Such labels can be used to compare progress or understand how well a project is meeting requirements. These labels then become the topics for development conversations (such as the stream of commentary on a bug report). One way to identify topics is to use the artifacts themselves to derive them. 
+Developers do more than merely observe these abstractions, however. They must also use them to assess progress and work with colleagues. To have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for our development artifacts. Such labels can be used to compare progress or understand how well a project is meeting requirements. These labels then become the topics for development conversations (such as the stream of commentary on a bug report). One way to identify topics is to use the artifacts themselves to derive them. 
 
 Deriving such topics is difficult. Topics have to be identified by interpreting the prevalent words in a word distribution and by inspecting related documents. This is impractical when one has to handle more than one hundred different topics. To scale to meaningfully sized projects, we require automatic assistance to determine the topic label.
 
@@ -98,6 +98,7 @@ Figure \ref{fig:process} gives an outline of the methodology followed. We began 
 \end{figure}
 
 \subsection{Generating the data}
+\label{sec:wordlist}
 To evaluate our approach, we sought candidate systems that were mature projects and had openly accessible source control repositories. We selected systems from the same application domain, so the functional requirements would be broadly similar. We selected MySQL and MaxDB as they were open-source, partially-commercial database systems. MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project has 940 thousand lines of C source code~\footnote{generated using David A. Wheeler's \emph{SLOCCount}.}. The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. MySQL contains 320 thousand lines of C and C++ source code. 
 \todo[inline]{why 3.23 and not newer?}
 
@@ -263,20 +264,21 @@ The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act a
 \caption[]{MySQL and MaxDB macro (grey) and micro (black) ROC results per multi-label learner.}
 \end{figure*}
 
-
-\section{Discussion}
-Using the classification results from the previous sections, we evaluated two research questions:
-\begin{enumerate}
-\item Do label frequencies change over time? That is, is a certain quality of more interest at one point in the life-cycle than some other? 
-\item  Do the different projects differ in their relative topic interest? That is, is a particular quality more important to one project than the other projects?  
-\end{enumerate}
-
 \subsection{Summary of techniques}
 While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, and thus lower effort, supervised learners have the advantage of domain knowledge which typically means improved results.
 
 Very rarely did \textsf{exp2} and \textsf{exp3} (naive word matching) ever perform as well as the supervised machine learners. For MaxDB, \textit{reliability} was slightly better detected using the static word list of \textsf{exp2}. In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. For both MySQL and MaxDB \textit{usability} was better served by \textsf{exp2}. \textit{Usability} was a very infrequent label, however, which made it difficult to detect in any case.
 
 We found that the multi-label learners of BR, CLR and HOMER did not do as well for Macro-ROC as NaiveBayes and other NaiveBayes derived learners. This suggests that by sticking together multiple NaiveBayes learners we could probably label sets of topics effectively, but it would require a separate NaiveBayes learner per label.
+
+\section{NFRs and evolution} 
+\todo[inline]{talk about this topic in one section}
+\todo[inline]{reference project name Nomen more}
+Using the classification results from the previous sections, we evaluated two research questions:
+\begin{enumerate}
+\item Do label frequencies change over time? That is, is a certain quality of more interest at one point in the life-cycle than some other? 
+\item  Do the different projects differ in their relative topic interest? That is, is a particular quality more important to one project than the other projects?  
+\end{enumerate}
 
 
 \subsection{Visualization}
@@ -302,7 +304,7 @@ We created two visualizations of the manually labelled data. A problem we faced 
   \label{fig:mysql}
 \end{figure*}
 
-
+\section{NFRs between projects}
 
 \subsection{Comparing MaxDB and MySQL}
 
