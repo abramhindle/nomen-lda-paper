@@ -99,8 +99,7 @@ Figure \ref{fig:process} gives an outline of the methodology followed. We began 
 
 \subsection{Generating the data}
 \label{sec:wordlist}
-To evaluate our approach, we sought candidate systems that were mature projects and had openly accessible source control repositories. We selected systems from the same application domain, so the functional requirements would be broadly similar. We selected MySQL and MaxDB as they were open-source, partially-commercial database systems. MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project has 940 thousand lines of C source code~\footnote{generated using David A. Wheeler's \emph{SLOCCount}.}. The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. MySQL contains 320 thousand lines of C and C++ source code. 
-\todo[inline]{why 3.23 and not newer?}
+To evaluate our approach, we sought candidate systems that were mature projects and had openly accessible source control repositories. We selected systems from the same application domain, so the functional requirements would be broadly similar. We selected MySQL and MaxDB as they were open-source, partially-commercial database systems. MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project has 940 thousand lines of C source code~\footnote{generated using David A. Wheeler's \emph{SLOCCount}.}. The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. MySQL contains 320 thousand lines of C and C++ source code.  Choosing an older version of these projects allows us to focus on projects which have moved into the maintenance phase of the software lifecycle.
 
 For each project, we used source control commit comments, the messages that programmers write when they commit revisions to a source control repository. This is the most readily accessible source of project interactions for outside researchers; bug reports and email messages were not available for both projects. An example of a typical commit message is: \textit{``history annotate diffs bug fixed (if mysql\_real\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. We extracted these messages and indexed them by creation time. We summarized each message as a word distribution but removed stop-words such as \emph{the} and \emph{at}. Stemming was performed in the later stages of our analysis.
 
@@ -298,9 +297,9 @@ We created two visualizations of the manually labelled data. A problem we faced 
   \centering
   % hi-res version
   %\includegraphics[width=.97\textwidth]{mysql-time-smear-plot-Equal}
-  \includegraphics[width=.97\textwidth]{small-mysql-time-smear-plot-Equal}
   %\includegraphics[width=.97\textwidth]{small-mysql-time-smear-plot-Equal}
-  \caption{MySQL 3.23: Labelled topics related to non-functional software qualities plotted over time, continuous topics are trends that occur across time}
+  \includegraphics[width=.97\textwidth]{mysql-timeline}
+  \caption{MySQL 3.23:NFRs over time. Topic frequency is mapped to alpha (transparency) value.}
   \label{fig:mysql}
 \end{figure*}
 

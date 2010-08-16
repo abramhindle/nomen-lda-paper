@@ -1,14 +1,13 @@
-""" Create a CSV of the project, period, topics, labels """
+""" Create a CSV of the project, period, topics, labels and plot a timeline"""
+
 import check_validity as cv
 import quality_map as Q
+import plot_timeline as pt
 import get_exps
+
 import lxml.etree
 import datetime
 
-""" Look something like this:
-Project, Period, Topic-#, Labels
-Mysql, 10343244, 2, Usability, Maintainability
-"""
 if __name__ == '__main__':
     maxdb_file = 'label-summary.csv'
     maxdb = open(maxdb_file,'w')
@@ -35,8 +34,11 @@ if __name__ == '__main__':
                         if q in quality_map.keys():
                             quality_map[q] += 1
             periods_map[p_date] = quality_map
-        for p in periods_map.keys():
-           # print  str(p) + ',' + ','.join([str(x) for x in periods_map[p].values()])
-            maxdb.write(project[0] + ',' + str(p) + ',' + ','.join([str(x) for x in periods_map[p].values()]) + '\n')
+        
+        pt.plot_timeline(project[0], periods_map)
+        
+        #for p in periods_map.keys():
+            # print  str(p) + ',' + ','.join([str(x) for x in periods_map[p].values()])
+            #maxdb.write(project[0] + ',' + str(p) + ',' + ','.join([str(x) for x in periods_map[p].values()]) + '\n')
             
 
