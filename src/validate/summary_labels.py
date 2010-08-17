@@ -34,9 +34,10 @@ if __name__ == '__main__':
                         if q in quality_map.keys():
                             quality_map[q] += 1
             periods_map[p_date] = quality_map
-        
+            #periods_map[perio] = quality_map
         pt.plot_timeline(project[0], periods_map)
         
+        #print data to csv
         #for p in periods_map.keys():
             # print  str(p) + ',' + ','.join([str(x) for x in periods_map[p].values()])
             #maxdb.write(project[0] + ',' + str(p) + ',' + ','.join([str(x) for x in periods_map[p].values()]) + '\n')

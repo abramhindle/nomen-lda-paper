@@ -260,7 +260,7 @@ Based on the labels, and our manual topic labelling, we compared the results of 
 
 \begin{figure*}
   \centering
- \includegraphics[width=.75\textwidth]{figures/unsupervised-bar}
+ \includegraphics[width=.85\textwidth]{figures/unsupervised-bar}
  \caption{ROC values for each NFR, per project and wordlist.}
 %\todo[inline]{this is too tiny in print}
 
@@ -304,8 +304,8 @@ The less-frequently occurring a label the harder it is to get accurate results, 
 \label{fig:subfig2}
 }
 \label{fig:best-learn-per-tag}
-\caption[]{ROC value (black) for the best learner per label, compared with ZeroR accuracy values (grey).
-\todo[inline]{better discussion and graphical legend would be nice}
+\caption[]{ROC value for the best learner per label, compared with ZeroR accuracy values.  Possible values range from 0--1.
+\todo[inline]{better discussion}
 }
 \end{figure*}
 
@@ -331,8 +331,8 @@ The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act a
 \label{fig:subfig4}
 }
 \label{fig:mulan}
-\caption[]{MySQL and MaxDB macro (grey) and micro (black) ROC results per multi-label learner.
-\todo[inline]{better discussion and graphical legend would be nice}
+\caption[]{MySQL and MaxDB macro (grey) and micro (black) ROC results per multi-label learner. Possible values range from 0--1.
+\todo[inline]{better discussion}% and graphical legend would be nice}
 }
 \end{figure*}
 
@@ -363,19 +363,19 @@ We created two visualizations of the manually labelled data. A problem we faced 
   \centering
   % hi-res version
   %\includegraphics[height=.55\textheight]{maxdb-time-smear-plot-Equal}
-  \includegraphics[height=.55\textheight]{figures/small-maxdb-time-smear-plot-Equal}
+  \includegraphics[width=\textwidth]{figures/maxdb-timeline}
   % \includegraphics[height=.57\textheight]{small-maxdb-time-smear-plot-Equal}
-  \caption{MaxDB 7.500: Labelled topics related to non-functional software qualities plotted over time, continuous topics are trends that occur across time}
-  \label{fig:maxdb}
+ % \caption{MaxDB 7.500: Labelled topics related to non-functional software qualities plotted over time, continuous topics are trends that occur across time}
+  \caption{MaxDB 7.500: NFRs over time. Topic frequency relative to that quality is mapped to alpha (transparency) value.}
+ \label{fig:maxdb}
 \end{figure*}
 
 \begin{figure*}%[h]
   \centering
-  % hi-res version
-  %\includegraphics[width=.97\textwidth]{mysql-time-smear-plot-Equal}
+ %\includegraphics[width=.97\textwidth]{mysql-time-smear-plot-Equal}
   %\includegraphics[width=.97\textwidth]{small-mysql-time-smear-plot-Equal}
   \includegraphics[width=.97\textwidth]{figures/mysql-timeline}
-  \caption{MySQL 3.23:NFRs over time. Topic frequency is mapped to alpha (transparency) value.}
+  \caption{MySQL 3.23: NFRs over time. Topic frequency relative to that quality is mapped to alpha (transparency) value.}
   \label{fig:mysql}
 \end{figure*}
 
