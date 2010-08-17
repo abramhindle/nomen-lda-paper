@@ -72,7 +72,7 @@ Abram Hindle\\
 
 \section{Introduction}
 
-When a developer addresses a topic of development, such as a requirement, maintenance, bug fixing, tests or other software engineering tasks, they often produce or modify multiple development artifacts.
+When a developer addresses a topic of development, such as a requirement, maintenance, bug fixes or other software engineering tasks, they often produce or modify multiple development artifacts.
 %
 These development artifacts include: source code, bug reports, revisions to source code, and even test cases. 
 %
@@ -82,7 +82,7 @@ The goal of concept location and topic analysis research is to semi-automaticall
 % get neil's data mining point in there
 The results of topic analysis and concept location are often very project specific, and not globally generalizable.
 % get the interpretation aspect
-As well much of the current research stops short of interpreting the purpose of the topic. That is, topics extracted are usually manually named and labelled by readers.
+As well much of the current research stops short of interpreting the purpose of the topic. That is, extracted topics are usually manually named and labelled by those who read the topic words.
 % 
 Thus in this paper, we propose a method of interpreting and labelling some topics, and their related artifacts, that is generalizable and relevant to multiple projects.
 
@@ -116,10 +116,10 @@ This manual approach is impractical when one has to handle more than one hundred
 To scale to meaningfully sized projects, we require automatic assistance to determine the topic label.
 
 % why are topics useful
-Often developers interact with abstractions of these artifacts, rather than the artifact itself. 
+Often developers interact with abstractions of these artifacts that topics are derived from, rather than the artifact itself. 
 Topics are a valuable and automatically extractable abstraction of software artifacts.
 It abstracts these artifacts by their purpose or topic rather than their concrete representation.
-The topic of development is relevant because it shows anyone inspecting these topics what were the distinct issues or topics facing development at a certain time.
+The topic of development is relevant because it shows anyone inspecting these topics what are the distinct issues or topics facing development at a certain time.
 Such abstractions include project dashboards~\cite{kersten2005mylar}, tags~\cite{treude2010}, and complexity metrics \cite{mccabe1976complexity}. 
 
 
@@ -131,7 +131,7 @@ In this sense, they are useful abstractions for developer conversations about di
 % harp on data mining more
 In general the data mining of software artifacts tends to be very project specific, yet NFRs are not. 
 NFRs are prevalent in almost all software systems.
-Thus our method of generalizing the data mining of these software artifacts is use the domain knowledge of software engineering, specifically NFRs. 
+Thus our method of generalizing the data mining of these software artifacts is to leverage  the domain knowledge of software engineering, specifically NFRs. 
 This allows us to data mine software systems with the intention of comparing their NFR related development topics.
 % in order to achieve generalizable, cross project data mining results.
 
