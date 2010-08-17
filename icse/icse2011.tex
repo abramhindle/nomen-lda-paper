@@ -5,7 +5,7 @@
  \usepackage{color}
 
 \newcommand{\XXX}[1]{\textcolor{red}{{\it \textbf{[XXX: #1]}}}}
-\hyphenation{Max-DB}
+\hyphenation{Max-DB mysql\_-real\_-connect}
 
 \usepackage{comment}
 \newtheorem{mydef}{definition}
@@ -57,6 +57,8 @@ Abram Hindle\\
 \thispagestyle{empty}
 
 \begin{abstract}
+\todo[inline]{Topics and LDA sooner, Topics/concept location is a known
+  research area and we're saying they don't do enough}
   Within the field of mining software repositories, many approaches,   such as topic modeling and concept location, rely on the automated   application of machine learning algorithms to corpora.  
  Unfortunately the output of these tools is often difficult to distinguish and interpret as they are often so abstract.
  Thus to have a meaningful discussion about the topics of software development, we must be able to devise appropriate labels for extracted topics. 
@@ -69,26 +71,32 @@ Abram Hindle\\
 \newcommand{\shrink}{}
 
 \section{Introduction}
+
 The act of developing software generates many artifacts, including source code, bug reports, commit messages, and test cases. It does not take long for a software project to grow to a point where keeping track of these artifacts exceeds easy comprehension. For these projects, developers interact with abstractions of these artifacts, rather than the artifact itself. Such abstractions include project dashboards~\cite{kersten2005mylar}, tags~\cite{treude2010}, and complexity metrics \cite{mccabe1976complexity}. 
 
 Developers do more than merely observe these abstractions, however. They must also use them to assess progress and work with colleagues. To have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for our development artifacts. Such labels can be used to compare progress or understand how well a project is meeting requirements. These labels then become the topics for development conversations (such as the stream of commentary on a bug report). One way to identify topics is to use the artifacts themselves to derive them. 
+\todo[inline]{it should be labels for topics not artifacts, I think the artifact part is almost secondary and the topic stuff is really what is up. Topics are used below and it isn't even clear what they are or what we're talking about. Naming is important but lets tell the reader what is being named first.}
+
 
 Deriving such topics is difficult. Topics have to be identified by interpreting the prevalent words in a word distribution and by inspecting related documents. This is impractical when one has to handle more than one hundred different topics. To scale to meaningfully sized projects, we require automatic assistance to determine the topic label.
+\todo[inline]{Readers still don't know what topics are or what the point is yet..}
+
 
 In our previous work we dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. We observed that topic trends were often non-functional requirements (NFRs). NFRs have the property of being cross-domain and widely applicable. In this sense, they are useful abstractions for developer conversations about different software projects.
 
 In this paper, we describe \textbf{Nomen}, which is a tool for \emph{labelled topic extraction}. \textbf{Nomen} addresses two gaps in the topic mining literature:
 \begin{enumerate}
-  \item Topic mining of software has been limited to one project at a time. This is because traditional topic mining techniques are specific to a particular dataset. \textbf{Nomen} allows for comparisons \textit{between} projects. 
+  \item Topic mining of software has been limited to one project at a time. This is because traditional topic mining techniques are specific to a particular data-set. \textbf{Nomen} allows for comparisons \textit{between} projects. 
   \item Topic modeling creates bags of words that require interpretation by the user to assign meaning. Like (1), this means
 that it is difficult to discuss results independent of the project context. Our technique automatically assigns labels agnostic of project.
 \end{enumerate}
 
 This paper begins by introducing labelled topic extraction. We show that these labels with their topics can be learned and used to classify other data-sets. We then present visualizations of named topics and their trends over time to aid communication and analysis. We use an exploratory case study of two open source database systems to show how named topics can be compared between projects.
 
- 
+\todo[inline]{Topics are poorly defined by this point and since we're building on research which didn't DO this, we should mention that research. Previous work probably should go here.}
+
 \section{Study design and execution}
-Figure \ref{fig:process} gives an outline of the methodology followed. We began by gathering source data; then applied unsupervised and supervised learning techniques to identify topics. We then use these topics to analyse the role of non-functional requirements in software maintenance.
+Figure \ref{fig:process} gives an outline of the methodology followed. We began by gathering source data; then applied unsupervised and supervised learning techniques to identify topics. We then use these topics to analyze the role of non-functional requirements in software maintenance.
 
 \begin{figure}
   \centering
@@ -99,7 +107,7 @@ Figure \ref{fig:process} gives an outline of the methodology followed. We began 
 
 \subsection{Generating the data}
 \label{sec:wordlist}
-To evaluate our approach, we sought candidate systems that were mature projects and had openly accessible source control repositories. We selected systems from the same application domain, so the functional requirements would be broadly similar. We selected MySQL and MaxDB as they were open-source, partially-commercial database systems. MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project has 940 thousand lines of C source code~\footnote{generated using David A. Wheeler's \emph{SLOCCount}.}. The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. MySQL contains 320 thousand lines of C and C++ source code.  Choosing an older version of these projects allows us to focus on projects which have moved into the maintenance phase of the software lifecycle.
+To evaluate our approach, we sought candidate systems that were mature projects and had openly accessible source control repositories. We selected systems from the same application domain, so the functional requirements would be broadly similar. We selected MySQL and MaxDB as they were open-source, partially-commercial database systems. MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project has 940 thousand lines of C source code~\footnote{generated using David A. Wheeler's \emph{SLOCCount}.}. The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. MySQL contains 320 thousand lines of C and C++ source code.  Choosing an older version of these projects allows us to focus on projects which have moved into the maintenance phase of the software life-cycle.
 
 For each project, we used source control commit comments, the messages that programmers write when they commit revisions to a source control repository. This is the most readily accessible source of project interactions for outside researchers; bug reports and email messages were not available for both projects. An example of a typical commit message is: \textit{``history annotate diffs bug fixed (if mysql\_real\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. We extracted these messages and indexed them by creation time. We summarized each message as a word distribution but removed stop-words such as \emph{the} and \emph{at}. Stemming was performed in the later stages of our analysis.
 
@@ -108,6 +116,7 @@ From that data-set, we created an XML file which separated commits into 30 day p
 Typically a topic analysis tool like LDA will try to find $N$ independent word distributions within the word distributions of all the messages. Linear combinations of these $N$ word distributions are then meant to be able to recreate the word distributions of all of the underlying messages. These $N$ word distributions effectively form topics: cross-cutting collections of words relevant to one or more of our commit messages. LDA extracts topics in an unsupervised manner; the algorithm relies solely on the source data with no human intervention.
 
 In topic analysis a single document, such as a commit message, can be related to multiple topics. Representing documents as a mixture of topics maps well to source code repository commits, which often have more than one purpose~\cite{Hindle09ICSM}.  A topic represents both a word distribution and a group of commit log comments that are related to each other by their content.  In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
+\todo[inline]{These paragraphs should've come way earlier, in previous we should explain LDA so this doesn't need to be here.}
 
 We applied Blei's LDA implementation~\cite{Blei2003} against the word distributions of these commits, and generated lists of topics per period. 
 We set the number of topics to generate to $20$, because past experimentation, e.g. \cite{Hindle09ICSM}, showed that fewer topics might aggregate multiple unique topics while any more topics seemed to dilute the results and create indistinct topics. Furthermore, more than $20$ topics quickly became infeasible for inspection.
@@ -115,7 +124,7 @@ We set the number of topics to generate to $20$, because past experimentation, e
 \subsection{Generating word lists}
 Topics are word distributions: lists of words ranked by frequency, which can be burdensome to interpret and hard to distinguish and understand. While the topic models themselves are generated automatically, what to make of them is less clear. For example, in our previous work~\cite{Hindle09ICSM}, as well as in Baldi et al.~\cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. E.g., for the word list \emph{``listener change remove add fire''}, Baldi et al. assign the keyword \emph{event-handling}. The labels are reasonable enough, but still require an expert in the field to determine them. We sought to automate the process of naming the topics.
 
-Accordingly, we tried to associate each topic with a label from a list of keywords and related terms. We performed simple string matching between these topics and our lists, `naming' a topic if it contained that word or words (a topic might match several keywords). We used several different word lists for comparison, which we call \textsf{exp1,exp2,exp3} in the text which follows. 
+Accordingly, we tried to associate each topic with a label from a list of keywords and related terms. We performed simple string matching between these topics and our lists, `naming' a topic if it contained that word or words (a topic might match several keywords). We used several different word lists for comparison, which we call \textsf{exp1, exp2, exp3} in the text which follows. 
 
 Our first word list set, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519}. That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. The labels we used:
 \begin{quotation}
@@ -159,6 +168,9 @@ operability understandability learnability useable usable serviceable usefulness
 
 \end{table*}
 
+\todo[inline]{There should be a section here which is about manual annotation. It is really important and it is required by both analyses. Plus we can tell them how.}
+
+
 \subsection{Unsupervised labelling}
 % word list similarity
 Using our three word lists, we labeled our topics where there was a match between the list and the topic. In general, this approach did not work out well as common labels dominated the less common labels. The related words for \emph{correctness}, for example, tended to be too lengthy and non-specific. 
@@ -197,6 +209,8 @@ Based on the labels, and our manual topic labelling, we compared the results of 
   \centering
  \includegraphics[width=.55\textwidth]{unsupervised-bar}
  \caption{ROC values for each NFR, per project and wordlist.}
+\todo[inline]{this is too tiny in print}
+
   \label{fig:maxdb-unsup-results}
 \end{figure*}
 
@@ -222,6 +236,8 @@ Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite differ
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
 
 The less-frequently occurring a label the harder it is to get accurate results, due to the high noise level. Nevertheless, these results are better than our previous word bag results of \textsf{exp2} and \textsf{exp3}, because the ROC values are sufficiently higher in most cases (other than MaxDB reliability and MySQL efficiency). The limitation of the approach we took here is that we assume labels are independent; however, labels could be correlated with each other. We also did not evaluate how well the learners performed together.
+\todo[inline]{Comment about correlation, we should link to the Mulan section, perfect segway since Mulan relies on correlation.}
+
 
 
 \begin{figure*}[ht]
@@ -235,18 +251,20 @@ The less-frequently occurring a label the harder it is to get accurate results, 
 \label{fig:subfig2}
 }
 \label{fig:best-learn-per-tag}
-\caption[]{ROC value (black) for the best learner per label, compared with ZeroR accuracy values (grey).}
+\caption[]{ROC value (black) for the best learner per label, compared with ZeroR accuracy values (grey).
+\todo[inline]{better discussion and graphical legend would be nice}
+}
 \end{figure*}
 
 \subsection{Applying multiple labels to topics}
-As noted in Section \ref{sec:wordlist}, each topic in our dataset can be composed of zero to all NFRs. For example, a commit message might address \textit{reliability} in the context of \textit{efficiency}, or make a \textit{maintainability} improvement in the source code that related to \textit{usability}. However, traditional machine learning techniques, such as Bayesian networks, can only map topics to a single class. The Mulan~\cite{mulan} library encapsulates several different machine learners which can handle this multi-label learning for our data-set. Mulan also includes methods for determining the performance of such techniques.
+As noted in Section \ref{sec:wordlist}, each topic in our data-set can be composed of zero to all NFRs. For example, a commit message might address \textit{reliability} in the context of \textit{efficiency}, or make a \textit{maintainability} improvement in the source code that related to \textit{usability}. However, traditional machine learning techniques, such as Bayesian networks, can only map topics to a single class. The Mulan~\cite{mulan} library encapsulates several different machine learners which can handle this multi-label learning for our data-set. Mulan also includes methods for determining the performance of such techniques.
 % TOO DETAILED The problem framed in the learners above has changed; instead of looking at the precision and recall of applying one label, we rank multiple labels at once. We must check if the full subset of labels was applied, and then how much of that subset was applied.
 
 In multi-label learning the technique can perform micro or macro measurements. Macro measurements are aggregated at a class or label level. Micro measurements are aggregated at a decision level. So a macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. Unfortunately for MaxDB, the macro-ROC values are undefined because of poor performance of one of the labels.
 
 Fig. \ref{fig:mulan} presents the results of Mulan's best multi-label learners for our data. %Calibrated Label Ranking (CLR)
 The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act as a hierarchy of learners: BR is flat, while HOMER tries to build a deeper hierarchy to build a more accurate learner~\cite{mulan}. These classifiers performed better than other multi-label classifiers. They have the best micro and macro ROC scores, although their results are comparable to the naive Bayesian learners we used in Section \ref{sec:suplearn}.
-\todo[inline]{discuss this similiarity in more detail}
+\todo[inline]{discuss this similarity in more detail}
 \todo[inline]{what of CLR? Is it hierarchical?}
 
 \begin{figure*}[ht]
@@ -260,7 +278,9 @@ The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act a
 \label{fig:subfig4}
 }
 \label{fig:mulan}
-\caption[]{MySQL and MaxDB macro (grey) and micro (black) ROC results per multi-label learner.}
+\caption[]{MySQL and MaxDB macro (grey) and micro (black) ROC results per multi-label learner.
+\todo[inline]{better discussion and graphical legend would be nice}
+}
 \end{figure*}
 
 \subsection{Summary of techniques}
@@ -282,6 +302,9 @@ Using the classification results from the previous sections, we evaluated two re
 
 \subsection{Visualization}
 We created two visualizations of the manually labelled data. A problem we faced while visualizing was how to display tag overlaps. Our solution, while not optimal, was to assign a separate colour to each distinct set of annotations. Figures \ref{fig:maxdb} and \ref{fig:mysql} show extracted topics grouped by annotations. Annotations or labels that occur in adjacent windows are joined together as trends. For MaxDB (Figure \ref{fig:maxdb}) the largest trends were related to maintainability and portability. MaxDB supports numerous platforms and portability was a constant issue facing the project's development. MySQL was different, with many topics overlapping, so there were many different subsets. Functionality trends were prevalent throughout its history (the largest reddish streak across the top). Two combination  tags of ``functionality portability'' (orange) and ``maintainability portability'' (teal) streaked across most of the history of MySQL. Since this was MySQL 3.23, a stable branch, we expect that issues dealing with portability and maintenance would be the primary concerns of this branch: developers probably wanted it to work with current systems and thus had to update it.
+
+\todo[inline]{Update this}
+
 
 \begin{figure*}
   \centering
@@ -438,6 +461,7 @@ We showed that non-functional requirements are often trending topics, that non-f
 
 There are many avenues of further investigation.  We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  It is difficult to map abstract qualities to particular messages. Is a ``quality'' discussion about more than just corrective maintenance? %In this study we take the position that any type of maintenance has to do with software quality.
 
+%XXX can save space here!
 \section{Appendix}
 Our data and scripts are available at \url{http://softwareprocess.es/nomen/}
 
