@@ -134,6 +134,9 @@ if __name__ == '__main__':
             rfile = open( report_file, "w" )
             print report
             rfile.write(report+'\n')
+            yes_no_report_file = wl + "." + report + ".yes_no_report.txt"
+            ynfile = open( yes_no_report_file, "w" )
+            ynfile.write(report+'\n')
             tp = make_count() #true positive  - matches but is
             fp = make_count() #false positive - matches but isn't
             fn = make_count() #false negative - doesn't match but does
@@ -182,7 +185,7 @@ if __name__ == '__main__':
                     if not res:
                         ress = "No"
                     #print res
-                    #rfile.write(ress+'\n')
+                    ynfile.write(ress+'\n')
                  
             tpc = sum(tp.values(),0)        
             fpc = sum(fp.values(),0)        
@@ -198,3 +201,4 @@ if __name__ == '__main__':
                 
             # 
             rfile.close()
+            ynfile.close()
