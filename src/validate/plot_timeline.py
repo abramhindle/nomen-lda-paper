@@ -57,7 +57,7 @@ def plot_timeline(proj, period_map):
     # ax.xaxis.set_major_locator(years)
     # ax.xaxis.set_major_formatter(yearsFmt)
     # ax.xaxis.set_minor_locator(months)
-    # ax.grid(True)
+    ax.grid(True)
     # ax.annotate('race interrupted', (61, 25),
     #             xytext=(0.8, 0.9), textcoords='axes fraction',
     #             arrowprops=dict(facecolor='black', shrink=0.05),
