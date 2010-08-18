@@ -14,6 +14,7 @@ from pylab import rc
 
 import datetime
 
+
 def plot_timeline(proj, period_map):
     """ Plot a timeline view a la ConcernLines to show trends in topic occurrence """
     
@@ -77,7 +78,6 @@ def plot_timeline(proj, period_map):
         # - the ratio between the overall highest value and the current NFRs value (relative to all)
         # - set the average topic number as a midpoint, and color based on distance from this average.
         denominator = max(max_value_map.values())
-        
         # relative to all
         none_rect = Rectangle((date,0), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['none'])/float(denominator)))
         port_rect = Rectangle((date,5), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['portability'])/float(denominator)))
@@ -106,13 +106,14 @@ def plot_timeline(proj, period_map):
         ax.add_patch(main_rect)
         
         #add text numbers to debug
-        ax.annotate(str(qm['none']), (date+num2date(5), 2.5) )
-        ax.annotate(str(qm['portability']), (date, 7.5) )
-        ax.annotate(str(qm['efficiency']), (date, 12.5) )
-        ax.annotate(str(qm['reliability']), (date, 17.5) )
-        ax.annotate(str(qm['functionality']), (date, 22.5) )
-        ax.annotate(str(qm['usability']), (date, 27.5) )
-        ax.annotate(str(qm['maintainability']), (date, 32.5) )
+        delta = datetime.timedelta(days=5)
+        ax.annotate(str(qm['none']),           (date+delta, 2.5) , color='black', size='small')
+        ax.annotate(str(qm['portability']),    (date+delta, 7.5),  color='black', size='small' )
+        ax.annotate(str(qm['efficiency']),     (date+delta, 12.5), color='black', size='small'  )
+        ax.annotate(str(qm['reliability']),    (date+delta, 17.5), color='black', size='small'  )
+        ax.annotate(str(qm['functionality']),  (date+delta, 22.5), color='black', size='small'  )
+        ax.annotate(str(qm['usability']),      (date+delta, 27.5), color='black', size='small'  )
+        ax.annotate(str(qm['maintainability']),(date+delta, 32.5), color='black', size='small'  )
         
         i += barwidth
         
