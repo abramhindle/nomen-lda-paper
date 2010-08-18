@@ -336,8 +336,6 @@ In the next section we will evaluate how well these learners perform
 together.
 %\todo[inline]{Comment about correlation, we should link to the Mulan section, perfect segway since Mulan relies on correlation.}
 
-
-
 \begin{figure*}[ht]
 \centering
 \subfigure[MySQL]{
@@ -408,26 +406,43 @@ We created two visualizations of the manually labelled data. A problem we faced 
 
 \todo[inline]{Update this}
 
-
-\begin{figure*}
-  \centering
-  % hi-res version
-  %\includegraphics[height=.55\textheight]{maxdb-time-smear-plot-Equal}
-  \includegraphics[width=\textwidth]{figures/maxdb-timeline}
-  % \includegraphics[height=.57\textheight]{small-maxdb-time-smear-plot-Equal}
- % \caption{MaxDB 7.500: Labelled topics related to non-functional software qualities plotted over time, continuous topics are trends that occur across time}
-  \caption{MaxDB 7.500: NFRs over time. Topic frequency relative to that quality is mapped to alpha (transparency) value.}
- \label{fig:maxdb}
+\begin{figure*}[ht]
+\centering
+\subfigure[MaxDB 7.500]{
+\includegraphics[width=\textwidth]{figures/maxdb-timeline-all}
+\label{fig:mysql-timeline}
+}
+\subfigure[MySQL 3.23]{
+\includegraphics[width=\textwidth]{figures/mysql-timeline-all}
+\label{fig:maxdb-timeline}
+}
+\label{fig:timelines}
+\caption[]{NFRs over time. Numbers represent topics labelled with that quality. Box intensity (saturation) is mapped to label frequency relative to the largest label value.
+\todo[inline]{better discussion}
+}
 \end{figure*}
 
-\begin{figure*}%[h]
-  \centering
- %\includegraphics[width=.97\textwidth]{mysql-time-smear-plot-Equal}
-  %\includegraphics[width=.97\textwidth]{small-mysql-time-smear-plot-Equal}
-  \includegraphics[width=\textwidth]{figures/mysql-timeline}
-  \caption{MySQL 3.23: NFRs over time. Topic frequency relative to that quality is mapped to alpha (transparency) value.}
-  \label{fig:mysql}
-\end{figure*}
+
+% 
+% \begin{figure*}
+%   \centering
+%   % hi-res version
+%   %\includegraphics[height=.55\textheight]{maxdb-time-smear-plot-Equal}
+%   \includegraphics[width=\textwidth]{figures/maxdb-timeline-all}
+%   % \includegraphics[height=.57\textheight]{small-maxdb-time-smear-plot-Equal}
+%  % \caption{MaxDB 7.500: Labelled topics related to non-functional software qualities plotted over time, continuous topics are trends that occur across time}
+%   \caption{MaxDB 7.500: NFRs over time. Numbers represent topics labelled with that quality. Box intensity (saturation) is mapped to label frequency relative to the largest label value.}
+%  \label{fig:maxdb}
+% \end{figure*}
+% 
+% \begin{figure*}%[h]
+%   \centering
+%  %\includegraphics[width=.97\textwidth]{mysql-time-smear-plot-Equal}
+%   %\includegraphics[width=.97\textwidth]{small-mysql-time-smear-plot-Equal}
+%   \includegraphics[width=\textwidth]{figures/mysql-timeline-all}
+%   \caption{MySQL 3.23: NFRs over time. Topic frequency relative to that quality is mapped to alpha (transparency) value.}
+%   \label{fig:mysql}
+% \end{figure*}
 
 \section{NFRs between projects}
 
