@@ -1,865 +1,172 @@
-965099404. 0	diffs	history	annotate	Fix	Added	Merged	monty@mysql.com	2000-08-22	file	bitkeeper
-1	diffs	history	annotate	accepted	Logging	logging@openlogging.org	Added	corrected	documentation	filesort
-2	diffs	history	annotate	full-text	Fixed	cosmetic	searching	changes	serg's	manual.
-3	diffs	history	annotate	added	Removed	file	full-text	blanks	keys	displays
-4	diffs	history	annotate	moved	stopwords	include/ft_global.h	added	merged	Auto	file
-5	diffs	history	annotate	sql/share/estonian/errmsg.sys	TABLES	sql/share/estonia/errmsg.sys	bugfix	Rename:	->	FLUSH
-6	diffs	Fix	history	annotate	typo	-Nur	style	Bookmarkable	patch	link
-7	diffs	annotate	history	added	merged	Auto	file	bitkeeper	fixed	libmysqlclient_r
-8	diffs	history	annotate	added	merged	Auto	file	-	fixed	libmysqlclient_r
-9	diffs	history	annotate	mode	-rw-rw-r--	Change	Added	..	creation	key
-10	diffs	history	annotate	added	Auto	merged	file	bitkeeper	-	syntax
-11	diffs	history	annotate	table	(slow,	scan)	ORDER	MATCH	works	added
-12	diffs	annotate	history	added	merged	Auto	file	bitkeeper	-	fixed
-13	diffs	annotate	history	added	merged	Auto	file	bitkeeper	-	fixed
-14	diffs	annotate	history	added	merged	Auto	file	-	libmysqlclient_r	syntax
-15	diffs	annotate	history	added	merged	Auto	file	-	bitkeeper	fixed
-16	-Nur	style	Bookmarkable	patch	link	diff	diffs	Removed	end	work:/home/bk/mysql
-17	diffs	history	annotate	merged	Auto	added	moved	use	place	testing
-18	diffs	history	annotate	added	merged	Auto	file	bitkeeper	syntax	-
-19	diffs	history	annotate	added	merged	Auto	file	bitkeeper	-	fixed
+1088563753. 0	added	test	updated	V7500:	tests	check	WebDAV	changed	file	update
+1	fixed	SQLDBC	problem	version	environment:	adaptations	HP	string	bug	7.5.00
+2	check	submit	implicit	PTS	V7500:	SQLDBC	3.0	JDBC	Added	7.5.00
+3	PTS	tests	WebDAV	V7500:	SQLDBC	Updated	added	Error	7.5.00	test
+4	added	database	7.5.00:	perl	information	version	set	TempHashTable	Typencheck	leaks
+5	PTS	linux	opteron	remove	removed	TempHashTable	perl	V7500:	added	7.5.00:
+6	File	sutcheck	submitted	v1.09	PTS	V7500:	SQLDBC	error	Precompiler	'SYSDD80.uunix'
+7	submitted	sutcheck	File	v1.09	v1.06	'SYSDD80.punix'	'SYSDD.punix'	v1.08	v1.07	'SYSDD80.upnix'
+8	check	submit	implicit	V7500:	version	7.5.00	add	fix	OMS:	JDBC
+9	change	changelist(s):	module(s)	75.00.08	and/or	integrate	(DEV):	error	remove	problem
+10	File	sutcheck	submitted	v1.09	7.5.00	v1.06	v1.08	'UNICODE.uunix'	version	code
+11	PTS	7.5.0	error	fixed	SharedSQL	Added	message	remove	compile	added
+12	7.5.00	OMS	7.5.0	linux	SharedSQL	opteron	Correction	added	7.5.00:	length
+13	7.5.00	test	remove	change	added	include	avoid	package	moved	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1125942
+14	->	error	test	tests	change	updated	file	SAPDB_PascalMove	V7500:	added
+15	check	implicit	submit	fixed	7.5.00:	7.5.0	make	remove	test	SQLDBC
+16	V7500:	remove	check	error	type	changed	log	fixed	7.5.0	testinput
+17	file	data	7.5.00:	7.5.00	encoding	adjust	version	V7500:	fixing	DATAEXTRACT/DATALOAD
+18	7.5.0:	7.5.00	WebDAV	tests	7.5.00:	PTS	error	check	data	Updated
+19	test	7.5.00	output	HSS	PTS:	updated	change	add	changed	wrong
 
-967691404. 0	diffs	annotate	history	Added	Fix	missing	information	files	Turn	error
-1	diffs	history	annotate	Added	Fix	3.23.24	bk	backup_dir	typo	Fixed
-2	diffs	annotate	history	Auto	CREATE	use	Change	(for	monty@mysql.com	diff
-3	diffs	annotate	history	push	Let	pickin	this!!	Cotton	bk!	Added
-4	diffs	annotate	history	Added	use	diff	patch	things	-Nur	link
-5	diffs	annotate	history	doesn't	fixes	FULLTEXT	Changelog	work	actually	small
-6	diffs	annotate	history	work)	sql/lex.h@1.24	MRG_MyISAM	serg@relarn.ru	21:38:15+04:00	2000-08-30	==
-7	diffs	diff	patch	-Nur	link	style	Bookmarkable	donna.mysql.com:/home/my/bk/mysql	Merge	work:/home/bk/mysql
-8	annotate	history	diffs	files	Added	Fix	3.23.24	typo	bk	backup_dir
-9	IRIX	diffs	annotate	history	files	doesn't	I'd	cd	uses	file
-10	diffs	annotate	history	Auto	merged	Change	-rw-rw-r--	mode	3.23.24	Update
-11	diffs	annotate	history	CREATE	use	(for	MERGE	sql/lex.h@1.24	MRG_MyISAM	cleanup
-12	diffs	annotate	history	Added	quoting	TIMESTAMP	columns	Fix	3.23.24	bk
-13	diffs	history	annotate	Added	Fix	3.23.24	backup_dir	bk	typo	Fixed
-14	diffs	annotate	history	CREATE	formatted	nicely	return	statement	Added	Fix
-15	diffs	annotate	history	Change	monty@mysql.com	fixes	bug	2000-09-20	04:54:09+03:00	list
-16	diffs	annotate	history	Auto	merged	Added	(for	monty@mysql.com	portability)	2000-09-07
-17	diffs	annotate	history	Added	information	use	don't	MERGE	Ensure	SAFE_MUTEX
-18	diffs	annotate	history	Added	--port	Fix	3.23.24	bk	typo	backup_dir
-19	diffs	annotate	history	Fix	Fixed	Bigger	my_config.h	fix	timestamp	mit-pthreads
+1091155753. 0	WebDAV	port	remove	copy	correction	dbmrfc	adaptations	PowerPC	Propfind	Linux
+1	v1.09	submitted	sutcheck	File	WebDAV	fixed	7.5.0	JTest	SharedSQL	make
+2	fixed	7.5	install	DEV	78160	tree	7500	diagnose	delete	fix
+3	error	add	added	files	build	message	PTS	CL78722	Perl-DBD	nightly
+4	test	add	7.5.00:	added	V75:	change	description	SQLDBC-SDK.TGZ	windows	$WRK/fast/install
+5	remove	File	sutcheck	submitted	v1.09	error	7.5.00	DIAGNOSE	crash	dbmrfc
+6	add	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1130971	increase	length	error	WebDAV	test	label	JTest	description
+7	error	fix	1130855	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1130855	SQLDBC	V75:	make	unicode	bug	catalog
+8	fixed	explain	error	SQLDBC	V75:	change	problem	linux	log	auto
+9	change	copy	label	error	WebDAV	SQLDBC-SDK.TGZ	Location	remove	correction	7.5.0
+10	string	version	error	fix	7.5.00:	test	V75:	file	unicode	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131036
+11	add	fixed	SQLDBC	test	windows	time	message	support	30	packaging
+12	fix	adaptations	PowerPC	Linux	add	7.5.00:	added	7.5.00	correction	bug
+13	added	SQLDBC	7.5.00:	V75:	remove	SDBonPPC64	exception	Change	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1130433	vak001
+14	fix	SQLDBC	test	added	V75:	unicode	bug	crash	catalog	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1130935
+15	Server:	memcpy,	memmove	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1131004	replacement	error	WebDAV	SQLDBC	7.5.00:	7.5.00
+16	File	sutcheck	submitted	v1.09	'SYSDD80.punix'	'MONITOR.punix'	fixed	7.5.00:	test	make
+17	WebDAV	Propfind	CAPI:	null	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1130909	resources	SQLDBC	7.5.00:	change	correction
+18	7.5	DIAGNOSE	v1.09	submitted	sutcheck	File	add	make	id	files
+19	error	file	add	SQLDBC	added	make	7.5.00	files	log	layout
 
-970283404. 0	diffs	annotate	history	Added	Logging	accepted	logging@openlogging.org	new	->	tests
-1	diffs	annotate	history	Update	Added	new	FULLTEXT	3.23.27	Changelog	merged
-2	diffs	annotate	history	merged	Auto	Added	serg@mysql.com	Fixed	bug	new
-3	diffs	annotate	history	Update	Added	new	FULLTEXT	3.23.27	Changelog	merged
-4	diffs	history	annotate	Update	Added	new	FULLTEXT	3.23.27	Changelog	merged
-5	diffs	annotate	history	Fixed	bug	row	count	typo	Fix	Update
-6	diffs	annotate	history	Added	tables	Changed	Nasty	repair	documentation	MyISAM
-7	diffs	history	annotate	Update	Added	new	FULLTEXT	3.23.27	Changelog	merged
-8	diffs	history	annotate	Update	Added	new	FULLTEXT	3.23.27	Changelog	merged
-9	diffs	annotate	history	Update	Added	new	FULLTEXT	3.23.27	Changelog	merged
-10	diffs	annotate	history	new	AUTOCOMMIT	works	Added	Fixed	bug	tables
-11	diffs	annotate	history	Updated	bugs	TABLE	manual;	Removed	CHECK	Update
-12	diffs	annotate	history	mode	->	training	3.23	optimization	ANSI	Ansi
-13	diffs	Bookmarkable	patch	link	diff	style	-Nur	Merge	work:/home/bk/mysql	donna.mysql.com:/home/my/bk/mysql
-14	diffs	history	annotate	Update	Added	new	FULLTEXT	3.23.27	Changelog	merged
-15	diffs	annotate	history	Update	Added	new	FULLTEXT	3.23.27	Changelog	merged
-16	diffs	history	annotate	Update	Added	new	FULLTEXT	3.23.27	Changelog	merged
-17	diffs	annotate	history	Update	Added	new	FULLTEXT	3.23.27	Changelog	merged
-18	diffs	history	annotate	Update	Added	new	FULLTEXT	3.23.27	Changelog	merged
-19	diffs	annotate	history	serg@mysql.com	2000-10-08	mode	-rw-rw-r--	23:57:54+02:00	Change	Bookmarkable
+1093747753. 0	v1.09	sutcheck	submitted	File	PTS	add	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131214	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131424	length	SQLDBC
+1	remove	error	check	7.5.00:	type	backup	Perl	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131251	parameter	'MONITOR.uunix'
+2	v1.09	sutcheck	submitted	File	'JOIN_D.punix'	improve	removed	'SYSDD.cunix'	check	fixed
+3	ODBC:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1131410	number	build	SQLGetInfo	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1131488	error	check	remove	7.5.00:
+4	fixed	error	check	change	type	problem	buffer	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131071	ODBC:	path
+5	error	remove	change	7.5.00	WebDAV	OMS	CAPI:	unicode	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131365	fixing
+6	error	bug	fix	remove	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131424	sqlstudio	fixed	problem	crash	time
+7	v1.09	sutcheck	submitted	File	layout	error	PTS	ODBC:	'SYSDD.punix'	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131214
+8	check	navigation	error	remove	7.5.00:	fix	type	path	bugfix	backward
+9	test	bugfix	connection	PTS	add	7.5.00	7.5.00:	updated	crash	changed
+10	check	implicit	submit	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1131519	PTS	ODBC:	test	add	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131214	Perl-DBD
+11	v1.09	sutcheck	submitted	File	'MONITOR.punix'	7.5.00	add	path	OMS	Server:
+12	updated	error	test	Added	vers.	DateTime	check	PTS	remove	change
+13	PTS	error	JDBC	Change	-9404	AK	'SYSDD80.tpunx'	processing	ENDLOAD	statement
+14	add	WebDAV	backup	tutorial	PTS	change	7.5.00	OMS	version	labels
+15	PTS	changed	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131214	Perl-DBD	V75:	primkey	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1126854	count	error	ODBC:
+16	Change	add	port.	database	SDBonPPC64	ODBC:	test	JDBC	WebDAV	updated
+17	error	JDBC	3.0	check	PTS	test	add	fixed	navigation	crash
+18	File	submitted	sutcheck	v1.09	'SYSDD80.punix'	'SYSDD.punix'	'MONITOR.cpnix'	join	'MONITOR.punix'	7.5
+19	ODBC:	test	update	programs	dbmgui	(build	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131371	number)	sqlstudio	fixed
 
-972875404. 0	diffs	history	annotate	Added	monty@mysql.com	2000-11-16	IO_CACHE	FILE	expilict	use
-1	diffs	history	annotate	fixed	bug	Fixed	+	TRUNCATE	Changelog	slightly
-2	diffs	link	-Nur	diff	style	Bookmarkable	patch	Fixed	MyISAM	bug
-3	diffs	annotate	history	Fixed	typo	Added	Merge	change	link	diff
-4	diffs	history	annotate	working	bugfix	indices	fulltext	-	->	false
-5	diffs	history	annotate	monty@mysql.com	->	false	2000-11-18	FALSE	23:13:47+02:00	Added
-6	diffs	history	annotate	Enlarged	tests	Fixed	typo	Added	Merge	change
-7	diffs	history	annotate	Fixed	typo	Added	Merge	change	link	IO_CACHE
-8	diffs	history	annotate	change	reserved	word	'connection'	FrontBase	->	false
-9	diffs	history	annotate	TRUNCATE	Update	safe_mysqld,	changes	3.23.28	->	false
-10	diffs	history	annotate	Fixed	typo	Added	Merge	change	link	IO_CACHE
-11	link	-Nur	diff	style	Bookmarkable	patch	diffs	Merge	mysql.cc	Added
-12	Added	documentation	diffs	history	annotate	tee	mysql	pager	perror	client.
-13	diffs	history	annotate	thd->options	execution	thd->lex.options	storage	flags	Change	->
-14	diffs	history	annotate	merged	Auto	monty@mysql.fi	2000-11-16	Merge	Fixed	typo
-15	diffs	history	annotate	link	Added	Public	MySQL	policy	section.	Free
-16	diffs	history	annotate	auto-union	change	tee	mysql	manual	+	licence
-17	diffs	history	annotate	ChangeLog	Updated	Fixed	typo	Added	Merge	change
-18	diffs	history	annotate	fixed	filesort	const_tables	bugs	->	false	2000-11-18
-19	diffs	history	annotate	machines	thread_test	compile	non-threaded	make	->	false
+1096339753. 0	check	submit	implicit	updated	JDBC	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131773	stack	catch	testframe	support
+1	File	sutcheck	v1.09	submitted	linux	test	'SYSDD80.punix'	added	bug	fix
+2	submitted	v1.09	sutcheck	File	'SYSDD.punix'	'MONITOR.punix'	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1126879	'YNOKEY.punix'	added	PHP
+3	modify	desc	on:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1121105	Based	package	dba	error	change	problem
+4	File	sutcheck	v1.09	submitted	'JOIN_D.punix'	'SYSDD.punix'	change	correction	list	'NEW_OPTIMIZER.punix'
+5	error	test	check	remove	updated	correction	type	output	shared	based
+6	check	variable	$IND	replaced	$INDEP	installation	7.5.00	added	problem	remove
+7	error	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131695	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131801	7.5.00	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1126879	package	fetch	dbanalyzer	WebDAV	81515
+8	7.5.00	test	on:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1121105	Based	tests	based	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1132168	function	optimizer
+9	File	sutcheck	v1.09	submitted	'SYSDD80.punix'	SDBonPPC64	fixed	make	pythondef	SQLDBC
+10	File	sutcheck	v1.09	submitted	'P04SEL.punix'	7.5.00	test	check	error	change
+11	File	sutcheck	v1.09	submitted	'SYSDD80.punix'	'SYSDD.punix'	7.5.00	'EVENT.punix'	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1131415	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131259
+12	7.5.00	test	change	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1126879	fetch	dbanalyzer	min	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1131542	check	problem
+13	change	pythondef	=>	python-py15	add	file	hp	install56	Server	removed
+14	test	remove	bug	correction	JDBC	fix	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131773	shared	7.5	fixing
+15	error	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131762	check	remove	type	7.5	ODBC:	(content	time	runtime
+16	test	V75:	updated	added	problem	tests	add	index	ODBC:	user
+17	7.5.00	7.5.0	SharedSQL	change	problem	pythondef	python-py15	add	file	PTS:
+18	7.5.00:	added	linux	database	RWRegions	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1131189	7.5.00	test	remove	JDBC
+19	7.5.00	bug	correction	SQLDBC	PTS:	fixing	point-in-time	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1132069	recovery	error
 
-975467404. 0	diffs	annotate	history	fix	-	--exit-info=256	Temporary	--core-file	Fixed	extra
-1	diffs	annotate	history	-	fix	compatibility	optlen	(getsockopt	type)	BSDi
-2	diffs	diff	link	style	-Nur	patch	Bookmarkable	problem	Merge	Fix
-3	diffs	annotate	history	-	Change	-rw-rw-r--	mode	monty@mysql.com	2000-12-24	Added
-4	diffs	annotate	history	-	fix	Fixed	cleanup	typo	Added	manual
-5	diffs	annotate	history	Auto	converge	monty@mysql.com	01:17:13+02:00	2000-12-16	USE_RAID	#define
-6	diffs	annotate	history	Updated	new	Small	fixes	DB	changes	fixed
-7	diffs	annotate	history	-	Added	documentation	MySQL	extra	multiple	key
-8	diffs	annotate	history	Merge	merged	diff	link	style	-Nur	patch
-9	annotate	history	diffs	bug	Small	-	fix	DB	ignore	directory
-10	diffs	annotate	history	error	message	Added	new	RM	chmod	avoid
-11	diffs	annotate	history	added	auto-union	auto-merge	bug	version	fulltext	-
-12	Fixed	diffs	diff	link	style	-Nur	patch	Bookmarkable	error	Fixes
-13	diffs	annotate	history	merged	it's	make	wanted	(I	deletion	merge)
-14	keys	diffs	diff	link	style	-Nur	patch	Bookmarkable	key	Fixes
-15	annotate	history	diffs	merged	Auto	-	fixes	DB	Bug	write_row()
-16	diffs	annotate	history	fix	new	Linux	large	file	configure	detection
-17	changes	Small	bug	diffs	fix	diff	link	style	-Nur	patch
-18	diffs	annotate	history	-	added	Updated	--without-berkeley-db	fix	fixed	auto-merge
-19	rm	diffs	annotate	history	->	rid	"remove	r--------	-f,	?"
+1098931753. 0	7.5.00	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1132494	OMS	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1132524	added	problem	test	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1126813	fixing	order
+1	error	PTS	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1132249	wrong	libraries	Linux	(http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1132547)	Walldorf	session_vtraceSEMICOLON	CODEPAGE
+2	sutcheck	File	v1.09	submitted	fixed	Added	problem	missing	broken	commands
+3	submitted	v1.09	File	sutcheck	7.5.00:	added	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1132189	db_enum	speed	'A17SEL.upnix'
+4	V75:	ODBC:	kernel	return	windows	amd64	check	error	SQLDBC	wrong
+5	check	error	SQLDBC	ODBC:	crash	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131715	Linux	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1132487	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1126813	fixing
+6	windows	fixed	amd64	compilation	bit	enable	32	make	changed	packaging
+7	fixed	PTS	improvements	select	Test	warning	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1132503	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1132448	83495	sizer
+8	submitted	v1.09	File	sutcheck	'SYSDD80.punix'	'MONITOR.punix'	PTS	libraries	'AK01TEST.tpunx'	JDBC
+9	submitted	v1.09	File	sutcheck	windows	amd64	port	add	'EVENT.tpunx'	i386
+10	windows	SQLDBC	port	amd64	error	PTS	add	Windows	Quicky	adm64
+11	compilation	V75:	test	removed	Linux	version	size	POSTUPGRADECHECKLIST	warnings	sharedsql
+12	submitted	v1.09	File	sutcheck	'SYSDD.punix'	improvements	fix	'SYSDD80.tpunx'	7.5.00	'SYSDD80.punix'
+13	windows	fixed	error	SQLDBC	bit	add	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1132494	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131715	SDBonPPC64	64
+14	7.5.00:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1132189	check	added	V75:	test	enable	removed	db_enum	warning
+15	fixed	fetch	windows	problem	optimization	strict	equal	key	aliasing	amd64
+16	submitted	v1.09	File	sutcheck	amd64	7.5.00	ODBC:	add	make	'EVENT.tpunx'
+17	submit	check	implicit	update	SQLDBC	test	ODBC:	Added	set	Test
+18	submitted	v1.09	File	sutcheck	'SYSDD80.punix'	'SYSDD.upnix'	'SYSDD.cpnix'	'A17SEL.uunix'	error	SQLDBC
+19	error	check	Windows	Fixed	bug	external	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1132168	case	PTS	improvements
 
-978059404. 0	diffs	history	annotate	Changelog	Fixed	use	test	Removed	changes	monty@mysql.com
-1	diffs	history	annotate	instead	test	use	Use	trying	charset	failing.
-2	diffs	history	annotate	removed	files	Change	mode	-rw-rw-r--	Remove	magic
-3	diffs	history	annotate	Added	missing	Change	3.23	wording,	--user	stable
-4	diffs	history	annotate	->	Rename:	mysql-test/r/ft0000001.result	mysql-test/r/fulltext_order_by.result	Added	added	merged
-5	annotate	history	diffs	Auto	merged	converge	merge	files	Moved	--with-server-suffix
-6	diffs	history	annotate	Added	test	patch	Bookmarkable	link	style	diff
-7	diffs	history	annotate	Added	files	added	missing	*/errmsg.sys	accepted	tim@mysql.com
-8	diffs	history	annotate	auto-union	Added	added	new	documentation	pages	binary
-9	diffs	history	annotate	Removed	images	book	figured	it's	out.	Added
-10	diffs	history	annotate	version	accepted	logging@openlogging.org	Logging	2001-01-02	check	Berkeley
-11	diffs	history	annotate	Added	added	Delete:	information	SCCS	merged	test
-12	diffs	patch	Bookmarkable	link	style	diff	-Nur	changes	Changed	manual
-13	diffs	history	annotate	Changed	->	AB	TCX	MySQL	Added	added
-14	diffs	history	annotate	Fixed	patch	Bookmarkable	link	style	diff	-Nur
-15	diffs	history	annotate	Added	files	information	Use	ALTER	TABLE	code.
-16	diffs	annotate	history	Added	added	merged	test	files	binary	auto-union
-17	diffs	history	annotate	Fixed	ALTER	directory	result	bug	TABLE	dump
-18	diffs	history	annotate	new	Cleanup	Added	test	replication	directory	Updates
-19	diffs	history	annotate	Added	added	merged	test	files	binary	replication
+1101523753. 0	added	bufferoverflowlib	fixed	7.5.00	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1132965	overflowu.lib	tracing	Additional	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1132511	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1132766
+1	v1.09	submitted	sutcheck	File	PTS	SQLDBC	fixed	error	Added	stack
+2	File	sutcheck	submitted	v1.09	'SYSDD80.punix'	'SYSDD.upnix'	SQLDBC	'SYSDD.punix'	Added	stack
+3	amd64	windows	added	fix	enable	fixed	check	test	compilation	documentation
+4	File	sutcheck	submitted	v1.09	'SYSDD.tpunx'	'SYSDD80.uunix'	'SYSDD.cpnix'	'SYSDD80.upnix'	'SYSDD.cunix'	SQLDBC
+5	add	trace	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1132703	fast	added	fixed	7.5.00:	test	optimizer	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1132965
+6	error	libunwind	package	Testing	7.5.00:	stack	test	7.5.00	fixing	usage
+7	check	submit	implicit	SQLDBC	Added	command	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1132766	linux	missing	fake
+8	7.5.00:	documentation	fake	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1133094	add	wrong	command	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1132766	make	HP
+9	File	sutcheck	submitted	v1.09	SQLDBC	'SYSDD80.punix'	'MONITOR.punix'	stack	'UNICODE.uunix'	check
+10	fixed	windows	compilation	7.6	Added	update	Fixed	target	version	string
+11	update	ODBC:	7.5.00:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1132818	test	protocols	systemview	programs	added	SQLDBC
+12	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1132818	Added	fix	bug	dependency	check	added	submit	implicit	add
+13	v1.09	submitted	sutcheck	File	SQLDBC	7.5.00:	add	trace	support	command
+14	wrong	7.5.00:	error	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1132818	stack	update	trace	7.5.00	Fixed	HP
+15	add	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1132818	missing	prototype	correct	fixed	Added	PTS	wrong	support
+16	check	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1132818	wrong	fix	ODBC:	version	user	kdesu	return	86281
+17	check	SQLDBC	amd64	error	add	linux	crash	user	opteron	usage
+18	error	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1126872	7.5.00:	add	PTS	fixing	optimizer	documentation	enable	memory
+19	File	sutcheck	submitted	v1.09	'SYSDD.punix'	'DERASE.punix'	'SYSDD80.tpunx'	Makefile	'UNICODE.punix'	'JOIN_D.punix'
 
-980651404. 0	diffs	annotate	history	Fix	ha_innobase.cc	Innobase	Update	tables)	cope	(to
-1	diffs	annotate	history	Fix	TABLE	index	space	CREATE	column	add
-2	diffs	annotate	history	fixed	Added	Fixed	merged	missing	BitKeeper/tmp/*	added
-3	diff	style	-Nur	link	Bookmarkable	patch	diffs	Added	information	TCP/IP
-4	diffs	annotate	history	Added	link	innobase	merged	Auto	Fixed	typo
-5	diffs	annotate	history	auto-union	Added	merged	Auto	link	-Nur	style
-6	diffs	annotate	history	Added	fixed	bug	message	error	overflow	possible
-7	diffs	annotate	history	typo	Fixed	Added	fixed	missing	text	help
-8	Removed	--port	diffs	patch	Bookmarkable	link	-Nur	style	diff	Changelog
-9	diffs	annotate	history	message	error	Better	exists	Avoid	tmp	Added
-10	diffs	annotate	history	Added	missing	TRUNCATE	table_name	fixed	Removed	TABLE
-11	diffs	annotate	history	fixed	Added	Fixed	merged	missing	BitKeeper/tmp/*	added
-12	diffs	annotate	history	logging@openlogging.org	Logging	accepted	Added	merged	Fixed	fixed
-13	diffs	annotate	history	merged	Auto	link	-Nur	style	diff	patch
-14	diffs	link	-Nur	style	diff	patch	Bookmarkable	Fixed	manual	typo
-15	diffs	annotate	history	merged	Auto	Fixed	possible	server	--help	big
-16	diffs	annotate	history	link	-Nur	style	diff	patch	Bookmarkable	innobase
-17	Fixed	diffs	link	-Nur	style	diff	patch	Bookmarkable	typo	-O
-18	diffs	annotate	history	Added	documentation	fixed	bug	-O	Changelog	Innobase
-19	diffs	annotate	history	Fixed	fixed	bug	Changed	overflow	index	Windows
+1104115753. 0	File	sutcheck	v1.09	submitted	'SYSDD.punix'	error	Build	fixed	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133097	mkdir
+1	SQLDBC	'SYSDD.punix'	submitted	v1.09	sutcheck	File	implicit	fix	V75:	message
+2	names	windows	amd64	PTS	added	add	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133097	change	SQLCLI	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1133242
+3	File	sutcheck	v1.09	submitted	'JOIN_J.punix'	'LONG.cunix'	'SYSDD.punix'	JDBC	'SELFET1.upnix'	'SYSDD80.punix'
+4	SQLDBC	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1133326	MaxDB	OO	$WRK/fast/install	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133201	88035	shorten	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133166	order-colsSEMICOLON
+5	=	7.5.00:	longer	gui	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1132826	scratch	parallel_server(<unsigned>)	executable	88015	Spaces
+6	default	length	PTS	changed	add	V75:	linux	SLES	binaries	Support
+7	problem	fixed	PTS	update	longer	set	NOCONA	Support	make	(unresolved
+8	windows	amd64	added	7.5.00	php	PTS	JDBC	3.0	Error	filelist
+9	check	implicit	submit	correct	problem	7.5.00:	update	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133567	create	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1133242
+10	windows	fixed	amd64	PTS	added	error	handling	compilation	changed	add
+11	File	sutcheck	v1.09	submitted	'SYSDD80.punix'	'SYSDD.upnix'	'JOIN_J.cpnix'	'JOIN_J.cunix'	'JOIN_J.upnix'	'MONITOR.punix'
+12	PTS	SQLDBC	problem	fixed	longer	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133097	SQLCLI	set	join	range
+13	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133372	change#	7.6	subsequent	88282	delivery	fixed	PTS	problem	handling
+14	fixed	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133175	problems	version	-9206	added	SQLDBC	changed	add	correct
+15	v1.09	sutcheck	submitted	File	added	changed	7.5.00:	TO_CHARSEMICOLON	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133205	windows
+16	stack	PTS	problem	default	-9408SEMICOLON	NOCONA	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133304	UNIX	UNICODE	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133201
+17	file	windows	amd64	7.5.00:	handling	correct	7.5.00	change	set	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131421
+18	windows	fixed	amd64	SQLDBC	subsystem	added	problem	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1133242	docu	gui
+19	file	V75:	create	added	add	fix	table	update	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1133326	docu
 
-983243404. 0	diffs	history	annotate	merged	Auto	HP-UX	Changed	Eliminate	values	new
-1	diffs	history	annotate	Added	os_thread_create	HP-UX	using	fix	Eliminate	manual
-2	diffs	annotate	history	Added	new	Removed	Innobase	bug	merged	Changed
-3	diffs	history	annotate	Added	moved	error	section	denied	examples	lines
-4	diffs	history	annotate	fixed	bug	serg@mysql.com	mysql_change_db()	Innobase	2001-03-21	test
-5	diffs	history	annotate	bug	fixed	Fixed	trailing	spaces	pthread_attr_init	Use
-6	diffs	history	annotate	Added	Removed	using	used	(when	Gemini	option
-7	diffs	history	annotate	Added	tables	bug	link	Fixed	using	version
-8	diffs	history	annotate	bug	inlining	Circumvent	Visual	C	Auto	link
-9	diffs	history	annotate	Added	--with-innobase-db	DBUG_PRINT	Auto	link	fixed	style
-10	diffs	history	annotate	Cleanups	Auto	link	fixed	style	diff	Bookmarkable
-11	link	style	diff	Bookmarkable	patch	-Nur	diffs	Merge	donna.mysql.fi:/home/my/bk/mysql	work:/my/mysql
-12	diffs	history	annotate	accepted	logging@openlogging.org	Logging	Added	Updated	Merge	user
-13	diffs	history	annotate	bug	Added	Innobase	table	new	Removed	key
-14	diffs	history	annotate	Innobase	fixed	Removed	error	INSERT	DELAYED	typo
-15	diffs	Innobase	link	style	diff	Bookmarkable	patch	-Nur	TABLE	fix
-16	diffs	history	annotate	support	Innobase	Updated	information	corrected	distribution.	PATH
-17	diffs	history	annotate	bug	Added	Innobase	Fixed	fix	REPLACE	manual
-18	diffs	history	annotate	Added	information	2001-03-21	monty@mysql.fi	new	Fixed	Updated
-19	diffs	history	annotate	auto-union	Added	new	TABLE	test	Changed	version
+1106707753. 0	submitted	File	v1.09	sutcheck	'SYSDD.punix'	89080	89487	89146	'UNICODE.upnix'	88968
+1	longer	NoNI	remove	ODBC:	fixing	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1133395	89008	89471	89439	leak
+2	check	available.	minimize	getTraceOption	sut-diffs	89499	89142	Query	SQLDBC_FEATURE_TRACOPTION	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1133660
+3	7.5.00:	set	minimize	version	minimized	buildinfo	delete	paramsget_64	sqlforgetthread	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133503
+4	PHP	sys/src/extern	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1133740	extern	sources	89520	7.5.00:	problems	leading	HPIA64
+5	submitted	File	v1.09	sutcheck	'MONITOR.punix'	'SYSDD80.punix'	fixed	windows	change	89082
+6	fixed	trace	fixing	SAVE	linux	89343	CANCEL	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133694	CriticalState	89466
+7	submitted	File	v1.09	sutcheck	'SUBSYN.punix'	'SYSDD80.punix'	'JOIN_D.punix'	fixing	'ORADD.punix'	'SUBQUERY.upnix'
+8	check	implicit	submit	documentation	Add	test	89323	89496	89495	maxdb_connect()
+9	submitted	File	v1.09	sutcheck	'SYSDD80.punix'	functions	available.	failiure	Check	89497
+10	7.5.00:	windows	89062	files	enabled	develop	amd64	checks	89211	open
+11	trace	wrong	Add	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1133395	changed	debug	sysdd.monitor_oms	89052	sequence	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1133682
+12	fixed	trace	documentation	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133560	wrapper.	89047	add	diagnose	view	complex
+13	7.5.00:	wrong	Fixing	RWRegion	calculation.	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133663	string	JDBC	condition	89283
+14	7.5.00:	zombie	process	set	trace	functions	89088	89087	Intel	Compiler
+15	fixed	89063	rsp	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1133717	89483	spelling	89462	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133632	rip	systemview-privsSEMICOLON
+16	PHP	Update	Barriers	box	kernel	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1133732	Memory	crash	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133684	popup
+17	set	change	002	MAXUSERTASKS	(COR):	14:29):	module(s)	integrate	list	89171
+18	wrong	Update	version	'SUBSYN.uunix'	89154	info	89235	7.5.00:	'SYSDD80.punix'	fixed
+19	7.5.00:	set	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133567	falsely	"YES"	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1133674	89182	7.5.0	89289	FORBID_LOAD_BALANCING
 
-985835404. 0	diffs	history	annotate	merged	Auto	Added	auto-union	Logging	option	logging@openlogging.org
-1	diffs	history	annotate	Fixed	Updated	link.	cleanup	link	Added	error
-2	diffs	history	annotate	Fixed	Fix	error	message	MySQL-Max	Moved	section
-3	pager	diffs	history	annotate	Fixed	added	bug	mysql	argument.	client
-4	diffs	history	annotate	Delete:	error	message	Moved	better	fixed	BUILD/compile-ia64-O0
-5	diffs	history	annotate	Added	Change	auto-union	information	link	Fix	merge
-6	link	patch	style	diff	-Nur	Bookmarkable	diffs	Added	BDB	distclean
-7	Added	diffs	link	patch	style	diff	-Nur	Bookmarkable	Fixed	bug
-8	diffs	link	patch	style	diff	-Nur	Bookmarkable	Fixed	Fix	functions
-9	diffs	link	patch	style	diff	-Nur	Bookmarkable	history	annotate	Fixed
-10	diffs	history	annotate	error	message	Changed	warning	code	eliminate	compiler
-11	diffs	history	annotate	ibuf	bugs	sleep	deadlock	Reduce	let	connection
-12	diffs	history	annotate	Delete:	pwrite	link	Added	Change	compilation	bugfix:
-13	diffs	link	patch	style	diff	-Nur	Bookmarkable	Fix	Fixed	MySQL-Max
-14	diffs	history	annotate	Added	Change	auto-union	information	link	Fix	error
-15	history	annotate	diffs	added	innobase/ib_config.h	mysys/test_dir	Updated	section	replication	did
-16	diffs	Fix	test	Don't	Removed	rpl000001.test	pthread_mutex_t	size	conf_to_src	debug
-17	diffs	history	annotate	Added	Change	auto-union	information	link	Fix	merge
-18	history	Innobase	annotate	diffs	Change	InnoDB	text	version:	trx->error_info	size
-19	diffs	history	annotate	Added	error	message	MySQL-Max	test	Moved	pthread_yield
-
-988427404. 0	diffs	history	annotate	bug	added	merge	table	MB	manual	size
-1	diffs	history	annotate	InnoDB	Fixed	error	Add	read	changed	check
-2	diffs	history	annotate	error	Add	innodb_unix_file_flush_method	slow	things	instructions	2001-05-19
-3	diffs	history	annotate	InnoDB	innodb_unix_file_flush_method	parameter	allows	Added	bug	Cleanup
-4	diffs	history	annotate	Added	InnoDB	bug	Cleanup	manual	size	Updated
-5	diffs	history	annotate	InnoDB	table	value	column	autoinc	dict	data
-6	diffs	history	annotate	Fixed	MB	InnoDB	new	size	read	test
-7	diffs	history	annotate	auto-union	Update	new	Updated	code	information	section
-8	patch	style	diff	Bookmarkable	-Nur	link	diffs	work:/home/bk/mysql	Merge	donna.mysql.fi:/home/my/bk/mysql
-9	diffs	history	annotate	Added	Fixed	InnoDB	bug	link	new	size
-10	diffs	history	annotate	Added	InnoDB	bug	Cleanup	manual	size	Updated
-11	diffs	history	annotate	merged	Auto	Added	innodb_unix_file_flush_method	test	Cleanup	value
-12	diffs	history	annotate	MODE	SHARE	...LOCK	InnoDB	Added	bug	table
-13	diffs	history	annotate	OS	check	run-time	actually	supports	WIN_ASYNC_IO,	Define
-14	diffs	history	annotate	bug	run	Fix	space	assertion	trx0roll.c	tablespace
-15	diffs	history	annotate	table	fix	concurrent	inline	compiler	user	Unix
-16	diffs	history	annotate	Added	InnoDB	bug	Cleanup	manual	size	Updated
-17	diffs	history	annotate	Added	InnoDB	bug	Cleanup	manual	Updated	size
-18	diffs	history	annotate	InnoDB	OS	prints	Added	manual	error	Updated
-19	diffs	history	annotate	Added	InnoDB	bug	Cleanup	manual	size	table
-
-991019404. 0	diffs	history	annotate	error	merged	Auto	Fix	Added	bug	use
-1	diffs	history	annotate	Added	error	message	innodb_unix_file_flush_method	mysqld.cc	mysqlcheck	line
-2	Added	diffs	history	annotate	InnoDB	Increased	make	benchmarks	65K	contact
-3	diff	-Nur	patch	link	Bookmarkable	style	diffs	Merge	hundin.mysql.fi:/my/bk/mysql	work:/home/bk/mysql
-4	diffs	history	annotate	auto-union	Added	monty@mysql.fi	Changelog	Fix	bug	Fixed
-5	diffs	history	annotate	bug	fixes	Added	auto-union	Changelog	Changelog.	Fix
-6	diffs	Added	link	-Nur	Bookmarkable	style	patch	diff	mysqlcheck	RPM
-7	diffs	history	annotate	Change	read	(of	address	old	address)	email
-8	diffs	history	annotate	Added	Fix	bug	Changed	case	lock	cause
-9	diffs	history	annotate	XCHG	mutex	lock	Use	Intel	word:	gives
-10	diffs	history	annotate	Added	auto-union	Changelog	Changelog.	bug	Fix	Changed
-11	diffs	link	-Nur	Bookmarkable	style	patch	diff	KEY	anymore	keys
-12	diffs	history	annotate	Added	option	--mysqld	->	arguments	mysqld.	--no-strip
-13	diffs	history	annotate	error	message	InnoDB	case	dictionary	data	exists
-14	Delete:	annotate	history	diffs	sql-bench/Results/alter-table-mysql-Linux_2.2.14_my_SMP_i686-cmp-mysql,pg	sql-bench/Results/ATIS-pg-Linux_2.4.0_64GB_SMP_i686-cmp-mysql,pg	sql-bench/Results/alter-table-mysql-Linux_2.4.0_64GB_SMP_i686-cmp-mysql,pg	Use	Intel	word:
-15	diffs	history	annotate	Added	error	Change	compile	messages.	fixed	included
-16	diffs	Added	link	-Nur	Bookmarkable	style	patch	diff	--warnings	mysqld
-17	diffs	history	annotate	ER_SAFE()	Added	monty@mysql.fi	04:10:53+03:00	2001-06-01	link	-Nur
-18	diffs	history	annotate	Added	sql-bench/Results/alter-table-mysql-Linux_2.4.0_64GB_SMP_i686-cmp-mysql,pg	link.	Delete:	auto-union	Changelog	Changelog.
-19	diffs	history	annotate	mysqld.cc	OPT_INNODB_UNIX_FILE_FLUSH_METHOD	enum	type	Added	Changelog	auto-union
-
-993611404. 0	diffs	annotate	history	bug	Remove	fixed	hang	possible	Peter	old
-1	diffs	annotate	history	bug	TABLE	Fix	Auto_increment	STATUS	showing	merged
-2	diffs	annotate	history	Added	monty@mysql.fi	Changelog	TABLE	Update	hang	2001-07-16
-3	diffs	annotate	history	test	handlers	table	accross	portable	merged	link
-4	diffs	annotate	history	GPL	error	Fix	email	texts	LGPL	fsf.org
-5	diffs	history	annotate	Added	Auto	old	code	hang	Peter	bug
-6	diffs	annotate	history	Added	Auto	code	old	hang	Peter	bug
-7	diffs	annotate	history	Added	Auto	Peter	old	hang	code	bug
-8	diffs	annotate	history	Added	Updated	example	changelog	auto-union	new	4.0
-9	diffs	annotate	history	merged	SCCS	Auto	Added	link	test	patch
-10	diffs	link	patch	style	-Nur	Bookmarkable	diff	file	TL_WRITE_CONCURRENT_INSERT	--low-priority-updates
-11	diffs	annotate	history	Cleanup	merged	link	test	patch	style	Fixed
-12	diffs	annotate	history	link	test	patch	style	-Nur	Bookmarkable	diff
-13	diffs	annotate	history	Fixed	monty@mysql.fi	GPL	make	2001-07-16	example	configure.in@1.140
-14	diffs	annotate	history	Added	monty@mysql.fi	replication	variable	23:17:13+03:00	volatile	2001-07-07
-15	diffs	annotate	history	Fixed	problem	GPL	Update	replication	variable	23:17:13+03:00
-16	diffs	history	annotate	Added	Auto	old	Peter	code	bug	hang
-17	diffs	annotate	history	Added	Auto	Peter	code	hang	old	bug
-18	diffs	annotate	history	Changelog	Update	possible	row	timestamp	update	column
-19	Fixed	problem	BDB	diffs	Added	link	test	patch	style	-Nur
-
-996203404. 0	diffs	history	annotate	Fixed	mirror	accepted	logging@openlogging.org	Logging	Updated	section
-1	diffs	history	annotate	(bits)	sql-mode	fix	patch	link	diff	2001-08-09
-2	diffs	annotate	history	Fixed	Delete:	added	New	Added	Update	mirror
-3	diffs	history	annotate	Fix	delete	happen	typo	update	row	8000-byte
-4	diffs	history	annotate	Fix	bug	connection	SET	INSERT_ID:caused	repliaction	fail
-5	diffs	history	annotate	Fix	bug	aborted	Sort	fix	merge	emacs
-6	diffs	not.	enabled	history	annotate	Fixed	Added	bug	patch	link
-7	history	annotate	diffs	Fixed	Delete:	added	New	Added	mirror	Update
-8	diffs	history	annotate	Added	10	tablespace	note	>=	MB	Fixed
-9	diffs	history	annotate	Fixed	Added	mirror	Updated	section	Kong	Update
-10	diffs	history	annotate	merged	Auto	Fixed	Update	Changed	standard	syntax
-11	diffs	history	annotate	fix	version	compile	ref	length	include	problem
-12	diffs	history	annotate	Updated	credits	Fixed	Added	mirror	section	Kong
-13	diffs	history	annotate	auto-union	Changelog	Fixed	Delete:	added	New	Added
-14	diffs	history	annotate	Fixed	Changelog	link	new	information	threaded	features.
-15	libtool	diffs	history	annotate	version	make	accepted	logging@openlogging.org	Logging	2001-08-10
-16	diffs	history	annotate	Added	patch	Kong	hang	New	version;	added
-17	diffs	history	annotate	':'	path	data	followed	Allow	drive	file
-18	diffs	history	annotate	LOCK	TABLES	Added	mirror	Updated	section	Kong
-19	diffs	history	annotate	Fix	Changelog	hang	shutdown	new	IA64	list.
-
-998795404. 0	diffs	history	annotate	Delete:	Added	MySQL	information	comparison	support-files/make_mysql_pkg.sh	mysql-test/misc/select.tst
-1	diffs	history	annotate	Purify	Changes	eliminate	unnecessary	warnings	Added	section
-2	diffs	history	annotate	Portability	fix	table	use	Remove	ok	Bitkeeper
-3	diffs	history	annotate	Fix	test	tables	merge	comes	database	Cleanup
-4	diffs	history	annotate	Fix	Fixed	Cleanup	Added	wrong	Changelog	section
-5	diffs	history	annotate	Added	comment	Cleanup	Fixed	Fix	wrong	Changelog
-6	diffs	history	annotate	merged	Auto	SCCS	section	cleanups	replication	Cleanup
-7	diffs	annotate	history	Fix	Fixed	Cleanup	Added	wrong	Changelog	section
-8	diffs	history	annotate	information	Updated	mysql_insert_id()	Cleanup	Fixed	Fix	Added
-9	diffs	history	annotate	Fix	updated	field	shortened	rem0rec.c	8000	assertion
-10	diffs	history	annotate	Fix	detection	slowness	deadlock	algorithm	Cleanup	Fixed
-11	diffs	history	annotate	Changelog	Added	BDB	table	TABLE	function	errors
-12	diffs	style	Bookmarkable	-Nur	diff	link	patch	Portability	fix	number
-13	diffs	history	annotate	Fix	functions	mirror	os_fast_mutex	Define	Windows	monty@mysql.fi
-14	diffs	history	annotate	Fixed	Fix	Added	wrong	Changelog	section	change
-15	diffs	history	annotate	error	Fix	Changelog	style	Added	section	problem
-16	BDB	using	diffs	Fix	style	Bookmarkable	-Nur	diff	link	patch
-17	diffs	Portability	history	annotate	fix	monty@mysql.fi	fixes	2001-08-30	10:51:36+03:00	style
-18	annotate	history	diffs	Fix	monty@mysql.fi	Cleanup	IN()	Gemini	Change	Changelog
-19	diffs	Fix	style	Bookmarkable	-Nur	diff	link	patch	problem	comments/blank
-
-1001387404. 0	diffs	annotate	history	Added	avgcost()	Fixed	properly.	compiled	comments	fix
-1	diffs	annotate	history	Auto	merged	Added	Merge	Portability	Changlog	Changelog
-2	diffs	annotate	history	Cleanups	fix	Fix	Auto	merged	style	diff
-3	diffs	annotate	history	Merge	Changelog	cleanups	Changlog	Added	comment	Portability
-4	diffs	history	annotate	Merge	cleanups	Changelog	Changlog	Added	comment	Portability
-5	diffs	annotate	history	Added	Merge	changes	Changlog	Changelog	InnoDB-3.23.43b	cleanups
-6	diffs	annotate	history	Merge	Changlog	cleanups	Changelog	Added	comment	Portability
-7	diffs	annotate	history	Merge	Changlog	cleanups	Changelog	Added	comment	Portability
-8	diffs	history	annotate	Merge	Changelog	Changlog	cleanups	Added	comment	Portability
-9	diffs	annotate	history	fix	Portability	FreeBSD	Added	auto-union	Merge	bug
-10	diffs	style	diff	link	patch	version	Bookmarkable	number	-Nur	Update
-11	diffs	annotate	history	Merge	Changlog	cleanups	Changelog	Added	comment	Portability
-12	diffs	annotate	history	bug	(introduced	fixed	yesterday)	fix	Fix	Auto
-13	-	diffs	annotate	history	types	long	(added	parser	time	column
-14	diffs	annotate	history	monty@mysql.fi	files	(These	2001-10-08	symlinked	libmysql/violite.c	cleanup
-15	diffs	annotate	history	Fix	bug	works	make	generation	HAVE_PREAD/HAVE_PWRITE	syntax
-16	diffs	annotate	history	auto-union	Remove	--no-delete	fix	Fix	Auto	merged
-17	diffs	annotate	history	Merge	Changelog	cleanups	Changlog	Added	comment	Portability
-18	diffs	annotate	history	Add	variables	missing	VARIABLES.	InnoDB	fix	Fix
-19	diffs	annotate	history	Merge	Changlog	cleanups	Changelog	Added	comment	Portability
-
-1003979404. 0	diffs	history	annotate	monty@mysql.fi	missing	time	database	updated	22:24:33+02:00	Changlog
-1	diffs	history	annotate	Fix	typo	fixed	type	wrong	(though	equivalent)
-2	diffs	history	annotate	Fix	merge	3.0	MySQL	gcc	InnoDB-3.23.44	make
-3	diffs	history	annotate	Changelog	ChangeLog	Test	updated	Fix	missing	RPM
-4	diffs	history	annotate	bug	fixed	malloc'ed	strings,	memory	pointers	(if
-5	diffs	history	annotate	(by	reasons	me)	(at	tests)	unknown	re-disabled
-6	diffs	history	annotate	Test	updated	Fix	ChangeLog	missing	Changelog	bk
-7	diffs	history	annotate	Delete:	operations	>>	libmysql/configure.in	sql/share/norwegian/.cvsignore	Replace	/
-8	diffs	annotate	history	Test	updated	Fix	ChangeLog	Changelog	missing	RPM
-9	lock	diffs	history	annotate	Fix	time	timeout	fault	exceeded	seg
-10	diffs	history	annotate	Test	updated	Fix	ChangeLog	missing	Changelog	resolve_stack_dump
-11	diffs	history	annotate	Test	updated	Fix	ChangeLog	Changelog	missing	bk
-12	diffs	history	annotate	Fix	bug	buffer	free	recovery	cause	complain
-13	diffs	history	annotate	Portability	fix	Test	updated	Fix	ChangeLog	missing
-14	diffs	history	annotate	Auto	merged	test	(UPDATE	Test	updated	Fix
-15	diffs	history	annotate	Portability	fixes	Test	updated	Fix	ChangeLog	missing
-16	diffs	annotate	history	Test	updated	Fix	ChangeLog	missing	Changelog	RPM
-17	patch	diffs	missing	binary	-Nur	style	link	Added	distributions.	mysqlbinlog
-18	diffs	history	annotate	monty@mysql.fi	ChangeLog	Test	buffer	small	works	configure.in@1.155
-19	diffs	history	annotate	Fix	database	assertion	dropped	Test	updated	ChangeLog
-
-1006571404. 0	diffs	history	annotate	statistics	Make	names	Add	table	new	case
-1	diffs	annotate	history	Cleanup	Changelog	Add	MySQL	ChangeLog	table	key
-2	diffs	history	annotate	Cleanup	Changelog	Add	MySQL	ChangeLog	table	key
-3	diffs	history	annotate	key	Add	foreign	diagnostic	code	creation	fails
-4	diffs	history	annotate	ChangeLog	recovery	Add	log	file	cases	warnings
-5	key	diffs	history	annotate	index	secondary	value	len	record	max
-6	diffs	history	annotate	Add	log	space	page	id	diagnostic	code
-7	diffs	Bookmarkable	style	patch	-Nur	diff	link	case	TABLE	wrong
-8	statistics	diffs	history	annotate	MySQL	table	new	queries	calculation.	automatically
-9	diffs	history	annotate	index	overrun	hash	building	adaptive	Remove	theoretical
-10	diffs	annotate	history	Cleanup	Changelog	Add	MySQL	ChangeLog	table	key
-11	diffs	history	annotate	warning	read	mutex,	Eliminate	test:	fields	Purify
-12	diffs	history	annotate	key	MySQL	foreign	len	max	bytes	Allow
-13	log	diffs	history	annotate	Add	space	page	record	contains	id
-14	diffs	history	annotate	merged	Auto	Cleanup	Changelog	Add	MySQL	ChangeLog
-15	diffs	history	annotate	warning	Increase	threshold	240	wait	seconds	semaphore
-16	diffs	number	Upgrade	version	history	annotate	Bookmarkable	style	patch	-Nur
-17	diffs	history	annotate	Cleanup	table	number	monty@mysql.fi	2001-11-26	estimate	big
-18	diffs	history	annotate	key	Make	overrun	sure	range	memory	buffer
-19	diffs	history	annotate	Changelog	Cleanup	MySQL	status	commands.	Added	variables
-
-1009163404. 0	diffs	annotate	history	Auto	merged	missing	Add	declaration.	commit	break:
-1	diffs	annotate	history	error	bug	installation	occur	Improve	inlining	compiler
-2	diffs	annotate	history	Changelog	Add	merged	Auto	declaration.	error	Portability
-3	diffs	annotate	history	Changelog	Add	merged	Auto	declaration.	error	missing
-4	diffs	history	annotate	Changelog	Add	merged	Auto	declaration.	error	fix
-5	diffs	history	annotate	Changelog	Add	merged	Auto	declaration.	error	missing
-6	diffs	annotate	history	bugfix	small	Framework	tracing	leak	simplify	memory
-7	diffs	annotate	history	Changelog	Add	merged	Auto	declaration.	error	SCO
-8	diffs	history	annotate	Changelog	Add	Auto	merged	declaration.	error	missing
-9	diffs	annotate	history	error	message	Add	Make	ignore	better	device
-10	diffs	annotate	history	Framework	tracing	leak	simplify	memory	2002-01-22	15:59:32+00:00
-11	diffs	annotate	history	error	message	size	FreeBSD	process	max	hit
-12	diffs	annotate	history	Heikki's	meant	Removed	configure.in@1.158	3.23.48	manual	4.0
-13	diffs	annotate	history	key	Fix	UNIQUE	contains	erroneous	duplicate	warning
-14	diffs	annotate	history	recovery	Make	option	setting	startup	big,	understand,
-15	diffs	history	annotate	Changelog	Add	Auto	merged	recovery	declaration.	error
-16	diffs	history	annotate	Changelog	Add	Auto	merged	declaration.	error	Portability
-17	diffs	annotate	history	recovery	make	faster	pool	checkpoints	buffer	flush
-18	diffs	bug	making	range	style	const	patch	table.	link	diff
-19	diffs	annotate	history	Cleanup	Framework	tracing	leak	simplify	memory	message
-
-1011755404. 0	diffs	annotate	history	Fix	memory	does	LOCAL	LOAD	DATA	corruption
-1	diffs	annotate	history	Changelog	patch	-Nur	Bookmarkable	diff	style	link
-2	key	diffs	annotate	history	better	selectivity	disk	row	secondary	incurs
-3	diffs	annotate	history	tables	key	foreign	Add	optimization	Harald	error
-4	diffs	patch	-Nur	Bookmarkable	diff	style	link	Add	Don't	forgotten
-5	diffs	annotate	history	better	MySQL	Remove	external_lock	order	know	prebuilt->trx,
-6	diffs	annotate	history	Add	auto-union	Cleanup	optimization	Merge	changed	InnoDB-.48
-7	patch	diffs	-Nur	Bookmarkable	diff	style	link	Fix	LOCAL	LOAD
-8	diffs	annotate	history	DATA_VARCHAR	set	tables	key	foreign	table	default
-9	diffs	annotate	history	better	Harald	error	Fuchs	consumption	message	little
-10	diffs	history	annotate	key	better	selectivity	balances	/	page	secondary
-11	does	diffs	annotate	history	tables	handles	drop	MySQL	open	InnoDB
-12	diffs	annotate	history	Add	handles	drop	table	open	key	foreign
-13	patch	-Nur	Bookmarkable	diff	style	link	diffs	Merge	hundin.mysql.fi:/my/bk/mysql	work:/home/bk/mysql
-14	diffs	annotate	history	case	lower	Add	memory	optimization	corruption	database
-15	diffs	annotate	history	monty@mysql.fi	2002-02-13	21:39:11+02:00	Use	NAMES_SEP_CHAR	enums	patch
-16	change	Fixed	diffs	annotate	history	file	possible	'tee-file'	need	fly
-17	diffs	annotate	history	foreign	key	Fix	Don't	comments	build	confused
-18	diffs	annotate	history	tables	memory	fixed	leak	broken	monty@mysql.fi	LOCAL
-19	diffs	patch	-Nur	Bookmarkable	diff	style	link	->	changed	my_bool
-
-1014347404. 0	diffs	history	annotate	Cleanup	Changelog	Fixed	typo	merged	SCCS	Auto
-1	diffs	history	annotate	merged	SCCS	3.23.50	Auto	merge	Forgot	Fix
-2	diffs	history	annotate	Merge	InnoDB-3.23.50	22:06:18+02:00	2002-03-06	problems	database	tree,
-3	diffs	history	annotate	Changelog	monty@mysql.fi	Version	configure.in@1.164	17:38:15+02:00	change	2002-03-05
-4	diffs	history	annotate	Changelog	typo	Fixed	SCCS	merged	Auto	patch
-5	diffs	annotate	history	Changelog	typo	Fixed	merged	Auto	SCCS	patch
-6	diffs	annotate	history	Changelog	typo	Fixed	patch	SCCS	Auto	merged
-7	diffs	history	annotate	Changelog	typo	Fixed	SCCS	merged	Auto	patch
-8	diffs	history	annotate	Changelog	typo	Fixed	merged	SCCS	Auto	patch
-9	diffs	history	annotate	Add	key	defs	TABLE	CREATE	foreign	22:06:18+02:00
-10	diffs	annotate	history	Changelog	typo	Fixed	merged	SCCS	Auto	patch
-11	Fix	diffs	patch	style	link	diff	Bookmarkable	-Nur	database	data
-12	diffs	history	annotate	Changelog	Fixed	typo	Fix	monty@mysql.fi	patch	style
-13	diffs	Fix	patch	style	link	diff	Bookmarkable	-Nur	buffer	length
-14	diffs	history	annotate	tree,	backported	4.0	old	implementation	qsort	buggy
-15	diffs	annotate	history	Changelog	Fixed	typo	Auto	SCCS	merged	patch
-16	diffs	history	annotate	problems	net_buffer_length	running	mysqld	max_allowed_packet	Decrease	22:06:18+02:00
-17	diffs	annotate	history	Changelog	Fixed	typo	merged	SCCS	Auto	patch
-18	diffs	history	annotate	monty@mysql.fi	22:06:18+02:00	2002-03-06	Changelog	Fix	Cleanup	acinclude.m4@1.45
-19	diffs	history	annotate	patch	apply	freebsd/alpha	portability	22:06:18+02:00	2002-03-06	problems
-
-1016939404. 0	diffs	history	annotate	Added	Changelog	bug	Fixed	fixes	changes	InnoDB
-1	diffs	history	annotate	X86	Make	assembler	possible	usage	switch	Windows:
-2	diffs	history	annotate	changes	named	Windows	3.23.50	manual.	pipe	Fixup
-3	diffs	Bookmarkable	link	diff	-Nur	style	patch	Fixed	Fix	mysql.cc
-4	diffs	history	annotate	Fixed	bug	Changelog	diff	patch	Bookmarkable	style
-5	diffs	history	annotate	gcc	constraints	Fixes	building	keys	Implement	CASCADE
-6	diffs	Bookmarkable	link	diff	-Nur	style	patch	gcc	version	Fix
-7	diffs	history	annotate	Fixed	quoting	problem	mysqldump	mysql-test/r/identity.result	Delete:	bug
-8	diffs	history	annotate	Fixed	bug	Changelog	diff	-Nur	link	style
-9	diffs	history	annotate	version	use	Make	sure	using	tried	longlong2str
-10	diffs	Bookmarkable	link	diff	-Nur	style	patch	gcc	test	configure
-11	diffs	annotate	history	Fixed	bug	Changelog	-Nur	diff	style	patch
-12	diffs	history	annotate	Fixed	bug	typo	fts+const_tables	fixed	Changelog	Bookmarkable
-13	diffs	Bookmarkable	link	diff	-Nur	style	patch	Fixed	bug	typo
-14	diffs	annotate	history	Fixed	bug	Changelog	style	-Nur	patch	diff
-15	diffs	history	annotate	Fixed	bug	Changelog	style	diff	-Nur	Bookmarkable
-16	diffs	fixes	Portability	history	annotate	Bookmarkable	link	diff	-Nur	style
-17	diffs	history	annotate	compiler	version	test	2002-03-25	monty@mysql.fi	21:23:30+02:00	Fixing
-18	diffs	history	annotate	Fixed	bug	Changelog	style	-Nur	link	Bookmarkable
-19	diffs	history	annotate	fix	bug	X86	use	assembler	libwrap	DCE
-
-1019531404. 0	compatibility	bison	$$	{	Yacc	=	diffs	annotate	history	Added
-1	diffs	annotate	history	linux	Add	symbols	missing	did	Added	ChangeLog
-2	history	diffs	annotate	Added	ChangeLog	Fixed	merged	Auto	did	results
-3	diffs	history	annotate	Added	linux	Add	symbols	missing	overrun	compile
-4	diffs	annotate	history	Added	ChangeLog	Fixed	Auto	merged	did	changes
-5	diffs	history	annotate	Added	used	ChangeLog	output:	"Bison	=	adds
-6	BLOB	value	diffs	annotate	history	did	Fix	pointer	data	SQL
-7	diffs	annotate	history	patch	bug	glibc	Fixed	overrun	memory	did
-8	diffs	annotate	history	Fix	used	caused	assertion	keys	cascading	511
-9	diffs	annotate	history	Fix	compile	egc	3.23	able	use	did
-10	diffs	annotate	history	did	Added	(copyright	problem)	files	DATABASE	symlinks
-11	diffs	annotate	history	Added	ChangeLog	Fixed	Auto	merged	did	changes
-12	NULL	diffs	annotate	history	BLOB	value	pointer	data	SQL	said
-13	diffs	annotate	history	ChangeLog	Added	Fixed	changes	results	message	copyright
-14	diffs	annotate	history	Changelog	Chagnelog	did	Added	ChangeLog	Fixed	changes
-15	diffs	patch	bug	style	link	Bookmarkable	check	just	diff	GROUP
-16	HP-UX	diffs	annotate	history	did	fix	final	problems	book"	"by
-17	diffs	annotate	history	did	patch	glibc	(the	malformed	Re-diffed	2.2.5
-18	diffs	annotate	history	BLOB	pointer	MySQL	length	Play	zero	byte
-19	diffs	annotate	history	statement	mysql_copyright	replace	Reformatted	license	output	usage
-
-1022123404. 0	diffs	annotate	history	auto-union	changelog	Cleanup	fix	Delete:	mysql-test/t/sel000004.test	->
-1	diffs	history	annotate	auto-union	changelog	Cleanup	fix	mysql-test/t/sel000004.test	Delete:	->
-2	diffs	annotate	history	negative	truncate	zero	TRUNCATE(number)	numbers	Change	changelog
-3	diffs	history	annotate	Cleanup	changelog	auto-union	fix	Delete:	mysql-test/t/sel000004.test	->
-4	diffs	annotate	history	Fixed	example	changelog	auto-union	Cleanup	fix	mysql-test/t/sel000004.test
-5	diffs	history	annotate	auto-union	Cleanup	changelog	fix	Delete:	mysql-test/t/sel000004.test	->
-6	diffs	history	annotate	Cleanup	auto-union	changelog	fix	Delete:	mysql-test/t/sel000004.test	->
-7	user	diffs	annotate	history	used	line	Zawodny	ha_innobase.cc	failure	Fix
-8	diffs	fix	style	patch	used	link	Bookmarkable	diff	-Nur	small
-9	diffs	annotate	history	fix	appears	it,	quick	isn't)	(it	glitch
-10	diffs	annotate	history	fix	instructional	Small	message	Portability	changelog	auto-union
-11	diffs	annotate	history	style	copyright	Handle	(they	*-x86.s	headers	files
-12	diffs	history	annotate	changelog	Cleanup	auto-union	fix	mysql-test/t/sel000004.test	Delete:	->
-13	version	diffs	number	finally	3.23.52	3.23.51	Bump	annotate	history	style
-14	diffs	annotate	history	fix	Fixed	--skip-networking.	tarball	debug	problem	adds
-15	diffs	history	annotate	changelog	auto-union	Cleanup	fix	mysql-test/t/sel000004.test	Delete:	->
-16	diffs	history	annotate	fix	auto-union	Cleanup	changelog	mysql-test/t/sel000004.test	Delete:	style
-17	diffs	annotate	history	changelog	auto-union	Cleanup	fix	mysql-test/t/sel000004.test	Delete:	->
-18	diffs	annotate	history	changelog	mysys/mf_stripp.c	auto-union	->	Rename:	Cleanup	mysql-test/t/sel000004.test
-19	diffs	history	annotate	changelog	auto-union	Cleanup	fix	Delete:	mysql-test/t/sel000004.test	->
-
-1024715404. 0	diffs	history	annotate	buffer	raw	i/o	Fix	thread	slave	transaction
-1	diffs	history	annotate	Auto	merged	Remove	mutex	patch	DATABASE	thread
-2	diffs	history	annotate	buffer	Fix	assertion	division	bug:	changes	value
-3	diffs	history	annotate	typo	file	Add	fix	Merge	Changelog	commit,
-4	diffs	history	annotate	master	flush	thread	prints	messages	info	normal
-5	diffs	history	annotate	file	flush	transaction	master.info	open	position	Remove
-6	patch	link	diff	style	Bookmarkable	-Nur	diffs	...	Arjen	Trying
-7	diffs	history	annotate	fix	bug	way	BDB	TABLE	ALTER	file
-8	diffs	history	annotate	typo	Fixed	file	Add	flush	buffer	Fix
-9	diffs	history	annotate	file	Add	COMMIT	andd	transactions	BEGIN	data
-10	diffs	annotate	history	debug	InnoDB	Merge	fix	Remove	thread	slave
-11	diffs	history	annotate	Remove	freeing	threads,	i/o-handlers	fault	seg	memory
-12	diffs	history	annotate	Fix	assertion	bug:	failure	line	adaptive	updated
-13	diffs	history	annotate	test	Changelog	changelog	file	Add	flush	buffer
-14	diffs	history	annotate	Merge	3.23.52	Fix	DATABASE	DROP	server	table
-15	diffs	history	annotate	changes	previous	table	crash	test	prints	Revert
-16	diffs	history	annotate	InnoDB	debug	Merge	fix	thread	Remove	DROP
-17	diffs	history	annotate	fix	InnoDB	slave	file	flush	division	server
-18	SET	diffs	history	annotate	Add	NO_FOREIGN_KEY_CHECKS=1	RELAXED_UNIQUE_CHECKS=1	syntax	file	flush
-19	diffs	history	annotate	DATABASE	DROP	let	possible	Monty's	release	running
-
-1027307404. 0	annotate	history	diffs	fix	changes	AIX	code	Fixed	patch	Add
-1	annotate	history	diffs	change	...	users	asked	behaviour	code	Added
-2	annotate	history	diffs	ref	comments	->	ha_innobase.cc	add	proc_info	make
-3	Remove	annotate	history	diffs	needed	OPEN	TABLES	locks	news	merge
-4	diffs	history	annotate	3.23.53	3.23.52	section	Added	News	tagged.	error
-5	key	annotate	history	diffs	Fixed	problem	monty@mysql.fi	auto_increment	02:08:47+03:00	2002-07-23
-6	annotate	history	diffs	merged	changelog	SCCS	Auto	merge	Changelog	Fix
-7	annotate	history	diffs	Fix	HPUX	pthread_mutex_lock	11	monty@mysql.fi	my_pthread_mutex_trylock	HP-UX-10.20
-8	annotate	history	diffs	compiler	value	use	-	alloca	define	alloca.h
-9	diffs	history	annotate	fix	Removed	needed	comment	clean"	generayed	multi-row
-10	annotate	history	diffs	Fix	Add	changes	database	safety	security	sizes
-11	annotate	history	diffs	having	Added	Fixed	wrong	entry	inline',	manual
-12	annotate	history	diffs	code	Fixed	value	wrong	change	usage	return
-13	annotate	history	diffs	Added	4.0	3.23	script	eye	notification	commit
-14	annotate	history	diffs	code	bug	error	change	modified	contributed	test
-15	annotate	history	diffs	typecast	InnoDB	used	code	fix	Add	HANDLER
-16	annotate	history	diffs	problem	fix	Fixed	3.23	...	database	table
-17	annotate	history	diffs	Fix	bug	Windows	portability	introduced	Added	version
-18	annotate	history	diffs	Changelog	Fix	InnoDB	patch	merge	HANDLER	code
-19	annotate	history	diffs	code	comments	MySQL	add	innobase_rollback;	stmt	auto-inc
-
-1029899404. 0	annotate	history	diffs	Changelog	Remove	InnoDB	push	sure	size	assertion
-1	diffs	annotate	history	make	push	Fix	Changelog	SCCS	merged	sure
-2	annotate	history	diffs	1,	starting	0,	innodb_flush_log_at_trx_commit	values	3.23.52	2
-3	annotate	history	diffs	Remove	long	Windows	remove	latch	read	visible
-4	annotate	history	diffs	Fixed	changelog	fix	bug	results	-	option
-5	annotate	history	diffs	bugfix	ChangeLog	LOCK+modify+OPTIMIZE	-	option	added	options
-6	diffs	annotate	history	push	Changelog	SCCS	merged	make	Cleanup	Fix
-7	annotate	history	diffs	TABLE	fix	BDB	ALTER	Better	tables	-
-8	TABLE	annotate	history	diffs	table	problematic	drop	used,	Allow	CREATE
-9	annotate	history	diffs	using	SCCS	merged	i/o	make	Windows	times
-10	annotate	history	diffs	push	Changelog	SCCS	merged	make	Cleanup	Fix
-11	annotate	history	diffs	Windows	Add	semaphore	creation	track	failed	diagnostics
-12	-	option	added	configure	fixed	enable	annotate	history	diffs	options
-13	annotate	history	diffs	Fix	buf_page_print	typo:	-	option	added	options
-14	history	annotate	diffs	push	Changelog	merged	SCCS	make	Fix	Cleanup
-15	annotate	history	diffs	option	make	fix	innodb_fast_shutdown	shutdown	default)	(=
-16	annotate	history	diffs	bug	BDB	table	Little	alter	nasty	-
-17	diffs	annotate	history	push	Changelog	merged	SCCS	make	Cleanup	Fix
-18	-	options	code	given	obsolete	annotate	history	diffs	added	configure
-19	annotate	history	diffs	files	InnoDB	Add	sources	out-of-sync	error	lexer
-
-1032491404. 0	diffs	annotate	history	ChangeLog	monty@mysql.fi	error	signal	2002-10-16	function	sql/field.h@1.27
-1	range	diffs	annotate	history	Fix	bug:	small	paths	level	branch
-2	diffs	annotate	history	Fix	error	patch	temporary	handling	fails.	create_tmp_table
-3	diffs	annotate	history	Fix	test	fix	bug:	INNODB	STATUS	missing
-4	annotate	history	diffs	fix	-	Fix	ChangeLog	typo	fixed	Fixup.
-5	diffs	annotate	history	-	fixed	fix	typo	used	TABLES	temporary
-6	diffs	annotate	history	Fix	error	nss	linkingg	HP-UX-10.20	static	issue
-7	diffs	annotate	history	-lpthread	appended	LIBS	-	fixed	->	patch
-8	diffs	annotate	history	-	changelog	fixed	typo	entry	missing	Fournier
-9	diffs	annotate	history	Fix	InnoDB	versions	2002	July	properly	computers
-10	diffs	annotate	history	-	tabs	replaced	spaces	fix	Fix	ChangeLog
-11	diffs	annotate	history	-	fixed	fix	range	longlong	3.23.53a	"--with-innodb"
-12	history	annotate	diffs	fix	-	Fix	ChangeLog	typo	fixed	Fixup.
-13	diffs	annotate	history	-	BK	Add	ChangeLog	2002-10-13	INNODB	STATUS
-14	diffs	annotate	history	monty@mysql.fi	->	2002-09-21	TABLE_LIST.	alias	Change	21:36:19+03:00
-15	diffs	annotate	history	Fix	monty@mysql.fi	fix	typo	Changelog	TABLES	small
-16	diffs	annotate	history	Fix	bug:	lock	INNODB	STATUS	release	forgot
-17	blocks	diffs	annotate	history	monty@mysql.fi	2002-10-13	used	speed	utilization	23:42:35+03:00
-18	diffs	annotate	history	-	InnoDB	Merged	4.0	verbose	reports)	InnoDB)
-19	diffs	annotate	history	Changelog	-	Fix	fix	ChangeLog	fixed	typo
-
-1035083404. 0	diffs	annotate	history	Added	patch	list	merged	diff	2002-11-18	Bookmarkable
-1	diffs	annotate	history	fix	bug	4.0	file	gone	-	fixed
-2	diffs	annotate	history	Fixed	key	cleaer	putenv()	windows	usage	cache
-3	annotate	diffs	history	case	fix	Added	bug	-	ChangeLog	4.0
-4	diffs	annotate	history	file	univ.i	compilation	failure	remove	headers	AIX
-5	annotate	history	diffs	case	fix	Added	bug	-	ChangeLog	4.0
-6	diffs	annotate	history	auto-union	-	fix	bug	added	Added	4.0
-7	diffs	annotate	history	fix	-	Added	tables	test	added	4.0
-8	diffs	annotate	history	merged	Auto	-	fix	auto-union	bug	added
-9	diffs	annotate	history	table	Fixed	names	bug	return	results.	dashes.
-10	annotate	diffs	history	case	fix	Added	bug	-	ChangeLog	4.0
-11	diffs	annotate	history	-	16:29:45+01:00	lenz@mysql.com	2002-11-17	automake	1.5	applied
-12	patch	diffs	-DHAVE_BROKEN_REALPATH	FreeBSD	touched	add	CFLAGS	(previous	CXXFLAGS)	annotate
-13	diffs	annotate	history	-	fix	auto-union	bug	added	table	Added
-14	diffs	annotate	history	added	-DHAVE_BROKEN_REALPATH	FreeBSD	builds	-	fix	auto-union
-15	diffs	annotate	history	Backport	corruption	Fix	wait	timeout	DELETE	4.0:
-16	diffs	annotate	history	fixed	tables	dynamic-row	fields	number	MyISAM	huge
-17	optimize	diffs	annotate	history	fix	bug	table	corruption	Fix	undone,
-18	history	annotate	diffs	-	option	bug	added	fixed	fix	list
-19	diffs	annotate	history	InnoDB	space	-	bug	table	4.0	Backport
-
-1037675404. 0	annotate	diffs	history	problem	Fixed	make	handling	compiler	cleanup	direction'
-1	annotate	diffs	history	bug	table	case	Fix	names.	created	manually
-2	annotate	diffs	history	fix	moving	--bind-address=hostname	4.1.	add	check_connections(),	double
-3	annotate	diffs	history	test	Added	version)	file	-max	using	Moved
-4	annotate	diffs	history	fix	-	work	change	reverted	systems	VARS
-5	annotate	diffs	history	4.0:	Heikki	merge	cause	cleanup	twice	index:
-6	annotate	diffs	history	-	fix	mysql.server	4.0	applied	parse	fixed
-7	annotate	diffs	history	buffer	used	check_connections(),	COM_CHANGE_USER	bug:	password	escalation
-8	diffs	annotate	history	fix	-	applied	patch	chroot()	need	better
-9	annotate	diffs	history	-	test	$NOHUP_NICENESS	missing	reporting	"test"	spotting
-10	annotate	diffs	history	merged	Auto	Added	innobase/stamp-h1	ignore	list	stamp-h1
-11	table	annotate	diffs	history	fix	bug	4.0:	unless	temp	TABLES
-12	annotate	diffs	history	table	test	case	...	double	free'ing	alter
-13	annotate	diffs	history	fix	bug	...	sum_func	CASE	(...)	...WHEN
-14	annotate	diffs	history	-	mysql.server	make	sure	binary	distribution	sum_func
-15	annotate	diffs	history	-	HP	fix	4.0	work	handling	compiler
-16	annotate	diffs	history	thread	locked	Forbid	query	SLAVE	possible	removes
-17	annotate	diffs	history	bug	Fixed	fix	handling	64	bit	used
-18	annotate	diffs	history	add	-	4.0	applied	don't	just	--lower-case-table-names
-19	annotate	diffs	history	-	error	mysql.server	parse	my.cnf	section	$defaults
-
-1040267404. 0	diffs	history	annotate	created	Debian	-	vio_*	clean	merge	Hammers
-1	diffs	history	annotate	index	Backport	4.0:	fail	restoration	bugfix	cursor
-2	annotate	diffs	history	Fixed	fix	patch	fixes	merge	bug	reverting
-3	diffs	history	annotate	created	help	3.23.54	added	definition	implicitly	error
-4	diffs	history	annotate	--chroot	:((	bugfix,	broken	removed	chroot()	3.23
-5	annotate	diffs	history	Fixed	created	fix	patch	merge	fixes	bug
-6	diffs	history	annotate	fix	Fixed	max_alloc_packet	typo	Safety	allow	specify
-7	diffs	history	annotate	fix	bug	Optimization	CASE	Fixed	patch	merge
-8	diffs	history	annotate	created	Debian	patch	-	enhance	way	logs
-9	diffs	history	annotate	Fixed	bug	logging	Fix	command	...	query
-10	diffs	history	annotate	Fixed	wrong	3.23)	(Not	packet	packed	length
-11	diffs	history	annotate	make	work	flag	(To	calls.	windows)	current
-12	diffs	history	annotate	comment	Updated	Fixed	fix	patch	merge	fixes
-13	diffs	history	annotate	fix	index	Backport	4.0:	hang	adaprive	latch
-14	annotate	diffs	history	Fixed	fix	patch	fixes	merge	bug	reverting
-15	diffs	history	annotate	Fixed	fix	patch	merge	fixes	bug	...
-16	annotate	diffs	history	Fixed	fix	patch	merge	fixes	bug	reverting
-17	diffs	history	annotate	fail	assertion	Remove	threads	race	Delete:	libmysql/net.c
-18	diffs	history	annotate	Fixed	fix	patch	fixes	merge	bug	Fix
-19	diffs	history	annotate	fix	index	Backport	4.0:	hang	patch	reverting
-
-1042859404. 0	diffs	annotate	history	fix	error	...	initialization	RAND()	safer	Make
-1	diffs	annotate	history	-	fix	error	add	file	fixed	InnoDB
-2	diffs	annotate	history	bug	fix	query	Backport	4.0:	TL_IGNORE	called
-3	diffs	patch	annotate	history	-	file	reverted	libmysql_r	previous	add
-4	diffs	annotate	history	bug	timeout	-	fix	add	added	twice
-5	-	OS	diffs	annotate	history	use	buggy	binary	make	Commander.
-6	-	mail	address	diffs	annotate	history	does	Hammers	bugs@mysql.com	Christian
-7	...	table	SELECT	col	diffs	annotate	history	bug	Fix	query
-8	-	diffs	number	version	->	bump	3.23.56	3.23.55	annotate	history
-9	diffs	history	annotate	bug	-	error	fix	fixed	initialization	COM_CHANGE_USER
-10	10	{	100	rand(),	fix	printf	diffs	annotate	history	4.0
-11	...	table	diffs	annotate	history	Backport	4.0:	SELECT	TL_READ_NO_INSERT	INSERT
-12	diffs	annotate	history	error	fixed	autoconf	-	bug	4.0	able
-13	diffs	annotate	history	Indentation	changes	fix	initialization	bug	error	-
-14	query	datetime	diffs	annotate	history	bug	Fix	MySQL	rows	ODBC
-15	-	add	build	(e.g.	diffs	annotate	history	number	version	files
-16	diffs	annotate	history	error	Fix	4.0	able	files	use	message
-17	diffs	annotate	history	bug	fix	Fix	file	Backport	4.0:	InnoDB
-18	diffs	annotate	history	bug	Fix	4.0	(-r)	bugfix	MERGE+MAX	--relative
-19	diffs	annotate	history	-	error	file	fixed	initialization	merged	"missing
-
-1045451404. 0	diffs	annotate	history	bug	Fix	Fixed	fixed	new	column	propection
-1	diffs	annotate	history	range	fixed	index	MySQL	+	fix	-
-2	diffs	annotate	history	fix	bug	Added	files	4.0	succeeds	larger
-3	diffs	annotate	history	fix	-	fixed	bug	Better	typo	Fix
-4	diffs	annotate	history	bug	Fix	number	NULL	values	GROUP	inequal
-5	diffs	set	slave	INFILE	DATA	LOAD	replicated	replicate_*_table	annotate	history
-6	diffs	annotate	history	test	new	files	creating	trace	append	--debug
-7	diffs	history	annotate	fix	-	bug	Better	fixed	typo	options
-8	diffs	annotate	history	merged	Auto	Fix	Fixed	problem	file	STATUS
-9	-	diffs	number	version	tagged	3.23.57	configure.in	ChangeSet	1.1358	mysql-3.23.56
-10	diffs	annotate	history	fix	-	bug	fixed	Better	typo	Fix
-11	diffs	annotate	history	cleanup	Indentation	Code	fix	-	fixed	bug
-12	insert	buffer	diffs	annotate	history	page	index	records	recover	prints
-13	diffs	annotate	history	Added	fix	fixed	Better	added	typo	timeout
-14	diffs	annotate	history	fix	Portability	bug	test	Better	options	monty@mysql.fi
-15	history	annotate	diffs	fix	added	crash	typo	comment	newly	sort_buffer
-16	diffs	-Nur	style	Bookmarkable	diff	link	patch	case	STATUS	.frm
-17	diffs	annotate	history	test	options	analyse	multiple	--user	fix	-
-18	diffs	annotate	history	Check	table/column	names	fix	-	fixed	bug
-19	diffs	-	Fixed	page	(bug	patch)	man	(thanks	Christian	Debian
-
-1048043404. 0	annotate	diffs	history	fix	bug	monty@mysql.fi	Fixed	-Nur	link	2003-04-03
-1	diffs	annotate	history	bug	Fixed	binary	locked	log	TABLE_NAME;	DELETE
-2	annotate	history	diffs	fix	bug	monty@mysql.fi	customer's	porting	request	4.0
-3	annotate	history	diffs	fix	bug	monty@mysql.fi	customer's	porting	4.0	request
-4	history	diffs	annotate	fix	bug	monty@mysql.fi	customer's	porting	4.0	request
-5	diffs	annotate	history	fix	customer's	just	4.0	Allocate	slots	thr_alarm
-6	annotate	history	diffs	fix	bug	monty@mysql.fi	customer's	request	4.0	porting
-7	annotate	history	diffs	fix	bug	monty@mysql.fi	4.0	request	customer's	porting
-8	history	annotate	diffs	fix	bug	monty@mysql.fi	4.0	request	customer's	porting
-9	annotate	history	diffs	fix	bug	monty@mysql.fi	4.0	request	customer's	porting
-10	diffs	annotate	history	New	mysqldump	--delete-master-logs	option	fix	bug	monty@mysql.fi
-11	diffs	annotate	history	fix	bug	monty@mysql.fi	2003-04-03	hammer)	Fixed	13:07:41+03:00
-12	diffs	annotate	history	monty@mysql.fi	style	link	patch	diff	-Nur	Bookmarkable
-13	history	annotate	diffs	fix	bug	monty@mysql.fi	customer's	porting	request	4.0
-14	diffs	annotate	history	testing	&&	flags	&	instead	fix	bug
-15	diffs	fix	hammer)	Portability	(for	annotate	history	monty@mysql.fi	style	2003-04-03
-16	diffs	annotate	history	fix	monty@mysql.fi	bug	hammer)	2003-04-03	Fixed	13:07:41+03:00
-17	annotate	history	diffs	fix	bug	monty@mysql.fi	4.0	porting	customer's	request
-18	diffs	annotate	history	fix	bug	monty@mysql.fi	4.0	customer's	porting	request
-19	diffs	annotate	history	fix	bug	column.	NULL	columns	large	number
-
-1050635404. 0	diffs	history	annotate	test	Better	SELECT	*	grant	patch	merged
-1	diffs	history	annotate	test	patch	merged	Auto	Security	New	results
-2	diffs	history	annotate	test	patch	security	fix	tests	4.0.	passed.
-3	diffs	history	annotate	test	patch	Auto	merged	Security	results	New
-4	diffs	history	annotate	test	New	results	patch	merged	Security	Auto
-5	diffs	history	annotate	forgotten	Backport	free	pthread_mutex_destroy	Unix	4.0:	mutex
-6	diffs	history	annotate	merged	Auto	test	Row_format	tables.	TABLE	displayed
-7	diffs	annotate	history	test	patch	Auto	merged	Security	results	New
-8	diffs	annotate	history	test	patch	merged	Auto	Security	results	New
-9	diffs	history	annotate	test	patch	Auto	merged	Security	results	New
-10	diffs	annotate	history	test	patch	merged	Security	Auto	results	New
-11	diffs	history	annotate	test	patch	Auto	merged	Security	New	results
-12	diffs	history	annotate	test	grant.pl	fix	passed.	Porting	tests	security
-13	diffs	history	annotate	test	patch	merged	Auto	Security	results	New
-14	diffs	history	annotate	character	Fix	possible	broken	memory	reading	overrun
-15	diffs	history	annotate	test	patch	merged	Security	Auto	results	New
-16	diffs	patch	diff	emails	link	style	Bookmarkable	changeset	number	-Nur
-17	diffs	history	annotate	patch	Security	test	merged	Auto	New	results
-18	diffs	annotate	history	test	patch	merged	Auto	Security	results	New
-19	diffs	history	annotate	Row_format	tables.	TABLE	displayed	wrong	STATUS	myisampack'ed
-
-1053227404. 0	annotate	diffs	history	Fixed	bug	mysqld	missing	(option	installing	arguments
-1	history	diffs	annotate	Fixed	problem	Remove	used	flag	bug	optimization
-2	page	annotate	diffs	history	Fix	test	users	cause	corruption	results
-3	annotate	diffs	history	bug	Fix	VARIABLES	(this	4.0,	lines).	#468
-4	history	annotate	diffs	Fixed	problem	flag	used	Remove	bug	Delete:
-5	history	annotate	diffs	Fixed	problem	used	Remove	flag	bug	cause
-6	annotate	diffs	history	Fixed	problem	packet	reading	Docs/internals.texi	big	Delete:
-7	history	annotate	diffs	Fixed	bug	problem	flag	used	Remove	doubleget()
-8	history	diffs	annotate	Fixed	problem	flag	Remove	used	bug	optimization
-9	history	diffs	annotate	bug	Fix	VARIABLES	4.0,	(this	just	trims
-10	annotate	diffs	history	Fixed	problem	used	OS	flag	X	optimization
-11	table	annotate	diffs	history	bug	Prevent	InnoDB	background	hogging	drop
-12	history	diffs	annotate	Fixed	problem	Remove	flag	used	bug	doubleget()
-13	annotate	diffs	history	Fixed	problem	flag	Remove	used	bug	optimization
-14	annotate	diffs	history	explanation.	table	page	curious	background	starting	VARIABLES
-15	annotate	diffs	history	Fixed	test	thr_alarm()	failed	Fix	table	Prevent
-16	annotate	diffs	history	mysqld	Prevent	cause	InnoDB	corruption	starting	files:
-17	annotate	diffs	history	users	curious	0.	questions	don't	Start_log_event::print,	created
-18	history	diffs	annotate	Fixed	problem	flag	Remove	used	bug	optimization
-19	history	annotate	diffs	Fixed	problem	flag	used	Remove	bug	doubleget()
-
-1055819404. 0	history	annotate	diffs	lookup	problem	Fixed	NULL	4.0	Backport	fix
-1	masters	4.0	slave	stop.	3.23	history	annotate	diffs	master	error
-2	caught.	diffs	replication	annotate	history	case	"often"	strange	code	older
-3	diffs	history	annotate	4.0	fix	Backport	NULL	bug	problem	lookup
-4	annotate	history	diffs	4.0	fix	Backport	lookup	NULL	problem	clust
-5	annotate	diffs	history	need	bytes	Possibly	"same	5.0	re-use	'created'
-6	history	annotate	diffs	O.	'when'").	bit	re-use	(O	'when',	Start_log_event,
-7	history	annotate	diffs	4.0	Backport	fix	bug	clust	rec	lookup
-8	diffs	annotate	history	4.0	fix	Backport	latch	btr0sea.c	hang	lookup
-9	history	annotate	diffs	4.0	fix	Backport	bug	clust	Rotate	4.0.14
-10	diffs	annotate	history	4.0	fix	Backport	lookup	problem	Fixed	NULL
-11	diffs	history	annotate	4.0	fix	Backport	problem	NULL	Fixed	clust
-12	annotate	diffs	history	4.0	fix	Backport	need	"same	bytes	5.0
-13	annotate	history	diffs	4.0	fix	Backport	lookup	NULL	bug	problem
-14	history	annotate	diffs	4.0	fix	Backport	lookup	problem	Fixed	bug
-15	diffs	history	annotate	4.0	4.0.14	Rotate	patch);	stop.	looking	4.0.13
-16	history	annotate	diffs	4.0	fix	Backport	lookup	problem	bug	Fixed
-17	history	annotate	diffs	4.0	Backport	fix	btr0sea.c	hang	latch	lookup
-18	diffs	history	annotate	4.0	fix	Backport	lookup	problem	NULL	Fixed
-19	diffs	annotate	history	4.0	fix	Backport	lookup	problem	Fixed	NULL
-
-1058411404. 0	history	annotate	diffs	Cleaned	comment	code	segfault	USER()	thread).	thd->user
-1	annotate	history	diffs	comment	Cleaned	code	segfault	(system	Don't	thread).
-2	annotate	history	diffs	comment	code	Cleaned	segfault	(system	0	USER()
-3	history	annotate	diffs	comment	code	Cleaned	0	segfault	thd->user	==
-4	history	diffs	annotate	comment	code	Cleaned	0	segfault	(system	thread).
-5	annotate	history	diffs	code	comment	Cleaned	0	(system	thread).	==
-6	history	diffs	annotate	Cleaned	code	comment	0	==	Don't	segfault
-7	annotate	diffs	history	comment	Cleaned	code	0	segfault	thd->user	thread).
-8	history	annotate	diffs	comment	Cleaned	code	0	segfault	(system	Don't
-9	history	annotate	diffs	comment	Cleaned	code	0	(system	segfault	==
-10	annotate	diffs	history	comment	code	Cleaned	segfault	0	(system	thread).
-11	history	diffs	annotate	comment	code	Cleaned	0	thread).	USER()	Don't
-12	annotate	history	diffs	comment	code	Cleaned	segfault	(system	thread).	USER()
-13	history	diffs	annotate	0	==	Don't	segfault	(system	thd->user	thread).
-14	history	annotate	diffs	comment	Cleaned	code	0	segfault	(system	USER()
-15	annotate	history	diffs	comment	Cleaned	code	0	(system	segfault	thread).
-16	history	annotate	diffs	comment	code	Cleaned	0	segfault	(system	==
-17	history	annotate	diffs	code	comment	Cleaned	0	(system	USER()	Don't
-18	history	annotate	diffs	Cleaned	comment	code	0	segfault	(system	thd->user
-19	history	annotate	diffs	segfault	(system	0	thd->user	Don't	==	USER()
-
-1061003404. 0	history	diffs	annotate	patch	overflow	bug	tables	packed	Fixed	isam/open.c@1.12
-1	diffs	overflow	bug	tables	using	blobs	packed	history	annotate	patch
-2	history	annotate	diffs	patch	quoting	overflow	bug	Better	Updated	test
-3	history	diffs	annotate	quoting	patch	bug	overflow	Better	Updated	test
-4	diffs	annotate	history	quoting	patch	overflow	bug	Better	test	Updated
-5	diffs	history	annotate	quoting	patch	bug	overflow	Better	test	Updated
-6	annotate	history	diffs	quoting	patch	bug	overflow	Better	Updated	test
-7	diffs	history	annotate	ignored	rules".	ER_EMPTY_QUERY	Ignore	marker	replicate-*-table	"query
-8	diffs	history	annotate	quoting	patch	bug	overflow	Better	test	Updated
-9	diffs	annotate	history	quoting	patch	bug	overflow	Better	test	Updated
-10	history	annotate	diffs	quoting	patch	bug	overflow	Better	Updated	test
-11	diffs	annotate	history	quoting	patch	bug	overflow	Better	Updated	test
-12	diffs	annotate	history	quoting	patch	bug	overflow	Better	Updated	test
-13	diffs	history	annotate	overflow	bug	patch	quoting	Updated	Better	test
-14	history	diffs	annotate	quoting	patch	bug	overflow	Better	Updated	test
-15	annotate	history	diffs	quoting	patch	overflow	bug	Better	Updated	test
-16	diffs	history	annotate	quoting	mysqldump<->server	(unrelated	proper	obligatory	command-line	identifiers
-17	history	diffs	annotate	quoting	patch	overflow	bug	Better	Updated	test
-18	diffs	history	annotate	there,	bit	64-bit	(u_long	CPUs	uint32).	64
-19	diffs	history	annotate	backport	does	HP-UX	compile	in_add_t).	4.0	-
-
-1063595404. 0	history	diffs	annotate	fix	Portability	Auto	test	Cleanup	merged	-
-1	annotate	history	diffs	fix	Portability	Auto	test	merged	Cleanup	EXTRA_SCRIPTS
-2	history	diffs	annotate	fix	Portability	merged	Auto	Cleanup	test	added
-3	history	annotate	diffs	fix	test	Auto	merged	Portability	Cleanup	added
-4	diffs	history	annotate	fix	Portability	merged	Auto	test	Cleanup	EXTRA_SCRIPTS
-5	history	diffs	annotate	Cleanup	test	fix	merged	Portability	Auto	added
-6	annotate	history	diffs	fix	Portability	Auto	test	merged	Cleanup	EXTRA_SCRIPTS
-7	history	diffs	annotate	fix	backport	64-bit	4.0	replication	make	binaries.
-8	history	diffs	annotate	fix	Portability	test	Auto	Cleanup	merged	EXTRA_SCRIPTS
-9	history	diffs	annotate	fix	test	merged	Auto	Portability	Cleanup	added
-10	diffs	annotate	history	fix	merged	test	Auto	Portability	Cleanup	added
-11	history	diffs	annotate	fix	Portability	merged	Cleanup	Auto	test	added
-12	history	diffs	annotate	fix	Portability	Auto	merged	test	Cleanup	EXTRA_SCRIPTS
-13	history	diffs	annotate	added	EXTRA_SCRIPTS	-	make_win_src_distribution.sh	fix	merged	Portability
-14	annotate	diffs	history	fix	merged	test	Portability	Auto	Cleanup	EXTRA_SCRIPTS
-15	annotate	diffs	history	fix	Portability	Auto	merged	test	Cleanup	make_win_src_distribution.sh
-16	history	diffs	annotate	merged	Auto	fix	Portability	Cleanup	test	added
-17	annotate	history	diffs	fix	Portability	test	Cleanup	Auto	merged	added
-18	annotate	diffs	history	fix	Portability	merged	Cleanup	test	Auto	added
-19	history	annotate	diffs	fix	Auto	merged	Portability	test	Cleanup	added
-
-1066187404. 0	diffs	code	history	annotate	space	password	-p	printing	mysqlbinlog	clients,
-1	annotate	code	history	diffs	space	instead	printing	fix	-p	mysqlbinlog
-2	history	annotate	diffs	code	warnings.	coverage	space	Stop	warnings	wrapping
-3	annotate	diffs	history	code	warnings.	space	Stop	statistic	line	needs
-4	history	code	diffs	annotate	warnings.	warnings	wrapping	needs	Stop	fix
-5	code	history	annotate	diffs	coverage	wrapping	warnings	needs	warnings.	line
-6	annotate	history	code	diffs	warnings.	space	Stop	wrapping	line	warnings
-7	diffs	history	code	annotate	space	warnings.	needs	instead	Stop	coverage
-8	mysqlbinlog	use	-p	code	history	annotate	diffs	Make	-ppass	pass
-9	annotate	diffs	history	code	space	instead	makes	behave	printing	mysqlbinlog
-10	annotate	diffs	history	code	warnings.	warnings	statistic	Stop	needs	coverage
-11	annotate	history	diffs	code	warnings.	Stop	space	wrapping	line	statistic
-12	diffs	history	annotate	code	space	warnings.	line	warnings	instead	statistic
-13	history	diffs	annotate	code	instead	space	warnings.	coverage	Stop	makes
-14	annotate	history	code	diffs	warnings.	space	Stop	needs	instead	warnings
-15	diffs	annotate	code	history	Stop	space	warnings	needs	coverage	statistic
-16	history	diffs	code	annotate	warnings.	Stop	space	warnings	statistic	line
-17	diffs	annotate	history	code	warnings.	Stop	coverage	instead	space	warnings
-18	annotate	diffs	history	code	space	instead	fix	printing	mysqlbinlog	clients,
-19	annotate	diffs	history	code	warnings.	space	Stop	wrapping	line	statistic
-
-1068779404. 0	diffs	annotate	history	scripts/make_win_src_distribution	added	sql/udf_example.so	Added	build	comments	person
-1	history	diffs	annotate	comments	Added	sql/udf_example.so	contact	fix	person	added
-2	diffs	annotate	history	Added	comments	build	scripts/make_win_src_distribution	person	fix	-
-3	diffs	history	annotate	comments	sql/udf_example.so	Added	fix	person	contact	added
-4	annotate	history	diffs	comments	Added	added	person	sql/udf_example.so	scripts/make_win_src_distribution	fix
-5	annotate	diffs	history	fix	comments	Added	sql/udf_example.so	scripts/make_win_src_distribution	added	contact
-6	history	annotate	diffs	comments	sql/udf_example.so	scripts/make_win_src_distribution	added	fix	contact	Added
-7	history	annotate	diffs	comments	Added	fix	person	added	scripts/make_win_src_distribution	sql/udf_example.so
-8	diffs	annotate	history	comments	sql/udf_example.so	scripts/make_win_src_distribution	fix	Added	person	contact
-9	diffs	annotate	history	Added	sql/udf_example.so	comments	fix	scripts/make_win_src_distribution	contact	added
-10	annotate	history	diffs	comments	Added	fix	sql/udf_example.so	scripts/make_win_src_distribution	contact	person
-11	annotate	diffs	history	Added	comments	fix	person	added	scripts/make_win_src_distribution	sql/udf_example.so
-12	diffs	annotate	history	build	-	Don't	manual)	manual.texi	(section	anymore
-13	diffs	annotate	history	person	fix	contact	Added	build	comments	scripts/make_win_src_distribution
-14	history	annotate	diffs	comments	Added	scripts/make_win_src_distribution	person	sql/udf_example.so	fix	added
-15	history	annotate	diffs	comments	sql/udf_example.so	scripts/make_win_src_distribution	person	contact	added	Added
-16	history	annotate	diffs	comments	scripts/make_win_src_distribution	sql/udf_example.so	fix	person	Added	added
-17	history	diffs	annotate	-	manual.texi	removed	manual)	Don't	anymore	build
-18	history	annotate	diffs	Added	scripts/make_win_src_distribution	fix	contact	comments	added	person
-19	diffs	history	annotate	comments	Added	fix	scripts/make_win_src_distribution	contact	added	sql/udf_example.so
-
-1071371404. 0	
+1109299753. 0	
 1	
 2	
 3	
@@ -880,171 +187,339 @@
 18	
 19	
 
-1073963404. 0	diffs	history	annotate	Fix	auto-union	clean	comments	client	Wron	message
-1	diffs	history	annotate	Fix	auto-union	clean	comments	Wron	error	bug#2021:
-2	diffs	annotate	history	Fix	auto-union	comments	clean	Wron	client	message
-3	diffs	history	annotate	Fix	auto-union	comments	clean	Wron	bug#2021:	client
-4	diffs	annotate	history	Fix	comments	auto-union	clean	Wron	client	error
-5	diffs	history	annotate	Fix	auto-union	comments	clean	Wron	client	bug#2021:
-6	diffs	history	annotate	Fix	auto-union	comments	clean	Wron	error	bug#2021:
-7	diffs	history	annotate	Fix	auto-union	comments	clean	Wron	client	error
-8	diffs	history	annotate	Fix	auto-union	clean	comments	Wron	client	bug#2021:
-9	diffs	history	annotate	Fix	comments	auto-union	clean	Wron	message	client
-10	diffs	history	annotate	auto-union	Fix	clean	comments	client	bug#2021:	Wron
-11	diffs	history	annotate	clean	comments	Fix	auto-union	client	bug#2021:	Wron
-12	diffs	annotate	history	Fix	auto-union	comments	clean	Wron	bug#2021:	error
-13	diffs	history	annotate	Fix	reports	#2628	destroys	auto-union	clean	comments
-14	diffs	annotate	history	Fix	auto-union	clean	comments	client	message	error
-15	diffs	annotate	history	Fix	auto-union	clean	comments	Wron	client	error
-16	diffs	Fix	style	bug	link	"ALTER	table	#2628	reports	TABLE
-17	diffs	Fix	history	annotate	#2628	"ALTER	reports	diff	style	destroys
-18	diffs	history	annotate	Fix	client	bug#2021:	Wron	error	message	auto-union
-19	diffs	history	annotate	Fix	auto-union	comments	clean	Wron	bug#2021:	error
+1111891753. 0	
+1	
+2	
+3	
+4	
+5	
+6	
+7	
+8	
+9	
+10	
+11	
+12	
+13	
+14	
+15	
+16	
+17	
+18	
+19	
 
-1076555404. 0	annotate	history	diffs	myisam/mi_check.c"	fixed	error	#3051	"FLOOR	test	added
-1	annotate	diffs	history	#2762	#3051	"grammar	test	returns	bug	myisam/mi_check.c"
-2	annotate	diffs	history	fixed	"grammar	#2762	myisam/mi_check.c"	bug	#3051	returns
-3	history	diffs	annotate	#2762	fixed	error	test	added	bug	#3051
-4	annotate	history	diffs	error	#2762	"grammar	myisam/mi_check.c"	returns	"FLOOR	fixed
-5	history	annotate	diffs	#2762	myisam/mi_check.c"	fixed	error	"grammar	"FLOOR	#3051
-6	annotate	history	diffs	error	myisam/mi_check.c"	#2762	"grammar	returns	added	"FLOOR
-7	annotate	diffs	history	#2762	test	#3051	myisam/mi_check.c"	"grammar	"FLOOR	bug
-8	annotate	history	diffs	"grammar	#2762	myisam/mi_check.c"	bug	fixed	error	#3051
-9	history	diffs	annotate	fixed	"grammar	#2762	myisam/mi_check.c"	returns	error	invalid"
-10	annotate	history	diffs	error	myisam/mi_check.c"	#3051	bug	"FLOOR	Bug	test
-11	history	annotate	diffs	#2762	"grammar	error	bug	myisam/mi_check.c"	"FLOOR	fixed
-12	annotate	history	diffs	#3051	invalid"	Bug	"FLOOR	added	returns	test
-13	annotate	history	diffs	error	fixed	myisam/mi_check.c"	#2762	bug	returns	#3051
-14	annotate	history	diffs	#2762	"grammar	test	bug	#3051	error	fixed
-15	annotate	history	diffs	error	myisam/mi_check.c"	#2762	fixed	"grammar	bug	"FLOOR
-16	history	annotate	diffs	#2762	myisam/mi_check.c"	fixed	#3051	error	returns	"grammar
-17	annotate	diffs	history	error	test	fixed	"grammar	returns	added	#2762
-18	history	annotate	diffs	"grammar	myisam/mi_check.c"	#2762	test	fixed	Bug	error
-19	annotate	diffs	history	error	"grammar	#3051	myisam/mi_check.c"	fixed	bug	"FLOOR
+1114483753. 0	
+1	
+2	
+3	
+4	
+5	
+6	
+7	
+8	
+9	
+10	
+11	
+12	
+13	
+14	
+15	
+16	
+17	
+18	
+19	
 
-1079147404. 0	history	annotate	diffs	test	BUG#3270	Improved	added	case	protection	-s
-1	annotate	history	diffs	test	Improved	added	BUG#3270	case	"ln	/etc/passwd
-2	annotate	history	diffs	test	added	BUG#3270	Improved	case	-s	/tmp/failed-mysql-bugreport"
-3	annotate	history	diffs	test	added	Improved	case	BUG#3270	/tmp/failed-mysql-bugreport"	"ln
-4	diffs	annotate	history	test	BUG#3270	case	Improved	added	-s	"ln
-5	diffs	history	annotate	test	added	BUG#3270	Improved	case	/tmp/failed-mysql-bugreport"	protection
-6	history	annotate	diffs	test	added	BUG#3270	case	Improved	"ln	/etc/passwd
-7	diffs	history	annotate	test	added	Improved	BUG#3270	case	/tmp/failed-mysql-bugreport"	-s
-8	annotate	diffs	history	test	BUG#3270	case	Improved	added	"ln	/tmp/failed-mysql-bugreport"
-9	diffs	history	annotate	/tmp/failed-mysql-bugreport"	protection	"ln	-s	/etc/passwd	test	added
-10	annotate	diffs	history	test	added	BUG#3270	case	Improved	"ln	/tmp/failed-mysql-bugreport"
-11	annotate	diffs	history	test	BUG#3270	added	Improved	case	-s	/tmp/failed-mysql-bugreport"
-12	history	annotate	diffs	test	Improved	BUG#3270	case	added	/tmp/failed-mysql-bugreport"	/etc/passwd
-13	diffs	history	annotate	test	Improved	case	added	BUG#3270	/tmp/failed-mysql-bugreport"	protection
-14	annotate	history	diffs	test	added	Improved	BUG#3270	case	/tmp/failed-mysql-bugreport"	"ln
-15	history	annotate	diffs	test	added	Improved	case	BUG#3270	-s	"ln
-16	history	diffs	annotate	test	BUG#3270	added	case	Improved	"ln	-s
-17	annotate	diffs	history	test	case	Improved	added	BUG#3270	"ln	/etc/passwd
-18	annotate	history	diffs	test	added	case	Improved	"ln	BUG#3270	/tmp/failed-mysql-bugreport"
-19	annotate	diffs	history	test	Improved	BUG#3270	case	added	-s	"ln
+1117075753. 0	
+1	
+2	
+3	
+4	
+5	
+6	
+7	
+8	
+9	
+10	
+11	
+12	
+13	
+14	
+15	
+16	
+17	
+18	
+19	
 
-1081739404. 0	history	race	layout	cause	rare	bug)	fixed	annotate	diffs	(can
-1	history	db	(can	layout	annotate	cause	diffs	fixed	condition	bug)
-2	layout	race	history	annotate	db	rare	bug)	(can	condition	diffs
-3	history	(can	db	diffs	annotate	layout	race	bug)	condition	rare
-4	db	(can	diffs	history	fixed	race	bug)	annotate	condition	layout
-5	(can	history	diffs	db	layout	annotate	condition	fixed	rare	bug)
-6	history	(can	diffs	db	annotate	rare	race	layout	bug)	fixed
-7	(can	history	annotate	layout	race	bug)	db	rare	fixed	cause
-8	db	(can	annotate	cause	race	history	layout	rare	diffs	bug)
-9	(can	diffs	annotate	layout	db	cause	race	condition	history	fixed
-10	history	diffs	bug)	db	cause	(can	layout	race	fixed	rare
-11	history	diffs	db	(can	annotate	cause	layout	race	fixed	rare
-12	(can	annotate	history	db	diffs	fixed	rare	race	cause	layout
-13	db	diffs	race	history	cause	annotate	(can	fixed	rare	bug)
-14	history	(can	diffs	db	race	fixed	layout	condition	annotate	bug)
-15	annotate	db	layout	(can	bug)	condition	history	diffs	race	fixed
-16	history	(can	diffs	db	layout	race	fixed	cause	bug)	annotate
-17	db	history	diffs	layout	fixed	(can	race	rare	annotate	condition
-18	(can	history	db	annotate	diffs	race	condition	layout	fixed	rare
-19	history	db	annotate	(can	layout	diffs	cause	rare	bug)	race
+1119667753. 0	sut-diffs	minimize	PTS	Perl	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1134451	Test	error	changed	make	task
+1	index	fix	recreate	error	V75:	correct	update	stack	Fixed	compile
+2	File	sutcheck	v1.09	submitted	'SYSDD.punix'	'SYSDD.uunix'	'SYSDD.cpnix'	'SYSDD80.punix'	'SYSDD80.cunix'	'SYSDD80.cpnix'
+3	7.5.00:	memory	error	V75:	sut-diffs	minimize	dbmrfc	test	7.5.00	removed
+4	change#	delivery	subsequent	problem	V75:	=	variable	fixed	bug	Fixing
+5	changelist(s):	module(s)	integrate	and/or	change	(COR):	windows	PTS	tests	version
+6	submitted	v1.09	sutcheck	File	'SYSDD80.punix'	'SYSDD.punix'	'SYSDD80.uunix'	'NEW_OPTIMIZER.punix'	'SYSDD.upnix'	'SYSDD80.cpnix'
+7	File	sutcheck	v1.09	submitted	'SYSDD.cunix'	'SYSDD80.cunix'	'SYSDD.cpnix'	'SYSDD.uunix'	'SYSDD80.tpunx'	'MONITOR.punix'
+8	V75:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1134523	redo	release	Add	test	make	change	check	PTS
+9	check	submit	implicit	SQLDBC	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1134453	problem	added	fixed	size	V75:
+10	test	7.5	V75:	index	removed	unicode	PTS	make	Error	catalog
+11	7.5.00:	7.5.00	test	error	changed	OMS:	update	database	ODBC	test:
+12	check	submit	implicit	V75:	7.5	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1136397	test	time	multiple	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1134979
+13	submitted	v1.09	sutcheck	File	7.5.00:	output	console	PTS	7.5.00	'SYSDD.uunix'
+14	submitted	v1.09	sutcheck	File	7.5.00	change	copyright	'SYSDD80.upnix'	OMS:	'PTS.punix'
+15	changed	test	tests	7.5.00	optimizer	expected	V75:	kernel	backup	values
+16	problem	fixed	7.5.00:	error	correct	join	AIX	output	V75:	long
+17	PTS	V75:	added	message	database	data	test	tables	Make	warning
+18	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1136005	optimizer	crash	updated	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1136276	7.5	changed	WebDAV	statement	slowknl
+19	test	7.5.00	7.5	OMS:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1135506	vtrace	error	check	submit	implicit
 
-1084331404. 0	history	diffs	annotate	table_hash_search	correct	incorrect	SELECT	Fix	results	bug
-1	annotate	diffs	history	incorrect	correct	table_hash_search	SELECT	#4036	results	chained
-2	history	annotate	diffs	incorrect	correct	table_hash_search	multiple	SELECT	#4036	bug
-3	history	diffs	annotate	incorrect	SELECT	Fix	results	bug	#4036	DATE_FORMAT,
-4	annotate	history	diffs	incorrect	correct	table_hash_search	SELECT	multiple	#4036	results
-5	history	annotate	diffs	incorrect	table_hash_search	correct	multiple	SELECT	#4036	results
-6	diffs	annotate	history	incorrect	correct	table_hash_search	SELECT	DATE_FORMAT,	multiple	chained
-7	annotate	diffs	history	incorrect	correct	table_hash_search	SELECT	#4036	chained	results
-8	history	diffs	annotate	incorrect	correct	table_hash_search	multiple	SELECT	DATE_FORMAT,	prevent
-9	history	annotate	diffs	incorrect	correct	table_hash_search	SELECT	DATE_FORMAT,	multiple	results
-10	history	diffs	annotate	incorrect	instead	AND)	deleting	chained	(to	item
-11	history	annotate	diffs	incorrect	correct	table_hash_search	multiple	prevent	results	DATE_FORMAT,
-12	history	annotate	diffs	incorrect	SELECT	multiple	bug	Fix	#4036	DATE_FORMAT,
-13	annotate	diffs	history	incorrect	correct	table_hash_search	SELECT	DATE_FORMAT,	prevent	multiple
-14	annotate	history	diffs	incorrect	correct	table_hash_search	SELECT	multiple	prevent	chained
-15	annotate	diffs	history	incorrect	table_hash_search	correct	SELECT	multiple	#4036	results
-16	diffs	annotate	history	incorrect	chained	scanning	destructor	removed	recursion	instead
-17	history	diffs	annotate	incorrect	table_hash_search	correct	SELECT	multiple	#4036	results
-18	annotate	history	diffs	incorrect	correct	table_hash_search	multiple	#4036	chained	SELECT
-19	history	diffs	annotate	incorrect	correct	table_hash_search	#4036	SELECT	multiple	DATE_FORMAT,
+1122259753. 0	check	submit	implicit	error	PTS	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137135	>	LOAD	2SEMICOLON	104389
+1	PTS	to_char	Loader	testcase	ASCII	103848	1137163:	loading	DB	chars
+2	to_char	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131336	0SEMICOLON	leading	File	v1.09	sutcheck	submitted	test	on:
+3	PTS	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137385	crash	Runtime	Precompiler	test	on:	log	database	file
+4	7.5	test	error	7.5.00	added	OLTP	select	lcbenchmark	log	calculation
+5	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137385	data	only)	path	application	(Windows	common	function	wrong	select
+6	crash	fix	console	debug	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1136960	task	check	error	7.5	SAPDBAlgo_FunnelMerge
+7	check	submit	implicit	4.0	strategySEMICOLON	compatibility	WebDAV	102847	102837	classic
+8	File	v1.09	sutcheck	submitted	lcbenchmark	liveCache	Linuxia64_SLES9	AMD64:	SDK	'SUBQUERY.upnix'
+9	to_char	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1131336	select	ODBC	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1136980	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137147	103434	103179	called	winhead.h
+10	OLTP	changing	SLES-8,	purpose:	Linux	=>	IA64	7.5.00.*	check	submit
+11	test	update	error	7.5.00	added	on:	based	Wrong	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1136899	commit
+12	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1136980	format	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137364	performant	date	103194	version:	killer	TP2	internalSEMICOLONSEMICOLON
+13	7.5.00	Wrong	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1136899	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137135	commit	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137352	optimization	calculation	handling	V75:
+14	File	v1.09	sutcheck	submitted	PTS	Loader	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137144	1136606:	scalar	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1136606
+15	error	PTS	fix	wrong	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137352	optimization	V75:	alignment	'N40DATE.punix'	select/fetch
+16	test	error	added	removes	occurs	version	august	7.5	7.5.00	view
+17	7.5	added	liveCache	tests	output	4.0	Savepoint/release	selects	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137125	explain
+18	File	v1.09	sutcheck	submitted	test	7.5	based	7.5.00:	destroyed	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137142
+19	7.5.00	tests	view	drop	lcbenchmark:	synonymSEMICOLON	like-lengthSEMICOLON	103863	102867	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1134227
 
-1086923404. 0	diffs	history	annotate	YYSIZE_T	my_yyoverflow	parameter	independed	fix	safety	style
-1	diffs	history	annotate	fix	safety	my_yyoverflow	YYSIZE_T	parameter	independed	style
-2	diffs	annotate	history	fix	safety	independed	YYSIZE_T	my_yyoverflow	parameter	diff
-3	diffs	history	annotate	fix	safety	YYSIZE_T	my_yyoverflow	independed	parameter	link
-4	diffs	history	annotate	safety	fix	YYSIZE_T	independed	my_yyoverflow	parameter	style
-5	diffs	annotate	history	independed	YYSIZE_T	my_yyoverflow	parameter	fix	safety	diff
-6	diffs	annotate	history	safety	fix	YYSIZE_T	independed	my_yyoverflow	parameter	Merge
-7	diffs	history	annotate	fix	safety	YYSIZE_T	parameter	independed	my_yyoverflow	Merge
-8	diffs	history	annotate	safety	fix	independed	my_yyoverflow	YYSIZE_T	parameter	mysql.com:/home/mysql_src/mysql-3.23
-9	diffs	diff	-Nur	Bookmarkable	Merge	style	mysql.com:/home/mysql_src/mysql-3.23	link	gbichot@bk-internal.mysql.com:/home/bk/mysql-3.23	patch
-10	diffs	annotate	history	fix	safety	YYSIZE_T	parameter	my_yyoverflow	independed	style
-11	diffs	annotate	history	fix	safety	YYSIZE_T	my_yyoverflow	independed	parameter	Bookmarkable
-12	diffs	annotate	history	safety	fix	YYSIZE_T	independed	parameter	my_yyoverflow	style
-13	diffs	history	annotate	fix	safety	YYSIZE_T	independed	my_yyoverflow	parameter	Merge
-14	diffs	history	annotate	safety	fix	YYSIZE_T	my_yyoverflow	parameter	independed	Merge
-15	diffs	history	annotate	safety	fix	YYSIZE_T	parameter	my_yyoverflow	link	independed
-16	diffs	annotate	history	safety	fix	YYSIZE_T	parameter	independed	my_yyoverflow	Bookmarkable
-17	diffs	annotate	history	fix	safety	YYSIZE_T	parameter	independed	Merge	link
-18	diffs	history	annotate	safety	YYSIZE_T	fix	independed	parameter	my_yyoverflow	style
-19	diffs	history	annotate	fix	YYSIZE_T	safety	independed	parameter	my_yyoverflow	Merge
+1124851753. 0	7.5	7.5.00:	join	output	Added	remove	error	fixed	warnings	order
+1	check	submit	implicit	'JOIN_E.punix'	PTS	7.5	join	Added	view	V75:
+2	implicit	submit	check	7.5.00:	removed	output	file	Added	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1137412	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137530
+3	kernel	mini	dump	debugging	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1137808	post-mortem	test	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137530	Enhance	105971
+4	file	added	based	on:	testframe	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137587	index	105992	105601	drop
+5	installer	hangs	/etc/opt/sdb	PTS	7.5	7.5.00:	file	kernel	java	overflow
+6	test	removed	error	difference	Add	tp2	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137636	PTS	7.5	user
+7	PTS	7.5.00:	output	added	mini	dump	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137583	option	problems	(http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137047)
+8	File	submitted	v1.09	sutcheck	PTS	test	removed	difference	based	PTS:
+9	PTS	handling	JDBC	3.0	7.5	added	based	resume	on:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137767
+10	user	test	difference	Change	joinview	106820	107603	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137863	105932	connected
+11	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1137579	remove	check	submit	implicit	test	7.5.00	view	explain	access
+12	PTS	7.5.00:	7.5.00	file	test	kernel	log	updated	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137583	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1137622
+13	sutcheck	v1.09	submitted	File	handling	resume	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137767	TraceWriter	'VIEWCHCK.punix'	'SYSDD.punix'
+14	check	submit	implicit	test	join	user	7.5.00	view	add	PTS:
+15	sutcheck	v1.09	submitted	File	'SYSDD80.cunix'	join	fixed	'SYSDD.cunix'	Corrections	'JOIN_S.punix'
+16	7.5	log	autooverwrite	free	case	Redosavepoint	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137940	join	view	V75:
+17	sutcheck	v1.09	submitted	File	'SYSDD80.punix'	Added	backup	'SYSDD.cunix'	'SYSDD80.upnix'	'EVENT.tpunx'
+18	sutcheck	v1.09	submitted	File	'SYSDD.punix'	'SYSDD.cpnix'	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1137579	remove	distribution	'SYSDD80.uunix'
+19	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138023	DEC/OSF1	default	7.5.00:	output	V75:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1137491	columns	end	include
 
-1089515404. 0	GPL	include	4.0	annotate	text,	above)	exception	diffs	(it	-
-1	include	4.0	(it	GPL	LICENSE	license	annotate	text,	-	history
-2	4.0	GPL	LICENSE	(it	exception	above)	annotate	include	applies	text,
-3	GPL	4.0	include	LICENSE	license	annotate	-	history	diffs	text,
-4	4.0	GPL	(it	LICENSE	include	history	license	text,	diffs	exception
-5	GPL	include	LICENSE	exception	4.0	above)	annotate	history	(it	-
-6	include	4.0	GPL	LICENSE	diffs	above)	annotate	text,	exception	license
-7	GPL	include	LICENSE	FOSS	4.0	above)	applies	diffs	annotate	history
-8	4.0	GPL	include	exception	above)	annotate	LICENSE	history	(it	diffs
-9	GPL	include	4.0	above)	LICENSE	(it	license	exception	applies	-
-10	include	text,	license	FOSS	4.0	LICENSE	annotate	GPL	diffs	(it
-11	4.0	include	GPL	LICENSE	text,	exception	annotate	-	FOSS	diffs
-12	GPL	4.0	(it	include	LICENSE	FOSS	above)	-	applies	diffs
-13	include	LICENSE	(it	above)	GPL	history	4.0	annotate	applies	-
-14	4.0	include	exception	FOSS	LICENSE	text,	above)	license	(it	history
-15	4.0	GPL	include	exception	above)	(it	FOSS	license	text,	applies
-16	4.0	include	GPL	LICENSE	exception	text,	annotate	license	history	FOSS
-17	4.0	GPL	include	exception	above)	(it	text,	license	LICENSE	-
-18	LICENSE	exception	GPL	include	-	4.0	(it	history	applies	text,
-19	4.0	GPL	include	LICENSE	(it	exception	above)	FOSS	license	annotate
+1127443753. 0	check	protection	write	format	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138294	volume	Seitenreleases.	started	select	removed
+1	fixed	problem	subquery	sleep	test	7.5.00:	select	ODBC:	join	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1137980
+2	v1.09	submitted	File	sutcheck	test	7.5.00:	needed	'AK01TEST.uunix'	7.5.00DEV	integration
+3	packdistrib	wrong	Error	-os	verify	option	platform.	call.	software.	list
+4	ODBC:	COR	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138198	change	DEV	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138023	(COR):	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1137412	coroutines	alias
+5	v1.09	submitted	File	sutcheck	'MONITOR.uunix'	'MONITOR.cpnix'	'SYSDD.cunix'	'MONITOR.punix'	implicit	wrong
+6	test	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1138110	fixed	wrong	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138267	kernel	type	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138198	change	disabled
+7	check	make	join	usage	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138201	type	creating	disabled	108556	sqlcode
+8	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1138281	code	test	check	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1138110	ODBC:	removed	parameter	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1138249	Fixed
+9	test	error	Error	IA64	Linux	SLES	releases	set	7.4.03.25RAMP	environment
+10	V75:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1138281	shown	LogFull	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138069	fixed	problem	join	sut-diffs	usage
+11	test	7.5.00	PTS:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138098	ADINT2	basic	(part	removed	subquery	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138274
+12	sutcheck	File	submitted	v1.09	7.5.00:	memory	7.5.00	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1138281	PTS:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138098
+13	packdistrib	wrong	Error	-os	verify	option	platform.	call.	software.	fixed
+14	COR	-lca_buildselect	packdistrib	error	-os	perl	-dir	-state	-buildselect	-lca_variant
+15	check	implicit	submit	7.5.00:	error	memory	"shared	regard	fixed	problem
+16	test	XXX	APO	tests	OLTP	-MAKEKEY2	-MAKEKEY	"jtrun.pl	select	upgrade
+17	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1138110	comments	C++	test	check	ODBC:	sut-diffs	7.5	minimize	backup
+18	problem	7.5.00:	error	7.5.00	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1138281	PTS:	ODBC:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138098	join	subquery
+19	7.5.00:	queue	IOC	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1138110	IA64	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1137569	sut-diffs	Linux	minimize	atomic
 
-1092107404. 0	diffs	annotate	history	mysqltest	replacement.	MASTER_PORT	Enabled	Abandoned	hang/crash.	MERGE
-1	diffs	annotate	history	replacement.	mysqltest	Enabled	MASTER_PORT	Abandoned	hang/crash.	data.
-2	annotate	diffs	history	replacement.	mysqltest	MASTER_PORT	Enabled	hang/crash.	Multiple	table
-3	diffs	annotate	history	replacement.	mysqltest	Enabled	MASTER_PORT	Abandoned	MERGE	-
-4	annotate	history	diffs	MASTER_PORT	Enabled	replacement.	mysqltest	Abandoned	data.	altering
-5	diffs	annotate	history	replacement.	Enabled	mysqltest	MASTER_PORT	Abandoned	altering	hang/crash.
-6	diffs	history	annotate	MASTER_PORT	Enabled	replacement.	Abandoned	mysqltest	data.	altering
-7	annotate	diffs	history	mysqltest	MASTER_PORT	Enabled	replacement.	Abandoned	-	table
-8	annotate	diffs	history	Enabled	mysqltest	MASTER_PORT	replacement.	altering	-	Thanks
-9	diffs	history	annotate	replacement.	mysqltest	MASTER_PORT	Enabled	Abandoned	data.	hang/crash.
-10	diffs	history	annotate	Enabled	replacement.	MASTER_PORT	mysqltest	Abandoned	Multiple	altering
-11	diffs	history	annotate	replacement.	MASTER_PORT	Enabled	mysqltest	Abandoned	-	altering
-12	history	annotate	diffs	replacement.	Enabled	MASTER_PORT	Abandoned	mysqltest	data.	Multiple
-13	annotate	history	diffs	replacement.	Enabled	MASTER_PORT	Abandoned	mysqltest	data.	hang/crash.
-14	annotate	history	diffs	Enabled	mysqltest	MASTER_PORT	replacement.	Abandoned	altering	Multiple
-15	diffs	annotate	history	replacement.	MASTER_PORT	mysqltest	Abandoned	Enabled	-	data.
-16	diffs	annotate	history	mysqltest	replacement.	Enabled	MASTER_PORT	Abandoned	hang/crash.	-
-17	diffs	annotate	history	replacement.	MASTER_PORT	mysqltest	Abandoned	Enabled	hang/crash.	altering
-18	diffs	history	annotate	Abandoned	data.	altering	MERGE	hang/crash.	MyISAM	improper
-19	annotate	diffs	history	altering	-	Thanks	hang/crash.	Abandoned	improper	Ingo!
+1130035753. 0	test	on:	refreshed	based	7.5.00	PTS:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1136322	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138640	Based	removed
+1	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138467	balancing	load	parameter	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138487	command	handling	Prevent	VATTACH	optimizations
+2	WebDAV	classic	Testsuite	log	volume	ownership	modify	7.5.00:	added	error
+3	File	submitted	v1.09	sutcheck	'SYSDD.cpnix'	'UNICODE.upnix'	command	hot-standby	112302	110310
+4	optimized	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138467	Loadbalancing	sutcheck	v1.09	submitted	File	added	modulename	'A03INSER.uunix'
+5	7.5.00:	db_reg/db_unreg	on:	optimized	based	version	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138640	correctly	sut-diffs	AIX
+6	File	submitted	v1.09	sutcheck	'SYSDD80.upnix'	test	7.5.00:	check	'sutuni.mac'	volume
+7	File	submitted	v1.09	sutcheck	'sutuni.mac'	'SYSDD80.uunix'	'UNICODE.uunix'	'A03INSER.punix'	111885	110307
+8	7.5	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138635	Hotstandby:	1022	bytes	memoryBarrier	Kernel_Administration::m_lastSynchronizeOffset	>	check	error
+9	7.5.00	7.5.00:	check	set	PTS	submit	implicit	PTS:	RTE	correctly
+10	path	fixed	strategy	set	7.5	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138639	revert	log	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138798	environment
+11	File	submitted	v1.09	sutcheck	'SYSDD.uunix'	'SYSDD80.cunix'	'SYSDD.cunix'	'LOCKNORM.cunix'	110309	110308
+12	kernel	WebDAV	classic	7.5.00:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1138853	change	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138581	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138798	change#	112324
+13	added	on:	set	based	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1138853	loaderSEMICOLON	nolog	test	error	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1136322
+14	PTS	set	error	path	fixed	RTE	dbmcli	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138860	DBM	environment
+15	File	submitted	v1.09	sutcheck	'SYSDD80.cpnix'	PTS	7.5	balancing	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138635	load
+16	revert	change	WebDAV	test	classic	Testsuite	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138639	testcases	bugfix	110071
+17	WebDAV	classic	version	added	PTS	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138639	111896	workaround	111300	111865
+18	File	submitted	v1.09	sutcheck	added	WebDAV	on:	Testsuite	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1136322	sut-diffs
+19	check	submit	implicit	7.5.00	PTS:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138487	DBM	Server	112858	112021
+
+1132627753. 0	sut-diffs	minimize	OMS:	7.5.00	error	add	key-iterator	again.	112867	113843
+1	7.5	PTS	wrong	leak	stopped	duplicate	114693	113481	module-header	Typecheck
+2	remove	Fix	7403	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139036	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139263	optimizer	of:	error.	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139050	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139226
+3	V75:	7.5.00:	fixed	sequence	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139089	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139257	problem	greater	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1138972	search
+4	submitted	File	v1.09	sutcheck	correct	change	7.5.00:	sequence	wait	exception
+5	error	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139285	114106	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139224	113847	code	sys	alter	packet	sysSEMICOLON
+6	errors	PTS	wrong	fixed	SQLCLI	(INIT_OK	Fixing	etc.)	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139020	113077
+7	changed	test	change	V75:	case	redotrafficcontrol	113056	region	g08lockwait	113995
+8	PTS	Runtime	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139131	Precompiler	change	7.5	wrong	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139113	PCR	result
+9	VIEWTABLESSEMICOLON	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139109	7.5.00:	Fix	cursor.	union	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139221	113878	crash	113840
+10	submitted	File	v1.09	sutcheck	fixed	core	dump	114608	mini	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139434
+11	implicit	submit	check	test	error	remove	removed	114606	sapdb	'oltp
+12	implicit	submit	check	test	7.5	errors	leak	ODBC:	programs,	(stack
+13	submitted	File	v1.09	sutcheck	V75:	correct	removed	Frequency	'SYSDD80.cunix'	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139056
+14	7.5	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139150	Table_TempHashTable	114125	Write	'writev'	data	114435	remainig	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139360
+15	DEV	7.5.00:	added	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139265	crashes	113858	113848	correlationSEMICOLON	group	114057
+16	7.5	V75:	wrong	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139113	PCR	result	set	JDBC	114313	build
+17	7.5	case	committed	read	PTS	remove	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139113	core	dump	SQLCLI
+18	debugging	test	change	WIN64	failure	added	CPUs,	113837	113280	113462
+19	submitted	File	v1.09	sutcheck	test	error	sut-diffs	minimize	changed	ODBC:
+
+1135219753. 0	File	sutcheck	v1.09	submitted	Table_TempHashTable	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139150	'JOIN_P.cunix'	115896	115889	dbmreg
+1	test	fixed	pages	PTS	compilation	errors	true	windows	activated	114965
+2	Table_TempHashTable	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139150	7.5	115622	monitor	115553	reactivated	lc	116754	tool
+3	File	sutcheck	v1.09	submitted	'SYSDD80.uunix'	'SYSDD80.tpunx'	'SYSDD80.cpnix'	'SYSDD80.punix'	'SYSDD80.upnix'	'SYSDD.cunix'
+4	File	sutcheck	v1.09	submitted	7.5.00:	dbmreg	dbmunreg	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139608	'UNICODE.upnix'	'SYSDD80.cunix'
+5	File	sutcheck	v1.09	submitted	minimize	sut-diffs	7.5.00	'SYSDD80.punix'	error	fix
+6	7.5.00	fixed	long	problem	bug	alignment	Backint	PTS:	"100	compile
+7	File	sutcheck	v1.09	submitted	long	'SYSDD.punix'	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139496	view-descriptionSEMICOLON	115241	'INVEXP22.cunix'
+8	File	sutcheck	v1.09	submitted	implicit	submit	check	'SYSDD.cpnix'	'SYSDD.upnix'	'JOIN_J.punix'
+9	table	index	memory	shared	implicit	update	submit	check	(http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1137891)	V75:
+10	test	7.5	missing	failed	feature	kernel	explain	V75:	Wrong	removed
+11	test	explain	missing	changed	remove	differences	update	(http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1137891)	error	tables
+12	File	sutcheck	v1.09	submitted	V75:	'SYSDD.uunix'	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1110640	removed	'Update	time
+13	explain	7.5.00:	(http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1137891)	long	index	wrong	tables	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139012	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139496	'Update
+14	File	sutcheck	v1.09	submitted	'SYSDD80.tpunx'	'SYSDD80.cunix'	V75:	backup	'SYSDD.upnix'	wrong
+15	File	sutcheck	v1.09	submitted	update	(http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1137891)	(http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139499)	sampling	'SYSDD.uunix'	statistics
+16	File	sutcheck	v1.09	submitted	7.5.00:	7.5.00	7.5	memory	user	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1110640
+17	File	sutcheck	v1.09	submitted	'SYSDD80.upnix'	'JOIN_J.upnix'	'SPACE.cpnix'	116210	116584	115908
+18	test	7.5.00	7.5	backup	failed	wrong	report	Backint	return	PTS:
+19	(http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139499)	sampling	problem	volume	devi	integrate	test	update	changed	fixed
+
+1137811753. 0	submitted	v1.09	sutcheck	File	'SYSDD80.cpnix'	'SYSDD.upnix'	'SYSDD80.uunix'	'SYSDD.uunix'	'SYSDD.cunix'	'SYSDD.cpnix'
+1	7.5.00	PTS:	recover_volume	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140127	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140165	118316	NULLSEMICOLON	118678	altertime	test
+2	submitted	v1.09	sutcheck	File	7.5.00:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139608	dbmtest	'SYSDD80.uunix'	'NEW_OPTIMIZER.upnix'	117251
+3	handling	7.5.00	dbmunreg	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139965	omsCheckOid	OMS:	117055	Wrong	ASCII	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140102
+4	handling	SYSSTATISTICS	error	updates	Statistics:	commit	fixed	calling	record	64-bit
+5	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139012	test	118789	116937	116935	sysdd.multiversionreadstatistics	included	differences	removed	handling
+6	7.5.00:	PTS:	media	backup_history_list	Sort	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1134237	information	EBID	117849	test
+7	submitted	v1.09	sutcheck	File	'SYSDD.punix'	'SYSDD80.uunix'	'SYSDD.tpunx'	'N31STRIN.upnix'	118750	118747
+8	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139458	7.5.00	fixed	problems	calling	added	omsCheckOid	sut-diffs	OMS:	minimize
+9	submitted	v1.09	sutcheck	File	'SYSDD80.cunix'	'SYSDD80.cpnix'	'LOCKNORM.uunix'	'INVSUB1.upnix'	'YDMERGE.punix'	'FUNC.cunix'
+10	117265	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138686	change	117457	117600	117417	117410	SYSINFO.MULTIVERSIONREADSTATISTICS	subsequent	dbm.utlSEMICOLON
+11	64-bit	descriptor	access	problem.	http://pts:1080/webpts?ptsdetail=yes&ErrorType=1&ErrorID=1139841	MULTIVERSIONREADSTATISTICS	117399	close	117166	applications
+12	test	differences	removed	based	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1139458	on:	117617	117610	queryrewrite	117387
+13	submitted	v1.09	sutcheck	File	'SYSDD80.punix'	'SYSDD80.upnix'	'SYSDD80.tpunx'	'SYSDD.uunix'	'SYSDD.tpunx'	Precompiler
+14	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139012	NPTL	systems	118575	processors	compiler	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1140177	117163	LINUX	get_cycles
+15	submitted	v1.09	sutcheck	File	'SYSDD80.tpunx'	'SYSDD.uunix'	'ORADD.uunix'	118757	118755	117367
+16	submitted	v1.09	sutcheck	File	'A01DBA.uunix'	118752	test	differences	removed	handling
+17	submitted	v1.09	sutcheck	File	'SYSDD.cunix'	'SYSDD.cpnix'	'RENAME.punix'	118764	118746	'EVENT.tpunx'
+18	error	PTS:	recover_volume	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140127	II,	match	7.5.00,	time	test)	message
+19	7.5.00:	fixed	117265	dbmunreg	problems	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139965	added	record	sut-diffs	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138686
+
+1140403753. 0	***	PTS	7.5	PTS:	Tests	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140504	7.5.00	view	121266	consistent
+1	task	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140560	debug	119804	extensions	relative	(information	run	120554	serving
+2	task	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140560	tests	request	state	set	debug	static	errorcode	cases
+3	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140560	lock	handling	request	changed	yield	RunQueue,	task	added	set
+4	check	duplicate	->	conversion	leftover	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140636	ODBC:	fails	(http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140116)	binary
+5	test	added	7.5.00:	update	ODBC:	reference	PHYSICALCPUNUMBER	programs	niping	MACHINECONFIGURATION
+6	tests	scopes	119004	add	patches	pa60_initFetchChunk	'static'	missing	119976	(gcc
+7	change	7.5.00:	->	incorrect	DEV	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140214	COR	domain	(21.03.2006	changelist(s):
+8	7.5.00,	minimize	sut-diffs	PTS:	duplicate	state	V75	incorrect	-9206	fix
+9	check	submit	implicit	change	tests	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140462	file.	119806	revert	119296
+10	File	v1.09	sutcheck	submitted	error	'SYSDD80.tpunx'	'SYSDD.tpunx'	test	based	testframe
+11	PTS	Precompiler	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140565	Runtime	Tests	INDEX	test	removed	function	update
+12	7.5	Table_TempHashTable	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140309	check	PTS	submit	implicit	7.5.00:	visible	Sink
+13	error	MySQL	Remove	check	submit	implicit	removed	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140504	7.5.00	visible
+14	check	submit	implicit	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1140567	V75	120892	processId	KernelprocessidSEMICOLON	INSTANCE	statistic
+15	File	v1.09	sutcheck	submitted	'SYSDD80.punix'	'SYSDD80.cunix'	conversion	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140462	120819	page
+16	7.5.00,	PTS:	recover_volume	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140127	test)	(part	delete	lock	leftover	119052
+17	File	v1.09	sutcheck	submitted	'SYSDD80.upnix'	'SYSDD80.cpnix'	'SYSDD80.uunix'	'SYSDD80.tpunx'	'SYSDD.punix'	'SYSDD80.cunix'
+18	minimize	sut-diffs	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140636	120336	119017	120755	121118	121374	exist-subquerySEMICOLON	120199
+19	based	testframe	on:	removed	added	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1140385	error	test	duplicate	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1140645
+
+1142995753. 0	test	m_destroy_tempSEMICOLON	123853	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141102	include	123994	LcBenchmarkWrapper	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141069	knldiag	mail:
+1	test	request	sqlferase*()	123198	description	longer	Support	123817	match	info
+2	check	submit	implicit	optimizer	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140624	122934	122933	122932	122687	122585
+3	submitted	File	v1.09	sutcheck	update	error	optimizer	page	124322	122258
+4	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140970	monitor	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1140514	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1141052	representation	strategy	pointer...	123849	123845	names
+5	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140974	7.5.00.dev:	extdep4	extdep3	exdep2	123216	123213	123211	check	submit
+6	monitor	output	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1140514	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1140973	Precompiler	Runtime	PTS	load	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140896	tablekeySEMICOLON
+7	PTS:	7.5.00,	server	option	time	request	lock	remove	123528	122155
+8	messages	debug	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140974	7.5.00.dev:	exdep	124319	123197	121788	emergeny	(http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140048)
+9	submitted	sutcheck	v1.09	File	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140974	7.5.00.dev:	lock	waiting	'A01DBA.tpunx'	122657
+10	error	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140964	124311	123164	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141122	startup	LONG,	DEFAULTSEMICOLON	check	submit
+11	error	struct	122410	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140871	-845	variables	host	Fixed	check	submit
+12	submitted	sutcheck	v1.09	File	'INVSUB1.cpnix'	'INVSUB2.cunix'	'A01DBA.punix'	'INVSUB2.uunix'	update	test
+13	error	(http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140970)	number.	IP	appears	port	application	servername	message	address
+14	check	submit	implicit	change	'DERAPR.punix'	submitted	update	server	testprogram	122938
+15	update	reference	file	Remove	duplicate	server	add	testprogram	fixed	speed
+16	sutcheck	v1.09	File	submitted	'INVSUB2.upnix'	test	'AK01TEST.punix'	removed	'INVSUB1.upnix'	differences
+17	submitted	sutcheck	v1.09	File	'YDMERGE.upnix'	monitor	output	'AK01TEST.punix'	time	'NEW_OPTIMIZER.upnix'
+18	check	error	add	121757	missing	'UNICODE.punix'	a23new_version_no	avoid	(http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140803)	121697
+19	submitted	sutcheck	v1.09	File	check	submit	implicit	update	test	reference
+
+1145587753. 0	v1.09	submitted	File	sutcheck	'SYSDD.upnix'	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1140822	files	edit	'JOIN_E.cunix'	125712
+1	PTS	7.5	time.	SAPDBMem_RawAllocator.	LcBenchmark	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141081	1141039	allocation	124594	failed
+2	7.5.00	OMS:	TP2	124911	output	'A01DBA.uunix'	possibility	Add	(for	126373
+3	PTS	JDBC	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141296	7.5.00	lcBenchmark:	3.0	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1141055	Possibility	125258	Runtime
+4	sutcheck	File	submitted	v1.09	'SYSDD.tpunx'	'SYSDD80.uunix'	125722	'JOIN_S.punix'	125719	125717
+5	implicit	submit	check	7.5.00:	change	V75:	entry	Kernel_Migration::SearchForChange	MS	126467
+6	fixed	join	125550	hash	problems	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1141388	File	sutcheck	submitted	v1.09
+7	optimizer	test	on:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1136322	Based	removed	125695	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141514	126359	sutcheck
+8	test	update	timeout	7.5.00	7.5	reference	parameter	version	OMS:	V75:
+9	test	subtransaction	archive	updated	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141394	Anylzer	DB	124875	125629	124865
+10	7.5.00:	dbanalyzer	join	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1135658	systame	126420	tables	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140719	126371	parallel
+11	on:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1136322	Based	Release	Test	125690	125650	Optimizer	excluded	tests.
+12	test	7.5	subtransaction	archive	lcBenchmark:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1141055	refreshed	124441	125390	loadertest
+13	v1.09	submitted	File	sutcheck	'SYSDD.cunix'	'SYSDD.cpnix'	'SYSDD80.punix'	'SYSDD80.cpnix'	125718	125704
+14	changed	node	connection	fails	form	<node	name>:<port>	UNIX.	(http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140970)	7.5.00:
+15	on:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1136322	PTS	Based	JDBC	7.5SEMICOLON	removed	3.0	fixed	java.sql.PreparedStatement.executeBatch()
+16	test	subtransaction	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1140822	files	(only	solve	Workaround	add	124414	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141372
+17	v1.09	submitted	File	sutcheck	'SYSDD.cunix'	7.5.00:	changed	dbanalyzer	'SYSDD80.upnix'	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1135658
+18	v1.09	submitted	File	sutcheck	'SYSDD.punix'	'SYSDD.uunix'	'SYSDD.cpnix'	'SYSDD80.cunix'	'SYSDD80.tpunx'	'SYSDD80.punix'
+19	7.5.00:	update	reference	7.5SEMICOLON	'ORACLE.punix'	126209	protocol	125859	126363	124563
+
+1148179753. 0	sutcheck	v1.09	submitted	File	'SYSDD80.tpunx'	128381	granted	PAGES/ESTIMATED_PAGES	127968	128090
+1	TP2	select	output	debug	check	implicit	submit	mode	option	prints
+2	check	implicit	submit	TP2	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1141721	timetriggered	logbackup	127208	prints	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141669
+3	sutcheck	v1.09	submitted	File	'SYSDD80.uunix'	'SYSDD80.upnix'	'MONITOR.uunix'	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141907	128391	128388
+4	File	submitted	v1.09	sutcheck	'SYSDD.tpunx'	sut-diffs	minimize	'SYSDD80.upnix'	'A01DBA.upnix'	'SYSDD.uunix'
+5	sutcheck	v1.09	submitted	File	'SYSDD80.cpnix'	'SUBTRANS.punix'	error	'LOCKNORM.punix'	'SYSDD.upnix'	'ORACLE.punix'
+6	->	7.5.00:	DEV	127735	000/1	128352	126556	integrate	COR	module(s)
+7	sutcheck	v1.09	submitted	File	7.5.00	protocols	reference	'SYSDD.cpnix'	128617	128394
+8	7.5.00	switch	"VSS=*off"	126720	127396	pcrlib	PTS:	changed	NetWorker	7.4.03.42
+9	mode	problem	long	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141907	fixed	autocommit	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1140076	127677	wrong	126999
+10	check	implicit	submit	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1141721	timetriggered	logbackup	127208	V75	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141669	try_again)
+11	protocols	attachments	number	bytes	greater	option	testframe	127713	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1141725	subtransSEMICOLON
+12	error	select	long	fixed	127162	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141711	column	growing	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141920	127313
+13	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1141721	timetriggered	logbackup	V75	test	(errorhandling	128030	sequenceprivilegesSEMICOLON	128288	Add
+14	sutcheck	v1.09	submitted	File	'ORADD.uunix'	'A01DBA.uunix'	'ORACLE.uunix'	'SYSDD.upnix'	'A01DBA.upnix'	'ORACLE.punix'
+15	sutcheck	v1.09	submitted	File	'SYSDD80.tpunx'	'SYSDD80.cunix'	'SYSDD80.upnix'	sut-diffs	minimize	TP2
+16	7.5.00	case	error	servertasks	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141135	Servertaskhandling,	problem	Stop	GC	128737
+17	sutcheck	v1.09	submitted	File	'LONG.uunix'	'A01DBA.punix'	'SYSDD80.cpnix'	->	optimized	'LOCKNORM.punix'
+18	sutcheck	v1.09	submitted	File	'SYSDD.punix'	'SYSDD80.cunix'	'SYSDD80.punix'	128393	128378	128377
+19	optimized	added	view	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1141751	monitor	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1141734	REGION_BLOCKERS_AR	function	backing	127428
+
+1150771753. 0	sutcheck	v1.09	submitted	File	'LONG.uunix'	'SYSDD.punix'	enlargement	130271	130238	syntax
+1	sutcheck	v1.09	submitted	File	join	'SYSDD.upnix'	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1142344	search	'SYSDD.tpunx'	password
+2	7.5	systemtable	adjust	submit	implicit	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1142185	check	datastatistics	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141943	reskey_buildSEMICOLON
+3	V75	join	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141927	comment	remove	larger	128796	results	logbackup	unneccessary
+4	join	LINUX	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141979	problem	crash	fixed	index	global	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1138301	strategies
+5	sut-diffs	minimize	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141943	128780	128841	core	128833	129136	129010	ak67reskey_buildSEMICOLON
+6	sutcheck	v1.09	submitted	File	'SYSDD.uunix'	'MONITOR.punix'	'SYSDD.cunix'	129897	130516	129902
+7	bug	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1142233	error	ODBC:	file	-4001	Workaround	errortext-change	130223	test
+8	7.5	systemtable	logging	129534	Adjust	commands	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1138605	PTS:	unknown	SERVERDBSTATISTICS
+9	-3016	dbm.utl	numeric	128851	130411	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141899	constant	autosaveSEMICOLON	invalid	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1142298
+10	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1142344	Support	passwords	130621	LDAP	sutcheck	v1.09	submitted	File	7.5
+11	V75	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141927	ODBC:	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1142044	EOF	long	rescountSEMICOLON	pipe	129636	129634
+12	sutcheck	v1.09	submitted	File	'SYSDD.upnix'	'SYSDD.punix'	129898	130521	'SYSDD80.cunix'	129901
+13	7.5	adjust	handling	LINUX	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141979	exit()	illegal	NPTL	Versions	129048
+14	correction	comment	midnight	129536	130464	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1142318	PointInTime	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141896	Recovery	V7.5.00
+15	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1141943	reskey_buildSEMICOLON	error	http://pts:1080/webpts?wptsdetail=yes&ErrorType=1&ErrorID=1139722	128871	129951	revert	129023	-4001SEMICOLON	changeSEMICOLON
+16	correction	processor	http://pts:1080/webpts?ptsdetail=yes&ErrorType=0&ErrorID=1142322	130478	counting	cores,	sutcheck	v1.09	submitted	File
+17	sutcheck	v1.09	submitted	File	join	handling	search	subtrans	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1142044	sequence
+18	bug	http://pts:1080/webpts?wptsdetail=yes&ErrorType=0&ErrorID=1142233	password	(e.g.)	Database	fix	/dev/null	thread	CPU-Time	consumes
+19	sutcheck	v1.09	submitted	File	'SYSDD.cpnix'	'SYSDD.cunix'	'SYSDD.tpunx'	'SYSDD80.tpunx'	'SYSDD80.uunix'	130522
 
