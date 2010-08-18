@@ -59,6 +59,7 @@ Abram Hindle\\
 \begin{abstract}
 \todo[inline]{Topics and LDA sooner, Topics/concept location is a known
   research area and we're saying they don't do enough}
+
   Within the field of mining software repositories, many approaches,   such as topic modeling and concept location, rely on the automated   application of machine learning algorithms to corpora.  
  Unfortunately the output of these tools is often difficult to distinguish and interpret as they are often so abstract.
  Thus to have a meaningful discussion about the topics of software development, we must be able to devise appropriate labels for extracted topics. 
@@ -72,19 +73,20 @@ Abram Hindle\\
 
 \section{Introduction}
 
-When a developer addresses a topic of development, such as a requirement, maintenance, bug fixes or other software engineering tasks, they often produce or modify multiple development artifacts.
+Topics in software engineering practice refer to specific `threads' between project participants. These topics can include particular requirements, maintenance requests, bug fixes or other software engineering tasks. %NEIL: define topic specifically as akin to email 'thread'. It sounded too vague. Also changed from 'developers' to 'participants' because developers sounds too coding oriented. Our work could apply to testers, users, etc.
+In addressing a topic of development participants often produce or modify multiple development artifacts.
 %
-These development artifacts include: source code, bug reports, revisions to source code, and even test cases. 
+These artifacts can include source code, bug reports, revisions to source code, and test cases. 
 %
-Topics that are addressed are sometimes not immediately resolved, some topics recur across time, yet others are only dealt with briefly.
-%
-The goal of concept location and topic analysis research is to semi-automatically recover some of these topics, and the related software artifacts.
+Topics can be in several potential states: they may not be immediately resolved, they may re-occur, yet others are only dealt with briefly  (e.g., a bug report that is closed).
+% semi-automatically sounds too uncertain. I think the introduction can be more muscular and bold. Don't give the reviewer any room to start doubting.
+The goal of concept location and topic analysis research is to recover these topics and the related software artifacts.
 % get neil's data mining point in there
-The results of topic analysis and concept location are often very project specific, and not globally generalizable.
+To date, the results of topic analysis and concept location are project specific, and not globally generalizable.
 % get the interpretation aspect
-As well much of the current research stops short of interpreting the purpose of the topic. That is, extracted topics are usually manually named and labelled by those who read the topic words.
+Much of the current research stops short of interpreting the purpose of the topic. That is, extracted topics are usually manually named and labelled by those who read the topic words.
 % 
-Thus in this paper, we propose a method of interpreting and labelling some topics, and their related artifacts, that is generalizable and relevant to multiple projects.
+In this paper we propose a method of interpreting and labelling topics, and their related artifacts, that is generalizable and relevant to multiple projects.
 
 % % a rough sketch 
 % The size of these artifacts is cumbersome for a developer or stakeholder to comprehend, thus they often have to be ``chunked'', grouped, modularized, organized and finally labelled.
@@ -110,10 +112,9 @@ Thus in this paper, we propose a method of interpreting and labelling some topic
 
 % topics are numerous?
 Deriving such topics is difficult. 
-Raw topics from topic analysis are represented as unlabelled context-less word-lists or word distributions.
+Raw topics from topic analysis are represented as unlabelled context-free word-lists or word distributions.
 Topics have to be identified by interpreting the prevalent words in a word distribution and by inspecting related documents. 
-This manual approach is impractical when one has to handle more than one hundred different topics. 
-To scale to meaningfully sized projects, we require automatic assistance to determine the topic label.
+This manual approach is impractical when one has to handle hundreds of different topics; to scale to meaningfully sized projects, we require automatic assistance to determine the topic label.
 
 % why are topics useful
 Often developers interact with abstractions of these artifacts that topics are derived from, rather than the artifact itself. 
@@ -561,7 +562,7 @@ Our manual inspection and annotation of the topics extracted from MySQL and MaxD
 
 We showed that non-functional requirements are often trending topics, that non-functional requirements are quite common in developer topics, and that there are efficient methods of semi-automating and automating topic labelling.
 
-There are many avenues of further investigation.  We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  It is difficult to map abstract qualities to particular messages. Is a ``quality'' discussion about more than just corrective maintenance? %In this study we take the position that any type of maintenance has to do with software quality.
+There are several avenues of further investigation.  We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  It is difficult to map abstract qualities to particular messages. Is a ``quality'' discussion about more than just corrective maintenance? %In this study we take the position that any type of maintenance has to do with software quality.
 
 %XXX can save space here!
 \section{Appendix}
