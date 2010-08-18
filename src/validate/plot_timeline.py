@@ -71,13 +71,31 @@ def plot_timeline(proj, period_map):
         qm = period_map[period] # the quality map w/value
         y, m, d = period.split('-') # why I have to re create the datetime instance ... 
         date = datetime.date(int(y), int(m), int(d))
-        none_rect = Rectangle((date,0), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['none'])/float(max_value_map['none'])))
-        port_rect = Rectangle((date,5), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['portability'])/float(max_value_map['portability'])))
-        effc_rect = Rectangle((date,10),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['efficiency'])/float(max_value_map['efficiency'])))
-        reli_rect = Rectangle((date,15),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['reliability'])/float(max_value_map['reliability'])))
-        func_rect = Rectangle((date,20),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['functionality'])/float(max_value_map['functionality'])))
-        usab_rect = Rectangle((date,25),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['usability'])/float(max_value_map['usability'])))
-        main_rect = Rectangle((date,30),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['maintainability'])/float(max_value_map['maintainability'])))
+        
+        #now we draw a box with a transparent red fill. The transparency can be set based on several factors:
+        # - the ratio between that NFR's highest value and the current value (relative to self)
+        # - the ratio between the overall highest value and the current NFRs value (relative to all)
+        # - set the average topic number as a midpoint, and color based on distance from this average.
+        denominator = max(max_value_map.values())
+        
+        # relative to all
+        none_rect = Rectangle((date,0), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['none'])/float(denominator)))
+        port_rect = Rectangle((date,5), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['portability'])/float(denominator)))
+        effc_rect = Rectangle((date,10),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['efficiency'])/float(denominator)))
+        reli_rect = Rectangle((date,15),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['reliability'])/float(denominator)))
+        func_rect = Rectangle((date,20),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['functionality'])/float(denominator)))
+        usab_rect = Rectangle((date,25),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['usability'])/float(denominator)))
+        main_rect = Rectangle((date,30),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['maintainability'])/float(denominator)))
+        
+        #relative to self
+        # none_rect = Rectangle((date,0), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['none'])/float(max_value_map['none'])))
+        #         port_rect = Rectangle((date,5), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['portability'])/float(max_value_map['portability'])))
+        #         effc_rect = Rectangle((date,10),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['efficiency'])/float(max_value_map['efficiency'])))
+        #         reli_rect = Rectangle((date,15),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['reliability'])/float(max_value_map['reliability'])))
+        #         func_rect = Rectangle((date,20),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['functionality'])/float(max_value_map['functionality'])))
+        #         usab_rect = Rectangle((date,25),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['usability'])/float(max_value_map['usability'])))
+        #         main_rect = Rectangle((date,30),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['maintainability'])/float(max_value_map['maintainability'])))
+        
         
         ax.add_patch(none_rect)
         ax.add_patch(port_rect)
@@ -86,6 +104,15 @@ def plot_timeline(proj, period_map):
         ax.add_patch(func_rect)
         ax.add_patch(usab_rect)
         ax.add_patch(main_rect)
+        
+        #add text numbers to debug
+        ax.annotate(str(qm['none']), (date+num2date(5), 2.5) )
+        ax.annotate(str(qm['portability']), (date, 7.5) )
+        ax.annotate(str(qm['efficiency']), (date, 12.5) )
+        ax.annotate(str(qm['reliability']), (date, 17.5) )
+        ax.annotate(str(qm['functionality']), (date, 22.5) )
+        ax.annotate(str(qm['usability']), (date, 27.5) )
+        ax.annotate(str(qm['maintainability']), (date, 32.5) )
         
         i += barwidth
         
@@ -102,5 +129,5 @@ def plot_timeline(proj, period_map):
     #             fontsize=16,
     #             horizontalalignment='right', verticalalignment='top')
     #plt.show()
-    pylab.savefig(fig_dir + proj + '-timeline.pdf')
+    pylab.savefig(fig_dir + proj + '-timeline-all.pdf')
     
