@@ -1,6 +1,6 @@
 
 def word_list_exps():
-    return [ 'exp'+str(x) for x in [2,3]]
+    return [ 'exp'+str(x) for x in [1,2,3]]
 
 def word_list_dir( wln ):
     return '../' + str( wln ) + '/'
@@ -26,3 +26,37 @@ def get_exps():
     mysql_dir = "../../data/mysql-tagged/"
     exprs = [ ["maxdb",maxdb_dir, maxdb_periods] , [ "mysql",mysql_dir, mysql_periods ] ]
     return exprs
+
+__exp1_wordlist__ = [
+"accuracy", "availability", "correctness", "efficiency", "flexibility", "integrity", "interoperability", "maintainability", "modifiability", "modularity", "performance", "portability", "reliability", "security", "testability", "traceability", "understandability", "usability", "verifiability"]
+
+"""NFRs for EXP2 and EXP3"""
+__exp2_wordlist__ = ['portability', 'efficiency', 'reliability', 'functionality', 'usability', 'maintainability']
+    
+"""Look up table of wordlists for exp1..exp3"""
+__word_lists__ = {
+    'exp1':__exp1_wordlist__,
+    'exp2':__exp2_wordlist__,
+    'exp3':__exp2_wordlist__,
+}
+
+def gen_exp_wordlist_quality_map( exp ):
+    """ Given an expirement return its wordlist's quality map  """
+    l = __word_lists__[exp]
+    h = {}
+    for x in l:
+        h[x] = []
+    return h
+
+ 
+def load_wordlists(exp = 'exp3' ): 
+    """ load the datafile with the wordlists we want to use """
+    quality_map = gen_exp_wordlist_quality_map( exp )
+    # {'portability':[], 'efficiency':[], 'reliability':[], 'functionality':[], 'usability':[], 'maintainability':[]}
+    expdir = word_list_dir( exp )
+    for q in quality_map.keys():        
+        q_file = open( expdir + 'wordlist.' + q )
+        for line in q_file:
+            quality_map[ q ].append( line.rstrip() )
+    return quality_map
+

@@ -15,6 +15,7 @@ def false_positive_rate(fp,tn):
 def accuracy(tp,tn,fp,fn):
     return (tp + tn)/ (1.0 * tp + tn + fp + fn)
 def true_positive_rate(tp,fn):
+    if ((tp + fn) == 0): return 0
     return tp /(1.0 * ( tp + fn))
 def sensitivity(tp,fn):
     return true_positive_rate(tp,fn)

@@ -19,7 +19,8 @@ def load_period(period, data_dir = "../../data/maxdb-tagged/"):
     topics = doc.findall('Topic')
     #spme test establishing correct number
     return topics
-    
+ 
+
 def load_wordlists(expdir = '../exp3/' ): 
     """ load the datafile with the wordlists we want to use """
     quality_map = {'portability':[], 'efficiency':[], 'reliability':[], 'functionality':[], 'usability':[], 'maintainability':[]}
@@ -121,10 +122,9 @@ if __name__ == '__main__':
     #     topics = load_period(test_period)
     word_exps = get_exps.word_list_exps()
     for wl in word_exps:
-        wld = get_exps.word_list_dir( wl )
+        #wld = get_exps.word_list_dir( wl )
         print wl
-        quality_map = load_wordlists( wld )
-        
+        quality_map = get_exps.load_wordlists( wl )
         for exp in exps:
             #print exp
             ddir = exp[1]
@@ -141,11 +141,14 @@ if __name__ == '__main__':
             fp = make_count() #false positive - matches but isn't
             fn = make_count() #false negative - doesn't match but does
             tn = make_count() #true negative  - doesn't match but isn't
-            
+            yes = 0
+            no = 0
+            yncount = 0
             for period in periods:
                 pstr = "Period #" + period
                 #print pstr
                 #rfile.write(pstr+'\n')
+                ynfile.write(pstr+'\n')
                 topics = load_period(period, data_dir = ddir)
                 for t in topics:
                     annotations, thresh_el = create_element_list(t)
@@ -182,8 +185,13 @@ if __name__ == '__main__':
                             tn[a] += 1
 
                     ress = "Yes"
-                    if not res:
+                    #if not res: # return No if there were no automatches
+                    if len( matches) ==0  :
+                        no += 1
                         ress = "No"
+                    else:
+                        yes += 1
+                    yncount += 1
                     #print res
                     ynfile.write(ress+'\n')
                  
@@ -197,8 +205,15 @@ if __name__ == '__main__':
                 rfile.write(istr)
             istr = info_report_string("\ntotal", tpc, fpc, fnc, tnc)
             print istr
-            rfile.write(istr)
+            rfile.write(istr)        
                 
             # 
             rfile.close()
+            ynfile.write('################################\n');
+            ynfile.write('Named: ' + str(yes) + '\n')
+            ynfile.write('UnNamed: ' + str(no) + '\n')
+            ynfile.write('Total: ' + str(yncount) + '\n')
+            total_topics = 20 * len( periods ) # check out the magic number
+            ynfile.write('Total possible topics:' + str( total_topics ) + '\n')
+            ynfile.write('Blank topics:' + str(  total_topics - yncount ) + '\n')
             ynfile.close()
