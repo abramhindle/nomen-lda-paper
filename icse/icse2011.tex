@@ -73,8 +73,8 @@ Abram Hindle\\
 
 \section{Introduction}
 
-Topics in software engineering practice refer to specific `threads' between project participants. These topics can include particular requirements, maintenance requests, bug fixes or other software engineering tasks. %NEIL: define topic specifically as akin to email 'thread'. It sounded too vague. Also changed from 'developers' to 'participants' because developers sounds too coding oriented. Our work could apply to testers, users, etc.
-In addressing a topic of development participants often produce or modify multiple development artifacts.
+Topics in software engineering practice refer to specific `threads' between project stakeholders. These topics can include particular requirements, maintenance requests, bug fixes or other software engineering tasks. %NEIL: define topic specifically as akin to email 'thread'. It sounded too vague. Also changed from 'developers' to 'stakeholders' because developers sounds too coding oriented. Our work could apply to testers, users, etc.
+In addressing a topic of development stakeholders often produce or modify multiple development artifacts.
 %
 These artifacts can include source code, bug reports, revisions to source code, and test cases. 
 %
@@ -571,7 +571,14 @@ In \cite{ernst10refsq}, we describe our earlier project, similar to this, to ide
 
 \section{Conclusions and future work}
 
-We demonstrated that static but domain-specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet. We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
+% What did we do
+% What did we show
+% What did we do that was new?
+
+% use domain knowledge
+We demonstrated that static but domain-specific knowledge can improve unsupervised labelling of extracted topics. 
+Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet.
+We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
 
 Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted topics dealt with non-functional requirements, and these topics were spread across the entire history of a project. In the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
 
