@@ -86,7 +86,7 @@ As well much of the current research stops short of interpreting the purpose of 
 % 
 Thus in this paper, we propose a method of interpreting and labelling some topics, and their related artifacts, that is generalizable and relevant to multiple projects.
 
-% % a rough sketch
+% % a rough sketch 
 % The size of these artifacts is cumbersome for a developer or stakeholder to comprehend, thus they often have to be ``chunked'', grouped, modularized, organized and finally labelled.
 % Even more difficult is to pull together tangible trails or interests that pervade these artifacts.
 % These interests or topics are only really visible by analyzing multiple artifacts.
@@ -153,7 +153,7 @@ Figure \ref{fig:process} gives an outline of the methodology followed. We began 
 
 \begin{figure}
   \centering
- \includegraphics[width=.45\textwidth]{process-model}
+ \includegraphics[width=.45\textwidth]{figures/process-model}
  \caption{Research methodology process view.}
   \label{fig:process}
 \end{figure}
@@ -203,17 +203,17 @@ For the third list of quality labels,  \textsf{exp3}, we extended the list from 
 \textbf{Label} & \textbf{Related terms} \\
 \midrule
 \emph{Maintainability} &
-testability changeability analyzability stability maintain maintainable modularity modifiability understandability + interdependent dependency encapsulation decentralized modular\\ \hline
+testability changeability analyzability stability maintain maintainable modularity modifiability understandability interdependent dependency encapsulation decentralized modular\\ \hline
 \emph{Functionality} &
-security compliance accuracy interoperability suitability functional practicality functionality + compliant exploit certificate secured “buffer overflow” policy malicious trustworthy vulnerable vulnerability accurate secure vulnerability correctness accuracy\\ \hline
+security compliance accuracy interoperability suitability functional practicality functionality compliant exploit certificate secured ``buffer overflow'' policy malicious trustworthy vulnerable vulnerability accurate secure vulnerability correctness accuracy\\ \hline
 \emph{Portability} &
-conformance adaptability replaceability installability portable movableness movability portability + specification migration standardized l10n localization i18n internationalization documentation interoperability transferability\\ \hline
+conformance adaptability replaceability installability portable movableness movability portability specification migration standardized l10n localization i18n internationalization documentation interoperability transferability\\ \hline
 \emph{Efficiency} &
-“resource behaviour” “time behaviour” efficient efficiency + performance profiled optimize sluggish factor penalty slower faster slow fast optimization\\ \hline
+``resource behaviour'' ``time behaviour'' efficient efficiency performance profiled optimize sluggish factor penalty slower faster slow fast optimization\\ \hline
 \emph{Usability} &
-operability understandability learnability useable usable serviceable usefulness utility useableness usableness serviceableness serviceability usability + gui accessibility menu configure convention standard feature focus ui mouse icons ugly dialog guidelines click default human convention friendly user screen interface flexibility\\ \hline
+operability understandability learnability useable usable serviceable usefulness utility useableness usableness serviceableness serviceability usability gui accessibility menu configure convention standard feature focus ui mouse icons ugly dialog guidelines click default human convention friendly user screen interface flexibility\\ \hline
 \emph{Reliability} &
-“fault tolerance” recoverability maturity reliable dependable responsibleness responsibility reliableness reliability dependableness dependability + resilience integrity stability stable crash bug fails redundancy error failure\\ 
+``fault tolerance'' recoverability maturity reliable dependable responsibleness responsibility reliableness reliability dependableness dependability resilience integrity stability stable crash bug fails redundancy error failure\\ 
 \bottomrule
 \end{tabular}
 	\caption{NFRs and associated signifiers -- \textsf{exp2}}
@@ -229,7 +229,7 @@ operability understandability learnability useable usable serviceable usefulness
 Using our three word lists, we labeled our topics where there was a match between the list and the topic. In general, this approach did not work out well as common labels dominated the less common labels. The related words for \emph{correctness}, for example, tended to be too lengthy and non-specific. 
 Table \ref{tbl:wordlist} lists broad labeling results for MaxDB as an example. A \emph{named topic} is a topic with a matching label. There are \{periods X 20\} topics per project as we told LDA to extract 20 topics per period. All experiments were run on MaxDB 7.500 and MySQL 3.23 data.
 
-%\todo[inline]{this table should have mysql}
+%\todo[inline,color=green]{this table should have mysql}
 \begin{table}
 % This data came from running  
 %   python check_validity.py
@@ -245,9 +245,11 @@ Project & Measure & \textsf{exp1} & \textsf{exp2} & \textsf{exp3} \\
 %Named topics   & 281 & 125 & 328  \\
 %Unnamed topics & 139 & 295 & 92   \\
 MaxDB 7.500 & Named Topics   & 305 & 183 & 330 \\
-MaxDB 7.500 & Unnamed Topics & 84 & 206 & 59   \\
+MaxDB 7.500 & Unnamed Topics & 84  & 206 & 59   \\
+MaxDB 7.500 & Total  Topics  & 389 & 389 & 389 \\
 MySQL 3.23  & Named Topics   & 341 & 202 & 469 \\
 MySQL 3.23  & Unnamed Topics & 245 & 384 & 117 \\
+MySQL 3.23  & Total  Topics  & 586 & 586 & 586 \\
 \bottomrule
 \end{tabular}
 	\caption{Automatic topic labelling for MaxDB 7.500}
@@ -270,9 +272,9 @@ Based on the labels, and our manual topic labelling, we compared the results of 
 
 \begin{figure*}
   \centering
- \includegraphics[width=.55\textwidth]{unsupervised-bar}
+ \includegraphics[width=.85\textwidth]{figures/unsupervised-bar}
  \caption{ROC values for each NFR, per project and wordlist.}
-\todo[inline]{this is too tiny in print}
+%\todo[inline]{this is too tiny in print}
 
   \label{fig:maxdb-unsup-results}
 \end{figure*}
@@ -306,16 +308,16 @@ The less-frequently occurring a label the harder it is to get accurate results, 
 \begin{figure*}[ht]
 \centering
 \subfigure[MySQL]{
-\includegraphics[width=0.4\textwidth]{mysql-supervised}
+\includegraphics[width=0.4\textwidth]{figures/mysql-supervised}
 \label{fig:subfig1}
 }
 \subfigure[MaxDB]{
-\includegraphics[width=0.4\textwidth]{maxdb-supervised}
+\includegraphics[width=0.4\textwidth]{figures/maxdb-supervised}
 \label{fig:subfig2}
 }
 \label{fig:best-learn-per-tag}
-\caption[]{ROC value (black) for the best learner per label, compared with ZeroR accuracy values (grey).
-\todo[inline]{better discussion and graphical legend would be nice}
+\caption[]{ROC value for the best learner per label, compared with ZeroR accuracy values.  Possible values range from 0--1.
+\todo[inline]{better discussion}
 }
 \end{figure*}
 
@@ -333,16 +335,16 @@ The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act a
 \begin{figure*}[ht]
 \centering
 \subfigure[MySQL]{
-\includegraphics[width=0.4\textwidth]{multi-label-results-mysql}
+\includegraphics[width=0.4\textwidth]{figures/multi-label-results-mysql}
 \label{fig:subfig3}
 }
 \subfigure[MaxDB]{
-\includegraphics[width=0.4\textwidth]{multi-label-results-maxdb}
+\includegraphics[width=0.4\textwidth]{figures/multi-label-results-maxdb}
 \label{fig:subfig4}
 }
 \label{fig:mulan}
-\caption[]{MySQL and MaxDB macro (grey) and micro (black) ROC results per multi-label learner.
-\todo[inline]{better discussion and graphical legend would be nice}
+\caption[]{MySQL and MaxDB macro (grey) and micro (black) ROC results per multi-label learner. Possible values range from 0--1.
+\todo[inline]{better discussion}% and graphical legend would be nice}
 }
 \end{figure*}
 
@@ -373,19 +375,19 @@ We created two visualizations of the manually labelled data. A problem we faced 
   \centering
   % hi-res version
   %\includegraphics[height=.55\textheight]{maxdb-time-smear-plot-Equal}
-  \includegraphics[height=.55\textheight]{small-maxdb-time-smear-plot-Equal}
+  \includegraphics[width=\textwidth]{figures/maxdb-timeline}
   % \includegraphics[height=.57\textheight]{small-maxdb-time-smear-plot-Equal}
-  \caption{MaxDB 7.500: Labelled topics related to non-functional software qualities plotted over time, continuous topics are trends that occur across time}
-  \label{fig:maxdb}
+ % \caption{MaxDB 7.500: Labelled topics related to non-functional software qualities plotted over time, continuous topics are trends that occur across time}
+  \caption{MaxDB 7.500: NFRs over time. Topic frequency relative to that quality is mapped to alpha (transparency) value.}
+ \label{fig:maxdb}
 \end{figure*}
 
 \begin{figure*}%[h]
   \centering
-  % hi-res version
-  %\includegraphics[width=.97\textwidth]{mysql-time-smear-plot-Equal}
+ %\includegraphics[width=.97\textwidth]{mysql-time-smear-plot-Equal}
   %\includegraphics[width=.97\textwidth]{small-mysql-time-smear-plot-Equal}
-  \includegraphics[width=.97\textwidth]{mysql-timeline}
-  \caption{MySQL 3.23:NFRs over time. Topic frequency is mapped to alpha (transparency) value.}
+  \includegraphics[width=\textwidth]{figures/mysql-timeline}
+  \caption{MySQL 3.23: NFRs over time. Topic frequency relative to that quality is mapped to alpha (transparency) value.}
   \label{fig:mysql}
 \end{figure*}
 
