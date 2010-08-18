@@ -5,7 +5,7 @@ Plot timelines with no spaces. Input is a range of values per quality.
 import matplotlib
 matplotlib.use('pdf')
 
-from matplotlib.dates import YearLocator, MonthLocator, DateFormatter
+from matplotlib.dates import YearLocator, MonthLocator, DateFormatter, num2date
 from matplotlib.patches import Rectangle
 from matplotlib.lines import Line2D     
 import matplotlib.pylab as pylab
@@ -14,10 +14,13 @@ from pylab import rc
 
 import datetime
 
+
 def plot_timeline(proj, period_map):
     """ Plot a timeline view a la ConcernLines to show trends in topic occurrence """
     
-    fig_dir = '/Users/nernst/Dropbox/research/abram/papers/naming-paper/icse/figures/'
+    #fig_dir = '/Users/nernst/Dropbox/research/abram/papers/naming-paper/icse/figures/'
+    # sorry bro
+    fig_dir = './output/' # /Users/nernst/Dropbox/research/abram/papers/naming-paper/icse/figures/'
     #configure the figure
     width = 17
     height = 6
@@ -62,6 +65,16 @@ def plot_timeline(proj, period_map):
     #max value is across all periods in that quality
     #i am personally offended by this code
     max_value_map = {'none':0,'portability':0, 'efficiency':0, 'reliability':0, 'functionality':0, 'usability':0, 'maintainability':0}
+
+    # the order of display
+    value_order = [ 'none' , 'portability' , 'efficiency' , 'reliability' , 'functionality' , 'usability' , 'maintainability' ]
+    value_start = {}
+    # they y values of value
+    vo = 0
+    for value_name in value_order:
+        value_start[ value_name ] = vo
+        vo += 5
+
     for qm in period_map.values():
         for q in qm.keys():
             if qm[q] > max_value_map[q]: max_value_map[q] = qm[q]
@@ -79,34 +92,49 @@ def plot_timeline(proj, period_map):
         denominator = max(max_value_map.values())
         
         # relative to all
-        none_rect = Rectangle((date,0), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['none'])/float(denominator)))
-        port_rect = Rectangle((date,5), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['portability'])/float(denominator)))
-        effc_rect = Rectangle((date,10),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['efficiency'])/float(denominator)))
-        reli_rect = Rectangle((date,15),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['reliability'])/float(denominator)))
-        func_rect = Rectangle((date,20),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['functionality'])/float(denominator)))
-        usab_rect = Rectangle((date,25),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['usability'])/float(denominator)))
-        main_rect = Rectangle((date,30),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['maintainability'])/float(denominator)))
-        
-        #relative to self
-        # none_rect = Rectangle((date,0), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['none'])/float(max_value_map['none'])))
-        #         port_rect = Rectangle((date,5), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['portability'])/float(max_value_map['portability'])))
-        #         effc_rect = Rectangle((date,10),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['efficiency'])/float(max_value_map['efficiency'])))
-        #         reli_rect = Rectangle((date,15),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['reliability'])/float(max_value_map['reliability'])))
-        #         func_rect = Rectangle((date,20),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['functionality'])/float(max_value_map['functionality'])))
-        #         usab_rect = Rectangle((date,25),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['usability'])/float(max_value_map['usability'])))
-        #         main_rect = Rectangle((date,30),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['maintainability'])/float(max_value_map['maintainability'])))
-        
-        
-        ax.add_patch(none_rect)
-        ax.add_patch(port_rect)
-        ax.add_patch(effc_rect)
-        ax.add_patch(reli_rect)
-        ax.add_patch(func_rect)
-        ax.add_patch(usab_rect)
-        ax.add_patch(main_rect)
+        # loop over it instead of copy and paste
+        for value in value_order:
+            #rect = Rectangle((date,value_start[value]), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm[ value ])/float(max_value_map[ value ])))
+            rect = Rectangle((date,value_start[value]), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm[ value ])/float(denominator)))
+            ax.add_patch( rect )
+            # now draw the boxes relative the stream itself
+            # 0.49 is for half height
+            h = 0.49 * barheight * float(qm[ value ]) / float( max_value_map[ value ])
+            vrect = Rectangle((date,value_start[value]), barwidth, h,fill=True,lw=1, fc='black',)#alpha=(float(qm[ value ])/float(max_value_map[ value ])))
+            ax.add_patch( vrect )
+
+
+
+        # none_rect = Rectangle((date,0), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['none'])/float(denominator)))
+        # port_rect = Rectangle((date,5), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['portability'])/float(denominator)))
+        # effc_rect = Rectangle((date,10),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['efficiency'])/float(denominator)))
+        # reli_rect = Rectangle((date,15),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['reliability'])/float(denominator)))
+        # func_rect = Rectangle((date,20),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['functionality'])/float(denominator)))
+        # usab_rect = Rectangle((date,25),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['usability'])/float(denominator)))
+        # main_rect = Rectangle((date,30),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['maintainability'])/float(denominator)))
+        # 
+        # #relative to self
+        # # none_rect = Rectangle((date,0), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['none'])/float(max_value_map['none'])))
+        # #         port_rect = Rectangle((date,5), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['portability'])/float(max_value_map['portability'])))
+        # #         effc_rect = Rectangle((date,10),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['efficiency'])/float(max_value_map['efficiency'])))
+        # #         reli_rect = Rectangle((date,15),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['reliability'])/float(max_value_map['reliability'])))
+        # #         func_rect = Rectangle((date,20),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['functionality'])/float(max_value_map['functionality'])))
+        # #         usab_rect = Rectangle((date,25),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['usability'])/float(max_value_map['usability'])))
+        # #         main_rect = Rectangle((date,30),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['maintainability'])/float(max_value_map['maintainability'])))
+        # 
+        # 
+        # ax.add_patch(none_rect)
+        # ax.add_patch(port_rect)
+        # ax.add_patch(effc_rect)
+        # ax.add_patch(reli_rect)
+        # ax.add_patch(func_rect)
+        # ax.add_patch(usab_rect)
+        # ax.add_patch(main_rect)
         
         #add text numbers to debug
-        ax.annotate(str(qm['none']), (date+num2date(5), 2.5) )
+        # what was this?
+        #ax.annotate(str(qm['none']), (date+num2date(5), 2.5) )
+        ax.annotate(str(qm['none']), (date, 2.5) )
         ax.annotate(str(qm['portability']), (date, 7.5) )
         ax.annotate(str(qm['efficiency']), (date, 12.5) )
         ax.annotate(str(qm['reliability']), (date, 17.5) )
@@ -128,6 +156,8 @@ def plot_timeline(proj, period_map):
     #             arrowprops=dict(facecolor='black', shrink=0.05),
     #             fontsize=16,
     #             horizontalalignment='right', verticalalignment='top')
-    #plt.show()
-    pylab.savefig(fig_dir + proj + '-timeline-all.pdf')
+    matplotlib.pyplot.show()
+    filename = fig_dir + proj + '-timeline.pdf'
+    print filename
+    pylab.savefig( filename )
     
