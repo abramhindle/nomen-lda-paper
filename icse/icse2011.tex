@@ -612,14 +612,83 @@ Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed th
 
 
 \section{Conclusions and future work}
+\todo[inline]{Need to juxtapose our work against previous work -- contribution}
 
-We demonstrated that static but domain-specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet. We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
 
-Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted topics dealt with non-functional requirements, and these topics were spread across the entire history of a project. In the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
+% What did we do
+% What did we show
+% What did we do that was new?
 
+% para 1 we did this, we were successful
+In this paper we presented a cross-project data mining technique that was appropriate for mining and labelling non-functional requirements topics and artifacts from project histories.
+Our contributions include:
+\begin{itemize}
+\item We provide an unsupervised method of topic labelling (word-bags);
+%\item Our unsupervised method can be applied to projects without training;
+\item We demonstrate a supervised method of labelling topics by a single NFRs (machine learning);
+\item We demonstrate a supervised method of labelling topics by multiple NFRs (multi-label machine learning);
+\item We provide a method of cross-project analysis via topic labelling;
+\item We demonstrate a method of visualizing these topics across time.
+\end{itemize}
+We leveraged word-bags, machine learning classifiers and multi-label machine learning classifiers.  
+We evaluated these techniques using multiple experiments against two open source database systems and visualized the results.
+We found that our topic labelling techniques were effective.
+
+% para 2 we did this to validate and show we did it
+% Experiment description -- origin of wordbags
+We validated our topic labelling techniques using multiple experiments.
+Using unsupervised word-bag analysis we set up two NFR topic labelling experiments: 
+our \textsf{exp2} experiment used small but accurate word-bags, while \textsf{exp3} used large general word-bags derived from WordNet.
+The performance of these techniques differed per NFR but both \textsf{exp2} and \textsf{exp3} had similar performance.
+%Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet.
+% we could can improve auto labelling with ML
+Our third experiment showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic topic labelling even further.
+Our fourth experiment evaluated the effectiveness of multi-label learners, such as HOMER. 
+Both kinds of learners performed well with area under the ROC curve values between $.6$ and $.8$.
+
+% para 3 look while we did it we found this
+% total topics - maybe move above
 We showed that non-functional requirements are often trending topics, that non-functional requirements are quite common in developer topics, and that there are efficient methods of semi-automating and automating topic labelling.
+% We found NFRs
+Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted topics dealt with non-functional requirements, and these topics were spread across the entire history of a project. 
+% Try to provide an example of NFRs but little context
+In the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
 
-There are several avenues of further investigation.  We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  It is difficult to map abstract qualities to particular messages. Is a ``quality'' discussion about more than just corrective maintenance? %In this study we take the position that any type of maintenance has to do with software quality.
+% para 4 summarize and hammer contribution
+In conclusion,
+topic analysis and concept analysis research has produced topics that need to be manually labelled. 
+We found that topics without labels are difficult to interpret.
+Thus we leveraged software engineering knowledge to produce a method of domain specific topic labelling.
+The word-bag technique is not project specific, thus it has intrinsic value when analyzing multiple projects.
+We demonstrated multiple supervised and unsupervised methods of topic labelling, including multi-label learners.
+We provided a case study and visualization of NFR related topics in MaxDB 7.500 and MySQL 3.23. 
+During the case study we manually labelled 100s of topics by hand then used these annotations to validate the positive performance of topic labelling techniques.
+We showed that topics with labels are more useful than unlabelled topics, thus to furnish stakeholders with labelled topics we provided many methods of automatic topic labelling.
+
+  
+\subsection{Future Work}
+ 
+ % para 5 future work
+ % Future work
+There are several avenues of further investigation.  
+ % Talk to people
+We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  It is difficult to map abstract qualities to particular messages. 
+ % This is disjointed and needs more context
+On question we seek to answer is if a ``quality'' discussion about more than just corrective maintenance? %In this study we take the position that any type of maintenance has to do with software quality.
+ 
+ %\todo[inline]{Future work is disjointed the question should be more clear}
+
+
+% Be careful how you merge!
+
+% We demonstrated that static but domain-specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet. We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
+
+% Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted topics dealt with non-functional requirements, and these topics were spread across the entire history of a project. In the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
+
+% We showed that non-functional requirements are often trending topics, that non-functional requirements are quite common in developer topics, and that there are efficient methods of semi-automating and automating topic labelling.
+
+% There are several avenues of further investigation.  We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  It is difficult to map abstract qualities to particular messages. Is a ``quality'' discussion about more than just corrective maintenance? %In th
+%is study we take the position that any type of maintenance has to do with software quality.
 
 %XXX can save space here!
 %\section{Appendix}
