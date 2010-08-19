@@ -1,7 +1,7 @@
 \documentclass[]{sig-alternate}
  \usepackage{booktabs}
 \usepackage[caption=false]{subfig}
- \usepackage[colorinlistoftodos,backgroundcolor=yellow]{todonotes}
+ \usepackage[colorinlistoftodos,backgroundcolor=yellow]{todonotes} %disable
  \usepackage{color}
 
 \newcommand{\XXX}[1]{\textcolor{red}{{\it \textbf{[XXX: #1]}}}}
@@ -135,28 +135,6 @@ Much of the current research stops short of interpreting the purpose of the topi
 That is, extracted topics are usually manually named and labelled by those who read the topic words.
 We propose a method of interpreting and labelling topics, and their related artifacts, that is generalizable and relevant to multiple projects.
 
-% % a rough sketch 
-% The size of these artifacts is cumbersome for a developer or stakeholder to comprehend, thus they often have to be ``chunked'', grouped, modularized, organized and finally labelled.
-% Even more difficult is to pull together tangible trails or interests that pervade these artifacts.
-% These interests or topics are only really visible by analyzing multiple artifacts.
-% Other researchers have focused on extracting these topics from development artifacts, but often their approach leaves the organization or the labelling step to the user.
-% What we propose is to 
-% In this paper, we seek to automatically extract these interests, or topics that link artifacts such as source control commits and label them.
-
-% % Read for SE Data Mining
-% % Read for Topic Naming
-% % Read for previous research DID NOT
-% % thoughts, what does this do what are we introducing
-% % these abstractions ... how to link them
-
-% The act of developing software generates many artifacts, including source code, bug reports, commit messages, and test cases. 
-% It does not take long for a software project to grow to a point where keeping track of these artifacts exceeds easy comprehension. 
-% For these projects, developers interact with abstractions of these artifacts, rather than the artifact itself. Such abstractions include project dashboards~\cite{kersten2005mylar}, tags~\cite{treude2010}, and complexity metrics \cite{mccabe1976complexity}. 
-
-
-% Developers do more than merely observe these abstractions, however. They must also use them to assess progress and work with colleagues. To have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for our development artifacts. Such labels can be used to compare progress or understand how well a project is meeting requirements. These labels then become the topics for development conversations (such as the stream of commentary on a bug report). One way to identify topics is to use the artifacts themselves to derive them. 
-% \todo[inline]{it should be labels for topics not artifacts, I think the artifact part is almost secondary and the topic stuff is really what is up. Topics are used below and it isn't even clear what they are or what we're talking about. Naming is important but lets tell the reader what is being named first.}
-
 % topics are numerous?
 Deriving such topics is difficult. 
 Topic analysis produces raw topics that are represented as unlabelled context-free word-lists or word distributions.
@@ -172,7 +150,7 @@ In this sense, they are useful abstractions for developer conversations about di
 % harp on data mining more
 In general the data mining of software artifacts tends to be very project specific, yet NFRs are not. 
 NFRs are prevalent in almost all software systems.
-In this paper we will show that NFR related topics occur quite frequently.
+% In this paper we will show that NFR related topics occur quite frequently.
 This informs our method of generalizing the data mining of these software artifacts to leverage the global domain knowledge of software engineering, specifically NFRs. In particular, we use software quality models to generalize topics across projects. 
 This allows us to data mine software systems with the intention of comparing their NFR-related development topics.
 % in order to achieve generalizable, cross project data mining results.
@@ -183,19 +161,17 @@ In this paper, we describe \textbf{Nomen}, which is a tool for \emph{labelled to
 \begin{enumerate}
   \item Topic mining of software has been limited to one project at a time. This is because traditional topic mining techniques are specific to a particular data-set. \textbf{Nomen} allows for comparisons \textit{between} projects. 
   \item Topic modeling creates word lists that require interpretation by the user to assign meaning. Like (1), this means
-that it is difficult to discuss results independent of the project context. Our technique automatically assigns labels agnostic of project.
+that it is difficult to discuss results independent of the project context. Our technique automatically assigns labels across projects.
 \end{enumerate}
 
-This paper begins by introducing labelled topic extraction (Section \ref{sec:wordlist}). We show that these labels with their topics can be learned and used to classify other data-sets. We then present visualizations of named topics and their trends over time to aid communication and analysis. We use an exploratory case study of two open source database systems to show how named topics can be compared between projects.
+This paper begins by introducing labelled topic extraction (Section \ref{sec:wordlist}). We show that these labels with their topics can be learned and used to classify other data-sets, either without training (Section \ref{sec:unsuplabelling}), or with training (Section \ref{sec:suplearn}). We then present visualizations of named topics and their trends over time to aid communication and analysis. We use an exploratory case study of two open source database systems to show how named topics can be compared between projects  (Section \ref{sec:analysis}). The paper concludes with a discussion of limitations (Section \ref{sec:limit}) and related work (Section \ref{sec:related}).
 
 %\todo[inline]{Topics are poorly defined by this point and since we're building on research which didn't DO this, we should mention that research. Previous work probably should go here.}
 
 \todo[inline]{We still haven't shown that topics are useful -- a reviewer comment}
 
 \section{Study design and execution}
-Figure \ref{fig:process} gives an outline of the methodology followed. We began by gathering source data;
-then we manually annotated the topics of these sources by their related NFRs;
- then applied unsupervised and supervised learning techniques to identify topics. We then use these topics to analyze the role of non-functional requirements in software maintenance.
+Figure \ref{fig:process} gives an outline of the methodology followed. We began by gathering source data. We then applied unsupervised and supervised learning techniques to identify topics. These topics were used to analyze the role of non-functional requirements in software maintenance.
 
 \begin{figure}
   \centering
@@ -206,6 +182,7 @@ then we manually annotated the topics of these sources by their related NFRs;
 
 \subsection{Generating the data}
 \label{sec:wordlist}
+
 To evaluate our approach, we sought candidate systems that were mature projects and had openly accessible source control repositories. 
 We selected systems from the same application domain, so the functional requirements would be broadly similar. 
 We selected MySQL 3.23 and MaxDB 7.500 as they were open-source, partially-commercial database systems. 
@@ -224,7 +201,7 @@ Stemming was performed in the later stages of our analysis. % WAS IT?
 
 For the commit message data-sets of each project, we created an XML file which separated commits into 30 day periods. 
 This size of period, 30 days, is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze. 
-For each period of each project, we input the messages of that period into Latent Dirichlet Allocation (LDA), a topic analysis algorithm, and recorded the topics of each period.
+For each period of each project, we input the messages of that period into Latent Dirichlet Allocation (LDA), a topic analysis algorithm~\cite{Blei2003}, and recorded the topics of each period.
 %For each project and for each period of messages a project, we input these messages 
 %we created `topics' using Latent Dirichlet Allocation, a topic identification algorithm. 
 
@@ -243,8 +220,11 @@ We applied Blei's LDA implementation~\cite{Blei2003} against the word distributi
 We set the number of topics to generate to $20$, because past experimentation, e.g. \cite{Hindle09ICSM}, showed that fewer topics might aggregate multiple unique topics while any more topics seemed to dilute the results and create indistinct topics. 
 Furthermore, more than $20$ topics quickly became infeasible for inspection.
 
+
 \subsection{Generating word lists}
-Topics are word distributions: lists of words ranked by frequency, which can be burdensome to interpret and hard to distinguish and understand. While the topic models themselves are generated automatically, what to make of them is less clear. For example, in our previous work~\cite{Hindle09ICSM}, as well as in Baldi et al.~\cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. E.g., for the word list \emph{``listener change remove add fire''}, Baldi et al. assign the keyword \emph{event-handling}. The labels are reasonable enough, but still require an expert in the field to determine them. We sought to automate the process of naming the topics.
+Topics are word distributions: lists of words ranked by frequency, which can be burdensome to interpret and hard to distinguish and understand. While the topic models themselves are generated automatically, what to make of them is less clear. For example,
+% in our previous work~\cite{Hindle09ICSM}, as well as -- CITED a little too often
+in Baldi et al.~\cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. E.g., for the word list \emph{``listener change remove add fire''}, Baldi et al. assign the keyword \emph{event-handling}. The labels are reasonable enough, but still require an expert in the field to determine them. We sought to automate the process of naming the topics.
 
 Accordingly, we tried to associate each topic with a label from a list of keywords and related terms. We performed simple string matching between these topics and our lists, `naming' a topic if it contained that word or words (a topic might match several keywords). We used several different word lists for comparison, which we call \textsf{exp1, exp2, exp3} in the text which follows. 
 
@@ -265,9 +245,9 @@ To construct these expanded word lists, we used WordNet~\cite{Fellbaum1998}, an 
 
 For the third list of quality labels,  \textsf{exp3}, we extended the list from \textsf{exp2} using unfiltered WordNet similarity matches. Similarity in WordNet means siblings in a hypernym tree. We do not include these words here for space considerations (but see the Appendix for our data repository). It is not clear the words associated with our labels are specific enough, however: for example, the label \emph{maintainability} is associated with words \emph{ease} and \emph{ownership}.
 
-\begin{table*}
+\begin{table*}[]
 	\centering
-\begin{tabular}{c|p{9cm}}
+\begin{tabular}{c|p{11cm}}
 \toprule
 \textbf{Label} & \textbf{Related terms} \\
 \midrule
@@ -290,16 +270,21 @@ operability understandability learnability useable usable serviceable usefulness
 
 \end{table*}
 
-\todo[inline]{There should be a section here which is about manual annotation. It is really important and it is required by both analyses. Plus we can tell them how.}
+
+\noindent \textbf{Creating a validation corpus} -- For MySQL 3.23 and MaxDB 7.500, we manually annotated each extracted topic in each period with the same NFR labels as \textsf{exp2} (software qualities). We looked at each period's topics, and assessed what the data -- consisting of the frequency-weighted word lists and messages -- suggested was the topic for that period. We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to this topic. For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. We compared against this data-set, but we also used it for our supervised learning based topic classification. A topic may have more than one matching keyword.
+\todo[inline]{inter-rater reliability }
+% \todo[inline]{There should be a section here which is about manual annotation. It is really important and it is required by both analyses. Plus we can tell them how.}
 
 
 \subsection{Unsupervised labelling}
+\label{sec:unsuplabelling}
+
 % word list similarity
-Using our three word lists, we labeled our topics where there was a match between the list and the topic. In general, this approach did not work out well as common labels dominated the less common labels. The related words for \emph{correctness}, for example, tended to be too lengthy and non-specific. 
+Using our three word lists, we labeled our topics where there was a match between a word in the list and the same word in the topic.
 Table \ref{tbl:wordlist} lists broad labeling results for MaxDB as an example. A \emph{named topic} is a topic with a matching label. There are \{periods X 20\} topics per project as we told LDA to extract 20 topics per period. All experiments were run on MaxDB 7.500 and MySQL 3.23 data.
 
 %\todo[inline,color=green]{this table should have mysql}
-\begin{table}
+\begin{table}[h]
 
 % % This data came from running  
 % %   python check_validity.py
@@ -344,24 +329,23 @@ MySQL 3.23  & Total  Topics  & 1000 & 1000 & 1000 \\
 
 \bottomrule
 \end{tabular}
-	\caption{Automatic topic labelling for MaxDB and MySQL}
+	\caption{Automatic topic labelling for MaxDB and MySQL}% \todo[inline]{this stupid table is before table 1}}
 	\label{tbl:wordlist}
 
 \end{table}
 
 For \textsf{exp1}, our best performing labels (the labels matched with the most topics) were \emph{correctness} (182 topics) and \emph{testability} (121). We did not get good results for \emph{usability} or \emph{accuracy}, which were associated with fewer than ten topics. We also looked for correlation between our labels: Excluding double matches (self-correlation), our highest co-occurring terms were \emph{verifiability} and \emph{traceability}, and \emph{testability} and \emph{correctness} (76 and 62 matches, respectively).
+% See the following sections for our error analysis. 
 
-For \textsf{exp2}, there are many more unnamed topics. Only \emph{reliability} produces a lot of matches, mostly with the word `error'. Co-occurrence results were poor.
+For \textsf{exp2}, there are more unnamed topics than \textsf{exp1}. Only \emph{reliability} produces a lot of matches, mostly with the word `error'. Co-occurrence results were poor. This suggests our word lists were overly restrictive.
 
-For \textsf{exp3}, we had many more named topics. As we mentioned, the word-lists are quite broad, so there are likely to be false-positives. See the following sections for our error analysis. We found a high of 265 topics for \emph{usability}, with a low of 44 topics for \emph{maintainability}. Common co-occurrences were \emph{reliability} and \emph{usability}, \emph{efficiency} and \emph{reliability}, and \emph{efficiency} and \emph{usability} (200, 190, and 150 topics in common, respectively). 
+For \textsf{exp3}, we generally labelled more topics. As we mentioned, the word-lists are quite broad, so there are likely to be false-positives (discussed below). We found a high of 265 topics for \emph{usability}, with a low of 44 topics for \emph{maintainability}. Common co-occurrences were \emph{reliability} and \emph{usability}, \emph{efficiency} and \emph{reliability}, and \emph{efficiency} and \emph{usability} (200, 190, and 150 topics in common, respectively). 
 
 
 \subsubsection{Analysis of the unsupervised labelling}
+Based on the labels, and our manual topic labelling, we compared the results of the unsupervised word matching approach. For each quality we assessed whether the manual tag matched the unsupervised label assigned. Figure \ref{fig:maxdb-unsup-results} shows our results for MaxDB and MySQL. Our error is measured using the \emph{ROC} (Receiver Operating Characteristic) area-under-curve value~\cite{Fawcett2006861}. ROC values provide a score, similar to school letter-grades (A is 0.9, C is 0.6), reflecting how well a particular learner performed for the given data. ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) versus the false positive rate (1 - specificity). A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision. A ROC result of 0.5 would be equivalent to a random learner (that is, issuing as many false positives as true positives). The AUC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen negative instance.
 
-\label{sec:unsuplabelling}
-
-Based on the labels, and our manual topic labelling, we compared the results of the unsupervised word matching approach. For each quality we tried to assess whether the manual tag matched the unsupervised label assigned. Figure \ref{fig:maxdb-unsup-results} shows our results for MaxDB and MySQL. Our error is measured using the ROC area-under-curve value. This value is the area under the Receiver Operating Characteristic (\emph{ROC}) curve, sometimes referred to as \emph{AUC}. ROC values reflect a score, similar to school letter-grades (A is 0.9, C is 0.6), reflecting how well a particular learner performed for the given data. A ROC result of 0.5 would be equivalent to a random learner (randomly classifying data). ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) versus the false positive rate (1 - specificity). A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision.
-
+\todo[inline]{since ROC is new-sounding, I wonder if a more lengthy explanation would be merited. An obvious question is why not precision/recall?}
 \begin{figure*}
   \centering
  \includegraphics[width=\textwidth]{figures/unsupervised-bar}
@@ -377,8 +361,6 @@ Based on these results we find that \emph{reliability} and \emph{usability} work
 \subsection{Supervised labelling}
 \label{sec:suplearn}
 Supervised labelling requires expert analysis of the correct word to assign to a topic. %In order to validate how effective these word-bag approaches to topic labelling would be we created a validation data set. 
- For MySQL 3.23 and MaxDB 7.500, we manually annotated each extracted topic in each period with the same NFR labels as \textsf{exp2} (software qualities). We looked at each period's topics, and assessed what the data -- consisting of the frequency-weighted word lists and messages -- suggested was the topic for that period. We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to this topic. For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. We compared against this data-set, but we also used it for our supervised learning based topic classification. A topic may have more than one matching keyword.
-\todo[inline]{inter-rater reliability }
 
 We used a suite of supervised classifiers from WEKA~\cite{weka09}. WEKA is a suite of machine learning tools such as support vector machines and Bayes nets. We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, which maps to what we observed while manually labelling topics.
 
@@ -460,9 +442,10 @@ Very rarely did \textsf{exp2} and \textsf{exp3} (naive word matching) ever perfo
 
 We found that the multi-label learners of BR, CLR and HOMER did not do as well for Macro-ROC as NaiveBayes and other NaiveBayes derived learners. This suggests that by sticking together multiple NaiveBayes learners we could probably label sets of topics effectively, but it would require a separate NaiveBayes learner per label.
 
-\section{NFRs and evolution} 
-\todo[inline]{talk about this topic in one section}
-\todo[inline]{reference project name Nomen more}
+\section{Using \textbf{Nomen} to understand software maintenance activities} 
+\label{sec:analysis}
+% \todo[inline]{talk about this topic in one section}
+% \todo[inline]{reference project name Nomen more}
 Using the classification results from the previous sections, we evaluated two research questions:
 \begin{enumerate}
 \item Do label frequencies change over time? That is, is a certain quality of more interest at one point in the life-cycle than some other? 
@@ -519,7 +502,6 @@ For example, in Fig. \ref{fig:mysql-timeline}, we see that the NFRs functionalit
 %   \label{fig:mysql}
 % \end{figure*}
 
-\section{NFRs between projects}
 
 \subsection{Comparing MaxDB and MySQL}
 
@@ -596,9 +578,12 @@ A quick mind dump before I forget:
 \end{comment}
 
 \section{Limitations}
+\label{sec:limit}
 \subsection{Effectiveness}
 
 %{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
+The unsupervised labelling had difficulty distinguishing between common labels and infrequent labels. The related words for \emph{correctness}, for example, tended to be too lengthy and non-specific. 
+\todo[inline,color=red]{Abram can you explain what you mean here?}
 
 With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these attempts. \textsf{exp2} and \textsf{exp3} both indicate that static information can be used to help label topics without any training whatsoever. If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques we could probably reduce the training effort. 
 Both Naive Bayesian learners and the word-list approaches were computationally efficient.  These results are promising, because the results are accurate enough to be useful, while still cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
@@ -606,9 +591,10 @@ Both Naive Bayesian learners and the word-list approaches were computationally e
 
 \subsection{Threats to validity}
 \emph{Construct validity} issues include that we used only commit messages rather than mail or bug tracker messages. We also chose our taxonomy and the data to study. \emph{Internal validity} issues are to do with inter-rater reliability. \emph{External validity} issues are that our data originated from OSS database projects and thus might not be applicable to commercially developed software. Furthermore, our analysis techniques rely on a project's use of meaningful commit messages.
-\todo[inline,color=yellow]{update this with more detail}
+\todo[inline]{update this with more detail}
 
 \section{Related work}
+\label{sec:related}
 The idea of extracting higher-level `concerns' (also known as `concepts', `aspects' or `requirements') has been approached in two ways. 
 
 Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. They managed recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. Instead, they developed a supervised classifier by using human experts to identify an NFR training set. There are several reasons we did not follow this route. One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. Secondly, we wanted to compare across projects. Their technique was not compared across different projects and the applicability of the training set to different corpora is unclear. A common taxonomy allows us to make inter-project comparison (subject to the assumption that all projects conceive of these terms in the same way). Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) our study assumes these NFRs are latent in the textual documents of the project. Finally, the source text we use is less structured than their requirements documents.
@@ -725,3 +711,24 @@ Our data and scripts are available at \url{http://softwareprocess.es/nomen/}
 
 \end{document}
 
+% % a rough sketch 
+% The size of these artifacts is cumbersome for a developer or stakeholder to comprehend, thus they often have to be ``chunked'', grouped, modularized, organized and finally labelled.
+% Even more difficult is to pull together tangible trails or interests that pervade these artifacts.
+% These interests or topics are only really visible by analyzing multiple artifacts.
+% Other researchers have focused on extracting these topics from development artifacts, but often their approach leaves the organization or the labelling step to the user.
+% What we propose is to 
+% In this paper, we seek to automatically extract these interests, or topics that link artifacts such as source control commits and label them.
+
+% % Read for SE Data Mining
+% % Read for Topic Naming
+% % Read for previous research DID NOT
+% % thoughts, what does this do what are we introducing
+% % these abstractions ... how to link them
+
+% The act of developing software generates many artifacts, including source code, bug reports, commit messages, and test cases. 
+% It does not take long for a software project to grow to a point where keeping track of these artifacts exceeds easy comprehension. 
+% For these projects, developers interact with abstractions of these artifacts, rather than the artifact itself. Such abstractions include project dashboards~\cite{kersten2005mylar}, tags~\cite{treude2010}, and complexity metrics \cite{mccabe1976complexity}. 
+
+
+% Developers do more than merely observe these abstractions, however. They must also use them to assess progress and work with colleagues. To have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for our development artifacts. Such labels can be used to compare progress or understand how well a project is meeting requirements. These labels then become the topics for development conversations (such as the stream of commentary on a bug report). One way to identify topics is to use the artifacts themselves to derive them. 
+% \todo[inline]{it should be labels for topics not artifacts, I think the artifact part is almost secondary and the topic stuff is really what is up. Topics are used below and it isn't even clear what they are or what we're talking about. Naming is important but lets tell the reader what is being named first.}
