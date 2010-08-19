@@ -1,7 +1,7 @@
 \documentclass[]{sig-alternate}
  \usepackage{booktabs}
 \usepackage[caption=false]{subfig}
- \usepackage[disable,colorinlistoftodos,backgroundcolor=yellow]{todonotes}
+ \usepackage[colorinlistoftodos,backgroundcolor=yellow]{todonotes} %disable
  \usepackage{color}
 
 \newcommand{\XXX}[1]{\textcolor{red}{{\it \textbf{[XXX: #1]}}}}
@@ -559,7 +559,7 @@ Both Naive Bayesian learners and the word-list approaches were computationally e
 
 \subsection{Threats to validity}
 \emph{Construct validity} issues include that we used only commit messages rather than mail or bug tracker messages. We also chose our taxonomy and the data to study. \emph{Internal validity} issues are to do with inter-rater reliability. \emph{External validity} issues are that our data originated from OSS database projects and thus might not be applicable to commercially developed software. Furthermore, our analysis techniques rely on a project's use of meaningful commit messages.
-\todo[inline,color=yellow]{update this with more detail}
+\todo[inline]{update this with more detail}
 
 \section{Related work}
 \label{sec:related}
