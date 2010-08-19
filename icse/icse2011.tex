@@ -215,17 +215,33 @@ The MySQL project started in 1994 and MySQL 3.23 was released in early 2001.
 MySQL contains 320 thousand lines of C and C++ source code.  
 Choosing an older version of these projects allows us to focus on projects which have moved into the maintenance phase of the software life-cycle.
 
-For each project, we used source control commit comments, the messages that programmers write when they commit revisions to a source control repository. This is the most readily accessible source of project interactions for outside researchers; bug reports and email messages were not available for both projects. An example of a typical commit message is: \textit{``history annotate diffs bug fixed (if mysql\-\_real\-\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. We extracted these messages and indexed them by creation time. We summarized each message as a word distribution but removed stop-words such as \emph{the} and \emph{at}. Stemming was performed in the later stages of our analysis.
+For each project, we used source control commit comments, the messages that programmers write when they commit revisions to a source control repository. 
+This is the most readily accessible source of project interactions for outside researchers; bug trackers and email-list archives were not available for both projects. 
+An example of a typical commit message is: \textit{``history annotate diffs bug fixed (if mysql\-\_real\-\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. 
+We extracted these messages and indexed them by creation time. 
+We summarized each message as a word distribution but removed stop-words such as \emph{the} and \emph{at}. 
+Stemming was performed in the later stages of our analysis. % WAS IT?
 
-From that data-set, we created an XML file which separated commits into 30 day periods. This size of period is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze. For this set of periods, we created `topics' using Latent Dirichlet Allocation, a topic identification algorithm. 
+For the commit message data-sets of each project, we created an XML file which separated commits into 30 day periods. 
+This size of period, 30 days, is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze. 
+For each period of each project, we input the messages of that period into Latent Dirichlet Allocation (LDA), a topic analysis algorithm, and recorded the topics of each period.
+%For each project and for each period of messages a project, we input these messages 
+%we created `topics' using Latent Dirichlet Allocation, a topic identification algorithm. 
 
-Typically a topic analysis tool like LDA will try to find $N$ independent word distributions within the word distributions of all the messages. Linear combinations of these $N$ word distributions are then meant to be able to recreate the word distributions of all of the underlying messages. These $N$ word distributions effectively form topics: cross-cutting collections of words relevant to one or more of our commit messages. LDA extracts topics in an unsupervised manner; the algorithm relies solely on the source data with no human intervention.
+Typically a topic analysis tool like LDA will try to find $N$ independent word distributions within the word distributions of all the messages. 
+Linear combinations of these $N$ word distributions are meant to represent and recreate the word distributions of any of the original messages. 
+These $N$ word distributions effectively form topics: cross-cutting collections of words relevant to one or more of our commit messages. 
+LDA extracts topics in an unsupervised manner; the algorithm relies solely on the source data, word distributions of messages, with no human intervention.
 
-In topic analysis a single document, such as a commit message, can be related to multiple topics. Representing documents as a mixture of topics maps well to source code repository commits, which often have more than one purpose~\cite{Hindle09ICSM}.  A topic represents both a word distribution and a group of commit log comments that are related to each other by their content.  In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
-\todo[inline]{These paragraphs should've come way earlier, in previous we should explain LDA so this doesn't need to be here.}
+In topic analysis a single document, such as a commit message, can be related to multiple topics. 
+Representing documents as a mixture of topics maps well to source code repository commits, which often have more than one purpose~\cite{Hindle09ICSM}.  
+A topic, in this paper, represents both a word distribution and a group of commit log comments that are related to each other by their content.  
+In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
+%\todo[inline]{These paragraphs should've come way earlier, in previous we should explain LDA so this doesn't need to be here.}
 
 We applied Blei's LDA implementation~\cite{Blei2003} against the word distributions of these commits, and generated lists of topics per period. 
-We set the number of topics to generate to $20$, because past experimentation, e.g. \cite{Hindle09ICSM}, showed that fewer topics might aggregate multiple unique topics while any more topics seemed to dilute the results and create indistinct topics. Furthermore, more than $20$ topics quickly became infeasible for inspection.
+We set the number of topics to generate to $20$, because past experimentation, e.g. \cite{Hindle09ICSM}, showed that fewer topics might aggregate multiple unique topics while any more topics seemed to dilute the results and create indistinct topics. 
+Furthermore, more than $20$ topics quickly became infeasible for inspection.
 
 \subsection{Generating word lists}
 Topics are word distributions: lists of words ranked by frequency, which can be burdensome to interpret and hard to distinguish and understand. While the topic models themselves are generated automatically, what to make of them is less clear. For example, in our previous work~\cite{Hindle09ICSM}, as well as in Baldi et al.~\cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. E.g., for the word list \emph{``listener change remove add fire''}, Baldi et al. assign the keyword \emph{event-handling}. The labels are reasonable enough, but still require an expert in the field to determine them. We sought to automate the process of naming the topics.
