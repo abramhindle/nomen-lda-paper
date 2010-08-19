@@ -331,7 +331,7 @@ Based on the labels, and our manual topic labelling, we compared the results of 
 \end{figure*}
 
 
-Based on these results we find that \emph{reliability} and \emph{usability} worked well for MaxDB in \textsf{exp2} and better in \textsf{exp3}. MySQL had reasonable results within \textsf{exp2} for \emph{reliability} and \emph{efficiency}. MySQL's results for efficiency did not improve in \textsf{exp3} but other qualities such as \emph{functionality} did improve. If a \emph{C} grade performance has a ROC value of $0.6$ then most of these tests scored a grade of \emph{C} or less, but our results were still better than random chance.
+Based on these results we find that \emph{reliability} and \emph{usability} worked well for MaxDB in \textsf{exp2} and better in \textsf{exp3}. MySQL had reasonable results within \textsf{exp2} for \emph{reliability} and \emph{efficiency}. MySQL's results for efficiency did not improve in \textsf{exp3} but other qualities such as \emph{functionality} did improve. If a \emph{C} grade performance has a ROC value of $0.6$ then most of these tests scored a grade of \emph{C} or less, but our classifier nonetheless performed substantially better than random.
 
 
 \subsection{Supervised labelling}
@@ -418,6 +418,30 @@ Very rarely did \textsf{exp2} and \textsf{exp3} (naive word matching) ever perfo
 
 We found that the multi-label learners of BR, CLR and HOMER did not do as well for Macro-ROC as NaiveBayes and other NaiveBayes derived learners. This suggests that by sticking together multiple NaiveBayes learners we could probably label sets of topics effectively, but it would require a separate NaiveBayes learner per label.
 
+\subsection{Annotation observations}
+We found many topics that were not non-functional requirements (NFRs) but were often related to them. For instance, concurrency was mentioned often in the commit logs and was related to \emph{correctness} and \emph{reliability}, because concurrency was troublesome. Configuration management and source control related changes appeared often and sometimes there were topics dedicated to configuration management. These kinds of changes are slightly related to \emph{maintainability}. A non-functional change that was not quality-related was licensing and copyright; many changes were simply to do with updating copyrights or ensuring copyright or license headers were applied to files.
+
+We noticed that occasionally the names of modules would conflict with words related to other non-functional requirements. For instance, optimizers are very common modules in database systems: both MySQL and MaxDB have optimizer modules. In MySQL the optimizer is mentioned but often the change deals with correctness or another quality. Despite this difference, the name of the module could fool our learners into believing the change was always about \emph{efficiency}. In these cases the advantages of tailoring topic names to specific project terminologies are more clear: this would avoid automated mistakes due to the names of entities and modules of a software project.
+
+\begin{comment}
+A quick mind dump before I forget:
+* portability was very popular
+* there were many instances of concurrency
+* There were often topics of crap commits with no comment
+* might need more than the top words to compare
+* Things like tests were noticable more by file type
+* Configuration management is not part of the software quality ontology?
+* I didn't tag none I tagged unknown, so that's some inconsistency between us
+* There were a lot of copyright changes in mysql
+* mysql had optimizer module which did not mean optimization
+* I tried to assign reliability/bug for reliability bugs
+  and Functionality/Correctness for fixes
+* Some security changes came later
+* Mysql 3.23 transitioned from a project being developed to
+  a project being maintained, more frequent back-port bug-fixes
+\end{comment}
+
+
 \section{Using \textbf{Nomen} to understand software maintenance activities} 
 \label{sec:analysis}
 % \todo[inline]{talk about this topic in one section}
@@ -432,7 +456,7 @@ Using the classification results from the previous sections, we evaluated two re
 \subsection{Visualizations}
 Figures \ref{fig:maxdb-timeline} and \ref{fig:mysql-timeline} show the temporal patterns of label frequencies. There are two measures represented. One, the relative frequency, shown in the grey boxes, represents the number of labels with that NFR in that period, relative to the maximum number of topics assigned to that NFR. The second, absolute frequency, compares the number of topics labelled with that NFR per period relative to the maximum number of labelled topics overall. 
 
-For example, in Fig. \ref{fig:mysql-timeline}, we see that the NFRs functionality, portability and maintainability contain more labeled topics, since these NFRs have more intense shaded boxes. 
+For example, in Fig. \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have more intense shaded boxes. 
 
 
 % For MaxDB (Figure \ref{fig:maxdb}) the largest trends were related to maintainability and portability. MaxDB supports numerous platforms and portability was a constant issue facing the project's development. MySQL was different, with many topics overlapping, so there were many different subsets. Functionality trends were prevalent throughout its history (the largest reddish streak across the top). Two combination  tags of ``functionality portability'' (orange) and ``maintainability portability'' (teal) streaked across most of the history of MySQL. Since this was MySQL 3.23, a stable branch, we expect that issues dealing with portability and maintenance would be the primary concerns of this branch: developers probably wanted it to work with current systems and thus had to update it.
@@ -450,7 +474,7 @@ For example, in Fig. \ref{fig:mysql-timeline}, we see that the NFRs functionalit
 \includegraphics[width=\textwidth]{figures/maxdb-timeline}
 \label{fig:mysql-timeline}
 }
-\caption[]{NFR label per period. Each box represents a 30-day period. Numbers represent number of topics in that period labelled with that NFR. Box intensity (saturation) is mapped to label frequency relative to the largest label value of \emph{all} NFRs. Grey bars indicate label frequency relative to \emph{that} NFR.
+\caption[]{NFR label per period. Each box represents a 30-day period. Numbers represent number of topics in that period labelled with that NFR. Box intensity (saturation) is mapped to label frequency relative to the largest label value of \emph{all} NFRs. Grey bars indicate label frequency relative to \emph{a particular} NFR.
 % \todo[inline]{better discussion}
 }
 \label{fig:timelines}
@@ -529,29 +553,6 @@ topics labelled \emph{functionality}, while MaxDB had proportionally more
 \end{comment}
 
 
-\subsection{Annotation observations}
-
-We found many topics that were not non-functional requirements (NFRs) but were often related to them. For instance, concurrency was mentioned often in the commit logs and was related to \emph{correctness} and \emph{reliability}, because concurrency was troublesome. Configuration management and source control related changes appeared often and sometimes there were topics dedicated to configuration management. These kinds of changes are slightly related to \emph{maintainability}. A non-functional change that was not quality-related was licensing and copyright; many changes were simply to do with updating copyrights or ensuring copyright or license headers were applied to files.
-
-We noticed that occasionally the names of modules would conflict with words related to other non-functional requirements. For instance, optimizers are very common modules in database systems: both MySQL and MaxDB have optimizer modules. In MySQL the optimizer is mentioned but often the change deals with correctness or another quality. Despite this difference, the name of the module could fool our learners into believing the change was always about \emph{efficiency}. In these cases the advantages of tailoring topic names to specific project terminologies are more clear: this would avoid automated mistakes due to the names of entities and modules of a software project.
-
-\begin{comment}
-A quick mind dump before I forget:
-* portability was very popular
-* there were many instances of concurrency
-* There were often topics of crap commits with no comment
-* might need more than the top words to compare
-* Things like tests were noticable more by file type
-* Configuration management is not part of the software quality ontology?
-* I didn't tag none I tagged unknown, so that's some inconsistency between us
-* There were a lot of copyright changes in mysql
-* mysql had optimizer module which did not mean optimization
-* I tried to assign reliability/bug for reliability bugs
-  and Functionality/Correctness for fixes
-* Some security changes came later
-* Mysql 3.23 transitioned from a project being developed to
-  a project being maintained, more frequent back-port bug-fixes
-\end{comment}
 
 \section{Limitations}
 \label{sec:limit}
@@ -605,7 +606,7 @@ Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed th
 % What did we do that was new?
 
 % para 1 we did this, we were successful
-In this paper we presented a cross-project data mining technique that was appropriate for mining and labelling non-functional requirements topics and artifacts from project histories.
+In this paper we presented a cross-project data mining technique that was appropriate for mining and labelling latent software development topics using a non-functional requirements taxonomy. %topics and artifacts from project histories.
 Our contributions include:
 \begin{itemize}
 \item We provide an unsupervised method of topic labelling (word-bags);
