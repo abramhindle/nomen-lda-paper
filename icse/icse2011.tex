@@ -21,6 +21,8 @@
 
 
 \begin{document}
+
+\conferenceinfo{ICSE}{'11 Waikiki, Hawaii USA}
 \numberofauthors{5}
 \author{
 \alignauthor 
@@ -58,17 +60,39 @@ Abram Hindle\\
 %\thispagestyle{empty}
 
 \begin{abstract}
-\todo[inline]{Topics and LDA sooner, Topics/concept location is a known
-  research area and we're saying they don't do enough}
+%\todo[inline]{Topics and LDA sooner, Topics/concept location is a known
+%  research area and we're saying they don't do enough}
 
+% our field
   Within the field of mining software repositories, many approaches,   such as topic modeling and concept location, rely on the automated   application of machine learning algorithms to corpora.  
- Unfortunately the output of these tools is often difficult to distinguish and interpret as they are often so abstract.
- Thus to have a meaningful discussion about the topics of software development, we must be able to devise appropriate labels for extracted topics. 
- However, these approaches neither use domain-specific knowledge to improve results, nor contextualize those results for developers.   While too much specificity can produce non-generalizable results, too little produces broad learners that do not provide much immediately useful detail. 
- This paper implements \emph{labelled topic extraction}, in which topics are extracted from commit comments and given labels relating to a cross-project taxonomy. We focus on non-functional requirements related to software quality as a potential generalization, since there is some shared belief that these qualities apply broadly across many software systems and their development artifacts.  
- We evaluated our approach with an experimental study on two large-scale database projects, MySQL and MaxDB. We extracted topics using Latent Dirichlet Allocation (LDA) from the commit log comments of their version control systems (CVS and BitKeeper). Our results were generalizable across the two projects, showing that non-functional requirements were commonly discussed, and we identified topic trends over time. 	
- Our labelled topic extraction technique allowed us to devise appropriate, context-sensitive labels across these two projects, providing insight into software development activities.
+% the problem
+ Unfortunately the output of these tools is often difficult to distinguish and interpret as they are often so abstract, in particular topics that are automatically extracted are word-lists lacking semantic interpretation.
+% the solution 
+ Thus to have a meaningful discussion about the topics of software development, we must be able to interpret these topics and devise appropriate labels for extracted topics, yet current software engineering topic analysis and concept analysis research relies on manual naming and labelling of topics
+% the labelling research
+Current topic labelling approaches neither use domain-specific knowledge to improve results, nor contextualize those results for developers.   
+% a sub problem
+While too much specificity can produce non-generalizable results, too little produces broad learners that do not provide much immediately useful detail. 
+% what we do
+This paper implements \emph{labelled topic extraction}, in which topics are extracted from commit comments and given labels relating to a cross-project taxonomy. 
+% data mining generalizable
+To ensure we have a generalizable project agnostic approach we label topics by non-functional requirements related to software quality, since there is some shared belief that these qualities apply broadly across many software systems and their development artifacts.
+% We used real world data
+We evaluated our approach with an experimental study on two large-scale database projects, MySQL and MaxDB. 
+% We used LDA, CVS, Bitkeeper
+We extracted topics using Latent Dirichlet Allocation (LDA) from the commit log comments of their version control systems (CVS and BitKeeper). 
+% We show NFRs exist
+Our results were generalizable across the two projects, showing that non-functional requirements were commonly discussed, and we identified topic trends over time. 	
+% we can label stuff
+Our labelled topic extraction technique allowed us to devise appropriate, context-sensitive labels across these two projects, providing insight into their software development activities.
 \end{abstract}
+
+\category{D.2.9}{Software Engineering}{Managment}[Lifecycle]
+\category{D.2.1}{Software Engineering}{Requirements/Specifications}[Tools]
+
+%\terms{Theory}
+
+\keywords{Topics, LDA, NFR}
 
 \newcommand{\shrink}{}
 
@@ -133,6 +157,7 @@ In this sense, they are useful abstractions for developer conversations about di
 % harp on data mining more
 In general the data mining of software artifacts tends to be very project specific, yet NFRs are not. 
 NFRs are prevalent in almost all software systems.
+In this paper we will show that NFR related topics occur quite frequently.
 Thus our method of generalizing the data mining of these software artifacts is to leverage  the domain knowledge of software engineering, specifically NFRs. 
 This allows us to data mine software systems with the intention of comparing their NFR related development topics.
 % in order to achieve generalizable, cross project data mining results.
@@ -587,7 +612,9 @@ We showed that non-functional requirements are often trending topics, that non-f
 There are several avenues of further investigation.  We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  It is difficult to map abstract qualities to particular messages. Is a ``quality'' discussion about more than just corrective maintenance? %In this study we take the position that any type of maintenance has to do with software quality.
 
 %XXX can save space here!
-\section{Appendix}
+%\section{Appendix}
+\appendix
+
 Our data and scripts are available at \url{http://softwareprocess.es/nomen/}
 
 \bibliographystyle{abbrv}
