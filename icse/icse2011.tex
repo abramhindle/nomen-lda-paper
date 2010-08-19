@@ -182,29 +182,66 @@ Figure \ref{fig:process} gives an outline of the methodology followed. We began 
 
 \subsection{Generating the data}
 \label{sec:wordlist}
-To evaluate our approach, we sought candidate systems that were mature projects and had openly accessible source control repositories. We selected systems from the same application domain, so the functional requirements would be broadly similar. We selected MySQL and MaxDB as they were open-source, partially-commercial database systems. MaxDB started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project has 940 thousand lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}.}. The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. MySQL contains 320 thousand lines of C and C++ source code.  Choosing an older version of these projects allows us to focus on projects which have moved into the maintenance phase of the software life-cycle.
 
-For each project, we used source control commit comments, the messages that programmers write when they commit revisions to a source control repository. This is the most readily accessible source of project interactions for outside researchers; bug reports and email messages were not available for both projects. An example of a typical commit message is: \textit{``history annotate diffs bug fixed (if mysql\-\_real\-\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. We extracted these messages and indexed them by creation time. We summarized each message as a word distribution but removed stop-words such as \emph{the} and \emph{at}. Stemming was performed in the later stages of our analysis.
+To evaluate our approach, we sought candidate systems that were mature projects and had openly accessible source control repositories. 
+We selected systems from the same application domain, so the functional requirements would be broadly similar. 
+We selected MySQL 3.23 and MaxDB 7.500 as they were open-source, partially-commercial database systems. 
+MaxDB started in the late 1970s as a research project, and was later acquired by SAP. 
+As of version 7.500, released April 2007, the project has 940 thousand lines of C source code~\footnote{generated using David A. Wheeler's \emph{SLOCCount}.}. 
+The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. 
+MySQL contains 320 thousand lines of C and C++ source code.  
+Choosing an older version of these projects allows us to focus on projects which have moved into the maintenance phase of the software life-cycle.
 
-From that data-set, we created an XML file which separated commits into 30 day periods. This size of period is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze. For this set of periods, we created `topics' using Latent Dirichlet Allocation, a topic identification algorithm~\cite{Blei2003}. 
+For each project, we used source control commit comments, the messages that programmers write when they commit revisions to a source control repository. 
+This is the most readily accessible source of project interactions for outside researchers; bug trackers and email-list archives were not available for both projects. 
+An example of a typical commit message is: \textit{``history annotate diffs bug fixed (if mysql\-\_real\-\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. 
+We extracted these messages and indexed them by creation time. 
+We summarized each message as a word distribution but removed stop-words such as \emph{the} and \emph{at}. 
+Stemming was performed in the later stages of our analysis. % WAS IT?
 
-Typically a topic analysis tool like LDA will try to find $N$ independent word distributions within the word distributions of all the messages. Linear combinations of these $N$ word distributions are then used to recreate the word distributions of the underlying messages. These $N$ word distributions effectively form topics: cross-cutting collections of words relevant to one or more of our commit messages. LDA extracts topics in an unsupervised manner; the algorithm relies solely on the source data with no human intervention.
+For the commit message data-sets of each project, we created an XML file which separated commits into 30 day periods. 
+This size of period, 30 days, is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze. 
+For each period of each project, we input the messages of that period into Latent Dirichlet Allocation (LDA), a topic analysis algorithm~\cite{Blei2003}, and recorded the topics of each period.
+%For each project and for each period of messages a project, we input these messages 
+%we created `topics' using Latent Dirichlet Allocation, a topic identification algorithm. 
 
-In topic analysis a single document, such as a commit message, can be related to multiple topics. Representing documents as a mixture of topics maps well to source code repository commits, which often have more than one purpose~\cite{Hindle09ICSM}.  A topic represents both a word distribution and a group of commit log comments that are related to each other by their content.  In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
-\todo[inline]{These paragraphs should've come way earlier, in previous we should explain LDA so this doesn't need to be here.}
+Typically a topic analysis tool like LDA will try to find $N$ independent word distributions within the word distributions of all the messages. 
+Linear combinations of these $N$ word distributions are meant to represent and recreate the word distributions of any of the original messages. 
+These $N$ word distributions effectively form topics: cross-cutting collections of words relevant to one or more of our commit messages. 
+LDA extracts topics in an unsupervised manner; the algorithm relies solely on the source data, word distributions of messages, with no human intervention.
+
+In topic analysis a single document, such as a commit message, can be related to multiple topics. 
+Representing documents as a mixture of topics maps well to source code repository commits, which often have more than one purpose~\cite{Hindle09ICSM}.  
+A topic, in this paper, represents both a word distribution and a group of commit log comments that are related to each other by their content.  
+In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
+%\todo[inline]{These paragraphs should've come way earlier, in previous we should explain LDA so this doesn't need to be here.}
 
 We applied Blei's LDA implementation~\cite{Blei2003} against the word distributions of these commits, and generated lists of topics per period. 
-We set the number of topics to generate to $20$, because past experimentation, e.g. \cite{Hindle09ICSM}, showed that fewer topics might aggregate multiple unique topics while any more topics seemed to dilute the results and create indistinct topics. Furthermore, more than $20$ topics quickly became infeasible for inspection.
+We set the number of topics to generate to $20$, because past experimentation, e.g. \cite{Hindle09ICSM}, showed that fewer topics might aggregate multiple unique topics while any more topics seemed to dilute the results and create indistinct topics. 
+Furthermore, more than $20$ topics quickly became infeasible for inspection.
 
 
 \subsection{Generating word lists}
-Topics are word distributions: lists of words ranked by frequency, which can be burdensome to interpret and hard to distinguish and understand. While the topic models themselves are generated automatically, what to make of them is less clear. For example,
+\label{sec:genwordlist}
+
+Topics are word distributions, lists of words ranked by frequency, that are be burdensome to interpret and hard to distinguish and understand. 
+While the topic models themselves are generated automatically, how to interpret these topics is less clear.
+For example,
 % in our previous work~\cite{Hindle09ICSM}, as well as -- CITED a little too often
-in Baldi et al.~\cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a keyword accordingly. E.g., for the word list \emph{``listener change remove add fire''}, Baldi et al. assign the keyword \emph{event-handling}. The labels are reasonable enough, but still require an expert in the field to determine them. We sought to automate the process of naming the topics.
+in Baldi et al.~\cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a label accordingly. 
+Given the word list \emph{``listener change remove add fire''}, Baldi et al. would assign the label \emph{event-handling}. 
+The labels are reasonable enough, but still require an expert in the field to determine them. 
+We sought to automate the process of naming the topics.
 
-Accordingly, we tried to associate each topic with a label from a list of keywords and related terms. We performed simple string matching between these topics and our lists, `naming' a topic if it contained that word or words (a topic might match several keywords). We used several different word lists for comparison, which we call \textsf{exp1, exp2, exp3} in the text which follows. 
+Accordingly, we tried to associate each topic with a label from a list of keywords and related terms. 
+We intersected the words of the topics and the words of our word-lists.
+We `named' a topic if any of its words matched any of the word-list's words.
+A topic could match more than one keyword.
+We used several different sets of word-lists for comparison, which we refer to as \textsf{exp1, exp2, exp3} in the text which follows. 
 
-Our first word list set, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519}. That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. The labels we used:
+Our first word-list set, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519}. 
+That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. 
+The labels we used:
 \begin{quotation}
 \small \noindent \textsf{
 integrity, security,
@@ -215,11 +252,24 @@ portability, flexibility, reliability.
 }
 \end{quotation}
 
-Our second word list set, \textsf{exp2}, relied on the ISO quality model (ISO9126)~\cite{iso9126}. ISO9126 describes six high-level non-functional requirements (listed in Table \ref{tbl:wnsig}). There is some debate about the significance and importance of the terms in this model. However, ISO9126 is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research. The terms extracted from ISO9126 may not capture all words associated with the labels.  For example, the term ``redundancy'' is one most would agree is relevant to discussion of reliability, but is not in the standard. We therefore took the words from the taxonomy and expanded them.
+Our second word list set, \textsf{exp2}, relied on the ISO quality model, ISO9126~\cite{iso9126}. 
+ISO9126 describes six high-level non-functional requirements (listed in Table \ref{tbl:wnsig}). 
+There is some debate about the significance and importance of the terms in this model. 
+However, ISO9126 is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research. 
+The terms extracted from ISO9126 may not capture all words associated with the labels.  
+For example, the term ``redundancy'' is one most would agree is relevant to discussion of reliability, but is not in the standard. 
+We therefore took the words from the taxonomy and expanded them.
 
-To construct these expanded word lists, we used WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including common related forms (similar to word stemming), meronymy and synonymy. We then added Boehm's 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven `ilities' into their respective ISO9126 qualities. We did the same for the quality model produced by McCall et al. \cite{mccall1977}. Finally, we analyzed two mailing lists from another software project to expand our set with domain-specific terms. For example, we add the term ``performance'' to the synonyms for \emph{efficiency}, since this term occurs in most mail messages that discuss efficiency.
+To construct these expanded word lists, we used WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including common related forms (similar to word stemming), meronymy and synonymy. 
+We then added Boehm's 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven `ilities' into their respective ISO9126 qualities. 
+We did the same for the quality model produced by McCall et al. \cite{mccall1977}. 
+Finally, we analyzed two mailing lists from another software project, KDE, to expand our set with domain-specific terms. 
+For example, we add the term ``performance'' to the synonyms for \emph{efficiency}, since this term occurs in most mail messages that discuss efficiency.
 
-For the third list of quality labels,  \textsf{exp3}, we extended the list from \textsf{exp2} using unfiltered WordNet similarity matches. Similarity in WordNet means siblings in a hypernym tree. We do not include these words here for space considerations (but see the Appendix for our data repository). It is not clear the words associated with our labels are specific enough, however: for example, the label \emph{maintainability} is associated with words \emph{ease} and \emph{ownership}.
+For the third set of word-lists,  \textsf{exp3}, we extended the word-lists from \textsf{exp2} using unfiltered WordNet similarity matches. 
+Similarity in WordNet means siblings in a hypernym tree. 
+We do not include these words here for space considerations (but see the Appendix for our data repository). 
+It is not clear the words associated with our labels are specific enough. For example, the label \emph{maintainability} is associated with words \emph{ease} and \emph{ownership}.
 
 \begin{table*}[]
 	\centering
@@ -247,7 +297,12 @@ operability understandability learnability useable usable serviceable usefulness
 \end{table*}
 
 
-\noindent \textbf{Creating a validation corpus} -- For MySQL 3.23 and MaxDB 7.500, we manually annotated each extracted topic in each period with the same NFR labels as \textsf{exp2} (software qualities). We looked at each period's topics, and assessed what the data -- consisting of the frequency-weighted word lists and messages -- suggested was the topic for that period. We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to this topic. For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. We compared against this data-set, but we also used it for our supervised learning based topic classification. A topic may have more than one matching keyword.
+\noindent \textbf{Creating a validation corpus} --- For MySQL 3.23 and MaxDB 7.500, we manually annotated each extracted topic in each period with the same NFR labels as \textsf{exp2} (software qualities). 
+We looked at each period's topics, and assessed what the data --- consisting of the frequency-weighted word lists and messages --- suggested was the topic for that period. 
+We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to the topic being annotated.
+For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. 
+We compared against this data-set, but we also used it for our supervised machine learning based topic classification. 
+% A topic may have more than one matching keyword. % ok what?
 \todo[inline]{inter-rater reliability }
 % \todo[inline]{There should be a section here which is about manual annotation. It is really important and it is required by both analyses. Plus we can tell them how.}
 
