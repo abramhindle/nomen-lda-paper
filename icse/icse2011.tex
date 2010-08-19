@@ -1,6 +1,6 @@
 \documentclass[]{sig-alternate}
  \usepackage{booktabs}
-\usepackage{subfigure}
+\usepackage[caption=false]{subfig}
  \usepackage[colorinlistoftodos,backgroundcolor=yellow]{todonotes}
  \usepackage{color}
 
@@ -19,6 +19,11 @@
 \usepackage{url}
 \usepackage[pdfstartview=FitH,bookmarksopenlevel=3,bookmarks=true]{hyperref} %pdfpagescrop={92 112 523 778},
 
+% % share affiliation and use less space
+% \def\sharedaffiliation{%
+% \end{tabular}
+% \begin{tabular}{c}}
+% %
 
 \begin{document}
 
@@ -92,7 +97,7 @@ Our labelled topic extraction technique allowed us to devise appropriate, contex
 
 %\terms{Theory}
 
-\keywords{Topics, LDA, NFR}
+\keywords{Topic analysis, LDA, non-functional requirements}
 
 \newcommand{\shrink}{}
 
@@ -294,6 +299,7 @@ MaxDB 7.500 & Named Topics   & 281 & 125 & 328 \\ % these numbers are
                                 % maxdb has 80 empty topics
 MaxDB 7.500 & Unnamed Topics & 219  & 375 &  172  \\
 MaxDB 7.500 & Total  Topics  & 500 & 500 & 500 \\
+\midrule
 MySQL 3.23  & Named Topics   & 524 & 273 & 773 \\
 MySQL 3.23  & Unnamed Topics & 476 & 727 & 227 \\
 MySQL 3.23  & Total  Topics  & 1000 & 1000 & 1000 \\
@@ -301,7 +307,7 @@ MySQL 3.23  & Total  Topics  & 1000 & 1000 & 1000 \\
 
 \bottomrule
 \end{tabular}
-	\caption{Automatic topic labelling for MaxDB 7.500}
+	\caption{Automatic topic labelling for MaxDB and MySQL}
 	\label{tbl:wordlist}
 
 \end{table}
@@ -321,10 +327,9 @@ Based on the labels, and our manual topic labelling, we compared the results of 
 
 \begin{figure*}
   \centering
- \includegraphics[width=.85\textwidth]{figures/unsupervised-bar}
+ \includegraphics[width=\textwidth]{figures/unsupervised-bar}
  \caption{ROC values for each NFR, per project and wordlist.}
 %\todo[inline]{this is too tiny in print}
-
   \label{fig:maxdb-unsup-results}
 \end{figure*}
 
@@ -346,7 +351,7 @@ To assess the performance of the supervised learners, we did a 10-fold cross-val
 \label{sec:suplabelling}
 Because our data-set was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. We tried other learners that WEKA~\cite{weka09} provides: rule learners, decision tree learners, vector space learners, and support vector machines.  Figure \ref{fig:best-learn-per-tag} shows the performance of the best performing learner per label.  We considered the best learner for a label to be the one which had the highest ROC value for that label. Figure \ref{fig:best-learn-per-tag} uses the ZeroR learner as a baseline, a common practice in machine learning. ZeroR naively chooses the largest category all of the time. It occasionally outperforms non-naive learners; for labels which are not as common, this is to be expected because any miscategorization will hurt accuracy. This is why we use ROC values, as they can better represent performance on labels which are not applicable to the majority of samples.
 
-Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, as the ROC values for reliability and functionality seem swapped between projects. For both projects Bayesian techniques did the best out of a wide variety of machine learners tested. Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes's theorem and all assume, naively, that the features are independent. The features we used are word counts per message. One beneficial aspect of this result is that it suggests we can have very fast training and classifying  since Naive Bayes can be calculated in $O(N)$ for $N$ features.
+Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, as the ROC values for \emph{reliability} and \emph{functionality} seem swapped between projects. For both projects Bayesian techniques did the best out of a wide variety of machine learners tested. Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes's theorem and all assume, naively, that the features are independent. The features we used are word counts per message. One beneficial aspect of this result is that it suggests we can have very fast training and classifying  since Naive Bayes can be calculated in $O(N)$ for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
 
 The less-frequently occurring a label the harder it is to get accurate
@@ -364,18 +369,18 @@ together.
 
 \begin{figure*}[ht]
 \centering
-\subfigure[MySQL]{
+\subfloat[MySQL]{
 \includegraphics[width=0.4\textwidth]{figures/mysql-supervised}
 \label{fig:subfig1}
 }
-\subfigure[MaxDB]{
+\subfloat[MaxDB]{
 \includegraphics[width=0.4\textwidth]{figures/maxdb-supervised}
 \label{fig:subfig2}
 }
-\label{fig:best-learn-per-tag}
 \caption[]{ROC value for the best learner per label, compared with ZeroR accuracy values.  Possible values range from 0--1.
 \todo[inline]{better discussion}
 }
+\label{fig:best-learn-per-tag}
 \end{figure*}
 
 \subsection{Applying multiple labels to topics}
@@ -387,7 +392,7 @@ As noted in Section \ref{sec:wordlist}, each topic in our data-set can be compos
 In multi-label learning the technique can perform micro or macro measurements. Macro measurements are aggregated at a class or label level. Micro measurements are aggregated at a decision level. \todo[inline]{this is unclear, could do with a few more sentence explaining why we should care.}
  So a macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. Unfortunately for MaxDB, the macro-ROC values are undefined because of poor performance of one of the labels.
 
-Fig. \ref{fig:mulan} presents the results of Mulan's best multi-label
+Figure~\ref{fig:mulan} presents the results of Mulan's best multi-label
 learners for our data. Calibrated Label Ranking (CLR) is a learner
 that builds two layers, the first layer determines if an entity should
 be labelled, while the second layer determines what labels should be assigned.
@@ -397,18 +402,18 @@ The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act a
 
 \begin{figure*}[ht]
 \centering
-\subfigure[MySQL]{
+\subfloat[MySQL]{
 \includegraphics[width=0.4\textwidth]{figures/multi-label-results-mysql}
 \label{fig:subfig3}
 }
-\subfigure[MaxDB]{
+\subfloat[MaxDB]{
 \includegraphics[width=0.4\textwidth]{figures/multi-label-results-maxdb}
 \label{fig:subfig4}
 }
-\label{fig:mulan}
 \caption[]{MySQL and MaxDB macro (grey) and micro (black) ROC results per multi-label learner. Possible values range from 0--1.
 \todo[inline]{better discussion}% and graphical legend would be nice}
 }
+\label{fig:mulan}
 \end{figure*}
 
 \subsection{Summary of techniques}
@@ -440,18 +445,19 @@ For example, in Fig. \ref{fig:mysql-timeline}, we see that the NFRs functionalit
 
 \begin{figure*}[ht]
 \centering
-\subfigure[MySQL 3.23]{
+\subfloat[MySQL 3.23]{
 \includegraphics[width=\textwidth]{figures/mysql-timeline}
 \label{fig:maxdb-timeline}                               
-}                                                        
-\subfigure[MaxDB 7.500]{                                 
+}           
+                                             
+\subfloat[MaxDB 7.500]{                                 
 \includegraphics[width=\textwidth]{figures/maxdb-timeline}
 \label{fig:mysql-timeline}
 }
-\label{fig:timelines}
 \caption[]{NFR label per period. Each box represents a 30-day period. Numbers represent number of topics in that period labelled with that NFR. Box intensity (saturation) is mapped to label frequency relative to the largest label value of \emph{all} NFRs. Grey bars indicate label frequency relative to \emph{that} NFR.
-\todo[inline]{better discussion}
+% \todo[inline]{better discussion}
 }
+\label{fig:timelines}
 \end{figure*}
 
 
