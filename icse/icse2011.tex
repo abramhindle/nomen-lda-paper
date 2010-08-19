@@ -1,7 +1,7 @@
 \documentclass[]{sig-alternate}
  \usepackage{booktabs}
 \usepackage[caption=false]{subfig}
- \usepackage[colorinlistoftodos,backgroundcolor=yellow,disable]{todonotes} %disable
+ \usepackage[colorinlistoftodos,backgroundcolor=yellow]{todonotes} %disable
  \usepackage{color}
 
 \newcommand{\XXX}[1]{\textcolor{red}{{\it \textbf{[XXX: #1]}}}}
@@ -27,7 +27,7 @@
 
 \begin{document}
 
-\conferenceinfo{ICSE}{'11 Waikiki, Hawaii USA}
+\conferenceinfo{ICSE}{'11 Waikiki, Hawaii, USA}
 \numberofauthors{5}
 \author{
 \alignauthor 
@@ -491,13 +491,6 @@ The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act a
 \label{fig:mulan}
 \end{figure*}
 
-\subsection{Summary of techniques}
-While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, and thus lower effort, supervised learners have the advantage of domain knowledge which typically means improved results.
-
-Very rarely did \textsf{exp2} and \textsf{exp3} (naive word matching) ever perform as well as the supervised machine learners. For MaxDB, \textit{reliability} was slightly better detected using the static word list of \textsf{exp2}. In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. For both MySQL and MaxDB \textit{usability} was better served by \textsf{exp2}. \textit{Usability} was a very infrequent label, however, which made it difficult to detect in any case.
-
-We found that the multi-label learners of BR, CLR and HOMER did not do as well for Macro-ROC as NaiveBayes and other NaiveBayes derived learners. This suggests that by sticking together multiple NaiveBayes learners we could probably label sets of topics effectively, but it would require a separate NaiveBayes learner per label.
-
 \subsection{Annotation observations}
 We found many topics that were not non-functional requirements (NFRs) but were often related to them. For instance, concurrency was mentioned often in the commit logs and was related to \emph{correctness} and \emph{reliability}, because concurrency was troublesome. Configuration management and source control related changes appeared often and sometimes there were topics dedicated to configuration management. These kinds of changes are slightly related to \emph{maintainability}. A non-functional change that was not quality-related was licensing and copyright; many changes were simply to do with updating copyrights or ensuring copyright or license headers were applied to files.
 
@@ -521,11 +514,23 @@ A quick mind dump before I forget:
   a project being maintained, more frequent back-port bug-fixes
 \end{comment}
 
+\subsection{Summary of techniques}
+While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, and thus lower effort, supervised learners have the advantage of domain knowledge which typically means improved results. Our manual annotations were fairly quick to do, taking on average five minutes per 30 day period. 
+
+Very rarely did \textsf{exp2} and \textsf{exp3} (naïve word matching) ever perform as well as the supervised machine learners. For MaxDB, \textit{reliability} was slightly better detected using the static word list of \textsf{exp2}. 
+In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. 
+For both MySQL and MaxDB \textit{usability} was better served by \textsf{exp2}. 
+\textit{Usability} was a very infrequent label, however, which made it difficult to detect in any case.
+
+We found that the multi-label learners of BR, CLR and HOMER did not do as well for Macro-ROC as NaiveBayes and other NaiveBayes derived learners. 
+This suggests that by sticking together multiple NaiveBayes learners we could probably label sets of topics effectively, but it would require a separate NaiveBayes learner per label.
+
 
 \section{Using \textbf{Nomen} to understand software maintenance activities} 
 \label{sec:analysis}
 % \todo[inline]{talk about this topic in one section}
 % \todo[inline]{reference project name Nomen more}
+
 Using the classification results from the previous sections, we evaluated two research questions:
 \begin{enumerate}
 \item Do label frequencies change over time? That is, is a certain quality of more interest at one point in the life-cycle than some other? 
@@ -541,10 +546,20 @@ relative to the maximum number of topics assigned to that NFR.
 The second, absolute frequency, compares the number of topics labelled with that NFR per period 
 relative to the maximum number of labelled topics overall. 
 
-For example, in Fig. \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have more intensely shaded boxes. We note that the gap in the MaxDB data is due to an interruption in the source data, having to do with the infrastructure for releasing data, rather than specific occurrences in the project.
+\textbf{Understanding the figures} -- For example, in Fig. \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have more intensely shaded boxes. We note that the gap in the MaxDB data is due to an interruption in the source data, having to do with the infrastructure for releasing developer artifacts, rather than specific occurrences in the project.
 \todo[inline]{can I pin this down more ?}
+There are more \textsf{None} labels in MaxDB because a number of topics were to do with code cleanup or automated checking using tools like \texttt{sutcheck}, a tool-specific to the development process at MaxDB. 
 
-\todo[inline]{try to pin down these reasons below}%  MySQL 3.23 was put on maintenance.
+\textbf{Timeline of key events} -- Figs. \ref{} show key events for each of our projects. Several external events (external to `normal' development activity, that is) affected our projects. For example, both projects show a high number of NFRs recognized at the first period of analysis. This is due to our window choice: we deliberately targeted our analysis to 
+MySQL 3.23 First announced Major update \& End-of life
+MaxDB 7.500 First announced
+
+Note that MySQL's release process was haphazard at this point: they would release a patch version whenever the need arose. By version 5.1, the company moved to a milestone release, with new releases targeted for every six months.
+
+\todo[inline]{Does our visualization capture the entire timeline?}
+
+\todo[inline]{try to pin down these reasons below}
+%  MySQL 3.23 was put on maintenance.
 % 
 % MySQL forks repositories per every version and 3.23 was supported for a
 % long time. there was 4.0 4.1 5.0 5.1
