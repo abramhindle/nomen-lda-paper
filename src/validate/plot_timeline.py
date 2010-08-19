@@ -5,7 +5,7 @@ Plot timelines with no spaces. Input is a range of values per quality.
 import matplotlib
 matplotlib.use('pdf')
 
-from matplotlib.dates import YearLocator, MonthLocator, DateFormatter, num2date
+from matplotlib.dates import YearLocator, MonthLocator, DateFormatter
 from matplotlib.patches import Rectangle
 from matplotlib.lines import Line2D     
 import matplotlib.pylab as pylab
@@ -18,8 +18,6 @@ import datetime
 def plot_timeline(proj, period_map):
     """ Plot a timeline view a la ConcernLines to show trends in topic occurrence """
     
-    #fig_dir = '/Users/nernst/Dropbox/research/abram/papers/naming-paper/icse/figures/'
-    # sorry bro
     fig_dir = './output/' # /Users/nernst/Dropbox/research/abram/papers/naming-paper/icse/figures/'
     #configure the figure
     width = 17
@@ -69,7 +67,7 @@ def plot_timeline(proj, period_map):
     # the order of display
     value_order = [ 'none' , 'portability' , 'efficiency' , 'reliability' , 'functionality' , 'usability' , 'maintainability' ]
     value_start = {}
-    # they y values of value
+    # the y values of value
     vo = 0
     for value_name in value_order:
         value_start[ value_name ] = vo
@@ -79,7 +77,6 @@ def plot_timeline(proj, period_map):
         for q in qm.keys():
             if qm[q] > max_value_map[q]: max_value_map[q] = qm[q]
             
-    i = 0
     for period in period_map.keys():
         qm = period_map[period] # the quality map w/value
         y, m, d = period.split('-') # why I have to re create the datetime instance ... 
@@ -91,7 +88,8 @@ def plot_timeline(proj, period_map):
         # - set the average topic number as a midpoint, and color based on distance from this average.
         denominator = max(max_value_map.values())
         # relative to all
-        # loop over it instead of copy and paste
+        # loop over it instead of copy and paste 
+        #HAHAHA! Copy and paste rules. Code clones rule. Code smells rule.
         for value in value_order:
             #rect = Rectangle((date,value_start[value]), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm[ value ])/float(max_value_map[ value ])))
             rect = Rectangle((date,value_start[value]), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm[ value ])/float(denominator)))
@@ -99,49 +97,15 @@ def plot_timeline(proj, period_map):
             # now draw the boxes relative the stream itself
             # 0.49 is for half height
             h = 0.49 * barheight * float(qm[ value ]) / float( max_value_map[ value ])
-            vrect = Rectangle((date,value_start[value]), barwidth, h,fill=True,lw=1, fc='black',)#alpha=(float(qm[ value ])/float(max_value_map[ value ])))
+            vrect = Rectangle((date,value_start[value]), barwidth, h,fill=True,lw=1, fc='gray',)#alpha=(float(qm[ value ])/float(max_value_map[ value ])))
             ax.add_patch( vrect )
-
-
-
-        # none_rect = Rectangle((date,0), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['none'])/float(denominator)))
-        # port_rect = Rectangle((date,5), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['portability'])/float(denominator)))
-        # effc_rect = Rectangle((date,10),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['efficiency'])/float(denominator)))
-        # reli_rect = Rectangle((date,15),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['reliability'])/float(denominator)))
-        # func_rect = Rectangle((date,20),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['functionality'])/float(denominator)))
-        # usab_rect = Rectangle((date,25),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['usability'])/float(denominator)))
-        # main_rect = Rectangle((date,30),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['maintainability'])/float(denominator)))
-        # 
-        # #relative to self
-        # # none_rect = Rectangle((date,0), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['none'])/float(max_value_map['none'])))
-        # #         port_rect = Rectangle((date,5), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['portability'])/float(max_value_map['portability'])))
-        # #         effc_rect = Rectangle((date,10),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['efficiency'])/float(max_value_map['efficiency'])))
-        # #         reli_rect = Rectangle((date,15),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['reliability'])/float(max_value_map['reliability'])))
-        # #         func_rect = Rectangle((date,20),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['functionality'])/float(max_value_map['functionality'])))
-        # #         usab_rect = Rectangle((date,25),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['usability'])/float(max_value_map['usability'])))
-        # #         main_rect = Rectangle((date,30),barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm['maintainability'])/float(max_value_map['maintainability'])))
-        # 
-        # 
-        # ax.add_patch(none_rect)
-        # ax.add_patch(port_rect)
-        # ax.add_patch(effc_rect)
-        # ax.add_patch(reli_rect)
-        # ax.add_patch(func_rect)
-        # ax.add_patch(usab_rect)
-        # ax.add_patch(main_rect)
         
         #add text numbers to debug
         delta = datetime.timedelta(days=5)
-        ax.annotate(str(qm['none']),           (date+delta, 2.5) , color='black', size='small')
-        ax.annotate(str(qm['portability']),    (date+delta, 7.5),  color='black', size='small' )
-        ax.annotate(str(qm['efficiency']),     (date+delta, 12.5), color='black', size='small'  )
-        ax.annotate(str(qm['reliability']),    (date+delta, 17.5), color='black', size='small'  )
-        ax.annotate(str(qm['functionality']),  (date+delta, 22.5), color='black', size='small'  )
-        ax.annotate(str(qm['usability']),      (date+delta, 27.5), color='black', size='small'  )
-        ax.annotate(str(qm['maintainability']),(date+delta, 32.5), color='black', size='small'  )
-
-        
-        i += barwidth
+        i = 0
+        for value in value_order:
+            ax.annotate(qm[value],  (date+delta, 2.5+5*i) , color='black', size='small')
+            i += 1
         
     for i in range(len(period_map.keys()[0])):
         if proj == 'mysql':
