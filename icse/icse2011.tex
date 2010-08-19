@@ -312,7 +312,13 @@ We compared against this data-set, but we also used it for our supervised machin
 
 % word list similarity
 Using our three word lists, we labeled our topics where there was a match between a word in the list and the same word in the topic.
-Table \ref{tbl:wordlist} lists broad labeling results for MaxDB as an example. A \emph{named topic} is a topic with a matching label. There are \{periods X 20\} topics per project as we told LDA to extract 20 topics per period. All experiments were run on MaxDB 7.500 and MySQL 3.23 data.
+A \emph{named topic} is a topic with a matching label. 
+There are roughly 20 times the number of topics as there are periods per project. 
+This is because we told LDA to extract 20 topics per period. 
+All experiments were run on MaxDB 7.500 and MySQL 3.23 data.
+Table \ref{tbl:wordlist} shows how many topics were labelled for MaxDB
+and MySQL.
+
 
 %\todo[inline,color=green]{this table should have mysql}
 \begin{table}[h]
@@ -365,12 +371,19 @@ MySQL 3.23  & Total  Topics  & 1000 & 1000 & 1000 \\
 
 \end{table}
 
-For \textsf{exp1}, our best performing labels (the labels matched with the most topics) were \emph{correctness} (182 topics) and \emph{testability} (121). We did not get good results for \emph{usability} or \emph{accuracy}, which were associated with fewer than ten topics. We also looked for correlation between our labels: Excluding double matches (self-correlation), our highest co-occurring terms were \emph{verifiability} and \emph{traceability}, and \emph{testability} and \emph{correctness} (76 and 62 matches, respectively).
+For \textsf{exp1}, our best performing labels, those with the most topics, were \emph{correctness} (182 topics) and \emph{testability} (121). 
+We did not get good results for \emph{usability} or \emph{accuracy}, which were associated with fewer than ten topics. 
+We also looked for correlation between our labels: Excluding double matches (self-correlation), our highest co-occurring terms were \emph{verifiability} with \emph{traceability}, and \emph{testability} with \emph{correctness} (76 and 62 matches, respectively).
 % See the following sections for our error analysis. 
 
-For \textsf{exp2}, there are more unnamed topics than \textsf{exp1}. Only \emph{reliability} produces a lot of matches, mostly with the word `error'. Co-occurrence results were poor. This suggests our word lists were overly restrictive.
+For \textsf{exp2}, there are more unnamed topics than \textsf{exp1}. 
+Only \emph{reliability} produces a lot of matches, mostly with the word `error'. 
+Co-occurrence results were poor. This suggests our word lists were overly restrictive.
 
-For \textsf{exp3}, we generally labelled more topics. As we mentioned, the word-lists are quite broad, so there are likely to be false-positives (discussed below). We found a high of 265 topics for \emph{usability}, with a low of 44 topics for \emph{maintainability}. Common co-occurrences were \emph{reliability} and \emph{usability}, \emph{efficiency} and \emph{reliability}, and \emph{efficiency} and \emph{usability} (200, 190, and 150 topics in common, respectively). 
+For \textsf{exp3}, we generally labelled more topics. 
+As we mentioned, the word-lists are quite broad, so there are likely to be false-positives (discussed below). 
+We found a high of 265 topics for \emph{usability}, with a low of 44 topics for \emph{maintainability}. 
+Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{efficiency} with \emph{reliability}, and \emph{efficiency} with \emph{usability} (200, 190, and 150 topics in common, respectively). 
 
 
 \subsubsection{Analysis of the unsupervised labelling}
