@@ -493,9 +493,19 @@ The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act a
 \end{figure*}
 
 \subsection{Annotation observations}
-We found many topics that were not non-functional requirements (NFRs) but were often related to them. For instance, concurrency was mentioned often in the commit logs and was related to \emph{correctness} and \emph{reliability}, because concurrency was troublesome. Configuration management and source control related changes appeared often and sometimes there were topics dedicated to configuration management. These kinds of changes are slightly related to \emph{maintainability}. A non-functional change that was not quality-related was licensing and copyright; many changes were simply to do with updating copyrights or ensuring copyright or license headers were applied to files.
+We found many topics that were not non-functional requirements (NFRs) but were often related to them. 
+For instance, concurrency was mentioned often in the commit logs and was related to \emph{correctness} and \emph{reliability}, likely because concurrent code is prone to bugs such as race conditions.%are 
+% often  was troublesome. 
+\emph{Configuration management} and \emph{source control} related changes appeared often and sometimes there were topics dedicated to configuration management. 
+These kinds of changes are slightly related to \emph{maintainability}. 
+A non-functional change that was not quality-related was licensing and copyright; many changes were simply to do with updating copyrights or ensuring copyright or license headers were applied to files.
 
-We noticed that occasionally the names of modules would conflict with words related to other non-functional requirements. For instance, optimizers are very common modules in database systems: both MySQL and MaxDB have optimizer modules. In MySQL the optimizer is mentioned but often the change deals with correctness or another quality. Despite this difference, the name of the module could fool our learners into believing the change was always about \emph{efficiency}. In these cases the advantages of tailoring topic names to specific project terminologies are more clear: this would avoid automated mistakes due to the names of entities and modules of a software project.
+We noticed that occasionally the names of modules would conflict with words related to other non-functional requirements. 
+For instance, optimizers are very common modules in database systems: both MySQL and MaxDB have optimizer modules. 
+In MySQL the optimizer is mentioned but often the change addresses  correctness or another quality. 
+Despite this difference, the name of the module could fool our learners into believing the change was always about \emph{efficiency}. 
+In these cases the advantages of tailoring topic names to specific project terminologies are more clear. 
+Project specific word-lists would avoid automated mistakes due to the names of entities and modules of a software project.
 
 \begin{comment}
 A quick mind dump before I forget:
