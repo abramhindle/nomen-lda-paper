@@ -10,7 +10,7 @@ from matplotlib.patches import Rectangle
 from matplotlib.lines import Line2D     
 import matplotlib.pylab as pylab
 import matplotlib.font_manager as fm
-import matplotlib.text
+# from matplotlib.axes.Axes import avxline
 from pylab import rc                  
 
 import datetime
@@ -36,7 +36,7 @@ def plot_timeline(proj, period_map):
     years    = YearLocator()   # every year
     months   = MonthLocator()  # every month
     yearsFmt = DateFormatter('%Y')
-    months    = MonthLocator(range(1,13), bymonthday=1, interval=4)
+    months    = MonthLocator(range(1,13), bymonthday=1, interval=3)
     monthsFmt = DateFormatter("%b %Y")
     
     # bar size
@@ -54,7 +54,7 @@ def plot_timeline(proj, period_map):
     ax.xaxis.set_major_locator(months)
     ax.xaxis.set_major_formatter(monthsFmt)
     #ax.xaxis.set_minor_locator(months)
-    ax.grid(True)
+    #ax.grid(True)
 
     fig.autofmt_xdate()
     ax.autoscale_view()
@@ -93,12 +93,12 @@ def plot_timeline(proj, period_map):
         #HAHAHA! Copy and paste rules. Code clones rule. Code smells rule.
         for value in value_order:
             #rect = Rectangle((date,value_start[value]), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm[ value ])/float(max_value_map[ value ])))
-            rect = Rectangle((date,value_start[value]), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm[ value ])/float(denominator)))
+            rect = Rectangle((date,value_start[value]), barwidth,barheight,zorder=2,fill=True,lw=0, fc='red',alpha=(float(qm[ value ])/float(denominator)))
             ax.add_patch( rect )
             # now draw the boxes relative the stream itself
             # 0.49 is for half height
             h = 0.49 * barheight * float(qm[ value ]) / float( max_value_map[ value ])
-            vrect = Rectangle((date,value_start[value]), barwidth, h,fill=True,lw=1, fc='gray',)#alpha=(float(qm[ value ])/float(max_value_map[ value ])))
+            vrect = Rectangle((date,value_start[value]), barwidth, h,fill=True,zorder=3,lw=1, fc='gray',)#alpha=(float(qm[ value ])/float(max_value_map[ value ])))
             ax.add_patch( vrect )
         
         #add text numbers to debug
@@ -116,24 +116,24 @@ def plot_timeline(proj, period_map):
         ax.add_line(l)                              
 
     # label the model with key events
-    if proj == 'mysql':
-        # make a line2d with the key events  2002-08-16, bug fix, security, threading, portability
-        
+    if proj == 'mysql':        
         events_dates = [datetime.date(2000,8,18), datetime.date(2001,1,18), datetime.date(2001,5,11), \
                         datetime.date(2002,8,16), datetime.date(2001,10,16), datetime.date(2003,3,18),datetime.date(2003,12,24),\
                          datetime.date(2003,9,15)]
         events_rel = ["3.23.19 GPL'ed","3.23.31 prod.","3.23.38", "3.23.52", "4.0 alpha", \
                         "4.0 production", "5.0 alpha", "3.23.58"]
-
-        zipped = zip(events_dates,events_rel) # eg (ed[1],er[1])
-        l = Line2D(events_dates,[37.5],ls=' ',marker='o')
-        ax.add_line(l)
-        for i in range(len(events_rel)):
-            ax.annotate(events_rel[i], (events_dates[i],38.5),fontsize=10)
+    if proj == 'maxdb':#                     2005-01-11,7.5.00.23
+        events_dates = [datetime.date(2004,7,2), datetime.date(2005,1,11),datetime.date(2005,3,8),datetime.date(2005,6,10),datetime.date(2006,03,01)]
+        events_rel = ["7.5.00.15", "7.5.00.23", "7.5.00.24 PHP","7.6.00 prod.","7.5.00.34"]
+        
+        
+    l = Line2D(events_dates,[37.5],ls=' ',marker='o')
+    ax.add_line(l)
+    for i in range(len(events_rel)):
+        ax.annotate(events_rel[i], (events_dates[i],38.5),fontsize=10)
+        ax.axvline(x=events_dates[i],zorder=1,ls='--',lw=0.8)
+        
     filename = fig_dir + proj + '-timeline.pdf'
     print filename
     pylab.savefig( filename )
-      #  ax.annotate('race interrupted', (61, 25), xytext=(0.8, 0.9), textcoords='axes fraction', arrowprops=dict(facecolor='black', shrink=0.05),
-    #             fontsize=16,
-    #             horizontalalignment='right', verticalalignment='top')
     #matplotlib.pyplot.show()   
