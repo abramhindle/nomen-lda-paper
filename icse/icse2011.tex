@@ -665,14 +665,16 @@ However, there are variations within our NFR labels. In MySQL, \emph{usability} 
 A proportionately smaller number of commits addressed these NFRs.
 As discussed in the section previous, certain peaks in topic numbers coincide with particular emphases in the development team, such as new releases or bug fixes.
 This suggests that maintenance activity is not necessarily strictly decreasing with time, but rather episodic and responsive to outside stimuli. 
-In MaxDB, we can observe that \emph{Maintainability} topics became more prevalent as MaxDB matures. This is likely due to our analysis time horizon being shorter than the MySQL product.
+In MaxDB, we can observe that \emph{Maintainability} topics became more prevalent as MaxDB matures. This is likely due to our analysis time horizon being shorter than equivalent span for the MySQL product.
 
 \textbf{Do the different projects differ in their relative topic interest?} -- 
 Yes. MySQL 3.23 had proportionally more
 topics labelled \emph{functionality}, while MaxDB had proportionally more
-\emph{efficiency} and \emph{portability} related topics.
- In both cases portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
-\todo[inline]{fix}
+\emph{efficiency} related topics. MaxDB was a very mature release `donated' to the open-source community. 
+MySQL, on the other hand, was in its relative infancy. 
+Security problems were more common (security is a component of `functionality' in the ISO 9126 model). 
+In both cases \emph{portability} was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects. 
+% \todo[inline]{fix}
 
 \section{Discussion}
 \label{sec:limit}
