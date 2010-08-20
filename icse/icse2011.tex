@@ -473,7 +473,7 @@ One beneficial aspect of this result is that it suggests we can have very fast t
 
 The less-frequently occurring a label, the harder it is to get accurate
 results, due to the high noise level. Nevertheless, these results are
-better than our previous word bag results of \textsf{exp2} and
+better than our previous word-list results of \textsf{exp2} and
 \textsf{exp3}, because the ROC values are sufficiently higher in most
 cases (other than MaxDB \emph{reliability} and MySQL \emph{efficiency}). The
 limitation of the approach we took here is that we assume labels are
@@ -640,7 +640,7 @@ In other words, MySQL 3.23 was being maintained rather than actively developed, 
 %\todo[inline,color=yellow]{expand on this with dates, and reference to visualizations}
 
 MySQL and MaxDB's machine learners made some decisions based off a few shared words: \textsf{bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test}. 
-Adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
+Adding these words to the word-lists of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
 
 With respect to the questions raised in section \ref{sec:suplabelling}:
 
@@ -721,25 +721,26 @@ Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed th
 % What did we do that was new?
 
 % para 1 we did this, we were successful
-In this paper we presented a cross-project data mining technique that was appropriate for mining and labelling latent software development topics using a non-functional requirements taxonomy. %topics and artifacts from project histories.
+In this paper we presented a cross-project data mining technique that was appropriate for mining and labelling latent software development topics using a non-functional requirements (NFRs) taxonomy. %topics and artifacts from project histories.
 Our contributions include:
 \begin{itemize}
-\item We provide an unsupervised method of topic labelling (word-bags);
+\item We provide an unsupervised method of topic labelling (word-lists);
 %\item Our unsupervised method can be applied to projects without training;
 \item We demonstrate a supervised method of labelling topics by a single NFRs (machine learning);
 \item We demonstrate a supervised method of labelling topics by multiple NFRs (multi-label machine learning);
 \item We provide a method of cross-project analysis via topic labelling;
 \item We demonstrate a method of visualizing these topics across time.
 \end{itemize}
-We leveraged word-bags, machine learning classifiers and multi-label machine learning classifiers.  
-We evaluated these techniques using multiple experiments against two open source database systems and visualized the results.
-We found that our topic labelling techniques were effective.
+
+%We leveraged word-bags, machine learning classifiers and multi-label machine learning classifiers.  
+%We evaluated these techniques using multiple experiments against two open source database systems and visualized the results.
+%We found that our topic labelling techniques were effective.
 
 % para 2 we did this to validate and show we did it
 % Experiment description -- origin of wordbags
 We validated our topic labelling techniques using multiple experiments.
-Using unsupervised word-bag analysis we set up two NFR topic labelling experiments: 
-our \textsf{exp2} experiment used small but accurate word-bags, while \textsf{exp3} used large general word-bags derived from WordNet.
+Using unsupervised word-list analysis we set up two NFR topic labelling experiments: 
+our \textsf{exp2} experiment used small but accurate word-lists, while \textsf{exp3} used large general word-lists derived from WordNet.
 The performance of these techniques differed per NFR but both \textsf{exp2} and \textsf{exp3} had similar performance.
 %Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet.
 % we could can improve auto labelling with ML
@@ -749,9 +750,9 @@ Both kinds of learners performed well with area under the ROC curve values betwe
 
 % para 3 look while we did it we found this
 % total topics - maybe move above
-We showed that non-functional requirements are often trending topics, that non-functional requirements are quite common in developer topics, and that there are efficient methods of semi-automating and automating topic labelling.
+We showed that NFRs are often trending topics, that NFRs are quite common in developer topics, and that there are efficient methods of semi-automating and automating topic labelling.
 % We found NFRs
-Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted topics dealt with non-functional requirements, and these topics were spread across the entire history of a project. 
+Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted topics dealt with NFRs, and these topics were spread across the entire history of a project. 
 % Try to provide an example of NFRs but little context
 In the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
 
@@ -760,7 +761,7 @@ In conclusion,
 topic analysis and concept analysis research has produced topics that need to be manually labelled. 
 We found that topics without labels are difficult to interpret.
 Thus we leveraged software engineering knowledge to produce a method of domain specific topic labelling.
-The word-bag technique is not project specific, thus it has intrinsic value when analyzing multiple projects.
+The word-list technique is not project specific, thus it has intrinsic value when analyzing multiple projects.
 We demonstrated multiple supervised and unsupervised methods of topic labelling, including multi-label learners.
 We provided a case study and visualization of NFR related topics in MaxDB 7.500 and MySQL 3.23. 
 During the case study we manually labelled 100s of topics by hand then used these annotations to validate the positive performance of topic labelling techniques.
