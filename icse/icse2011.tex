@@ -545,10 +545,15 @@ There are two measures represented.
 One, the relative frequency, shown in the grey boxes, represents the number of labels with that NFR in that period, 
 relative to the maximum number of topics assigned to that NFR. 
 The second, absolute frequency, compares the number of topics labelled with that NFR per period 
-relative to the maximum number of labelled topics overall. 
+relative to the maximum number of labelled topics overall, for that project. 
 
-\textbf{Understanding the figures} -- For example, in Fig. \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have more intensely shaded boxes. We note that the gap in the MaxDB data is due to an interruption in the source data, having to do with the infrastructure for releasing developer artifacts, rather than specific occurrences in the project.
-\todo[inline]{can I pin this down more ?}
+\textbf{Understanding the figures} -- For example, in Fig. \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have been more intensely shaded. % boxes. not sure boxes is important..
+%We note that the gap in the MaxDB data is due to an interruption in the source data, having to do with the infrastructure for releasing developer artifacts, rather than specific occurrences in the project.
+% I grepped query1.mrs2 http://softwareprocess.es/y/y/maxdb-76.tar.gz
+% and                   http://softwareprocess.es/y/maxdb-7500.tar.gz
+The gap in the MaxDB is due to the fact that other versions of MaxDB exist on different repositories and during this period from February 2005 to Jun 2005 the focus of development shifted to MaxDB 7.6. 
+Immediately after this period of inactivity, there was a large deluge of commits added to the MaxDB 7.500 repositories.
+%\todo[inline]{can I pin this down more ?}
 There are more \textsf{None} labels in MaxDB because a number of topics were to do with code cleanup or automated checking using tools like \texttt{sutcheck}, a tool-specific to the development process at MaxDB. 
 
 \textbf{Timeline of key events} -- Figs. \ref{} show key events for each of our projects. Several external events (external to `normal' development activity, that is) affected our projects. For example, both projects show a high number of NFRs recognized at the first period of analysis. This is due to our window choice: we deliberately targeted our analysis to 
