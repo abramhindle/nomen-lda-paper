@@ -1,7 +1,7 @@
 \documentclass[]{sig-alternate}
  \usepackage{booktabs}
 \usepackage[caption=false]{subfig}
- \usepackage[colorinlistoftodos,backgroundcolor=yellow]{todonotes} %disable
+ \usepackage[colorinlistoftodos,backgroundcolor=yellow,disable]{todonotes} %disable
  \usepackage{color}
 
 \newcommand{\XXX}[1]{\textcolor{red}{{\it \textbf{[XXX: #1]}}}}
@@ -97,8 +97,6 @@ Our results were generalizable across the two projects, showing that non-functio
 Our labelled topic extraction technique allowed us to devise appropriate, context-sensitive labels across these two projects, providing insight into their software development activities.
 \end{abstract}
 
-
-
 \category{D.2.9}{Software Engineering}{Managment}[Lifecycle]
 \category{D.2.1}{Software Engineering}{Requirements/Specifications}[Tools]
 
@@ -109,9 +107,8 @@ Our labelled topic extraction technique allowed us to devise appropriate, contex
 \newcommand{\shrink}{}
 
 \section{Introduction}
-
-
-Topics in software engineering practice refer to specific shared threads of discussions between project stakeholders. These topics can include particular requirements, maintenance requests, bug fixes or other software engineering tasks. %NEIL: define topic specifically as akin to email 'thread'. It sounded too vague. Also changed from 'developers' to 'stakeholders' because developers sounds too coding oriented. Our work could apply to testers, users, etc.
+Topics in software engineering practice refer to specific shared threads of discussions between project stakeholders. 
+These topics can include particular requirements, maintenance requests, bug fixes or other software engineering tasks. %NEIL: define topic specifically as akin to email 'thread'. It sounded too vague. Also changed from 'developers' to 'stakeholders' because developers sounds too coding oriented. Our work could apply to testers, users, etc.
 While addressing a topic of development, stakeholders often produce or modify multiple development artifacts.
 %
 These artifacts can include source code, bug reports, revisions to source code, and test cases. 
@@ -164,7 +161,7 @@ In this paper, we describe \textbf{Nomen}, which is a tool for \emph{labelled to
 that it is difficult to discuss results independent of the project context. Our technique automatically assigns labels across projects.
 \end{enumerate}
 
-This paper begins by introducing labelled topic extraction (Section \ref{sec:wordlist}). We show that these labels with their topics can be learned and used to classify other data-sets, either without training (Section \ref{sec:unsuplabelling}), or with training (Section \ref{sec:suplearn}). We then present visualizations of named topics and their trends over time to aid communication and analysis. We use an exploratory case study of two open source database systems to show how named topics can be compared between projects  (Section \ref{sec:analysis}). The paper concludes with a discussion of limitations (Section \ref{sec:limit}) and related work (Section \ref{sec:related}).
+This paper begins by introducing labelled topic extraction (Section \ref{sec:wordlist}). We show that these labels with their topics can be learned and used to classify other data-sets, either without training (Section \ref{sec:unsuplabelling}), or with training (Section \ref{sec:suplabelling}). We then present visualizations of named topics and their trends over time to aid communication and analysis. We use an exploratory case study of two open source database systems to show how named topics can be compared between projects  (Section \ref{sec:analysis}). The paper concludes with a discussion of limitations (Section \ref{sec:limit}) and related work (Section \ref{sec:related}).
 
 %\todo[inline]{Topics are poorly defined by this point and since we're building on research which didn't DO this, we should mention that research. Previous work probably should go here.}
 
@@ -386,9 +383,8 @@ We found a high of 265 topics for \emph{usability}, with a low of 44 topics for 
 Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{efficiency} with \emph{reliability}, and \emph{efficiency} with \emph{usability} (200, 190, and 150 topics in common, respectively). 
 
 
-\subsubsection{Analysis of the unsupervised labelling}
-
-Based on the labels, and our manual topic labelling, we compared the results of the unsupervised word matching approach. 
+\textbf{Analysis of the unsupervised labelling} -- Based on the labels, and our manual topic labelling, 
+we compared the results of the unsupervised word matching approach. 
 For each quality we assessed whether unsupervised labels matches the manual annotations.
 Figure \ref{fig:maxdb-unsup-results} shows our results for MaxDB and MySQL. 
 Our performance is measured using the \emph{ROC} (Receiver Operating Characteristic) area-under-curve value~\cite{Fawcett2006861}. 
@@ -416,7 +412,7 @@ If a \emph{C} grade performance has a ROC value of $0.6$ then most of these test
 
 
 \subsection{Supervised labelling}
-\label{sec:suplearn}
+\label{sec:suplabelling}
 Supervised labelling requires expert analysis of the correct word to assign to a topic. %In order to validate how effective these word-bag approaches to topic labelling would be we created a validation data set. 
 
 We used a suite of supervised classifiers, WEKA~\cite{weka09}. 
@@ -430,8 +426,8 @@ The original data is partitioned randomly into ten sub-samples. Each sample is u
 %This is repeated nine more times, with each subsample used once as the training set. 
 We have reported these results below in Section \ref{sec:suplabelling}.
 
-\subsubsection{Analysis of the supervised labelling}
-\label{sec:suplabelling}
+\textbf{Analysis of the supervised labelling} -- 
+% \label{sec:suplabelling}
 Because our data-set was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. 
 We tried other learners that WEKA~\cite{weka09} provides: rule learners, decision tree learners, vector space learners, and support vector machines.  
 Figure \ref{fig:best-learn-per-tag} shows the performance of the best performing learner per label. 
@@ -497,7 +493,7 @@ Figure~\ref{fig:mulan} presents the results of Mulan's best multi-label learners
 Calibrated Label Ranking (CLR) is a learner that builds two layers, the first layer determines if an entity should be labelled, while the second layer determines what labels should be assigned.
 The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act as a hierarchy of learners: BR is flat, while HOMER tries to build a deeper hierarchy to build a more accurate learner~\cite{mulan}. 
 These classifiers performed better than other multi-label classifiers. 
-They have the best micro and macro ROC scores, although their results are comparable to the naive Bayesian learners we used in Section \ref{sec:suplearn}.
+They have the best micro and macro ROC scores, although their results are comparable to the naive Bayesian learners we used in Section \ref{sec:suplabelling}.
 \todo[inline]{discuss this similarity in more detail}
 
 \begin{figure*}[ht]
@@ -618,7 +614,7 @@ In other words, MySQL 3.23 was being maintained rather than actively developed, 
 MySQL and MaxDB's machine learners made some decisions based off a few shared words: \textsf{bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test}. 
 Adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
 
-With respect to the questions raised in section \ref{sec:suplearn}:
+With respect to the questions raised in section \ref{sec:suplabelling}:
 
 \textbf{Do label frequencies change over time?} -- Yes, MySQL's label
 frequencies decreased as it got older. \emph{Usability} and \emph{reliability}
@@ -630,35 +626,6 @@ became more prevalent as MaxDB matured.
 topics labelled \emph{functionality}, while MaxDB had proportionally more
 \emph{efficiency} and \emph{portability} related topics.
  
-
-\begin{comment}
- shared-report.sh ; cat output/shared-j48-words 
-
-      2 bug
-      2 code
-      2 compiler
-      2 database
-      2 Delete_
-      2 HP_UX
-      2 memory
-      2 missing
-      2 monty_mysql_com
-      2 monty_mysql_fi
-      2 problems
-      2 Removed
-      2 work__home_bk_mysql
-      4 4_0
-      4 Add
-      4 added
-      4 Changed
-      4 problem
-      6 Added
-      6 test
-
-\end{comment}
-
-
-
 \section{Limitations}
 \label{sec:limit}
 \subsection{Effectiveness}
@@ -706,13 +673,6 @@ Cleland-Huang and her colleagues published work on mining requirements documents
 In the same vein, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. They also leveraged WordNet, but only for word roots. They felt the synonyms would be non-specific and cause errors. A nice contribution was access to system developers, with whom they could validate their labels. Since we try to bridge different organizations, these interviews are infeasible (particularly in the distributed world of open-source software).
 
 The other approach is to start with code repositories, and try to extract concerns from there. Marcus et al.~\cite{marcus04wcre} describe their use of Latent Semantic Indexing to identify commonly occurring concerns for software maintenance. Some results were interesting, but their precision was quite low. ConcernLines~\cite{treude09cl} shows tag occurrence using colour intensity. They mined change request tags (such as `milestone 3') and used these to make evolutionary analyses of a single product. The presence of a well-maintained set of tags is obviously essential to the success of this technique.
-
-\begin{comment}
-%We maintain that these results require more substantive manipulation before being reported to, for example, management. Like any large-scale data analysis project, it requires skill to derive the implications. Hooking the backend results directly to a reporting tool is unlikely to produce useful results.
-
-% There has been an explosion of interest in mining OSS repositories. Godfrey and Tu \cite{godfrey00} were among the first to use this data to assess software evolution. They discussed how well the growth of Linux was predicted by laws that Lehman and colleagues \cite{lehman85} proposed. More recently, Herraiz et al. \cite{herraiz07icsm} predicted OSS growth using time series analysis. Like us, they refer to release windows as a useful unit of analysis. 
-\end{comment}
-
 
 Mens et al.~\cite{mens08icsm} conducted an empirical study of Eclipse, the open source software (OSS) source code editor, to verify the claims of Lehman~\cite{lehman97sms}. They concerned themselves with source code only, and found Law Seven, ``Declining Quality'', to be too difficult to assess: ``[we lacked an] appropriate measurement of the evolving quality of the system as perceived by the users \cite[p. 388]{mens08icsm}''. This paper examines the notions of quality in terms of a consistent ontology, as Mens et al. call for in their conclusions.
 
@@ -790,22 +750,7 @@ It is difficult to map abstract qualities to particular messages. % what?
  % This is disjointed and needs more context
 On question we seek to answer is if a ``quality'' discussion about more than just corrective maintenance? %In this study we take the position that any type of maintenance has to do with software quality.
  
- %\todo[inline]{Future work is disjointed the question should be more clear}
 
-
-% Be careful how you merge!
-
-% We demonstrated that static but domain-specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet. We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
-
-% Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted topics dealt with non-functional requirements, and these topics were spread across the entire history of a project. In the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
-
-% We showed that non-functional requirements are often trending topics, that non-functional requirements are quite common in developer topics, and that there are efficient methods of semi-automating and automating topic labelling.
-
-% There are several avenues of further investigation.  We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  It is difficult to map abstract qualities to particular messages. Is a ``quality'' discussion about more than just corrective maintenance? %In th
-%is study we take the position that any type of maintenance has to do with software quality.
-
-%XXX can save space here!
-%\section{Appendix}
 \appendix
 
 Our data and scripts are available at \url{http://softwareprocess.es/nomen/}
@@ -815,6 +760,36 @@ Our data and scripts are available at \url{http://softwareprocess.es/nomen/}
 \bibliography{icpc}
 
 \end{document}
+
+
+% \begin{comment}
+%  shared-report.sh ; cat output/shared-j48-words 
+% 
+%       2 bug
+%       2 code
+%       2 compiler
+%       2 database
+%       2 Delete_
+%       2 HP_UX
+%       2 memory
+%       2 missing
+%       2 monty_mysql_com
+%       2 monty_mysql_fi
+%       2 problems
+%       2 Removed
+%       2 work__home_bk_mysql
+%       4 4_0
+%       4 Add
+%       4 added
+%       4 Changed
+%       4 problem
+%       6 Added
+%       6 test
+% 
+% \end{comment}
+
+
+
 % \begin{comment}
 % A quick mind dump before I forget:
 % * portability was very popular
@@ -853,3 +828,20 @@ Our data and scripts are available at \url{http://softwareprocess.es/nomen/}
 
 % Developers do more than merely observe these abstractions, however. They must also use them to assess progress and work with colleagues. To have meaningful discussions about how software development is progressing, we must be able to devise appropriate labels for our development artifacts. Such labels can be used to compare progress or understand how well a project is meeting requirements. These labels then become the topics for development conversations (such as the stream of commentary on a bug report). One way to identify topics is to use the artifacts themselves to derive them. 
 % \todo[inline]{it should be labels for topics not artifacts, I think the artifact part is almost secondary and the topic stuff is really what is up. Topics are used below and it isn't even clear what they are or what we're talking about. Naming is important but lets tell the reader what is being named first.}
+
+ %\todo[inline]{Future work is disjointed the question should be more clear}
+
+
+% Be careful how you merge!
+
+% We demonstrated that static but domain-specific knowledge can improve unsupervised labelling of extracted topics. Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet. We then showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic labelling topics even further.
+
+% Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted topics dealt with non-functional requirements, and these topics were spread across the entire history of a project. In the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
+
+% We showed that non-functional requirements are often trending topics, that non-functional requirements are quite common in developer topics, and that there are efficient methods of semi-automating and automating topic labelling.
+
+% There are several avenues of further investigation.  We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  It is difficult to map abstract qualities to particular messages. Is a ``quality'' discussion about more than just corrective maintenance? %In th
+%is study we take the position that any type of maintenance has to do with software quality.
+
+%XXX can save space here!
+%\section{Appendix}
