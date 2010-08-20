@@ -425,12 +425,23 @@ To assess the performance of the supervised learners, we did a 10-fold cross-val
 
 \subsubsection{Analysis of the supervised labelling}
 \label{sec:suplabelling}
-Because our data-set was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. We tried other learners that WEKA~\cite{weka09} provides: rule learners, decision tree learners, vector space learners, and support vector machines.  Figure \ref{fig:best-learn-per-tag} shows the performance of the best performing learner per label.  We considered the best learner for a label to be the one which had the highest ROC value for that label. Figure \ref{fig:best-learn-per-tag} uses the ZeroR learner as a baseline, a common practice in machine learning. ZeroR naively chooses the largest category all of the time. It occasionally outperforms non-naive learners; for labels which are not as common, this is to be expected because any miscategorization will hurt accuracy. This is why we use ROC values, as they can better represent performance on labels which are not applicable to the majority of samples.
+Because our data-set was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. 
+We tried other learners that WEKA~\cite{weka09} provides: rule learners, decision tree learners, vector space learners, and support vector machines.  
+Figure \ref{fig:best-learn-per-tag} shows the performance of the best performing learner per label. 
+ We considered the best learner for a label to be the learner which had the highest ROC value for that label. 
+Figure \ref{fig:best-learn-per-tag} uses the ZeroR learner as a baseline, a common practice in machine learning,
+as ZeroR naively chooses the largest category all of the time. 
+ZeroR occasionally outperforms other learners; for labels which are not as common, this is to be expected because any miscategorization will hurt accuracy. 
+This is why we use ROC values, instead of accuracy, as they can better represent performance on labels which are not applicable to the majority of samples.
 
-Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, as the ROC values for \emph{reliability} and \emph{functionality} seem swapped between projects. For both projects Bayesian techniques did the best out of a wide variety of machine learners tested. Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes's theorem and all assume, naively, that the features are independent. The features we used are word counts per message. One beneficial aspect of this result is that it suggests we can have very fast training and classifying  since Naive Bayes can be calculated in $O(N)$ for $N$ features.
+Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, as the ROC values for \emph{reliability} and \emph{functionality} seem swapped between projects. 
+For both projects Bayesian techniques did the best out of a wide variety of machine learners tested. 
+Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes's theorem and all assume, naively, that the features are independent. 
+The features we used are word counts per message. 
+One beneficial aspect of this result is that it suggests we can have very fast training and classifying  since Naive Bayes can be calculated in $O(N)$ for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
 
-The less-frequently occurring a label the harder it is to get accurate
+The less-frequently occurring a label, the harder it is to get accurate
 results, due to the high noise level. Nevertheless, these results are
 better than our previous word bag results of \textsf{exp2} and
 \textsf{exp3}, because the ROC values are sufficiently higher in most
