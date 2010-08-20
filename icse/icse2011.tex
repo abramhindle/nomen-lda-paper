@@ -527,58 +527,43 @@ Confirmation bias is the difference between what people think happened and what 
 Some software releases, for instance, are poorly received since they are quite buggy. 
 \textsf{Nomen} would help explain why this was the case, since it can identify NFRs which are dominating developer attention.
 
-\subsection{Visualizations}
+\subsection{Timeline visualization}
 Figures \ref{fig:maxdb-timeline} and \ref{fig:mysql-timeline} show the temporal patterns of label frequencies. 
 There are two measures represented. 
 One, the relative frequency, shown in the grey boxes, represents the number of labels with that NFR in that period, 
 relative to the maximum number of topics assigned to that NFR. 
 The second, absolute frequency, compares the number of topics labelled with that NFR per period 
-relative to the maximum number of labelled topics overall, for that project. 
+relative to the maximum number of labelled topics overall, for that project. The topmost row in the diagrams is reserved for historical events of note. We refer to these occurrences in the discussion which follows.
 
-\textbf{Understanding the figures} -- For example, in Fig. \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have been more intensely shaded. % boxes. not sure boxes is important..
+\textbf{Understanding the figures} -- In Fig. \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have been more intensely shaded. % boxes. not sure boxes is important..
 %We note that the gap in the MaxDB data is due to an interruption in the source data, having to do with the infrastructure for releasing developer artifacts, rather than specific occurrences in the project.
 % I grepped query1.mrs2 http://softwareprocess.es/y/y/maxdb-76.tar.gz
 % and                   http://softwareprocess.es/y/maxdb-7500.tar.gz
-The gap in the MaxDB is due to the fact that other versions of MaxDB exist on different repositories and during this period from February 2005 to Jun 2005 the focus of development shifted to MaxDB 7.6. 
-Immediately after this period of inactivity, there was a large deluge of commits added to the MaxDB 7.500 repositories.
-%\todo[inline]{can I pin this down more ?}
 There are more \textsf{None} labels in MaxDB because a number of topics were to do with code cleanup or automated checking using tools like \texttt{sutcheck}, a tool-specific to the development process at MaxDB. 
 
-\textbf{Timeline of key events} -- Figs. \ref{} show key events for each of our projects. Several external events (external to `normal' development activity, that is) affected our projects. For example, both projects show a high number of NFRs recognized at the first period of analysis. This is due to our window choice: we deliberately targeted our analysis to 
-MySQL 3.23 First announced Major update \& End-of life
-MaxDB 7.500 First announced
+\textbf{Timeline of key events} -- As discussed earlier, the top row in each figure shows key events for each project. \textsf{Nomen} can pick out the underlying NFR activity behind these events. For example, both projects show a high number of NFRs recognized at the first period of analysis. 
+This is due to our window choice: we deliberately targeted our analysis to coincide with the development lifecycle of a particular major release of the software. For MaxDB, version 7.5.00  was released in December of 2003. 
+From analyzing the mailing list for external validation, we know that release 7.5.00.23 saw the development of PHP interfaces, possibly accounting for the simultaneous increase in the \emph{portability} NFR at the same time.
+The gap in MaxDB (Fig. \ref{fig:maxdb-timeline}) is due to a shift in development focus (from February 2005 to Jun 2005) to MaxDB 7.6, which is released in June 2005.
 
-Note that MySQL's release process was haphazard at this point: they would release a patch version whenever the need arose. By version 5.1, the company moved to a milestone release, with new releases targeted for every six months.
+For MySQL (Fig. \ref{fig:mysql-timeline}), we similarly validated our NFR patterns with external mailing list data. This release of MySQL was the first to be licenced under the GPL. Version 3.23.31 (January, 2001) was the production release (non-beta), and we see a flurry of topics labeled with \emph{functionality} and \emph{maintainability}, as one might expect. After this point, we can consider this version to enter the maintenance phase of the lifecycle.
 
-\todo[inline]{Does our visualization capture the entire timeline?}
+%Note that MySQL's release process was haphazard at this point: they would release a patch version whenever the need arose. By version 5.1, the company moved to a milestone release, with new releases targeted for every six months.
 
-\todo[inline]{try to pin down these reasons below}
-%  MySQL 3.23 was put on maintenance.
-% 
-% MySQL forks repositories per every version and 3.23 was supported for a
-% long time. there was 4.0 4.1 5.0 5.1
-% 
-% This is the MySQL 3.23 branch
-% 
-% Same thing with MaxDB 7.5
-% 7.6 is in a different repository
+% \todo[inline]{Does our visualization capture the entire timeline?}
 
-
-
-% For MaxDB (Figure \ref{fig:maxdb}) the largest trends were related to maintainability and portability. MaxDB supports numerous platforms and portability was a constant issue facing the project's development. MySQL was different, with many topics overlapping, so there were many different subsets. Functionality trends were prevalent throughout its history (the largest reddish streak across the top). Two combination  tags of ``functionality portability'' (orange) and ``maintainability portability'' (teal) streaked across most of the history of MySQL. Since this was MySQL 3.23, a stable branch, we expect that issues dealing with portability and maintenance would be the primary concerns of this branch: developers probably wanted it to work with current systems and thus had to update it.
-
-%\todo[inline]{Update this}
+%\todo[inline]{try to pin down these reasons below}
 
 \begin{figure*}[ht]
 \centering
 \subfloat[MySQL 3.23]{
 \includegraphics[width=\textwidth]{figures/mysql-timeline}
-\label{fig:maxdb-timeline}                               
+\label{fig:mysql-timeline}                               
 }           
                                              
 \subfloat[MaxDB 7.500]{                                 
 \includegraphics[width=\textwidth]{figures/maxdb-timeline}
-\label{fig:mysql-timeline}
+\label{fig:maxdb-timeline}
 }
 \caption[]{NFR label per period. Each box represents a 30-day period. Numbers represent number of topics in that period labelled with that NFR. Box intensity (saturation) is mapped to label frequency relative to the largest label value of \emph{all} NFRs. Grey bars indicate label frequency relative to \emph{a particular} NFR.
 % \todo[inline]{better discussion}
