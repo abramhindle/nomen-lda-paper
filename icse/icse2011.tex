@@ -668,11 +668,13 @@ frequencies decreased as that release aged. \emph{Usability} and \emph{reliabili
 labels became more and more infrequent as it matured. \emph{Maintainability} topics
 became more prevalent as MaxDB matured.
 
-\textbf{Do the different projects differ in their relative topic
-  interest?} -- Yes. MySQL 3.23 had proportionally more
+\textbf{Do the different projects differ in their relative topic interest?} -- 
+Yes. MySQL 3.23 had proportionally more
 topics labelled \emph{functionality}, while MaxDB had proportionally more
 \emph{efficiency} and \emph{portability} related topics.
- 
+ In both cases portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
+\todo[inline]{fix}
+
 \section{Limitations}
 \label{sec:limit}
 
@@ -790,7 +792,7 @@ Our contributions include:
 \item We demonstrated a supervised method of labelling topics by a single NFRs (machine learning);
 \item We demonstrated a supervised method of labelling topics by multiple NFRs (multi-label machine learning);
 \item We provided a method of cross-project analysis via topic labelling;
-\item We demonstrated a method of visualizing these topics across time.
+\item We demonstrated a method of visualizing these topics across time, which we used to analyze maintenance activities.
 \end{itemize}
 
 %We leveraged word-bags, machine learning classifiers and multi-label machine learning classifiers.  
@@ -799,34 +801,39 @@ Our contributions include:
 
 % para 2 we did this to validate and show we did it
 % Experiment description -- origin of wordbags
-We validated our topic labelling techniques using multiple experiments.
-Using unsupervised word-list analysis we set up two NFR topic labelling experiments: 
-our \textsf{exp2} experiment used small but accurate word-lists, while \textsf{exp3} used large general word-lists derived from WordNet.
-The performance of these techniques differed per NFR but both \textsf{exp2} and \textsf{exp3} had similar performance.
+% NEIL - shortening this 
+We validated our topic labelling techniques using multiple experiments. We conducted unsupervised labelling using word-lists. Our next approach was supervised, using single-label and multi-label learners. 
+% Using unsupervised word-list analysis we set up two NFR topic labelling experiments: 
+% our \textsf{exp2} experiment used small but accurate word-lists, while \textsf{exp3} used large general word-lists derived from WordNet.
+% The performance of these techniques differed per NFR but both \textsf{exp2} and \textsf{exp3} had similar performance.
 %Our \textsf{exp2} experiment used small accurate word bags to label topics but performed just as well as \textsf{exp3}, which used many more general terms from WordNet.
 % we could can improve auto labelling with ML
-Our third experiment showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic topic labelling even further.
-Our fourth experiment evaluated the effectiveness of multi-label learners, such as HOMER. 
+% Our third experiment showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic topic labelling even further.
+% Our fourth experiment evaluated the effectiveness of multi-label learners, such as HOMER. 
 Both kinds of learners performed well with area under the ROC curve values between $0.6$ and $0.8$.
 
 % para 3 look while we did it we found this
 % total topics - maybe move above
-We showed that NFRs are often trending topics; that NFRs are quite common in developer topics; and that there are efficient methods of semi-automating and automating topic labelling.
+These labelling techniques allowed us to investigate the occurrence of non-functional requirements in our projects.
+We showed that NFRs are often trending topics; that NFRs are quite common in developer topics; and that there are efficient methods of automating topic labelling.
+Although it may seem like common knowledge that maintenance is a concern as a project matures, our technique was able to show this independently.
+
 % We found NFRs
-Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted topics dealt with NFRs, and these topics were spread across the entire history of a project. 
+% Our manual inspection and annotation of the topics extracted from MySQL and MaxDB revealed that many of the extracted topics dealt with NFRs, and these topics were spread across the entire history of a project. 
 % Try to provide an example of NFRs but little context
-In the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
+%too specific in this sectionIn the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
+
+
 
 % para 4 summarize and hammer contribution
-In conclusion,
-topic analysis and concept analysis research has produced topics that need to be manually labelled. 
-We found that topics without labels are difficult to interpret.
-Thus we leveraged software engineering knowledge to produce a method of domain specific topic labelling.
-The word-list technique is not project specific, thus it has intrinsic value when analyzing multiple projects.
+% NE not a fan of this phrasing -> % In conclusion, 
+Previous topic analysis research produced topics that needed to be manually labelled, but topics without labels are difficult to interpret.
+To improve this, we leveraged software engineering standards to produce a method of domain specific topic labelling.
+Since the word-list technique is not project specific, it can be used to compare multiple projects.
 We demonstrated multiple supervised and unsupervised methods of topic labelling, including multi-label learners.
 We provided a case study and visualization of NFR related topics in MaxDB 7.500 and MySQL 3.23. 
-During the case study we manually labelled 100s of topics by hand then used these annotations to validate the positive performance of topic labelling techniques.
-We showed that topics with labels are more useful than unlabelled topics, thus to furnish stakeholders with labelled topics we provided many methods of automatic topic labelling.
+During the case study we manually labelled hundreds of topics by hand then used these annotations to validate the positive performance of topic labelling techniques.
+We showed that topics with labels are more useful than unlabelled topics. To furnish stakeholders with labelled topics, our technique provides many methods of automatic topic labelling.
 
   
 %\subsection{Future Work}
