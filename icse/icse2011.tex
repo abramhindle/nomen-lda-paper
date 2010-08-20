@@ -80,21 +80,23 @@ Approaches such as topic modeling and concept location rely on the automated app
 % the labelling research
 Furthermore, these topic labelling approaches neither use domain-specific knowledge to improve results, nor contextualize those results for developers.   
 % a sub problem
-While too much specificity can produce non-generalizable results, too little produces broad learners that do not provide much immediately useful detail. 
+% While too much specificity can produce non-generalizable results, too little produces broad learners that do not provide much immediately useful detail. 
 % what we do
 This paper introduces \emph{labelled topic extraction}, in which topics are extracted from commit comments and given labels relating to a cross-project taxonomy. 
 % data mining generalizable
-To ensure we have a generalizable, project-agnostic approach we label topics using non-functional requirements,
+Our approach is 
+%To ensure we have a 
+generalizable and project-agnostic as we label topics using non-functional requirements,
 % these qualities 
 as these apply across many software systems.% and their development artifacts.
 % We used real world data
 We evaluated our approach with an experimental study on two large-scale database projects, MySQL and MaxDB. 
 % We used LDA, CVS, Bitkeeper
-We extracted topics using Latent Dirichlet Allocation (LDA) from the commit log comments of their version control systems (CVS and BitKeeper). 
+We extracted topics using Latent Dirichlet Allocation (LDA) from the commit-log comments of their version control systems (CVS and BitKeeper). 
 % We show NFRs exist
 Our results were generalizable across the two projects, showing that non-functional requirements were commonly discussed, and we identified topic trends over time. 	
 % we can label stuff
-Our labelled topic extraction technique allowed us to devise appropriate, context-sensitive labels across these two projects, providing insight into their software development activities.
+Labelled topic extraction allowed us to devise appropriate, context-sensitive labels across these two projects, providing insight into their software development activities.
 \end{abstract}
 
 
@@ -123,7 +125,7 @@ Topics are typically latent, i.e., not explicitly named, and can be in several p
 Often developers interact with abstractions of the artifacts from which topics are derived, rather than the artifact itself. 
 Such abstractions include project dashboards~\cite{kersten2005mylar}, tags~\cite{treude2010}, and complexity metrics \cite{mccabe1976complexity}. 
 Topics, too, are a valuable and automatically extractable abstraction of software artifacts.
-It abstracts these artifacts by their subject matter, rather than their concrete representation. 
+Topics abstracts these artifacts by their subject matter, rather than their concrete representation. 
 Much like Aspect-Oriented Programming, topic labeling can identify cross-cutting concerns in a software project~\cite{Baldi2008}.
 The topic of development is relevant because it identifies the distinct issues facing development at a certain time.
 
