@@ -494,7 +494,7 @@ together.
 % \includegraphics[width=0.4\textwidth]{figures/maxdb-supervised}
 % \label{fig:subfig2}
 % }
-\caption[]{ROC value for the best learner per label. Possible values range from 0--1.
+\caption[]{ROC value for the best learner per label for MaxDB and MySQL. ROC values range from 0--1.
 %\todo[inline]{better discussion}
 }
 \label{fig:best-learn-per-tag}
@@ -514,7 +514,7 @@ Mulan also includes methods for determining the performance of such techniques.
 Two perspectives to evaluate multi-label learners are with micro or macro measurements (used in Figure \ref{fig:mulan}).
 Macro measurements are aggregated at a class or label level (per class) while micro measurements are at the element level (per element).
 A macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. 
-Unfortunately for MaxDB, the macro-ROC values are undefined because of poor performance of one of the labels, see Figure \ref{fig:mulan}.
+Unfortunately for MaxDB, the macro-ROC values are undefined because of poor performance of one of the labels.%, see Figure \ref{fig:mulan}.
 
 Figure~\ref{fig:mulan} presents the results of Mulan's best multi-label learners for our data. 
 Calibrated Label Ranking (CLR) is a learner that builds two layers, the first layer determines if an entity should be labelled, while the second layer determines what labels should be assigned.
