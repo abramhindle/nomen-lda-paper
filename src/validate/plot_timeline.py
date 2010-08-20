@@ -10,6 +10,7 @@ from matplotlib.patches import Rectangle
 from matplotlib.lines import Line2D     
 import matplotlib.pylab as pylab
 import matplotlib.font_manager as fm
+import matplotlib.text
 from pylab import rc                  
 
 import datetime
@@ -41,14 +42,14 @@ def plot_timeline(proj, period_map):
     # bar size
     barwidth = 30#datetime.date()
     barheight = 5
-    ax.set_ylim(0,35)
+    ax.set_ylim(0,40)#35)
     if proj == 'mysql':
         ax.set_xlim(datetime.date(2000,07,31),datetime.date(2004,8,9))#5*len(period_map.keys()
     else:
         ax.set_xlim(datetime.date(2004,06,29),datetime.date(2006,6,19))#5*len(period_map.keys()
     #ax.set_xlabel('Date')
-    ax.set_yticks([2.5,7.5,12.5,17.5,22.5,27.5,32.5])
-    ax.set_yticklabels(['None', 'Portability', 'Efficiency', 'Reliability', 'Functionality', 'Usability', 'Maintainability'])#,fontproperties = font)
+    ax.set_yticks([2.5,7.5,12.5,17.5,22.5,27.5,32.5,37.5])
+    ax.set_yticklabels(['None', 'Portability', 'Efficiency', 'Reliability', 'Functionality', 'Usability', 'Maintainability','*Key Events*'])#,fontproperties = font)
     ax.xaxis_date()
     ax.xaxis.set_major_locator(months)
     ax.xaxis.set_major_formatter(monthsFmt)
@@ -114,13 +115,25 @@ def plot_timeline(proj, period_map):
              l = Line2D([datetime.date(2004,06,29),datetime.date(2006,6,19)],[5*i,5*i]  ,lw = 0.5,  color='black')#5*len(period_map.keys()
         ax.add_line(l)                              
 
-    # ax.annotate('race interrupted', (61, 25),
-    #             xytext=(0.8, 0.9), textcoords='axes fraction',
-    #             arrowprops=dict(facecolor='black', shrink=0.05),
-    #             fontsize=16,
-    #             horizontalalignment='right', verticalalignment='top')
-    matplotlib.pyplot.show()
+    # label the model with key events
+    if proj == 'mysql':
+        # make a line2d with the key events  2002-08-16, bug fix, security, threading, portability
+        
+        events_dates = [datetime.date(2000,8,18), datetime.date(2001,1,18), datetime.date(2001,5,11), \
+                        datetime.date(2002,8,16), datetime.date(2001,10,16), datetime.date(2003,3,18),datetime.date(2003,12,24),\
+                         datetime.date(2003,9,15)]
+        events_rel = ["3.23.19 GPL'ed","3.23.31 prod.","3.23.38", "3.23.52", "4.0 alpha", \
+                        "4.0 production", "5.0 alpha", "3.23.58"]
+
+        zipped = zip(events_dates,events_rel) # eg (ed[1],er[1])
+        l = Line2D(events_dates,[37.5],ls=' ',marker='o')
+        ax.add_line(l)
+        for i in range(len(events_rel)):
+            ax.annotate(events_rel[i], (events_dates[i],38.5),fontsize=10)
     filename = fig_dir + proj + '-timeline.pdf'
     print filename
     pylab.savefig( filename )
-    
+      #  ax.annotate('race interrupted', (61, 25), xytext=(0.8, 0.9), textcoords='axes fraction', arrowprops=dict(facecolor='black', shrink=0.05),
+    #             fontsize=16,
+    #             horizontalalignment='right', verticalalignment='top')
+    #matplotlib.pyplot.show()   
