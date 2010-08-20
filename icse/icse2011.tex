@@ -696,21 +696,26 @@ Unfortunately only two annotators were used, their annotating could be biased an
 
 \section{Related work}
 \label{sec:related}
-%XXX really not sure about what the two-ways are
-The idea of extracting higher-level `concerns' (also known as `concepts', `aspects' or `requirements') has been approached in two ways. 
+
+The idea of extracting higher-level `concerns', also known as `concepts', `aspects' or `requirements', has been approached from documentation-based and repositories-based perspectives.
+
 
 Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. 
-Their approach was similar, as they mined keywords from their own NFR catalogues~\cite{chung99}.
+Their approach was similar to ours, as they mined keywords from their own NFR catalogues~\cite{chung99}.
 %One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. 
 They managed recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. 
 Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
-There are several reasons we did not follow this route. 
-One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. 
-Secondly, we wanted to compare across projects. 
-Their technique was not compared across different projects and the applicability of the training set to different corpora is unclear. 
-A common taxonomy allows us to make inter-project comparison (subject to the assumption that all projects conceive of these terms in the same way). 
-Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) our study assumes these NFRs are latent in the textual documents of the project. 
-Finally, the source text we use is less structured than their requirements documents.
+Our worked differed because we had a more comprehensive set of terms based on the taxonomy we chose.
+We also wanted a common taxonomy that allows us to make cross-project comparison, which was not one of their objectives.
+The objective of Cleland-Huang's study was to identify new NFRs for system development, yet our objective was to recover those latent NFRs from commit-log messages of the project. 
+Another difference was that our data was far less structured that the requirements documents used in their study.
+%There are several reasons we did not follow this route. 
+%One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. 
+%Secondly, we wanted to compare across projects. 
+%Their technique was not compared across different projects and the applicability of the training set to different corpora is unclear. 
+%A common taxonomy allows us to make cross-project comparison. 
+%Although subject to the assumption that all projects conceive of these terms in the same way.
+%Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) our study assumes these NFRs are latent in the commit-log messages of the project. 
 
 In the same vein, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. 
 They also leveraged WordNet, but only for word roots. 
@@ -718,16 +723,20 @@ They felt the synonyms would be non-specific and cause errors.
 A nice contribution was access to system developers, with whom they could validate their labels. 
 Since we try to bridge different organizations, these interviews are infeasible (particularly in the distributed world of open-source software).
 
-The other approach is to start with code repositories, and try to extract concerns from there. 
+The other approach is to extract concerns from software repositories.
 Marcus et al.~\cite{marcus04wcre} describe their use of Latent Semantic Indexing to identify commonly occurring concerns for software maintenance. 
-Some results were interesting, but their precision was quite low. 
+%Some results were interesting, but their precision was quite low. 
 ConcernLines~\cite{treude09cl} shows tag occurrence using colour intensity. 
-They mined change request tags (such as `milestone 3') and used these to make evolutionary analyses of a single product. 
+They mined 
+developer created tags 
+%change request tags (such as `milestone 3') and used these 
+in order to analyze the evolution of a single product.
+% make evolutionary analyses of a single product. 
 The presence of a well-maintained set of tags is obviously essential to the success of this technique.
 
 % Not sure we need this
-Mens et al.~\cite{mens08icsm} conducted an empirical study of Eclipse, the open source software (OSS) source code editor, to verify the claims of Lehman~\cite{lehman97sms}.
- They concerned themselves with source code only, and found Law Seven, ``Declining Quality'', to be too difficult to assess: ``[we lacked an] appropriate measurement of the evolving quality of the system as perceived by the users \cite[p. 388]{mens08icsm}''. 
+Mens et al.~\cite{mens08icsm} conducted an empirical study of Eclipse, a popular Java IDE, to verify the claims of Lehman~\cite{lehman97sms}.
+% They concerned themselves with source code only, and found Law Seven, ``Declining Quality'', to be too difficult to assess: ``[we lacked an] appropriate measurement of the evolving quality of the system as perceived by the users \cite[p. 388]{mens08icsm}''. 
 This paper examines the notions of quality in terms of a consistent ontology, as Mens et al. call for in their conclusions.
 
 Mei et al.~\cite{Mei2007} use context information to automatically name topics. 
@@ -738,7 +747,8 @@ In \cite{ernst10refsq}, we describe our earlier project, similar to this, to ide
 %Massey~\cite{massey02icse} and Scacchi~\cite{scacchi02,scacchi05b} looked at the topic of requirements in open-source software. 
 % this reduces the line length and drops a ref even though we still have a scacchi kickin around
 Massey~\cite{massey02icse} and Scacchi~\cite{scacchi05b} looked at the topic of requirements in open-source software. 
-Their work discusses the source of the requirements and how they are used in the development process. German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
+Their work discusses the source of the requirements and how they are used in the development process. German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. 
+%None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
 
 % XXX vanity or space.. 
 % Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
