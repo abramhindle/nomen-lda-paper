@@ -486,36 +486,18 @@ The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act a
 \label{fig:subfig4}
 }
 \caption[]{MySQL and MaxDB macro (grey) and micro (black) ROC results per multi-label learner. Possible values range from 0--1.
-\todo[inline]{better discussion}% and graphical legend would be nice}
+%\todo[inline]{better discussion}% and graphical legend would be nice}
 }
 \label{fig:mulan}
 \end{figure*}
 
 \subsection{Annotation observations}
-We found many topics that were not non-functional requirements (NFRs) but were often related to them. For instance, concurrency was mentioned often in the commit logs and was related to \emph{correctness} and \emph{reliability}, because concurrency was troublesome. Configuration management and source control related changes appeared often and sometimes there were topics dedicated to configuration management. These kinds of changes are slightly related to \emph{maintainability}. A non-functional change that was not quality-related was licensing and copyright; many changes were simply to do with updating copyrights or ensuring copyright or license headers were applied to files.
+We found many topics that were not non-functional requirements (NFRs) but were often related to them. For instance, concurrency was mentioned often in the commit logs and was related to \emph{correctness} and \emph{reliability}, because dealing with concurrency was troublesome. Configuration management and source control related changes appeared often and sometimes there were topics dedicated to configuration management. These kinds of changes are slightly related to \emph{maintainability}. A non-functional change that was not quality-related was licensing and copyright; many changes were simply to do with updating copyrights or ensuring copyright or license headers were applied to files.
 
 We noticed that occasionally the names of modules would conflict with words related to other non-functional requirements. For instance, optimizers are very common modules in database systems: both MySQL and MaxDB have optimizer modules. In MySQL the optimizer is mentioned but often the change deals with correctness or another quality. Despite this difference, the name of the module could fool our learners into believing the change was always about \emph{efficiency}. In these cases the advantages of tailoring topic names to specific project terminologies are more clear: this would avoid automated mistakes due to the names of entities and modules of a software project.
 
-\begin{comment}
-A quick mind dump before I forget:
-* portability was very popular
-* there were many instances of concurrency
-* There were often topics of crap commits with no comment
-* might need more than the top words to compare
-* Things like tests were noticable more by file type
-* Configuration management is not part of the software quality ontology?
-* I didn't tag none I tagged unknown, so that's some inconsistency between us
-* There were a lot of copyright changes in mysql
-* mysql had optimizer module which did not mean optimization
-* I tried to assign reliability/bug for reliability bugs
-  and Functionality/Correctness for fixes
-* Some security changes came later
-* Mysql 3.23 transitioned from a project being developed to
-  a project being maintained, more frequent back-port bug-fixes
-\end{comment}
-
 \subsection{Summary of techniques}
-While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, and thus lower effort, supervised learners have the advantage of domain knowledge which typically means improved results. Our manual annotations were fairly quick to do, taking on average five minutes per 30 day period. 
+While unsupervised techniques such as LDA is appealing in its lack of human intervention, and thus lower effort, supervised learners have the advantage of domain knowledge which typically means improved results. Our manual annotations were fairly quick to do, taking on average five minutes per 30 day period. 
 
 Very rarely did \textsf{exp2} and \textsf{exp3} (naïve word matching) ever perform as well as the supervised machine learners. For MaxDB, \textit{reliability} was slightly better detected using the static word list of \textsf{exp2}. 
 In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. 
@@ -530,13 +512,19 @@ This suggests that by sticking together multiple NaiveBayes learners we could pr
 \label{sec:analysis}
 % \todo[inline]{talk about this topic in one section}
 % \todo[inline]{reference project name Nomen more}
-
-Using the classification results from the previous sections, we evaluated two research questions:
+Since our ROC values produced acceptable results, we now turn to \emph{applying} those techniques to understand software maintenance activities. We evaluated two research questions:
 \begin{enumerate}
 \item Do label frequencies change over time? That is, is a certain quality of more interest at one point in the life-cycle than some other? 
 \item  Do the different projects differ in their relative topic interest? That is, is a particular quality more important to one project than the other projects?  
 \end{enumerate}
 
+There are several possible applications of \textsf{Nomen}'s techniques. 
+For outside users of the software, \textsf{Nomen} can provide insight into that company's development practices. 
+Are they focused on usability, for example?
+Within the organization \textsf{Nomen} acts as a historical sanity check. 
+Confirmation bias is the difference between what people think happened and what actually happened. 
+Some software releases, for instance, are poorly received since they are quite buggy. 
+\textsf{Nomen} would help explain why this was the case, since it can identify NFRs which are dominating developer attention.
 
 \subsection{Visualizations}
 Figures \ref{fig:maxdb-timeline} and \ref{fig:mysql-timeline} show the temporal patterns of label frequencies. 
@@ -591,29 +579,6 @@ Note that MySQL's release process was haphazard at this point: they would releas
 }
 \label{fig:timelines}
 \end{figure*}
-
-
-% 
-% \begin{figure*}
-%   \centering
-%   % hi-res version
-%   %\includegraphics[height=.55\textheight]{maxdb-time-smear-plot-Equal}
-%   \includegraphics[width=\textwidth]{figures/maxdb-timeline-all}
-%   % \includegraphics[height=.57\textheight]{small-maxdb-time-smear-plot-Equal}
-%  % \caption{MaxDB 7.500: Labelled topics related to non-functional software qualities plotted over time, continuous topics are trends that occur across time}
-%   \caption{MaxDB 7.500: NFRs over time. Numbers represent topics labelled with that quality. Box intensity (saturation) is mapped to label frequency relative to the largest label value.}
-%  \label{fig:maxdb}
-% \end{figure*}
-% 
-% \begin{figure*}%[h]
-%   \centering
-%  %\includegraphics[width=.97\textwidth]{mysql-time-smear-plot-Equal}
-%   %\includegraphics[width=.97\textwidth]{small-mysql-time-smear-plot-Equal}
-%   \includegraphics[width=\textwidth]{figures/mysql-timeline-all}
-%   \caption{MySQL 3.23: NFRs over time. Topic frequency relative to that quality is mapped to alpha (transparency) value.}
-%   \label{fig:mysql}
-% \end{figure*}
-
 
 \subsection{Comparing MaxDB and MySQL}
 
@@ -799,7 +764,23 @@ Our data and scripts are available at \url{http://softwareprocess.es/nomen/}
 \bibliography{icpc}
 
 \end{document}
-
+% \begin{comment}
+% A quick mind dump before I forget:
+% * portability was very popular
+% * there were many instances of concurrency
+% * There were often topics of crap commits with no comment
+% * might need more than the top words to compare
+% * Things like tests were noticable more by file type
+% * Configuration management is not part of the software quality ontology?
+% * I didn't tag none I tagged unknown, so that's some inconsistency between us
+% * There were a lot of copyright changes in mysql
+% * mysql had optimizer module which did not mean optimization
+% * I tried to assign reliability/bug for reliability bugs
+%   and Functionality/Correctness for fixes
+% * Some security changes came later
+% * Mysql 3.23 transitioned from a project being developed to
+%   a project being maintained, more frequent back-port bug-fixes
+% \end{comment}
 % % a rough sketch 
 % The size of these artifacts is cumbersome for a developer or stakeholder to comprehend, thus they often have to be ``chunked'', grouped, modularized, organized and finally labelled.
 % Even more difficult is to pull together tangible trails or interests that pervade these artifacts.
