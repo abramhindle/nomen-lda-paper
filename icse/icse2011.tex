@@ -671,11 +671,15 @@ topics labelled \emph{functionality}, while MaxDB had proportionally more
 \subsection{Effectiveness}
 
 %{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
-The unsupervised labelling had difficulty distinguishing between common labels and infrequent labels. The related words for \emph{correctness}, for example, tended to be too lengthy and non-specific. 
-\todo[inline,color=red]{Abram can you explain what you mean here?}
+The unsupervised labelling had difficulty distinguishing between common labels and infrequent labels, often the learners would mislabel a topic deserving of an infrequent label with a more common label.
+The word-lists for \emph{correctness}, tended to be too lengthy, non-specific and broad, especially if WordNet words were used as it is a loosely defined concept in common parlance.
 
-With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these attempts. \textsf{exp2} and \textsf{exp3} both indicate that static information can be used to help label topics without any training whatsoever. If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques we could probably reduce the training effort. 
-Both Naive Bayesian learners and the word-list approaches were computationally efficient.  These results are promising, because the results are accurate enough to be useful, while still cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
+With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these methods.
+\textsf{exp2} and \textsf{exp3} both indicate that static information can be used to help label topics without any training whatsoever. 
+If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques we could probably reduce the training effort by boosting training sets with topics classified with the unsupervised techniques.
+Both Naive Bayesian learners and the word-list approaches were computationally efficient.  
+%These results are promising, because the accuracy of the techniques is good enough to be useful, while the run-time performance is still cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
+These results are promising because they indicate that these techniques are accurate enough to be useful while still maintaining acceptable run-time performance.
 
 
 \subsection{Threats to validity}
@@ -770,7 +774,8 @@ We showed that topics with labels are more useful than unlabelled topics, thus t
  % Future work
 There are several avenues of further investigation.  
  % Talk to people
-We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  It is difficult to map abstract qualities to particular messages. 
+We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  
+It is difficult to map abstract qualities to particular messages. % what?
  % This is disjointed and needs more context
 On question we seek to answer is if a ``quality'' discussion about more than just corrective maintenance? %In this study we take the position that any type of maintenance has to do with software quality.
  
