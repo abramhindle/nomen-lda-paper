@@ -233,7 +233,7 @@ For each period of each project, we input the messages of that period into Laten
 %For each project and for each period of messages a project, we input these messages 
 %we created `topics' using Latent Dirichlet Allocation, a topic identification algorithm. 
 
-Typically a topic analysis tool like LDA will try to find $N$ independent word distributions within the word distributions of all the messages. 
+A topic analysis tool like LDA will try to find $N$ independent word distributions within the word distributions of all the messages. 
 Linear combinations of these $N$ word distributions are meant to represent and recreate the word distributions of any of the original messages. 
 These $N$ word distributions effectively form topics: cross-cutting collections of words relevant to one or more of our commit messages. 
 LDA extracts topics in an unsupervised manner; the algorithm relies solely on the source data, word distributions of messages, with no human intervention.
@@ -418,7 +418,7 @@ Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{effic
 we compared the results of the unsupervised word matching approach. 
 For each quality we assessed whether unsupervised labels matches the manual annotations.
 Figure \ref{fig:maxdb-unsup-results} shows our results for MaxDB and MySQL. 
-Our performance is measured using the \emph{ROC} (Receiver Operating Characteristic) area-under-curve value~\cite{Fawcett2006861}. 
+Our performance is measured using the Receiver Operating Characteristic area-under-curve value~\cite{Fawcett2006861}, abbreviated \emph{ROC}. 
 ROC values provide a score, similar to school letter-grades (A is 0.9, C is 0.6), reflecting how well a particular learner performed for the given data. 
 ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) versus the false positive rate (1 - specificity). 
 A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision. 
@@ -430,7 +430,7 @@ The AUC of a classifier is equivalent to the probability that the classifier wil
 \begin{figure*}
   \centering
  \includegraphics[width=\textwidth]{figures/unsupervised-bar}
- \caption{Performance, ROC values, of Unsupervised topic labelling for
+ \caption{Performance, ROC values, of unsupervised topic labelling for
    each NFR and per word-list. This graph shows how well the
    unsupervised topic labelling matched our manual annotations.}
 
@@ -608,7 +608,7 @@ relative to the maximum number of labelled topics overall, for that project. The
 % and                   http://softwareprocess.es/y/maxdb-7500.tar.gz
 There are more \textsf{None} labels in MaxDB because a number of topics were to do with code cleanup or automated checking using tools like \texttt{sutcheck}, a tool-specific to the development process at MaxDB. 
 
-\textbf{Timeline of key events} -- As discussed earlier, the top row in each figure shows key events for each project. \textsf{Nomen} can pick out the underlying NFR activity behind these events. For example, both projects show a high number of NFRs recognized at the first period of analysis. 
+\textbf{Timeline of key events} -- As discussed earlier, the top row in each figure shows key events for each project. \textit{Labelled topic extraction} can pick out the underlying NFR activity behind these events. For example, both projects show a high number of NFRs recognized at the first period of analysis. 
 This is due to our window choice: we deliberately targeted our analysis to when MySQL 3.23 was first announced %Major update \& End-of life
 and when MaxDB 7.500 was first announced. For MaxDB, version 7.5.00  was released in December of 2003. 
 From analyzing the mailing list for external validation, we know that release 7.5.00.23 saw the development of PHP interfaces, possibly accounting for the simultaneous increase in the \emph{portability} NFR at the same time.
@@ -627,7 +627,7 @@ For MySQL (Fig. \ref{fig:mysql-timeline}), we similarly validated our NFR patter
 \includegraphics[width=\textwidth]{figures/maxdb-timeline}
 \label{fig:maxdb-timeline}
 }
-\caption[]{NFR label per period. Each box represents a 30-day period. Numbers represent number of topics in that period labelled with that NFR. Box intensity (saturation) is mapped to label frequency relative to the largest label value of \emph{all} NFRs. Grey bars indicate label frequency relative to \emph{a particular} NFR.
+	\caption[]{NFR label per period. Each box represents a 30-day period. Numbers represent number of topics in that period labelled with that NFR. Box intensity (saturation) is mapped to label frequency relative to the largest label value of \emph{all} NFRs. Grey bars indicate label frequency relative to \emph{a particular} NFR. Dashed vertical lines relate a project milestone (``*Key Event*'') to our topic windows. 
 % \todo[inline]{better discussion}
 }
 \label{fig:timelines}
@@ -705,7 +705,6 @@ Unfortunately only two annotators were used, their annotating could be biased an
 \label{sec:related}
 
 The idea of extracting higher-level `concerns', also known as `concepts', `aspects' or `requirements', has been approached from documentation-based and repositories-based perspectives.
-
 
 Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. 
 Their approach was similar to ours, as they mined keywords from their own NFR catalogues~\cite{chung99}.
