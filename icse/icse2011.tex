@@ -519,9 +519,10 @@ Unfortunately for MaxDB, the macro-ROC values are undefined because of poor perf
 Figure~\ref{fig:mulan} presents the results of Mulan's best multi-label learners for our data. 
 Calibrated Label Ranking (CLR) is a learner that builds two layers, the first layer determines if an entity should be labelled, while the second layer determines what labels should be assigned.
 The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act as a hierarchy of learners: BR is flat, while HOMER tries to build a deeper hierarchy to build a more accurate learner~\cite{mulan}. 
-These classifiers performed better than other multi-label classifiers. 
-They have the best micro and macro ROC scores, although their results are comparable to the naive Bayesian learners we used in Section \ref{sec:suplabelling}.
-\todo[inline]{discuss this similarity in more detail}
+These classifiers performed better than other multi-label classifiers as they have the best micro and macro ROC scores. 
+The multi-label and single-label learners had similar performance: for MySQL, BR and NaiveBayes had similar macro-ROC scores of $0.74$.
+% although their results are comparable to the naive Bayesian learners we used in Section \ref{sec:suplabelling}.
+%\todo[inline]{discuss this similarity in more detail}
 
 \begin{figure*}[ht]
 \centering
