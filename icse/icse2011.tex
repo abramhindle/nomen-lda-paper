@@ -164,23 +164,30 @@ This allows us to mine software systems with the intention of comparing their NF
 %%%% THIS PARAGRAPH ARGUES ABOUT THE CONCRETE APPLICATION OF 
 %%%% TOPIC MODELLING AND LABELLED TOPIC EXTRACTION
 %%%% IT NEEDS TO BE TIGHTER BUT IT ALSO NEEDS TO BE HERE
-There are many practical applications of topic modelling and \emph{labelled  topic extraction}.
-These methods are useful for providing overviews of development.
-We can improve project dashboards, used by managers, by showing both the current topics of development as well those that relate to NFRs.
-Some quality assurance questions can be addressed by seeking evidence within repositories that NFR related topics are being addressed.
+There are many practical applications of \emph{labelled topic extraction}.
+These methods are useful for providing abstractions of development activities and artifacts.
+Particularly in large projects, summarization of developer activities is essential to maintenance. Rather than looking for specific concepts in a project~\cite{marcus04wcre}, we are interested in understanding a software project relative to common properties of all software.
+We can improve project dashboards, used by managers, by showing both the current topics of development as well those that relate to domain-independent taxonomies, such as NFRs.
+Some quality assurance questions can be addressed by seeking evidence within repositories that NFR-related topics are being addressed.
 Topic modelling can be used to check if development is on track and focused.
+For outside users of the software, our technique can provide insight into that company's development practices. 
+Are they focused on usability, for example?
+Within the organization \emph{labelled topic extraction} acts as a historical sanity check. 
+\emph{Confirmation bias} is the difference between what people think happened and what actually happened. 
+Some software releases, for instance, are poorly received since they are quite buggy. 
+Our technique would help explain why this was the case, since it can identify NFRs which are dominating developer attention.
 % This is a very long example it'd be nice if it was tighter
-Perhaps development has been sidetracked by cascading issues that appeared during implementation.
-For instance, a developer adding an optimization to a RDBMS might have to change multiple modules in order to provide that optimization code with enough information to operate. 
-This issue might trigger a series of cascading changes that might be difficult to discover when trying to explain why the project's release date has been missed. 
-Labelled Topic extraction could be used to detect this distinct focus of development.
+% Perhaps development has been sidetracked by cascading issues that appeared during implementation.
+% For instance, a developer adding an optimization to a RDBMS might have to change multiple modules in order to provide that optimization code with enough information to operate. 
+% This issue might trigger a series of cascading changes that might be difficult to discover when trying to explain why the project's release date has been missed. 
+% Labelled Topic extraction could be used to detect this distinct focus of development.
 
 
 %% RESEARCH DIDNT DO THIS AND WE ARE TOTALLY AWESOME AND WE DID
 % it is ok to repeat this here because it is clear and bullet pointed and the reviewers wont have any bloody excuse to not see it
-In this paper, we describe \textbf{Nomen}, which is a tool for \emph{labelled topic extraction}. \textbf{Nomen} addresses two gaps in the topic mining literature:
+In this paper, we describe \emph{labelled topic extraction}. It addresses two gaps in the topic mining literature:
 \begin{enumerate}
-  \item Topic mining of software has been limited to one project at a time. This is because traditional topic mining techniques are specific to a particular data-set. \textbf{Nomen} allows for comparisons \textit{between} projects. 
+  \item Topic mining of software has been limited to one project at a time. This is because traditional topic mining techniques are specific to a particular data-set. \textit{Labelled topic extraction} allows for comparisons \textit{between} projects. 
   \item Topic modeling creates word lists that require interpretation by the user to assign meaning. Like (1), this means
 that it is difficult to discuss results independent of the project context. Our technique automatically assigns labels across projects.
 \end{enumerate}
@@ -570,7 +577,7 @@ We found that the multi-label learners of BR, CLR and HOMER did not do as well f
 This suggests that by combining together multiple NaiveBayes learners we could probably label sets of topics effectively, but it would require a separate NaiveBayes learner per label.
 
 
-\section{Using \textbf{Nomen} to understand software maintenance activities} 
+\section{Understanding software maintenance activities} 
 \label{sec:analysis}
 % \todo[inline]{talk about this topic in one section}
 % \todo[inline]{reference project name Nomen more}
@@ -580,13 +587,13 @@ Since our ROC values produced acceptable results, we now turn to \emph{applying}
 \item  Do the different projects differ in their relative topic interest? That is, is a particular quality more important to one project than the other projects?  
 \end{enumerate}
 
-There are several possible applications of \textsf{Nomen}'s techniques. 
-For outside users of the software, \textsf{Nomen} can provide insight into that company's development practices. 
-Are they focused on usability, for example?
-Within the organization \textsf{Nomen} acts as a historical sanity check. 
-Confirmation bias is the difference between what people think happened and what actually happened. 
-Some software releases, for instance, are poorly received since they are quite buggy. 
-\textsf{Nomen} would help explain why this was the case, since it can identify NFRs which are dominating developer attention.
+% There are several possible applications of \textsf{Nomen}'s techniques. 
+% For outside users of the software, \textsf{Nomen} can provide insight into that company's development practices. 
+% Are they focused on usability, for example?
+% Within the organization \textsf{Nomen} acts as a historical sanity check. 
+% Confirmation bias is the difference between what people think happened and what actually happened. 
+% Some software releases, for instance, are poorly received since they are quite buggy. 
+% \textsf{Nomen} would help explain why this was the case, since it can identify NFRs which are dominating developer attention.
 
 \subsection{Timeline visualization}
 Figures \ref{fig:maxdb-timeline} and \ref{fig:mysql-timeline} show the temporal patterns of label frequencies. 
