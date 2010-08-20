@@ -456,10 +456,10 @@ Because our data-set was of word counts we expected Bayesian techniques, often u
 We tried other learners that WEKA~\cite{weka09} provides: rule learners, decision tree learners, vector space learners, and support vector machines.  
 Figure \ref{fig:best-learn-per-tag} shows the performance of the best performing learner per label. 
  We considered the best learner for a label to be the learner which had the highest ROC value for that label. 
-Figure \ref{fig:best-learn-per-tag} uses the ZeroR learner as a baseline, a common practice in machine learning,
-as ZeroR naively chooses the largest category all of the time. 
-ZeroR occasionally outperforms other learners; for labels which are not as common, this is to be expected because any miscategorization will hurt accuracy. 
-This is why we use ROC values, instead of accuracy, as they can better represent performance on labels which are not applicable to the majority of samples.
+%Figure \ref{fig:best-learn-per-tag} uses the ZeroR learner as a baseline, a common practice in machine learning,
+%as ZeroR naively chooses the largest category all of the time. 
+%ZeroR occasionally outperforms other learners; for labels which are not as common, this is to be expected because any miscategorization will hurt accuracy. 
+%This is why we use ROC values, instead of accuracy, as they can better represent performance on labels which are not applicable to the majority of samples.
 
 Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, as the ROC values for \emph{reliability} and \emph{functionality} seem swapped between projects. 
 For both projects Bayesian techniques did the best out of a wide variety of machine learners tested. 
@@ -481,21 +481,21 @@ In the next section we will evaluate how well these learners perform
 together.
 %\todo[inline]{Comment about correlation, we should link to the Mulan section, perfect segway since Mulan relies on correlation.}
 
-\begin{figure*}[ht]
+\begin{figure}[ht]
 \centering
-\subfloat[MySQL]{
-\includegraphics[width=0.4\textwidth]{figures/mysql-supervised}
-\label{fig:subfig1}
-}
-\subfloat[MaxDB]{
-\includegraphics[width=0.4\textwidth]{figures/maxdb-supervised}
-\label{fig:subfig2}
-}
-\caption[]{ROC value for the best learner per label, compared with ZeroR accuracy values.  Possible values range from 0--1.
-\todo[inline]{better discussion}
+% \subfloat[MySQL]{
+\includegraphics[width=0.45\textwidth]{figures/both-supervised}
+% \label{fig:subfig1}
+% }
+% \subfloat[MaxDB]{
+% \includegraphics[width=0.4\textwidth]{figures/maxdb-supervised}
+% \label{fig:subfig2}
+% }
+\caption[]{ROC value for the best learner per label. Possible values range from 0--1.
+%\todo[inline]{better discussion}
 }
 \label{fig:best-learn-per-tag}
-\end{figure*}
+\end{figure}
 
 \subsection{Applying multiple labels to topics}
 \label{sec:multilabel}
