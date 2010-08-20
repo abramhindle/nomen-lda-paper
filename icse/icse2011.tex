@@ -419,18 +419,36 @@ If a \emph{C} grade performance has a ROC value of $0.6$ then most of these test
 \label{sec:suplearn}
 Supervised labelling requires expert analysis of the correct word to assign to a topic. %In order to validate how effective these word-bag approaches to topic labelling would be we created a validation data set. 
 
-We used a suite of supervised classifiers from WEKA~\cite{weka09}. WEKA is a suite of machine learning tools such as support vector machines and Bayes nets. We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, which maps to what we observed while manually labelling topics.
+We used a suite of supervised classifiers, WEKA~\cite{weka09}. 
+WEKA includes machine learning tools such as support vector machines and Bayes-nets. 
+We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. 
+Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, which maps to what we observed while manually labelling topics.
 
-To assess the performance of the supervised learners, we did a 10-fold cross-validation~\cite{Kohavi1995}, a common technique for evaluating machine learners. The original data is partitioned randomly into ten subsamples. One subsample is used as a training set and evaluated on the other nine subsamples. This is repeated nine more times, with each subsample used once as the training set. We have reported these results below in Section \ref{sec:suplabelling}.
+To assess the performance of the supervised learners, we did a 10-fold cross-validation~\cite{Kohavi1995}, a common technique for evaluating machine learners. 
+The original data is partitioned randomly into ten sub-samples. Each sample is used to test against a train set composed of the nine other samples.
+%One subsample is used as a training set and evaluated on the other nine sub-samples. 
+%This is repeated nine more times, with each subsample used once as the training set. 
+We have reported these results below in Section \ref{sec:suplabelling}.
 
 \subsubsection{Analysis of the supervised labelling}
 \label{sec:suplabelling}
-Because our data-set was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. We tried other learners that WEKA~\cite{weka09} provides: rule learners, decision tree learners, vector space learners, and support vector machines.  Figure \ref{fig:best-learn-per-tag} shows the performance of the best performing learner per label.  We considered the best learner for a label to be the one which had the highest ROC value for that label. Figure \ref{fig:best-learn-per-tag} uses the ZeroR learner as a baseline, a common practice in machine learning. ZeroR naively chooses the largest category all of the time. It occasionally outperforms non-naive learners; for labels which are not as common, this is to be expected because any miscategorization will hurt accuracy. This is why we use ROC values, as they can better represent performance on labels which are not applicable to the majority of samples.
+Because our data-set was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. 
+We tried other learners that WEKA~\cite{weka09} provides: rule learners, decision tree learners, vector space learners, and support vector machines.  
+Figure \ref{fig:best-learn-per-tag} shows the performance of the best performing learner per label. 
+ We considered the best learner for a label to be the learner which had the highest ROC value for that label. 
+Figure \ref{fig:best-learn-per-tag} uses the ZeroR learner as a baseline, a common practice in machine learning,
+as ZeroR naively chooses the largest category all of the time. 
+ZeroR occasionally outperforms other learners; for labels which are not as common, this is to be expected because any miscategorization will hurt accuracy. 
+This is why we use ROC values, instead of accuracy, as they can better represent performance on labels which are not applicable to the majority of samples.
 
-Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, as the ROC values for \emph{reliability} and \emph{functionality} seem swapped between projects. For both projects Bayesian techniques did the best out of a wide variety of machine learners tested. Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes's theorem and all assume, naively, that the features are independent. The features we used are word counts per message. One beneficial aspect of this result is that it suggests we can have very fast training and classifying  since Naive Bayes can be calculated in $O(N)$ for $N$ features.
+Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, as the ROC values for \emph{reliability} and \emph{functionality} seem swapped between projects. 
+For both projects Bayesian techniques did the best out of a wide variety of machine learners tested. 
+Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes's theorem and all assume, naively, that the features are independent. 
+The features we used are word counts per message. 
+One beneficial aspect of this result is that it suggests we can have very fast training and classifying  since Naive Bayes can be calculated in $O(N)$ for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
 
-The less-frequently occurring a label the harder it is to get accurate
+The less-frequently occurring a label, the harder it is to get accurate
 results, due to the high noise level. Nevertheless, these results are
 better than our previous word bag results of \textsf{exp2} and
 \textsf{exp3}, because the ROC values are sufficiently higher in most
@@ -462,19 +480,25 @@ together.
 \subsection{Applying multiple labels to topics}
 \label{sec:multilabel}
 
-As noted in Section \ref{sec:wordlist}, each topic in our data-set can be composed of zero to all NFRs. For example, a commit message might address \textit{reliability} in the context of \textit{efficiency}, or make a \textit{maintainability} improvement in the source code that related to \textit{usability}. However, traditional machine learning techniques, such as Bayesian networks, can only map topics to a single class. The Mulan~\cite{mulan} library encapsulates several different machine learners which can handle this multi-label learning for our data-set. Mulan also includes methods for determining the performance of such techniques.
+As noted in Section \ref{sec:wordlist}, each topic in our data-set can be composed of zero, one, or more NFRs. 
+For example, a commit message might address \textit{reliability} in the context of \textit{efficiency}, or make a \textit{maintainability} improvement in the source code that related to \textit{usability}. 
+However, traditional machine learning techniques, such as naive Bayes, can only map topics to a single class. 
+The Mulan~\cite{mulan} library encapsulates several different multi-label machine learners which can label elements with multiple labels.
+Mulan also includes methods for determining the performance of such techniques.
 % TOO DETAILED The problem framed in the learners above has changed; instead of looking at the precision and recall of applying one label, we rank multiple labels at once. We must check if the full subset of labels was applied, and then how much of that subset was applied.
 
-In multi-label learning the technique can perform micro or macro measurements. Macro measurements are aggregated at a class or label level. Micro measurements are aggregated at a decision level. \todo[inline]{this is unclear, could do with a few more sentence explaining why we should care.}
- So a macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. Unfortunately for MaxDB, the macro-ROC values are undefined because of poor performance of one of the labels.
 
-Figure~\ref{fig:mulan} presents the results of Mulan's best multi-label
-learners for our data. Calibrated Label Ranking (CLR) is a learner
-that builds two layers, the first layer determines if an entity should
-be labelled, while the second layer determines what labels should be assigned.
-The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act as a hierarchy of learners: BR is flat, while HOMER tries to build a deeper hierarchy to build a more accurate learner~\cite{mulan}. These classifiers performed better than other multi-label classifiers. They have the best micro and macro ROC scores, although their results are comparable to the naive Bayesian learners we used in Section \ref{sec:suplearn}.
+Two perspectives to evaluate multi-label learners are with micro or macro measurements (used in Figure \ref{fig:mulan}).
+Macro measurements are aggregated at a class or label level (per class) while micro measurements are at the element level (per element).
+A macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. 
+Unfortunately for MaxDB, the macro-ROC values are undefined because of poor performance of one of the labels, see Figure \ref{fig:mulan}.
+
+Figure~\ref{fig:mulan} presents the results of Mulan's best multi-label learners for our data. 
+Calibrated Label Ranking (CLR) is a learner that builds two layers, the first layer determines if an entity should be labelled, while the second layer determines what labels should be assigned.
+The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act as a hierarchy of learners: BR is flat, while HOMER tries to build a deeper hierarchy to build a more accurate learner~\cite{mulan}. 
+These classifiers performed better than other multi-label classifiers. 
+They have the best micro and macro ROC scores, although their results are comparable to the naive Bayesian learners we used in Section \ref{sec:suplearn}.
 \todo[inline]{discuss this similarity in more detail}
-%\todo[inline]{what of CLR? Is it hierarchical?}
 
 \begin{figure*}[ht]
 \centering
