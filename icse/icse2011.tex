@@ -126,12 +126,12 @@ Topics are typically latent, i.e., not explicitly named, and can be in several p
 % semi-automatically sounds too uncertain. I think the introduction can be more muscular and bold. Don't give the reviewer any room to start doubting.
 
 % why are topics useful
-Often developers interact with abstractions of the artifacts from which topics are derived, rather than the artifact itself. 
+Developers often interact with abstractions of the artifacts from which topics are derived, rather than the artifact itself. 
 Such abstractions include project dashboards~\cite{kersten2005mylar}, tags~\cite{treude2010}, and complexity metrics \cite{mccabe1976complexity}. 
 Topics, too, are a valuable and automatically extractable abstraction of software artifacts.
 Topics abstracts these artifacts by their subject matter, rather than their concrete representation. 
-Much like Aspect-Oriented Programming, topic labeling can identify cross-cutting concerns in a software project~\cite{Baldi2008}.
-The topic of development is relevant because it identifies the distinct issues facing development at a certain time.
+Much like aspect-oriented programming, topic labeling can identify cross-cutting concerns in a software project (as in~\cite{Baldi2008}).
+The topic of development is relevant because it identifies the distinct issues facing development at a particular time.
 
 The goal of concept location and topic analysis research is to recover these topics and the related software artifacts.
 % get neil's data mining point in there
@@ -139,14 +139,14 @@ To date, the results of topic analysis and concept location are project specific
 % get the interpretation aspect
 Much of the current research stops short of interpreting the purpose of the topic. 
 That is, extracted topics are usually manually named and labelled by those who read the topic words.
-We propose a method of interpreting and labelling topics, and their related artifacts, that is generalizable and relevant to multiple projects.
 
 % topics are numerous?
 Deriving such topics is difficult. 
-Topic analysis produces raw topics that are represented as unlabelled context-free word-lists or word distributions.
+Topic analysis produces% raw topics that are represented as
+ unlabelled context-free word-lists or word distributions.
 Topics have to be identified by interpreting the prevalent words in a word distribution and by inspecting related documents. 
 This manual approach is impractical when one has to handle hundreds of different topics. To scale to meaningfully sized projects, we need automatic assistance to determine the topic label.
-
+We propose a method of interpreting and labelling topics, and their related artifacts, that is generalizable and relevant to multiple projects.
 
 In our previous work we dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. 
 We observed that topic trends were often non-functional requirements (NFRs). 
@@ -154,11 +154,11 @@ NFRs have the property of being cross-domain and widely applicable.
 In this sense, they are useful abstractions for developer conversations about different software projects.
 
 % harp on data mining more
-In general the data mining of software artifacts tends to be very project specific, yet NFRs are not. 
-NFRs are prevalent in almost all software systems.
+In general, the mining of software artifacts tends to be very project specific, yet NFRs are not. There is a series of standards on NFRs (such as \cite{iso9126}) specifically intended to apply to projects of varying types (indicating this is possible, if perhaps not universally accepted).
+% NFRs are prevalent in almost all software systems.
 % In this paper we will show that NFR related topics occur quite frequently.
 This informs our method of generalizing the data mining of these software artifacts to leverage the global domain knowledge of software engineering, specifically NFRs. In particular, we use software quality models to generalize topics across projects. 
-This allows us to data mine software systems with the intention of comparing their NFR-related development topics.
+This allows us to mine software systems with the intention of comparing their NFR-related development topics.
 % in order to achieve generalizable, cross project data mining results.
 
 %%%% THIS PARAGRAPH ARGUES ABOUT THE CONCRETE APPLICATION OF 
