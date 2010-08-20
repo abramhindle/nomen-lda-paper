@@ -80,21 +80,23 @@ Approaches such as topic modeling and concept location rely on the automated app
 % the labelling research
 Furthermore, these topic labelling approaches neither use domain-specific knowledge to improve results, nor contextualize those results for developers.   
 % a sub problem
-While too much specificity can produce non-generalizable results, too little produces broad learners that do not provide much immediately useful detail. 
+% While too much specificity can produce non-generalizable results, too little produces broad learners that do not provide much immediately useful detail. 
 % what we do
 This paper introduces \emph{labelled topic extraction}, in which topics are extracted from commit comments and given labels relating to a cross-project taxonomy. 
 % data mining generalizable
-To ensure we have a generalizable, project-agnostic approach we label topics using non-functional requirements,
+Our approach is 
+%To ensure we have a 
+generalizable and project-agnostic as we label topics using non-functional requirements,
 % these qualities 
 as these apply across many software systems.% and their development artifacts.
 % We used real world data
 We evaluated our approach with an experimental study on two large-scale database projects, MySQL and MaxDB. 
 % We used LDA, CVS, Bitkeeper
-We extracted topics using Latent Dirichlet Allocation (LDA) from the commit log comments of their version control systems (CVS and BitKeeper). 
+We extracted topics using Latent Dirichlet Allocation (LDA) from the commit-log comments of their version control systems (CVS and BitKeeper). 
 % We show NFRs exist
 Our results were generalizable across the two projects, showing that non-functional requirements were commonly discussed, and we identified topic trends over time. 	
 % we can label stuff
-Our labelled topic extraction technique allowed us to devise appropriate, context-sensitive labels across these two projects, providing insight into their software development activities.
+Labelled topic extraction allowed us to devise appropriate, context-sensitive labels across these two projects, providing insight into their software development activities.
 \end{abstract}
 
 \category{D.2.9}{Software Engineering}{Managment}[Lifecycle]
@@ -120,7 +122,7 @@ Topics are typically latent, i.e., not explicitly named, and can be in several p
 Often developers interact with abstractions of the artifacts from which topics are derived, rather than the artifact itself. 
 Such abstractions include project dashboards~\cite{kersten2005mylar}, tags~\cite{treude2010}, and complexity metrics \cite{mccabe1976complexity}. 
 Topics, too, are a valuable and automatically extractable abstraction of software artifacts.
-It abstracts these artifacts by their subject matter, rather than their concrete representation. 
+Topics abstracts these artifacts by their subject matter, rather than their concrete representation. 
 Much like Aspect-Oriented Programming, topic labeling can identify cross-cutting concerns in a software project~\cite{Baldi2008}.
 The topic of development is relevant because it identifies the distinct issues facing development at a certain time.
 
@@ -152,6 +154,21 @@ This informs our method of generalizing the data mining of these software artifa
 This allows us to data mine software systems with the intention of comparing their NFR-related development topics.
 % in order to achieve generalizable, cross project data mining results.
 
+%%%% THIS PARAGRAPH ARGUES ABOUT THE CONCRETE APPLICATION OF 
+%%%% TOPIC MODELLING AND LABELLED TOPIC EXTRACTION
+%%%% IT NEEDS TO BE TIGHTER BUT IT ALSO NEEDS TO BE HERE
+There are many practical applications of topic modelling and \emph{labelled  topic extraction}.
+These methods are useful for providing overviews of development.
+We can improve project dashboards, used by managers, by showing both the current topics of development as well those that relate to NFRs.
+Some quality assurance questions can be addressed by seeking evidence within repositories that NFR related topics are being addressed.
+Topic modelling can be used to check if development is on track and focused.
+% This is a very long example it'd be nice if it was tighter
+Perhaps development has been sidetracked by cascading issues that appeared during implementation.
+For instance, a developer adding an optimization to a RDBMS might have to change multiple modules in order to provide that optimization code with enough information to operate. 
+This issue might trigger a series of cascading changes that might be difficult to discover when trying to explain why the project's release date has been missed. 
+Labelled Topic extraction could be used to detect this distinct focus of development.
+
+
 %% RESEARCH DIDNT DO THIS AND WE ARE TOTALLY AWESOME AND WE DID
 % it is ok to repeat this here because it is clear and bullet pointed and the reviewers wont have any bloody excuse to not see it
 In this paper, we describe \textbf{Nomen}, which is a tool for \emph{labelled topic extraction}. \textbf{Nomen} addresses two gaps in the topic mining literature:
@@ -165,7 +182,7 @@ This paper begins by introducing labelled topic extraction (Section \ref{sec:wor
 
 %\todo[inline]{Topics are poorly defined by this point and since we're building on research which didn't DO this, we should mention that research. Previous work probably should go here.}
 
-\todo[inline]{We still haven't shown that topics are useful -- a reviewer comment}
+%\todo[inline]{We still haven't shown that topics are useful -- a reviewer comment}
 
 \section{Study design and execution}
 Figure \ref{fig:process} gives an outline of the methodology followed. We began by gathering source data. We then applied unsupervised and supervised learning techniques to identify topics. These topics were used to analyze the role of non-functional requirements in software maintenance.
