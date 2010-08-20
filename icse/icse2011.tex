@@ -516,15 +516,17 @@ A quick mind dump before I forget:
 \end{comment}
 
 \subsection{Summary of techniques}
-While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, and thus lower effort, supervised learners have the advantage of domain knowledge which typically means improved results. Our manual annotations were fairly quick to do, taking on average five minutes per 30 day period. 
+While unsupervised techniques (LSI and LDA are both unsupervised) are appealing in their lack of human intervention, and thus lower effort, supervised learners have the advantage of domain knowledge (training sets) which typically means improved results. 
+Our manual annotations were fairly quick to do, taking on average five minutes per 30 day period. 
 
-Very rarely did \textsf{exp2} and \textsf{exp3} (naïve word matching) ever perform as well as the supervised machine learners. For MaxDB, \textit{reliability} was slightly better detected using the static word list of \textsf{exp2}. 
+Very rarely did \textsf{exp2} and \textsf{exp3} (naïve word matching) ever perform as well as the supervised machine learners. 
+For MaxDB, \textit{reliability} was slightly better detected using the static word list of \textsf{exp2}. 
 In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. 
 For both MySQL and MaxDB \textit{usability} was better served by \textsf{exp2}. 
 \textit{Usability} was a very infrequent label, however, which made it difficult to detect in any case.
 
-We found that the multi-label learners of BR, CLR and HOMER did not do as well for Macro-ROC as NaiveBayes and other NaiveBayes derived learners. 
-This suggests that by sticking together multiple NaiveBayes learners we could probably label sets of topics effectively, but it would require a separate NaiveBayes learner per label.
+We found that the multi-label learners of BR, CLR and HOMER did not do as well for Macro-ROC as NaiveBayes and other naive Bayes derived learners. 
+This suggests that by combining together multiple NaiveBayes learners we could probably label sets of topics effectively, but it would require a separate NaiveBayes learner per label.
 
 
 \section{Using \textbf{Nomen} to understand software maintenance activities} 
@@ -547,7 +549,7 @@ relative to the maximum number of topics assigned to that NFR.
 The second, absolute frequency, compares the number of topics labelled with that NFR per period 
 relative to the maximum number of labelled topics overall, for that project. 
 
-\textbf{Understanding the figures} -- For example, in Fig. \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have been more intensely shaded. % boxes. not sure boxes is important..
+\textbf{Understanding the figures} -- For example, in Figure \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have been more intensely shaded. % boxes. not sure boxes is important..
 %We note that the gap in the MaxDB data is due to an interruption in the source data, having to do with the infrastructure for releasing developer artifacts, rather than specific occurrences in the project.
 % I grepped query1.mrs2 http://softwareprocess.es/y/y/maxdb-76.tar.gz
 % and                   http://softwareprocess.es/y/maxdb-7500.tar.gz
@@ -556,15 +558,20 @@ Immediately after this period of inactivity, there was a large deluge of commits
 %\todo[inline]{can I pin this down more ?}
 There are more \textsf{None} labels in MaxDB because a number of topics were to do with code cleanup or automated checking using tools like \texttt{sutcheck}, a tool-specific to the development process at MaxDB. 
 
-\textbf{Timeline of key events} -- Figs. \ref{} show key events for each of our projects. Several external events (external to `normal' development activity, that is) affected our projects. For example, both projects show a high number of NFRs recognized at the first period of analysis. This is due to our window choice: we deliberately targeted our analysis to 
-MySQL 3.23 First announced Major update \& End-of life
-MaxDB 7.500 First announced
+%XXX 
+\textbf{Timeline of key events} -- Figs. \ref{} show key events for each of our projects.  % where's the figure?
+Several external events (external to `normal' development activity, that is) affected our projects. 
+For example, both projects show a high number of NFRs recognized at the first period of analysis. 
+This is due to our window choice: we deliberately targeted our analysis to 
+when MySQL 3.23 was first announced %Major update \& End-of life
+and when MaxDB 7.500 was first announced.
 
-Note that MySQL's release process was haphazard at this point: they would release a patch version whenever the need arose. By version 5.1, the company moved to a milestone release, with new releases targeted for every six months.
+Note that MySQL's release process was haphazard at this point: they would release a patch version whenever the need arose. 
+By version 5.1, the company moved to a milestone release, with new releases targeted for every six months.
 
 \todo[inline]{Does our visualization capture the entire timeline?}
 
-\todo[inline]{try to pin down these reasons below}
+%\todo[inline]{try to pin down these reasons below}
 %  MySQL 3.23 was put on maintenance.
 % 
 % MySQL forks repositories per every version and 3.23 was supported for a
