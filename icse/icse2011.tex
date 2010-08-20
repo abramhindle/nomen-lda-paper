@@ -607,7 +607,7 @@ Since our ROC values produced acceptable results, we now turn to \emph{applying}
 % Some software releases, for instance, are poorly received since they are quite buggy. 
 % \textsf{Nomen} would help explain why this was the case, since it can identify NFRs which are dominating developer attention.
 
-\subsection{Timeline visualization}
+\subsection{Timeline analysis}
 Figures \ref{fig:maxdb-timeline} and \ref{fig:mysql-timeline} show the temporal patterns of label frequencies. 
 There are two measures represented. 
 One, the relative frequency, shown in the grey boxes, represents the number of labels with that NFR in that period, 
@@ -615,12 +615,14 @@ relative to the maximum number of topics assigned to that NFR.
 The second, absolute frequency, compares the number of topics labelled with that NFR per period 
 relative to the maximum number of labelled topics overall, for that project. The topmost row in the diagrams is reserved for historical events of note. We refer to these occurrences in the discussion which follows.
 
-\textbf{Understanding the figures} -- For example, in Figure \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have been more intensely shaded. % boxes. not sure boxes is important..
+%\noindent \textbf{Understanding the figures} -- 
+In Fig. \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have been more intensely shaded. % boxes. not sure boxes is important..
 % I grepped query1.mrs2 http://softwareprocess.es/y/y/maxdb-76.tar.gz
 % and                   http://softwareprocess.es/y/maxdb-7500.tar.gz
 There are more \textsf{None} labels in MaxDB because a number of topics were to do with code cleanup or automated checking using tools like \texttt{sutcheck}, a tool-specific to the development process at MaxDB. 
 
-\textbf{Timeline of key events} -- As discussed earlier, the top row in each figure shows key events for each project. \textit{Labelled topic extraction} can pick out the underlying NFR activity behind these events. For example, both projects show a high number of NFRs recognized at the first period of analysis. 
+%\noindent \textbf{Timeline of key events} -- 
+As discussed earlier, the top row in each figure shows key events for each project. \textit{Labelled topic extraction} can pick out the underlying NFR activity behind these events. For example, both projects show a high number of NFRs recognized at the first period of analysis. 
 This is due to our window choice: we deliberately targeted our analysis to when MySQL 3.23 was first announced %Major update \& End-of life
 and when MaxDB 7.500 was first announced. For MaxDB, version 7.5.00  was released in December of 2003. 
 From analyzing the mailing list for external validation, we know that release 7.5.00.23 saw the development of PHP interfaces, possibly accounting for the simultaneous increase in the \emph{portability} NFR at the same time.
@@ -645,27 +647,25 @@ For MySQL (Fig. \ref{fig:mysql-timeline}), we similarly validated our NFR patter
 \label{fig:timelines}
 \end{figure*}
 
-\subsection{Comparing MaxDB and MySQL}
+% \subsection{Comparing MaxDB and MySQL}
 
-\label{sec:comparison}
+% \label{sec:comparison}
 %\XXX{Not sure there's enough here to do that!}
-
-We observed that MySQL had more topic subsets than MaxDB. 
-MySQL 3.23 also had more topics and a longer recorded history than MaxDB 7.500. 
-We tagged more MySQL topics with annotations than MaxDB topics, yet both shared similarities. 
-In terms of non-functional requirements both projects had long running trends that focused on \emph{functionality}, \emph{maintainability}, and \emph{portability}, yet MaxDB had more of a focus on \emph{efficiency} and \emph{reliability}. 
-\todo[inline]{expand}
+% We observed that MySQL had more topic subsets than MaxDB. 
+% MySQL 3.23 also had more topics and a longer recorded history than MaxDB 7.500. 
+% We tagged more MySQL topics with annotations than MaxDB topics, yet both shared similarities. 
+% In terms of non-functional requirements both projects had long running trends that focused on \emph{functionality}, \emph{maintainability}, and \emph{portability}, yet MaxDB had more of a focus on \emph{efficiency} and \emph{reliability}. 
+% \todo[inline]{expand}
 %\todo[inline,color=yellow]{expand on this with dates, and reference to visualizations}
 
-MySQL and MaxDB's machine learners made some decisions based off a few shared words: \textsf{bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test}. 
-Adding these words to the word-lists of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
+This analysis allows to address the questions raised in section \ref{sec:suplabelling}:
 
-With respect to the questions raised in section \ref{sec:suplabelling}:
-
-\textbf{Do label frequencies change over time?} -- Yes, MySQL's label
-frequencies decreased as that release aged. \emph{Usability} and \emph{reliability}
-labels became more and more infrequent as it matured. \emph{Maintainability} topics
-became more prevalent as MaxDB matured.
+\textbf{Do label frequencies change over time?} -- In both projects the frequencies generally decreased with age. 
+However, there are variations within our NFR labels. In MySQL, \emph{usability} and \emph{efficiency} do not appear very often in topics. 
+A proportionately smaller number of commits addressed these NFRs.
+As discussed in the section previous, certain peaks in topic numbers coincide with particular emphases in the development team, such as new releases or bug fixes.
+This suggests that maintenance activity is not necessarily strictly decreasing with time, but rather episodic and responsive to outside stimuli. 
+In MaxDB, we can observe that \emph{Maintainability} topics became more prevalent as MaxDB matures. This is likely due to our analysis time horizon being shorter than the MySQL product.
 
 \textbf{Do the different projects differ in their relative topic interest?} -- 
 Yes. MySQL 3.23 had proportionally more
@@ -674,7 +674,7 @@ topics labelled \emph{functionality}, while MaxDB had proportionally more
  In both cases portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
 \todo[inline]{fix}
 
-\section{Limitations}
+\section{Discussion}
 \label{sec:limit}
 
 %XXX can just remove this
@@ -686,6 +686,9 @@ The word-lists for \emph{correctness} tended to be too lengthy, non-specific and
 
 With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these methods.
 \textsf{exp2} and \textsf{exp3} both indicate that static information can be used to help label topics without any training whatsoever. 
+MySQL and MaxDB's machine learners made some decisions based off a few shared words: \textsf{bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test}. 
+Adding these words to the word-lists of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
+
 If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques we could probably reduce the training effort by boosting training sets with topics classified with the unsupervised techniques.
 Both Naive Bayesian learners and the word-list approaches were computationally efficient.  
 %These results are promising, because the accuracy of the techniques is good enough to be useful, while the run-time performance is still cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
@@ -832,7 +835,7 @@ Since the word-list technique is not project specific, it can be used to compare
 We demonstrated multiple supervised and unsupervised methods of topic labelling, including multi-label learners.
 We provided a case study and visualization of NFR related topics in MaxDB 7.500 and MySQL 3.23. 
 During the case study we manually labelled hundreds of topics by hand then used these annotations to validate the positive performance of topic labelling techniques.
-We showed that topics with labels are more useful than unlabelled topics. To furnish stakeholders with labelled topics, our technique provides many methods of automatic topic labelling.
+The implication of our paper is that topics with labels are more useful than unlabelled topics. To furnish stakeholders with labelled topics, our technique provides many methods of automatic topic labelling.
 
   
 %\subsection{Future Work}
