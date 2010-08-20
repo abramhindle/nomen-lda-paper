@@ -531,7 +531,7 @@ The multi-label and single-label learners had similar performance: for MySQL, BR
 % although their results are comparable to the naive Bayesian learners we used in Section \ref{sec:suplabelling}.
 %\todo[inline]{discuss this similarity in more detail}
 
-\begin{figure*}[]
+\begin{figure}[]
 \centering
 \subfloat[MySQL]{
 \includegraphics[width=0.3\textwidth]{figures/multi-label-results-mysql}
@@ -546,7 +546,7 @@ The multi-label and single-label learners had similar performance: for MySQL, BR
 %\todo[inline]{better discussion}% and graphical legend would be nice}
 }
 \label{fig:mulan}
-\end{figure*}
+\end{figure}
 
 \subsection{Annotation observations}
 We found many topics that were not non-functional requirements (NFRs) but were often related to them. 
@@ -740,10 +740,11 @@ in order to analyze the evolution of a single product.
 % make evolutionary analyses of a single product. 
 The presence of a well-maintained set of tags is obviously essential to the success of this technique.
 
-% Not sure we need this
-Mens et al.~\cite{mens08icsm} conducted an empirical study of Eclipse, a popular Java IDE, to verify the claims of Lehman~\cite{lehman97sms}.
-% They concerned themselves with source code only, and found Law Seven, ``Declining Quality'', to be too difficult to assess: ``[we lacked an] appropriate measurement of the evolving quality of the system as perceived by the users \cite[p. 388]{mens08icsm}''. 
-This paper examines the notions of quality in terms of a consistent ontology, as Mens et al. call for in their conclusions.
+% % Not sure we need this
+% Mens et al.~\cite{mens08icsm} conducted an empirical study of Eclipse, a popular Java IDE, to verify the claims of Lehman~\cite{lehman97sms}.
+% % They concerned themselves with source code only, and found Law Seven, ``Declining Quality'', to be too difficult to assess: ``[we lacked an] appropriate measurement of the evolving quality of the system as perceived by the users \cite[p. 388]{mens08icsm}''. 
+% This paper examines the notions of quality in terms of a consistent ontology, as Mens
+et al. call for in their conclusions.
 
 Mei et al.~\cite{Mei2007} use context information to automatically name topics. 
 They describe probabilistic labelling, using the frequency distribution of words in a topic to create a meaningful phrase. 
