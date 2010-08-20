@@ -419,9 +419,16 @@ If a \emph{C} grade performance has a ROC value of $0.6$ then most of these test
 \label{sec:suplearn}
 Supervised labelling requires expert analysis of the correct word to assign to a topic. %In order to validate how effective these word-bag approaches to topic labelling would be we created a validation data set. 
 
-We used a suite of supervised classifiers from WEKA~\cite{weka09}. WEKA is a suite of machine learning tools such as support vector machines and Bayes nets. We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, which maps to what we observed while manually labelling topics.
+We used a suite of supervised classifiers, WEKA~\cite{weka09}. 
+WEKA includes machine learning tools such as support vector machines and Bayes-nets. 
+We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. 
+Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, which maps to what we observed while manually labelling topics.
 
-To assess the performance of the supervised learners, we did a 10-fold cross-validation~\cite{Kohavi1995}, a common technique for evaluating machine learners. The original data is partitioned randomly into ten subsamples. One subsample is used as a training set and evaluated on the other nine subsamples. This is repeated nine more times, with each subsample used once as the training set. We have reported these results below in Section \ref{sec:suplabelling}.
+To assess the performance of the supervised learners, we did a 10-fold cross-validation~\cite{Kohavi1995}, a common technique for evaluating machine learners. 
+The original data is partitioned randomly into ten sub-samples. Each sample is used to test against a train set composed of the nine other samples.
+%One subsample is used as a training set and evaluated on the other nine sub-samples. 
+%This is repeated nine more times, with each subsample used once as the training set. 
+We have reported these results below in Section \ref{sec:suplabelling}.
 
 \subsubsection{Analysis of the supervised labelling}
 \label{sec:suplabelling}
