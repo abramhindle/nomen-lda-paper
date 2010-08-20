@@ -398,7 +398,8 @@ A perfect learner has a ROC value of 1.0, reflecting perfect recall and precisio
 A ROC result of 0.5 would be equivalent to a random learner (that is, issuing as many false positives as true positives). 
 The AUC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen negative instance.
 
-\todo[inline]{since ROC is new-sounding, I wonder if a more lengthy explanation would be merited. An obvious question is why not precision/recall? -- ROC is hot right now and it combines both}
+%\todo[inline]{since ROC is new-sounding, I wonder if a more lengthy explanation would be merited. An obvious question is why not precision/recall? -- ROC is hot right now and it combines both}
+% Rebuttal: ROC is not new and it is what the machine learning community, search based software engineering and now the MSR community are using +  it has natural meaningful quality mappings.
 \begin{figure*}
   \centering
  \includegraphics[width=\textwidth]{figures/unsupervised-bar}
@@ -532,10 +533,15 @@ There are two measures represented.
 One, the relative frequency, shown in the grey boxes, represents the number of labels with that NFR in that period, 
 relative to the maximum number of topics assigned to that NFR. 
 The second, absolute frequency, compares the number of topics labelled with that NFR per period 
-relative to the maximum number of labelled topics overall. 
+relative to the maximum number of labelled topics overall, for that project. 
 
-\textbf{Understanding the figures} -- For example, in Fig. \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have more intensely shaded boxes. We note that the gap in the MaxDB data is due to an interruption in the source data, having to do with the infrastructure for releasing developer artifacts, rather than specific occurrences in the project.
-\todo[inline]{can I pin this down more ?}
+\textbf{Understanding the figures} -- For example, in Fig. \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have been more intensely shaded. % boxes. not sure boxes is important..
+%We note that the gap in the MaxDB data is due to an interruption in the source data, having to do with the infrastructure for releasing developer artifacts, rather than specific occurrences in the project.
+% I grepped query1.mrs2 http://softwareprocess.es/y/y/maxdb-76.tar.gz
+% and                   http://softwareprocess.es/y/maxdb-7500.tar.gz
+The gap in the MaxDB is due to the fact that other versions of MaxDB exist on different repositories and during this period from February 2005 to Jun 2005 the focus of development shifted to MaxDB 7.6. 
+Immediately after this period of inactivity, there was a large deluge of commits added to the MaxDB 7.500 repositories.
+%\todo[inline]{can I pin this down more ?}
 There are more \textsf{None} labels in MaxDB because a number of topics were to do with code cleanup or automated checking using tools like \texttt{sutcheck}, a tool-specific to the development process at MaxDB. 
 
 \textbf{Timeline of key events} -- Figs. \ref{} show key events for each of our projects. Several external events (external to `normal' development activity, that is) affected our projects. For example, both projects show a high number of NFRs recognized at the first period of analysis. This is due to our window choice: we deliberately targeted our analysis to 
@@ -585,10 +591,16 @@ Note that MySQL's release process was haphazard at this point: they would releas
 \label{sec:comparison}
 %\XXX{Not sure there's enough here to do that!}
 
-We observed that MySQL had more topic subsets than MaxDB. MySQL 3.23 also had more topics and a longer recorded history than MaxDB 7.500. We tagged more MySQL topics with annotations than MaxDB topics, yet both shared similarities. In terms of non-functional requirements both projects had long running trends that focused on \emph{functionality}, \emph{maintainability}, and \emph{portability}, yet MaxDB had more of a focus on \emph{efficiency} and \emph{reliability}. MaxDB differed from MySQL since MaxDB was being actively developed, whereas halfway through our history of MySQL 3.23, other versions of MySQL were being actively developed: MySQL versions 4.0, 4.1, and eventually 5.0 and 5.1. In other words, MySQL 3.23 was being maintained rather than actively developed, whereas MaxDB 7.500 was being actively developed into MaxDB 7.6, and then maintained thereafter.
+We observed that MySQL had more topic subsets than MaxDB. 
+MySQL 3.23 also had more topics and a longer recorded history than MaxDB 7.500. 
+We tagged more MySQL topics with annotations than MaxDB topics, yet both shared similarities. 
+In terms of non-functional requirements both projects had long running trends that focused on \emph{functionality}, \emph{maintainability}, and \emph{portability}, yet MaxDB had more of a focus on \emph{efficiency} and \emph{reliability}. 
+MaxDB differed from MySQL since MaxDB was being actively developed, whereas halfway through our history of MySQL 3.23, other versions of MySQL were being actively developed: MySQL versions 4.0, 4.1, and eventually 5.0 and 5.1. 
+In other words, MySQL 3.23 was being maintained rather than actively developed, whereas MaxDB 7.500 was being actively developed into MaxDB 7.6, and then maintained thereafter.
 \todo[inline,color=yellow]{expand on this with dates, and reference to visualizations}
 
-MySQL and MaxDB's machine learners did make decisions based off some shared words. Words that were used to classify topics that were shared between MySQL and MaxDB included: \textsf{bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test}. Adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
+MySQL and MaxDB's machine learners made some decisions based off some shared words: \textsf{bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test}. 
+Adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
 
 With respect to the questions raised in section \ref{sec:suplearn}:
 
@@ -636,16 +648,38 @@ topics labelled \emph{functionality}, while MaxDB had proportionally more
 \subsection{Effectiveness}
 
 %{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
-The unsupervised labelling had difficulty distinguishing between common labels and infrequent labels. The related words for \emph{correctness}, for example, tended to be too lengthy and non-specific. 
-\todo[inline,color=red]{Abram can you explain what you mean here?}
+The unsupervised labelling had difficulty distinguishing between common labels and infrequent labels, often the learners would mislabel a topic deserving of an infrequent label with a more common label.
+The word-lists for \emph{correctness}, tended to be too lengthy, non-specific and broad, especially if WordNet words were used as it is a loosely defined concept in common parlance.
 
-With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these attempts. \textsf{exp2} and \textsf{exp3} both indicate that static information can be used to help label topics without any training whatsoever. If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques we could probably reduce the training effort. 
-Both Naive Bayesian learners and the word-list approaches were computationally efficient.  These results are promising, because the results are accurate enough to be useful, while still cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
+With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these methods.
+\textsf{exp2} and \textsf{exp3} both indicate that static information can be used to help label topics without any training whatsoever. 
+If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques we could probably reduce the training effort by boosting training sets with topics classified with the unsupervised techniques.
+Both Naive Bayesian learners and the word-list approaches were computationally efficient.  
+%These results are promising, because the accuracy of the techniques is good enough to be useful, while the run-time performance is still cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
+These results are promising because they indicate that these techniques are accurate enough to be useful while still maintaining acceptable run-time performance.
 
 
 \subsection{Threats to validity}
-\emph{Construct validity} issues include that we used only commit messages rather than mail or bug tracker messages. We also chose our taxonomy and the data to study. \emph{Internal validity} issues are to do with inter-rater reliability. \emph{External validity} issues are that our data originated from OSS database projects and thus might not be applicable to commercially developed software. Furthermore, our analysis techniques rely on a project's use of meaningful commit messages.
-\todo[inline]{update this with more detail}
+
+% can always be cut down
+
+\emph{Construct validity} issues include that we used only commit messages rather than mail or bug tracker messages. 
+Conversely construct validity was addressed in our validation as we used the files, topics and revisions to annotate the commit messages.
+We also chose our taxonomy and the data to study. Also, we did not show these results to the stakeholders.
+
+\emph{Internal validity} issues are include inter-rater reliability and our lack of rival explanation building. 
+We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
+We did not attempt to match our results to any particular model or theory.
+
+\emph{External validity} was addressed by our use of multiple case studies, but there are still issues. 
+Our data originated from OSS database projects and thus might not be applicable to commercially developed software. 
+Furthermore, our analysis techniques rely on a project's use of meaningful commit messages. 
+
+% in Case Study Research: Design Case Studies
+\emph{Reliability} was addressed by each annotator following the same protocol and using the same annotations. 
+Unfortunately only two annotators were used, their annotating could be biased and we did not analyze for inter-rater reliability.
+
+%\todo[inline]{update this with more detail}
 
 \section{Related work}
 \label{sec:related}
@@ -735,7 +769,8 @@ We showed that topics with labels are more useful than unlabelled topics, thus t
  % Future work
 There are several avenues of further investigation.  
  % Talk to people
-We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  It is difficult to map abstract qualities to particular messages. 
+We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  
+It is difficult to map abstract qualities to particular messages. % what?
  % This is disjointed and needs more context
 On question we seek to answer is if a ``quality'' discussion about more than just corrective maintenance? %In this study we take the position that any type of maintenance has to do with software quality.
  
