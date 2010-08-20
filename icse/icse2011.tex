@@ -621,10 +621,16 @@ Note that MySQL's release process was haphazard at this point: they would releas
 \label{sec:comparison}
 %\XXX{Not sure there's enough here to do that!}
 
-We observed that MySQL had more topic subsets than MaxDB. MySQL 3.23 also had more topics and a longer recorded history than MaxDB 7.500. We tagged more MySQL topics with annotations than MaxDB topics, yet both shared similarities. In terms of non-functional requirements both projects had long running trends that focused on \emph{functionality}, \emph{maintainability}, and \emph{portability}, yet MaxDB had more of a focus on \emph{efficiency} and \emph{reliability}. MaxDB differed from MySQL since MaxDB was being actively developed, whereas halfway through our history of MySQL 3.23, other versions of MySQL were being actively developed: MySQL versions 4.0, 4.1, and eventually 5.0 and 5.1. In other words, MySQL 3.23 was being maintained rather than actively developed, whereas MaxDB 7.500 was being actively developed into MaxDB 7.6, and then maintained thereafter.
+We observed that MySQL had more topic subsets than MaxDB. 
+MySQL 3.23 also had more topics and a longer recorded history than MaxDB 7.500. 
+We tagged more MySQL topics with annotations than MaxDB topics, yet both shared similarities. 
+In terms of non-functional requirements both projects had long running trends that focused on \emph{functionality}, \emph{maintainability}, and \emph{portability}, yet MaxDB had more of a focus on \emph{efficiency} and \emph{reliability}. 
+MaxDB differed from MySQL since MaxDB was being actively developed, whereas halfway through our history of MySQL 3.23, other versions of MySQL were being actively developed: MySQL versions 4.0, 4.1, and eventually 5.0 and 5.1. 
+In other words, MySQL 3.23 was being maintained rather than actively developed, whereas MaxDB 7.500 was being actively developed into MaxDB 7.6, and then maintained thereafter.
 \todo[inline,color=yellow]{expand on this with dates, and reference to visualizations}
 
-MySQL and MaxDB's machine learners did make decisions based off some shared words. Words that were used to classify topics that were shared between MySQL and MaxDB included: \textsf{bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test}. Adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
+MySQL and MaxDB's machine learners made some decisions based off some shared words: \textsf{bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test}. 
+Adding these words to the word bags of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
 
 With respect to the questions raised in section \ref{sec:suplearn}:
 
