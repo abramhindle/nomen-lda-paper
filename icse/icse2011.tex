@@ -224,7 +224,10 @@ The paper concludes with a discussion of limitations (Section \ref{sec:limit}) a
 %\todo[inline]{We still haven't shown that topics are useful -- a reviewer comment}
 
 \section{Study design and execution}
-Figure \ref{fig:process} gives an outline of the methodology followed. We began by gathering source data. We then applied unsupervised and supervised learning techniques to identify topics. These topics were used to analyze the role of non-functional requirements in software maintenance.
+Figure \ref{fig:process} gives an outline of the methodology followed. 
+We began by gathering source data. 
+We then applied unsupervised and supervised learning techniques to identify topics. 
+These topics were used to analyze the role of non-functional requirements in software maintenance.
 
 \begin{figure}
   \centering
@@ -267,7 +270,7 @@ In topic analysis a single document, such as a commit message, can be related to
 Representing documents as a mixture of topics maps well to source code repository commits, which often have more than one purpose~\cite{Hindle09ICSM}.  
 A topic, in this paper, represents both a word distribution and a group of commit log comments that are related to each other by their content.  
 In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
-%\todo[inline]{These paragraphs should've come way earlier, in previous we should explain LDA so this doesn't need to be here.}
+
 
 We applied Blei's LDA implementation~\cite{Blei2003} against the word distributions of these commits, and generated lists of topics per period. 
 We set the number of topics to generate to $20$, because past experimentation showed that fewer topics might aggregate multiple unique topics while any more topics seemed to dilute the results and create indistinct topics~\cite{Hindle09ICSM}. 
