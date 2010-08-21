@@ -675,7 +675,8 @@ Yes. MySQL 3.23 had proportionally more
 topics labelled \emph{functionality}, while MaxDB had proportionally more
 \emph{efficiency} and \emph{portability} related topics.
  In both cases portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
-\todo[inline]{fix}
+% XXX fix?
+%\todo[inline]{fix}
 
 \section{Discussion}
 \label{sec:limit}
@@ -684,7 +685,8 @@ topics labelled \emph{functionality}, while MaxDB had proportionally more
 %\subsection{Effectiveness}
 
 %{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
-The unsupervised labelling had difficulty distinguishing between common labels and infrequent labels. The learners would occasionally mislabel a topic deserving of an infrequent label with a more common label.
+The unsupervised labelling had difficulty distinguishing between common labels and infrequent labels. 
+The learners would occasionally mislabel a topic deserving of an infrequent label with a more common label.
 The word-lists for \emph{correctness} tended to be too lengthy, non-specific and broad, especially if WordNet words were used, as correctness is a loosely defined concept in common parlance.
 
 With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these methods.
@@ -692,7 +694,7 @@ With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these
 MySQL and MaxDB's machine learners made some decisions based off a few shared words: \textsf{bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test}. 
 Adding these words to the word-lists of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
 
-If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques we could probably reduce the training effort by boosting training sets with topics classified with the unsupervised techniques.
+If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques we could reduce the training effort by boosting training sets with topics classified with the unsupervised techniques.
 Both Naive Bayesian learners and the word-list approaches were computationally efficient.  
 %These results are promising, because the accuracy of the techniques is good enough to be useful, while the run-time performance is still cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
 These results are promising because they indicate that these techniques are accurate enough to be useful while still maintaining acceptable run-time performance.
@@ -701,12 +703,14 @@ These results are promising because they indicate that these techniques are accu
 \subsection{Threats to validity}
 
 % can always be cut down
+Our work faced multiple threats to validity and we attempted to address many of them.
 
 \emph{Construct validity} -- we used only commit messages rather than mail or bug tracker messages. 
-Conversely, construct validity was addressed in our validation as we used the files, topics and revisions to annotate the commit messages.
+Conversely, construct validity was addressed in our validation as we used the files, topics and revisions to annotate the commit messages. 
+We used mailing-lists to verify the purpose behind some events.
 We also chose our taxonomy and the data to study. We did not show these results to the stakeholders.
 
-\emph{Internal validity} -- include inter-rater reliability and our lack of rival explanation building. 
+\emph{Internal validity} -- includes inter-rater reliability and our lack of rival explanation building. 
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
 We did not attempt to match our results to any particular model or theory.
 
@@ -718,17 +722,15 @@ Furthermore, our analysis techniques rely on a project's use of meaningful commi
 \emph{Reliability} was addressed by each annotator following the same protocol and using the same annotations. 
 Unfortunately only two annotators were used; their annotations could be biased as we did not analyze for inter-rater reliability.
 
-%\todo[inline]{update this with more detail}
-
 \section{Related work}
 \label{sec:related}
 
-The idea of extracting higher-level `concerns', also known as `concepts', `aspects' or `requirements', has been approached from documentation-based and repositories-based perspectives.
+The idea of extracting higher-level `concerns', also known as `concepts', `aspects' or `requirements', has been approached from documentation-based and repository-based perspectives.
 
 Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. 
 Their approach was similar to ours, as they mined keywords from their own NFR catalogues~\cite{chung99}.
 %One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. 
-They managed recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. 
+They managed a recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. 
 Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
 Our worked differed because we had a more comprehensive set of terms based on the taxonomy we chose.
 We also wanted a common taxonomy that allows us to make cross-project comparison, which was not one of their objectives.
