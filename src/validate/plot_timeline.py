@@ -91,21 +91,24 @@ def plot_timeline(proj, period_map):
         # relative to all
         # loop over it instead of copy and paste 
         #HAHAHA! Copy and paste rules. Code clones rule. Code smells rule.
+        delta = datetime.timedelta(days=5)
+        i = 0
         for value in value_order:
             #rect = Rectangle((date,value_start[value]), barwidth,barheight,fill=True,lw=0, fc='red',alpha=(float(qm[ value ])/float(max_value_map[ value ])))
-            rect = Rectangle((date,value_start[value]), barwidth,barheight,zorder=2,fill=True,lw=0, fc='red',alpha=(float(qm[ value ])/float(denominator)))
+            intensity = (float(qm[ value ])/float(denominator))
+            # if intensity > 0:
+            #     pass#intensity = intensity + 0.2 # the lowest alpha possible
+            # if intensity >= 1: intensity = 1 
+            rect = Rectangle((date,value_start[value]), barwidth,barheight,zorder=2,fill=True,lw=0, fc='red',alpha=intensity)
             ax.add_patch( rect )
             # now draw the boxes relative the stream itself
             # 0.49 is for half height
             h = 0.49 * barheight * float(qm[ value ]) / float( max_value_map[ value ])
-            vrect = Rectangle((date,value_start[value]), barwidth, h,fill=True,zorder=3,lw=1, fc='gray',)#alpha=(float(qm[ value ])/float(max_value_map[ value ])))
+            vrect = Rectangle((date,value_start[value]), barwidth, h,fill=True,zorder=3,lw=1, ec='gray',fc='gray',)#alpha=(float(qm[ value ])/float(max_value_map[ value ])))
             ax.add_patch( vrect )
         
-        #add text numbers to debug
-        delta = datetime.timedelta(days=5)
-        i = 0
-        for value in value_order:
-            ax.annotate(qm[value],  (date+delta, 2.5+5*i) , color='black', size='small')
+            #add text numbers to debug
+            #ax.annotate("%.2f" % intensity,  (date+delta, 2.5+5*i) , color='black', size='small') #qm[value]
             i += 1
         
     for i in range(len(period_map.keys()[0])):
