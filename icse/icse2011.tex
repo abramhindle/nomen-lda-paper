@@ -486,7 +486,7 @@ To assess the performance of the supervised learners, we did a 10-fold cross-val
 The original data is partitioned randomly into ten sub-samples. Each sample is used to test against a train set composed of the nine other samples.
 %One subsample is used as a training set and evaluated on the other nine sub-samples. 
 %This is repeated nine more times, with each subsample used once as the training set. 
-We have reported these results below in Section \ref{sec:suplabelling}.
+We have reported these results below.% in Section \ref{sec:suplabelling}.
 
 \textbf{Analysis of the supervised labelling} -- 
 % \label{sec:suplabelling}
@@ -501,7 +501,7 @@ Figure \ref{fig:best-learn-per-tag} shows the performance of the best performing
 
 Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, as the ROC values for \emph{reliability} and \emph{functionality} seem swapped between projects. 
 For both projects Bayesian techniques did the best out of a wide variety of machine learners tested. 
-Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes's theorem and all assume, naively, that the features are independent. 
+Our best learners, Discriminative Multinomial Naive Bayes, Naive Bayes  and Multinomial Naive Bayes  are all based on Bayes's theorem and all assume, naively, that the features are independent. 
 The features we used are word counts per message. 
 One beneficial aspect of this result is that it suggests we can have very fast training and classifying  since Naive Bayes can be calculated in $O(N)$ for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
