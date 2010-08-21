@@ -733,9 +733,9 @@ Their approach was similar to ours, as they mined keywords from their own NFR ca
 They managed a recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. 
 Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
 Our worked differed because we had a more comprehensive set of terms based on the taxonomy we chose.
-We also wanted a common taxonomy that allows us to make cross-project comparison, which was not one of their objectives.
+We also wanted a common taxonomy that allows us to make cross-project comparison; this was not one of their objectives.
 The objective of Cleland-Huang's study was to identify new NFRs for system development, yet our objective was to recover those latent NFRs from commit-log messages of the project. 
-Another difference was that our data was far less structured that the requirements documents used in their study.
+Another difference was that our data was far less structured than the requirements documents used in their study.
 %There are several reasons we did not follow this route. 
 %One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. 
 %Secondly, we wanted to compare across projects. 
@@ -745,10 +745,9 @@ Another difference was that our data was far less structured that the requiremen
 %Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) our study assumes these NFRs are latent in the commit-log messages of the project. 
 
 In the same vein, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. 
-They also leveraged WordNet, but only for word roots. 
-They felt the synonyms would be non-specific and cause errors. 
-A nice contribution was access to system developers, with whom they could validate their labels. 
-Since we try to bridge different organizations, these interviews are infeasible (particularly in the distributed world of open-source software).
+They also leveraged WordNet, but only for word roots as they felt the synonyms would be non-specific and cause errors. 
+Mockus et al. had access to system developers, with whom they could validate their labels. 
+Since we try to bridge different organizations, these kind of interviews are infeasible (particularly in the distributed world of open-source software).
 
 The other approach is to extract concerns from software repositories.
 Marcus et al.~\cite{marcus04wcre} describe their use of Latent Semantic Indexing to identify commonly occurring concerns for software maintenance. 
@@ -761,10 +760,11 @@ in order to analyze the evolution of a single product.
 % make evolutionary analyses of a single product. 
 The presence of a well-maintained set of tags is obviously essential to the success of this technique.
 
-% % Not sure we need this
-% Mens et al.~\cite{mens08icsm} conducted an empirical study of Eclipse, a popular Java IDE, to verify the claims of Lehman~\cite{lehman97sms}.
-% % They concerned themselves with source code only, and found Law Seven, ``Declining Quality'', to be too difficult to assess: ``[we lacked an] appropriate measurement of the evolving quality of the system as perceived by the users \cite[p. 388]{mens08icsm}''. 
-% This paper examines the notions of quality in terms of a consistent ontology, as Mens
+%XXXXXXXXXXXX OPTIONAL
+% Not sure we need this
+Mens et al.~\cite{mens08icsm} conducted an empirical study of Eclipse, a popular Java IDE, to verify the claims of Lehman~\cite{lehman97sms}.
+% They concerned themselves with source code only, and found Law Seven, ``Declining Quality'', to be too difficult to assess: ``[we lacked an] appropriate measurement of the evolving quality of the system as perceived by the users \cite[p. 388]{mens08icsm}''. 
+This paper examines the notions of quality in terms of a consistent ontology, as Mens
 et al. call for in their conclusions.
 
 Mei et al.~\cite{Mei2007} use context information to automatically name topics. 
@@ -779,7 +779,8 @@ Their work discusses the source of the requirements and how they are used in the
 %None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
 
 % XXX vanity or space.. 
-% Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
+%XXXXXXXXXXXX OPTIONAL
+ Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
 
 
 \section{Conclusions and future work}
@@ -809,7 +810,9 @@ Our contributions include:
 % para 2 we did this to validate and show we did it
 % Experiment description -- origin of wordbags
 % NEIL - shortening this 
-We validated our topic labelling techniques using multiple experiments. We conducted unsupervised labelling using word-lists. Our next approach was supervised, using single-label and multi-label learners. 
+We validated our topic labelling techniques using multiple experiments. 
+We conducted unsupervised labelling using word-lists. 
+Our next approach was supervised, using single-label and multi-label learners. 
 % Using unsupervised word-list analysis we set up two NFR topic labelling experiments: 
 % our \textsf{exp2} experiment used small but accurate word-lists, while \textsf{exp3} used large general word-lists derived from WordNet.
 % The performance of these techniques differed per NFR but both \textsf{exp2} and \textsf{exp3} had similar performance.
@@ -831,6 +834,8 @@ Although it may seem like common knowledge that maintenance is a concern as a pr
 %too specific in this sectionIn the cases of MaxDB and MySQL, portability was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects.
 
 
+%XXXXXXXXXXXXXXXX I think we need to suggest a couple of uses.
+
 
 % para 4 summarize and hammer contribution
 % NE not a fan of this phrasing -> % In conclusion, 
@@ -839,11 +844,11 @@ To improve this, we leveraged software engineering standards to produce a method
 Since the word-list technique is not project specific, it can be used to compare multiple projects.
 We demonstrated multiple supervised and unsupervised methods of topic labelling, including multi-label learners.
 We provided a case study and visualization of NFR related topics in MaxDB 7.500 and MySQL 3.23. 
-During the case study we manually labelled hundreds of topics by hand then used these annotations to validate the positive performance of topic labelling techniques.
+During the case study we manually labelled hundreds of topics by hand and then used these annotations to validate the positive performance of topic labelling techniques.
 The implication of our paper is that topics with labels are more useful than unlabelled topics. To furnish stakeholders with labelled topics, our technique provides many methods of automatic topic labelling.
 
-  
-%\subsection{Future Work}
+%XXXXXXXX Optional  
+\subsection{Future Work}
  
  % para 5 future work
  % Future work
@@ -851,6 +856,7 @@ There are several avenues of further investigation.
 More external validation would be useful. 
 Although we validated our comparisons using a mailing list for each project, interviews with developers would provide more detail. 
 We also think multi-label learning techniques, although in their infancy, are crucial in understanding cross-cutting concerns such as NFRs. 
+We also want to leverage different kinds of artifacts to discover threads of NFR-related discussions that occur between multiple kinds of artifacts.
 Finally, we would like to extend this analysis to other domains, to see what patterns might occur in, for example, an end-user facing software product.
  % Talk to people
 % We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  
