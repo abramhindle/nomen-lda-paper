@@ -469,7 +469,7 @@ The AUC of a classifier is equivalent to the probability that the classifier wil
 
 Based on these results we find that \emph{reliability} and \emph{usability} worked well for MaxDB in \textsf{exp2} and better in \textsf{exp3}. 
 MySQL had reasonable results within \textsf{exp2} for \emph{reliability} and \emph{efficiency}. 
-MySQL's results for efficiency did not improve in \textsf{exp3} but other qualities such as \emph{functionality} did improve. 
+MySQL's results for \emph{efficiency} did not improve in \textsf{exp3} but other qualities such as \emph{functionality} did improve. 
 If a \emph{C} grade performance has a ROC value of $0.6$ then most of these tests scored a grade of \emph{C} or less, but our classifier nonetheless performed substantially better than random.
 
 
@@ -486,7 +486,7 @@ To assess the performance of the supervised learners, we did a 10-fold cross-val
 The original data is partitioned randomly into ten sub-samples. Each sample is used to test against a train set composed of the nine other samples.
 %One subsample is used as a training set and evaluated on the other nine sub-samples. 
 %This is repeated nine more times, with each subsample used once as the training set. 
-We have reported these results below in Section \ref{sec:suplabelling}.
+We have reported these results below.% in Section \ref{sec:suplabelling}.
 
 \textbf{Analysis of the supervised labelling} -- 
 % \label{sec:suplabelling}
@@ -501,7 +501,7 @@ Figure \ref{fig:best-learn-per-tag} shows the performance of the best performing
 
 Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, as the ROC values for \emph{reliability} and \emph{functionality} seem swapped between projects. 
 For both projects Bayesian techniques did the best out of a wide variety of machine learners tested. 
-Discriminative Multinomial Naive Bayes (DMNBtext), Naive Bayes (NaiveBayes) and Multinomial Naive Bayes (NaiveBayesMultinomal) are all based on Bayes's theorem and all assume, naively, that the features are independent. 
+Our best learners, Discriminative Multinomial Naive Bayes, Naive Bayes  and Multinomial Naive Bayes  are all based on Bayes's theorem and all assume, naively, that the features are independent. 
 The features we used are word counts per message. 
 One beneficial aspect of this result is that it suggests we can have very fast training and classifying  since Naive Bayes can be calculated in $O(N)$ for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
@@ -540,7 +540,7 @@ together.
 
 As noted in Section \ref{sec:wordlist}, each topic in our data-set can be composed of zero, one, or more NFRs. 
 For example, a commit message might address \textit{reliability} in the context of \textit{efficiency}, or make a \textit{maintainability} improvement in the source code that related to \textit{usability}. 
-However, traditional machine learning techniques, such as naive Bayes, can only map topics to a single class. 
+However, traditional machine learning techniques, such as Naive Bayes, can only map topics to a single class. 
 The Mulan~\cite{mulan} library encapsulates several different multi-label machine learners which can label elements with multiple labels.
 Mulan also includes methods for determining the performance of such techniques.
 % TOO DETAILED The problem framed in the learners above has changed; instead of looking at the precision and recall of applying one label, we rank multiple labels at once. We must check if the full subset of labels was applied, and then how much of that subset was applied.
@@ -557,7 +557,7 @@ The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act a
 These classifiers performed better than other multi-label classifiers as they have the best micro and macro ROC scores. 
 The multi-label and single-label learners had similar performance: for MySQL, BR and NaiveBayes had similar macro-ROC scores of $0.74$.
 % although their results are comparable to the naive Bayesian learners we used in Section \ref{sec:suplabelling}.
-%\todo[inline]{discuss this similarity in more detail}
+% \todo[inline]{discuss this similarity in more detail}
 
 \begin{figure*}[]
 \centering
@@ -611,8 +611,8 @@ This suggests that by combining together multiple NaiveBayes learners we could p
 % \todo[inline]{reference project name Nomen more}
 Since our ROC values produced acceptable results, we now turn to \emph{applying} those techniques to understand software maintenance activities. We evaluated two research questions:
 \begin{enumerate}
-\item Do label frequencies change over time? That is, is a certain quality of more interest at one point in the life-cycle than some other? 
-\item  Do the different projects differ in their relative topic interest? That is, is a particular quality more important to one project than the other projects?  
+\item Do label frequencies change over time? Is a certain quality of more interest at one point in the life-cycle than some other? 
+\item  Do the different projects differ in their relative topic interest? Is a particular quality more important to one project than the other projects?  
 \end{enumerate}
 
 % There are several possible applications of \textsf{Nomen}'s techniques. 
@@ -629,23 +629,32 @@ There are two measures represented.
 One, the relative frequency, shown in the grey boxes, represents the number of labels with that NFR in that period, 
 relative to the maximum number of topics assigned to that NFR. 
 The second, absolute frequency, compares the number of topics labelled with that NFR per period 
-relative to the maximum number of labelled topics overall, for that project. The topmost row in the diagrams is reserved for historical events of note. We refer to these occurrences in the discussion which follows.
+relative to the maximum number of labelled topics overall, for that project. 
+The topmost row in each the diagram is reserved for historical events of note. 
+We refer to these occurrences in the discussion which follows.
 
 %\noindent \textbf{Understanding the figures} -- 
-In Fig. \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have been more intensely shaded. % boxes. not sure boxes is important..
+In Figure \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have been more intensely shaded. % boxes. not sure boxes is important..
 % I grepped query1.mrs2 http://softwareprocess.es/y/y/maxdb-76.tar.gz
 % and                   http://softwareprocess.es/y/maxdb-7500.tar.gz
 There are more \textsf{None} labels in MaxDB because a number of topics were to do with code cleanup or automated checking using tools like \texttt{sutcheck}, a tool-specific to the development process at MaxDB. 
 
 %\noindent \textbf{Timeline of key events} -- 
-As discussed earlier, the top row in each figure shows key events for each project. \textit{Labelled topic extraction} can pick out the underlying NFR activity behind these events. For example, both projects show a high number of NFRs recognized at the first period of analysis. 
+As discussed earlier, the top row in each figure shows key events for each project. 
+\textit{Labelled topic extraction} can pick out the underlying NFR activity behind these events. 
+For example, both projects show a high number of NFRs recognized at the first period of analysis. 
 This is due to our window choice: we deliberately targeted our analysis to when MySQL 3.23 was first announced %Major update \& End-of life
 and when MaxDB 7.500 was first announced. For MaxDB, version 7.5.00  was released in December of 2003. 
 From analyzing the mailing list for external validation, we know that release 7.5.00.23 saw the development of PHP interfaces, possibly accounting for the simultaneous increase in the \emph{portability} NFR at the same time.
-The gap in MaxDB (Fig. \ref{fig:maxdb-timeline}) is due to a shift in development focus (from February 2005 to Jun 2005) to MaxDB 7.6, which is released in June 2005.
+The gap in MaxDB (Figure \ref{fig:maxdb-timeline}) is due to a shift in development focus (from February 2005 to Jun 2005) to MaxDB 7.6, which is released in June 2005.
 
-For MySQL (Fig. \ref{fig:mysql-timeline}), we similarly validated our NFR patterns with external mailing list data. This release of MySQL was the first to be licenced under the GPL. Version 3.23.31 (January, 2001) was the production release (non-beta), and we see a flurry of topics labeled with \emph{functionality} and \emph{maintainability}, as one might expect. After this point, this version enters the maintenance phase of its lifecycle. In May 2001, there is an increase in the number of topics labelled with \emph{portability}. This might be related to release 3.23.38, which focused on Windows compatibility. 
-Similarly, in Augsut, 2002, both \emph{functionality} and \emph{portability} are frequent, and mailing list data suggests this is related to the release of version 3.23.52, a general bug fix with a focus on security (encoded as the \emph{functionality} NFR in the ISO9126 model). 
+For MySQL (Figure \ref{fig:mysql-timeline}), we similarly validated our NFR patterns with external mailing list data. 
+This release of MySQL was the first to be licenced under the GPL. 
+Version 3.23.31 (January, 2001) was the production release (non-beta), and we see a flurry of topics labelled with \emph{functionality} and \emph{maintainability}, as one might expect. 
+After this point, this version enters the maintenance phase of its life-cycle. 
+In May 2001, there is an increase in the number of topics labelled with \emph{portability}. 
+This might be related to release 3.23.38, which focused on Windows compatibility. 
+Similarly, in August, 2002, both \emph{functionality} and \emph{portability} are frequent, and mailing list data suggests this is related to the release of version 3.23.52, a general bug fix with a focus on security (encoded as the \emph{functionality} NFR in the ISO9126 model). 
 After this point, efforts shift to the newer releases (4.0, 4.1, 5.0). 
 
 \begin{figure*}[ht]
@@ -684,8 +693,8 @@ A proportionately smaller number of commits addressed these NFRs.
 As discussed in the previous section, certain peaks in topic numbers coincide with a particular emphasis from the development team on issues such as new releases or bug fixes.
 This suggests that maintenance activity is not necessarily strictly decreasing with time, but rather episodic and responsive to outside stimuli. 
 In MaxDB, we can observe that \emph{Maintainability} topics became more prevalent as MaxDB matures. 
-This is likely due to our analysis time horizon being shorter than an equivalent span for the MySQL product. 
-%%XXXXXXXXXXXXXXXXX what
+This is likely due to our analysis timeframe for MaxDB being shorter than the timeframe for the MySQL product. 
+
 
 
 \textbf{Do the different projects differ in their relative topic interest?} -- 
@@ -886,7 +895,9 @@ Finally, we would like to extend this analysis to other domains, to see what pat
 
 \appendix
 
-Our data and scripts are available at \url{http://softwareprocess.es/nomen/}
+Our data and scripts are available at:
+
+ \url{http://softwareprocess.es/nomen/}
 
 \bibliographystyle{abbrv}
 %\bibliographystyle{IEEEtran}
