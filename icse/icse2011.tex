@@ -169,7 +169,7 @@ In this sense, they are useful abstractions for developer conversations about di
 In general, the mining of software artifacts tends to be very project specific, yet NFRs are not. 
 % I was told if you're going to use a paren, you don't need to say it.
 There is a series of standards on NFRs, such as \cite{iso9126}, specifically intended to apply to projects of varying types.
-These standards indicate our approach is possible.%, if perhaps not universally accepted).
+These standards indicate our approach is possible. %, if perhaps not universally accepted).
 % NFRs are prevalent in almost all software systems.
 % In this paper we will show that NFR related topics occur quite frequently.
 %XXXXXX this sentence is confusing
@@ -213,7 +213,7 @@ Our technique automatically assigns labels across projects.
 \end{enumerate}
 
 This paper first introduces labelled topic extraction, and then uses that technique to analyze development activity in two large-scale examples. 
-We begin by describing how we generated our data (Section \ref{sec:wordlist}). 
+We begin by describing how we generated our data (Sections  \ref{sec:wordlist} and \ref{sec:genwordlist}). 
 We show that labels with their topics can be learned and used to classify other data-sets, either without training (Section \ref{sec:unsuplabelling}), or with training (Section \ref{sec:suplabelling}). 
 We then present visualizations of named topics and their trends over time to aid communication and analysis. 
 We use an exploratory case study of two open source database systems to show how named topics can be compared between projects  (Section \ref{sec:analysis}). 
@@ -279,7 +279,7 @@ We set the number of topics to generate to $20$, because past experimentation sh
 \subsection{Generating word lists}
 \label{sec:genwordlist}
 
-Topics are word distributions, lists of words ranked by frequency, that are be burdensome to interpret and hard to distinguish and understand. 
+Topics are word distributions, lists of words ranked by frequency, that are burdensome to interpret and hard to distinguish and understand. 
 While the topic models themselves are generated automatically, how to interpret these topics is less clear.
 For example,
 % in our previous work~\cite{Hindle09ICSM}, as well as -- CITED a little too often
@@ -319,7 +319,7 @@ We therefore took the words from the taxonomy and expanded them.
 To construct these expanded word lists, we used WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including common related forms (similar to word stemming), meronymy and synonymy. 
 We then added Boehm's 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven `ilities' into their respective ISO9126 qualities. 
 We did the same for the quality model produced by McCall et al. \cite{mccall1977}. 
-Finally, we analyzed two mailing lists from another software project, KDE, to expand our set with domain-specific terms. 
+Finally, we analyzed two mailing lists from another software project to expand our set with domain-specific terms. 
 For example, we add the term ``performance'' to the synonyms for \emph{efficiency}, since this term occurs in most mail messages that discuss efficiency.
 
 For the third set of word-lists,  \textsf{exp3}, we extended the word-lists from \textsf{exp2} using unfiltered WordNet similarity matches. 
@@ -442,16 +442,16 @@ We found a high of 265 topics for \emph{usability}, with a low of 44 topics for 
 Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{efficiency} with \emph{reliability}, and \emph{efficiency} with \emph{usability} (200, 190, and 150 topics in common, respectively). 
 
 
-\textbf{Analysis of the unsupervised labelling} -- Based on the labels, and our manual topic labelling, 
+\noindent \textbf{Analysis of the unsupervised labelling} -- Based on the labels, and our manual topic labelling, 
 we compared the results of the unsupervised word matching approach. 
-For each quality we assessed whether unsupervised labels matches the manual annotations.
+For each quality we assessed whether unsupervised labels matched the manual annotations.
 Figure \ref{fig:maxdb-unsup-results} shows our results for MaxDB and MySQL. 
 Our performance is measured using the Receiver Operating Characteristic area-under-curve value~\cite{Fawcett2006861}, abbreviated \emph{ROC}. 
 ROC values provide a score, similar to school letter-grades (A is 0.9, C is 0.6), reflecting how well a particular learner performed for the given data. 
 ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) versus the false positive rate (1 - specificity). 
 A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision. 
 A ROC result of 0.5 would be equivalent to a random learner (that is, issuing as many false positives as true positives). 
-The AUC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen negative instance.
+The area under the ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen negative instance.
 
 %\todo[inline]{since ROC is new-sounding, I wonder if a more lengthy explanation would be merited. An obvious question is why not precision/recall? -- ROC is hot right now and it combines both}
 % Rebuttal: ROC is not new and it is what the machine learning community, search based software engineering and now the MSR community are using +  it has natural meaningful quality mappings.
@@ -475,15 +475,15 @@ If a \emph{C} grade performance has a ROC value of $0.6$ then most of these test
 
 \subsection{Supervised labelling}
 \label{sec:suplabelling}
-Supervised labelling requires expert analysis of the correct class/label to assign to a topic. In our approach, we use the ISO9126 standard~\cite{iso9126} for our classes, but other taxonomies are also applicable.%In order to validate how effective these word-bag approaches to topic labelling would be we created a validation data set. 
+Supervised labelling requires expert analysis of the correct class/label to assign to a topic. In our approach, we use the top-level NFRs in the ISO 9126 standard~\cite{iso9126} for our classes, but other taxonomies are also applicable.%In order to validate how effective these word-bag approaches to topic labelling would be we created a validation data set. 
 
 We used a suite of supervised classifiers, WEKA~\cite{weka09}. 
 WEKA includes machine learning tools such as support vector machines and Bayes-nets. 
-We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. 
+We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}. %\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. 
 Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, which maps to what we observed while manually labelling topics.
 
 To assess the performance of the supervised learners, we did a 10-fold cross-validation~\cite{Kohavi1995}, a common technique for evaluating machine learners. 
-The original data is partitioned randomly into ten sub-samples. Each sample is used to test against a train set composed of the nine other samples.
+The original data is partitioned randomly into ten sub-samples. Each sample is used to test against a training set composed of the nine other samples.
 %One subsample is used as a training set and evaluated on the other nine sub-samples. 
 %This is repeated nine more times, with each subsample used once as the training set. 
 We have reported these results below.% in Section \ref{sec:suplabelling}.
@@ -513,7 +513,7 @@ better than our previous word-list results of \textsf{exp2} and
 cases (other than MaxDB \emph{reliability} and MySQL \emph{efficiency}). The
 limitation of the approach we took here is that we assume labels are
 independent; however, labels could be correlated with each other. 
-The next section, Section \ref{sec:multilabel} on multi-labels
+The next section (\ref{sec:multilabel})
 addresses the issue of a lack of independence and correlation between labels.
 In the next section we will evaluate how well these learners perform
 together.
@@ -529,7 +529,7 @@ together.
 % \includegraphics[width=0.4\textwidth]{figures/maxdb-supervised}
 % \label{fig:subfig2}
 % }
-\caption[]{ROC value for the best learner per label for MaxDB and MySQL. ROC values range from 0--1.
+\caption[]{ROC value for the best learner per label for MaxDB and MySQL. Values range from 0--1.
 %\todo[inline]{better discussion}
 }
 \label{fig:best-learn-per-tag}
@@ -549,7 +549,7 @@ Mulan also includes methods for determining the performance of such techniques.
 Two perspectives to evaluate multi-label learners are with micro or macro measurements (used in Figure \ref{fig:mulan}).
 Macro measurements are aggregated at a class or label level (per class) while micro measurements are at the element level (per element).
 A macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. 
-Unfortunately for MaxDB, the macro-ROC values are undefined because of poor performance of one of the labels.%, see Figure \ref{fig:mulan}.
+For MaxDB, the macro-ROC values are undefined because of poor performance of one of the labels.%, see Figure \ref{fig:mulan}.
 
 Figure~\ref{fig:mulan} presents the results of Mulan's best multi-label learners for our data. 
 Calibrated Label Ranking (CLR) is a learner that builds two layers, the first layer determines if an entity should be labelled, while the second layer determines what labels should be assigned.
@@ -577,11 +577,11 @@ The multi-label and single-label learners had similar performance: for MySQL, BR
 
 \subsection{Annotation observations}
 We found many topics that were not non-functional requirements (NFRs) but were often related to them. 
-For instance, concurrency was mentioned often in the commit logs and was related to \emph{correctness} and \emph{reliability}, likely because concurrent code is prone to bugs such as race conditions.%are 
+For instance, concurrency was mentioned often in the commit logs and was related to \emph{correctness} and \emph{reliability}, likely because concurrent code is prone to bugs such as race conditions. %are 
 % often  was troublesome. 
-\emph{Configuration management} and \emph{source control} related changes appeared often and sometimes there were topics dedicated to configuration management. 
-These kinds of changes are slightly related to \emph{maintainability}. 
-A non-functional change that was not quality-related was licensing and copyright; many changes were simply to do with updating copyrights or ensuring copyright or license headers were applied to files.
+\emph{Configuration management} and \emph{source control} related changes appeared often; % and sometimes there were topics dedicated to configuration management. 
+these kinds of changes are slightly related to \emph{maintainability}. 
+A non-functional change that was not quality-related was licensing and copyright; many changes were simply to do with updating copyrights or ensuring copyright or license headers were applied to files. In these cases we assigned the \emph{None} class.
 
 We noticed that occasionally the names of modules would conflict with words related to other non-functional requirements. 
 For instance, optimizers are very common modules in database systems: both MySQL and MaxDB have optimizer modules. 
@@ -593,9 +593,9 @@ Project specific word-lists would avoid automated mistakes due to the names of e
 \subsection{Summary of techniques}
 While an unsupervised technique such as LDA is appealing in its lack of human intervention, and thus lower effort, 
 supervised learners have the advantage of domain knowledge, which typically means improved results. 
-Our manual annotations were fairly quick to do, taking on average five minutes per 30 day period. 
+Our manual annotations were fairly quick to do, taking only a few minutes per 30 day period. 
 
-Very rarely did \textsf{exp2} and \textsf{exp3} (naïve word matching) ever perform as well as the supervised machine learners. 
+Very rarely did \textsf{exp2} and \textsf{exp3} (naive word matching) ever perform as well as the supervised machine learners. 
 For MaxDB, \textit{reliability} was slightly better detected using the static word list of \textsf{exp2}. 
 In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. 
 For both MySQL and MaxDB \textit{usability} was better served by \textsf{exp2}. 
@@ -624,13 +624,13 @@ Since our ROC values produced acceptable results, we now turn to \emph{applying}
 % \textsf{Nomen} would help explain why this was the case, since it can identify NFRs which are dominating developer attention.
 
 \subsection{Timeline analysis}
-Figures \ref{fig:maxdb-timeline} and \ref{fig:mysql-timeline} show the temporal patterns of label frequencies. 
+Figures \ref{fig:mysql-timeline} and \ref{fig:maxdb-timeline} show the temporal patterns of label frequencies. 
 There are two measures represented. 
 One, the relative frequency, shown in the grey boxes, represents the number of labels with that NFR in that period, 
 relative to the maximum number of topics assigned to that NFR. 
 The second, absolute frequency, compares the number of topics labelled with that NFR per period 
 relative to the maximum number of labelled topics overall, for that project. 
-The topmost row in each the diagram is reserved for historical events of note. 
+The topmost row in each diagram is reserved for historical events of note. 
 We refer to these occurrences in the discussion which follows.
 
 %\noindent \textbf{Understanding the figures} -- 
@@ -650,11 +650,11 @@ The gap in MaxDB (Figure \ref{fig:maxdb-timeline}) is due to a shift in developm
 
 For MySQL (Figure \ref{fig:mysql-timeline}), we similarly validated our NFR patterns with external mailing list data. 
 This release of MySQL was the first to be licenced under the GPL. 
-Version 3.23.31 (January, 2001) was the production release (non-beta), and we see a flurry of topics labelled with \emph{functionality} and \emph{maintainability}, as one might expect. 
+Version 3.23.31 (January, 2001) was the production release (non-beta), and we see a flurry of topics labelled with \emph{functionality} and \emph{maintainability}. 
 After this point, this version enters the maintenance phase of its life-cycle. 
 In May 2001, there is an increase in the number of topics labelled with \emph{portability}. 
 This might be related to release 3.23.38, which focused on Windows compatibility. 
-Similarly, in August, 2002, both \emph{functionality} and \emph{portability} are frequent, and mailing list data suggests this is related to the release of version 3.23.52, a general bug fix with a focus on security (encoded as the \emph{functionality} NFR in the ISO9126 model). 
+Similarly, in August, 2002, both \emph{functionality} and \emph{portability} are frequent, and mailing list data suggests this is related to the release of version 3.23.52, a general bug fix with a focus on security (a component of the \emph{functionality} NFR in the ISO9126 model). 
 After this point, efforts shift to the newer releases (4.0, 4.1, 5.0). 
 
 \begin{figure*}[ht]
@@ -668,7 +668,8 @@ After this point, efforts shift to the newer releases (4.0, 4.1, 5.0).
 \includegraphics[width=\textwidth]{figures/maxdb-timeline}
 \label{fig:maxdb-timeline}
 }
-	\caption[]{NFR label per period. Each box represents a 30-day period. Numbers represent number of topics in that period labelled with that NFR. Box intensity (saturation) is mapped to label frequency relative to the largest label value of \emph{all} NFRs. Grey bars indicate label frequency relative to \emph{a particular} NFR. Dashed vertical lines relate a project milestone (``*Key Event*'') to our topic windows. 
+	\caption[]{NFR label per period. Each box represents a 30-day period. %Numbers represent number of topics in that period labelled with that NFR. 
+	Grid cell intensity (saturation) is mapped to label frequency relative to the largest label value of \emph{all} NFRs. Grey bars indicate label frequency relative to \emph{a particular} NFR. Dashed vertical lines relate a project milestone (*Key Event*) to our topic windows. 
 % \todo[inline]{better discussion}
 }
 \label{fig:timelines}
@@ -839,7 +840,7 @@ Our contributions include:
 % Experiment description -- origin of wordbags
 % NEIL - shortening this 
 We validated our topic labelling techniques using multiple experiments. 
-We conducted unsupervised labelling using word-lists. 
+We first conducted unsupervised labelling using word-lists. 
 Our next approach was supervised, using single-label and multi-label learners. 
 % Using unsupervised word-list analysis we set up two NFR topic labelling experiments: 
 % our \textsf{exp2} experiment used small but accurate word-lists, while \textsf{exp3} used large general word-lists derived from WordNet.
@@ -884,8 +885,8 @@ There are several avenues of further investigation.
 More external validation would be useful. 
 Although we validated our comparisons using a mailing list for each project, interviews with developers would provide more detail. 
 We also think multi-label learning techniques, although in their infancy, are crucial in understanding cross-cutting concerns such as NFRs. 
-We also want to leverage different kinds of artifacts to discover threads of NFR-related discussions that occur between multiple kinds of artifacts.
-Finally, we would like to extend this analysis to other domains, to see what patterns might occur in, for example, an end-user facing software product.
+We want to leverage different kinds of artifacts to discover threads of NFR-related discussions that occur between multiple kinds of artifacts.
+Finally, we would like to extend this analysis to other domains, to see what patterns might occur in, for example, a consumer-facing software product.
  % Talk to people
 % We want to investigate developer attitudes related to these labels: i.e., when we label a topic, was the developer expressing positive or negative qualities about that label?  
 % It is difficult to map abstract qualities to particular messages. % what?
