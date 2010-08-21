@@ -629,23 +629,32 @@ There are two measures represented.
 One, the relative frequency, shown in the grey boxes, represents the number of labels with that NFR in that period, 
 relative to the maximum number of topics assigned to that NFR. 
 The second, absolute frequency, compares the number of topics labelled with that NFR per period 
-relative to the maximum number of labelled topics overall, for that project. The topmost row in the diagrams is reserved for historical events of note. We refer to these occurrences in the discussion which follows.
+relative to the maximum number of labelled topics overall, for that project. 
+The topmost row in each the diagram is reserved for historical events of note. 
+We refer to these occurrences in the discussion which follows.
 
 %\noindent \textbf{Understanding the figures} -- 
-In Fig. \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have been more intensely shaded. % boxes. not sure boxes is important..
+In Figure \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have been more intensely shaded. % boxes. not sure boxes is important..
 % I grepped query1.mrs2 http://softwareprocess.es/y/y/maxdb-76.tar.gz
 % and                   http://softwareprocess.es/y/maxdb-7500.tar.gz
 There are more \textsf{None} labels in MaxDB because a number of topics were to do with code cleanup or automated checking using tools like \texttt{sutcheck}, a tool-specific to the development process at MaxDB. 
 
 %\noindent \textbf{Timeline of key events} -- 
-As discussed earlier, the top row in each figure shows key events for each project. \textit{Labelled topic extraction} can pick out the underlying NFR activity behind these events. For example, both projects show a high number of NFRs recognized at the first period of analysis. 
+As discussed earlier, the top row in each figure shows key events for each project. 
+\textit{Labelled topic extraction} can pick out the underlying NFR activity behind these events. 
+For example, both projects show a high number of NFRs recognized at the first period of analysis. 
 This is due to our window choice: we deliberately targeted our analysis to when MySQL 3.23 was first announced %Major update \& End-of life
 and when MaxDB 7.500 was first announced. For MaxDB, version 7.5.00  was released in December of 2003. 
 From analyzing the mailing list for external validation, we know that release 7.5.00.23 saw the development of PHP interfaces, possibly accounting for the simultaneous increase in the \emph{portability} NFR at the same time.
-The gap in MaxDB (Fig. \ref{fig:maxdb-timeline}) is due to a shift in development focus (from February 2005 to Jun 2005) to MaxDB 7.6, which is released in June 2005.
+The gap in MaxDB (Figure \ref{fig:maxdb-timeline}) is due to a shift in development focus (from February 2005 to Jun 2005) to MaxDB 7.6, which is released in June 2005.
 
-For MySQL (Fig. \ref{fig:mysql-timeline}), we similarly validated our NFR patterns with external mailing list data. This release of MySQL was the first to be licenced under the GPL. Version 3.23.31 (January, 2001) was the production release (non-beta), and we see a flurry of topics labeled with \emph{functionality} and \emph{maintainability}, as one might expect. After this point, this version enters the maintenance phase of its lifecycle. In May 2001, there is an increase in the number of topics labelled with \emph{portability}. This might be related to release 3.23.38, which focused on Windows compatibility. 
-Similarly, in Augsut, 2002, both \emph{functionality} and \emph{portability} are frequent, and mailing list data suggests this is related to the release of version 3.23.52, a general bug fix with a focus on security (encoded as the \emph{functionality} NFR in the ISO9126 model). 
+For MySQL (Figure \ref{fig:mysql-timeline}), we similarly validated our NFR patterns with external mailing list data. 
+This release of MySQL was the first to be licenced under the GPL. 
+Version 3.23.31 (January, 2001) was the production release (non-beta), and we see a flurry of topics labelled with \emph{functionality} and \emph{maintainability}, as one might expect. 
+After this point, this version enters the maintenance phase of its life-cycle. 
+In May 2001, there is an increase in the number of topics labelled with \emph{portability}. 
+This might be related to release 3.23.38, which focused on Windows compatibility. 
+Similarly, in August, 2002, both \emph{functionality} and \emph{portability} are frequent, and mailing list data suggests this is related to the release of version 3.23.52, a general bug fix with a focus on security (encoded as the \emph{functionality} NFR in the ISO9126 model). 
 After this point, efforts shift to the newer releases (4.0, 4.1, 5.0). 
 
 \begin{figure*}[ht]
