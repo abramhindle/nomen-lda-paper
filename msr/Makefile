@@ -1,54 +1,54 @@
 IMAGES=
 default: view
 
-view: icse2011.pdf
+view: msr2011.pdf
 	xpdf $<
 
-icse2011-pre.pdf: icse2011.tex icpc.bib
-	#	pdflatex icse2011
-	#pdflatex icse2011
-	#bibtex icse2011
-	#pdflatex icse2011
-	#pdflatex icse2011
-	#mv icse2011.pdf icse2011-pre.pdf
-	xelatex icse2011
-	xelatex icse2011
-	bibtex icse2011
-	xelatex icse2011
-	xelatex icse2011
-	mv icse2011.pdf icse2011-pre.pdf
+msr2011-pre.pdf: msr2011.tex icpc.bib
+	#	pdflatex msr2011
+	#pdflatex msr2011
+	#bibtex msr2011
+	#pdflatex msr2011
+	#pdflatex msr2011
+	#mv msr2011.pdf msr2011-pre.pdf
+	xelatex msr2011
+	xelatex msr2011
+	bibtex msr2011
+	xelatex msr2011
+	xelatex msr2011
+	mv msr2011.pdf msr2011-pre.pdf
 
 
 
-icse2011.pdf: icse2011-pre.pdf
-	gs -q -dNOPAUSE -dBATCH -dPDFSETTINGS=/prepress -dDownsampleColorImages=false -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -sDEVICE=pdfwrite -sOutputFile=icse2011.pdf icse2011-pre.pdf
+msr2011.pdf: msr2011-pre.pdf
+	gs -q -dNOPAUSE -dBATCH -dPDFSETTINGS=/prepress -dDownsampleColorImages=false -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -sDEVICE=pdfwrite -sOutputFile=msr2011.pdf msr2011-pre.pdf
 
-icse2011-pdflatex-safe.pdf: icse2011-pdflatex.pdf
-	gs -q -dNOPAUSE -dBATCH -dPDFSETTINGS=/prepress -dDownsampleColorImages=false -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -sDEVICE=pdfwrite -sOutputFile=icse2011-pdflatex-safe.pdf icse2011-pdflatex.pdf
-
-
-icse2011-pdflatex.pdf: icse2011.tex icpc.bib
-	pdflatex icse2011
-	pdflatex icse2011
-	bibtex icse2011
-	pdflatex icse2011
-	pdflatex icse2011
-	mv icse2011.pdf icse2011-pdflatex.pdf
-
-icse2011.ps: icse2011.dvi
-	dvips -Pdownload35 icse2011.dvi -o icse2011.ps
+msr2011-pdflatex-safe.pdf: msr2011-pdflatex.pdf
+	gs -q -dNOPAUSE -dBATCH -dPDFSETTINGS=/prepress -dDownsampleColorImages=false -dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -sDEVICE=pdfwrite -sOutputFile=msr2011-pdflatex-safe.pdf msr2011-pdflatex.pdf
 
 
-icse2011.dvi: icse2011.tex icpc.bib
-	latex icse2011
-	latex icse2011
-	bibtex icse2011
-	latex icse2011
-	latex icse2011
+msr2011-pdflatex.pdf: msr2011.tex icpc.bib
+	pdflatex msr2011
+	pdflatex msr2011
+	bibtex msr2011
+	pdflatex msr2011
+	pdflatex msr2011
+	mv msr2011.pdf msr2011-pdflatex.pdf
+
+msr2011.ps: msr2011.dvi
+	dvips -Pdownload35 msr2011.dvi -o msr2011.ps
+
+
+msr2011.dvi: msr2011.tex icpc.bib
+	latex msr2011
+	latex msr2011
+	bibtex msr2011
+	latex msr2011
+	latex msr2011
 
 
 clean:
-	rm -f icse2011.dvi icse2011.ps icse2011.pdf icse2011.aux ahindle-lda.pdf icse2011.bbl *.blg *.log *.aux *.map *.bbl icse2011-pre.pdf || echo lol
+	rm -f msr2011.dvi msr2011.ps msr2011.pdf msr2011.aux ahindle-lda.pdf msr2011.bbl *.blg *.log *.aux *.map *.bbl msr2011-pre.pdf || echo lol
 
 
 
