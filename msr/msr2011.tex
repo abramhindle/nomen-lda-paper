@@ -27,8 +27,10 @@
 
 \begin{document}
 
-\conferenceinfo{MSR{'11 Waikiki, Hawaii, USA}
+\conferenceinfo{MSR}{'11 Waikiki, Hawaii, USA}
+
 \numberofauthors{5}
+
 \author{
 \alignauthor 
 Abram Hindle\\
@@ -128,6 +130,36 @@ Labelled topic extraction produces appropriate, context-sensitive labels relevan
 \newcommand{\shrink}{}
 
 \section{Introduction}
+
+\todo[inline]{Strength story: Neil says
+  And ultimately, I think the story needs more strengthening. Maybe we
+  need a scenario: you work at Bank X. You are curious about how much
+  recent activity has been done on software maintainability
+  vs. security. Our technique will allow you to compare different IT
+  projects using the same keywords, and ultimately, to generate lists
+  showing relative frequencies.}
+
+\todo[inline]{mention project dashboards}
+
+\todo[inline]{Usefulness needs to be immediate and apparent}
+
+\todo[inline]{ It needs to be clear there is value in labelling.
+  We need to make it clear that other researchers weren't labelling them
+ automatically and presented them as labelled and thus it is obvious from
+  their presentation that labels matters + need a reading argument. The
+ 2nd reviewer picked on this a bit but still didn't get it. I thought
+ some of this had been clear.}
+
+\todo[inline]{Topic should be defined clearly (italics and hilighted)}
+
+\todo[inline]{Move previous work up}
+
+
+
+
+
+
+
 Topics in software engineering practice refer to specific shared threads of discussions between project stakeholders. 
 These topics can include particular requirements, maintenance requests, bug fixes or other software engineering tasks. %NEIL: define topic specifically as akin to email 'thread'. It sounded too vague. Also changed from 'developers' to 'stakeholders' because developers sounds too coding oriented. Our work could apply to testers, users, etc.
 While addressing a topic of development, stakeholders often produce or modify multiple development artifacts.
@@ -279,6 +311,16 @@ We set the number of topics to generate to $20$, because past experimentation sh
 \subsection{Generating word lists}
 \label{sec:genwordlist}
 
+\todo[inline]{Make it clear where the data comes from! Neil says: Also, I
+  didn't get the impression they understood that we weren't generating
+  labels from the data, but rather from independent taxonomies. Of
+  course if you use labels from the data it isn't comparable. But the
+  point of ISO 9126 etc. was to avoid exactly this problem.}
+
+\todo[inline]{Need to hammer it in that the word bags are not project specific and
+ are inherited so it isn't a supervised method}
+
+
 Topics are word distributions, lists of words ranked by frequency, that are burdensome to interpret and hard to distinguish and understand. 
 While the topic models themselves are generated automatically, how to interpret these topics is less clear.
 For example,
@@ -316,6 +358,7 @@ The terms extracted from ISO9126 may not capture all words associated with the l
 For example, the term ``redundancy'' is one most would agree is relevant to discussion of reliability, but is not in the standard. 
 We therefore took the words from the taxonomy and expanded them.
 
+\todo[inline]{* clarify the mailinglist stuff we did}
 To construct these expanded word lists, we used WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including common related forms (similar to word stemming), meronymy and synonymy. 
 We then added Boehm's 1976 software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven `ilities' into their respective ISO9126 qualities. 
 We did the same for the quality model produced by McCall et al. \cite{mccall1977}. 
@@ -365,6 +408,8 @@ We compared against this data-set, but we also used the data-set for our supervi
 
 \subsection{Unsupervised labelling}
 \label{sec:unsuplabelling}
+
+\todo[inline]{* the hierarchy of tags was not clear}
 
 % word list similarity
 Using our three word lists, we labeled our topics where there was a match between a word in the list and the same word in the topic.
@@ -441,6 +486,8 @@ As we mentioned, the word-lists are quite broad, so there are likely to be false
 We found a high of 265 topics for \emph{usability}, with a low of 44 topics for \emph{maintainability}. 
 Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{efficiency} with \emph{reliability}, and \emph{efficiency} with \emph{usability} (200, 190, and 150 topics in common, respectively). 
 
+
+\todo[inline]{Should we use F-1 as well to satisfy everyone?}
 
 \noindent \textbf{Analysis of the unsupervised labelling} -- Based on the labels, and our manual topic labelling, 
 we compared the results of the unsupervised word matching approach. 
@@ -746,6 +793,7 @@ We did not attempt to match our results to any particular model or theory.
 \emph{External validity} was addressed by our use of multiple case studies, but there are still issues. 
 Our data originated from OSS database projects and thus might not be applicable to commercially developed software. 
 Furthermore, our analysis techniques rely on a project's use of meaningful commit messages. 
+\todo[inline]{If we compare with the same domain we don't get to say it generalizes a lot?}
 
 % in Case Study Research: Design Case Studies
 \emph{Reliability} was addressed by each annotator following the same protocol and using the same annotations. 
