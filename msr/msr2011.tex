@@ -134,7 +134,7 @@ Labelled topic extraction produces appropriate, context-sensitive labels relevan
   projects using the same keywords, and ultimately, to generate lists
   showing relative frequencies.}
 
-\todo[inline]{mention project dashboards}
+% \todo[inline]{mention project dashboards}
 
 \todo[inline]{Usefulness needs to be immediate and apparent}
 
@@ -159,6 +159,7 @@ the task at hand.
 Often the purpose of revisions to source code relate to one or more topics, whether it be a maintenance activity, a quality issue, a requirement or feature or a response to a bug report.
 Many of these purposes and tasks exhibit themselves as latent topics which cross-cut and compose many of development artifacts: version control revisions, bug reports, and mailing-list discussions.
 
+
 Topics in software engineering practice refer to specific shared threads of discussions between project stakeholders. 
 These topics can include particular requirements, maintenance requests, bug fixes or other software engineering tasks. %NEIL: define topic specifically as akin to email 'thread'. It sounded too vague. Also changed from 'developers' to 'stakeholders' because developers sounds too coding oriented. Our work could apply to testers, users, etc.
 While addressing a topic of development, stakeholders often produce or modify multiple development artifacts.
@@ -166,7 +167,11 @@ While addressing a topic of development, stakeholders often produce or modify mu
 These artifacts can include source code, bug reports, revisions to source code, and test cases. 
 %
 Topics are typically latent, i.e., not explicitly named, and can be in several potential states: they may not be immediately resolved, they may re-occur, yet others are only dealt with briefly  (e.g., a bug report that is closed)
-Within this paper we define \emph{topics} as latent word distributions that describe and compose the documents being analyzed. We then defined \emph{labelled topics} as \emph{topics} that have been 
+Within this paper we define \emph{topics} as latent word distributions that describe and compose the documents (version control commits) being analyzed. 
+We then defined \emph{labelled topics} as \emph{topics} that have been interpreted and labelled. 
+The distinction is important because word distributions can consistent of many words, thus if one has many topics, reading and interpreting these words is prohibitive.
+For example, if you read only 10 words per topic from 500 topics you have to read and interpret 5000 words, this is 5 or more pages of text!
+Thus \emph{labelled topics} save interpretation time.
 
 
 There are many practical applications of \emph{labelled topic
