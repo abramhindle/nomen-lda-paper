@@ -147,13 +147,17 @@ Labelled topic extraction produces appropriate, context-sensitive labels relevan
 
 \todo[inline]{Topic should be defined clearly (italics and hilighted)}
 
-\todo[inline]{Move previous work up}
+% \todo[inline]{Move previous work up}
 
 
 
-
-
-
+% An attempt Motivate topics
+%XXX is this the correct terminology for commits/revisions
+The development of software does not occur in a vacuum, revisions to
+source code are often not independent of the past, the specification or
+the task at hand.
+Often the purpose of revisions to source code relate to one or more topics, whether it be a maintenance activity, a quality issue, a requirement or feature or a response to a bug report.
+Many of these purposes and tasks exhibit themselves as latent topics which cross-cut and compose many of development artifacts: version control revisions, bug reports, and mailing-list discussions.
 
 Topics in software engineering practice refer to specific shared threads of discussions between project stakeholders. 
 These topics can include particular requirements, maintenance requests, bug fixes or other software engineering tasks. %NEIL: define topic specifically as akin to email 'thread'. It sounded too vague. Also changed from 'developers' to 'stakeholders' because developers sounds too coding oriented. Our work could apply to testers, users, etc.
@@ -161,7 +165,33 @@ While addressing a topic of development, stakeholders often produce or modify mu
 %
 These artifacts can include source code, bug reports, revisions to source code, and test cases. 
 %
-Topics are typically latent, i.e., not explicitly named, and can be in several potential states: they may not be immediately resolved, they may re-occur, yet others are only dealt with briefly  (e.g., a bug report that is closed).
+Topics are typically latent, i.e., not explicitly named, and can be in several potential states: they may not be immediately resolved, they may re-occur, yet others are only dealt with briefly  (e.g., a bug report that is closed)
+Within this paper we define \emph{topics} as latent word distributions that describe and compose the documents being analyzed. We then defined \emph{labelled topics} as \emph{topics} that have been 
+
+
+There are many practical applications of \emph{labelled topic
+  extraction} 
+ranging from summarization, project dashboards, and software process recovery.
+These methods are useful for providing abstractions of development activities and artifacts.
+Particularly in large projects, summarization of developer activities is essential to maintenance. 
+Rather than looking for specific concepts in a project~\cite{marcus04wcre}, we are interested in understanding a software project relative to common properties of all software.
+We can improve project dashboards, used by managers, by showing both the current topics of development as well those that relate to domain-independent taxonomies, such as NFRs.
+Some quality assurance questions can be addressed by seeking evidence within repositories that NFR-related topics are being addressed.
+Topic modelling can be used to check if development is on track and focused.
+For outside users of the software, our technique can provide insight into that company's development practices in order to answer questions such as, ``Are they focused on usability?''
+Within the organization \emph{labelled topic extraction} can act as a historical sanity check, used to avoid \emph{confirmation bias}, which is the difference between what people think happened and what actually happened. 
+Some software releases, for instance, are poorly received since they are quite buggy. 
+Our technique would help explain why this was the case, since it can identify NFRs which are dominating developer attention.
+% This is a very long example it'd be nice if it was tighter
+% Perhaps development has been sidetracked by cascading issues that appeared during implementation.
+% For instance, a developer adding an optimization to a RDBMS might have to change multiple modules in order to provide that optimization code with enough information to operate. 
+% This issue might trigger a series of cascading changes that might be difficult to discover when trying to explain why the project's release date has been missed. 
+% Labelled Topic extraction could be used to detect this distinct focus of development.
+
+
+
+
+
 % semi-automatically sounds too uncertain. I think the introduction can be more muscular and bold. Don't give the reviewer any room to start doubting.
 
 % why are topics useful
@@ -208,22 +238,6 @@ This allows us to mine software systems with the intention of comparing their NF
 %%%% THIS PARAGRAPH ARGUES ABOUT THE CONCRETE APPLICATION OF 
 %%%% TOPIC MODELLING AND LABELLED TOPIC EXTRACTION
 %%%% IT NEEDS TO BE TIGHTER BUT IT ALSO NEEDS TO BE HERE
-There are many practical applications of \emph{labelled topic extraction}.
-These methods are useful for providing abstractions of development activities and artifacts.
-Particularly in large projects, summarization of developer activities is essential to maintenance. 
-Rather than looking for specific concepts in a project~\cite{marcus04wcre}, we are interested in understanding a software project relative to common properties of all software.
-We can improve project dashboards, used by managers, by showing both the current topics of development as well those that relate to domain-independent taxonomies, such as NFRs.
-Some quality assurance questions can be addressed by seeking evidence within repositories that NFR-related topics are being addressed.
-Topic modelling can be used to check if development is on track and focused.
-For outside users of the software, our technique can provide insight into that company's development practices in order to answer questions such as, ``Are they focused on usability?''
-Within the organization \emph{labelled topic extraction} can act as a historical sanity check, used to avoid \emph{confirmation bias}, which is the difference between what people think happened and what actually happened. 
-Some software releases, for instance, are poorly received since they are quite buggy. 
-Our technique would help explain why this was the case, since it can identify NFRs which are dominating developer attention.
-% This is a very long example it'd be nice if it was tighter
-% Perhaps development has been sidetracked by cascading issues that appeared during implementation.
-% For instance, a developer adding an optimization to a RDBMS might have to change multiple modules in order to provide that optimization code with enough information to operate. 
-% This issue might trigger a series of cascading changes that might be difficult to discover when trying to explain why the project's release date has been missed. 
-% Labelled Topic extraction could be used to detect this distinct focus of development.
 
 
 %% RESEARCH DIDNT DO THIS AND WE ARE TOTALLY AWESOME AND WE DID
@@ -239,16 +253,82 @@ that it is difficult to discuss results independent of the project context.
 Our technique automatically assigns labels across projects.
 \end{enumerate}
 
-This paper first introduces labelled topic extraction, and then uses that technique to analyze development activity in two large-scale examples. 
-We begin by describing how we generated our data (Sections  \ref{sec:wordlist} and \ref{sec:genwordlist}). 
+This paper first introduces labelled topic extraction, and then uses that technique to analyze development activity in two large-scale examples.
+Next we cover much of the previous work that we leverage (Section \ref{sec:related}).
+Then we follow by describing how we generated our data (Sections  \ref{sec:wordlist} and \ref{sec:genwordlist}). 
 We show that labels with their topics can be learned and used to classify other data-sets, either without training (Section \ref{sec:unsuplabelling}), or with training (Section \ref{sec:suplabelling}). 
 We then present visualizations of named topics and their trends over time to aid communication and analysis. 
 We use an exploratory case study of two open source database systems to show how named topics can be compared between projects  (Section \ref{sec:analysis}). 
-The paper concludes with a discussion of limitations (Section \ref{sec:limit}) and related work (Section \ref{sec:related}).
+The paper concludes with a discussion of limitations (Section \ref{sec:limit}) 
 
 %\todo[inline]{Topics are poorly defined by this point and since we're building on research which didn't DO this, we should mention that research. Previous work probably should go here.}
 
 %\todo[inline]{We still haven't shown that topics are useful -- a reviewer comment}
+
+
+\section{Previous Work}
+\label{sec:related}
+
+The idea of extracting higher-level `concerns', also known as `concepts', `aspects' or `requirements', has been approached from documentation-based and repository-based perspectives.
+
+Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. 
+Their approach was similar to ours, as they mined keywords from their own NFR catalogues~\cite{chung99}.
+%One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. 
+They managed a recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. 
+Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
+Our worked differed because we had a more comprehensive set of terms based on the taxonomy we chose.
+We also wanted a common taxonomy that allows us to make cross-project comparison; this was not one of their objectives.
+The objective of Cleland-Huang's study was to identify new NFRs for system development, yet our objective was to recover those latent NFRs from commit-log messages of the project. 
+Another difference was that our data was far less structured than the requirements documents used in their study.
+%There are several reasons we did not follow this route. 
+%One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. 
+%Secondly, we wanted to compare across projects. 
+%Their technique was not compared across different projects and the applicability of the training set to different corpora is unclear. 
+%A common taxonomy allows us to make cross-project comparison. 
+%Although subject to the assumption that all projects conceive of these terms in the same way.
+%Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) our study assumes these NFRs are latent in the commit-log messages of the project. 
+
+In the same vein, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. 
+They also leveraged WordNet, but only for word roots as they felt the synonyms would be non-specific and cause errors. 
+Mockus et al. had access to system developers, with whom they could validate their labels. 
+Since we try to bridge different organizations, these kind of interviews are infeasible (particularly in the distributed world of open-source software).
+
+The other approach is to extract concerns from software repositories.
+Marcus et al.~\cite{marcus04wcre} describe their use of Latent Semantic Indexing to identify commonly occurring concerns for software maintenance. 
+%Some results were interesting, but their precision was quite low. 
+ConcernLines~\cite{treude09cl} shows tag occurrence using colour intensity. 
+They mined 
+developer created tags 
+%change request tags (such as `milestone 3') and used these 
+in order to analyze the evolution of a single product.
+% make evolutionary analyses of a single product. 
+The presence of a well-maintained set of tags is obviously essential to the success of this technique.
+
+%XXXXXXXXXXXX OPTIONAL
+% Not sure we need this
+Mens et al.~\cite{mens08icsm} conducted an empirical study of Eclipse, a popular Java IDE, to verify the claims of Lehman~\cite{lehman97sms}.
+% They concerned themselves with source code only, and found Law Seven, ``Declining Quality'', to be too difficult to assess: ``[we lacked an] appropriate measurement of the evolving quality of the system as perceived by the users \cite[p. 388]{mens08icsm}''. 
+This paper examines the notions of quality in terms of a consistent ontology, as Mens
+et al. call for in their conclusions.
+
+Mei et al.~\cite{Mei2007} use context information to automatically name topics. 
+They describe probabilistic labelling, using the frequency distribution of words in a topic to create a meaningful phrase. 
+They do not use external domain-specific information as we do.
+In \cite{ernst10refsq}, we describe our earlier project, similar to this, to identify change in quality requirements in GNOME software projects; our approach is solely text-matching, however, and does not leverage machine learning strategies.
+
+%Massey~\cite{massey02icse} and Scacchi~\cite{scacchi02,scacchi05b} looked at the topic of requirements in open-source software. 
+% this reduces the line length and drops a ref even though we still have a scacchi kickin around
+Massey~\cite{massey02icse} and Scacchi~\cite{scacchi05b} looked at the topic of requirements in open-source software. 
+Their work discusses the source of the requirements and how they are used in the development process. German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. 
+%None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
+
+% XXX vanity or space.. 
+%XXXXXXXXXXXX OPTIONAL
+ Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
+
+
+
+
 
 \section{Study design and execution}
 Figure \ref{fig:process} gives an outline of the methodology followed. 
@@ -780,6 +860,7 @@ Our work faced multiple threats to validity and we attempted to address many of 
 Conversely, construct validity was addressed in our validation as we used the files, topics and revisions to annotate the commit messages. 
 We used mailing-lists to verify the purpose behind some events.
 We also chose our taxonomy and the data to study. We did not show these results to the stakeholders.
+We only studied database systems.
 
 \emph{Internal validity} -- includes inter-rater reliability and our lack of rival explanation building. 
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
@@ -787,72 +868,13 @@ We did not attempt to match our results to any particular model or theory.
 
 \emph{External validity} was addressed by our use of multiple case studies, but there are still issues. 
 Our data originated from OSS database projects and thus might not be applicable to commercially developed software. 
-Furthermore, our analysis techniques rely on a project's use of meaningful commit messages. 
-\todo[inline]{If we compare with the same domain we don't get to say it generalizes a lot?}
+Furthermore, our analysis techniques rely on a project's use of meaningful commit messages. The OSS projects investigated were database systems, thus 
+our results might not generalize to other domains.
+% \todo[inline]{If we compare with the same domain we don't get to say it generalizes a lot?}
 
 % in Case Study Research: Design Case Studies
 \emph{Reliability} was addressed by each annotator following the same protocol and using the same annotations. 
 Unfortunately only two annotators were used; their annotations could be biased as we did not analyze for inter-rater reliability.
-
-\section{Related work}
-\label{sec:related}
-
-The idea of extracting higher-level `concerns', also known as `concepts', `aspects' or `requirements', has been approached from documentation-based and repository-based perspectives.
-
-Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. 
-Their approach was similar to ours, as they mined keywords from their own NFR catalogues~\cite{chung99}.
-%One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. 
-They managed a recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. 
-Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
-Our worked differed because we had a more comprehensive set of terms based on the taxonomy we chose.
-We also wanted a common taxonomy that allows us to make cross-project comparison; this was not one of their objectives.
-The objective of Cleland-Huang's study was to identify new NFRs for system development, yet our objective was to recover those latent NFRs from commit-log messages of the project. 
-Another difference was that our data was far less structured than the requirements documents used in their study.
-%There are several reasons we did not follow this route. 
-%One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. 
-%Secondly, we wanted to compare across projects. 
-%Their technique was not compared across different projects and the applicability of the training set to different corpora is unclear. 
-%A common taxonomy allows us to make cross-project comparison. 
-%Although subject to the assumption that all projects conceive of these terms in the same way.
-%Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) our study assumes these NFRs are latent in the commit-log messages of the project. 
-
-In the same vein, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. 
-They also leveraged WordNet, but only for word roots as they felt the synonyms would be non-specific and cause errors. 
-Mockus et al. had access to system developers, with whom they could validate their labels. 
-Since we try to bridge different organizations, these kind of interviews are infeasible (particularly in the distributed world of open-source software).
-
-The other approach is to extract concerns from software repositories.
-Marcus et al.~\cite{marcus04wcre} describe their use of Latent Semantic Indexing to identify commonly occurring concerns for software maintenance. 
-%Some results were interesting, but their precision was quite low. 
-ConcernLines~\cite{treude09cl} shows tag occurrence using colour intensity. 
-They mined 
-developer created tags 
-%change request tags (such as `milestone 3') and used these 
-in order to analyze the evolution of a single product.
-% make evolutionary analyses of a single product. 
-The presence of a well-maintained set of tags is obviously essential to the success of this technique.
-
-%XXXXXXXXXXXX OPTIONAL
-% Not sure we need this
-Mens et al.~\cite{mens08icsm} conducted an empirical study of Eclipse, a popular Java IDE, to verify the claims of Lehman~\cite{lehman97sms}.
-% They concerned themselves with source code only, and found Law Seven, ``Declining Quality'', to be too difficult to assess: ``[we lacked an] appropriate measurement of the evolving quality of the system as perceived by the users \cite[p. 388]{mens08icsm}''. 
-This paper examines the notions of quality in terms of a consistent ontology, as Mens
-et al. call for in their conclusions.
-
-Mei et al.~\cite{Mei2007} use context information to automatically name topics. 
-They describe probabilistic labelling, using the frequency distribution of words in a topic to create a meaningful phrase. 
-They do not use external domain-specific information as we do.
-In \cite{ernst10refsq}, we describe our earlier project, similar to this, to identify change in quality requirements in GNOME software projects; our approach is solely text-matching, however, and does not leverage machine learning strategies.
-
-%Massey~\cite{massey02icse} and Scacchi~\cite{scacchi02,scacchi05b} looked at the topic of requirements in open-source software. 
-% this reduces the line length and drops a ref even though we still have a scacchi kickin around
-Massey~\cite{massey02icse} and Scacchi~\cite{scacchi05b} looked at the topic of requirements in open-source software. 
-Their work discusses the source of the requirements and how they are used in the development process. German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. 
-%None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
-
-% XXX vanity or space.. 
-%XXXXXXXXXXXX OPTIONAL
- Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
 
 
 \section{Conclusions and future work}
