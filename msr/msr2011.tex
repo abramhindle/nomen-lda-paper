@@ -102,16 +102,38 @@ Abram Hindle\\
 % % we can label stuff
 % Our labelled topic extraction technique produces appropriate, context-sensitive labels relevant to these projects, providing fresh insight into their evolving software development activities.
 
-Researchers have used topic modeling and concept location to understand the latent topics of software development artifacts.
-These techniques use unsupervised machine-learning algorithms to recover topics.
-These topics are word-lists and are difficult to distinguish and interpret. 
-Topics are not meaningful until they have been named or interpreted.
-Current topic labelling approaches are manual, and do not use domain-specific knowledge to improve, contextualize, or describe results for the developers.
-We propose a solution: \emph{labelled topic extraction}.
-Topics are extracted using Latent Dirichlet Allocation (LDA) from commit-log comments recovered from source control systems such as CVS and BitKeeper. 
-These topics are given labels relating to a generalizable cross-project taxonomy consisting of non-functional requirements.
-Our approach was evaluated  with experiments and case studies on two large-scale RDBMS projects: MySQl and MaxDB.
-Labelled topic extraction produces appropriate, context-sensitive labels relevant to these projects, which provides fresh insight into their evolving software development activities.
+Researchers have employed a variety of techniques to extract underlying
+topics that relate to software development artifacts.  Typically, these
+techniques use unsupervised machine-learning algorithms to suggest
+candidate word-lists that recur together often.  However, word-lists are
+difficult to 
+interpret in the absence of meaningful summary labels.  Current topic modeling 
+techniques assume manual labelling and do not use domain-specific knowledge
+to improve, contextualize, or describe results for the developers.  
+We propose a solution: \emph{automated labelled topic extraction}.
+  Topics are extracted 
+using  Latent Dirichlet Allocation (LDA) from commit-log comments recovered
+from source control systems such as CVS and BitKeeper.  
+These topics are given labels relating to a generalizable
+cross-project taxonomy, consisting of non-functional
+requirements. Our approach was evaluated with experiments and case studies
+on two large-scale RDBMS projects: MySQL and MaxDB.  The case studies
+show that labelled topic extraction can produce appropriate,
+context-sensitive labels relevant to these projects, which provides fresh
+insight into their evolving software development activities.
+
+
+
+% Researchers have used topic modeling and concept location to understand the latent topics of software development artifacts.
+% These techniques use unsupervised machine-learning algorithms to recover topics.
+% These topics are word-lists and are difficult to distinguish and interpret. 
+% Topics are not meaningful until they have been named or interpreted.
+% Current topic labelling approaches are manual, and do not use domain-specific knowledge to improve, contextualize, or describe results for the developers.
+% We propose a solution: \emph{labelled topic extraction}.
+% Topics are extracted using Latent Dirichlet Allocation (LDA) from commit-log comments recovered from source control systems such as CVS and BitKeeper. 
+% These topics are given labels relating to a generalizable cross-project taxonomy consisting of non-functional requirements.
+% Our approach was evaluated  with experiments and case studies on two large-scale RDBMS projects: MySQl and MaxDB.
+% Labelled topic extraction produces appropriate, context-sensitive labels relevant to these projects, which provides fresh insight into their evolving software development activities.
 
 \end{abstract}
 
