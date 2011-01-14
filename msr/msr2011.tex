@@ -170,48 +170,48 @@ insight into their evolving software development activities.
 
 % \todo[inline]{Move previous work up}
 
-\todo[inline]{neil: possible reword: Topic modeling is a machine learning technique which creates multinomial distributions over words found in a text corpus. Topic models are useful in software engineering because they can identify, from text corpora such as source code, change logs, email, and others, co-occuring words. For example, a topic extracted from a set of changelogs might be ``listener change remove add fire''. A topic model gives developers an overview of where activity is occurring and gives managers or maintainers a sense of project history. A major challenge is to accurately identify the label for a topic (in the previous case, perhaps ``event-handling''). Current approaches are manual: they rely on human expertise to recognize the appropriate label. Furthermore, to date the results of topic modeling are project specific, and not generalizable. }
+Topic modeling is a machine learning technique which creates multinomial distributions over words found in a text corpus. Topic models are useful in software engineering because they can identify, from text corpora such as source code, change logs, email, and others, co-occuring words. For example, a topic extracted from a set of changelogs might be ``listener change remove add fire''. A topic model gives developers an overview of where activity is occurring and gives managers or maintainers a sense of project history. A major challenge is to accurately identify the label for a topic (in the previous case, perhaps ``event-handling''). Current approaches are manual: they rely on human expertise to recognize the appropriate label. Furthermore, to date the results of topic modeling are project specific, and not generalizable. 
 
 
-% An attempt Motivate topics
-%XXX is this the correct terminology for commits/revisions
-%The development of software does not occur in a vacuum, 
-Revisions to
-source code are not independent of past revisions, the specification or
-the task at hand.
-Often the purpose of revisions to source code relate to one or more topics, whether it be a maintenance activity, a quality issue, a requirement or feature or a response to a bug report.
-Many of these purposes and tasks exhibit themselves as latent topics which cross-cut and compose many of development artifacts: version control revisions, bug reports, and mailing-list discussions.
-\todo[inline]{NeiL: I still find this clumsily worded}
+% % An attempt Motivate topics
+% %XXX is this the correct terminology for commits/revisions
+% %The development of software does not occur in a vacuum, 
+% Revisions to
+% source code are not independent of past revisions, the specification or
+% the task at hand.
+% Often the purpose of revisions to source code relate to one or more topics, whether it be a maintenance activity, a quality issue, a requirement or feature or a response to a bug report.
+% Many of these purposes and tasks exhibit themselves as latent topics which cross-cut and compose many of development artifacts: version control revisions, bug reports, and mailing-list discussions.
+% \todo[inline]{NeiL: I still find this clumsily worded}
 
-Topics in software engineering practice refer to specific shared threads of discussions between project stakeholders. 
-These topics can include particular requirements, maintenance requests, bug fixes or other software engineering tasks. %NEIL: define topic specifically as akin to email 'thread'. It sounded too vague. Also changed from 'developers' to 'stakeholders' because developers sounds too coding oriented. Our work could apply to testers, users, etc.
-While addressing a topic of development, stakeholders often produce or modify multiple development artifacts.
-%
-These artifacts can include source code, bug reports, revisions to source code, and test cases. 
-%
-Topics are typically latent, i.e., not explicitly named, and can be in several potential states: they may not be immediately resolved, they may re-occur, yet others are only dealt with briefly  (e.g., a bug report that is closed)
-Within this paper we define \emph{topics} as latent word distributions that describe and compose the documents (version control commits) being analyzed. 
-We define \emph{labelled topics} as \emph{topics} that have been interpreted and labelled. 
-The distinction is important because word distributions can consistent of many words, thus if one has many topics, reading and interpreting these words is prohibitive.
-For example, if you read only 10 words per topic from 500 topics you have to read and interpret 5000 words, this is 5 or more pages of text!
-Thus \emph{labelled topics} save interpretation time.
+% Topics in software engineering practice refer to specific shared threads of discussions between project stakeholders. 
+% These topics can include particular requirements, maintenance requests, bug fixes or other software engineering tasks. %NEIL: define topic specifically as akin to email 'thread'. It sounded too vague. Also changed from 'developers' to 'stakeholders' because developers sounds too coding oriented. Our work could apply to testers, users, etc.
+% While addressing a topic of development, stakeholders often produce or modify multiple development artifacts.
+% %
+% These artifacts can include source code, bug reports, revisions to source code, and test cases. 
+% %
+% Topics are typically latent, i.e., not explicitly named, and can be in several potential states: they may not be immediately resolved, they may re-occur, yet others are only dealt with briefly  (e.g., a bug report that is closed)
+% Within this paper we define \emph{topics} as latent word distributions that describe and compose the documents (version control commits) being analyzed. 
+% We define \emph{labelled topics} as \emph{topics} that have been interpreted and labelled. 
+% The distinction is important because word distributions can consistent of many words, thus if one has many topics, reading and interpreting these words is prohibitive.
+% For example, if you read only 10 words per topic from 500 topics you have to read and interpret 5000 words, this is 5 or more pages of text!
+% Thus \emph{labelled topics} save interpretation time.
 
 
-There are many practical applications of \emph{labelled topic
-  extraction} 
-ranging from summarization, project dashboards, and software process recovery.
-These methods are useful for providing abstractions of development activities and artifacts.
-Particularly in large projects, summarization of developer activities is essential to maintenance. 
-Rather than looking for specific concepts in a project~\cite{marcus04wcre}, we are interested in understanding a software project relative to common properties of all software.
-We can improve project dashboards, used by managers, by showing both the current topics of development as well those that relate to domain-independent taxonomies, such as NFRs.
-Some quality assurance questions can be addressed by seeking evidence within repositories that NFR-related topics are being addressed.
-Topic modelling can be used to check if development is on track and focused.
-For outside users of the software, our technique can provide insight into that company's development practices in order to answer questions such as, ``Are they focused on usability?''
-Within the organization \emph{labelled topic extraction} can act as a historical sanity check, used to avoid \emph{confirmation bias}, which is the difference between what people think happened and what actually happened. 
-Some software releases, for instance, are poorly received since they are quite buggy. 
-Our technique would help explain why this was the case, since it can identify NFRs which are dominating developer attention.
-Thus developers can use these techniques to get an overview of the current and past development topics.
-For awareness, managers can use these techniques to gain an overview of topics of development.
+% There are many practical applications of \emph{labelled topic
+%   extraction} 
+% ranging from summarization, project dashboards, and software process recovery.
+% These methods are useful for providing abstractions of development activities and artifacts.
+% Particularly in large projects, summarization of developer activities is essential to maintenance. 
+% Rather than looking for specific concepts in a project~\cite{marcus04wcre}, we are interested in understanding a software project relative to common properties of all software.
+% We can improve project dashboards, used by managers, by showing both the current topics of development as well those that relate to domain-independent taxonomies, such as NFRs.
+% Some quality assurance questions can be addressed by seeking evidence within repositories that NFR-related topics are being addressed.
+% Topic modelling can be used to check if development is on track and focused.
+% For outside users of the software, our technique can provide insight into that company's development practices in order to answer questions such as, ``Are they focused on usability?''
+% Within the organization \emph{labelled topic extraction} can act as a historical sanity check, used to avoid \emph{confirmation bias}, which is the difference between what people think happened and what actually happened. 
+% Some software releases, for instance, are poorly received since they are quite buggy. 
+% Our technique would help explain why this was the case, since it can identify NFRs which are dominating developer attention.
+% Thus developers can use these techniques to get an overview of the current and past development topics.
+% For awareness, managers can use these techniques to gain an overview of topics of development.
 
 
 % This is a very long example it'd be nice if it was tighter
@@ -223,27 +223,27 @@ For awareness, managers can use these techniques to gain an overview of topics o
 % semi-automatically sounds too uncertain. I think the introduction can be more muscular and bold. Don't give the reviewer any room to start doubting.
 
 % why are topics useful
-Developers often interact with abstractions of the artifacts from which topics are derived, rather than the artifacts themselves.
-Such abstractions include project dashboards~\cite{kersten2005mylar} and tags~\cite{treude2010}%, and complexity metrics \cite{mccabe1976complexity}. 
-Without the structured information which dashboards typically rely on, topics become a valuable and automatically extractable abstraction of software artifacts.
-Topics abstract software artifacts by their subject matter, rather than their concrete representation. 
-Much like aspect-oriented programming, topic labeling can identify cross-cutting concerns in a software project (as in~\cite{Baldi2008}).
-The topics of development are relevant because they identify the distinct issues facing stakeholders at a particular time.
+% Developers often interact with abstractions of the artifacts from which topics are derived, rather than the artifacts themselves.
+% Such abstractions include project dashboards~\cite{kersten2005mylar} and tags~\cite{treude2010}%, and complexity metrics \cite{mccabe1976complexity}. 
+% Without the structured information which dashboards typically rely on, topics become a valuable and automatically extractable abstraction of software artifacts.
+% Topics abstract software artifacts by their subject matter, rather than their concrete representation. 
+% Much like aspect-oriented programming, topic labeling can identify cross-cutting concerns in a software project (as in~\cite{Baldi2008}).
+% The topics of development are relevant because they identify the distinct issues facing stakeholders at a particular time.
 
-The goal of concept location and topic analysis research is to recover these topics and the related software artifacts.
-% get neil's data mining point in there
-To date, the results of topic analysis and concept location are project specific, and not generalizable.
-% get the interpretation aspect
-Much of the current research stops short of automatically interpreting the purpose of the topic, e.g.~\cite{Baldi2008,Kuhn2007,marcus04wcre}. 
-That is, extracted topics are usually manually named and labelled by those who read the topic words.
+% The goal of concept location and topic analysis research is to recover these topics and the related software artifacts.
+% % get neil's data mining point in there
+% To date, the results of topic analysis and concept location are project specific, and not generalizable.
+% % get the interpretation aspect
+% Much of the current research stops short of automatically interpreting the purpose of the topic, e.g.~\cite{Baldi2008,Kuhn2007,marcus04wcre}. 
+% That is, extracted topics are usually manually named and labelled by those who read the topic words.
 
-% topics are numerous?
-Deriving and labelling topics is a challenging machine learning problem. 
-Topic analysis produces % raw topics that are represented as
- unlabelled context-free word-lists or word distributions.
-Topics have to be identified by interpreting the prevalent words in a word distribution and by inspecting related documents. 
-This manual approach is impractical when handling hundreds of different topics. To scale to large projects (thousands of lines of code and multiple releases), we need automatic assistance to determine the topic label.
-We propose a method of interpreting and labelling topics, and their related artifacts, that is generalizable and relevant to multiple projects.
+% % topics are numerous?
+% Deriving and labelling topics is a challenging machine learning problem. 
+% Topic analysis produces % raw topics that are represented as
+%  unlabelled context-free word-lists or word distributions.
+% Topics have to be identified by interpreting the prevalent words in a word distribution and by inspecting related documents. 
+% This manual approach is impractical when handling hundreds of different topics. To scale to large projects (thousands of lines of code and multiple releases), we need automatic assistance to determine the topic label.
+% We propose a method of interpreting and labelling topics, and their related artifacts, that is generalizable and relevant to multiple projects.
 
 In our previous work we dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. 
 We observed that topic trends were often non-functional requirements (NFRs). 
