@@ -52,8 +52,8 @@ Abram Hindle\\
 \alignauthor John Mylopoulos \\
    \affaddr{Dept. Information Eng. and Computer Science}\\
    \affaddr{University of Trento}\\
-   \affaddr{Trento, Italy}\\
-   \email{jm@disi.unitn.it}
+   \affaddr{Trento, ITALY}\\
+   \email{\normalsize jm@disi.unitn.it}
 }
 
 %\title{What's in a name? Automated topic naming of software maintenance activities}
@@ -105,7 +105,7 @@ Abram Hindle\\
 Researchers have employed a variety of techniques to extract underlying
 topics that relate to software development artifacts.  Typically, these
 techniques use unsupervised machine-learning algorithms to suggest
-candidate word-lists that recur together often.  However, word-lists are
+candidate word-lists.  However, word-lists are
 difficult to 
 interpret in the absence of meaningful summary labels.  Current topic modeling 
 techniques assume manual labelling and do not use domain-specific knowledge
@@ -170,16 +170,18 @@ insight into their evolving software development activities.
 
 % \todo[inline]{Move previous work up}
 
+\todo[inline]{neil: possible reword: Topic modeling is a machine learning technique which creates multinomial distributions over words found in a text corpus. Topic models are useful in software engineering because they can identify, from text corpora such as source code, change logs, email, and others, co-occuring words. For example, a topic extracted from a set of changelogs might be ``listener change remove add fire''. A topic model gives developers an overview of where activity is occurring and gives managers or maintainers a sense of project history. A major challenge is to accurately identify the label for a topic (in the previous case, perhaps ``event-handling''). Current approaches are manual: they rely on human expertise to recognize the appropriate label. Furthermore, to date the results of topic modeling are project specific, and not generalizable. }
 
 
 % An attempt Motivate topics
 %XXX is this the correct terminology for commits/revisions
-The development of software does not occur in a vacuum, revisions to
-source code are often not independent of the past, the specification or
+%The development of software does not occur in a vacuum, 
+Revisions to
+source code are not independent of past revisions, the specification or
 the task at hand.
 Often the purpose of revisions to source code relate to one or more topics, whether it be a maintenance activity, a quality issue, a requirement or feature or a response to a bug report.
 Many of these purposes and tasks exhibit themselves as latent topics which cross-cut and compose many of development artifacts: version control revisions, bug reports, and mailing-list discussions.
-
+\todo[inline]{NeiL: I still find this clumsily worded}
 
 Topics in software engineering practice refer to specific shared threads of discussions between project stakeholders. 
 These topics can include particular requirements, maintenance requests, bug fixes or other software engineering tasks. %NEIL: define topic specifically as akin to email 'thread'. It sounded too vague. Also changed from 'developers' to 'stakeholders' because developers sounds too coding oriented. Our work could apply to testers, users, etc.
@@ -218,15 +220,11 @@ For awareness, managers can use these techniques to gain an overview of topics o
 % This issue might trigger a series of cascading changes that might be difficult to discover when trying to explain why the project's release date has been missed. 
 % Labelled Topic extraction could be used to detect this distinct focus of development.
 
-
-
-
-
 % semi-automatically sounds too uncertain. I think the introduction can be more muscular and bold. Don't give the reviewer any room to start doubting.
 
 % why are topics useful
 Developers often interact with abstractions of the artifacts from which topics are derived, rather than the artifacts themselves.
-Such abstractions include project dashboards~\cite{kersten2005mylar}, tags~\cite{treude2010}, and complexity metrics \cite{mccabe1976complexity}. 
+Such abstractions include project dashboards~\cite{kersten2005mylar} and tags~\cite{treude2010}%, and complexity metrics \cite{mccabe1976complexity}. 
 Without the structured information which dashboards typically rely on, topics become a valuable and automatically extractable abstraction of software artifacts.
 Topics abstract software artifacts by their subject matter, rather than their concrete representation. 
 Much like aspect-oriented programming, topic labeling can identify cross-cutting concerns in a software project (as in~\cite{Baldi2008}).
@@ -344,7 +342,7 @@ et al. call for in their conclusions.
 Mei et al.~\cite{Mei2007} use context information to automatically name topics. 
 They describe probabilistic labelling, using the frequency distribution of words in a topic to create a meaningful phrase. 
 They do not use external domain-specific information as we do.
-In \cite{ernst10refsq}, we describe our earlier project, similar to this, to identify change in quality requirements in GNOME software projects; our approach is solely text-matching, however, and does not leverage machine learning strategies.
+%In \cite{ernst10refsq}, we describe our earlier project, similar to this, to identify change in quality requirements in GNOME software projects; our approach is solely text-matching, however, and does not leverage machine learning strategies.
 
 %Massey~\cite{massey02icse} and Scacchi~\cite{scacchi02,scacchi05b} looked at the topic of requirements in open-source software. 
 % this reduces the line length and drops a ref even though we still have a scacchi kickin around
@@ -414,26 +412,26 @@ We set the number of topics to generate to $20$, because past experimentation sh
 \subsection{Generating word lists}
 \label{sec:genwordlist}
 
-\todo[inline]{Make it clear where the data comes from! Neil says: Also, I
-  didn't get the impression they understood that we weren't generating
-  labels from the data, but rather from independent taxonomies. Of
-  course if you use labels from the data it isn't comparable. But the
-  point of ISO 9126 etc. was to avoid exactly this problem.}
+% %\todo[inline]{Make it clear where the data comes from! Neil says: Also, I
+%   didn't get the impression they understood that we weren't generating
+%   labels from the data, but rather from independent taxonomies. Of
+%   course if you use labels from the data it isn't comparable. But the
+%   point of ISO 9126 etc. was to avoid exactly this problem.}
 
-\todo[inline]{Need to hammer it in that the word bags are not project specific and
- are inherited so it isn't a supervised method}
+% \todo[inline]{Need to hammer it in that the word bags are not project specific and
+%  are inherited so it isn't a supervised method}
 
 
 Topics are word distributions, lists of words ranked by frequency, that are burdensome to interpret and hard to distinguish and understand. 
-While the topic models themselves are generated automatically, how to interpret these topics is less clear.
+While the topics themselves are generated automatically, how to interpret these topics is less clear.
 For example,
 % in our previous work~\cite{Hindle09ICSM}, as well as -- CITED a little too often (vanity cites!)
 in Baldi et al.~\cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a label accordingly. 
-Given the word list \emph{``listener change remove add fire''}, Baldi et al. would assign the label \emph{event-handling}. 
+Given the topic \emph{``listener change remove add fire''}, Baldi et al. would assign the label \emph{event-handling}. 
 The labels are reasonable enough, but still require an expert in the field to determine them. 
 Furthermore, these labels are project-specific, because they are generated from the data of that project. E.g., we might have a label called `Oracle' in the MySQL case, since Oracle owns MySQL. 
 
-In this paper, we had two objectives. One, we sought to automate the process of naming the topics. Two, we sought to label topics with independent terms, in order to facilitate comparison between projects.
+This paper does this differently. First of all, we automated the process of naming the topics. Secondly, we labelled topics with project-independent terms, in order to permit cross-project comparison.
 
 Accordingly, we associated each topic with a label from a list
 of keywords (`wordlists', in our parlance) and related terms. These wordlists were determined a priori and were not extracted from the projects themselves.
@@ -524,7 +522,7 @@ We compared against this data-set, but we also used the data-set for our supervi
 Using our three word lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labeled our topics where there was a match between a word in the list and the same word in the topic.
 A \emph{named topic} is a topic with a matching label. 
 There are roughly 20 times the number of topics as there are periods per project. 
-This is because we told LDA to extract 20 topics per period. 
+This is because LDA extracted 20 topics per period. 
 All experiments were run on MaxDB 7.500 and MySQL 3.23 data.
 Table \ref{tbl:wordlist} shows how many topics were labelled for MaxDB
 and MySQL.
@@ -544,7 +542,7 @@ and MySQL.
 	\centering
 \begin{tabular}{l|c|c|c|c}
 \toprule
-Project & Measure & \textsf{exp1} & \textsf{exp2} & \textsf{exp3} \\
+\textbf{Project} & \textbf{Measure} & \textsf{exp1} & \textsf{exp2} & \textsf{exp3} \\
 \midrule
 % NOTE THESE WERE THE OLD VALUES
 % WHY DID THEY CHANGE???
@@ -566,12 +564,12 @@ MaxDB 7.500 & Named Topics   & 281 & 125 & 328 \\ % these numbers are
                                 % slightly different solely because
                                 % we're counting empty topics
                                 % maxdb has 80 empty topics
-MaxDB 7.500 & Unnamed Topics & 219  & 375 &  172  \\
-MaxDB 7.500 & Total  Topics  & 500 & 500 & 500 \\
+ & Unnamed Topics & 219  & 375 &  172  \\
+ & Total  Topics  & 500 & 500 & 500 \\
 \midrule
 MySQL 3.23  & Named Topics   & 524 & 273 & 773 \\
-MySQL 3.23  & Unnamed Topics & 476 & 727 & 227 \\
-MySQL 3.23  & Total  Topics  & 1000 & 1000 & 1000 \\
+  & Unnamed Topics & 476 & 727 & 227 \\
+  & Total  Topics  & 1000 & 1000 & 1000 \\
 
 
 \bottomrule
@@ -613,7 +611,7 @@ The area under the ROC of a classifier is equivalent to the probability that the
 % Rebuttal: ROC is not new and it is what the machine learning community, search based software engineering and now the MSR community are using +  it has natural meaningful quality mappings.
 \begin{figure*}
   \centering
- \includegraphics[width=\textwidth]{figures/unsupervised-bar}
+ \includegraphics[width=0.6\textwidth]{figures/unsupervised-bar}
  \caption{Performance, ROC values (range: 0-1), of unsupervised topic labelling for
    each NFR and per word-list. This graph shows how well the
    unsupervised topic labelling matched our manual annotations.}
