@@ -213,7 +213,6 @@ Topic modeling is a machine learning technique which creates multinomial distrib
 % Thus developers can use these techniques to get an overview of the current and past development topics.
 % For awareness, managers can use these techniques to gain an overview of topics of development.
 
-
 % This is a very long example it'd be nice if it was tighter
 % Perhaps development has been sidetracked by cascading issues that appeared during implementation.
 % For instance, a developer adding an optimization to a RDBMS might have to change multiple modules in order to provide that optimization code with enough information to operate. 
@@ -304,7 +303,7 @@ Their approach was similar to ours, as they mined keywords from their own NFR ca
 %One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. 
 They managed a recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. 
 Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
-Our worked differed because we had a more comprehensive set of terms based on the taxonomy we chose.
+Our work differed because we had a more comprehensive set of terms based on the taxonomy we chose.
 We also wanted a common taxonomy that allows us to make cross-project comparison; this was not one of their objectives.
 The objective of Cleland-Huang's study was to identify new NFRs for system development, yet our objective was to recover those latent NFRs from commit-log messages of the project. 
 Another difference was that our data was far less structured than the requirements documents used in their study.
@@ -376,7 +375,7 @@ To evaluate our approach, we sought candidate systems that were mature projects 
 We selected systems from the same application domain, so the functional requirements would be broadly similar. 
 We selected MySQL 3.23 and MaxDB 7.500 as they were open-source, partially-commercial database systems. 
 MaxDB started in the late 1970s as a research project, and was later acquired by SAP. 
-As of version 7.500, released April 2007, the project has 940 thousand lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}.}. 
+As of version 7.500, released April 2007, the project has 940 thousand lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}, dwheeler.com/sloccount.}. 
 The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. 
 MySQL contains 320 thousand lines of C and C++ source code.  
 Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
@@ -507,6 +506,7 @@ operability understandability learnability useable usable serviceable usefulness
 We looked at each period's topics, and assessed what the data --- consisting of the frequency-weighted word lists and messages --- suggested was the topic for that period. 
 We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to the topic being annotated.
 For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. 
+\todo[inline]{this confused people. Is it truly unsupervised? Yes, but it needs to be clearer.}
 We compared against this data-set, but we also used the data-set for our supervised machine learning based topic classification. 
 % A topic may have more than one matching keyword. % ok what?
 %\todo[inline]{inter-rater reliability }
@@ -521,9 +521,8 @@ We compared against this data-set, but we also used the data-set for our supervi
 % word list similarity
 Using our three word lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labeled our topics where there was a match between a word in the list and the same word in the topic.
 A \emph{named topic} is a topic with a matching label. 
-There are roughly 20 times the number of topics as there are periods per project. 
-This is because LDA extracted 20 topics per period. 
-All experiments were run on MaxDB 7.500 and MySQL 3.23 data.
+All experiments were run on MaxDB 7.500 and MySQL 3.23 data. LDA extracted 20 topics per period for each.
+ 
 Table \ref{tbl:wordlist} shows how many topics were labelled for MaxDB
 and MySQL.
 
@@ -600,6 +599,7 @@ Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{effic
 we compared the results of the unsupervised word matching approach. 
 For each quality we assessed whether unsupervised labels matched the manual annotations.
 Figure \ref{fig:maxdb-unsup-results} shows our results for MaxDB and MySQL. 
+\todo[inline]{NEIL: this section should be updated to explain F-measure}
 Our performance is measured using the Receiver Operating Characteristic area-under-curve value~\cite{Fawcett2006861}, abbreviated \emph{ROC}. 
 ROC values provide a score, similar to school letter-grades (A is 0.9, C is 0.6), reflecting how well a particular learner performed for the given data. 
 ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) versus the false positive rate (1 - specificity). 
@@ -609,19 +609,29 @@ The area under the ROC of a classifier is equivalent to the probability that the
 
 %\todo[inline]{since ROC is new-sounding, I wonder if a more lengthy explanation would be merited. An obvious question is why not precision/recall? -- ROC is hot right now and it combines both}
 % Rebuttal: ROC is not new and it is what the machine learning community, search based software engineering and now the MSR community are using +  it has natural meaningful quality mappings.
-\begin{figure*}
+\begin{figure}
   \centering
- \includegraphics[width=0.6\textwidth]{figures/unsupervised-bar}
+ \includegraphics[width=0.45\textwidth]{figures/unsupervised-bar}
  \caption{Performance, ROC values (range: 0-1), of unsupervised topic labelling for
-   each NFR and per word-list. This graph shows how well the
+   each NFR and per word-list. Dashed line indicates the performance of a random classifier. This graph shows how well the
    unsupervised topic labelling matched our manual annotations.}
 
 %\todo[inline]{this is too tiny in print}
   \label{fig:maxdb-unsup-results}
-\end{figure*}
+\end{figure}
+
+\begin{figure}
+  \centering
+ \includegraphics[width=0.45\textwidth]{figures/unsupervised-bar-f1}
+ \caption{Performance, F1 values (range: 0-1), of unsupervised topic labelling for
+   each NFR and per word-list.}
+  \label{fig:maxdb-unsup-results-f1}
+\end{figure}
 
 
-% EXP2
+\todo[inline]{where is exp1 report?}
+
+% EXP2 source is naming-paper/src/validate/exp2.maxdb.report.txt (change as needed). Second column is F1.
 For \textsf{exp2}, the average F-measure (macro-F1) for MaxDB was $0.24$ with a range $0.091$ to
 $0.37$, and $0.16$ for MySQL with a range of $0$ to $0.41$.
 MaxDB had an average precision and recall of $0.25$ and $0.22$
@@ -638,66 +648,6 @@ Based on these results we find that \emph{reliability} and \emph{usability} work
 MySQL had reasonable results within \textsf{exp2} for \emph{reliability} and \emph{efficiency}. 
 MySQL's results for \emph{efficiency} did not improve in \textsf{exp3} but other qualities such as \emph{functionality} did improve. 
 If a \emph{C} grade performance has a ROC value of $0.6$ then most of these tests scored a grade of \emph{C} or less, but our classifier nonetheless performed substantially better than random.
-
-
-
-% \begin{comment}
-% maxdb
-
-% portability,0.773778920308,0.228070175439,76,12,0.181684100119,0.52,0.14606741573,0.553033707865,288,0.96,13
-% efficiency,0.832904884319,0.21686746988,36,29,0.124642098177,0.236842105263,0.2,0.557848837209,315,0.915697674419,9
-% reliability,0.714652956298,0.379888268156,7,104,0.340426350577,0.246376811594,0.829268292683,0.765208858985,244,0.701149425287,34
-% functionality,0.902313624679,0.0952380952381,32,6,0.0834236909204,0.25,0.0588235294118,0.520961060481,349,0.983098591549,2
-% maintainability,0.796915167095,0.0919540229885,76,3,0.122505166175,0.571428571429,0.05,0.520145631068,306,0.990291262136,4
-% usability,0.830334190231,0.175,11,55,0.138109307712,0.112903225806,0.388888888889,0.620320455226,316,0.851752021563,7
-
-% total,0.808483290488,0.235897435897,238,209,0.126930463023,0.248201438849,0.224755700326,0.560823829443,1818,0.896891958559,69mysql
-
-% portability,0.616040955631,0.137931034483,225,0,0.211497874858,1.0,0.0740740740741,0.537037037037,343,1.0,18
-% efficiency,0.924914675768,0.3125,33,11,0.297817974114,0.47619047619,0.232558139535,0.606150156324,532,0.979742173112,10
-% reliability,0.726962457338,0.411764705882,61,99,0.242477699079,0.361290322581,0.478632478632,0.633772529295,370,0.788912579957,56
-% functionality,0.457337883959,0.0245398773006,315,3,0.00597425429824,0.571428571429,0.012539184953,0.500651614948,264,0.988764044944,4
-% maintainability,0.686006825939,0,184,0,0,0,0.0,0.5,402,1.0,0
-% usability,0.919795221843,0.175438596491,27,20,0.13508225345,0.2,0.15625,0.560074458484,534,0.963898916968,5
-
-% total,0.721843003413,0.159793814433,845,133,0.0857635592199,0.411504424779,0.0991471215352,0.523778370698,2445,0.9484ahindle@wish:~/projects/lda-paper/src/validate$ cat NOTES 
-% columns of maxdb.report.text
-
-%     out['accuracy'] = acc
-%     out['f1'] = f1
-%     out['fn'] = fn
-%     out['fp'] = fp
-%     out['mcc'] = mcc
-%     out['precision'] = pre
-%     out['recall'] = rec
-%     out['roca'] = roca
-%     out['tnr'] = tnr
-%     out['tn'] = tn
-%     out['tp'] = tp
-
-
-% cat exp3.*.report.txt 
-% maxdb
-
-% portability,0.706940874036,0.472222222222,38,76,0.286382363909,0.40157480315,0.573033707865,0.659850187266,224,0.746666666667,51
-% efficiency,0.372750642674,0.222929936306,10,234,0.067549899325,0.130111524164,0.777777777778,0.548772609819,110,0.31976744186,35
-% reliability,0.434447300771,0.256756756757,3,217,0.195966959965,0.149019607843,0.926829268293,0.651633024951,131,0.376436781609,38
-% functionality,0.53470437018,0.236286919831,6,175,0.186902353269,0.137931034483,0.823529411765,0.665285832643,180,0.507042253521,28
-% maintainability,0.627249357326,0.337899543379,43,102,0.111672018872,0.26618705036,0.4625,0.566201456311,207,0.669902912621,37
-% usability,0.27763496144,0.107936507937,1,280,0.0937953415493,0.0572390572391,0.944444444444,0.594863731656,91,0.245283018868,17
-
-% total,0.492287917738,0.257983719474,101,1084,0.0926022435775,0.159689922481,0.671009771987,0.568114654124,943,0.46521953626,206
-% mysql
-
-% portability,0.616040955631,0.412532637076,164,61,0.170139234681,0.564285714286,0.325102880658,0.57363015753,282,0.822157434402,79
-% efficiency,0.532423208191,0.184523809524,12,262,0.124342460899,0.105802047782,0.720930232558,0.619212814253,281,0.517495395948,31
-% reliability,0.588737201365,0.404938271605,35,206,0.209194239572,0.284722222222,0.700854700855,0.630811145737,263,0.560767590618,82
-% functionality,0.622866894198,0.651968503937,112,109,0.240455709256,0.655063291139,0.648902821317,0.620331560471,158,0.591760299625,207
-% maintainability,0.621160409556,0.218309859155,153,69,-0.00390279540262,0.31,0.16847826087,0.498418234912,333,0.828358208955,31
-% usability,0.358361774744,0.104761904762,10,366,0.0128981856383,0.0567010309278,0.6875,0.513425090253,188,0.339350180505,22
-
-% total,0.556598407281,0.367032074706,486,1073,0.058598680978,0.296393442623,0.481876332623,0.532831106575,1505,0.583785880528,452
-% \end{comment}
 
 
 \subsection{Supervised labelling}
@@ -1137,7 +1087,7 @@ Our data and scripts are available at:
 % * mysql had optimizer module which did not mean optimization
 % * I tried to assign reliability/bug for reliability bugs
 %   and Functionality/Correctness for fixes
-% * Some security changes came later
+% * some security changes came later
 % * Mysql 3.23 transitioned from a project being developed to
 %   a project being maintained, more frequent back-port bug-fixes
 % \end{comment}
