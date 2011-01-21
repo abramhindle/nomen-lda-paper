@@ -623,12 +623,15 @@ we compared the results of the unsupervised word matching approach.
 For each quality we assessed whether unsupervised labels matched the manual annotations.
 Figure \ref{fig:maxdb-unsup-results} shows our results for MaxDB and MySQL. 
 \todo[inline]{NEIL: this section should be updated to explain F-measure}
-Our performance is measured using the Receiver Operating Characteristic area-under-curve value~\cite{Fawcett2006861}, abbreviated \emph{ROC}. 
+Our performance is measured using the Receiver Operating
+Characteristic area-under-curve value~\cite{Fawcett2006861},
+abbreviated \emph{ROC}, and the F-measure. 
 ROC values provide a score, similar to school letter-grades (A is 0.9, C is 0.6), reflecting how well a particular learner performed for the given data. 
 ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) versus the false positive rate (1 - specificity). 
 A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision. 
 A ROC result of 0.5 would be equivalent to a random learner (that is, issuing as many false positives as true positives). 
 The area under the ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen negative instance.
+F-measure is harmonic mean of precision and recall.
 
 %\todo[inline]{since ROC is new-sounding, I wonder if a more lengthy explanation would be merited. An obvious question is why not precision/recall? -- ROC is hot right now and it combines both}
 % Rebuttal: ROC is not new and it is what the machine learning community, search based software engineering and now the MSR community are using +  it has natural meaningful quality mappings.
