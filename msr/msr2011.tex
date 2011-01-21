@@ -177,12 +177,25 @@ insight into their evolving software development activities.
 % An attempt Motivate topics
 %XXX is this the correct terminology for commits/revisions
 %The development of software does not occur in a vacuum, 
-Revisions to
-source code are not independent of past revisions, the specification or
-the task at hand.
-Often the purpose of revisions to source code relate to one or more topics, whether it be a maintenance activity, a quality issue, a requirement or feature or a response to a bug report.
-Many of these purposes and tasks exhibit themselves as latent topics which cross-cut and compose many of development artifacts: version control revisions, bug reports, and mailing-list discussions.
-\todo[inline]{NeiL: I still find this clumsily worded}
+% Revisions to
+% source code are not independent of past revisions, the specification or
+% the task at hand.
+% Often the purpose of revisions to source code relate to one or more topics, whether it be a maintenance activity, a quality issue, a requirement or feature or a response to a bug report.
+% Many of these purposes and tasks exhibit themselves as latent topics which cross-cut and compose many of development artifacts: version control revisions, bug reports, and mailing-list discussions.
+%
+Changes to software systems, revisions, do not occur without
+reason. 
+The reason or purpose is often related to requirements 
+Often one revision might have multiple purposes ranging from
+maintenance issues, quality issues, requirements, features or a
+response to a bug report.
+These purposes often are exhibited as latent topics that relate to
+many development artifacts such as:
+ version control revisions, bug reports, and mailing-list discussions.
+%\todo[inline]{NeiL: I still find this clumsily worded}
+
+
+
 
 Topics in software engineering practice refer to specific shared threads of discussions between project stakeholders. 
 These topics can include particular requirements, maintenance requests, bug fixes or other software engineering tasks. %NEIL: define topic specifically as akin to email 'thread'. It sounded too vague. Also changed from 'developers' to 'stakeholders' because developers sounds too coding oriented. Our work could apply to testers, users, etc.
@@ -508,7 +521,7 @@ operability understandability learnability useable usable serviceable usefulness
 We looked at each period's topics, and assessed what the data --- consisting of the frequency-weighted word lists and messages --- suggested was the topic for that period. 
 We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to the topic being annotated.
 For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. 
-\todo[inline]{this confused people. Is it truly unsupervised? Yes, but it needs to be clearer.}
+%\todo[inline]{this confused people. Is it truly unsupervised? Yes, but it needs to be clearer.}
 We compared against this data-set, but we also used the data-set for our supervised machine learning based topic classification. 
 % A topic may have more than one matching keyword. % ok what?
 %\todo[inline]{inter-rater reliability }
@@ -523,8 +536,16 @@ We compared against this data-set, but we also used the data-set for our supervi
 % word list similarity
 Using our three word lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labeled our topics where there was a match between a word in the list and the same word in the topic.
 A \emph{named topic} is a topic with a matching label. 
-All experiments were run on MaxDB 7.500 and MySQL 3.23 data. LDA extracted 20 topics per period for each.
- 
+All experiments were run on MaxDB 7.500 and MySQL 3.23 data. LDA
+extracted 20 topics per period for each.
+% Is this good enough
+This labelling is unsupervised because the corpus is not derived from 
+the project being labelled and we did not label the project's topics
+ourselves for a training set. The theory behind this technique is that
+because most software often addresses similar issues, we can use the
+domain knowledge of software to label relevant topics.
+\todo[inline]{Neil does this explain the unsupervised aspect well enough?} 
+
 Table \ref{tbl:wordlist} shows how many topics were labelled for MaxDB
 and MySQL.
 
@@ -631,9 +652,23 @@ The area under the ROC of a classifier is equivalent to the probability that the
 \end{figure}
 
 
-\todo[inline]{where is exp1 report?}
+%\todo[inline]{where is exp1 report?}
 
-% EXP2 source is naming-paper/src/validate/exp2.maxdb.report.txt (change as needed). Second column is F1.
+%EXP1 could not be evaluated properly!
+Because our ground truth annotations were only relevant to ISO-9126,
+we estimate that \textsf{exp1} had poor
+performance via the overlap between ISO-9126 and the Kayed ontology.
+For \textsf{exp1} the F-measures for MaxDB were from $0$ to $0.18$ with an average
+of $0.03$, and for MySQL were from $0$ to $0.16$ with an average of
+$0.05$.
+% 0.177215189873 / 6
+% .02953586497883333333
+% (0.0298507462687 + 0.0661157024793 + 0.0634920634921 + 0 + 0.115384615385) / 6
+% .04580718793751666666
+
+
+% EXP2 source is naming-paper/src/validate/exp2.maxdb.report.txt
+% (change as needed). Second column (after the name) is F1.
 For \textsf{exp2}, the average F-measure (macro-F1) for MaxDB was $0.24$ with a range $0.091$ to
 $0.37$, and $0.16$ for MySQL with a range of $0$ to $0.41$.
 MaxDB had an average precision and recall of $0.25$ and $0.22$
@@ -645,8 +680,10 @@ $0.47$, and $0.36$ for MySQL with a range of $0.10$ to $0.65$.
 MaxDB had an average precision and recall of $0.16$ and $0.67$
 while MySQL had $0.3$ and $0.48$ respectively.
 
-
-Based on these results we find that \emph{reliability} and \emph{usability} worked well for MaxDB in \textsf{exp2} and better in \textsf{exp3}. 
+Based on these results we find that \emph{reliability} and
+\emph{usability} worked well for MaxDB in \textsf{exp2} and better in
+\textsf{exp3}. 
+\textsf{exp1} performed poorly.
 MySQL had reasonable results within \textsf{exp2} for \emph{reliability} and \emph{efficiency}. 
 MySQL's results for \emph{efficiency} did not improve in \textsf{exp3} but other qualities such as \emph{functionality} did improve. 
 If a \emph{C} grade performance has a ROC value of $0.6$ then most of these tests scored a grade of \emph{C} or less, but our classifier nonetheless performed substantially better than random.

@@ -21,14 +21,14 @@ def load_period(period, data_dir = "../../data/maxdb-tagged/"):
     return topics
  
 
-def load_wordlists(expdir = '../exp3/' ): 
-    """ load the datafile with the wordlists we want to use """
-    quality_map = {'portability':[], 'efficiency':[], 'reliability':[], 'functionality':[], 'usability':[], 'maintainability':[]}
-    for q in quality_map.keys():
-        q_file = open( expdir + 'wordlist.' + q )
-        for line in q_file:
-            quality_map[ q ].append( line.rstrip() )
-    return quality_map
+#def load_wordlists(expdir = '../exp3/' ): 
+#    """ load the datafile with the wordlists we want to use """
+#    quality_map = {'portability':[], 'efficiency':[], 'reliability':[], 'functionality':[], 'usability':[], 'maintainability':[]}
+#    for q in quality_map.keys():
+#        q_file = open( expdir + 'wordlist.' + q )
+#        for line in q_file:
+#            quality_map[ q ].append( line.rstrip() )
+#    return quality_map
     
 def create_element_list(topic):
     """Parse each period and create a list of elements and annotations in that topic, 
