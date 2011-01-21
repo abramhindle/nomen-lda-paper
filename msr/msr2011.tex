@@ -63,45 +63,6 @@ Abram Hindle\\
 
 \begin{abstract}
 % %\todo[inline]{Topics and LDA sooner, Topics/concept location is a known
-% %  research area and we're saying they don't do enough}
-
-% % Maybe specify the hard work we did annotating the data
-
-% % our field
-% %  Within the field of mining software repositories, a
-% To understand the latent subject matter of software development artifacts, researchers have proposed topic modeling and concept location.
-% %These techniques rely on the automated application of machine learning algorithms to corpora.
-% These techniques use unsupervised machine learning algorithms find topics or concepts.
-% % the problem
-% These topics are word-lists lacking semantic interpretation, which are difficult to distinguish and interpret. 
-% %Results are usually abstract, as the topics that are automatically extracted 
-% % the solution 
-% In order to have a meaningful discussion about the topics of software development, we must be able to attach meaningful labels to these topics. 
-% %However, current software engineering topic analysis and concept analysis research relies on manual naming and labelling of topics.
-% % the labelling research
-% Current topic labelling approaches are manual, and do not use domain-specific knowledge to improve, contextualize, or describe results for the developers.
-% % a sub problem
-% % While too much specificity can produce non-generalizable results, too little produces broad learners that do not provide much immediately useful detail. 
-% % what we do
-
-% To solve this problem, this paper introduces \emph{labelled topic extraction}, 
-% in which topics are extracted from commit comments and given labels relating to a cross-project taxonomy. 
-% % data mining generalizable
-% Our approach is 
-% %To ensure we have a 
-% generalizable and project-agnostic, as we label topics using non-functional requirements,
-% % these qualities 
-% which apply across software systems.% and their development artifacts.
-% % We used real world data
-% We evaluated our approach with an experimental study on two large-scale database projects, MySQL and MaxDB. 
-% % We used LDA, CVS, Bitkeeper
-% We extracted topics using Latent Dirichlet Allocation (LDA) from the commit-log comments of their source control systems (CVS and BitKeeper). 
-% % We show NFRs exist
-% %Our results were generalizable across the two projects, showing that non-functional requirements were commonly discussed, 
-% %and we identified topic trends over time. 	
-% % we can label stuff
-% Our labelled topic extraction technique produces appropriate, context-sensitive labels relevant to these projects, providing fresh insight into their evolving software development activities.
-
 Researchers have employed a variety of techniques to extract underlying
 topics that relate to software development artifacts.  Typically, these
 techniques use unsupervised machine-learning algorithms to suggest
@@ -121,20 +82,6 @@ on two large-scale RDBMS projects: MySQL and MaxDB.  The case studies
 show that labelled topic extraction can produce appropriate,
 context-sensitive labels relevant to these projects, which provides fresh
 insight into their evolving software development activities.
-
-
-
-% Researchers have used topic modeling and concept location to understand the latent topics of software development artifacts.
-% These techniques use unsupervised machine-learning algorithms to recover topics.
-% These topics are word-lists and are difficult to distinguish and interpret. 
-% Topics are not meaningful until they have been named or interpreted.
-% Current topic labelling approaches are manual, and do not use domain-specific knowledge to improve, contextualize, or describe results for the developers.
-% We propose a solution: \emph{labelled topic extraction}.
-% Topics are extracted using Latent Dirichlet Allocation (LDA) from commit-log comments recovered from source control systems such as CVS and BitKeeper. 
-% These topics are given labels relating to a generalizable cross-project taxonomy consisting of non-functional requirements.
-% Our approach was evaluated  with experiments and case studies on two large-scale RDBMS projects: MySQl and MaxDB.
-% Labelled topic extraction produces appropriate, context-sensitive labels relevant to these projects, which provides fresh insight into their evolving software development activities.
-
 \end{abstract}
 
 \category{D.2.9}{Software Engineering}{Managment}[Lifecycle]
@@ -172,6 +119,7 @@ insight into their evolving software development activities.
 
 Topic modeling is a machine learning technique which creates multinomial distributions over words from a text corpus. Topic models are useful in software engineering because they can identify co-occuring words from text corpora such as source code, commit comments, email, and others. For example, a topic extracted from a set of commit logs might be\emph{ ``listener change remove add fire''}. A topic model is a summary of the key concepts in the corpus. Among other uses, it can quickly give developers an overview of where activity is occurring and gives managers or maintainers a sense of project history. A major challenge is to accurately identify the summary label for a topic (in the previous case, perhaps \emph{``event-handling''}). 
 Current approaches are manual: they rely on human expertise to recognize the appropriate label. Furthermore, to date the results of topic modeling are project specific, and not generalizable. This paper presents an approach, labelled topic extraction, which addresses these two problems.
+
 
 Changes to software systems, revisions, do not occur without
 reason. 
@@ -238,13 +186,13 @@ The paper concludes with a discussion of limitations (Section \ref{sec:limit})
 The idea of extracting higher-level `concerns', also known as `concepts', `aspects' or `requirements', has been approached from documentation-based and repository-based perspectives.
 
 Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. 
-Their approach was similar to ours, as they mined keywords from their own NFR catalogues~\cite{chung99}.
+Their approach was similar to ours, as they mined keywords from NFR catalogues.
 %One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. 
 They managed a recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. 
 Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
 Our work differed because we had a more comprehensive set of terms based on the taxonomy we chose.
-We also wanted a common taxonomy that allows us to make cross-project comparison; this was not one of their objectives.
-The objective of Cleland-Huang's study was to identify new NFRs for system development, yet our objective was to recover those latent NFRs from commit-log messages of the project. 
+We make cross-project comparisons, while they focused on a single project.
+%The objective of Cleland-Huang's study was to identify new NFRs for system development, yet our objective was to recover those latent NFRs from commit-log messages of the project. 
 Another difference was that our data was far less structured than the requirements documents used in their study.
 %There are several reasons we did not follow this route. 
 %One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. 
@@ -254,13 +202,13 @@ Another difference was that our data was far less structured than the requiremen
 %Although subject to the assumption that all projects conceive of these terms in the same way.
 %Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) our study assumes these NFRs are latent in the commit-log messages of the project. 
 
-In the same vein, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. 
-They also leveraged WordNet, but only for word roots as they felt the synonyms would be non-specific and cause errors. 
+Similarly, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. 
+They also leveraged WordNet, but only for word roots as they felt the synonyms would be non-specific and cause errors, problems we also encountered. 
 Mockus et al. had access to system developers, with whom they could validate their labels. 
-Since we try to bridge different organizations, these kind of interviews are infeasible (particularly in the distributed world of open-source software).
+Since we try to bridge different organizations, instead of a single project, these kind of interviews are infeasible (particularly in the distributed world of open-source software).
 
 The other approach is to extract concerns from software repositories.
-Marcus et al.~\cite{marcus04wcre} describe their use of Latent Semantic Indexing to identify commonly occurring concerns for software maintenance. 
+Marcus et al.~\cite{marcus04wcre} describe their use of Latent Semantic Indexing (LSI) to identify commonly occurring concerns for software maintenance. The concerns are given by the user, and LSI used to retrieve them from a corpus. Topic modelling generates topics that are independent of a user query, and relate only to word frequencies in the corpus.
 %Some results were interesting, but their precision was quite low. 
 ConcernLines~\cite{treude09cl} shows tag occurrence using colour intensity. 
 They mined 
@@ -280,12 +228,13 @@ et al. call for in their conclusions.
 Mei et al.~\cite{Mei2007} use context information to automatically name topics. 
 They describe probabilistic labelling, using the frequency distribution of words in a topic to create a meaningful phrase. 
 They do not use external domain-specific information as we do.
-%In \cite{ernst10refsq}, we describe our earlier project, similar to this, to identify change in quality requirements in GNOME software projects; our approach is solely text-matching, however, and does not leverage machine learning strategies.
+
+Finally, in \cite{ernst10refsq}, we describe our earlier project, similar to this, to identify change in quality requirements in GNOME software projects; our approach is solely text-matching, however, and does not leverage machine learning strategies.
 
 %Massey~\cite{massey02icse} and Scacchi~\cite{scacchi02,scacchi05b} looked at the topic of requirements in open-source software. 
 % this reduces the line length and drops a ref even though we still have a scacchi kickin around
-Massey~\cite{massey02icse} and Scacchi~\cite{scacchi05b} looked at the topic of requirements in open-source software. 
-Their work discusses the source of the requirements and how they are used in the development process. German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. 
+%Massey~\cite{massey02icse} and Scacchi~\cite{scacchi05b} looked at the topic of requirements in open-source software. 
+%Their work discusses the source of the requirements and how they are used in the development process. German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. 
 %None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
 
 % XXX vanity or space.. 
@@ -296,8 +245,8 @@ Their work discusses the source of the requirements and how they are used in the
 
 \section{Study design and execution}
 Figure \ref{fig:process} gives an outline of the methodology followed. 
-We began by gathering source data. 
-We then applied unsupervised and supervised learning techniques to identify topics. 
+We began by gathering source data and creating topic models. We created labels using a well-known NFR taxonomy. 
+We then applied unsupervised and supervised learning techniques to try to match our labels to the topics. 
 These topics were used to analyze the role of non-functional requirements in software maintenance.
 
 \begin{figure}
@@ -311,7 +260,7 @@ These topics were used to analyze the role of non-functional requirements in sof
 \label{sec:wordlist}
 
 To evaluate our approach, we sought candidate systems that were mature projects and had openly accessible source control repositories. 
-We selected systems from the same application domain, so the functional requirements would be broadly similar. 
+We selected systems from the same application domain, to control for differences in functional, rather than non-functional, requirements. 
 We selected MySQL 3.23 and MaxDB 7.500 as they were open-source, partially-commercial database systems. 
 MaxDB started in the late 1970s as a research project, and was later acquired by SAP. 
 As of version 7.500, released April 2007, the project has 940 thousand lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}, dwheeler.com/sloccount.}. 
@@ -542,9 +491,9 @@ Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{effic
 
 %\todo[inline]{Should we use F-1 as well to satisfy everyone?}
 
-\noindent \textbf{Analysis of the unsupervised labelling} -- Based on the labels, and our manual topic labelling, 
-we compared the results of the unsupervised word matching approach. 
-For each quality we assessed whether unsupervised labels matched the manual annotations.
+\noindent \textbf{Analysis of the unsupervised labelling} -- %Based on the labels, and our manual topic labelling, 
+%we compared the results of the unsupervised word matching approach. 
+For each quality we assessed whether unsupervised labels matched the manual annotations. To be clear, the manual annotations were not used to train the labeling process.
 Figure \ref{fig:maxdb-unsup-results} shows our results for MaxDB and MySQL. 
 \todo[inline]{NEIL: this section should be updated to explain F-measure}
 Our performance is measured using the Receiver Operating
@@ -554,7 +503,9 @@ ROC values provide a score, similar to school letter-grades (A is 0.9, C is 0.6)
 ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) versus the false positive rate (1 - specificity). 
 A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision. 
 A ROC result of 0.5 would be equivalent to a random learner (that is, issuing as many false positives as true positives). 
-The area under the ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen negative instance.
+
+The %area under the -- NE confusing to have area again ... and not importantana
+ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen negative instance.
 F-measure is the harmonic mean of precision and recall.
 
 %\todo[inline]{since ROC is new-sounding, I wonder if a more lengthy explanation would be merited. An obvious question is why not precision/recall? -- ROC is hot right now and it combines both}
@@ -952,7 +903,9 @@ Our next approach was supervised, using single-label and multi-label learners.
 % we could can improve auto labelling with ML
 % Our third experiment showed that with some supervision, and by using efficient machine learners based on Naive Bayesian classifiers, we could improve the accuracy of automatic topic labelling even further.
 % Our fourth experiment evaluated the effectiveness of multi-label learners, such as HOMER. 
-Both kinds of learners performed well with area under the ROC curve values between $0.6$ and $0.8$.
+Both kinds of learners performed well with 
+%area under the 
+ROC values between $0.6$ and $0.8$.
 
 % para 3 look while we did it we found this
 % total topics - maybe move above
