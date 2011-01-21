@@ -34,30 +34,30 @@
 \author{
 \alignauthor 
 Abram Hindle\\
-   \affaddr{Dept.of Computer Science}\\
+   \affaddr{Dept. of Computer Science}\\
    \affaddr{University of California, Davis} \\
    \affaddr{Davis, CA, USA}\\
-   \email{abram@softwareprocess.es}
+   \email{\large abram@softwareprocess.es}
 \alignauthor  Neil A. Ernst\\
    \affaddr{Dept. of Computer Science}\\
    \affaddr{University of Toronto}\\
    \affaddr{Toronto, Ontario, CANADA}\\
-   \email{nernst@cs.toronto.edu}
+   \email{\large nernst@cs.toronto.edu}
 \and
 \alignauthor Michael W. Godfrey\\
    \affaddr{David Cheriton School of Computer Science}\\
    \affaddr{University of Waterloo}\\
    \affaddr{Waterloo, Ontario, CANADA}\\
-   \email{migod@uwaterloo.ca}
+   \email{\large migod@uwaterloo.ca}
 \alignauthor John Mylopoulos \\
    \affaddr{Dept. Information Eng. and Computer Science}\\
    \affaddr{University of Trento}\\
    \affaddr{Trento, ITALY}\\
-   \email{\normalsize jm@disi.unitn.it}
+   \email{\large jm@disi.unitn.it}
 }
 
 %\title{What's in a name? Automated topic naming of software maintenance activities}
-\title{Automated topic naming to support analysis of software maintenance activities}
+\title{Automated topic naming to support cross-project analysis of software maintenance activities}
 \maketitle
 %\thispagestyle{empty}
 
@@ -170,7 +170,8 @@ insight into their evolving software development activities.
 
 % \todo[inline]{Move previous work up}
 
-Topic modeling is a machine learning technique which creates multinomial distributions over words found in a text corpus. Topic models are useful in software engineering because they can identify, from text corpora such as source code, change logs, email, and others, co-occuring words. For example, a topic extracted from a set of changelogs might be ``listener change remove add fire''. A topic model gives developers an overview of where activity is occurring and gives managers or maintainers a sense of project history. A major challenge is to accurately identify the label for a topic (in the previous case, perhaps ``event-handling''). Current approaches are manual: they rely on human expertise to recognize the appropriate label. Furthermore, to date the results of topic modeling are project specific, and not generalizable. 
+Topic modeling is a machine learning technique which creates multinomial distributions over words from a text corpus. Topic models are useful in software engineering because they can identify co-occuring words from text corpora such as source code, commit comments, email, and others. For example, a topic extracted from a set of commit logs might be\emph{ ``listener change remove add fire''}. A topic model is a summary of the key concepts in the corpus. Among other uses, it can quickly give developers an overview of where activity is occurring and gives managers or maintainers a sense of project history. A major challenge is to accurately identify the summary label for a topic (in the previous case, perhaps \emph{``event-handling''}). 
+Current approaches are manual: they rely on human expertise to recognize the appropriate label. Furthermore, to date the results of topic modeling are project specific, and not generalizable. This paper presents an approach, labelled topic extraction, which addresses these two problems.
 
 
 % % An attempt Motivate topics
@@ -771,36 +772,6 @@ The multi-label and single-label learners had similar performance: for MySQL, BR
 \label{fig:mulan}
 \end{figure*}
 
-\subsection{Annotation observations}
-We found many topics that were not non-functional requirements (NFRs) but were often related to them. 
-For instance, concurrency was mentioned often in the commit logs and was related to \emph{correctness} and \emph{reliability}, likely because concurrent code is prone to bugs such as race conditions. %are 
-% often  was troublesome. 
-\emph{Configuration management} and \emph{source control} related changes appeared often; % and sometimes there were topics dedicated to configuration management. 
-these kinds of changes are slightly related to \emph{maintainability}. 
-A non-functional change that was not quality-related was licensing and copyright; many changes were simply to do with updating copyrights or ensuring copyright or license headers were applied to files. In these cases we assigned the \emph{None} class.
-
-We noticed that occasionally the names of modules would conflict with words related to other non-functional requirements. 
-For instance, optimizers are very common modules in database systems: both MySQL and MaxDB have optimizer modules. 
-In MySQL the optimizer is mentioned but often the change addresses  correctness or another quality. 
-Despite this difference, the name of the module could fool our learners into believing the change was always about \emph{efficiency}. 
-In these cases the advantages of tailoring topic names to specific project terminologies are more clear. 
-Project specific word-lists would avoid automated mistakes due to the names of entities and modules of a software project.
-
-\subsection{Summary of techniques}
-While an unsupervised technique such as LDA is appealing in its lack of human intervention, and thus lower effort, 
-supervised learners have the advantage of domain knowledge, which typically means improved results. 
-Our manual annotations were fairly quick to do, taking only a few minutes per 30 day period. 
-
-Very rarely did \textsf{exp2} and \textsf{exp3} (naive word matching) ever perform as well as the supervised machine learners. 
-For MaxDB, \textit{reliability} was slightly better detected using the static word list of \textsf{exp2}. 
-In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. 
-For both MySQL and MaxDB \textit{usability} was better served by \textsf{exp2}. 
-\textit{Usability} was a very infrequent label, however, which made it difficult to detect in any case.
-
-We found that the multi-label learners of BR, CLR and HOMER did not do as well for Macro-ROC as NaiveBayes and other naive Bayes derived learners. 
-This suggests that by combining together multiple NaiveBayes learners we could probably label sets of topics effectively, but it would require a separate NaiveBayes learner per label.
-
-
 \section{Understanding software maintenance activities} 
 \label{sec:analysis}
 % \todo[inline]{talk about this topic in one section}
@@ -908,6 +879,35 @@ In both cases \emph{portability} was a constant maintenance concern and was prev
 
 %XXX can just remove this
 %\subsection{Effectiveness}
+\subsection{Annotation observations}
+We found many topics that were not non-functional requirements (NFRs) but were often related to them. 
+For instance, concurrency was mentioned often in the commit logs and was related to \emph{correctness} and \emph{reliability}, likely because concurrent code is prone to bugs such as race conditions. %are 
+% often  was troublesome. 
+\emph{Configuration management} and \emph{source control} related changes appeared often; % and sometimes there were topics dedicated to configuration management. 
+these kinds of changes are slightly related to \emph{maintainability}. 
+A non-functional change that was not quality-related was licensing and copyright; many changes were simply to do with updating copyrights or ensuring copyright or license headers were applied to files. In these cases we assigned the \emph{None} class.
+
+We noticed that occasionally the names of modules would conflict with words related to other non-functional requirements. 
+For instance, optimizers are very common modules in database systems: both MySQL and MaxDB have optimizer modules. 
+In MySQL the optimizer is mentioned but often the change addresses  correctness or another quality. 
+Despite this difference, the name of the module could fool our learners into believing the change was always about \emph{efficiency}. 
+In these cases the advantages of tailoring topic names to specific project terminologies are more clear. 
+Project specific word-lists would avoid automated mistakes due to the names of entities and modules of a software project.
+
+\subsection{Summary of techniques}
+While an unsupervised technique such as LDA is appealing in its lack of human intervention, and thus lower effort, 
+supervised learners have the advantage of domain knowledge, which typically means improved results. 
+Our manual annotations were fairly quick to do, taking only a few minutes per 30 day period. 
+
+Very rarely did \textsf{exp2} and \textsf{exp3} (naive word matching) ever perform as well as the supervised machine learners. 
+For MaxDB, \textit{reliability} was slightly better detected using the static word list of \textsf{exp2}. 
+In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. 
+For both MySQL and MaxDB \textit{usability} was better served by \textsf{exp2}. 
+\textit{Usability} was a very infrequent label, however, which made it difficult to detect in any case.
+
+We found that the multi-label learners of BR, CLR and HOMER did not do as well for Macro-ROC as NaiveBayes and other naive Bayes derived learners. 
+This suggests that by combining together multiple NaiveBayes learners we could probably label sets of topics effectively, but it would require a separate NaiveBayes learner per label.
+
 
 %{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
 The unsupervised labelling had difficulty distinguishing between common labels and infrequent labels. 
@@ -928,27 +928,26 @@ These results are promising because they indicate that these techniques are accu
 \subsection{Threats to validity}
 
 % can always be cut down
-Our work faced multiple threats to validity and we attempted to address many of them.
+%Our work faced multiple threats to validity and we attempted to address many of them.
 
-\emph{Construct validity} -- we used only commit messages rather than mail or bug tracker messages. 
-Conversely, construct validity was addressed in our validation as we used the files, topics and revisions to annotate the commit messages. 
-We used mailing-lists to verify the purpose behind some events.
-We also chose our taxonomy and the data to study. We did not show these results to the stakeholders.
-We only studied database systems.
+\emph{Construct validity} -- we used only commit messages rather than mail or bug tracker messages. Since we required a seamless record, it was not possible to obtain other data sources. Possibly they would have influenced our results, but there would be a degree of correlation between the corpora.
+%Conversely, construct validity was addressed in our validation as we used the files, topics and revisions to annotate the commit messages. 
+%We used mailing-lists to verify the purpose behind some events.
+Our taxonomy for software NFRs is subject to dispute, but seems generally accepted. Finally, there are exogenous sources, such as in-person discussions, which we did not access, an omission as noted in \cite{aranda09icse}. %We did not show these results to the stakeholders.
 
-\emph{Internal validity} -- includes inter-rater reliability and our lack of rival explanation building. 
+\emph{Internal validity} -- %includes inter-rater reliability and our lack of rival explanation building. 
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
-We did not attempt to match our results to any particular model or theory.
+We did not attempt to match our results to any particular model or theory, as such theories are sparse in 
 
-\emph{External validity} was addressed by our use of multiple case studies, but there are still issues. 
+\emph{External validity} -- %was addressed by our use of two case studies, but there are still issues. 
 Our data originated from OSS database projects and thus might not be applicable to commercially developed software. 
 Furthermore, our analysis techniques rely on a project's use of meaningful commit messages. The OSS projects investigated were database systems, thus 
-our results might not generalize to other domains.
+our results might not generalize to other domains. %We only studied database systems.
 % \todo[inline]{If we compare with the same domain we don't get to say it generalizes a lot?}
 
 % in Case Study Research: Design Case Studies
-\emph{Reliability} was addressed by each annotator following the same protocol and using the same annotations. 
-Unfortunately only two annotators were used; their annotations could be biased as we did not analyze for inter-rater reliability.
+\emph{Reliability} -- each annotator followed the same protocol and used the same annotations. 
+However, only two annotators were used; their annotations could be biased as we did not analyze for inter-rater reliability.
 
 
 \section{Conclusions and future work}
