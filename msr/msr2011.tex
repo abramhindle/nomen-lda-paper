@@ -331,6 +331,21 @@ For example, for the MaxDB topic consisting of a message ``exit() only used in n
 %\todo[inline]{inter-rater reliability }
 % \todo[inline]{There should be a section here which is about manual annotation. It is really important and it is required by both analyses. Plus we can tell them how.}
 
+%\todo[inline]{NEIL: this section should be updated to explain F-measure}
+We validate classification performance using the Receiver Operating
+Characteristic area-under-curve value~\cite{Fawcett2006861},
+abbreviated \emph{ROC}, and the F-measure.  F-measure is the harmonic mean of precision and recall.
+
+\todo[inline]{NEIL: abram, i got rid of the letter-grade thing because I'm worried people latch on to the idea we are C- students. I feel anything better than random is our criteria here}
+ROC values provide a score %, similar to school letter-grades (A is 0.9, C is 0.6),
+ reflecting how well a particular learner performed for the given data. 
+ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) versus the false positive rate (1 - specificity). 
+A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision. 
+A ROC result of 0.5 would be equivalent to a random learner (that is, issuing as many false positives as true positives). 
+The %area under the -- NE confusing to have area again ... and not importantana
+ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen negative instance.
+
+We consider our labelling classifiers acceptable if they outperform a random classifier (0.5). 
 \subsection{Unsupervised labelling}
 \label{sec:unsuplabelling}
 
@@ -418,13 +433,13 @@ operability understandability learnability useable usable serviceable usefulness
 
 \todo[inline]{NEIL: this could be a subsubsection}
 %\todo[inline]{* the hierarchy of tags was not clear}
-\noindent \textbf{Generating labels automatically} -- Using our three word-lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labeled our topics with an NFR where there was a match between a word in the list and the same word somewhere in the distribution of words that constitute the topic.
+\noindent \textbf{Generating labels automatically} --- Using our three word-lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labeled our topics with an NFR where there was a match between a word in the list and the same word somewhere in the distribution of words that constitute the topic.
 A \emph{named topic} is a topic with a matching NFR label. Unnamed topics occur where this no such match, which may indicate either a lack of precision, or simply that this topic is not associated with non-functional requirements.
 All experiments were run on MaxDB 7.500 and MySQL 3.23 data. LDA
 extracted 20 topics per period for each.
 % Is this good enough
 This labelling is unsupervised because the corpus is not derived from 
-the project being labelled and we did not label the project's topics
+the project being labelled, and we did not label the project's topics
 ourselves for a training set. The theory behind this technique is that
 because most software often addresses similar issues, we can use the
 domain knowledge of software to label relevant topics.
@@ -502,53 +517,42 @@ Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{effic
 
 %\todo[inline]{Should we use F-1 as well to satisfy everyone?}
 
-\noindent \textbf{Analysis of the unsupervised labelling} -- %Based on the labels, and our manual topic labelling, 
+\noindent \textbf{Analysis of the unsupervised labelling} --- %Based on the labels, and our manual topic labelling, 
 %we compared the results of the unsupervised word matching approach. 
-For each quality we assessed whether unsupervised labels matched the manual annotations. To be clear, the manual annotations were not used to train the labeling process.
-Figure \ref{fig:maxdb-unsup-results} shows our results for MaxDB and MySQL. 
-\todo[inline]{NEIL: this section should be updated to explain F-measure}
-Our performance is measured using the Receiver Operating
-Characteristic area-under-curve value~\cite{Fawcett2006861},
-abbreviated \emph{ROC}, and the F-measure. 
-ROC values provide a score, similar to school letter-grades (A is 0.9, C is 0.6), reflecting how well a particular learner performed for the given data. 
-ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) versus the false positive rate (1 - specificity). 
-A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision. 
-A ROC result of 0.5 would be equivalent to a random learner (that is, issuing as many false positives as true positives). 
-
-The %area under the -- NE confusing to have area again ... and not importantana
-ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen negative instance.
-F-measure is the harmonic mean of precision and recall.
+For each quality we assessed whether unsupervised labels matched the manual annotations. %To be clear, the manual annotations were not used to train the labeling process.
+As described in \ref{sec:wordlist} we used both ROC and F-1 measures to evaluate the performance of the classification.
+Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. We describe F-1 results in the text below.
 
 
 %\todo[inline]{since ROC is new-sounding, I wonder if a more lengthy explanation would be merited. An obvious question is why not precision/recall? -- ROC is hot right now and it combines both}
 % Rebuttal: ROC is not new and it is what the machine learning community, search based software engineering and now the MSR community are using +  it has natural meaningful quality mappings.
-\begin{figure*}[]
-\centering
-\subfloat[ROC]{
- \includegraphics[width=0.45\textwidth]{figures/unsupervised-bar}
-\label{fig:maxdb-unsup-results-roc}
-}
-\subfloat[F1]{
-\includegraphics[width=0.45\textwidth]{figures/unsupervised-bar-f1}
-\label{fig:maxdb-unsup-results-f1}
-}
-\caption[]{Performance of unsupervised topic labelling for each NFR per word-list. A) ROC values -- dashed line indicates the performance of a random classifier. B) F1 measure. Possible values range from 0--1.
-%\todo[inline]{better discussion}% and graphical legend would be nice}
-}
-\label{fig:maxdb-unsup-results}
-\end{figure*}
-
-
-% \begin{figure}
-%   \centering
+% \begin{figure}[t]
+% \centering
+% \subfloat[ROC]{
 %  \includegraphics[width=0.45\textwidth]{figures/unsupervised-bar}
-%  \caption{Performance, ROC values (range: 0-1), of unsupervised topic labelling for
-%    each NFR and per word-list. Dashed line indicates the performance of a random classifier. This graph shows how well the
-%    unsupervised topic labelling matched our manual annotations.}
-
-% %\todo[inline]{this is too tiny in print}
-%   \label{fig:maxdb-unsup-results}
+% \label{fig:maxdb-unsup-results-roc}
+% }
+% %\subfloat[F1]{
+% %\includegraphics[width=0.45\textwidth]{figures/unsupervised-bar-f1}
+% %\label{fig:maxdb-unsup-results-f1}
+% %}
+% \caption[]{Performance of unsupervised topic labelling for each NFR per word-list. A) ROC values -- dashed line indicates the performance of a random classifier. B) F1 measure. Possible values range from 0--1.
+% %\todo[inline]{better discussion}% and graphical legend would be nice}
+% }
+% \label{fig:maxdb-unsup-results}
 % \end{figure}
+
+
+\begin{figure*}
+  \centering
+ \includegraphics[width=\textwidth]{figures/unsupervised-bar}
+ \caption{Performance, ROC values (range: 0-1), of unsupervised topic labelling for
+   each NFR and per word-list. Dashed line indicates the performance of a random classifier. This graph shows how well the
+   unsupervised topic labelling matched our manual annotations.}
+
+%\todo[inline]{this is too tiny in print}
+  \label{fig:maxdb-unsup-results}
+\end{figure*}
 
 % \begin{figure}
 %   \centering
