@@ -223,7 +223,7 @@ Since we try to bridge different organizations, instead of a single project, the
 The other approach is to extract concerns from software repositories.
 Marcus et al.~\cite{marcus04wcre} describe their use of Latent Semantic Indexing (LSI) to identify commonly occurring concerns for software maintenance. The concerns are given by the user, and LSI used to retrieve them from a corpus. Topic modelling generates topics that are independent of a user query, and relate only to word frequencies in the corpus.
 %Some results were interesting, but their precision was quite low. 
-ConcernLines~\cite{treude09cl} shows tag occurrence using colour intensity. 
+With ConcernLines, \cite{treude09cl} shows tag occurrence using colour intensity. 
 They mined 
 developer created tags 
 %change request tags (such as `milestone 3') and used these 
@@ -236,6 +236,14 @@ The presence of a well-maintained set of tags is obviously essential to the succ
 %Mens et al.~\cite{mens08icsm} conducted an empirical study of Eclipse, a popular Java IDE, to verify the claims of Lehman~\cite{lehman97sms}.
 % They concerned themselves with source code only, and found Law Seven, ``Declining Quality'', to be too difficult to assess: ``[we lacked an] appropriate measurement of the evolving quality of the system as perceived by the users \cite[p. 388]{mens08icsm}''. 
 %This paper examines the notions of quality in terms of a consistent ontology, as Menset al. call for in their conclusions.
+
+% in our previous work~\cite{Hindle09ICSM}, as well as -- CITED a little too often (vanity cites!)
+In Baldi et al.~\cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a label accordingly. 
+As discussed earlier, given the topic \emph{``listener change remove add fire''}, Baldi et al. would assign the label \emph{event-handling}. 
+The labels are reasonable enough, but still require an expert in the field to determine them. 
+Furthermore, these labels are project-specific, because they are generated from the data of that project. E.g., we might have a label called `Oracle' in the MySQL case, since Oracle owns MySQL. 
+
+This paper does this differently. First of all, we automated the process of naming the topics. Secondly, we labelled topics with project-independent terms, in order to permit cross-project comparison.
 
 Mei et al.~\cite{Mei2007} use context information to automatically name topics. 
 They describe probabilistic labelling, using the frequency distribution of words in a topic to create a meaningful phrase. 
