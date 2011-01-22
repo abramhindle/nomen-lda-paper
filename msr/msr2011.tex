@@ -303,10 +303,25 @@ Representing documents as a mixture of topics maps well to source code repositor
 For this paper, a topic represents a word distribution generated from a group of commit log comments which are related by their content.  
 %In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
 
-
 We applied Blei's LDA implementation~\cite{Blei2003} against the word distributions of these commits, and generated lists of topics per period. 
 We set the number of topics to generate to $20$, because past experimentation showed that fewer topics might aggregate multiple unique topics while any more topics seemed to dilute the results and create indistinct topics~\cite{Hindle09ICSM}. 
 % Furthermore, more than $20$ topics quickly became infeasible for inspection.
+
+\noindent \textbf{The high-level labels} --- To facilitate cross-project comparison, we used a taxonomy of NFRs. This taxonomy is based on the ISO quality model, ISO9126~\cite{iso9126}. 
+ISO9126 describes six high-level non-functional requirements (NFRs), maintainability, functionality, portability, efficiency, usability, and reliability. 
+There is some debate about the terms in this model. 
+However, ISO9126 is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
+We claim that these NFRs are maintenance concerns (to varying degrees) in all software projects, and are therefore well-suited to comparison between projects.
+
+\noindent \textbf{Creating a validation corpus} --- To evaluate both unsupervised and supervised classification, we created a validation set of manually labelled topics. For MySQL 3.23 and MaxDB 7.500, we annotated each extracted topic in each period with the same NFR labels as described in the preceding paragraph. 
+We looked at each period's topics, and assessed what the data --- consisting of the frequency-weighted word lists and messages --- suggested was the topic for that period. 
+We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to the topic being annotated.
+For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. 
+%\todo[inline]{this confused people. Is it truly unsupervised? Yes, but it needs to be clearer.}
+%We compared against this data-set, but we also used the data-set for our supervised machine learning based topic classification. 
+% A topic may have more than one matching keyword. % ok what?
+%\todo[inline]{inter-rater reliability }
+% \todo[inline]{There should be a section here which is about manual annotation. It is really important and it is required by both analyses. Plus we can tell them how.}
 
 \subsection{Unsupervised labelling}
 \label{sec:unsuplabelling}
@@ -356,10 +371,7 @@ portability, flexibility, reliability.
 }
 \end{quotation}
 
-Our second word-list, \textsf{exp2}, is derived from the ISO quality model, ISO9126~\cite{iso9126}. 
-ISO9126 describes six high-level non-functional requirements (NFRs), maintainability, functionality, portability, efficiency, usability, and reliability. 
-There is some debate about the terms in this model. 
-However, ISO9126 is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
+Our second word-list, \textsf{exp2}, uses the ISO9126 taxonomy described above (Section \ref{sec:wordlist}) to seed the wordlists.
 %We use these qualities later on as classes in supervised labelling. NE confusing the issue here, I think.
 The terms from ISO9126 may not capture all words occuring in the topics that are nonetheless associated with one of the NFRs. 
 For example, the term ``redundancy'' is one most would agree is relevant to discussion of reliability, but is not in the standard. 
@@ -406,15 +418,6 @@ operability understandability learnability useable usable serviceable usefulness
 \end{table*}
 
 
-\noindent \textbf{Creating a validation corpus} --- For MySQL 3.23 and MaxDB 7.500, we manually annotated each extracted topic in each period with the same NFR labels as \textsf{exp2} (software qualities). 
-We looked at each period's topics, and assessed what the data --- consisting of the frequency-weighted word lists and messages --- suggested was the topic for that period. 
-We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to the topic being annotated.
-For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. 
-%\todo[inline]{this confused people. Is it truly unsupervised? Yes, but it needs to be clearer.}
-We compared against this data-set, but we also used the data-set for our supervised machine learning based topic classification. 
-% A topic may have more than one matching keyword. % ok what?
-%\todo[inline]{inter-rater reliability }
-% \todo[inline]{There should be a section here which is about manual annotation. It is really important and it is required by both analyses. Plus we can tell them how.}
 
 
 \textbf{Generating labels automatically}
