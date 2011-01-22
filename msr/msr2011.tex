@@ -166,13 +166,26 @@ that it is difficult to discuss results independent of the project context.
 Our technique automatically assigns labels across projects.
 \end{enumerate}
 
-This paper first introduces labelled topic extraction, and then uses that technique to analyze development activity in two large-scale examples.
-Next we cover much of the previous work that we leverage (Section \ref{sec:related}).
-Then we follow by describing how we generated our data (Sections  \ref{sec:wordlist} and \ref{sec:genwordlist}). 
-We show that labels with their topics can be learned and used to classify other data-sets, either without training (Section \ref{sec:unsuplabelling}), or with training (Section \ref{sec:suplabelling}). 
-We then present visualizations of named topics and their trends over time to aid communication and analysis. 
+This paper makes the following contributions: 
+\begin{itemize}
+\item We introduce the concept of labelled topic extraction, using a non-functional requirements (NFR) taxonomy for our labels. 
+\item We evaluate an unsupervised method of automated topic labelling (word-lists);
+%\item Our unsupervised method can be applied to projects without training;
+\item We evaluate a supervised method of automatically labelling topics with a single NFR (machine learning);
+\item We evaluate a supervised method of labelling topics with multiple NFRs (multi-label machine learning);
+\item We provide a method of cross-project analysis via topic labelling;
+\item We apply these techniques to visualizing NFRs over time, to analyze maintenance activities.
+\end{itemize}
+
+%We first introduces labelled topic extraction, and then uses that technique to analyze development activity in two large-scale examples.
+We begin with related work in Section \ref{sec:related}.
+Next, we describe how we generated our data (Section \ref{sec:wordlist}) and how we created the word-lists used in unsupervised classification (Section \ref{sec:genwordlist}). 
+%We show that labels with their topics can be learned and used to classify other data-sets, either without training 
+%Our goal is to label a given topic with either an NFR from our taxonomy,
+ Section \ref{sec:unsuplabelling} presents our technique for using word-lists to do unsupervised classification, and describes the results. In Section \ref{sec:suplabelling}, we manually annotate the topics, and use those annotations as training data for supervised classification.  
+%We then present visualizations of named topics and their trends over time to aid communication and analysis. 
 We use an exploratory case study of two open source database systems to show how named topics can be compared between projects  (Section \ref{sec:analysis}). 
-The paper concludes with a discussion of limitations (Section \ref{sec:limit}) 
+The paper concludes with a discussion of limitations (Section \ref{sec:limit}), and some conclusions. 
 
 %\todo[inline]{Topics are poorly defined by this point and since we're building on research which didn't DO this, we should mention that research. Previous work probably should go here.}
 
