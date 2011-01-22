@@ -163,7 +163,7 @@ This is because traditional topic mining techniques are specific to a particular
   \item Topic modeling creates word lists that require interpretation by the user to assign meaning. 
 Like (1), this means
 that it is difficult to discuss results independent of the project context. 
-Our technique automatically assigns labels across projects.
+Our technique automatically, or with some initial training, assigns labels across projects.
 \end{enumerate}
 
 This paper makes the following contributions: 
@@ -184,7 +184,7 @@ Next, we describe how we generated our data (Section \ref{sec:wordlist}) and how
 %Our goal is to label a given topic with either an NFR from our taxonomy,
  Section \ref{sec:unsuplabelling} presents our technique for using word-lists to do unsupervised classification, and describes the results. In Section \ref{sec:suplabelling}, we manually annotate the topics, and use those annotations as training data for supervised classification.  
 %We then present visualizations of named topics and their trends over time to aid communication and analysis. 
-We use an exploratory case study of two open source database systems to show how named topics can be compared between projects  (Section \ref{sec:analysis}). 
+To demonstrate an application of labelled topic extraction, we use an exploratory case study of two open source database systems to show how named topics can be compared between projects  (Section \ref{sec:analysis}). 
 The paper concludes with a discussion of limitations (Section \ref{sec:limit}), and some conclusions. 
 
 %\todo[inline]{Topics are poorly defined by this point and since we're building on research which didn't DO this, we should mention that research. Previous work probably should go here.}
