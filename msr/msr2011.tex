@@ -265,7 +265,7 @@ Finally, in \cite{ernst10refsq}, we describe our earlier project, similar to thi
 
 \section{Study design and execution}
 Figure \ref{fig:process} gives an outline of the methodology followed. 
-We began by gathering source data and creating topic models. For unsupervised labelling, we generate three sets of wordlists as signifiers for NFRs.
+We began by gathering source data and creating topic models. For unsupervised labelling, we generate three sets of word-lists as signifiers for NFRs.
 %e created labels using a well-known NFR taxonomy. 
 In supervised learning, we trained our data with manual annotations in order to match topics with NFRs. Finally, these topics were used to analyze the role of non-functional requirements in software maintenance.
 
@@ -336,7 +336,6 @@ For example, for the MaxDB topic consisting of a message ``exit() only used in n
 
 %\subsection{Generating word lists}
 %\label{sec:genwordlist}
-\textbf{Generating word lists}
 % %\todo[inline]{Make it clear where the data comes from! Neil says: Also, I
 %   didn't get the impression they understood that we weren't generating
 %   labels from the data, but rather from independent taxonomies. Of
@@ -347,23 +346,15 @@ For example, for the MaxDB topic consisting of a message ``exit() only used in n
 %  are inherited so it isn't a supervised method}
 
 
-Topics are word distributions, lists of words ranked by frequency, that are burdensome to interpret and hard to distinguish and understand. 
-While the topics themselves are generated automatically, how to interpret these topics is less clear.
-For example,
-% in our previous work~\cite{Hindle09ICSM}, as well as -- CITED a little too often (vanity cites!)
-in Baldi et al.~\cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a label accordingly. 
-Given the topic \emph{``listener change remove add fire''}, Baldi et al. would assign the label \emph{event-handling}. 
-The labels are reasonable enough, but still require an expert in the field to determine them. 
-Furthermore, these labels are project-specific, because they are generated from the data of that project. E.g., we might have a label called `Oracle' in the MySQL case, since Oracle owns MySQL. 
+%Topics are word distributions, lists of words ranked by frequency, that are burdensome to interpret and hard to distinguish and understand. 
+%While the topics themselves are generated automatically, how to interpret these topics is less clear.
+%For example,
 
-%% NEIL: this should be in the intro or conclusion, not this section.
-%This paper does this differently. First of all, we automated the process of naming the topics. Secondly, we labelled topics with project-independent terms, in order to permit cross-project comparison.
-
-Accordingly, we associated each topic with a label from a list
-of keywords (`wordlists', in our parlance) and related terms. These wordlists were determined a priori and were not extracted from the projects themselves.
+\noindent\textbf{Generating word lists} --- In order to automatically label each topic with an NFR from ISO9126, we associate each NFR with a list
+of keywords (`word-lists', in our parlance). These word-lists were determined a priori and were not extracted from the projects themselves.
 We intersected the words of the topics and the words of our word-lists.
 We `labeled' a topic if any of its words matched any of the word-list's words.
-A topic could match more than one keyword.
+A topic could match more than one NFR.
 We used several different sets of word-lists for comparison, which we refer to as \textsf{exp1, exp2, exp3} in the text which follows. 
 
 Our first word-list set, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519} .
@@ -379,7 +370,7 @@ portability, flexibility, reliability.
 }
 \end{quotation}
 
-Our second word-list, \textsf{exp2}, uses the ISO9126 taxonomy described above (Section \ref{sec:wordlist}) to seed the wordlists.
+Our second word-list, \textsf{exp2}, uses the ISO9126 taxonomy described above (Section \ref{sec:wordlist}) to seed the word-lists.
 %We use these qualities later on as classes in supervised labelling. NE confusing the issue here, I think.
 The terms from ISO9126 may not capture all words occuring in the topics that are nonetheless associated with one of the NFRs. 
 For example, the term ``redundancy'' is one most would agree is relevant to discussion of reliability, but is not in the standard. 
@@ -425,16 +416,10 @@ operability understandability learnability useable usable serviceable usefulness
 
 \end{table*}
 
-
-
-
-\textbf{Generating labels automatically}
 \todo[inline]{NEIL: this could be a subsubsection}
 %\todo[inline]{* the hierarchy of tags was not clear}
-
-% word list similarity
-Using our three word lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labeled our topics where there was a match between a word in the list and the same word in the topic.
-A \emph{named topic} is a topic with a matching label. 
+\noindent \textbf{Generating labels automatically} -- Using our three word-lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labeled our topics with an NFR where there was a match between a word in the list and the same word somewhere in the distribution of words that constitute the topic.
+A \emph{named topic} is a topic with a matching NFR label. Unnamed topics occur where this no such match, which may indicate either a lack of precision, or simply that this topic is not associated with non-functional requirements.
 All experiments were run on MaxDB 7.500 and MySQL 3.23 data. LDA
 extracted 20 topics per period for each.
 % Is this good enough
@@ -443,7 +428,7 @@ the project being labelled and we did not label the project's topics
 ourselves for a training set. The theory behind this technique is that
 because most software often addresses similar issues, we can use the
 domain knowledge of software to label relevant topics.
-\todo[inline]{Neil does this explain the unsupervised aspect well enough?} 
+%\todo[inline]{Neil does this explain the unsupervised aspect well enough?} 
 
 Table \ref{tbl:wordlist} shows how many topics were labelled for MaxDB
 and MySQL.
