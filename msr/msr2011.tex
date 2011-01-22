@@ -522,16 +522,33 @@ F-measure is the harmonic mean of precision and recall.
 
 %\todo[inline]{since ROC is new-sounding, I wonder if a more lengthy explanation would be merited. An obvious question is why not precision/recall? -- ROC is hot right now and it combines both}
 % Rebuttal: ROC is not new and it is what the machine learning community, search based software engineering and now the MSR community are using +  it has natural meaningful quality mappings.
-\begin{figure}
-  \centering
+\begin{figure*}[]
+\centering
+\subfloat[ROC]{
  \includegraphics[width=0.45\textwidth]{figures/unsupervised-bar}
- \caption{Performance, ROC values (range: 0-1), of unsupervised topic labelling for
-   each NFR and per word-list. Dashed line indicates the performance of a random classifier. This graph shows how well the
-   unsupervised topic labelling matched our manual annotations.}
+\label{fig:maxdb-unsup-results-roc}
+}
+\subfloat[F1]{
+\includegraphics[width=0.45\textwidth]{figures/unsupervised-bar-f1}
+\label{fig:maxdb-unsup-results-f1}
+}
+\caption[]{Performance of unsupervised topic labelling for each NFR per word-list. A) ROC values -- dashed line indicates the performance of a random classifier. B) F1 measure. Possible values range from 0--1.
+%\todo[inline]{better discussion}% and graphical legend would be nice}
+}
+\label{fig:maxdb-unsup-results}
+\end{figure*}
 
-%\todo[inline]{this is too tiny in print}
-  \label{fig:maxdb-unsup-results}
-\end{figure}
+
+% \begin{figure}
+%   \centering
+%  \includegraphics[width=0.45\textwidth]{figures/unsupervised-bar}
+%  \caption{Performance, ROC values (range: 0-1), of unsupervised topic labelling for
+%    each NFR and per word-list. Dashed line indicates the performance of a random classifier. This graph shows how well the
+%    unsupervised topic labelling matched our manual annotations.}
+
+% %\todo[inline]{this is too tiny in print}
+%   \label{fig:maxdb-unsup-results}
+% \end{figure}
 
 % \begin{figure}
 %   \centering
