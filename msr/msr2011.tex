@@ -281,7 +281,7 @@ MySQL contains 320 thousand lines of C and C++ source code.
 Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
 
 For each project, we used source control commit comments, the messages that programmers write when they commit revisions to a source control repository. 
-This is the most readily accessible source of project interactions for outside researchers; bug trackers and email-list archives were not available for both projects. 
+This is the most readily accessible source of project interactions for outside researchers, since developers often or always (e.g., Git) write such message. Our approach is more generalizable if it does not assume the presence of other corpora. %bug trackers and email-list archives were not available for both projects. 
 An example of a typical commit message is: \textit{``history annotate diffs bug fixed (if mysql\-\_real\-\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. 
 We extracted these messages and indexed them by creation time. 
 We summarized each message as a word distribution but removed stop-words such as \emph{the} and \emph{at}. 
@@ -293,15 +293,15 @@ For each 30 day period of each project, we input the messages of that period int
 %For each project and for each period of messages a project, we input these messages 
 %we created `topics' using Latent Dirichlet Allocation, a topic identification algorithm. 
 
-A topic analysis tool like LDA will try to find $N$ independent word distributions within the word distributions of all the messages. 
+A topic analysis tool such as LDA will try to find $N$ independent word distributions within the word distributions of all the messages. 
 Linear combinations of these $N$ word distributions are meant to represent and recreate the word distributions of any of the original messages. 
 These $N$ word distributions effectively form topics: cross-cutting collections of words relevant to one or more of our commit messages. 
 LDA extracts topics in an unsupervised manner; the algorithm relies solely on the source data, word distributions of messages, with no human intervention.
 
 In topic analysis a single document, such as a commit message, can be related to multiple topics. 
 Representing documents as a mixture of topics maps well to source code repository commits, which often have more than one purpose~\cite{Hindle09ICSM}.  
-A topic, in this paper, represents both a word distribution and a group of commit log comments that are related to each other by their content.  
-In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
+For this paper, a topic represents a word distribution generated from a group of commit log comments which are related by their content.  
+%In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
 
 
 We applied Blei's LDA implementation~\cite{Blei2003} against the word distributions of these commits, and generated lists of topics per period. 
