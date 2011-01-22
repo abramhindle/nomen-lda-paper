@@ -119,8 +119,6 @@ insight into their evolving software development activities.
 
 Topic modeling is a machine learning technique which creates multinomial distributions over words from a text corpus. Topic models are useful in software engineering because they can identify co-occuring words from text corpora such as source code, commit comments, email, and others. For example, a topic extracted from a set of commit logs might be\emph{ ``listener change remove add fire''}. A topic model is a summary of the key concepts in the corpus. Among other uses, it can quickly give developers an overview of where activity is occurring and gives managers or maintainers a sense of project history. A major challenge is to accurately identify the summary label for a topic (in the previous case, perhaps \emph{``event-handling''}). 
 Current approaches are manual: they rely on human expertise to recognize the appropriate label. Furthermore, to date the results of topic modeling are project specific, and not generalizable. This paper presents an approach, labelled topic extraction, which addresses these two problems.
-<<<<<<< HEAD
-
 
 Changes to software systems, revisions, do not occur without
 reason. 
@@ -131,8 +129,6 @@ response to a bug report.
 These purposes often are exhibited as latent topics that relate to
 many development artifacts such as:
  version control revisions, bug reports, and mailing-list discussions.
-=======
->>>>>>> 0e384680f5128211a4808b2fd68ac06b197b9e0e
 
 In our previous work we dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. 
 We observed that topic trends were often non-functional requirements (NFRs). 
@@ -506,15 +502,11 @@ ROC values provide a score, similar to school letter-grades (A is 0.9, C is 0.6)
 ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) versus the false positive rate (1 - specificity). 
 A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision. 
 A ROC result of 0.5 would be equivalent to a random learner (that is, issuing as many false positives as true positives). 
-<<<<<<< HEAD
 
 The %area under the -- NE confusing to have area again ... and not importantana
 ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen negative instance.
 F-measure is the harmonic mean of precision and recall.
-=======
-The %area under the -- NE confusing to have area again ... and not importantana
-ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen negative instance.
->>>>>>> 0e384680f5128211a4808b2fd68ac06b197b9e0e
+
 
 %\todo[inline]{since ROC is new-sounding, I wonder if a more lengthy explanation would be merited. An obvious question is why not precision/recall? -- ROC is hot right now and it combines both}
 % Rebuttal: ROC is not new and it is what the machine learning community, search based software engineering and now the MSR community are using +  it has natural meaningful quality mappings.
