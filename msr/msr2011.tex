@@ -94,41 +94,41 @@ insight into their evolving software development activities.
 \newcommand{\shrink}{}
 \section{Introduction}
 
-\todo[inline]{Strength story: Neil says
-  And ultimately, I think the story needs more strengthening. Maybe we
-  need a scenario: you work at Bank X. You are curious about how much
-  recent activity has been done on software maintainability
-  vs. security. Our technique will allow you to compare different IT
-  projects using the same keywords, and ultimately, to generate lists
-  showing relative frequencies.}
+%\todo[inline]{Strength story: Neil says
+  % And ultimately, I think the story needs more strengthening. Maybe we
+  % need a scenario: you work at Bank X. You are curious about how much
+  % recent activity has been done on software maintainability
+  % vs. security. Our technique will allow you to compare different IT
+  % projects using the same keywords, and ultimately, to generate lists
+  % showing relative frequencies.}
 
 % \todo[inline]{mention project dashboards}
 
-\todo[inline]{Usefulness needs to be immediate and apparent}
+% % \todo[inline]{Usefulness needs to be immediate and apparent}
 
-\todo[inline]{ It needs to be clear there is value in labelling.
-  We need to make it clear that other researchers weren't labelling them
- automatically and presented them as labelled and thus it is obvious from
-  their presentation that labels matters + need a reading argument. The
- 2nd reviewer picked on this a bit but still didn't get it. I thought
- some of this had been clear.}
+% \todo[inline]{ It needs to be clear there is value in labelling.
+ %  We need to make it clear that other researchers weren't labelling them
+ % automatically and presented them as labelled and thus it is obvious from
+ %  their presentation that labels matters + need a reading argument. The
+ % 2nd reviewer picked on this a bit but still didn't get it. I thought
+ % some of this had been clear.}
 
 %\todo[inline]{Topic should be defined clearly (italics and hilighted)}
 
 % \todo[inline]{Move previous work up}
 
-Topic modeling is a machine learning technique which creates multinomial distributions over words from a text corpus. Topic models are useful in software engineering because they can identify co-occuring words from text corpora such as source code, commit comments, email, and others. For example, a topic extracted from a set of commit logs might be\emph{ ``listener change remove add fire''}. A topic model is a summary of the key concepts in the corpus. Among other uses, it can quickly give developers an overview of where activity is occurring and gives managers or maintainers a sense of project history. A major challenge is to accurately identify the summary label for a topic (in the previous case, perhaps \emph{``event-handling''}). 
-Current approaches are manual: they rely on human expertise to recognize the appropriate label. Furthermore, to date the results of topic modeling are project specific, and not generalizable. This paper presents an approach, labelled topic extraction, which addresses these two problems.
+One challenge for software maintenance is to identify the reasons behind software development activities. Identifying these reasons provides insight into \emph{why} certain changes were made. Topic modeling is a machine learning technique which creates multinomial distributions over words from a text corpus. Topic models are useful in software maintenance because they summarize the key concepts in a corpus, such as source code, commit comments, or email, by identifying statistically co-occuring words. Among other uses, it can quickly give developers an overview of where activity occurred, and gives managers or maintainers a sense of project history. For example, a topic extracted from a set of commit logs might be \emph{ ``listener change remove add fire''}.  A major challenge for topic modeling is to accurately identify the summary label for a topic (in the previous case, perhaps \emph{``event-handling''}). 
+Current approaches are manual: they rely on human expertise to recognize the appropriate label. Furthermore, to date the results of topic modeling are project specific, and not generalizable. This paper presents an approach, \emph{labelled topic extraction}, which addresses these two problems.
 
-Changes to software systems, revisions, do not occur without
-reason. 
-The reason or purpose is often related to requirements 
-Often one revision might have multiple purposes ranging from
-maintenance issues, quality issues, requirements, features or a
-response to a bug report.
-These purposes often are exhibited as latent topics that relate to
-many development artifacts such as:
- version control revisions, bug reports, and mailing-list discussions.
+% Changes to software systems, revisions, do not occur without
+% reason. 
+% The reason or purpose is often related to requirements 
+% Often one revision might have multiple purposes ranging from
+% maintenance issues, quality issues, requirements, features or a
+% response to a bug report.
+% These purposes often are exhibited as latent topics that relate to
+% many development artifacts such as:
+%  version control revisions, bug reports, and mailing-list discussions.
 
 In our previous work we dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. 
 We observed that topic trends were often non-functional requirements (NFRs). 
