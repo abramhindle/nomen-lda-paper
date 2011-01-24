@@ -1,40 +1,41 @@
-- Incremental over previous work
-- Simplistic, fragile technique for unsupervised learning
-- Limited practical value
-- Details and assumptions of the proposed approach not clearly described
-- Various issues in evaluation design
-- no clear criteria for success in the analysis of case-study findings
+x Incremental over previous work
+x Simplistic, fragile technique for unsupervised learning
+x Limited practical value
+x Details and assumptions of the proposed approach not clearly described
+x Various issues in evaluation design
+x no clear criteria for success in the analysis of case-study findings
 
 13.51: 42
 14.40: 50
 16.30: 45
 16.48: 18
 
-fixes
-MINE
-- mention marcus's low precision? 
-- mention cleland's good precision but also how much more structured it was. 
-- an actual algorithm like in REFSQ?
-- re-read moved sections in discussion
-- does case study flow? 
+* fixes
+** MINE
+*** TODO mention marcus's low precision? 
+*** DONE mention cleland's good precision but also how much more structured it was. 
+*** TODO an actual algorithm like in REFSQ?
+*** TODO re-read moved sections in discussion
+*** TODO does case study flow? 
 
-FSE
-- how to use it?
-- discussion confusiong
-- what to make of evolution viz?
+** FSE
+*** DONE how to use it?
+*** DONE discussion confusiong
+*** TODO what to make of evolution viz?
+*** TODO What does it really mean that labeled frequencies change over time or differ between projects? Is this bad? Good? Do we need to do something about it?
 
-ICSE
-- give clear criteria for success
-- how is viz useful
-X how improves on topic windows and cleland huang
-X what exactly is a topic
-X why both from same domain?
-X why claim unsupervised?
-X no external validation
-X mailing lists - why, where?
-- level of effort needed unclear
-- implications not supported
-- manual annot. easy?
-X how was annotation done?
-- only show best learners in figure? why, seems biased.
-X construct validity
+** ICSE
+*** DONE give clear criteria for success
+*** TODO how is viz useful
+*** DONE how improves on topic windows and cleland huang
+*** DONE what exactly is a topic
+*** DONE  why both from same domain?
+*** DONE  why claim unsupervised?
+*** DONE  no external validation
+*** DONE  mailing lists - why, where?
+*** DONE  level of effort needed unclear
+*** TODO implications not supported
+*** DONE  manual annot. easy?
+*** DONE  how was annotation done?
+*** TODO only show best learners in figure? why, seems biased.
+*** DONE  construct validity
