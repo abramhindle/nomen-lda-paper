@@ -117,7 +117,7 @@ insight into their evolving software development activities.
 
 % \todo[inline]{Move previous work up}
 
-One challenge for software maintenance is to identify the reasons behind software development activities. Identifying these reasons provides insight into \emph{why} certain changes were made. Topic modeling is a machine learning technique which creates multinomial distributions over words from a text corpus. Topic models are useful in software maintenance because they summarize the key concepts in a corpus, such as source code, commit comments, or email, by identifying statistically co-occuring words. Among other uses, it can quickly give developers an overview of where activity occurred, and gives managers or maintainers a sense of project history. For example, a topic extracted from a set of commit logs might be \emph{ ``listener change remove add fire''}.  A major challenge for topic modeling is to accurately identify the summary label for a topic (in the previous case, perhaps \emph{``event-handling''}). 
+One challenge for software maintenance is to identify the reasons behind software development activities. Identifying these reasons provides insight into \emph{why} certain changes were made. Topic modeling is a machine learning technique which creates multinomial distributions over words from a text corpus. The technique infers the hidden structure of a corpus using posterior inference (the probability of the hidden structure given the data). Topic models are useful in software maintenance because they summarize the key concepts in a corpus, such as source code, commit comments, or email, by identifying statistically co-occuring words. Among other uses, it can quickly give developers an overview of where activity occurred, and gives managers or maintainers a sense of project history. For example, a topic extracted from a set of commit logs might be \emph{ ``listener change remove add fire''}.  A major challenge for topic modeling is to accurately identify the summary label for a topic (in the previous case, perhaps \emph{``event-handling''}). 
 Current approaches are manual: they rely on human expertise to recognize the appropriate label. Furthermore, to date the results of topic modeling are project specific, and not generalizable. This paper presents an approach, \emph{labelled topic extraction}, which addresses these two problems.
 
 % Changes to software systems, revisions, do not occur without
@@ -156,21 +156,17 @@ This allows us to mine software systems with the intention of comparing their NF
 % AH: Project Dashboards, summarization, software process recovery
 
 Concrete applications of topics and \emph{labelled topic extraction}
-range from project dashboards to annotating software artifacts with
-NFR-related tags such as revisions and bug reports. 
+range from project dashboards to annotating software artifacts such as revisions and bug reports with
+NFR-related tags.
 Project dashboard are typically employed by managers and are used to
-provide quick summaries of a the efforts put into a software project,
-labelled topic extraction would allow managers to track efforts
-related to topics, specifically NFRs.
-These techniques also allow the annotation of bug
-reports and other software artifacts with the NFRs, such as
-portability that they relate to, this would enable querying of bug
+provide quick summaries of the effort put into a software project. In this case, 
+labelled topic extraction would allow managers to track effort
+related to topics, in this paper, NFRs such as usability.
+These techniques also allow the annotation of commit comments
+ and other software artifacts with NFRs. This would enable querying of bug
 reports and artifacts by relevant NFRs. 
 For instance one could look
-for portability relevant revisions and bug reports.
-
-
-
+for usability-relevant revisions and bug reports.
 
 
 %% RESEARCH DIDNT DO THIS AND WE ARE TOTALLY AWESOME AND WE DID
