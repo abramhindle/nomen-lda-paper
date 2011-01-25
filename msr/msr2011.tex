@@ -124,16 +124,18 @@ changes were made.
 Topic modeling is a machine learning technique which creates
 multinomial distributions over words from a text corpus. 
 The technique infers the hidden structure of a corpus using posterior
-inference (the probability of the hidden structure given the data). 
+inference: the probability of the hidden structure given the data. 
 Topic models are useful in software maintenance because they summarize
 the key concepts in a corpus, such as source code, commit comments, or
-email, by identifying statistically co-occurring words. 
+mailing-list messages, by identifying statistically co-occurring words. 
 Among other uses, it can quickly give developers an overview of where
 activity occurred, and gives managers or maintainers a sense of
 project history. 
 For example, a topic extracted from a set of commit logs might be
 \emph{ ``listener change remove add fire''}. 
-A major challenge for topic modeling is to accurately identify the summary label for a topic (in the previous case, perhaps \emph{``event-handling''}). 
+A major challenge for topic modeling is to accurately identify the
+summary label for a topic; in the previous case, perhaps
+\emph{``event-handling''} would be appropriate. 
 Current approaches are manual: they rely on human expertise to
 recognize the appropriate label. 
 Furthermore, to date the results of topic modeling are project
