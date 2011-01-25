@@ -75,7 +75,7 @@ We propose a solution: \emph{automated labelled topic extraction}.
   Topics are extracted 
 using  Latent Dirichlet Allocation (LDA) from commit-log comments recovered
 from source control systems such as CVS and BitKeeper.  
-These topics are given labels from to a generalizable
+These topics are given labels from a generalizable
 cross-project taxonomy, consisting of non-functional
 requirements. Our approach was evaluated with experiments and case studies
 on two large-scale RDBMS projects: MySQL and MaxDB.  The case studies
@@ -117,8 +117,30 @@ insight into their evolving software development activities.
 
 % \todo[inline]{Move previous work up}
 
-One challenge for software maintenance is to identify the reasons behind software development activities. Identifying these reasons provides insight into \emph{why} certain changes were made. Topic modeling is a machine learning technique which creates multinomial distributions over words from a text corpus. The technique infers the hidden structure of a corpus using posterior inference (the probability of the hidden structure given the data). Topic models are useful in software maintenance because they summarize the key concepts in a corpus, such as source code, commit comments, or email, by identifying statistically co-occurring words. Among other uses, it can quickly give developers an overview of where activity occurred, and gives managers or maintainers a sense of project history. For example, a topic extracted from a set of commit logs might be \emph{ ``listener change remove add fire''}.  A major challenge for topic modeling is to accurately identify the summary label for a topic (in the previous case, perhaps \emph{``event-handling''}). 
-Current approaches are manual: they rely on human expertise to recognize the appropriate label. Furthermore, to date the results of topic modeling are project specific, and not generalizable. This paper presents an approach, \emph{labelled topic extraction}, which addresses these two problems.
+One challenge for software maintenance is to identify the reasons
+behind software development activities. 
+Identifying these reasons provides insight into \emph{why} certain
+changes were made. 
+Topic modeling is a machine learning technique which creates
+multinomial distributions over words from a text corpus. 
+The technique infers the hidden structure of a corpus using posterior
+inference: the probability of the hidden structure given the data. 
+Topic models are useful in software maintenance because they summarize
+the key concepts in a corpus, such as source code, commit comments, or
+mailing-list messages, by identifying statistically co-occurring words. 
+Among other uses, it can quickly give developers an overview of where
+activity occurred, and gives managers or maintainers a sense of
+project history. 
+For example, a topic extracted from a set of commit logs might be
+\emph{ ``listener change remove add fire''}. 
+A major challenge for topic modeling is to accurately identify the
+summary label for a topic; in the previous case, perhaps
+\emph{``event-handling''} would be appropriate. 
+Current approaches are manual: they rely on human expertise to
+recognize the appropriate label. 
+Furthermore, to date the results of topic modeling are project
+specific, and not generalizable. 
+This paper presents an approach, \emph{labelled topic extraction}, which addresses these two problems.
 
 % Changes to software systems, revisions, do not occur without
 % reason. 
@@ -138,7 +160,7 @@ In this sense, they are useful abstractions for developer conversations about di
 % harp on data mining more
 In general, the mining of software artifacts tends to be very project specific, yet NFRs are not. 
 % I was told if you're going to use a paren, you don't need to say it.
-There is a series of standards on NFRs, such as \cite{iso9126}, specifically intended to apply to projects of varying types.
+There is a series of standards on NFRs, such as ISO9126~\cite{iso9126}, specifically intended to apply to projects of varying types.
 These standards indicate our approach is possible. %, if perhaps not universally accepted).
 % NFRs are prevalent in almost all software systems.
 % In this paper we will show that NFR related topics occur quite frequently.
@@ -163,10 +185,10 @@ provide quick summaries of the effort put into a software project. In this case,
 labelled topic extraction would allow managers to track effort
 related to topics, in this paper, NFRs such as usability.
 These techniques also allow the annotation of commit comments
- and other software artifacts with NFRs. This would enable querying of bug
-reports and artifacts by relevant NFRs. 
+ and other software artifacts with NFRs. 
+This would enable querying of bug reports and artifacts by relevant NFRs. 
 For instance one could look
-for usability-relevant revisions and bug reports.
+for \emph{usability}-relevant revisions and bug reports.
 
 
 %% RESEARCH DIDNT DO THIS AND WE ARE TOTALLY AWESOME AND WE DID
@@ -190,7 +212,7 @@ This paper makes the following contributions:
 \item We evaluate a supervised method of automatically labelling topics with a single NFR (machine learning);
 \item We evaluate a supervised method of labelling topics with multiple NFRs (multi-label machine learning);
 \item We provide a method of cross-project analysis via topic labelling;
-\item We apply these techniques to visualizing NFRs over time, to analyze maintenance activities.
+\item We apply these techniques to visualize NFRs over time, and to analyze maintenance activities.
 \end{itemize}
 
 %We first introduces labelled topic extraction, and then uses that technique to analyze development activity in two large-scale examples.
@@ -212,7 +234,7 @@ The paper concludes with a discussion of limitations (Section \ref{sec:limit}), 
 \section{Previous Work}
 \label{sec:related}
 
-The idea of extracting higher-level `concerns', also known as `concepts', `aspects' or `requirements', has been approached from documentation-based and repository-based perspectives.
+The idea of extracting higher-level \emph{concerns}, also known as \emph{concepts}, \emph{aspects} or \emph{requirements}, has been approached from documentation-based and repository-based perspectives.
 
 Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. 
 Their approach was similar to ours, as they mined keywords from NFR catalogues.
@@ -258,8 +280,9 @@ In Baldi et al.~\cite{Baldi2008}, topics are named manually: human experts read 
 As discussed earlier, given the topic \emph{``listener change remove add fire''}, Baldi et al. would assign the label \emph{event-handling}. 
 The labels are reasonable enough, but still require an expert in the field to determine them. 
 Furthermore, these labels are project-specific, because they are generated from the data of that project. E.g., we might have a label called `Oracle' in the MySQL case, since Oracle owns MySQL. 
-
-This paper does this differently. First of all, we automated the process of naming the topics. Secondly, we labelled topics with project-independent terms, in order to permit cross-project comparison.
+We do this differently.
+%This paper does this differently. 
+First of all, we automated the process of naming the topics. Secondly, we labelled topics with project-independent terms, in order to permit cross-project comparison.
 
 Mei et al.~\cite{Mei2007} use context information to automatically name topics. 
 They describe probabilistic labelling, using the frequency distribution of words in a topic to create a meaningful phrase. 
@@ -281,7 +304,7 @@ Finally, in \cite{ernst10refsq}, we describe our earlier project, similar to thi
 
 \section{Study design and execution}
 Figure \ref{fig:process} gives an outline of the methodology followed. 
-We began by gathering source data and creating topic models. For unsupervised labelling, we generate three sets of word-lists as signifiers for NFRs.
+We began by gathering source data and creating topic models. For unsupervised labelling, we generated three sets of word-lists as signifiers for NFRs.
 %e created labels using a well-known NFR taxonomy. 
 In supervised learning, we trained our data with manual annotations in order to match topics with NFRs. Finally, these topics were used to analyze the role of non-functional requirements in software maintenance.
 
@@ -301,7 +324,7 @@ We selected MySQL 3.23 and MaxDB 7.500 as they were open-source, partially-comme
 MaxDB started in the late 1970s as a research project, and was later acquired by SAP. 
 As of version 7.500, released April 2007, the project has 940 thousand lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}, dwheeler.com/sloccount.}. 
 The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. 
-MySQL contains 320 thousand lines of C and C++ source code.  
+MySQL contains $320 000$ lines of C and C++ source code.  
 Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
 
 For each project, we used source control commit comments, the messages that programmers write when they commit revisions to a source control repository. 
@@ -309,15 +332,16 @@ This is the most readily accessible source of project interactions for outside r
 An example of a typical commit message is: \textit{``history annotate diffs bug fixed (if mysql\-\_real\-\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. 
 We extracted these messages and indexed them by creation time. 
 We summarized each message as a word distribution but removed stop-words such as \emph{the} and \emph{at}. 
-Stemming was performed in the later stages of our analysis. % WAS IT?
+%Stemming was performed in the later stages of our analysis. % WAS IT?
 
 For the commit message data-sets of each project, we created an XML file which separated commits into 30 day periods. 
 This size of period, 30 days, is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze~\cite{Hindle09ICSM}. 
-For each 30 day period of each project, we input the messages of that period into Latent Dirichlet Allocation (LDA), a topic analysis algorithm~\cite{Blei2003}, and recorded the topics the algorithm returned.
+For each 30 day period of each project, we input the messages of that period into Latent Dirichlet Allocation (LDA), a topic analysis algorithm~\cite{Blei2003}, and recorded the topics the algorithm extracted.
 %For each project and for each period of messages a project, we input these messages 
 %we created `topics' using Latent Dirichlet Allocation, a topic identification algorithm. 
 
-A topic analysis tool such as LDA will try to find $N$ independent word distributions within the word distributions of all the messages. 
+A topic analysis tool such as LDA will try to find $N$ independent
+word distributions within the word distributions of all input messages. 
 Linear combinations of these $N$ word distributions are meant to represent and recreate the word distributions of any of the original messages. 
 These $N$ word distributions effectively form topics: cross-cutting collections of words relevant to one or more of our commit messages. 
 LDA extracts topics in an unsupervised manner; the algorithm relies solely on the source data, word distributions of messages, with no human intervention.
