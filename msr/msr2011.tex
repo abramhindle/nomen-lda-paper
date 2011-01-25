@@ -117,10 +117,13 @@ insight into their evolving software development activities.
 
 % \todo[inline]{Move previous work up}
 
-One challenge for software maintenance is to identify the reasons
-behind software development activities. 
-Identifying these reasons provides insight into \emph{why} certain
-changes were made. 
+%One challenge for software maintenance is to identify the reasons
+%behind software development activities. 
+%Identifying these reasons provides insight into \emph{why} certain
+%changes were made. 
+%migod
+A key problem for practising software maintainers is gaining an understanding of \emph{why} a system has evolved the way it has. Looking back on streams of artifacts scattered across different repositories, inferring what activities were performed, when, and for what reasons, is hard to do without expert advice from the developers involved. In this work we seek to provide automated help in labelling development topics that have been extracted from commit logs.
+
 Topic modeling is a machine learning technique which creates
 multinomial distributions over words from a text corpus. 
 The technique infers the hidden structure of a corpus using posterior
@@ -128,19 +131,21 @@ inference: the probability of the hidden structure given the data.
 Topic models are useful in software maintenance because they summarize
 the key concepts in a corpus, such as source code, commit comments, or
 mailing-list messages, by identifying statistically co-occurring words. 
-Among other uses, it can quickly give developers an overview of where
-activity occurred, and gives managers or maintainers a sense of
+Among other uses, it can quickly give developers an overview of where significant
+activity has occurred, and gives managers or maintainers a sense of
 project history. 
-For example, a topic extracted from a set of commit logs might be
-\emph{ ``listener change remove add fire''}. 
-A major challenge for topic modeling is to accurately identify the
-summary label for a topic; in the previous case, perhaps
-\emph{``event-handling''} would be appropriate. 
-Current approaches are manual: they rely on human expertise to
-recognize the appropriate label. 
-Furthermore, to date the results of topic modeling are project
-specific, and not generalizable. 
-This paper presents an approach, \emph{labelled topic extraction}, which addresses these two problems.
+For example, a topic extracted from a set of commit logs might consist of the following terms: \emph{ ``listener change remove add fire''}. 
+%A major challenge for topic modeling is to accurately identify the
+%summary label for a topic; in the previous case, perhaps
+%\emph{``event-handling''} would be appropriate. 
+%Current approaches are manual: they rely on human expertise to
+%recognize the appropriate label. 
+%Furthermore, to date the results of topic modeling are project
+%specific, and not generalizable. 
+%This paper presents an approach, \emph{labelled topic extraction}, which addresses these two problems.
+
+%migod
+While machine learning techniques can automatically identify clumps of commonly recurring terms, devising an appropriate summary label for each clump/topic is harder.  For example, the word list above might reasonably be labelled as \emph{"event handling"} by a human who understands the domain well, despite the fact that label does not appear in the word list itself.  Current approaches to topic labelling rely on manual intervention by human experts, and also are limited to project-specific topic labels.  In this paper, we introduce \emph{labelled topic extraction}, an approach to topic labelling that is both automatic and creates labels that are project independent.
 
 % Changes to software systems, revisions, do not occur without
 % reason. 
@@ -152,22 +157,22 @@ This paper presents an approach, \emph{labelled topic extraction}, which address
 % many development artifacts such as:
 %  version control revisions, bug reports, and mailing-list discussions.
 
-In our previous work we dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. 
-We observed that topic trends were often non-functional requirements (NFRs). 
-NFRs have the property of being cross-domain and widely applicable. 
-In this sense, they are useful abstractions for developer conversations about different software projects.
+%In our previous work we dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. 
+%We observed that topic trends were often non-functional requirements (NFRs). 
+%NFRs have the property of being cross-domain and widely applicable. 
+%In this sense, they are useful abstractions for developer conversations about different software projects.
 
 % harp on data mining more
-In general, the mining of software artifacts tends to be very project specific, yet NFRs are not. 
+%In general, the mining of software artifacts tends to be very project specific, yet NFRs are not. 
 % I was told if you're going to use a paren, you don't need to say it.
-There is a series of standards on NFRs, such as ISO9126~\cite{iso9126}, specifically intended to apply to projects of varying types.
-These standards indicate our approach is possible. %, if perhaps not universally accepted).
+%There is a series of standards on NFRs, such as ISO9126~\cite{iso9126}, specifically intended to apply to projects of varying types.
+%These standards indicate our approach is possible. %, if perhaps not universally accepted).
 % NFRs are prevalent in almost all software systems.
 % In this paper we will show that NFR related topics occur quite frequently.
 %XXXXXX this sentence is confusing
 %This informs our method of generalizing the data mining of these software artifacts to leverage the global domain knowledge of software engineering, specifically NFRs. 
-In particular, we use software quality models to generalize topics across projects. 
-This allows us to mine software systems with the intention of comparing their NFR-related development topics.
+%In particular, we use software quality models to generalize topics across projects. 
+%This allows us to mine software systems with the intention of comparing their NFR-related development topics.
 % in order to achieve generalizable, cross project data mining results.
 
 %%%% THIS PARAGRAPH ARGUES ABOUT THE CONCRETE APPLICATION OF 
@@ -177,14 +182,17 @@ This allows us to mine software systems with the intention of comparing their NF
 % AH: Topics take a long to read
 % AH: Project Dashboards, summarization, software process recovery
 
+%migod
+In general, the fruits of mining software artifacts are often project specific and hard to generalize.  However, in our previous work we investigated \emph{topic trends} --- that is, topics that recur over time --- we observed that topic trends often corresponded to non-functional requirements (NFRs) \cite{Hindle09ICSM}.  This is encouraging, as NFRs have the property of being cross-domain and widely applicable. In this sense, they are useful abstractions for developer conversations about different software projects.  Furthermore, there is a series of standards on NFRs, such as ISO9126 \cite{iso9126}, that are specifically intended to apply to projects of varying types; this suggests that our goal of trying to extract NFR-related development topics, such as those related to software quality models, holds promise.
+
 Concrete applications of topics and \emph{labelled topic extraction}
 range from project dashboards to annotating software artifacts such as revisions and bug reports with
 NFR-related tags.
 Project dashboard are typically employed by managers and are used to
 provide quick summaries of the effort put into a software project. In this case, 
 labelled topic extraction would allow managers to track effort
-related to topics, in this paper, NFRs such as usability.
-These techniques also allow the annotation of commit comments
+related to topics, such as usability or other NFRs.
+These techniques also allow for the annotation of commit comments
  and other software artifacts with NFRs. 
 This would enable querying of bug reports and artifacts by relevant NFRs. 
 For instance one could look
@@ -206,13 +214,13 @@ Our technique automatically, or with some initial training, assigns labels acros
 
 This paper makes the following contributions: 
 \begin{itemize}
-\item We introduce the concept of labelled topic extraction, using a non-functional requirements (NFR) taxonomy for our labels. 
-\item We evaluate an unsupervised method of automated topic labelling (word-lists);
+\item introduces the concept of labelled topic extraction, using a non-functional requirements (NFR) taxonomy for our labels. 
+\item evaluates an unsupervised method of automated topic labelling (word-lists);
 %\item Our unsupervised method can be applied to projects without training;
-\item We evaluate a supervised method of automatically labelling topics with a single NFR (machine learning);
-\item We evaluate a supervised method of labelling topics with multiple NFRs (multi-label machine learning);
-\item We provide a method of cross-project analysis via topic labelling;
-\item We apply these techniques to visualize NFRs over time, and to analyze maintenance activities.
+\item evaluates a supervised method of automatically labelling topics with a single NFR (machine learning);
+\item evaluates a supervised method of labelling topics with multiple NFRs (multi-label machine learning);
+\item provides a method of cross-project analysis via topic labelling; and
+\item applies these techniques to visualize NFRs over time, and to analyze maintenance activities.
 \end{itemize}
 
 %We first introduces labelled topic extraction, and then uses that technique to analyze development activity in two large-scale examples.
