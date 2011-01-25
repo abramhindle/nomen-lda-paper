@@ -234,7 +234,7 @@ The paper concludes with a discussion of limitations (Section \ref{sec:limit}), 
 \section{Previous Work}
 \label{sec:related}
 
-The idea of extracting higher-level `concerns', also known as `concepts', `aspects' or `requirements', has been approached from documentation-based and repository-based perspectives.
+The idea of extracting higher-level \emph{concerns}, also known as \emph{concepts}, \emph{aspects} or \emph{requirements}, has been approached from documentation-based and repository-based perspectives.
 
 Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. 
 Their approach was similar to ours, as they mined keywords from NFR catalogues.
@@ -280,8 +280,9 @@ In Baldi et al.~\cite{Baldi2008}, topics are named manually: human experts read 
 As discussed earlier, given the topic \emph{``listener change remove add fire''}, Baldi et al. would assign the label \emph{event-handling}. 
 The labels are reasonable enough, but still require an expert in the field to determine them. 
 Furthermore, these labels are project-specific, because they are generated from the data of that project. E.g., we might have a label called `Oracle' in the MySQL case, since Oracle owns MySQL. 
-
-This paper does this differently. First of all, we automated the process of naming the topics. Secondly, we labelled topics with project-independent terms, in order to permit cross-project comparison.
+We do this differently.
+%This paper does this differently. 
+First of all, we automated the process of naming the topics. Secondly, we labelled topics with project-independent terms, in order to permit cross-project comparison.
 
 Mei et al.~\cite{Mei2007} use context information to automatically name topics. 
 They describe probabilistic labelling, using the frequency distribution of words in a topic to create a meaningful phrase. 
