@@ -324,7 +324,7 @@ We selected MySQL 3.23 and MaxDB 7.500 as they were open-source, partially-comme
 MaxDB started in the late 1970s as a research project, and was later acquired by SAP. 
 As of version 7.500, released April 2007, the project has 940 thousand lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}, dwheeler.com/sloccount.}. 
 The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. 
-MySQL contains 320 thousand lines of C and C++ source code.  
+MySQL contains $320 000$ lines of C and C++ source code.  
 Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
 
 For each project, we used source control commit comments, the messages that programmers write when they commit revisions to a source control repository. 
@@ -332,15 +332,16 @@ This is the most readily accessible source of project interactions for outside r
 An example of a typical commit message is: \textit{``history annotate diffs bug fixed (if mysql\-\_real\-\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. 
 We extracted these messages and indexed them by creation time. 
 We summarized each message as a word distribution but removed stop-words such as \emph{the} and \emph{at}. 
-Stemming was performed in the later stages of our analysis. % WAS IT?
+%Stemming was performed in the later stages of our analysis. % WAS IT?
 
 For the commit message data-sets of each project, we created an XML file which separated commits into 30 day periods. 
 This size of period, 30 days, is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze~\cite{Hindle09ICSM}. 
-For each 30 day period of each project, we input the messages of that period into Latent Dirichlet Allocation (LDA), a topic analysis algorithm~\cite{Blei2003}, and recorded the topics the algorithm returned.
+For each 30 day period of each project, we input the messages of that period into Latent Dirichlet Allocation (LDA), a topic analysis algorithm~\cite{Blei2003}, and recorded the topics the algorithm extracted.
 %For each project and for each period of messages a project, we input these messages 
 %we created `topics' using Latent Dirichlet Allocation, a topic identification algorithm. 
 
-A topic analysis tool such as LDA will try to find $N$ independent word distributions within the word distributions of all the messages. 
+A topic analysis tool such as LDA will try to find $N$ independent
+word distributions within the word distributions of all input messages. 
 Linear combinations of these $N$ word distributions are meant to represent and recreate the word distributions of any of the original messages. 
 These $N$ word distributions effectively form topics: cross-cutting collections of words relevant to one or more of our commit messages. 
 LDA extracts topics in an unsupervised manner; the algorithm relies solely on the source data, word distributions of messages, with no human intervention.
