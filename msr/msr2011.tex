@@ -458,7 +458,7 @@ We then did a simple random analysis of mailing list messages from an open sourc
 For the third set of word-lists, \textsf{exp3}, we extended the word-lists from \textsf{exp2} using unfiltered WordNet similarity matches. 
 Similarity in WordNet means siblings in a hypernym tree. 
 We do not include these words here for space considerations (but see the Appendix for our data repository). 
-It is not clear the words associated with our labels in \textsf{exp3} are specific enough. For example, the label \emph{maintainability} is associated with words \emph{ease} and \emph{ownership}. In general, as we proceed from word-list in \textsf{exp1} to that in \textsf{exp3}, our lists get more generic.
+It is not clear the words associated with our labels in \textsf{exp3} are specific enough. For example, the label \emph{maintainability} is associated with words \emph{ease} and \emph{ownership}. In general, as we proceed from word-list in \textsf{exp1} to that in \textsf{exp3}, our lists become more generic.
 
 \begin{table*}
 	\centering
@@ -492,9 +492,10 @@ operability understandability learnability useable usable serviceable usefulness
 %\noindent \textbf{Generating labels automatically} --- 
 
 Using our three word-lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labeled our topics with an NFR where there was a match between a word in the list and the same word somewhere in the distribution of words that constitute the topic.
-A \emph{named topic} is a topic with a matching NFR label. Unnamed topics occur where this no such match, which may indicate either a lack of precision, or simply that this topic is not associated with non-functional requirements.
+A \emph{named topic} is a topic with a matching NFR label. Unnamed
+topics occur where there is no such match, which may indicate either a lack of precision, or simply that this topic is not associated with non-functional requirements.
 All experiments were run on MaxDB 7.500 and MySQL 3.23 data. LDA
-extracted 20 topics per period for each.
+extracted 20 topics per period for each project.
 % Is this good enough
 This labelling is unsupervised because the corpus is not derived from 
 the project being labelled, and we did not label the project's topics
