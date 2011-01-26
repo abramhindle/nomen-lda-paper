@@ -224,7 +224,7 @@ This paper makes the following contributions:
 \end{itemize}
 
 %We first introduces labelled topic extraction, and then uses that technique to analyze development activity in two large-scale examples.
-We begin with related work in Section \ref{sec:related}.
+We begin by discussing related work in Section \ref{sec:related}.
 Next, we describe how we generated our data (Section \ref{sec:wordlist}). For unsupervised classification (Section \ref{sec:unsuplabelling}), we begin by creating word-lists to signify when a topic matches an NFR label. We then apply our classifier and analyze the results. %and how we created the word-lists used in unsupervised classification. 
 %We show that labels with their topics can be learned and used to classify other data-sets, either without training 
 %Our goal is to label a given topic with either an NFR from our taxonomy,
@@ -311,10 +311,10 @@ Finally, in \cite{ernst10refsq}, we describe our earlier project, similar to thi
 
 
 \section{Study design and execution}
-Figure \ref{fig:process} gives an outline of the methodology followed. 
+Figure \ref{fig:process} gives an outline of methodology.
 We began by gathering source data and creating topic models. For unsupervised labelling, we generated three sets of word-lists as signifiers for NFRs.
 %e created labels using a well-known NFR taxonomy. 
-In supervised learning, we trained our data with manual annotations in order to match topics with NFRs. Finally, these topics were used to analyze the role of non-functional requirements in software maintenance.
+In supervised learning, we trained our data with manual annotations in order to match topics with NFRs. Finally, these topics were used to analyze the role of NFRs in software maintenance.
 
 \begin{figure}
   \centering
@@ -330,20 +330,28 @@ To evaluate our approach, we sought candidate systems that were mature projects 
 We selected systems from the same application domain, to control for differences in functional, rather than non-functional, requirements. 
 We selected MySQL 3.23 and MaxDB 7.500 as they were open-source, partially-commercial database systems. 
 MaxDB started in the late 1970s as a research project, and was later acquired by SAP. 
-As of version 7.500, released April 2007, the project has 940 thousand lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}, dwheeler.com/sloccount.}. 
+As of version 7.500, released April 2007, the project has over $940,000$ lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}, dwheeler.com/sloccount.}. 
 The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. 
-MySQL contains $320 000$ lines of C and C++ source code.  
-Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
+MySQL contains $320,000$ lines of C and C++ source code.  
+%Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
+For our study, we explicitly chose older versions of mature projects from a stable problem domain to increase the likelihood that we would encounter primarily maintenance activities in our studies.
 
-For each project, we used source control commit comments, the messages that programmers write when they commit revisions to a source control repository. 
-This is the most readily accessible source of project interactions for outside researchers, since developers often or always (e.g., Git) write such message. Our approach is more generalizable if it does not assume the presence of other corpora. %bug trackers and email-list archives were not available for both projects. 
-An example of a typical commit message is: \textit{``history annotate diffs bug fixed (if mysql\-\_real\-\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. 
+
+For each project, we used source control commit comments, the messages
+that programmers write when they commit revisions to a source control
+repository. 
+Commit comments are often studied by researchers, as they are the most readily accessible source of project interactions, and developers are often required to create them by the repository mechanism (e.g., Git).  Additionally, relying only on commit comments makes our approach more generalizable, as we do not assume the presence of other artifact corpora.
+%This is the most readily accessible source of project interactions for outside researchers, since developers often or always (e.g., Git) write such message. Our approach is more generalizable if it does not assume the presence of other corpora. %bug trackers and email-list archives were not available for both projects. 
+An example of a typical commit message, from MySQL, is: \textit{``history annotate diffs bug fixed (if mysql\-\_real\-\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. 
 We extracted these messages and indexed them by creation time. 
-We summarized each message as a word distribution but removed stop-words such as \emph{the} and \emph{at}. 
+We summarized each message as a word distribution but removed stop-words such as ``\emph{the}'' and ``\emph{at}''. 
 %Stemming was performed in the later stages of our analysis. % WAS IT?
 
-For the commit message data-sets of each project, we created an XML file which separated commits into 30 day periods. 
-This size of period, 30 days, is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze~\cite{Hindle09ICSM}. 
+For the commit message data-sets of each project, we created an XML file that separated commits into 30 day periods. 
+%This size of period, 30 days, is smaller than the time between minor
+%releases but large enough for there to be sufficient commits to
+%analyze
+We chose a period size of 30 days as it is smaller than the time between minor releases but large enough for there to be sufficient commits to analyze~\cite{Hindle09ICSM}. 
 For each 30 day period of each project, we input the messages of that period into Latent Dirichlet Allocation (LDA), a topic analysis algorithm~\cite{Blei2003}, and recorded the topics the algorithm extracted.
 %For each project and for each period of messages a project, we input these messages 
 %we created `topics' using Latent Dirichlet Allocation, a topic identification algorithm. 
@@ -352,7 +360,8 @@ A topic analysis tool such as LDA will try to find $N$ independent
 word distributions within the word distributions of all input messages. 
 Linear combinations of these $N$ word distributions are meant to represent and recreate the word distributions of any of the original messages. 
 These $N$ word distributions effectively form topics: cross-cutting collections of words relevant to one or more of our commit messages. 
-LDA extracts topics in an unsupervised manner; the algorithm relies solely on the source data, word distributions of messages, with no human intervention.
+LDA extracts topics in an unsupervised manner; the algorithm relies
+solely on the source data and word distributions of messages, with no human intervention.
 
 In topic analysis a single document, such as a commit message, can be related to multiple topics. 
 Representing documents as a mixture of topics maps well to source code repository commits, which often have more than one purpose~\cite{Hindle09ICSM}.  
@@ -368,14 +377,18 @@ We set the number of topics to generate to $20$, because past experimentation sh
 %\noindent \textbf{The high-level labels} --- 
 
 To facilitate cross-project comparison, we used a taxonomy of NFRs. This taxonomy is based on the ISO quality model, ISO9126~\cite{iso9126}. 
-ISO9126 describes six high-level non-functional requirements (NFRs), maintainability, functionality, portability, efficiency, usability, and reliability. 
-There is some debate about the terms in this model. 
-However, ISO9126 is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
+ISO9126 describes six high-level NFRs: maintainability, functionality,
+portability, efficiency, usability, and reliability~\footnote{While there may be lingering debate in some circles about these terms, an ISO standard seems like a reasonable starting point for our work.}
+%There is some debate about the terms in this model. 
+%However, ISO9126 is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
 We claim that these NFRs are maintenance concerns (to varying degrees) in all software projects, and are therefore well-suited to comparison between projects.
 
 %\noindent \textbf{Creating a validation corpus} --- 
 \subsubsection{Creating a validation corpus}
-To evaluate both unsupervised and supervised classification, we created a validation set of manually labelled topics. For MySQL 3.23 and MaxDB 7.500, we annotated each extracted topic in each period with the same NFR labels as described in the preceding paragraph. 
+To evaluate both unsupervised and supervised classification, we
+created a validation set of manually labelled topics. For MySQL 3.23
+and MaxDB 7.500, we annotated each extracted topic in each period with
+the six NFR labels listed above.
 We looked at each period's topics, and assessed what the data --- consisting of the frequency-weighted word lists and messages --- suggested was the topic for that period. 
 We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to the topic being annotated.
 For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. 
@@ -388,7 +401,7 @@ For example, for the MaxDB topic consisting of a message ``exit() only used in n
 %\todo[inline]{NEIL: this section should be updated to explain F-measure}
 We validate classification performance using the Receiver Operating
 Characteristic area-under-curve value~\cite{Fawcett2006861},
-abbreviated \emph{ROC}, and the F-measure.  F-measure is the harmonic mean of precision and recall, i.e., $2 * (P * R) / (P + R)$. 
+abbreviated \emph{ROC}, and the F-measure, which is the harmonic mean of precision and recall, i.e., $2 * (P * R) / (P + R)$. 
 
 %\todo[inline]{NEIL: abram, i got rid of the letter-grade thing because I'm worried people latch on to the idea we are C- students. I feel anything better than random is our criteria here}
 ROC values provide a score %, similar to school letter-grades (A is 0.9, C is 0.6),
