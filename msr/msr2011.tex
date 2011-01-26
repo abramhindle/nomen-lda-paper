@@ -852,7 +852,7 @@ relative to the maximum number of labelled topics overall. For instance, Figure 
 The topmost row in each diagram lists historical events for that project (such as a release). 
 %We refer to these occurrences in the discussion which follows.
 
-\begin{figure*}[t]
+\begin{figure*}[]
 \centering
 \subfloat[MySQL 3.23]{
 \includegraphics[width=\textwidth]{figures/mysql-timeline}
@@ -1029,7 +1029,8 @@ topics that needed to be manually labelled.
 %are difficult to interpret, and manually labelling them is
 %costly. Furthermore, previous work was project-specific and thus incomparable. 
 To improve on this, we leveraged software engineering standards, specifically the ISO quality taxonomy, to produce a method of partially-automated (supervised) and fully-automated (unsupervised) topic labelling.
-Since the word-list technique is not project-specific, we used it to compare two distinct projects, where we showed our technique produced interesting insight into maintenance activity. %topics and artifacts from project histories.
+Since the word-list technique is not project-specific, we used it to compare two distinct projects, where we showed our technique produced interesting insight into maintenance activity. %topics and artifacts from project histories
+We showed that trending topics within commits are often related to non-functional-requirements.
 % Our contributions include:
 % \begin{itemize}
 % \item We provided an unsupervised method of topic labelling (word-lists);
@@ -1039,6 +1040,7 @@ Since the word-list technique is not project-specific, we used it to compare two
 % \item We provided a method of cross-project analysis via topic labelling;
 % \item We demonstrated a method of visualizing these topics across time, which we used to analyze maintenance activities.
 % \end{itemize}
+
 
 We validated our topic labelling techniques using multiple experiments. % on unsupervised learners, supervised and multi-label learners. 
 We first conducted unsupervised labelling using word-lists. 
