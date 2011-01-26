@@ -440,12 +440,16 @@ mined from sources external to the projects themselves.
 
 %\noindent\textbf{Generating word lists} --- 
 
-In order to automatically label each topic with an NFR from ISO9126, we associate each NFR with a list
+In order to automatically label each topic with 
+one of the six high-level NFRs,
+%an NFR from ISO9126, 
+we associate each NFR with a list
 of keywords (`word-lists', in our parlance). These word-lists were determined a priori and were not extracted from the projects themselves.
 We intersected the words of the topics and the words of our word-lists.
-We `labeled' a topic if any of its words matched any of the word-list's words.
+We ``labeled'' a topic if any of its words matched any of the word-list's words.
 A topic could match more than one NFR.
-We used several different sets of word-lists for comparison, which we refer to as \textsf{exp1, exp2, exp3} in the text which follows. 
+We used several different sets of word-lists for comparison, which we
+refer to as \textsf{exp1}, \textsf{exp2}, and \textsf{exp3} in the text which follows. 
 
 Our first word-list set, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519} .
 That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. 
@@ -463,7 +467,9 @@ portability, flexibility, reliability.
 Our second word-list, \textsf{exp2}, uses the ISO9126 taxonomy described above (Section \ref{sec:wordlist}) to seed the word-lists.
 %We use these qualities later on as classes in supervised labelling. NE confusing the issue here, I think.
 The terms from ISO9126 may not capture all words occurring in the topics that are nonetheless associated with one of the NFRs. 
-For example, the term ``redundancy'' is one most would agree is relevant to discussion of reliability, but is not in the standard. 
+For example, the term ``redundancy'' is one 
+we considered to be
+relevant to discussion of reliability, but is not in the standard. 
 We therefore took the NFRs from the ISO9126 and added to them.
 
 %\todo[inline]{* clarify the mailinglist stuff we did}
@@ -519,7 +525,7 @@ extracted 20 topics per period for each.
 % Is this good enough
 This labelling is unsupervised because the corpus is not derived from 
 the project being labelled, and we did not label the project's topics
-ourselves for a training set. The theory behind this technique is that
+ourselves for a training set. The motivation behind this technique is that
 because most software often addresses similar issues, we can use the
 domain knowledge of software to label relevant topics.
 %\todo[inline]{Neil does this explain the unsupervised aspect well enough?} 
@@ -579,17 +585,20 @@ MySQL 3.23  & Named Topics   & 524 & 273 & 773 \\
 
 \end{table}
 
-For \textsf{exp1}, our best performing labels, those with the most topics, were \emph{correctness} (182 topics) and \emph{testability} (121). 
+For \textsf{exp1}, our best performing 
+labels --- that is, those with the most topics --- were
+%labels, those with the most topics, 
+\emph{correctness} (182 topics) and \emph{testability} (121). 
 We did not get good results for \emph{usability} or \emph{accuracy}, which were associated with fewer than ten topics. 
 We also looked for correlation between our labels: Excluding double matches (self-correlation), our highest co-occurring terms were \emph{verifiability} with \emph{traceability}, and \emph{testability} with \emph{correctness} (76 and 62 matches, respectively).
 % See the following sections for our error analysis. 
 
 For \textsf{exp2}, there are more unnamed topics than \textsf{exp1}. 
-Only \emph{reliability} produces a lot of matches, mostly with the word `error'. 
+Only \emph{reliability} produces a lot of matches, mostly with the word ``error''. 
 Co-occurrence results were poor. This suggests our word lists were overly restrictive.
 
 For \textsf{exp3}, we generally labelled more topics. 
-As we mentioned, the word-lists are quite broad, so there are likely to be false-positives (discussed below). 
+As we mentioned, the word-lists are broad, so there are likely to be false-positives (discussed below). 
 We found a high of 265 topics for \emph{usability}, with a low of 44 topics for \emph{maintainability}. 
 Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{efficiency} with \emph{reliability}, and \emph{efficiency} with \emph{usability} (200, 190, and 150 topics in common, respectively). 
 
@@ -648,7 +657,7 @@ Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. 
 %\todo[inline]{where is exp1 report?}
 
 %EXP1 could not be evaluated properly!
-Because our ground truth annotations were only relevant to ISO-9126,
+Because our ground truth annotations were relevant only to ISO9126,
 we estimate that \textsf{exp1} had poor
 performance via the overlap between ISO-9126 and the Kayed ontology.
 For \textsf{exp1} the F-measures for MaxDB were from $0$ to $0.18$ with an average
@@ -918,7 +927,7 @@ This is likely due to our analysis timeframe for MaxDB being shorter than the ti
 
 Yes. MySQL 3.23 had proportionally more
 topics labelled \emph{functionality}, while MaxDB had proportionally more
-\emph{efficiency} related topics. MaxDB was a very mature release `donated' to the open-source community. 
+\emph{efficiency} related topics. MaxDB was a very mature release ``donated'' to the open-source community. 
 MySQL, on the other hand, was in its relative infancy. 
 Security problems were more common (security is a component of `functionality' in the ISO 9126 model). 
 In both cases \emph{portability} was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects. 
@@ -931,7 +940,8 @@ In both cases \emph{portability} was a constant maintenance concern and was prev
 %\subsection{Effectiveness}
 \subsection{Annotation observations}
 We found many topics that were not non-functional requirements (NFRs) but were often related to them. 
-For instance, concurrency was mentioned often in the commit logs and was related to \emph{correctness} and \emph{reliability}, likely because concurrent code is prone to bugs such as race conditions. %are 
+For instance, concurrency was mentioned often in the commit logs and
+was related to \emph{correctness} and \emph{reliability}, possibly because concurrent code is prone to bugs such as race conditions. %are 
 % often  was troublesome. 
 \emph{Configuration management} and \emph{source control} related changes appeared often; % and sometimes there were topics dedicated to configuration management. 
 these kinds of changes are slightly related to \emph{maintainability}. 
@@ -1006,7 +1016,13 @@ We want to leverage different kinds of artifacts to discover threads of NFR-rela
 Finally, we would like to extend this analysis to other domains, to see what patterns might occur in, for example, a consumer-facing software product.
 
 \section{Conclusions}
-This paper presented a cross-project data mining technique, \emph{labelled topic extraction}. The technique leveraged a non-functional requirements (NFRs) taxonomy to mine and label latent software development topics. Previous topic analysis research produced topics that needed to be manually labelled, but topics without labels are difficult to interpret, and manually labelling them is costly. Furthermore, previous work was project-specific and incomparable. 
+This paper presented a cross-project data mining technique,
+\emph{labelled topic extraction}. The technique leveraged a
+non-functional requirements (NFRs) taxonomy to mine and label latent
+software development topics. Previous topic analysis research produced
+topics that needed to be manually labelled, but topics without labels
+are difficult to interpret, and manually labelling them is
+costly. Furthermore, previous work was project specific and incomparable. 
 To improve this, we leveraged software engineering standards, specifically the ISO quality taxonomy, to produce a method of supervised and unsupervised topic labelling.
 Since the word-list technique is not project specific, it can be used to compare multiple projects.%topics and artifacts from project histories.
 % Our contributions include:
