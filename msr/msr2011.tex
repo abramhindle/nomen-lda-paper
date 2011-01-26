@@ -821,9 +821,16 @@ The multi-label and single-label learners had similar performance: for MySQL, BR
 %In order to test  our ROC values produced acceptable results, we now turn to
 %\emph{applying} those techniques to understand software maintenance
 %activities. 
-\todo[inline]{more on intro ... why should the reader care about this. It needs to show how the stuff in the intro (applications) is possible}
-\todo[inline]{fix section headings}
+\todo[inline]{more on intro ... why should the reader care about
+  this. It needs to show how the stuff in the intro (applications) is
+  possible}
+%%% XXX NEIL I don't get this.. VVVVV
+%\todo[inline]{fix section headings}
 
+In this section we investigate the history of the two projects that we
+studied.
+We demonstrate the value of topic analysis as it is capable of showing
+the topic of development efforts over time in each project.
 We evaluated two research questions using the ground truth data that we
 annotated by hand:
 \begin{enumerate}
@@ -857,7 +864,7 @@ We refer to these occurrences in the discussion which follows.
 In Figure \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have been more intensely shaded. % boxes. not sure boxes is important..
 % I grepped query1.mrs2 http://softwareprocess.es/y/y/maxdb-76.tar.gz
 % and                   http://softwareprocess.es/y/maxdb-7500.tar.gz
-There are more \textsf{None} labels in MaxDB because a number of topics were to do with code cleanup or automated checking using tools like \texttt{sutcheck}, a tool-specific to the development process at MaxDB. 
+There are more \textsf{None} labels in MaxDB because a number of topics were to do with code cleanup or automated checking using tools like \texttt{sutcheck}, a tool-specific to the development process of MaxDB. 
 
 %\noindent \textbf{Timeline of key events} -- 
 As discussed earlier, the top row in each figure shows key events for each project. 
@@ -931,10 +938,15 @@ Yes. MySQL 3.23 had proportionally more
 topics labelled \emph{functionality}, while MaxDB had proportionally more
 \emph{efficiency} related topics. MaxDB was a very mature release ``donated'' to the open-source community. 
 MySQL, on the other hand, was in its relative infancy. 
-Security problems were more common (security is a component of `functionality' in the ISO 9126 model). 
+Security problems were more common (security is a component of \emph{functionality} in the ISO 9126 model). 
 In both cases \emph{portability} was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects. 
 
-\todo[inline]{link the actual data, which is interesting, to somethign actionable for a developer or manager}
+
+\subsection{Summary}
+
+\todo[inline]{link the actual data, which is interesting, to somethign
+  actionable for a developer or manager}
+
 \section{Discussion}
 \label{sec:limit}
 
@@ -997,7 +1009,7 @@ Our taxonomy for software NFRs is subject to dispute, but seems generally accept
 
 \emph{Internal validity} -- %includes inter-rater reliability and our lack of rival explanation building. 
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
-We did not attempt to match our results to any particular model or theory, as such theories are sparse in 
+We did not attempt to match our results to any particular model or theory.
 
 \emph{External validity} -- %was addressed by our use of two case studies, but there are still issues. 
 Our data originated from OSS database projects and thus might not be applicable to commercially developed software. 
