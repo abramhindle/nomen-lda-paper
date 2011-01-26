@@ -214,7 +214,7 @@ Our technique automatically, or with some initial training, assigns labels acros
 
 This paper makes the following contributions: 
 \begin{itemize}
-\item introduces the concept of labelled topic extraction, using a non-functional requirements (NFR) taxonomy for our labels. 
+\item introduces the concept of labelled topic extraction, using a non-functional requirements (NFR) taxonomy for our labels; 
 \item evaluates an unsupervised method of automated topic labelling (word-lists);
 %\item Our unsupervised method can be applied to projects without training;
 \item evaluates a supervised method of automatically labelling topics with a single NFR (machine learning);
@@ -637,7 +637,7 @@ Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. 
 
 \begin{figure*}
   \centering
- \includegraphics[width=0.8\textwidth]{figures/unsupervised-bar}
+ \includegraphics[width=0.7\textwidth]{figures/unsupervised-bar}
  \caption{Performance, ROC values (range: 0-1), of unsupervised topic labelling for
    each NFR and per word-list. Dashed line indicates the performance of a random classifier. This graph shows how well the
    unsupervised topic labelling matched our manual annotations.}
@@ -715,13 +715,30 @@ We tried other learners that WEKA~\cite{weka09} provides: rule learners, decisio
 Figure \ref{fig:best-learn-per-tag} shows the performance of the best performing learner per label. 
  We considered the best learner for a label to be the learner which
  had the highest ROC value for that label. 
-The best learner is important because one uses a single learner per label.
+The best learner is important because one uses a single learner per label. In applying our technique, we expect the user to select, for each NFR, the best learner possible.
 %Figure \ref{fig:best-learn-per-tag} uses the ZeroR learner as a baseline, a common practice in machine learning,
 %as ZeroR naively chooses the largest category all of the time. 
 %ZeroR occasionally outperforms other learners; for labels which are not as common, this is to be expected because any miscategorization will hurt accuracy. 
 %This is why we use ROC values, instead of accuracy, as they can better represent performance on labels which are not applicable to the majority of samples.
 
 Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, as the ROC values for \emph{reliability} and \emph{functionality} seem swapped between projects. 
+
+\begin{figure}
+\centering
+% \subfloat[MySQL]{
+\includegraphics[width=0.4\textwidth]{figures/both-supervised}
+% \label{fig:subfig1}
+% }
+% \subfloat[MaxDB]{
+% \includegraphics[width=0.4\textwidth]{figures/maxdb-supervised}
+% \label{fig:subfig2}
+% }
+\caption[]{ROC value for the best learner per label for MaxDB and MySQL. Values range from 0--1.  Dashed line indicates the performance of a random classifier.
+%\todo[inline]{better discussion}
+}
+\label{fig:best-learn-per-tag}
+\end{figure}
+
 For both projects Bayesian techniques did the best out of a wide variety of machine learners tested. 
 Our best learners, Discriminative Multinomial Naive Bayes, Naive Bayes  and Multinomial Naive Bayes  are all based on Bayes's theorem and all assume, naively, that the features are independent. 
 The features we used are word counts per message. 
@@ -758,22 +775,6 @@ In the next section we will evaluate how well these learners perform
 together.
 %\todo[inline]{Comment about correlation, we should link to the Mulan section, perfect segway since Mulan relies on correlation.}
 
-\begin{figure}
-\centering
-% \subfloat[MySQL]{
-\includegraphics[width=0.4\textwidth]{figures/both-supervised}
-% \label{fig:subfig1}
-% }
-% \subfloat[MaxDB]{
-% \includegraphics[width=0.4\textwidth]{figures/maxdb-supervised}
-% \label{fig:subfig2}
-% }
-\caption[]{ROC value for the best learner per label for MaxDB and MySQL. Values range from 0--1.  Dashed line indicates the performance of a random classifier.
-%\todo[inline]{better discussion}
-}
-\label{fig:best-learn-per-tag}
-\end{figure}
-
 \subsection{Applying multiple labels to topics}
 \label{sec:multilabel}
 
@@ -783,20 +784,6 @@ However, traditional machine learning techniques, such as Naive Bayes, can only 
 The Mulan~\cite{mulan} library encapsulates several different multi-label machine learners which can label elements with multiple labels.
 Mulan also includes methods for determining the performance of such techniques.
 % TOO DETAILED The problem framed in the learners above has changed; instead of looking at the precision and recall of applying one label, we rank multiple labels at once. We must check if the full subset of labels was applied, and then how much of that subset was applied.
-
-
-Two perspectives to evaluate multi-label learners are with micro or macro measurements (used in Figure \ref{fig:mulan}).
-Macro measurements are aggregated at a class or label level (per class) while micro measurements are at the element level (per element).
-A macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. 
-For MaxDB, the macro-ROC values are undefined because of poor performance of one of the labels.%, see Figure \ref{fig:mulan}.
-
-Figure~\ref{fig:mulan} presents the results of Mulan's best multi-label learners for our data. 
-Calibrated Label Ranking (CLR) is a learner that builds two layers, the first layer determines if an entity should be labelled, while the second layer determines what labels should be assigned.
-The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act as a hierarchy of learners: BR is flat, while HOMER tries to build a deeper hierarchy to build a more accurate learner~\cite{mulan}. 
-These classifiers performed better than other multi-label classifiers as they have the best micro and macro ROC scores. 
-The multi-label and single-label learners had similar performance: for MySQL, BR and NaiveBayes had similar macro-ROC scores of $0.74$.
-% although their results are comparable to the naive Bayesian learners we used in Section \ref{sec:suplabelling}.
-% \todo[inline]{discuss this similarity in more detail}
 
 \begin{figure*}[]
 \centering
@@ -814,6 +801,19 @@ The multi-label and single-label learners had similar performance: for MySQL, BR
 \label{fig:mulan}
 \end{figure*}
 
+Two perspectives to evaluate multi-label learners are with micro or macro measurements (used in Figure \ref{fig:mulan}).
+Macro measurements are aggregated at a class or label level (per class) while micro measurements are at the element level (per element).
+A macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. 
+For MaxDB, the macro-ROC values are undefined because of poor performance of one of the labels.%, see Figure \ref{fig:mulan}.
+
+Figure~\ref{fig:mulan} presents the results of Mulan's best multi-label learners for our data. 
+Calibrated Label Ranking (CLR) is a learner that builds two layers. The first layer determines if an entity should be labelled, while the second layer determines what labels should be assigned.
+The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act as a hierarchy of learners: BR is flat, while HOMER tries to build a deeper hierarchy for a more accurate learner~\cite{mulan}. 
+These classifiers performed better than other multi-label classifiers as they have the best micro and macro ROC scores. 
+The multi-label and single-label learners had similar performance: for MySQL, BR and NaiveBayes had similar macro-ROC scores of $0.74$.
+% although their results are comparable to the naive Bayesian learners we used in Section \ref{sec:suplabelling}.
+% \todo[inline]{discuss this similarity in more detail}
+
 \section{Understanding software maintenance activities} 
 \label{sec:analysis}
 % \todo[inline]{talk about this topic in one section}
@@ -821,58 +821,69 @@ The multi-label and single-label learners had similar performance: for MySQL, BR
 %In order to test  our ROC values produced acceptable results, we now turn to
 %\emph{applying} those techniques to understand software maintenance
 %activities. 
-\todo[inline]{more on intro ... why should the reader care about
-  this. It needs to show how the stuff in the intro (applications) is
-  possible}
+%\todo[inline]{more on intro ... why should the reader care about
+ % this. It needs to show how the stuff in the intro (applications) is
+ % possible}
 %%% XXX NEIL I don't get this.. VVVVV
 %\todo[inline]{fix section headings}
-
-In this section we investigate the history of the two projects that we
-studied.
-We demonstrate the value of topic analysis as it is capable of showing
-the topic of development efforts over time in each project.
-We evaluated two research questions using the ground truth data that we
-annotated by hand:
+As we mentioned in the introduction, a key issue in software maintenance is understanding \emph{why} a system has evolved the way it has. 
+In this section we demonstrate the value of labelled topic extraction in addressing this issue. 
+We investigate the history of the two large-scale database systems that we studied. 
+We use our technique to show the topic of development efforts over time in each project.
+%We evaluated two research questions using the ground truth data that we annotated by hand:
+We motivated our investigation with two research questions:
 \begin{enumerate}
-\item Do label frequencies change over time? Is a certain quality of more interest at one point in the life-cycle than some other? 
-\item  Do the different projects differ in their relative topic interest? Is a particular quality more important to one project than the other projects?  
+\item \emph{Do NFR frequencies change over time?} If a particular NFR was of more interest at one point in the life-cycle than another, this suggests that development activity shifted focus. For example, if a developer expected to see a recent focus on \emph{reliability}, but instead \emph{usability} dominated, he or she might re-prioritize up-coming work items.
+\item \emph{Do projects differ in their relative interest in NFRs?} A program manager would be interested in knowing whether a particular NFR, such as \emph{reliability}, was more important for one project than another. This could be to confirm the initial design goals, or to track the progress on that quarter's objectives.  
 \end{enumerate}
-
-% There are several possible applications of \textsf{Nomen}'s techniques. 
-% For outside users of the software, \textsf{Nomen} can provide insight into that company's development practices. 
-% Are they focused on usability, for example?
-% Within the organization \textsf{Nomen} acts as a historical sanity check. 
-% Confirmation bias is the difference between what people think happened and what actually happened. 
-% Some software releases, for instance, are poorly received since they are quite buggy. 
-% \textsf{Nomen} would help explain why this was the case, since it can identify NFRs which are dominating developer attention.
-%\todo[inline]{does this section use supervised learning, and if so what ones?}
 
 \subsection{Timeline analysis}
 Figures \ref{fig:mysql-timeline} and \ref{fig:maxdb-timeline} show the
-temporal patterns of label frequencies based on the manually annotated
-topics, although this visualization can be generated from the
-results of labelled topic extraction.
+temporal patterns of NFR frequencies.
+%NEIL- I think this (below) is just confusing, although maybe important to note.
+% based on the manually annotated
+%topics, although this visualization can be generated from the
+%results of labelled topic extraction.
 There are two measures represented. 
-One, the relative frequency, shown in the grey boxes, represents the number of labels with that NFR in that period, 
-relative to the maximum number of topics assigned to that NFR. 
-The second, absolute frequency, compares the number of topics labelled with that NFR per period 
-relative to the maximum number of labelled topics overall, for that project. 
-The topmost row in each diagram is reserved for historical events of note. 
-We refer to these occurrences in the discussion which follows.
+One, the relative frequency, shown in the grey histogram boxes, represents the number of topics with that NFR in that period, 
+relative to the maximum number of topics assigned to that NFR. For example, in Figure \ref{fig:mysql-timeline} we see a spike in \emph{portability} and \emph{functionality} frequency in September 2002.
+The second, absolute frequency, is shown using cell intensity compares the number of topics labelled with that NFR per period 
+relative to the maximum number of labelled topics overall, for that project. For instance, Figure \ref{fig:mysql-timeline} shows that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labelled topics, since these NFRs have been more intensely shaded.
+The topmost row in each diagram lists historical events for that project (such as a release). 
+%We refer to these occurrences in the discussion which follows.
+
+\begin{figure*}[]
+\centering
+\subfloat[MySQL 3.23]{
+\includegraphics[width=\textwidth]{figures/mysql-timeline}
+\label{fig:mysql-timeline}                               
+}           
+                                             
+\subfloat[MaxDB 7.500]{                                 
+\includegraphics[width=\textwidth]{figures/maxdb-timeline}
+\label{fig:maxdb-timeline}
+}
+	\caption[]{NFR label per period. Each cell represents a 30-day period. %Numbers represent number of topics in that period labelled with that NFR. 
+	Grid cell intensity (saturation) is mapped to label frequency relative to the largest label value of \emph{all} NFRs. Grey histogram bars indicate label frequency relative to that particular NFR's largest label value. Dashed vertical lines relate a project milestone (*Key Event*) to our topic windows. 
+% \todo[inline]{better discussion}
+}
+\label{fig:timelines}
+\end{figure*}
 
 %\noindent \textbf{Understanding the figures} -- 
-In Figure \ref{fig:mysql-timeline}, we see that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labeled topics, since these NFRs have been more intensely shaded. % boxes. not sure boxes is important..
+ % boxes. not sure boxes is important..
 % I grepped query1.mrs2 http://softwareprocess.es/y/y/maxdb-76.tar.gz
 % and                   http://softwareprocess.es/y/maxdb-7500.tar.gz
-There are more \textsf{None} labels in MaxDB because a number of topics were to do with code cleanup or automated checking using tools like \texttt{sutcheck}, a tool-specific to the development process of MaxDB. 
+%There are more \textsf{None} labels in MaxDB because a number of topics were to do with code cleanup or automated checking using tools like \texttt{sutcheck}, a tool specific to the development process of MaxDB. 
 
 %\noindent \textbf{Timeline of key events} -- 
+We analyzed each project's developer mailing list for external validation. 
 As discussed earlier, the top row in each figure shows key events for each project. 
 \textit{Labelled topic extraction} can pick out the underlying NFR activity behind these events. 
 For example, both projects show a high number of NFRs recognized at the first period of analysis. 
 This is due to our window choice: we deliberately targeted our analysis to when MySQL 3.23 was first announced %Major update \& End-of life
 and when MaxDB 7.500 was first announced. For MaxDB, version 7.5.00  was released in December of 2003. 
-From analyzing the mailing list for external validation, we know that release 7.5.00.23 saw the development of PHP interfaces, possibly accounting for the simultaneous increase in the \emph{portability} NFR at the same time.
+We know that release 7.5.00.23 saw the development of PHP interfaces, possibly accounting for the simultaneous increase in the \emph{portability} NFR at the same time.
 The gap in MaxDB (Figure \ref{fig:maxdb-timeline}) is due to a shift in development focus (from February 2005 to Jun 2005) to MaxDB 7.6, which is released in June 2005.
 
 For MySQL (Figure \ref{fig:mysql-timeline}), we similarly validated our NFR patterns with external mailing list data. 
@@ -884,23 +895,7 @@ This might be related to release 3.23.38, which focused on Windows compatibility
 Similarly, in August, 2002, both \emph{functionality} and \emph{portability} are frequent, and mailing list data suggests this is related to the release of version 3.23.52, a general bug fix with a focus on security (a component of the \emph{functionality} NFR in the ISO9126 model). 
 After this point, efforts shift to the newer releases (4.0, 4.1, 5.0). 
 
-\begin{figure*}[ht]
-\centering
-\subfloat[MySQL 3.23]{
-\includegraphics[width=\textwidth]{figures/mysql-timeline}
-\label{fig:mysql-timeline}                               
-}           
-                                             
-\subfloat[MaxDB 7.500]{                                 
-\includegraphics[width=\textwidth]{figures/maxdb-timeline}
-\label{fig:maxdb-timeline}
-}
-	\caption[]{NFR label per period. Each box represents a 30-day period. %Numbers represent number of topics in that period labelled with that NFR. 
-	Grid cell intensity (saturation) is mapped to label frequency relative to the largest label value of \emph{all} NFRs. Grey bars indicate label frequency relative to \emph{a particular} NFR. Dashed vertical lines relate a project milestone (*Key Event*) to our topic windows. 
-% \todo[inline]{better discussion}
-}
-\label{fig:timelines}
-\end{figure*}
+
 
 % \subsection{Comparing MaxDB and MySQL}
 
@@ -912,9 +907,9 @@ After this point, efforts shift to the newer releases (4.0, 4.1, 5.0).
 % In terms of non-functional requirements both projects had long running trends that focused on \emph{functionality}, \emph{maintainability}, and \emph{portability}, yet MaxDB had more of a focus on \emph{efficiency} and \emph{reliability}. 
 % \todo[inline]{expand}
 %\todo[inline,color=yellow]{expand on this with dates, and reference to visualizations}
-
+\subsection{Research questions}
 %This analysis allows to address the questions raised in Section \ref{sec:suplabelling}:
-This analysis addresses the questions raised in Section \ref{sec:analysis}:
+This analysis addresses our research questions: %raised in Section \ref{sec:analysis}:
 
 %\textbf{Do label frequencies change over time?} -- 
 \subsubsection{Do label frequencies change over time?}
@@ -926,14 +921,7 @@ This suggests that maintenance activity is not necessarily strictly decreasing w
 In MaxDB, we can observe that \emph{Maintainability} topics became more prevalent as MaxDB matures. 
 This is likely due to our analysis timeframe for MaxDB being shorter than the timeframe for the MySQL product. 
 
-
-
-%\textbf{Do the different projects differ in their relative topic
-%interest?} -- 
-
-\subsubsection{Do the different projects differ in their relative
-  topic interest?}
-
+\subsubsection{Do  projects differ in their relative  topic interest?}
 Yes. MySQL 3.23 had proportionally more
 topics labelled \emph{functionality}, while MaxDB had proportionally more
 \emph{efficiency} related topics. MaxDB was a very mature release ``donated'' to the open-source community. 
@@ -941,11 +929,10 @@ MySQL, on the other hand, was in its relative infancy.
 Security problems were more common (security is a component of \emph{functionality} in the ISO 9126 model). 
 In both cases \emph{portability} was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects. 
 
+%\subsection{Summary}
 
-\subsection{Summary}
-
-\todo[inline]{link the actual data, which is interesting, to somethign
-  actionable for a developer or manager}
+%\todo[inline]{link the actual data, which is interesting, to somethign
+ % actionable for a developer or manager}
 
 \section{Discussion}
 \label{sec:limit}
@@ -981,13 +968,14 @@ In general, the machine learners and \textsf{exp3} did better than \textsf{exp2}
 For both MySQL and MaxDB \textit{usability} was better served by \textsf{exp2}. 
 \textit{Usability} was a very infrequent label, however, which made it difficult to detect in any case.
 
-We found that the multi-label learners of BR, CLR and HOMER did not do as well for Macro-ROC as NaiveBayes and other naive Bayes derived learners. 
-This suggests that by combining together multiple NaiveBayes learners we could probably label sets of topics effectively, but it would require a separate NaiveBayes learner per label.
-
-%{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
 The unsupervised labelling had difficulty distinguishing between common labels and infrequent labels. 
 The learners would occasionally mislabel a topic deserving of an infrequent label with a more common label.
 The word-lists for \emph{correctness} tended to be too lengthy, non-specific and broad, especially if WordNet words were used, since the NFRs are typically loosely defined concepts in common parlance.
+
+We found that the multi-label learners of BR, CLR and HOMER only did as well or worse for Macro-ROC as the single-label NaiveBayes and other naive Bayes-derived learners. 
+This suggests that by combining together multiple NaiveBayes learners we could probably label sets of topics effectively, but it would require a separate NaiveBayes learner per label.
+
+%{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
 
 With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these methods.
 \textsf{exp2} and \textsf{exp3} both indicate that static information can be used to help label topics without any training whatsoever. 
