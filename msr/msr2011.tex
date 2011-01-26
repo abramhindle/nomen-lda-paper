@@ -507,7 +507,7 @@ operability understandability learnability useable usable serviceable usefulness
 ``fault tolerance'' recoverability maturity reliable dependable responsibleness responsibility reliableness reliability dependableness dependability resilience integrity stability stable crash bug fails redundancy error failure\\ 
 \bottomrule
 \end{tabular}
-	\caption{NFRs and associated signifiers -- \textsf{exp2}}
+	\caption{NFRs and associated word-lists -- \textsf{exp2}}
 	\label{tbl:wnsig}
 
 \end{table*}
@@ -637,7 +637,7 @@ Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. 
 
 \begin{figure*}
   \centering
- \includegraphics[width=0.7\textwidth]{figures/unsupervised-bar}
+ \includegraphics[width=0.8\textwidth]{figures/unsupervised-bar}
  \caption{Performance, ROC values (range: 0-1), of unsupervised topic labelling for
    each NFR and per word-list. Dashed line indicates the performance of a random classifier. This graph shows how well the
    unsupervised topic labelling matched our manual annotations.}
@@ -726,7 +726,7 @@ Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite differ
 \begin{figure}
 \centering
 % \subfloat[MySQL]{
-\includegraphics[width=0.4\textwidth]{figures/both-supervised}
+\includegraphics[width=0.45\textwidth]{figures/both-supervised}
 % \label{fig:subfig1}
 % }
 % \subfloat[MaxDB]{
@@ -837,7 +837,7 @@ We motivated our investigation with two research questions:
 \item \emph{Do projects differ in their relative interest in NFRs?} A program manager would be interested in knowing whether a particular NFR, such as \emph{reliability}, was more important for one project than another. This could be to confirm the initial design goals, or to track the progress on that quarter's objectives.  
 \end{enumerate}
 
-\subsection{Timeline analysis}
+%\subsection{Timeline analysis}
 Figures \ref{fig:mysql-timeline} and \ref{fig:maxdb-timeline} show the
 temporal patterns of NFR frequencies.
 %NEIL- I think this (below) is just confusing, although maybe important to note.
@@ -847,8 +847,8 @@ temporal patterns of NFR frequencies.
 There are two measures represented. 
 One, the relative frequency, shown in the grey histogram boxes, represents the number of topics with that NFR in that period, 
 relative to the maximum number of topics assigned to that NFR. For example, in Figure \ref{fig:mysql-timeline} we see a spike in \emph{portability} and \emph{functionality} frequency in September 2002.
-The second, absolute frequency, is shown using cell intensity compares the number of topics labelled with that NFR per period 
-relative to the maximum number of labelled topics overall, for that project. For instance, Figure \ref{fig:mysql-timeline} shows that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labelled topics, since these NFRs have been more intensely shaded.
+The second, absolute frequency, is shown using cell intensity, and compares the number of topics labelled with that NFR per period 
+relative to the maximum number of labelled topics overall. For instance, Figure \ref{fig:mysql-timeline} shows that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labelled topics, since these NFRs have been more intensely shaded.
 The topmost row in each diagram lists historical events for that project (such as a release). 
 %We refer to these occurrences in the discussion which follows.
 
@@ -878,24 +878,22 @@ The topmost row in each diagram lists historical events for that project (such a
 
 %\noindent \textbf{Timeline of key events} -- 
 We analyzed each project's developer mailing list for external validation. 
-As discussed earlier, the top row in each figure shows key events for each project. 
-\textit{Labelled topic extraction} can pick out the underlying NFR activity behind these events. 
+%As discussed earlier, the top row in each figure shows key events for each project. 
+We use \textit{labelled topic extraction} to pick out the underlying NFR activity behind these events. 
 For example, both projects show a high number of NFRs recognized at the first period of analysis. 
 This is due to our window choice: we deliberately targeted our analysis to when MySQL 3.23 was first announced %Major update \& End-of life
 and when MaxDB 7.500 was first announced. For MaxDB, version 7.5.00  was released in December of 2003. 
 We know that release 7.5.00.23 saw the development of PHP interfaces, possibly accounting for the simultaneous increase in the \emph{portability} NFR at the same time.
 The gap in MaxDB (Figure \ref{fig:maxdb-timeline}) is due to a shift in development focus (from February 2005 to Jun 2005) to MaxDB 7.6, which is released in June 2005.
 
-For MySQL (Figure \ref{fig:mysql-timeline}), we similarly validated our NFR patterns with external mailing list data. 
-This release of MySQL was the first to be licenced under the GPL. 
+%For MySQL (Figure \ref{fig:mysql-timeline}), we similarly validated our NFR patterns with external mailing list data. 
+The release of MySQL we study  (Figure \ref{fig:mysql-timeline}) was the first to be licenced under the GPL. 
 Version 3.23.31 (January, 2001) was the production release (non-beta), and we see a flurry of topics labelled with \emph{functionality} and \emph{maintainability}. 
 After this point, this version enters the maintenance phase of its life-cycle. 
 In May 2001, there is an increase in the number of topics labelled with \emph{portability}. 
 This might be related to release 3.23.38, which focused on Windows compatibility. 
 Similarly, in August, 2002, both \emph{functionality} and \emph{portability} are frequent, and mailing list data suggests this is related to the release of version 3.23.52, a general bug fix with a focus on security (a component of the \emph{functionality} NFR in the ISO9126 model). 
-After this point, efforts shift to the newer releases (4.0, 4.1, 5.0). 
-
-
+After this point, efforts shift to the newer releases (4.0, 4.1, 5.0). With respect to our research questions:
 
 % \subsection{Comparing MaxDB and MySQL}
 
@@ -907,28 +905,30 @@ After this point, efforts shift to the newer releases (4.0, 4.1, 5.0).
 % In terms of non-functional requirements both projects had long running trends that focused on \emph{functionality}, \emph{maintainability}, and \emph{portability}, yet MaxDB had more of a focus on \emph{efficiency} and \emph{reliability}. 
 % \todo[inline]{expand}
 %\todo[inline,color=yellow]{expand on this with dates, and reference to visualizations}
-\subsection{Research questions}
+%\subsection{Research questions}
 %This analysis allows to address the questions raised in Section \ref{sec:suplabelling}:
-This analysis addresses our research questions: %raised in Section \ref{sec:analysis}:
+%This analysis addresses our research questions: %raised in Section \ref{sec:analysis}:
 
-%\textbf{Do label frequencies change over time?} -- 
-\subsubsection{Do label frequencies change over time?}
+\noindent\textbf{1. Do NFR frequencies change over time?} --- 
+%\subsubsection{Do label frequencies change over time?}
 In both projects the frequencies generally decreased with age. 
 However, there are variations within our NFR labels. In MySQL, \emph{usability} and \emph{efficiency} do not appear very often in topics. 
 A proportionately smaller number of commits addressed these NFRs.
-As discussed in the previous section, certain peaks in topic numbers coincide with a particular emphasis from the development team on issues such as new releases or bug fixes.
+%As discussed in the previous section, 
+Certain peaks in topic numbers coincide with a particular emphasis from the development team on issues such as new releases or bug fixes.
 This suggests that maintenance activity is not necessarily strictly decreasing with time, but rather episodic and responsive to outside stimuli. 
 In MaxDB, we can observe that \emph{Maintainability} topics became more prevalent as MaxDB matures. 
 This is likely due to our analysis timeframe for MaxDB being shorter than the timeframe for the MySQL product. 
 
-\subsubsection{Do  projects differ in their relative  topic interest?}
+%\subsubsection{Do  projects differ in their relative  topic interest?}
+\noindent\textbf{2. Do  projects differ in their relative  topic interest?} ---
 Yes. MySQL 3.23 had proportionally more
 topics labelled \emph{functionality}, while MaxDB had proportionally more
-\emph{efficiency} related topics. MaxDB was a very mature release ``donated'' to the open-source community. 
-MySQL, on the other hand, was in its relative infancy. 
-Security problems were more common (security is a component of \emph{functionality} in the ISO 9126 model). 
-In both cases \emph{portability} was a constant maintenance concern and was prevalent throughout the entire lifetime of the projects. 
-
+\emph{efficiency} related topics. MaxDB was a very mature release ``donated'' to the open-source community, 
+whereas MySQL was in its relative infancy, and  
+security problems were more common (security is a component of \emph{functionality} in the ISO 9126 model). 
+In both cases \emph{portability} was a constant maintenance concern and was prevalent throughout the lifetime of the projects. It may surprise developers how often portability arises as a concern.
+%On one hand, this analysis is unsurprising; on the other hand, it provides confirmation that our approach identifies actual patterns.
 %\subsection{Summary}
 
 %\todo[inline]{link the actual data, which is interesting, to somethign
@@ -1000,9 +1000,10 @@ We improved internal validity by trying to correlate and explain the behaviours 
 We did not attempt to match our results to any particular model or theory.
 
 \emph{External validity} -- %was addressed by our use of two case studies, but there are still issues. 
-Our data originated from OSS database projects and thus might not be applicable to commercially developed software. 
-Furthermore, our analysis techniques rely on a project's use of meaningful commit messages. The OSS projects investigated were database systems, thus 
-our results might not generalize to other domains. %We only studied database systems.
+Our data originated from OSS database projects and thus might not be applicable to commercially developed software or other domains. 
+Furthermore, our analysis techniques rely on a project's use of meaningful commit messages, although we feel this is the most frequently occurring form of developer comments. 
+%The OSS projects investigated were database systems, thus 
+%our results might not generalize to other domains. %We only studied database systems.
 % \todo[inline]{If we compare with the same domain we don't get to say it generalizes a lot?}
 
 % in Case Study Research: Design Case Studies
@@ -1019,14 +1020,16 @@ Finally, we would like to extend this analysis to other domains, to see what pat
 
 \section{Conclusions}
 This paper presented a cross-project data mining technique,
-\emph{labelled topic extraction}. The technique leveraged a
-non-functional requirements (NFRs) taxonomy to mine and label latent
-software development topics. Previous topic analysis research produced
-topics that needed to be manually labelled, but topics without labels
-are difficult to interpret, and manually labelling them is
-costly. Furthermore, previous work was project specific and incomparable. 
-To improve this, we leveraged software engineering standards, specifically the ISO quality taxonomy, to produce a method of supervised and unsupervised topic labelling.
-Since the word-list technique is not project specific, it can be used to compare multiple projects.%topics and artifacts from project histories.
+\emph{labelled topic extraction}. %The technique leveraged a
+%non-functional requirements (NFRs) taxonomy to mine and label latent
+%software development topics. 
+Previous topic analysis research produced project-specific
+topics that needed to be manually labelled.
+%, but topics without labels
+%are difficult to interpret, and manually labelling them is
+%costly. Furthermore, previous work was project-specific and thus incomparable. 
+To improve on this, we leveraged software engineering standards, specifically the ISO quality taxonomy, to produce a method of partially-automated (supervised) and fully-automated (unsupervised) topic labelling.
+Since the word-list technique is not project-specific, we used it to compare two distinct projects, where we showed our technique produced interesting insight into maintenance activity. %topics and artifacts from project histories.
 % Our contributions include:
 % \begin{itemize}
 % \item We provided an unsupervised method of topic labelling (word-lists);
@@ -1037,16 +1040,14 @@ Since the word-list technique is not project specific, it can be used to compare
 % \item We demonstrated a method of visualizing these topics across time, which we used to analyze maintenance activities.
 % \end{itemize}
 
-We validated our topic labelling techniques using multiple experiments. 
+We validated our topic labelling techniques using multiple experiments. % on unsupervised learners, supervised and multi-label learners. 
 We first conducted unsupervised labelling using word-lists. 
 Our next approach was supervised, using single-label and multi-label learners. 
 Both kinds of learners performed well with average
 %area under the 
-ROC values between $0.6$ and $0.8$. These results, along with the efficient performance of our learners, demonstrates that labelled topic extraction is a promising approach for understanding 
-
-These labelling techniques allowed us to investigate the occurrence of non-functional requirements in our projects. 
+ROC values between $0.6$ and $0.8$. These results, along with the efficient performance of our learners, demonstrate that labelled topic extraction is a promising approach for understanding the occurrence of non-functional requirements in software projects. 
 %Although it may seem like common knowledge that maintenance is a concern as a project matures, our technique was able to show this independently.
-We showed that NFRs are often trending topics in commit comments
+%We showed that NFRs are often trending topics in commit comments
 %, and that NFRs are quite common as developer topics.
 %; and that there are efficient methods of automating topic labelling.
 
