@@ -65,7 +65,7 @@ Abram Hindle\\
 % %\todo[inline]{Topics and LDA sooner, Topics/concept location is a known
 Researchers have employed a variety of techniques to extract underlying
 topics that relate to software development artifacts.  Typically, these
-techniques use unsupervised machine-learning algorithms to suggest
+techniques use semi-unsupervised machine-learning algorithms to suggest
 candidate word-lists.  However, word-lists are
 difficult to 
 interpret in the absence of meaningful summary labels.  Current topic modeling 
@@ -274,7 +274,7 @@ This paper makes the following contributions:
 
 %We first introduces labelled topic extraction, and then uses that technique to analyze development activity in two large-scale examples.
 We begin by discussing related work in Section \ref{sec:related}.
-Next, we describe how we generated our data (Section \ref{sec:wordlist}). For unsupervised classification (Section \ref{sec:unsuplabelling}), we begin by creating word-lists to signify when a topic matches an NFR label. We then apply our classifier and analyze the results. %and how we created the word-lists used in unsupervised classification. 
+Next, we describe how we generated our data (Section \ref{sec:wordlist}). For semi-unsupervised classification (Section \ref{sec:unsuplabelling}), we begin by creating word-lists to signify when a topic matches an NFR label. We then apply our classifier and analyze the results. %and how we created the word-lists used in unsupervised classification. 
 %We show that labels with their topics can be learned and used to classify other data-sets, either without training 
 %Our goal is to label a given topic with either an NFR from our taxonomy,
  %Section \ref{sec:unsuplabelling} presents our technique for using word-lists to do unsupervised classification, and describes the results.
@@ -373,7 +373,7 @@ topics, NFRs and new visualizations.
 
 \section{Study design and execution}
 Figure \ref{fig:process} gives an outline of methodology.
-We began by gathering source data and creating topic models. For unsupervised labelling, we generated three sets of word-lists as signifiers for NFRs.
+We began by gathering source data and creating topic models. For semi-unsupervised labelling, we generated three sets of word-lists as signifiers for NFRs.
 %e created labels using a well-known NFR taxonomy. 
 In supervised learning, we trained our data with manual annotations in order to match topics with NFRs. Finally, these topics were used to analyze the role of NFRs in software maintenance.
 
@@ -447,7 +447,7 @@ We claim that these NFRs are maintenance concerns (to varying degrees) in all so
 
 %\noindent \textbf{Creating a validation corpus} --- 
 \subsubsection{Creating a validation corpus}
-To evaluate both unsupervised and supervised classification, we
+To evaluate both semi-unsupervised and supervised classification, we
 created a validation set of manually labelled topics. For MySQL 3.23
 and MaxDB 7.500, we (the first two authors) annotated each extracted topic in each period with
 the six NFR labels listed above.
@@ -486,7 +486,7 @@ ROC of a classifier is equivalent to the probability that the classifier will ra
 
 We consider our labelling classifiers acceptable if they outperform a random classifier (0.5). 
 
-\subsection{Unsupervised labelling}
+\subsection{Semi-unsupervised labelling}
 \label{sec:unsuplabelling}
 
 In this section we describe how to label topics based on dictionaries
@@ -598,7 +598,7 @@ topics occur where there is no such match, which may indicate either a lack of p
 All experiments were run on MaxDB 7.500 and MySQL 3.23 data. LDA
 extracted 20 topics per period for each project.
 % Is this good enough
-This labelling is unsupervised because the corpus is not derived from 
+This labelling is \emph{semi-unsupervised} because the corpus is not derived from 
 the project being labelled, and we did not label the project's topics
 ourselves for a training set. The motivation behind this technique is that
 because most software often addresses similar issues, we can use the
@@ -680,12 +680,12 @@ Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{effic
 
 %\todo[inline]{Should we use F-1 as well to satisfy everyone?}
 
-\subsubsection{Analysis of the unsupervised labelling} %--- %Based
+\subsubsection{Analysis of the semi-unsupervised labelling} %--- %Based
                                 %on the labels, and our manual topic
                                 %labelling, 
 %\noindent \textbf{Analysis of the unsupervised labelling} --- %Based on the labels, and our manual topic labelling, 
 %we compared the results of the unsupervised word matching approach. 
-For each quality we assessed whether unsupervised labels matched the manual annotations. %To be clear, the manual annotations were not used to train the labeling process.
+For each quality we assessed whether semi-unsupervised labels matched the manual annotations. %To be clear, the manual annotations were not used to train the labeling process.
 As described in \ref{sec:wordlist} we used both ROC and F-1 measures to evaluate the performance of the classification.
 Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. We describe F-1 results in the text below.
 
@@ -712,9 +712,9 @@ Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. 
 \begin{figure*}
   \centering
  \includegraphics[width=0.8\textwidth]{figures/unsupervised-bar}
- \caption{Performance, ROC values (range: 0-1), of unsupervised topic labelling for
+ \caption{Performance, ROC values (range: 0-1), of semi-unsupervised topic labelling for
    each NFR and per word-list. Dashed line indicates the performance of a random classifier. This graph shows how well the
-   unsupervised topic labelling matched our manual annotations.}
+   semi-unsupervised topic labelling matched our manual annotations.}
 
 %\todo[inline]{this is too tiny in print}
   \label{fig:maxdb-unsup-results}
@@ -1045,13 +1045,13 @@ supervised learners have the advantage of domain knowledge, which typically mean
 %Our manual annotations were fairly quick to do, taking only a few minutes per 30 day period. 
 Creating annotated topics (i.e., manual labels) for training is painstaking, but with a suitably representative set of topics, the effort is acceptable. To annotate \emph{all} topics took us approximately 20 hours per project, but we estimate only 10\% of the topics need annotation to produce useful results.
 
-Very rarely did \textsf{exp2} and \textsf{exp3} (unsupervised word matching) ever perform as well as the supervised machine learners. 
+Very rarely did \textsf{exp2} and \textsf{exp3} (semi-unsupervised word matching) ever perform as well as the supervised machine learners. 
 For MaxDB, \textit{reliability} was slightly better detected using the static word list of \textsf{exp2}. 
 In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. 
 For both MySQL and MaxDB \textit{usability} was better served by \textsf{exp2}. 
 \textit{Usability} was a very infrequent label, however, which made it difficult to detect in any case.
 
-The unsupervised labelling had difficulty distinguishing between common labels and infrequent labels. 
+The semi-unsupervised labelling had difficulty distinguishing between common labels and infrequent labels. 
 The learners would occasionally mislabel a topic deserving of an infrequent label with a more common label.
 The word-lists for \emph{correctness} tended to be too lengthy, non-specific and broad, especially if WordNet words were used, since the NFRs are typically loosely defined concepts in common parlance.
 
@@ -1065,7 +1065,7 @@ With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these
 MySQL and MaxDB's machine learners made some decisions based off a few shared words: \textsf{bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test}. 
 Adding these words to the word-lists of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
 
-If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques, we could reduce the training effort by boosting training sets with topics classified with the unsupervised techniques.
+If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques, we could reduce the training effort by boosting training sets with topics classified with the semi-unsupervised techniques.
 Both Naive Bayesian learners and the word-list approaches were computationally efficient.  
 %These results are promising, because the accuracy of the techniques is good enough to be useful, while the run-time performance is still cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
 These results are promising because they indicate that these
@@ -1128,7 +1128,7 @@ topics that needed to be manually labelled.
 %, but topics without labels
 %are difficult to interpret, and manually labelling them is
 %costly. Furthermore, previous work was project-specific and thus incomparable. 
-To improve on this, we leveraged software engineering standards, specifically the ISO quality taxonomy, to produce a method of partially-automated (supervised) and fully-automated (unsupervised) topic labelling.
+To improve on this, we leveraged software engineering standards, specifically the ISO quality taxonomy, to produce a method of partially-automated (supervised) and fully-automated (semi-unsupervised) topic labelling.
 Since the word-list technique is not project-specific, we used it to compare two distinct projects, where we showed our technique produced interesting insight into maintenance activity. %topics and artifacts from project histories.
 % Our contributions include:
 % \begin{itemize}
@@ -1141,7 +1141,7 @@ Since the word-list technique is not project-specific, we used it to compare two
 % \end{itemize}
 
 We validated our topic labelling techniques using multiple experiments. % on unsupervised learners, supervised and multi-label learners. 
-We first conducted unsupervised labelling using word-lists. 
+We first conducted semi-unsupervised labelling using word-lists. 
 Our next approach was supervised, using single-label and multi-label learners. 
 Both kinds of learners performed well with average
 %area under the 
