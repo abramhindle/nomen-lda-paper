@@ -293,15 +293,15 @@ The paper concludes with a discussion of limitations (Section \ref{sec:limit}), 
 
 The idea of extracting higher-level \emph{concerns}, also known as \emph{concepts}, \emph{aspects} or \emph{requirements}, has been approached from documentation-based and repository-based perspectives.
 
-Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. 
-Their approach was similar to ours, as they mined keywords from NFR catalogues.
+Cleland-Huang and her colleagues have research on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. 
+Their approach is similar to ours, as they mined keywords from NFR catalogues.
 %One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. 
-They managed a recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. 
+They demonstrated a recall of $80\%$ with precision of $57\%$ for the \emph{security} NFR, but could not find a reliable source of keywords for other NFRs. 
 Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
-Our work differed because we had a more comprehensive set of terms based on the taxonomy we chose.
+Our research differs because we use a more comprehensive set of terms based on the taxonomy we chose.
 We make cross-project comparisons, while they focused on a single project.
 %The objective of Cleland-Huang's study was to identify new NFRs for system development, yet our objective was to recover those latent NFRs from commit-log messages of the project. 
-Another difference was that our data was far less structured than the requirements documents used in their study.
+Another difference is that our data was far less structured than the requirements documents used in their study.
 %There are several reasons we did not follow this route. 
 %One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. 
 %Secondly, we wanted to compare across projects. 
@@ -313,14 +313,15 @@ Another difference was that our data was far less structured than the requiremen
 Similarly, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. 
 Mockus and Votta leveraged WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including common related forms (similar to word stemming), meronymy and synonymy.
 They only used WordNet for word roots as they felt the synonyms would be non-specific and cause errors, problems we also encountered. 
-Mockus et al. had access to system developers, with whom they could validate their labels. 
-Since we try to bridge different organizations, instead of a single project, these kind of interviews are infeasible (particularly in the distributed world of open-source software).
+Mockus et al. validated their labels with system developers.
+Since we study multiple projects, instead of a single project, these
+kind of interviews are somewhat infeasible (particularly in the distributed world of open-source software).
 
-The other approach is to extract concerns from software repositories.
-Marcus et al.~\cite{marcus04wcre} describe their use of Latent Semantic Indexing (LSI) to identify commonly occurring concerns for software maintenance. The concerns are given by the user, and LSI used to retrieve them from a corpus. Topic modelling generates topics that are independent of a user query, and relate only to word frequencies in the corpus.
+Another approach is to extract concerns from software repositories.
+Marcus et al.~\cite{marcus04wcre} use Latent Semantic Indexing (LSI) to identify commonly occurring concerns for software maintenance. The concerns are given by the user, and LSI used to retrieve them from a corpus. Topic modelling generates topics that are independent of a user query, and relate only to word frequencies in the corpus.
 %Some results were interesting, but their precision was quite low. 
-With ConcernLines, \cite{treude09cl} shows tag occurrence using colour intensity. 
-They mined 
+With ConcernLines, Treude et al.~\cite{treude09cl} show tag occurrence using colour intensity. 
+They mine
 developer created tags 
 %change request tags (such as `milestone 3') and used these 
 in order to analyze the evolution of a single product.
@@ -340,16 +341,23 @@ label accordingly.
 %XXX Possible to cut this
 As discussed earlier, given the topic \emph{``listener change remove add fire''}, Baldi et al. would assign the label \emph{event-handling}. 
 The labels are reasonable enough, but still require an expert in the field to determine them. 
-Furthermore, these labels are project-specific, because they are generated from the data of that project. E.g., we might have a label called `Oracle' in the MySQL case, since Oracle owns MySQL. 
+Furthermore, these labels are project-specific, because they are generated from the data of that project. E.g., we might have a label called \emph{`Oracle'} in the MySQL case, since Oracle owns MySQL. 
 We do this differently.
 %This paper does this differently. 
 First of all, we automated the process of naming the topics. Secondly, we labelled topics with project-independent terms, in order to permit cross-project comparison.
 
 Mei et al.~\cite{Mei2007} use context information to automatically name topics. 
 They describe probabilistic labelling, using the frequency distribution of words in a topic to create a meaningful phrase. 
-They do not use external domain-specific information as we do.
+They do not use external domain-specific information as we do and we
+do not generate phrases from the topics.
 
-Finally, in \cite{ernst10refsq}, we describe our earlier project, similar to this, to identify change in quality requirements in GNOME software projects; our approach is solely text-matching, however, and does not leverage machine learning strategies.
+Finally, in Ernst et al.~\cite{ernst10refsq}, we describe our earlier
+project, similar to this, that identifies changes in quality requirements
+in GNOME software projects; this approach was more exploratory, had
+less validation, uses different word-lists, solely uses text-matching,
+and does not leverage machine learning strategies. 
+This research extends Hindle et al.~\cite{Hindle09ICSM} with labelled
+topics, NFRs and new visualizations.
 
 %Massey~\cite{massey02icse} and Scacchi~\cite{scacchi02,scacchi05b} looked at the topic of requirements in open-source software. 
 % this reduces the line length and drops a ref even though we still have a scacchi kickin around
