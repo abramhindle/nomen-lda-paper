@@ -292,7 +292,8 @@ Another difference was that our data was far less structured than the requiremen
 %Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) our study assumes these NFRs are latent in the commit-log messages of the project. 
 
 Similarly, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. 
-They also leveraged WordNet, but only for word roots as they felt the synonyms would be non-specific and cause errors, problems we also encountered. 
+Mockus and Votta leveraged WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including common related forms (similar to word stemming), meronymy and synonymy.
+They only used WordNet for word roots as they felt the synonyms would be non-specific and cause errors, problems we also encountered. 
 Mockus et al. had access to system developers, with whom they could validate their labels. 
 Since we try to bridge different organizations, instead of a single project, these kind of interviews are infeasible (particularly in the distributed world of open-source software).
 
@@ -314,7 +315,10 @@ The presence of a well-maintained set of tags is obviously essential to the succ
 %This paper examines the notions of quality in terms of a consistent ontology, as Menset al. call for in their conclusions.
 
 % in our previous work~\cite{Hindle09ICSM}, as well as -- CITED a little too often (vanity cites!)
-In Baldi et al.~\cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a label accordingly. 
+In Baldi et al.~\cite{Baldi2008}, topics are named manually: human
+experts read the highest-frequency members of a topic and assign a
+label accordingly. 
+%XXX Possible to cut this
 As discussed earlier, given the topic \emph{``listener change remove add fire''}, Baldi et al. would assign the label \emph{event-handling}. 
 The labels are reasonable enough, but still require an expert in the field to determine them. 
 Furthermore, these labels are project-specific, because they are generated from the data of that project. E.g., we might have a label called `Oracle' in the MySQL case, since Oracle owns MySQL. 
@@ -515,7 +519,9 @@ We therefore took the NFRs from the ISO9126 and added to them.
 
 %\todo[inline]{* clarify the mailinglist stuff we did}
 %\todo[inline]{This part doesn't make a lot of sense}
-To construct these expanded word-lists, we used WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including common related forms (similar to word stemming), meronymy and synonymy. 
+To construct these expanded word-lists, we used
+WordNet~\cite{Fellbaum1998}.
+%, an English-language ``lexical database'' that contains semantic relations between words, including common related forms (similar to word stemming), meronymy and synonymy. 
 We then added Boehm's software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven `ilities' into their respective ISO9126 NFRs. 
 We did the same for the quality model produced by McCall et al. \cite{mccall1977}. 
 We then did a simple random analysis of mailing list messages from an open source project, KDE. If we judged a given message to contain terms that were related to one of the NFRs in ISO9126, we added it to our word-list. This allowed us to expand our word-lists with more software-specific terms.
@@ -742,6 +748,9 @@ We used a suite of supervised classifiers, WEKA~\cite{weka09}.
 WEKA includes machine learning tools such as support vector machines and Bayes-nets. 
 We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}. %\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. 
 Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, which maps to what we observed while manually labelling topics.
+The \emph{features} we used are word counts/occurrence  per topic, if
+a word occurs frequently enough in a topic we consider it a feature of
+the topic.
 
 To assess the performance of the supervised learners, we did a 10-fold cross-validation~\cite{Kohavi1995}, a common technique for evaluating machine learners. 
 The original data is partitioned randomly into ten sub-samples. Each sample is used to test against a training set composed of the nine other samples.
@@ -782,7 +791,7 @@ Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite differ
 
 For both projects Bayesian techniques did the best out of a wide variety of machine learners tested. 
 Our best learners, Discriminative Multinomial Naive Bayes, Naive Bayes  and Multinomial Naive Bayes  are all based on Bayes's theorem and all assume, naively, that the features are independent. 
-The features we used are word counts per message. 
+%The features we used are word counts per message. 
 One beneficial aspect of this result is that it suggests we can have very fast training and classifying  since Naive Bayes can be calculated in $O(N)$ for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
 
