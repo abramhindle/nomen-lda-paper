@@ -245,12 +245,31 @@ Our technique automatically, or with some initial training, assigns labels acros
 This paper makes the following contributions: 
 \begin{itemize}
 \item introduces the concept of labelled topic extraction, using a non-functional requirements (NFR) taxonomy for our labels; 
-\item evaluates an unsupervised method of automated topic labelling (word-lists);
+
+%\item evaluates an unsupervised method of automated topic labelling (word-lists);
+%%\item Our unsupervised method can be applied to projects without training;
+%%\item 
+%evaluates a supervised method of automatically labelling topics with a single NFR (machine learning);
+%%\item 
+%evaluates a supervised method of labelling topics with multiple NFRs
+%(multi-label machine learning);
+
+\item evaluates three kinds of automatic topic labelling methods:
+  semi-unsupervised labelling (word-lists) of topics, supervised labelling of
+  topics with a single NFR (machine learning), 
+  and supervised labelling of topics with multiple NFRs (multi-label
+  machine learning)
+
+%  of automated topic labelling (word-lists);
 %\item Our unsupervised method can be applied to projects without training;
-\item evaluates a supervised method of automatically labelling topics with a single NFR (machine learning);
-\item evaluates a supervised method of labelling topics with multiple NFRs (multi-label machine learning);
+%\item 
+%evaluates a supervised method of automatically labelling topics with a single NFR (machine learning);
+%\item 
+%evaluates a supervised method of labelling topics with multiple NFRs (multi-label machine learning);
+
+
 \item provides a method of cross-project analysis via topic labelling; and
-\item applies these techniques to visualize NFRs over time, and to analyze maintenance activities.
+ applies these techniques to visualize NFRs over time, and to analyze maintenance activities.
 \end{itemize}
 
 %We first introduces labelled topic extraction, and then uses that technique to analyze development activity in two large-scale examples.
@@ -319,7 +338,6 @@ In Baldi et al.~\cite{Baldi2008}, topics are named manually: human
 experts read the highest-frequency members of a topic and assign a
 label accordingly. 
 %XXX Possible to cut this
-
 As discussed earlier, given the topic \emph{``listener change remove add fire''}, Baldi et al. would assign the label \emph{event-handling}. 
 The labels are reasonable enough, but still require an expert in the field to determine them. 
 Furthermore, these labels are project-specific, because they are generated from the data of that project. E.g., we might have a label called `Oracle' in the MySQL case, since Oracle owns MySQL. 
