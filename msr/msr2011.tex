@@ -406,11 +406,21 @@ We claim that these NFRs are maintenance concerns (to varying degrees) in all so
 \subsubsection{Creating a validation corpus}
 To evaluate both unsupervised and supervised classification, we
 created a validation set of manually labelled topics. For MySQL 3.23
-and MaxDB 7.500, we annotated each extracted topic in each period with
+and MaxDB 7.500, we (the first two authors) annotated each extracted topic in each period with
 the six NFR labels listed above.
+Annotators did not annotate each other's annotations but some brief
+inspection of annotations was used to confirm that the annotators were
+acting similarly.
 We looked at each period's topics, and assessed what the data --- consisting of the frequency-weighted word lists and messages --- suggested was the topic for that period. 
 We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to the topic being annotated.
-For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. 
+For example, for the MaxDB topic consisting of a message ``exit() only
+used in non NPTL LINUX Versions'', we tagged that topic
+\emph{portability}. 
+Given the top-level annotations of \emph{none}, \emph{portability},
+\emph{efficiency}, \emph{reliability}, \emph{functionality},
+\emph{usability}, and \emph{maintainability}, the annotators annotated each topic
+with the relevant label and sometimes we used finer-grained
+annotations that would be aggregated up to one of these higher-level labels.
 %\todo[inline]{this confused people. Is it truly unsupervised? Yes, but it needs to be clearer.}
 %We compared against this data-set, but we also used the data-set for our supervised machine learning based topic classification. 
 % A topic may have more than one matching keyword. % ok what?
@@ -1023,7 +1033,12 @@ behaviour as commits in terms of dominant topics.
 \subsection{Threats to validity}
 % can always be cut down
 %Our work faced multiple threats to validity and we attempted to address many of them.
-\emph{Construct validity} -- we used only commit messages rather than mail or bug tracker messages. Since we required a seamless record, it was not possible to obtain other data sources. Possibly they would have influenced our results, but there would be a degree of correlation between the corpora.
+\emph{Construct validity} -- we used only commit messages rather than
+mail or bug tracker messages. 
+To extend further we would need matching repositories for each project.
+%Each case study was BecauseSince we required a seamless record, it was not possible to obtain
+%other data sources. 
+Possibly they would have influenced our results, but there would be a degree of correlation between the corpora.
 %Conversely, construct validity was addressed in our validation as we used the files, topics and revisions to annotate the commit messages. 
 %We used mailing-lists to verify the purpose behind some events.
 Our taxonomy for software NFRs is subject to dispute, but seems generally accepted. Finally, there are exogenous sources, such as in-person discussions, which we did not access, an omission as noted in \cite{aranda09icse}. %We did not show these results to the stakeholders.
@@ -1040,8 +1055,10 @@ Furthermore, our analysis techniques rely on a project's use of meaningful commi
 % \todo[inline]{If we compare with the same domain we don't get to say it generalizes a lot?}
 
 % in Case Study Research: Design Case Studies
-\emph{Reliability} -- each annotator followed the same protocol and used the same annotations. 
-However, only two annotators were used; their annotations could be biased as we did not analyze for inter-rater reliability.
+\emph{Reliability} -- each annotator, the first two authors, followed the same protocol and used the same annotations. 
+However, only two annotators were used; their annotations could be
+biased as we did not analyze for inter-rater reliability because they
+did not rate the same documents.
 
 \subsection{Future work}
 There are several avenues of further investigation.  
