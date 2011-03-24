@@ -144,7 +144,6 @@ mailing-list messages, by identifying statistically co-occurring words.
 Among other uses, it can quickly give developers an overview of where significant
 activity has occurred, and gives managers or maintainers a sense of
 project history. 
-For example, a topic extracted from a set of commit logs might consist of the following terms: \emph{ ``listener change remove add fire''}. 
 %A major challenge for topic modeling is to accurately identify the
 %summary label for a topic; in the previous case, perhaps
 %\emph{``event-handling''} would be appropriate. 
@@ -158,8 +157,9 @@ For example, a topic extracted from a set of commit logs might consist of the fo
 While machine learning techniques can automatically identify clumps of
 commonly recurring terms, devising an appropriate summary label for
 each clump/topic is harder.  
-For example, the word list above might reasonably be labelled as
-\emph{"event handling"} by a human who understands the domain well,
+A given topic extracted from a set of commit logs might consist of the following terms: \emph{ ``listener change remove add fire''}. 
+This topic might reasonably be labelled as
+``\emph{event handling}'' by a human who understands the domain well,
 despite the fact that label does not appear in the word list itself.  
 Current approaches to topic labelling rely on manual intervention by
 human experts, and also are limited to project-specific topic labels.  
@@ -358,6 +358,7 @@ For our study, we explicitly chose older versions of mature projects from a stab
 For each project, we used source control commit comments, the messages
 that programmers write when they commit revisions to a source control
 repository. 
+Most commits we observed had commit comments.
 Commit comments are often studied by researchers, as they are the most readily accessible source of project interactions, and developers are often required to create them by the repository mechanism (e.g., Git).  Additionally, relying only on commit comments makes our approach more generalizable, as we do not assume the presence of other artifact corpora.
 %This is the most readily accessible source of project interactions for outside researchers, since developers often or always (e.g., Git) write such message. Our approach is more generalizable if it does not assume the presence of other corpora. %bug trackers and email-list archives were not available for both projects. 
 An example of a typical commit message, from MySQL, is: \textit{``history annotate diffs bug fixed (if mysql\-\_real\-\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. 
