@@ -131,8 +131,8 @@ involved.
 %new stuff
 % edit this. awkward
 This is different than \emph{how}, because the behaviour of change itself is the
-how, not the \emph{why}
-In this work we seek to provide automated help in labelling development topics that have been extracted from commit logs.
+\emph{how}.
+In this work we seek to provide automated in labelling development topics extracted from commit logs.
 
 Topic modeling is a machine learning technique which creates
 multinomial distributions over words from a text corpus. 
@@ -163,7 +163,10 @@ This topic might reasonably be labelled as
 despite the fact that label does not appear in the word list itself.  
 Current approaches to topic labelling rely on manual intervention by
 human experts, and also are limited to project-specific topic labels.  
-In this paper, we introduce \emph{labelled topic extraction}, an approach to topic labelling that is both automatic and creates labels that are project independent.
+In this paper, we introduce \emph{labelled topic extraction}, an
+approach to topic labelling that creates labels automatically that are
+project independent.
+%is both automatic and creates labels that are project independent.
 
 % Changes to software systems, revisions, do not occur without
 % reason. 
@@ -221,12 +224,12 @@ NFR-related tags.
 Project dashboard~\cite{dashboard} are typically employed by managers and are used to
 provide quick summaries of the effort put into a software project. In this case, 
 labelled topic extraction would allow managers to track effort
-related to topics, such as usability or other NFRs.
+related to NFR topics, such as usability.
 These techniques also allow for the annotation of commit comments
  and other software artifacts with NFRs. 
 This would enable querying of bug reports and artifacts by relevant NFRs. 
-For instance a manager could confirm if their developers were
-focusing on \emph{usability} by looking for
+For instance a manager can confirm if their developers were
+focused on \emph{usability} by looking for
  \emph{usability}-relevant revisions and bug reports.
 
 
@@ -292,21 +295,23 @@ The paper concludes with a discussion of limitations (Section \ref{sec:limit}), 
 \section{Previous Work}
 \label{sec:related}
 
-The idea of extracting higher-level \emph{concerns}, also known as
-\emph{topics}, \emph{concepts}, \emph{aspects} or \emph{requirements},
+The idea of extracting higher-level \emph{concerns} and \emph{topics}, also known as
+ \emph{concepts}, \emph{aspects} or \emph{requirements},
 has been approached from documentation-based and repository-based
 perspectives.
 
 Cleland-Huang and her colleagues have investigated on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. 
-Their approach is similar to ours, as they mined keywords from NFR catalogues.
+Their approach is similar to ours, as they mined keywords from NFR
+catalogues.
+They differ because they mine requirements documents where as we mine revisions.
 %One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. 
 They demonstrated a recall of $80\%$ with precision of $57\%$ for the \emph{security} NFR, but could not find a reliable source of keywords for other NFRs. 
 Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
 Our research differs because we use a more comprehensive set of terms based on the taxonomy we chose.
 In this paper we make cross-project comparisons instead of focusing
 on a single project.
-They relied on requirements documents instead of version control
-histories that we use.
+%They relied on requirements documents instead of version control
+%histories that we use.
 %The objective of Cleland-Huang's study was to identify new NFRs for system development, yet our objective was to recover those latent NFRs from commit-log messages of the project. 
 
 %There are several reasons we did not follow this route. 
@@ -403,7 +408,7 @@ As of version 7.500, released April 2007, the project has over $940,000$ lines o
 The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. 
 MySQL contains $320,000$ lines of C and C++ source code.  
 %Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
-For our study, we explicitly chose older versions of mature projects from a stable problem domain to increase the likelihood that we would encounter primarily maintenance activities in our studies.
+We explicitly chose older versions of mature projects from a stable problem domain to increase the likelihood that we would encounter primarily maintenance activities in our studies.
 
 
 For each project, we used source control commit comments, the messages
@@ -414,7 +419,7 @@ Commit comments are often studied by researchers, as they are the most readily a
 %This is the most readily accessible source of project interactions for outside researchers, since developers often or always (e.g., Git) write such message. Our approach is more generalizable if it does not assume the presence of other corpora. %bug trackers and email-list archives were not available for both projects. 
 An example of a typical commit message, from MySQL, is: \textit{``history annotate diffs bug fixed (if mysql\-\_real\-\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. 
 We extracted these messages and indexed them by creation time. 
-We summarized each message as a word distribution but removed stop-words such as ``\emph{the}'' and ``\emph{at}''. 
+We summarized each message as a word distribution minus stop-words such as ``\emph{the}'' and ``\emph{at}''. 
 %Stemming was performed in the later stages of our analysis. % WAS IT?
 
 For the commit message data-sets of each project, we created an XML file that separated commits into 30 day periods. 
@@ -439,7 +444,7 @@ For this paper, a topic represents a word distribution generated from a group of
 %In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
 
 We applied Blei's LDA implementation~\cite{Blei2003} against the word distributions of these commits, and generated lists of topics per period. 
-We set the number of topics to generate to $20$, because past experimentation showed that fewer topics might aggregate multiple unique topics while any more topics seemed to dilute the results and create indistinct topics~\cite{Hindle09ICSM}. 
+We set the number of topics to generate to $20$, because past experimentation showed that fewer topics might aggregate multiple unique topics while any more topics diluted the results and create indistinct topics~\cite{Hindle09ICSM}. 
 % Furthermore, more than $20$ topics quickly became infeasible for inspection.
 
 \subsubsection{The high-level labels}
@@ -718,7 +723,7 @@ Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. 
 % \end{figure}
 
 
-\begin{figure*}
+\begin{figure*}[t]
   \centering
  \includegraphics[width=0.8\textwidth]{figures/unsupervised-bar}
  \caption{Performance, ROC values (range: 0-1), of semi-unsupervised topic labelling for
@@ -809,7 +814,7 @@ The best learner is important because one uses a single learner per label. In ap
 
 Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, as the ROC values for \emph{reliability} and \emph{functionality} seem swapped between projects. 
 
-\begin{figure}
+\begin{figure}[t]
 \centering
 % \subfloat[MySQL]{
 \includegraphics[width=0.45\textwidth]{figures/both-supervised}
@@ -871,7 +876,7 @@ The Mulan~\cite{mulan} library encapsulates several different multi-label machin
 Mulan also includes methods for determining the performance of such techniques.
 % TOO DETAILED The problem framed in the learners above has changed; instead of looking at the precision and recall of applying one label, we rank multiple labels at once. We must check if the full subset of labels was applied, and then how much of that subset was applied.
 
-\begin{figure*}[]
+\begin{figure*}[t]
 \centering
 \subfloat[MySQL]{
 \includegraphics[width=0.3\textwidth]{figures/multi-label-results-mysql}
@@ -958,7 +963,7 @@ have longer lasting effects?
 The topmost row in each diagram lists historical events for that project (such as a release). 
 %We refer to these occurrences in the discussion which follows.
 
-\begin{figure*}[]
+\begin{figure*}[t]
 \centering
 \subfloat[MySQL 3.23]{
 \includegraphics[width=\textwidth]{figures/mysql-timeline}
