@@ -292,17 +292,23 @@ The paper concludes with a discussion of limitations (Section \ref{sec:limit}), 
 \section{Previous Work}
 \label{sec:related}
 
-The idea of extracting higher-level \emph{concerns}, also known as \emph{concepts}, \emph{aspects} or \emph{requirements}, has been approached from documentation-based and repository-based perspectives.
+The idea of extracting higher-level \emph{concerns}, also known as
+\emph{topics}, \emph{concepts}, \emph{aspects} or \emph{requirements},
+has been approached from documentation-based and repository-based
+perspectives.
 
-Cleland-Huang and her colleagues have research on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. 
+Cleland-Huang and her colleagues have investigated on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. 
 Their approach is similar to ours, as they mined keywords from NFR catalogues.
 %One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. 
 They demonstrated a recall of $80\%$ with precision of $57\%$ for the \emph{security} NFR, but could not find a reliable source of keywords for other NFRs. 
 Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
 Our research differs because we use a more comprehensive set of terms based on the taxonomy we chose.
-We make cross-project comparisons, while they focused on a single project.
+In this paper we make cross-project comparisons instead of focusing
+on a single project.
+They relied on requirements documents instead of version control
+histories that we use.
 %The objective of Cleland-Huang's study was to identify new NFRs for system development, yet our objective was to recover those latent NFRs from commit-log messages of the project. 
-Another difference is that our data was far less structured than the requirements documents used in their study.
+
 %There are several reasons we did not follow this route. 
 %One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. 
 %Secondly, we wanted to compare across projects. 
@@ -313,7 +319,7 @@ Another difference is that our data was far less structured than the requirement
 
 Similarly, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. 
 Mockus and Votta leveraged WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including common related forms (similar to word stemming), meronymy and synonymy.
-They only used WordNet for word roots as they felt the synonyms would be non-specific and cause errors, problems we also encountered. 
+They used WordNet for word roots as they felt the synonyms would be non-specific and cause errors, problems we also encountered. 
 Mockus et al. validated their labels with system developers.
 Since we study multiple projects, instead of a single project, these
 kind of interviews are somewhat infeasible (particularly in the distributed world of open-source software).
@@ -357,7 +363,8 @@ project, similar to this, that identifies changes in quality requirements
 in GNOME software projects; this approach was more exploratory, had
 less validation, uses different word-lists, solely uses text-matching,
 and does not leverage machine learning strategies. 
-This research extends Hindle et al.~\cite{Hindle09ICSM} with labelled
+Hindle et al.~\cite{Hindle09ICSM} propose a windowed method of topic
+analysis, we extend this with labelled
 topics, NFRs and new visualizations.
 
 %Massey~\cite{massey02icse} and Scacchi~\cite{scacchi02,scacchi05b} looked at the topic of requirements in open-source software. 
