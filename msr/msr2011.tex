@@ -122,7 +122,17 @@ insight into their evolving software development activities.
 %Identifying these reasons provides insight into \emph{why} certain
 %changes were made. 
 %migod
-A key problem for practising software maintainers is gaining an understanding of \emph{why} a system has evolved the way it has. Looking back on streams of artifacts scattered across different repositories, inferring what activities were performed, when, and for what reasons, is hard to do without expert advice from the developers involved. In this work we seek to provide automated help in labelling development topics that have been extracted from commit logs.
+A key problem for practising software maintainers is gaining an
+understanding of \emph{why} a system has evolved the way it has. 
+Looking back on streams of artifacts scattered across different
+repositories, inferring what activities were performed, when, and for
+what reasons, is hard to do without expert advice from the developers
+involved. 
+%new stuff
+% edit this. awkward
+This is different than \emph{how}, because the behaviour of change itself is the
+how, not the \emph{why}
+In this work we seek to provide automated help in labelling development topics that have been extracted from commit logs.
 
 Topic modeling is a machine learning technique which creates
 multinomial distributions over words from a text corpus. 
@@ -827,7 +837,13 @@ The multi-label and single-label learners had similar performance: for MySQL, BR
 %%% XXX NEIL I don't get this.. VVVVV
 %\todo[inline]{fix section headings}
 As we mentioned in the introduction, a key issue in software maintenance is understanding \emph{why} a system has evolved the way it has. 
-In this section we demonstrate the value of labelled topic extraction in addressing this issue. 
+In this section we demonstrate the value of labelled topic extraction
+in addressing this issue. 
+% more why
+Labelled topics address \emph{why}  because they show why changes
+occurred rather than \emph{how}. 
+The \emph{how} of a change is the change itself, the purpose or
+\emph{why} is what we are after.
 We investigate the history of the two large-scale database systems that we studied. 
 We use our technique to show the topic of development efforts over time in each project.
 %We evaluated two research questions using the ground truth data that we annotated by hand:
@@ -985,7 +1001,15 @@ Adding these words to the word-lists of \textsf{exp2} and \textsf{exp3} could im
 If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques, we could reduce the training effort by boosting training sets with topics classified with the unsupervised techniques.
 Both Naive Bayesian learners and the word-list approaches were computationally efficient.  
 %These results are promising, because the accuracy of the techniques is good enough to be useful, while the run-time performance is still cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
-These results are promising because they indicate that these techniques are accurate enough to be useful while still maintaining acceptable run-time performance.
+These results are promising because they indicate that these
+techniques are accurate enough to be useful while still maintaining
+acceptable run-time performance.
+
+Since this work focuses on labelling natural language commit log
+comments we feel it can adapted to other natural language artifacts
+such as mailing-list discussions and bug reports, even though that was
+not evaluated in this paper. Bug reports might not exhibit the same
+behaviour as commits in terms of dominant topics.
 
 \subsection{Threats to validity}
 % can always be cut down
