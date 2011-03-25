@@ -395,7 +395,7 @@ topics, NFRs and new visualizations.
 
 
 \section{Study design and execution}
-Figure \ref{fig:process} gives an outline of methodology.
+Figure \ref{fig:process} gives an outline of our methodology.
 We began by gathering source data and creating topic models. For semi-unsupervised labelling, we generated three sets of word-lists as signifiers for NFRs.
 %e created labels using a well-known NFR taxonomy. 
 In supervised learning, we trained our data with manual annotations in order to match topics with NFRs. Finally, these topics were used to analyze the role of NFRs in software maintenance.
@@ -414,7 +414,7 @@ To evaluate our approach, we sought candidate systems that were mature projects 
 We selected systems from the same application domain, to control for differences in functional, rather than non-functional, requirements. 
 We selected MySQL 3.23 and MaxDB 7.500 as they were open-source, partially-commercial database systems. 
 MaxDB started in the late 1970s as a research project, and was later acquired by SAP. 
-As of version 7.500, released April 2007, the project has over $940,000$ lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}, dwheeler.com/sloccount.}. 
+As of version 7.500, released April 2007, the project has over $940,000$ lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}, http://dwheeler.com/sloccount.}. 
 The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. 
 MySQL contains $320,000$ lines of C and C++ source code.  
 %Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
@@ -444,7 +444,7 @@ For each 30 day period of each project, we input the messages of that period int
 A topic analysis tool such as LDA will try to find $N$ independent
 word distributions within the word distributions of all input messages. 
 Linear combinations of these $N$ word distributions are meant to represent and recreate the word distributions of any of the original messages. 
-These $N$ word distributions effectively form topics: cross-cutting collections of words relevant to one or more of our commit messages. 
+These $N$ word distributions effectively form \emph{topics}: cross-cutting collections of words relevant to one or more of our commit messages. 
 LDA extracts topics in an unsupervised manner; the algorithm relies
 solely on the source data and word distributions of messages, with no human intervention.
 
@@ -454,7 +454,7 @@ For this paper, a topic represents a word distribution generated from a group of
 %In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
 
 We applied Blei's LDA implementation~\cite{Blei2003} against the word distributions of these commits, and generated lists of topics per period. 
-We set the number of topics to generate to $20$, because past experimentation showed that fewer topics might aggregate multiple unique topics while any more topics diluted the results and create indistinct topics~\cite{Hindle09ICSM}. 
+We set the number of topics to generate to $20$, because past experimentation showed that fewer topics might aggregate multiple unique topics while any more topics dilutes the results and creates indistinct topics~\cite{Hindle09ICSM}. 
 % Furthermore, more than $20$ topics quickly became infeasible for inspection.
 
 \subsubsection{The high-level labels}
@@ -466,18 +466,20 @@ ISO9126 describes six high-level NFRs: maintainability, functionality,
 portability, efficiency, usability, and reliability~\footnote{While there may be lingering debate in some circles about these terms, an ISO standard seems like a reasonable starting point for our work.}
 %There is some debate about the terms in this model. 
 %However, ISO9126 is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
-We claim that these NFRs are maintenance concerns (to varying degrees) in all software projects, and are therefore well-suited to comparison between projects.
+We claim that these NFRs are maintenance concerns (to varying degrees) in all software projects, and are therefore well-suited for comparisons between projects.
 
 %\noindent \textbf{Creating a validation corpus} --- 
 \subsubsection{Creating a validation corpus}
 To evaluate both semi-unsupervised and supervised classification, we
 created a validation set of manually labelled topics. For MySQL 3.23
-and MaxDB 7.500, we (the first two authors) annotated each extracted topic in each period with
+and MaxDB 7.500, the annotators (the first two authors) annotated each extracted topic in each period with
 the six NFR labels listed above.
-Annotators did not annotate each other's annotations but some brief
+Annotators did not annotate each other's annotations, but some brief
 inspection of annotations was used to confirm that the annotators were
 acting similarly.
-We looked at each period's topics, and assessed what the data --- consisting of the frequency-weighted word lists and messages --- suggested was the topic for that period. 
+We looked at each period's topics, and assessed what the data ---
+consisting of the frequency-weighted word lists and messages ---
+suggested was the label for that topic. 
 We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to the topic being annotated.
 For example, for the MaxDB topic consisting of a message ``exit() only
 used in non NPTL LINUX Versions'', we tagged that topic
@@ -485,7 +487,7 @@ used in non NPTL LINUX Versions'', we tagged that topic
 Given the top-level annotations of \emph{none}, \emph{portability},
 \emph{efficiency}, \emph{reliability}, \emph{functionality},
 \emph{usability}, and \emph{maintainability}, the annotators annotated each topic
-with the relevant label and sometimes we used finer-grained
+with the relevant label and sometimes they used finer-grained
 annotations that would be aggregated up to one of these higher-level labels.
 %\todo[inline]{this confused people. Is it truly unsupervised? Yes, but it needs to be clearer.}
 %We compared against this data-set, but we also used the data-set for our supervised machine learning based topic classification. 
@@ -572,8 +574,8 @@ We therefore took the NFRs from the ISO9126 and added to them.
 To construct these expanded word-lists, we used
 WordNet~\cite{Fellbaum1998}.
 %, an English-language ``lexical database'' that contains semantic relations between words, including common related forms (similar to word stemming), meronymy and synonymy. 
-We then added Boehm's software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven `ilities' into their respective ISO9126 NFRs. 
-We did the same for the quality model produced by McCall et al. \cite{mccall1977}. 
+We then added Boehm's software quality model~\cite{Boehm+:1976:ICSE}, and classified his eleven `ilities' into their respective ISO9126 NFRs. 
+We did the same for the quality model produced by McCall et al.~\cite{mccall1977}. 
 We then did a simple random analysis of mailing list messages from an open source project, KDE. If we judged a given message to contain terms that were related to one of the NFRs in ISO9126, we added it to our word-list. This allowed us to expand our word-lists with more software-specific terms.
 %Finally, we randomly analyzed two mailing lists from another software project to expand our set with domain-specific terms. 
 % Less info is probably better here...
