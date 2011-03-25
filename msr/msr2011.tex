@@ -65,7 +65,7 @@ Abram Hindle\\
 % %\todo[inline]{Topics and LDA sooner, Topics/concept location is a known
 Researchers have employed a variety of techniques to extract underlying
 topics that relate to software development artifacts.  Typically, these
-techniques use unsupervised machine-learning algorithms to suggest
+techniques use semi-unsupervised machine-learning algorithms to suggest
 candidate word-lists.  However, word-lists are
 difficult to 
 interpret in the absence of meaningful summary labels.  Current topic modeling 
@@ -122,7 +122,17 @@ insight into their evolving software development activities.
 %Identifying these reasons provides insight into \emph{why} certain
 %changes were made. 
 %migod
-A key problem for practising software maintainers is gaining an understanding of \emph{why} a system has evolved the way it has. Looking back on streams of artifacts scattered across different repositories, inferring what activities were performed, when, and for what reasons, is hard to do without expert advice from the developers involved. In this work we seek to provide automated help in labelling development topics that have been extracted from commit logs.
+A key problem for practising software maintainers is gaining an
+understanding of \emph{why} a system has evolved the way it has. 
+Looking back on streams of artifacts scattered across different
+repositories, inferring what activities were performed, when, and for
+what reasons, is hard to do without expert advice from the developers
+involved. 
+%new stuff
+% edit this. awkward
+This is different than \emph{how}, because the behaviour of change itself is the
+\emph{how}.
+In this work we seek to provide automated in labelling development topics extracted from commit logs.
 
 Topic modeling is a machine learning technique which creates
 multinomial distributions over words from a text corpus. 
@@ -134,7 +144,6 @@ mailing-list messages, by identifying statistically co-occurring words.
 Among other uses, it can quickly give developers an overview of where significant
 activity has occurred, and gives managers or maintainers a sense of
 project history. 
-For example, a topic extracted from a set of commit logs might consist of the following terms: \emph{ ``listener change remove add fire''}. 
 %A major challenge for topic modeling is to accurately identify the
 %summary label for a topic; in the previous case, perhaps
 %\emph{``event-handling''} would be appropriate. 
@@ -145,7 +154,19 @@ For example, a topic extracted from a set of commit logs might consist of the fo
 %This paper presents an approach, \emph{labelled topic extraction}, which addresses these two problems.
 
 %migod
-While machine learning techniques can automatically identify clumps of commonly recurring terms, devising an appropriate summary label for each clump/topic is harder.  For example, the word list above might reasonably be labelled as \emph{"event handling"} by a human who understands the domain well, despite the fact that label does not appear in the word list itself.  Current approaches to topic labelling rely on manual intervention by human experts, and also are limited to project-specific topic labels.  In this paper, we introduce \emph{labelled topic extraction}, an approach to topic labelling that is both automatic and creates labels that are project independent.
+While machine learning techniques can automatically identify clumps of
+commonly recurring terms, devising an appropriate summary label for
+each clump/topic is harder.  
+A given topic extracted from a set of commit logs might consist of the following terms: \emph{ ``listener change remove add fire''}. 
+This topic might reasonably be labelled as
+``\emph{event handling}'' by a human who understands the domain well,
+despite the fact that label does not appear in the word list itself.  
+Current approaches to topic labelling rely on manual intervention by
+human experts, and also are limited to project-specific topic labels.  
+In this paper, we introduce \emph{labelled topic extraction}, an
+approach to topic labelling that creates labels automatically that are
+project independent.
+%is both automatic and creates labels that are project independent.
 
 % Changes to software systems, revisions, do not occur without
 % reason. 
@@ -183,20 +204,33 @@ While machine learning techniques can automatically identify clumps of commonly 
 % AH: Project Dashboards, summarization, software process recovery
 
 %migod
-In general, the fruits of mining software artifacts are often project specific and hard to generalize.  However, in our previous work we investigated \emph{topic trends} --- that is, topics that recur over time --- we observed that topic trends often corresponded to non-functional requirements (NFRs) \cite{Hindle09ICSM}.  This is encouraging, as NFRs have the property of being cross-domain and widely applicable. In this sense, they are useful abstractions for developer conversations about different software projects.  Furthermore, there is a series of standards on NFRs, such as ISO9126 \cite{iso9126}, that are specifically intended to apply to projects of varying types; this suggests that our goal of trying to extract NFR-related development topics, such as those related to software quality models, holds promise.
+In general, the fruits of mining software artifacts are often project
+specific and hard to generalize.  
+However, in our previous work we
+investigated \emph{topic trends} --- that is, topics that recur over
+time --- we observed that topic trends often corresponded to
+non-functional requirements (NFRs)~\cite{Hindle09ICSM}, which is
+further emphasized in this paper due to the large numbers of NFR
+labelled topics.  
+This is encouraging, as NFRs have the property of being cross-domain
+and widely applicable. 
+In this sense, they are useful abstractions for developer
+conversations about different software projects.  
+Furthermore, there is a series of standards on NFRs, such as ISO9126 \cite{iso9126}, that are specifically intended to apply to projects of varying types; this suggests that our goal of trying to extract NFR-related development topics, such as those related to software quality models, holds promise.
 
 Concrete applications of topics and \emph{labelled topic extraction}
 range from project dashboards to annotating software artifacts such as revisions and bug reports with
 NFR-related tags.
-Project dashboard are typically employed by managers and are used to
+Project dashboard~\cite{dashboard} are typically employed by managers and are used to
 provide quick summaries of the effort put into a software project. In this case, 
 labelled topic extraction would allow managers to track effort
-related to topics, such as usability or other NFRs.
+related to NFR topics, such as usability.
 These techniques also allow for the annotation of commit comments
  and other software artifacts with NFRs. 
 This would enable querying of bug reports and artifacts by relevant NFRs. 
-For instance one could look
-for \emph{usability}-relevant revisions and bug reports.
+For instance a manager can confirm if their developers were
+focused on \emph{usability} by looking for
+ \emph{usability}-relevant revisions and bug reports.
 
 
 %% RESEARCH DIDNT DO THIS AND WE ARE TOTALLY AWESOME AND WE DID
@@ -214,18 +248,37 @@ Our technique automatically, or with some initial training, assigns labels acros
 
 This paper makes the following contributions: 
 \begin{itemize}
-\item we introduce the concept of labelled topic extraction, using a non-functional requirements (NFR) taxonomy for our labels; 
-\item we evaluate an unsupervised method of automated topic labelling (word-lists);
+\item introduces the concept of labelled topic extraction, using a non-functional requirements (NFR) taxonomy for our labels; 
+
+%\item evaluates an unsupervised method of automated topic labelling (word-lists);
+%%\item Our unsupervised method can be applied to projects without training;
+%%\item 
+%evaluates a supervised method of automatically labelling topics with a single NFR (machine learning);
+%%\item 
+%evaluates a supervised method of labelling topics with multiple NFRs
+%(multi-label machine learning);
+
+\item evaluates three kinds of automatic topic labelling methods:
+  semi-unsupervised labelling (word-lists) of topics, supervised labelling of
+  topics with a single NFR (machine learning), 
+  and supervised labelling of topics with multiple NFRs (multi-label
+  machine learning)
+
+%  of automated topic labelling (word-lists);
 %\item Our unsupervised method can be applied to projects without training;
-\item we evaluate a supervised method of automatically labelling topics with a single NFR (machine learning);
-\item we evaluate a supervised method of labelling topics with multiple NFRs (multi-label machine learning);
-\item we provide a method of cross-project analysis via topic labelling; and
-\item we apply these techniques to visualize NFRs over time, and to analyze maintenance activities.
+%\item 
+%evaluates a supervised method of automatically labelling topics with a single NFR (machine learning);
+%\item 
+%evaluates a supervised method of labelling topics with multiple NFRs (multi-label machine learning);
+
+
+\item provides a method of cross-project analysis via topic labelling; and
+ applies these techniques to visualize NFRs over time, and to analyze maintenance activities.
 \end{itemize}
 
 %We first introduces labelled topic extraction, and then uses that technique to analyze development activity in two large-scale examples.
 We begin by discussing related work in Section \ref{sec:related}.
-Next, we describe how we generated our data (Section \ref{sec:wordlist}). For unsupervised classification (Section \ref{sec:unsuplabelling}), we begin by creating word-lists to signify when a topic matches an NFR label. We then apply our classifier and analyze the results. %and how we created the word-lists used in unsupervised classification. 
+Next, we describe how we generated our data (Section \ref{sec:wordlist}). For semi-unsupervised classification (Section \ref{sec:unsuplabelling}), we begin by creating word-lists to signify when a topic matches an NFR label. We then apply our classifier and analyze the results. %and how we created the word-lists used in unsupervised classification. 
 %We show that labels with their topics can be learned and used to classify other data-sets, either without training 
 %Our goal is to label a given topic with either an NFR from our taxonomy,
  %Section \ref{sec:unsuplabelling} presents our technique for using word-lists to do unsupervised classification, and describes the results.
@@ -242,17 +295,25 @@ The paper concludes with a discussion of limitations (Section \ref{sec:limit}), 
 \section{Previous Work}
 \label{sec:related}
 
-The idea of extracting higher-level \emph{concerns}, also known as \emph{concepts}, \emph{aspects} or \emph{requirements}, has been approached from documentation-based and repository-based perspectives.
+The idea of extracting higher-level \emph{concerns} and \emph{topics}, also known as
+ \emph{concepts}, \emph{aspects} or \emph{requirements},
+has been approached from documentation-based and repository-based
+perspectives.
 
-Cleland-Huang and her colleagues published work on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. 
-Their approach was similar to ours, as they mined keywords from NFR catalogues.
+Cleland-Huang and her colleagues have investigated on mining requirements documents for non-functional requirements (NFR) (quality requirements)~\cite{Cleland-Huang2006}. 
+Their approach is similar to ours, as they mined keywords from NFR
+catalogues.
+They differ because they mine requirements documents where as we mine revisions.
 %One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. 
-They managed a recall of 80\% with precision of 57\% for the Security NFR, but could not find a reliable source of keywords for other NFRs. 
+They demonstrated a recall of $80\%$ with precision of $57\%$ for the \emph{security} NFR, but could not find a reliable source of keywords for other NFRs. 
 Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
-Our work differed because we had a more comprehensive set of terms based on the taxonomy we chose.
-We make cross-project comparisons, while they focused on a single project.
+Our research differs because we use a more comprehensive set of terms based on the taxonomy we chose.
+In this paper we make cross-project comparisons instead of focusing
+on a single project.
+%They relied on requirements documents instead of version control
+%histories that we use.
 %The objective of Cleland-Huang's study was to identify new NFRs for system development, yet our objective was to recover those latent NFRs from commit-log messages of the project. 
-Another difference was that our data was far less structured than the requirements documents used in their study.
+
 %There are several reasons we did not follow this route. 
 %One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. 
 %Secondly, we wanted to compare across projects. 
@@ -262,15 +323,17 @@ Another difference was that our data was far less structured than the requiremen
 %Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) our study assumes these NFRs are latent in the commit-log messages of the project. 
 
 Similarly, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. 
-They also leveraged WordNet, but only for word roots as they felt the synonyms would be non-specific and cause errors, problems we also encountered. 
-Mockus et al. had access to system developers, with whom they could validate their labels. 
-Since we try to bridge different organizations, instead of a single project, these kind of interviews are infeasible (particularly in the distributed world of open-source software).
+Mockus and Votta leveraged WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including common related forms (similar to word stemming), meronymy and synonymy.
+They used WordNet for word roots as they felt the synonyms would be non-specific and cause errors, problems we also encountered. 
+Mockus et al. validated their labels with system developers.
+Since we study multiple projects, instead of a single project, these
+kind of interviews are somewhat infeasible (particularly in the distributed world of open-source software).
 
-The other approach is to extract concerns from software repositories.
-Marcus et al.~\cite{marcus04wcre} describe their use of Latent Semantic Indexing (LSI) to identify commonly occurring concerns for software maintenance. The concerns are given by the user, and LSI used to retrieve them from a corpus. Topic modelling generates topics that are independent of a user query, and relate only to word frequencies in the corpus.
+Another approach is to extract concerns from software repositories.
+Marcus et al.~\cite{marcus04wcre} use Latent Semantic Indexing (LSI) to identify commonly occurring concerns for software maintenance. The concerns are given by the user, and LSI used to retrieve them from a corpus. Topic modelling generates topics that are independent of a user query, and relate only to word frequencies in the corpus.
 %Some results were interesting, but their precision was quite low. 
-With ConcernLines, \cite{treude09cl} shows tag occurrence using colour intensity. 
-They mined 
+With ConcernLines, Treude et al.~\cite{treude09cl} show tag occurrence using colour intensity. 
+They mine
 developer created tags 
 %change request tags (such as `milestone 3') and used these 
 in order to analyze the evolution of a single product.
@@ -284,19 +347,30 @@ The presence of a well-maintained set of tags is obviously essential to the succ
 %This paper examines the notions of quality in terms of a consistent ontology, as Menset al. call for in their conclusions.
 
 % in our previous work~\cite{Hindle09ICSM}, as well as -- CITED a little too often (vanity cites!)
-In Baldi et al.~\cite{Baldi2008}, topics are named manually: human experts read the highest-frequency members of a topic and assign a label accordingly. 
+In Baldi et al.~\cite{Baldi2008}, topics are named manually: human
+experts read the highest-frequency members of a topic and assign a
+label accordingly. 
+%XXX Possible to cut this
 As discussed earlier, given the topic \emph{``listener change remove add fire''}, Baldi et al. would assign the label \emph{event-handling}. 
 The labels are reasonable enough, but still require an expert in the field to determine them. 
-Furthermore, these labels are project-specific, because they are generated from the data of that project. E.g., we might have a label called `Oracle' in the MySQL case, since Oracle owns MySQL. 
+Furthermore, these labels are project-specific, because they are generated from the data of that project. E.g., we might have a label called \emph{`Oracle'} in the MySQL case, since Oracle owns MySQL. 
 We do this differently.
 %This paper does this differently. 
 First of all, we automated the process of naming the topics. Secondly, we labelled topics with project-independent terms, in order to permit cross-project comparison.
 
 Mei et al.~\cite{Mei2007} use context information to automatically name topics. 
 They describe probabilistic labelling, using the frequency distribution of words in a topic to create a meaningful phrase. 
-They do not use external domain-specific information as we do.
+They do not use external domain-specific information as we do and we
+do not generate phrases from the topics.
 
-Finally, in \cite{ernst10refsq}, we describe our earlier project, similar to this, to identify change in quality requirements in GNOME software projects; our approach is solely text-matching, however, and does not leverage machine learning strategies.
+Finally, in Ernst et al.~\cite{ernst10refsq}, we describe our earlier
+project, similar to this, that identifies changes in quality requirements
+in GNOME software projects; this approach was more exploratory, had
+less validation, uses different word-lists, solely uses text-matching,
+and does not leverage machine learning strategies. 
+Hindle et al.~\cite{Hindle09ICSM} propose a windowed method of topic
+analysis, we extend this with labelled
+topics, NFRs and new visualizations.
 
 %Massey~\cite{massey02icse} and Scacchi~\cite{scacchi02,scacchi05b} looked at the topic of requirements in open-source software. 
 % this reduces the line length and drops a ref even though we still have a scacchi kickin around
@@ -312,7 +386,7 @@ Finally, in \cite{ernst10refsq}, we describe our earlier project, similar to thi
 
 \section{Study design and execution}
 Figure \ref{fig:process} gives an outline of methodology.
-We began by gathering source data and creating topic models. For unsupervised labelling, we generated three sets of word-lists as signifiers for NFRs.
+We began by gathering source data and creating topic models. For semi-unsupervised labelling, we generated three sets of word-lists as signifiers for NFRs.
 %e created labels using a well-known NFR taxonomy. 
 In supervised learning, we trained our data with manual annotations in order to match topics with NFRs. Finally, these topics were used to analyze the role of NFRs in software maintenance.
 
@@ -334,17 +408,18 @@ As of version 7.500, released April 2007, the project has over $940,000$ lines o
 The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. 
 MySQL contains $320,000$ lines of C and C++ source code.  
 %Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
-For our study, we explicitly chose older versions of mature projects from a stable problem domain to increase the likelihood that we would encounter primarily maintenance activities in our studies.
+We explicitly chose older versions of mature projects from a stable problem domain to increase the likelihood that we would encounter primarily maintenance activities in our studies.
 
 
 For each project, we used source control commit comments, the messages
 that programmers write when they commit revisions to a source control
 repository. 
+Most commits we observed had commit comments.
 Commit comments are often studied by researchers, as they are the most readily accessible source of project interactions, and developers are often required to create them by the repository mechanism (e.g., Git).  Additionally, relying only on commit comments makes our approach more generalizable, as we do not assume the presence of other artifact corpora.
 %This is the most readily accessible source of project interactions for outside researchers, since developers often or always (e.g., Git) write such message. Our approach is more generalizable if it does not assume the presence of other corpora. %bug trackers and email-list archives were not available for both projects. 
 An example of a typical commit message, from MySQL, is: \textit{``history annotate diffs bug fixed (if mysql\-\_real\-\_connect() failed there were two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. 
 We extracted these messages and indexed them by creation time. 
-We summarized each message as a word distribution but removed stop-words such as ``\emph{the}'' and ``\emph{at}''. 
+We summarized each message as a word distribution minus stop-words such as ``\emph{the}'' and ``\emph{at}''. 
 %Stemming was performed in the later stages of our analysis. % WAS IT?
 
 For the commit message data-sets of each project, we created an XML file that separated commits into 30 day periods. 
@@ -369,7 +444,7 @@ For this paper, a topic represents a word distribution generated from a group of
 %In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
 
 We applied Blei's LDA implementation~\cite{Blei2003} against the word distributions of these commits, and generated lists of topics per period. 
-We set the number of topics to generate to $20$, because past experimentation showed that fewer topics might aggregate multiple unique topics while any more topics seemed to dilute the results and create indistinct topics~\cite{Hindle09ICSM}. 
+We set the number of topics to generate to $20$, because past experimentation showed that fewer topics might aggregate multiple unique topics while any more topics diluted the results and create indistinct topics~\cite{Hindle09ICSM}. 
 % Furthermore, more than $20$ topics quickly became infeasible for inspection.
 
 \subsubsection{The high-level labels}
@@ -385,13 +460,23 @@ We claim that these NFRs are maintenance concerns (to varying degrees) in all so
 
 %\noindent \textbf{Creating a validation corpus} --- 
 \subsubsection{Creating a validation corpus}
-To evaluate both unsupervised and supervised classification, we
+To evaluate both semi-unsupervised and supervised classification, we
 created a validation set of manually labelled topics. For MySQL 3.23
-and MaxDB 7.500, we annotated each extracted topic in each period with
+and MaxDB 7.500, we (the first two authors) annotated each extracted topic in each period with
 the six NFR labels listed above.
+Annotators did not annotate each other's annotations but some brief
+inspection of annotations was used to confirm that the annotators were
+acting similarly.
 We looked at each period's topics, and assessed what the data --- consisting of the frequency-weighted word lists and messages --- suggested was the topic for that period. 
 We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to the topic being annotated.
-For example, for the MaxDB topic consisting of a message ``exit() only used in non NPTL LINUX Versions'', we tagged that topic \emph{portability}. 
+For example, for the MaxDB topic consisting of a message ``exit() only
+used in non NPTL LINUX Versions'', we tagged that topic
+\emph{portability}. 
+Given the top-level annotations of \emph{none}, \emph{portability},
+\emph{efficiency}, \emph{reliability}, \emph{functionality},
+\emph{usability}, and \emph{maintainability}, the annotators annotated each topic
+with the relevant label and sometimes we used finer-grained
+annotations that would be aggregated up to one of these higher-level labels.
 %\todo[inline]{this confused people. Is it truly unsupervised? Yes, but it needs to be clearer.}
 %We compared against this data-set, but we also used the data-set for our supervised machine learning based topic classification. 
 % A topic may have more than one matching keyword. % ok what?
@@ -414,7 +499,7 @@ ROC of a classifier is equivalent to the probability that the classifier will ra
 
 We consider our labelling classifiers acceptable if they outperform a random classifier (0.5). 
 
-\subsection{Unsupervised labelling}
+\subsection{Semi-unsupervised labelling}
 \label{sec:unsuplabelling}
 
 In this section we describe how to label topics based on dictionaries
@@ -474,7 +559,9 @@ We therefore took the NFRs from the ISO9126 and added to them.
 
 %\todo[inline]{* clarify the mailinglist stuff we did}
 %\todo[inline]{This part doesn't make a lot of sense}
-To construct these expanded word-lists, we used WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words, including common related forms (similar to word stemming), meronymy and synonymy. 
+To construct these expanded word-lists, we used
+WordNet~\cite{Fellbaum1998}.
+%, an English-language ``lexical database'' that contains semantic relations between words, including common related forms (similar to word stemming), meronymy and synonymy. 
 We then added Boehm's software quality model \cite{Boehm+:1976:ICSE}, and classified his eleven `ilities' into their respective ISO9126 NFRs. 
 We did the same for the quality model produced by McCall et al. \cite{mccall1977}. 
 We then did a simple random analysis of mailing list messages from an open source project, KDE. If we judged a given message to contain terms that were related to one of the NFRs in ISO9126, we added it to our word-list. This allowed us to expand our word-lists with more software-specific terms.
@@ -524,7 +611,7 @@ topics occur where there is no such match, which may indicate either a lack of p
 All experiments were run on MaxDB 7.500 and MySQL 3.23 data. LDA
 extracted 20 topics per period for each project.
 % Is this good enough
-This labelling is unsupervised because the corpus is not derived from 
+This labelling is \emph{semi-unsupervised} because the corpus is not derived from 
 the project being labelled, and we did not label the project's topics
 ourselves for a training set. The motivation behind this technique is that
 because most software often addresses similar issues, we can use the
@@ -586,12 +673,13 @@ MySQL 3.23  & Named Topics   & 524 & 273 & 773 \\
 
 \end{table}
 
-For \textsf{exp1}, our best performing 
-labels --- that is, those with the most topics --- were
+% was best performing
+For \textsf{exp1} the labels with the most topics
+were
 %labels, those with the most topics, 
 \emph{correctness} (182 topics) and \emph{testability} (121). 
 We did not get good results for \emph{usability} or \emph{accuracy}, which were associated with fewer than ten topics. 
-We also looked for correlation between our labels: Excluding double matches (self-correlation), our highest co-occurring terms were \emph{verifiability} with \emph{traceability}, and \emph{testability} with \emph{correctness} (76 and 62 matches, respectively).
+We also looked for correlation between our labels: excluding double matches (self-correlation), our highest co-occurring terms were \emph{verifiability} with \emph{traceability}, and \emph{testability} with \emph{correctness} (76 and 62 matches, respectively).
 % See the following sections for our error analysis. 
 
 For \textsf{exp2}, there are more unnamed topics than \textsf{exp1}. 
@@ -606,12 +694,12 @@ Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{effic
 
 %\todo[inline]{Should we use F-1 as well to satisfy everyone?}
 
-\subsubsection{Analysis of the unsupervised labelling} %--- %Based
+\subsubsection{Analysis of the semi-unsupervised labelling} %--- %Based
                                 %on the labels, and our manual topic
                                 %labelling, 
 %\noindent \textbf{Analysis of the unsupervised labelling} --- %Based on the labels, and our manual topic labelling, 
 %we compared the results of the unsupervised word matching approach. 
-For each quality we assessed whether unsupervised labels matched the manual annotations. %To be clear, the manual annotations were not used to train the labeling process.
+For each quality we assessed whether semi-unsupervised labels matched the manual annotations. %To be clear, the manual annotations were not used to train the labeling process.
 As described in \ref{sec:wordlist} we used both ROC and F-1 measures to evaluate the performance of the classification.
 Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. We describe F-1 results in the text below.
 
@@ -635,12 +723,12 @@ Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. 
 % \end{figure}
 
 
-\begin{figure*}
+\begin{figure*}[t]
   \centering
  \includegraphics[width=0.8\textwidth]{figures/unsupervised-bar}
- \caption{Performance, ROC values (range: 0-1), of unsupervised topic labelling for
+ \caption{Performance, ROC values (range: 0-1), of semi-unsupervised topic labelling for
    each NFR and per word-list. Dashed line indicates the performance of a random classifier. This graph shows how well the
-   unsupervised topic labelling matched our manual annotations.}
+   semi-unsupervised topic labelling matched our manual annotations.}
 
 %\todo[inline]{this is too tiny in print}
   \label{fig:maxdb-unsup-results}
@@ -701,6 +789,9 @@ We used a suite of supervised classifiers, WEKA~\cite{weka09}.
 WEKA includes machine learning tools such as support vector machines and Bayes-nets. 
 We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}. %\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. 
 Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, which maps to what we observed while manually labelling topics.
+The \emph{features} we used are word counts/occurrence  per topic, if
+a word occurs frequently enough in a topic we consider it a feature of
+the topic.
 
 To assess the performance of the supervised learners, we did a 10-fold cross-validation~\cite{Kohavi1995}, a common technique for evaluating machine learners. 
 The original data is partitioned randomly into ten sub-samples. Each sample is used to test against a training set composed of the nine other samples.
@@ -723,7 +814,7 @@ The best learner is important because one uses a single learner per label. In ap
 
 Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, as the ROC values for \emph{reliability} and \emph{functionality} seem swapped between projects. 
 
-\begin{figure}
+\begin{figure}[t]
 \centering
 % \subfloat[MySQL]{
 \includegraphics[width=0.45\textwidth]{figures/both-supervised}
@@ -741,7 +832,7 @@ Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite differ
 
 For both projects Bayesian techniques did the best out of a wide variety of machine learners tested. 
 Our best learners, Discriminative Multinomial Naive Bayes, Naive Bayes  and Multinomial Naive Bayes  are all based on Bayes's theorem and all assume, naively, that the features are independent. 
-The features we used are word counts per message. 
+%The features we used are word counts per message. 
 One beneficial aspect of this result is that it suggests we can have very fast training and classifying  since Naive Bayes can be calculated in $O(N)$ for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
 
@@ -785,7 +876,7 @@ The Mulan~\cite{mulan} library encapsulates several different multi-label machin
 Mulan also includes methods for determining the performance of such techniques.
 % TOO DETAILED The problem framed in the learners above has changed; instead of looking at the precision and recall of applying one label, we rank multiple labels at once. We must check if the full subset of labels was applied, and then how much of that subset was applied.
 
-\begin{figure*}[]
+\begin{figure*}[t]
 \centering
 \subfloat[MySQL]{
 \includegraphics[width=0.3\textwidth]{figures/multi-label-results-mysql}
@@ -826,15 +917,27 @@ The multi-label and single-label learners had similar performance: for MySQL, BR
  % possible}
 %%% XXX NEIL I don't get this.. VVVVV
 %\todo[inline]{fix section headings}
-As we mentioned in the introduction, a key issue in software maintenance is understanding \emph{why} a system has evolved the way it has. 
-In this section we demonstrate the value of labelled topic extraction in addressing this issue. 
+As we mentioned in the introduction, a key issue in software maintenance is understanding \emph{why} a system has evolved the way it has~\cite{aranda09icse}. 
+In this section we demonstrate the value of labelled topic extraction
+in addressing this issue. 
+% more why
+Labelled topics address \emph{why}  because they show why changes
+occurred rather than \emph{how}. 
+The \emph{how} of a change is the change itself, the purpose or
+\emph{why} is what we are after.
 We investigate the history of the two large-scale database systems that we studied. 
 We use our technique to show the topic of development efforts over time in each project.
 %We evaluated two research questions using the ground truth data that we annotated by hand:
 We motivated our investigation with two research questions:
 \begin{enumerate}
 \item \emph{Do NFR frequencies change over time?} If a particular NFR was of more interest at one point in the life-cycle than another, this suggests that development activity shifted focus. For example, if a developer expected to see a recent focus on \emph{reliability}, but instead \emph{usability} dominated, he or she might re-prioritize up-coming work items.
-\item \emph{Do projects differ in their relative interest in NFRs?} A program manager would be interested in knowing whether a particular NFR, such as \emph{reliability}, was more important for one project than another. This could be to confirm the initial design goals, or to track the progress on that quarter's objectives.  
+\item \emph{Do projects differ in their relative interest in NFRs?} A
+  project manager, especially a systems-manager, would be interested
+  in knowing whether a particular NFR, such as \emph{reliability}, was
+  more important for one project than another. This could be to
+  confirm the initial design goals, or to track the progress on that
+  quarter's objectives.  The difference in NFR proportion is
+  interesting because it implies a difference in focus between two projects.
 \end{enumerate}
 
 %\subsection{Timeline analysis}
@@ -846,13 +949,21 @@ temporal patterns of NFR frequencies.
 %results of labelled topic extraction.
 There are two measures represented. 
 One, the relative frequency, shown in the grey histogram boxes, represents the number of topics with that NFR in that period, 
-relative to the maximum number of topics assigned to that NFR. For example, in Figure \ref{fig:mysql-timeline} we see a spike in \emph{portability} and \emph{functionality} frequency in September 2002.
+relative to the maximum number of topics assigned to that NFR. 
+For example, in Figure \ref{fig:mysql-timeline} we see a spike in \emph{portability} and \emph{functionality} frequency in September 2002.
 The second, absolute frequency, is shown using cell intensity, and compares the number of topics labelled with that NFR per period 
-relative to the maximum number of labelled topics overall. For instance, Figure \ref{fig:mysql-timeline} shows that the NFRs \emph{functionality}, \emph{portability} and \emph{maintainability} contain more labelled topics, since these NFRs have been more intensely shaded.
+relative to the maximum number of labelled topics overall. 
+For instance, Figure \ref{fig:mysql-timeline} shows that the NFRs
+\emph{functionality}, \emph{portability} and \emph{maintainability}
+contain more labelled topics, since these NFRs have been more
+intensely shaded; 
+one interesting stream is \emph{efficiency} which shows periodic
+activity, does this suggest that once maybe efficiency related changes
+have longer lasting effects?
 The topmost row in each diagram lists historical events for that project (such as a release). 
 %We refer to these occurrences in the discussion which follows.
 
-\begin{figure*}[]
+\begin{figure*}[t]
 \centering
 \subfloat[MySQL 3.23]{
 \includegraphics[width=\textwidth]{figures/mysql-timeline}
@@ -962,13 +1073,13 @@ supervised learners have the advantage of domain knowledge, which typically mean
 %Our manual annotations were fairly quick to do, taking only a few minutes per 30 day period. 
 Creating annotated topics (i.e., manual labels) for training is painstaking, but with a suitably representative set of topics, the effort is acceptable. To annotate \emph{all} topics took us approximately 20 hours per project, but we estimate only 10\% of the topics need annotation to produce useful results.
 
-Very rarely did \textsf{exp2} and \textsf{exp3} (unsupervised word matching) ever perform as well as the supervised machine learners. 
+Very rarely did \textsf{exp2} and \textsf{exp3} (semi-unsupervised word matching) ever perform as well as the supervised machine learners. 
 For MaxDB, \textit{reliability} was slightly better detected using the static word list of \textsf{exp2}. 
 In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. 
 For both MySQL and MaxDB \textit{usability} was better served by \textsf{exp2}. 
 \textit{Usability} was a very infrequent label, however, which made it difficult to detect in any case.
 
-The unsupervised labelling had difficulty distinguishing between common labels and infrequent labels. 
+The semi-unsupervised labelling had difficulty distinguishing between common labels and infrequent labels. 
 The learners would occasionally mislabel a topic deserving of an infrequent label with a more common label.
 The word-lists for \emph{correctness} tended to be too lengthy, non-specific and broad, especially if WordNet words were used, since the NFRs are typically loosely defined concepts in common parlance.
 
@@ -982,22 +1093,37 @@ With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these
 MySQL and MaxDB's machine learners made some decisions based off a few shared words: \textsf{bug, code, compiler, database, HP UX, delete, memory, missing, problems, removed, add, added, changed, problem, and test}. 
 Adding these words to the word-lists of \textsf{exp2} and \textsf{exp3} could improve performance while ensuring they were only domain specific.
 
-If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques, we could reduce the training effort by boosting training sets with topics classified with the unsupervised techniques.
+If the techniques used in \textsf{exp2} and \textsf{exp3} were combined with the supervised techniques, we could reduce the training effort by boosting training sets with topics classified with the semi-unsupervised techniques.
 Both Naive Bayesian learners and the word-list approaches were computationally efficient.  
 %These results are promising, because the accuracy of the techniques is good enough to be useful, while the run-time performance is still cheap enough to execute to be feasible as an automated or semi-automated method of labelling topics by their software qualities.
-These results are promising because they indicate that these techniques are accurate enough to be useful while still maintaining acceptable run-time performance.
+These results are promising because they indicate that these
+techniques are accurate enough to be useful while still maintaining
+acceptable run-time performance.
+
+Since this work focuses on labelling natural language commit log
+comments we feel it can adapted to other natural language artifacts
+such as mailing-list discussions and bug reports, even though that was
+not evaluated in this paper. Bug reports might not exhibit the same
+behaviour as commits in terms of dominant topics.
 
 \subsection{Threats to validity}
 % can always be cut down
 %Our work faced multiple threats to validity and we attempted to address many of them.
-\emph{Construct validity} -- we used only commit messages rather than mail or bug tracker messages. Since we required a seamless record, it was not possible to obtain other data sources. Possibly they would have influenced our results, but there would be a degree of correlation between the corpora.
+\emph{Construct validity} -- we used only commit messages rather than
+mail or bug tracker messages. 
+To extend further we would need matching repositories for each project.
+%Each case study was BecauseSince we required a seamless record, it was not possible to obtain
+%other data sources. 
+Possibly they would have influenced our results, but there would be a degree of correlation between the corpora.
 %Conversely, construct validity was addressed in our validation as we used the files, topics and revisions to annotate the commit messages. 
 %We used mailing-lists to verify the purpose behind some events.
 Our taxonomy for software NFRs is subject to dispute, but seems generally accepted. Finally, there are exogenous sources, such as in-person discussions, which we did not access, an omission as noted in \cite{aranda09icse}. %We did not show these results to the stakeholders.
 
 \emph{Internal validity} -- %includes inter-rater reliability and our lack of rival explanation building. 
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
-We did not attempt to match our results to any particular model or theory.
+We did not attempt to match our results to any particular model or
+theory.
+Also we did not have enough manpower to assess inter-rater reliability.
 
 \emph{External validity} -- %was addressed by our use of two case studies, but there are still issues. 
 Our data originated from OSS database projects and thus might not be applicable to commercially developed software or other domains. 
@@ -1007,8 +1133,10 @@ Furthermore, our analysis techniques rely on a project's use of meaningful commi
 % \todo[inline]{If we compare with the same domain we don't get to say it generalizes a lot?}
 
 % in Case Study Research: Design Case Studies
-\emph{Reliability} -- each annotator followed the same protocol and used the same annotations. 
-However, only two annotators were used; their annotations could be biased as we did not analyze for inter-rater reliability.
+\emph{Reliability} -- each annotator, the first two authors, followed the same protocol and used the same annotations. 
+However, only two annotators were used; their annotations could be
+biased as we did not analyze for inter-rater reliability because they
+did not rate the same documents.
 
 \subsection{Future work}
 There are several avenues of further investigation.  
@@ -1028,9 +1156,8 @@ topics that needed to be manually labelled.
 %, but topics without labels
 %are difficult to interpret, and manually labelling them is
 %costly. Furthermore, previous work was project-specific and thus incomparable. 
-To improve on this, we leveraged software engineering standards, specifically the ISO quality taxonomy, to produce a method of partially-automated (supervised) and fully-automated (unsupervised) topic labelling.
-Since the word-list technique is not project-specific, we used it to compare two distinct projects, where we showed our technique produced interesting insight into maintenance activity. %topics and artifacts from project histories
-We showed that trending topics within commits are often related to non-functional-requirements.
+To improve on this, we leveraged software engineering standards, specifically the ISO quality taxonomy, to produce a method of partially-automated (supervised) and fully-automated (semi-unsupervised) topic labelling.
+Since the word-list technique is not project-specific, we used it to compare two distinct projects, where we showed our technique produced interesting insight into maintenance activity. %topics and artifacts from project histories.
 % Our contributions include:
 % \begin{itemize}
 % \item We provided an unsupervised method of topic labelling (word-lists);
@@ -1043,7 +1170,7 @@ We showed that trending topics within commits are often related to non-functiona
 
 
 We validated our topic labelling techniques using multiple experiments. % on unsupervised learners, supervised and multi-label learners. 
-We first conducted unsupervised labelling using word-lists. 
+We first conducted semi-unsupervised labelling using word-lists. 
 Our next approach was supervised, using single-label and multi-label learners. 
 Both kinds of learners performed well with average
 %area under the 
