@@ -740,7 +740,7 @@ Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. 
   \centering
  \includegraphics[width=0.8\textwidth]{figures/unsupervised-bar}
  \caption{Performance, ROC values (range: $0$--$1$), of semi-unsupervised topic labelling for
-   each NFR and per word-list. Dashed line indicates the performance of a random classifier. This graph shows how well the
+   each NFR and per word-list. The dashed line indicates the performance of a random classifier. This graph shows how well the
    semi-unsupervised topic labelling matched our manual annotations.}
 
 %\todo[inline]{this is too tiny in print}
@@ -845,7 +845,9 @@ Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite differ
 \end{figure}
 
 For both projects Bayesian techniques did the best out of a wide variety of machine learners tested. 
-Our best learners, Discriminative Multinomial Naive Bayes, Naive Bayes  and Multinomial Naive Bayes  are all based on Bayes's theorem and all assume, naively, that the features are independent. 
+Our best learners, Discriminative Multinomial Naive Bayes, Naive Bayes
+and Multinomial Naive Bayes  are all based on Bayes's theorem and all
+assume, naively, that the features supplied are independent. 
 %The features we used are word counts per message. 
 One beneficial aspect of this result is that it suggests we can have very fast training and classifying  since Naive Bayes can be calculated in $O(N)$ for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
@@ -875,9 +877,11 @@ cases (other than MaxDB \emph{reliability} and MySQL \emph{efficiency}). The
 limitation of the approach we took here is that we assume labels are
 independent; however, labels could be correlated with each other. 
 The next section (\ref{sec:multilabel})
-addresses the issue of a lack of independence and correlation between labels.
-In the next section we will evaluate how well these learners perform
-together.
+addresses the issue of a lack of independence and correlation between
+labels
+using multi-label learners.
+%In the next section we will evaluate how well these learners perform
+%together.
 %\todo[inline]{Comment about correlation, we should link to the Mulan section, perfect segway since Mulan relies on correlation.}
 
 \subsection{Applying multiple labels to topics}
@@ -935,7 +939,7 @@ As we mentioned in the introduction, a key issue in software maintenance is unde
 In this section we demonstrate the value of labelled topic extraction
 in addressing this issue. 
 % more why
-Labelled topics address \emph{why}  because they show why changes
+Labelled topics address \emph{why}  because they show reasons why changes
 occurred rather than \emph{how}. 
 The \emph{how} of a change is the change itself, the purpose or
 \emph{why} is what we are after.
@@ -944,7 +948,7 @@ We use our technique to show the topic of development efforts over time in each 
 %We evaluated two research questions using the ground truth data that we annotated by hand:
 We motivated our investigation with two research questions:
 \begin{enumerate}
-\item \emph{Do NFR frequencies change over time?} If a particular NFR was of more interest at one point in the life-cycle than another, this suggests that development activity shifted focus. For example, if a developer expected to see a recent focus on \emph{reliability}, but instead \emph{usability} dominated, he or she might re-prioritize up-coming work items.
+\item \emph{Do NFR frequencies change over time?} If a particular NFR was of more interest at one point in the life-cycle than another, this suggests that development activity shifted focus. For example, if a developer expected to see a recent focus on \emph{reliability}, but instead \emph{usability} dominated, they might re-prioritize up-coming work items.
 \item \emph{Do projects differ in their relative interest in NFRs?} A
   project manager, especially a systems-manager, would be interested
   in knowing whether a particular NFR, such as \emph{reliability}, was
@@ -989,7 +993,11 @@ The topmost row in each diagram lists historical events for that project (such a
 \label{fig:maxdb-timeline}
 }
 	\caption[]{NFR label per period. Each cell represents a 30-day period. %Numbers represent number of topics in that period labelled with that NFR. 
-	Grid cell intensity (saturation) is mapped to label frequency relative to the largest label value of \emph{all} NFRs. Grey histogram bars indicate label frequency relative to that particular NFR's largest label value. Dashed vertical lines relate a project milestone (*Key Event*) to our topic windows. 
+	Grid cell intensity (saturation) is mapped to label frequency
+        relative to the largest label count of \emph{all} NFRs. Grey
+        histogram bars indicate label frequency relative to that
+        particular NFR's largest label count. Dashed vertical lines
+        relate a project milestone (a \emph{key event}) to our topic windows. 
 % \todo[inline]{better discussion}
 }
 \label{fig:timelines}
