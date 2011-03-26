@@ -621,12 +621,12 @@ Using our three word-lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we lab
 A \emph{named topic} is a topic with a matching NFR label. Unnamed
 topics occur where there is no such match, which may indicate either a lack of precision, or simply that this topic is not associated with non-functional requirements.
 All experiments were run on MaxDB 7.500 and MySQL 3.23 data. LDA
-extracted 20 topics per period for each project.
+extracted $20$ topics per period for each project.
 % Is this good enough
 This labelling is \emph{semi-unsupervised} because the corpus is not derived from 
-the project being labelled, and we did not label the project's topics
+the project being analyzed, and we did not label the project's topics
 ourselves for a training set. The motivation behind this technique is that
-because most software often addresses similar issues, we can use the
+because most software often addresses similar issues, thus we can use the
 domain knowledge of software to label relevant topics.
 %\todo[inline]{Neil does this explain the unsupervised aspect well enough?} 
 
@@ -690,8 +690,8 @@ For \textsf{exp1} the labels with the most topics
 were
 %labels, those with the most topics, 
 \emph{correctness} (182 topics) and \emph{testability} (121). 
-We did not get good results for \emph{usability} or \emph{accuracy}, which were associated with fewer than ten topics. 
-We also looked for correlation between our labels: excluding double matches (self-correlation), our highest co-occurring terms were \emph{verifiability} with \emph{traceability}, and \emph{testability} with \emph{correctness} (76 and 62 matches, respectively).
+We did not see many results for \emph{usability} or \emph{accuracy}, which were associated with fewer than ten topics. 
+We also looked for correlations between our labels: excluding double matches (self-correlation), our highest co-occurring terms were \emph{verifiability} with \emph{traceability}, and \emph{testability} with \emph{correctness} (76 and 62 matches, respectively).
 % See the following sections for our error analysis. 
 
 For \textsf{exp2}, there are more unnamed topics than \textsf{exp1}. 
@@ -700,7 +700,8 @@ Co-occurrence results were poor. This suggests our word lists were overly restri
 
 For \textsf{exp3}, we generally labelled more topics. 
 As we mentioned, the word-lists are broad, so there are likely to be false-positives (discussed below). 
-We found a high of 265 topics for \emph{usability}, with a low of 44 topics for \emph{maintainability}. 
+The most frequent label, 265 topics, was \emph{usability}, and the
+least frequent label, 44 topics, was \emph{maintainability}. 
 Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{efficiency} with \emph{reliability}, and \emph{efficiency} with \emph{usability} (200, 190, and 150 topics in common, respectively). 
 
 
@@ -738,7 +739,7 @@ Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. 
 \begin{figure*}[t]
   \centering
  \includegraphics[width=0.8\textwidth]{figures/unsupervised-bar}
- \caption{Performance, ROC values (range: 0-1), of semi-unsupervised topic labelling for
+ \caption{Performance, ROC values (range: $0$--$1$), of semi-unsupervised topic labelling for
    each NFR and per word-list. Dashed line indicates the performance of a random classifier. This graph shows how well the
    semi-unsupervised topic labelling matched our manual annotations.}
 
@@ -795,7 +796,8 @@ Many of ROC scores were $0.6$ or less, but our classifier nonetheless performed 
 
 \subsection{Supervised labelling}
 \label{sec:suplabelling}
-Supervised labelling requires expert analysis of the correct class/label to assign to a topic. In our approach, we use the top-level NFRs in the ISO 9126 standard~\cite{iso9126} for our classes, but other taxonomies are also applicable.%In order to validate how effective these word-bag approaches to topic labelling would be we created a validation data set. 
+Supervised labelling requires expert analysis of the correct
+class/label to assign a label to a topic. In our approach, we use the top-level NFRs in the ISO 9126 standard~\cite{iso9126} for our classes, but other taxonomies are also applicable.%In order to validate how effective these word-bag approaches to topic labelling would be we created a validation data set. 
 
 We used a suite of supervised classifiers, WEKA~\cite{weka09}. 
 WEKA includes machine learning tools such as support vector machines and Bayes-nets. 
@@ -836,7 +838,7 @@ Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite differ
 % \includegraphics[width=0.4\textwidth]{figures/maxdb-supervised}
 % \label{fig:subfig2}
 % }
-\caption[]{ROC value for the best learner per label for MaxDB and MySQL. Values range from 0--1.  Dashed line indicates the performance of a random classifier.
+\caption[]{ROC value for the best learner per label for MaxDB and MySQL. Values range from $0$--$1$.  Dashed line indicates the performance of a random classifier.
 %\todo[inline]{better discussion}
 }
 \label{fig:best-learn-per-tag}
