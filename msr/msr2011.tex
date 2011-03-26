@@ -4,6 +4,8 @@
  \usepackage[colorinlistoftodos,backgroundcolor=yellow]{todonotes} %disable
  \usepackage{color}
 
+\usepackage{balance}
+
 \newcommand{\XXX}[1]{\textcolor{red}{{\it \textbf{[XXX: #1]}}}}
 \hyphenation{Max-DB data-base}
 
@@ -24,6 +26,12 @@
 % \end{tabular}
 % \begin{tabular}{c}}
 % %
+
+% Only for camera ready -- prevent TeX from rendering widows
+\widowpenalty=9999
+\clubpenalty=9999
+
+
 
 \begin{document}
 
@@ -93,7 +101,8 @@ insight into their evolving software development activities.
 
 \newcommand{\shrink}{}
 
-\vspace*{1em}
+\newpage
+
 \section{Introduction}
 
 %\todo[inline]{Strength story: Neil says
@@ -414,7 +423,7 @@ To evaluate our approach, we sought candidate systems that were mature projects 
 We selected systems from the same application domain, to control for differences in functional, rather than non-functional, requirements. 
 We selected MySQL 3.23 and MaxDB 7.500 as they were open-source, partially-commercial database systems. 
 MaxDB started in the late 1970s as a research project, and was later acquired by SAP. 
-As of version 7.500, released April 2007, the project has over $940,000$ lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}, http://dwheeler.com/sloccount.}. 
+As of version 7.500, released April 2007, the project has over $940,000$ lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}, \tiny{http://dwheeler.com/sloccount}.}. 
 The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. 
 MySQL contains $320,000$ lines of C and C++ source code.  
 %Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
@@ -469,6 +478,10 @@ portability, efficiency, usability, and reliability~\footnote{While there may be
 We claim that these NFRs are maintenance concerns (to varying degrees) in all software projects, and are therefore well-suited for comparisons between projects.
 
 %\noindent \textbf{Creating a validation corpus} --- 
+
+%FAT
+\newpage
+
 \subsubsection{Creating a validation corpus}
 To evaluate both semi-unsupervised and supervised classification, we
 created a validation set of manually labelled topics. For MySQL 3.23
@@ -508,14 +521,13 @@ A perfect learner has a ROC value of 1.0, reflecting perfect recall and precisio
 A ROC result of 0.5 would be equivalent to a random learner (that is, issuing as many false positives as true positives). 
 The %area under the -- NE confusing to have area again ... and not importantana
 ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen negative instance.
-
 We consider our labelling classifiers acceptable if they outperform a random classifier (0.5). 
 
 \subsection{Semi-unsupervised labelling}
 \label{sec:unsuplabelling}
 
 In this section we describe how to label topics based on dictionaries
-mined from sources external to the projects themselves.
+mined from sources external to the projects.
 
 %\subsection{Generating word lists}
 %\label{sec:genwordlist}
@@ -551,6 +563,9 @@ refer to as \textsf{exp1}, \textsf{exp2}, and \textsf{exp3} in the text which fo
 Our first word-list set, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519} .
 That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. 
 The labels we used:
+
+%FAT we can remove this
+\newpage
 \begin{quotation}
 \small \noindent \textsf{
 integrity, security,
@@ -694,6 +709,10 @@ We did not see many results for \emph{usability} or \emph{accuracy}, which were 
 We also looked for correlations between our labels: excluding double matches (self-correlation), our highest co-occurring terms were \emph{verifiability} with \emph{traceability}, and \emph{testability} with \emph{correctness} (76 and 62 matches, respectively).
 % See the following sections for our error analysis. 
 
+%FAT
+\balance
+\newpage
+
 For \textsf{exp2}, there are more unnamed topics than \textsf{exp1}. 
 Only \emph{reliability} produces a lot of matches, mostly with the word ``error''. 
 Co-occurrence results were poor. This suggests our word lists were overly restrictive.
@@ -784,25 +803,25 @@ $0.47$, and $0.36$ for MySQL with a range of $0.10$ to $0.65$.
 MaxDB had an average precision and recall of $0.16$ and $0.67$
 while MySQL had $0.3$ and $0.48$ respectively.
 
-Based on these results we find that \emph{reliability} and
+Thus we find that \emph{reliability} and
 \emph{usability} worked well for MaxDB in \textsf{exp2} and better in
 \textsf{exp3}. 
 \textsf{exp1} performed poorly.
 MySQL had reasonable results within \textsf{exp2} for \emph{reliability} and \emph{efficiency}. 
 MySQL's results for \emph{efficiency} did not improve in \textsf{exp3}
 but other qualities such as \emph{functionality} did improve. 
-Many of ROC scores were $0.6$ or less, but our classifier nonetheless performed substantially better than random.
+Many of ROC scores were $0.6$ or less, but our classifier still performed substantially better than random.
 
-
+%\vspace*{-1em}
 \subsection{Supervised labelling}
 \label{sec:suplabelling}
 Supervised labelling requires expert analysis of the correct
 class/label to assign a label to a topic. In our approach, we use the top-level NFRs in the ISO9126 standard~\cite{iso9126} for our classes, but other taxonomies are also applicable.%In order to validate how effective these word-bag approaches to topic labelling would be we created a validation data set. 
 
-We used a suite of supervised classifiers, WEKA~\cite{weka09}. 
-WEKA includes machine learning tools such as support vector machines and Bayes-nets. 
+We used a suite of supervised classifiers, WEKA~\cite{weka09},
+that includes machine learning tools such as support vector machines and Bayes-nets. 
 We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}. %\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. 
-Traditional classifiers map our topics to a single class, whereas Mulan allows for a mixture of classes per topic, which maps to what we observed while manually labelling topics.
+Traditional classifiers label topics with a single class, whereas Mulan allows for a mixture of classes per topic, which is what we observed while manually labelling topics.
 The \emph{features} we used are word counts/occurrence  per topic, if
 a word occurs frequently enough in a topic we consider it a feature of
 the topic.
@@ -817,10 +836,12 @@ We have reported these results below.% in Section \ref{sec:suplabelling}.
 % \label{sec:suplabelling}
 Because our data-set was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. 
 We tried other learners that WEKA~\cite{weka09} provides: rule learners, decision tree learners, vector space learners, and support vector machines.  
-Figure \ref{fig:best-learn-per-tag} shows the performance of the best performing learner per label. 
- We considered the best learner for a label to be the learner which
- had the highest ROC value for that label. 
-The best learner is important because one uses a single learner per label. In applying our technique, we expect the user to select, for each NFR, the best learner possible.
+Figure \ref{fig:best-learn-per-tag} shows the performance of the best
+performing learner per label: 
+% We considered the best learner for a label to be 
+the learner that had the highest ROC value for that label. 
+The best learner is important because one uses a single learner per
+label. When applying our technique, for each NFR one should select the best learner possible.
 %Figure \ref{fig:best-learn-per-tag} uses the ZeroR learner as a baseline, a common practice in machine learning,
 %as ZeroR naively chooses the largest category all of the time. 
 %ZeroR occasionally outperforms other learners; for labels which are not as common, this is to be expected because any miscategorization will hurt accuracy. 
@@ -884,6 +905,8 @@ using multi-label learners.
 %together.
 %\todo[inline]{Comment about correlation, we should link to the Mulan section, perfect segway since Mulan relies on correlation.}
 
+\balance
+
 \subsection{Applying multiple labels to topics}
 \label{sec:multilabel}
 
@@ -909,6 +932,9 @@ Mulan also includes methods for determining the performance of such techniques.
 }
 \label{fig:mulan}
 \end{figure*}
+
+%FAT 
+%\newpage
 
 Two perspectives to evaluate multi-label learners are with micro or macro measurements (used in Figure \ref{fig:mulan}).
 Macro measurements are aggregated at a class or label level (per class) while micro measurements are at the element level (per element).
@@ -948,7 +974,13 @@ We use our technique to show the topic of development efforts over time in each 
 %We evaluated two research questions using the ground truth data that we annotated by hand:
 We motivated our investigation with two research questions:
 \begin{enumerate}
-\item \emph{Do NFR frequencies change over time?} If a particular NFR was of more interest at one point in the life-cycle than another, this suggests that development activity shifted focus. For example, if a developer expected to see a recent focus on \emph{reliability}, but instead \emph{usability} dominated, they might re-prioritize up-coming work items.
+\item \emph{Do NFR frequencies change over time?} If a particular NFR
+  was of more interest at one point in the life-cycle than another,
+  this suggests that development activity shifted focus. For example,
+  if a developer expected to see a recent focus on \emph{reliability},
+  but instead \emph{usability} dominated, they might re-prioritize
+  upcoming work items.
+
 \item \emph{Do projects differ in their relative interest in NFRs?} A
   project manager, especially a systems-manager, would be interested
   in knowing whether a particular NFR, such as \emph{reliability}, was
@@ -957,6 +989,10 @@ We motivated our investigation with two research questions:
   quarter's objectives.  The difference in NFR proportion is
   interesting because it implies a difference in focus between two projects.
 \end{enumerate}
+
+%FAT 
+
+%\newpage
 
 %\subsection{Timeline analysis}
 Figures \ref{fig:mysql-timeline} and \ref{fig:maxdb-timeline} show the
@@ -1043,7 +1079,8 @@ After this point, efforts shift to the newer releases (4.0, 4.1, 5.0). With resp
 %This analysis allows to address the questions raised in Section \ref{sec:suplabelling}:
 %This analysis addresses our research questions: %raised in Section \ref{sec:analysis}:
 
-\noindent\textbf{1. Do NFR frequencies change over time?} --- 
+\subsection{Do NFR frequencies change over time?}
+%\noindent\textbf{1. Do NFR frequencies change over time?} --- 
 %\subsubsection{Do label frequencies change over time?}
 In both projects the frequencies generally decreased with age. 
 However, there are variations within our NFR labels. In MySQL, \emph{usability} and \emph{efficiency} do not appear very often in topics. 
@@ -1052,10 +1089,14 @@ A proportionately smaller number of commits addressed these NFRs.
 Certain peaks in topic numbers coincide with a particular emphasis from the development team on issues such as new releases or bug fixes.
 This suggests that maintenance activity is not necessarily strictly decreasing with time, but rather episodic and responsive to outside stimuli. 
 In MaxDB, we can observe that \emph{Maintainability} topics became more prevalent as MaxDB matures. 
-This is likely due to our analysis timeframe for MaxDB being shorter than the timeframe for the MySQL product. 
+This is likely due to our analysis time-frame for MaxDB being shorter than the time-frame for the MySQL product. 
 
+%FAT
+\newpage
+
+\subsection{Do  projects differ in their relative  topic interest?}
 %\subsubsection{Do  projects differ in their relative  topic interest?}
-\noindent\textbf{2. Do  projects differ in their relative  topic interest?} ---
+%\noindent\textbf{2. Do  projects differ in their relative  topic interest?} ---
 Yes. MySQL 3.23 had proportionally more
 topics labelled \emph{functionality}, while MaxDB had proportionally more
 \emph{efficiency} related topics. MaxDB was a very mature release ``donated'' to the open-source community, 
@@ -1089,6 +1130,8 @@ Despite this difference, the name of the module could fool our learners into bel
 In these cases the advantages of tailoring topic names to specific project terminologies are more clear. 
 Project specific word-lists would avoid automated mistakes due to the names of entities and modules of a software project.
 
+%FAT
+%\newpage
 \subsection{Summary of techniques}
 While an unsupervised technique such as LDA is appealing in its lack of human intervention, and thus lower effort, 
 supervised learners have the advantage of domain knowledge, which typically means improved results. 
@@ -1147,9 +1190,8 @@ in Aranda et al.~\cite{aranda09icse} %We did not show these results to the stake
 
 \emph{Internal validity} -- %includes inter-rater reliability and our lack of rival explanation building. 
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
-We did not attempt to match our results to any particular model or
-theory.
-Also we did not have enough manpower to assess inter-rater reliability.
+We did not attempt to match our results to any particular model.
+We unable to assess inter-rater reliability.
 
 \emph{External validity} -- %was addressed by our use of two case studies, but there are still issues. 
 Our data originated from OSS database projects and thus might not be applicable to commercially developed software or other domains. 
@@ -1163,6 +1205,9 @@ Furthermore, our analysis techniques rely on a project's use of meaningful commi
 However, only two annotators were used; their annotations could be
 biased as we did not analyze for inter-rater reliability because they
 did not rate the same documents.
+
+\balance
+\newpage
 
 \subsection{Future work}
 There are several avenues of further investigation.  
@@ -1221,9 +1266,13 @@ Our data and scripts are available at:
 
  \url{http://softwareprocess.es/nomen/}
 
+\balance
+
 \bibliographystyle{abbrv}
 %\bibliographystyle{IEEEtran}
 \bibliography{icpc}
+
+\balance
 
 \end{document}
 
