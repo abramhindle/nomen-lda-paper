@@ -157,7 +157,7 @@ In this work we seek to provide a method of automatically labelling  development
 
 Topic modeling is a machine learning technique which creates
 multinomial distributions of words extracted from a text corpus. 
-The technique infers the hidden structure of a corpus using posterior
+This technique infers the hidden structure of a corpus using posterior
 inference: the probability of the hidden structure given the data. 
 Topic models are useful in software maintenance because they summarize
 the key concepts in a corpus, such as source code, commit comments, or
@@ -256,11 +256,11 @@ focused on \emph{usability} by looking for
 
 %% RESEARCH DIDNT DO THIS AND WE ARE TOTALLY AWESOME AND WE DID
 % it is ok to repeat this here because it is clear and bullet pointed and the reviewers wont have any bloody excuse to not see it
-In this paper, we describe \emph{labelled topic extraction}. It addresses two gaps in the topic mining literature:
+In this paper, we describe \emph{automated labelled topic extraction}. It addresses two gaps in the topic mining literature:
 \begin{enumerate}
   \item Topic mining of software has been limited to one project at a time. 
 This is because traditional topic mining techniques are specific to a particular data-set. 
-\textit{Labelled topic extraction} allows for comparisons \textit{between} projects. 
+\textit{Automated labelled topic extraction} allows for comparisons \textit{between} projects. 
   \item Topic modeling creates word lists that require interpretation by the user to assign meaning. 
 Like (1), this means
 that it is difficult to discuss results independent of the project context. 
@@ -383,13 +383,13 @@ label accordingly.
 As discussed earlier, given the topic \emph{``listener change remove add fire''}, Baldi et al. would assign the label \emph{event-handling}. 
 The labels are reasonable enough, but still require an expert in the field to determine them. 
 Furthermore, these labels are project-specific, because they are generated from the data of that project. E.g., we might have a label called \emph{`Oracle'} in the MySQL case, since Oracle owns MySQL. 
-We do this differently.
+%We do this differently.
 %This paper does this differently. 
-First of all, we automate the process of naming the topics. Secondly, we label topics with project-independent terms, in order to permit cross-project comparison.
+Our approach differs: first of all, we automate the process of naming the topics; secondly, we label topics with project-independent terms, in order to permit cross-project comparison.
 
 Mei et al.~\cite{Mei2007} use context information to automatically name topics. 
 They describe probabilistic labelling, using the frequency distribution of words in a topic to create a meaningful phrase. 
-They do not use external domain-specific information as we do and we
+They do not use external domain-specific information as we do, but we
 do not generate phrases from the topics.
 
 Finally, in Ernst et al.~\cite{ernst10refsq}, we describe our earlier
@@ -398,7 +398,7 @@ in GNOME software projects; this approach was more exploratory, had
 less validation, uses different word-lists, solely uses text-matching,
 and does not leverage machine learning strategies. 
 Hindle et al.~\cite{Hindle09ICSM} propose a windowed method of topic
-analysis, we extend this with labelled
+analysis that we extend with labelled
 topics, NFRs and new visualizations.
 
 %Massey~\cite{massey02icse} and Scacchi~\cite{scacchi02,scacchi05b} looked at the topic of requirements in open-source software. 
@@ -482,7 +482,7 @@ We set the number of topics to generate to $20$, because past experimentation sh
 
 To facilitate cross-project comparison, we used a taxonomy of NFRs. This taxonomy is based on the ISO quality model, ISO9126~\cite{iso9126}. 
 ISO9126 describes six high-level NFRs: maintainability, functionality,
-portability, efficiency, usability, and reliability~\footnote{While there may be lingering debate in some circles about these terms, an ISO standard seems like a reasonable starting point for our work.}
+portability, efficiency, usability, and reliability~\footnote{While there may be lingering debate in some circles about these terms, an ISO standard seems like a reasonable starting point for our work.}.
 %There is some debate about the terms in this model. 
 %However, ISO9126 is ``an international standard and thus provides an internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
 We claim that these NFRs are maintenance concerns (to varying degrees) in all software projects, and are therefore well-suited for comparisons between projects.
@@ -510,7 +510,7 @@ used in non NPTL LINUX Versions'', we tagged that topic
 Given the top-level annotations of \emph{none}, \emph{portability},
 \emph{efficiency}, \emph{reliability}, \emph{functionality},
 \emph{usability}, and \emph{maintainability}, the annotators annotated each topic
-with the relevant label and sometimes they used finer-grained
+with the relevant label. Sometimes they used finer-grained
 annotations that would be aggregated up to one of these higher-level labels.
 %\todo[inline]{this confused people. Is it truly unsupervised? Yes, but it needs to be clearer.}
 %We compared against this data-set, but we also used the data-set for our supervised machine learning based topic classification. 
@@ -563,9 +563,9 @@ In order to automatically label each topic with
 one of the six high-level NFRs,
 %an NFR from ISO9126, 
 we associate each NFR with a list
-of keywords (`word-lists', in our parlance). These word-lists were determined a priori and were not extracted from the projects themselves.
+of keywords (\emph{word-lists}, in our parlance). These word-lists were determined a priori and were not extracted from the projects themselves.
 We intersected the words of the topics and the words of our word-lists.
-We ``labeled'' a topic if any of its words matched any of the word-list's words.
+We ``labelled'' a topic if any of its words matched any of the word-list's words.
 A topic could match more than one NFR.
 We used several different sets of word-lists for comparison, which we
 refer to as \textsf{exp1}, \textsf{exp2}, and \textsf{exp3} in the text which follows. 
@@ -593,7 +593,7 @@ Our second word-list, \textsf{exp2}, uses the ISO9126 taxonomy described above (
 The terms from ISO9126 may not capture all words occurring in the topics that are nonetheless associated with one of the NFRs. 
 For example, the term ``redundancy'' is one 
 we considered to be
-relevant to discussion of reliability, but is not in the standard. 
+relevant to discussion of \emph{reliability}, but is not in the standard. 
 We therefore took the NFRs from the ISO9126 and added to them.
 
 %\todo[inline]{* clarify the mailinglist stuff we did}
@@ -644,9 +644,9 @@ operability understandability learnability useable usable serviceable usefulness
 %\todo[inline]{* the hierarchy of tags was not clear}
 %\noindent \textbf{Generating labels automatically} --- 
 
-Using our three word-lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labeled our topics with an NFR where there was a match between a word in the list and the same word somewhere in the distribution of words that constitute the topic.
-A \emph{named topic} is a topic with a matching NFR label. Unnamed
-topics occur where there is no such match, which may indicate either a lack of precision, or simply that this topic is not associated with non-functional requirements.
+Using our three word-lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labelled our topics with an NFR where there was a match between a word in the list and the same word somewhere in the distribution of words that constitute the topic.
+A \emph{named topic} is a topic with a matching NFR label. \emph{Unnamed
+topics} occur where there is no such match, which may indicate either a lack of precision, or simply that this topic is not associated with non-functional requirements.
 All experiments were run on MaxDB 7.500 and MySQL 3.23 data. LDA
 extracted $20$ topics per period for each project.
 % Is this good enough
@@ -744,7 +744,7 @@ Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{effic
 %\noindent \textbf{Analysis of the unsupervised labelling} --- %Based on the labels, and our manual topic labelling, 
 %we compared the results of the unsupervised word matching approach. 
 For each quality we assessed whether semi-unsupervised labels matched the manual annotations. %To be clear, the manual annotations were not used to train the labelling process.
-As described in \ref{sec:wordlist} we used both ROC and F-1 measures to evaluate the performance of the classification.
+As described in Section \ref{sec:wordlist} we used both ROC and F-1 measures to evaluate the performance of the classification.
 Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. We describe F-1 results in the text below.
 
 
@@ -822,7 +822,7 @@ Thus we find that \emph{reliability} and
 MySQL had reasonable results within \textsf{exp2} for \emph{reliability} and \emph{efficiency}. 
 MySQL's results for \emph{efficiency} did not improve in \textsf{exp3}
 but other qualities such as \emph{functionality} did improve. 
-Many of ROC scores were $0.6$ or less, but our classifier still performed substantially better than random.
+Many ROC scores were $0.6$ or less, but our classifier still performed substantially better than random.
 
 %\vspace*{-1em}
 \subsection{Supervised labelling}
@@ -939,7 +939,7 @@ Mulan also includes methods for determining the performance of such techniques.
 \includegraphics[width=0.3\textwidth]{figures/multi-label-results-maxdb}
 \label{fig:subfig4}
 }
-\caption[]{MySQL and MaxDB macro (grey) and micro (black) ROC results per multi-label learner. Possible values range from 0--1.  Dashed line indicates the performance of a random classifier.
+\caption[]{MySQL and MaxDB macro (grey) and micro (black) ROC results per multi-label learner. Possible values range from $0$--$1$.  Dashed line indicates the performance of a random classifier.
 %\todo[inline]{better discussion}% and graphical legend would be nice}
 }
 \label{fig:mulan}
@@ -957,7 +957,8 @@ Figure~\ref{fig:mulan} presents the results of Mulan's best multi-label learners
 Calibrated Label Ranking (CLR) is a learner that builds two layers. The first layer determines if an entity should be labelled, while the second layer determines what labels should be assigned.
 The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act as a hierarchy of learners: BR is flat, while HOMER tries to build a deeper hierarchy for a more accurate learner~\cite{mulan}. 
 These classifiers performed better than other multi-label classifiers as they have the best micro and macro ROC scores. 
-The multi-label and single-label learners had similar performance: for MySQL, BR and NaiveBayes had similar macro-ROC scores of $0.74$.
+The multi-label and single-label learners had similar performance: for
+MySQL, BR and Naive Bayes had similar macro-ROC scores of $0.74$.
 % although their results are comparable to the naive Bayesian learners we used in Section \ref{sec:suplabelling}.
 % \todo[inline]{discuss this similarity in more detail}
 
@@ -1075,7 +1076,8 @@ After this point, this version enters the maintenance phase of its life-cycle.
 In May 2001, there is an increase in the number of topics labelled with \emph{portability}. 
 This might be related to release 3.23.38, which focused on Windows compatibility. 
 Similarly, in August, 2002, both \emph{functionality} and \emph{portability} are frequent, and mailing list data suggests this is related to the release of version 3.23.52, a general bug fix with a focus on security (a component of the \emph{functionality} NFR in the ISO9126 model). 
-After this point, efforts shift to the newer releases (4.0, 4.1, 5.0). With respect to our research questions:
+After this point, efforts shift to the newer releases (4.0, 4.1,
+5.0). We now address our research questions:
 
 % \subsection{Comparing MaxDB and MySQL}
 
@@ -1133,7 +1135,10 @@ was related to \emph{correctness} and \emph{reliability}, possibly because concu
 % often  was troublesome. 
 \emph{Configuration management} and \emph{source control} related changes appeared often; % and sometimes there were topics dedicated to configuration management. 
 these kinds of changes are slightly related to \emph{maintainability}. 
-A non-functional change that was not quality-related was licensing and copyright; many changes were simply to do with updating copyrights or ensuring copyright or license headers were applied to files. In these cases we assigned the \emph{None} class.
+A non-functional change that was not quality-related was licensing and
+copyright; many changes were simply to do with updating copyrights or
+ensuring copyright or license headers were applied to files. In these
+cases we assigned the \emph{None} label to the topic.
 
 We noticed that occasionally the names of modules would conflict with words related to other non-functional requirements. 
 For instance, optimizers are very common modules in database systems: both MySQL and MaxDB have optimizer modules. 
@@ -1161,8 +1166,11 @@ The semi-unsupervised labelling had difficulty distinguishing between common lab
 The learners would occasionally mislabel a topic deserving of an infrequent label with a more common label.
 The word-lists for \emph{correctness} tended to be too lengthy, non-specific and broad, especially if WordNet words were used, since the NFRs are typically loosely defined concepts in common parlance.
 
-We found that the multi-label learners of BR, CLR and HOMER only did as well or worse for Macro-ROC as the single-label NaiveBayes and other naive Bayes-derived learners. 
-This suggests that by combining together multiple NaiveBayes learners we could probably label sets of topics effectively, but it would require a separate NaiveBayes learner per label.
+We found that the multi-label learners of BR, CLR and HOMER only did
+as well or worse for Macro-ROC as the single-label Naive Bayes and other naive Bayes-derived learners. 
+This suggests that by combining together multiple Naive Bayes learners
+we could probably label sets of topics effectively, but it would
+require a separate Naive Bayes learner per label.
 
 %{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
 
@@ -1179,7 +1187,7 @@ techniques are accurate enough to be useful while still maintaining
 acceptable run-time performance.
 
 Since this work focuses on labelling natural language commit log
-comments we feel it can adapted to other natural language artifacts
+comments we feel it can be adapted to other natural language artifacts
 such as mailing-list discussions and bug reports, even though that was
 not evaluated in this paper. Bug reports might not exhibit the same
 behaviour as commits in terms of dominant topics.
@@ -1203,7 +1211,7 @@ in Aranda et al.~\cite{aranda09icse} %We did not show these results to the stake
 \emph{Internal validity} -- %includes inter-rater reliability and our lack of rival explanation building. 
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
 We did not attempt to match our results to any particular model.
-We unable to assess inter-rater reliability.
+We were unable to assess inter-rater reliability.
 
 \emph{External validity} -- %was addressed by our use of two case studies, but there are still issues. 
 Our data originated from OSS database projects and thus might not be applicable to commercially developed software or other domains. 
