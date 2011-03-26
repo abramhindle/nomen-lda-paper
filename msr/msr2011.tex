@@ -28,9 +28,11 @@
 % %
 
 % Only for camera ready -- prevent TeX from rendering widows
-\widowpenalty=9999
-\clubpenalty=9999
-
+%\widowpenalty=9999
+%\clubpenalty=9999
+\clubpenalty = 10000
+\widowpenalty = 10000
+%\displaywidowpenalty = 10000
 
 
 \begin{document}
@@ -96,8 +98,13 @@ context-sensitive labels relevant to these projects, which provides fresh
 insight into their evolving software development activities.
 \end{abstract}
 
+\vspace*{-0.4em}
+
 \category{D.2.9}{Software Engineering}{Management}[Lifecycle]
 \category{D.2.1}{Software Engineering}{Requirements/Specifications}[Tools]
+
+\vspace*{-1em}
+
 
 \terms{Human Factors, Management, Measurement}
 
@@ -426,7 +433,7 @@ To evaluate our approach, we sought candidate systems that were mature projects 
 We selected systems from the same application domain, to control for differences in functional, rather than non-functional, requirements. 
 We selected MySQL 3.23 and MaxDB 7.500 as they were open-source, partially-commercial database systems. 
 MaxDB started in the late 1970s as a research project, and was later acquired by SAP. 
-As of version 7.500, released April 2007, the project has over $940,000$ lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}, \tiny{http://dwheeler.com/sloccount}.}. 
+As of version 7.500, released April 2007, the project has over $940,000$ lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}, {http://dwheeler.com/sloccount}.}. 
 The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. 
 MySQL contains $320,000$ lines of C and C++ source code.  
 %Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
@@ -568,7 +575,8 @@ That paper constructs an ontology for software quality measurement using eighty 
 The labels we used:
 
 %FAT we can remove this
-%\newpage
+%\balance
+\newpage
 \begin{quotation}
 \small \noindent \textsf{
 integrity, security,
@@ -713,8 +721,8 @@ We also looked for correlations between our labels: excluding double matches (se
 % See the following sections for our error analysis. 
 
 %FAT
-%\balance
-%\newpage
+\balance
+\newpage
 
 For \textsf{exp2}, there are more unnamed topics than \textsf{exp1}. 
 Only \emph{reliability} produces a lot of matches, mostly with the word ``error''. 
@@ -908,7 +916,7 @@ using multi-label learners.
 %together.
 %\todo[inline]{Comment about correlation, we should link to the Mulan section, perfect segway since Mulan relies on correlation.}
 
-\balance
+%\balance
 
 \subsection{Applying multiple labels to topics}
 \label{sec:multilabel}
@@ -1095,9 +1103,9 @@ In MaxDB, we can observe that \emph{Maintainability} topics became more prevalen
 This is likely due to our analysis time-frame for MaxDB being shorter than the time-frame for the MySQL product. 
 
 %FAT
-%\newpage
-
-\subsection{Do  projects differ in their relative  topic interest?}
+\balance
+\newpage
+\subsection{Do projects differ in their relative  topic interest?}
 %\subsubsection{Do  projects differ in their relative  topic interest?}
 %\noindent\textbf{2. Do  projects differ in their relative  topic interest?} ---
 Yes. MySQL 3.23 had proportionally more
