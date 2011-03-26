@@ -761,7 +761,7 @@ Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. 
 %EXP1 could not be evaluated properly!
 Because our ground truth annotations were relevant only to ISO9126,
 we estimate that \textsf{exp1} had poor
-performance via the overlap between ISO-9126 and the Kayed ontology.
+performance via the overlap between ISO9126 and the Kayed ontology.
 For \textsf{exp1} the F-measures for MaxDB were from $0$ to $0.18$ with an average
 of $0.03$, and for MySQL were from $0$ to $0.16$ with an average of
 $0.05$.
@@ -797,7 +797,7 @@ Many of ROC scores were $0.6$ or less, but our classifier nonetheless performed 
 \subsection{Supervised labelling}
 \label{sec:suplabelling}
 Supervised labelling requires expert analysis of the correct
-class/label to assign a label to a topic. In our approach, we use the top-level NFRs in the ISO 9126 standard~\cite{iso9126} for our classes, but other taxonomies are also applicable.%In order to validate how effective these word-bag approaches to topic labelling would be we created a validation data set. 
+class/label to assign a label to a topic. In our approach, we use the top-level NFRs in the ISO9126 standard~\cite{iso9126} for our classes, but other taxonomies are also applicable.%In order to validate how effective these word-bag approaches to topic labelling would be we created a validation data set. 
 
 We used a suite of supervised classifiers, WEKA~\cite{weka09}. 
 WEKA includes machine learning tools such as support vector machines and Bayes-nets. 
@@ -1014,10 +1014,11 @@ We analyzed each project's developer mailing list for external validation.
 %As discussed earlier, the top row in each figure shows key events for each project. 
 We use \textit{labelled topic extraction} to pick out the underlying NFR activity behind these events. 
 For example, both projects show a high number of NFRs recognized at the first period of analysis. 
-This is due to our window choice: we deliberately targeted our analysis to when MySQL 3.23 was first announced %Major update \& End-of life
-and when MaxDB 7.500 was first announced. For MaxDB, version 7.5.00  was released in December of 2003. 
+This is due to our window choice: we deliberately targeted our
+analysis to when both MySQL 3.23
+and MaxDB 7.500 were first announced. For MaxDB, version 7.5.00  was released in December of 2003. 
 We know that release 7.5.00.23 saw the development of PHP interfaces, possibly accounting for the simultaneous increase in the \emph{portability} NFR at the same time.
-The gap in MaxDB (Figure \ref{fig:maxdb-timeline}) is due to a shift in development focus (from February 2005 to Jun 2005) to MaxDB 7.6, which is released in June 2005.
+The gap in MaxDB (Figure \ref{fig:maxdb-timeline}) is due to a shift in development focus (from February 2005 to June 2005) to MaxDB 7.6, which is released in June 2005.
 
 %For MySQL (Figure \ref{fig:mysql-timeline}), we similarly validated our NFR patterns with external mailing list data. 
 The release of MySQL we study  (Figure \ref{fig:mysql-timeline}) was the first to be licenced under the GPL. 
@@ -1059,7 +1060,7 @@ Yes. MySQL 3.23 had proportionally more
 topics labelled \emph{functionality}, while MaxDB had proportionally more
 \emph{efficiency} related topics. MaxDB was a very mature release ``donated'' to the open-source community, 
 whereas MySQL was in its relative infancy, and  
-security problems were more common (security is a component of \emph{functionality} in the ISO 9126 model). 
+security problems were more common (security is a component of \emph{functionality} in the ISO9126 model). 
 In both cases \emph{portability} was a constant maintenance concern and was prevalent throughout the lifetime of the projects. It may surprise developers how often portability arises as a concern.
 %On one hand, this analysis is unsurprising; on the other hand, it provides confirmation that our approach identifies actual patterns.
 %\subsection{Summary}
@@ -1073,7 +1074,7 @@ In both cases \emph{portability} was a constant maintenance concern and was prev
 %XXX can just remove this
 %\subsection{Effectiveness}
 \subsection{Annotation observations}
-We found many topics that were not non-functional requirements (NFRs) but were often related to them. 
+We found many topics that were not actually non-functional requirements (NFRs) but were often related to them. 
 For instance, concurrency was mentioned often in the commit logs and
 was related to \emph{correctness} and \emph{reliability}, possibly because concurrent code is prone to bugs such as race conditions. %are 
 % often  was troublesome. 
@@ -1139,7 +1140,10 @@ To extend further we would need matching repositories for each project.
 Possibly they would have influenced our results, but there would be a degree of correlation between the corpora.
 %Conversely, construct validity was addressed in our validation as we used the files, topics and revisions to annotate the commit messages. 
 %We used mailing-lists to verify the purpose behind some events.
-Our taxonomy for software NFRs is subject to dispute, but seems generally accepted. Finally, there are exogenous sources, such as in-person discussions, which we did not access, an omission as noted in \cite{aranda09icse}. %We did not show these results to the stakeholders.
+Our taxonomy for software NFRs is subject to dispute, but seems
+generally accepted. Finally, there are exogenous sources, such as
+in-person discussions, which we did not access, an omission as noted
+in Aranda et al.~\cite{aranda09icse} %We did not show these results to the stakeholders.
 
 \emph{Internal validity} -- %includes inter-rater reliability and our lack of rival explanation building. 
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
@@ -1178,7 +1182,8 @@ topics that needed to be manually labelled.
 %, but topics without labels
 %are difficult to interpret, and manually labelling them is
 %costly. Furthermore, previous work was project-specific and thus incomparable. 
-To improve on this, we leveraged software engineering standards, specifically the ISO quality taxonomy, to produce a method of partially-automated (supervised) and fully-automated (semi-unsupervised) topic labelling.
+To improve on this, we leveraged software engineering standards,
+specifically the ISO9126 quality taxonomy, to produce a method of partially-automated (supervised) and fully-automated (semi-unsupervised) topic labelling.
 Since the word-list technique is not project-specific, we used it to compare two distinct projects, where we showed our technique produced interesting insight into maintenance activity. %topics and artifacts from project histories.
 % Our contributions include:
 % \begin{itemize}
