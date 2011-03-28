@@ -51,27 +51,27 @@ Abram Hindle\\
    \affaddr{Dept. of Computer Science}\\
    \affaddr{University of California, Davis} \\
    \affaddr{Davis, CA, USA}\\
-   \email{\large abram@softwareprocess.es}
+   \email{abram@softwareprocess.es}
 \alignauthor  Neil A. Ernst\\
    \affaddr{Dept. of Computer Science}\\
    \affaddr{University of Toronto}\\
    \affaddr{Toronto, Ontario, CANADA}\\
-   \email{\large nernst@cs.toronto.edu}
+   \email{nernst@cs.toronto.edu}
 \and
 \alignauthor Michael W. Godfrey\\
    \affaddr{David Cheriton School of Computer Science}\\
    \affaddr{University of Waterloo}\\
    \affaddr{Waterloo, Ontario, CANADA}\\
-   \email{\large migod@uwaterloo.ca}
+   \email{migod@uwaterloo.ca}
 \alignauthor John Mylopoulos \\
    \affaddr{Dept. Information Eng. and Computer Science}\\
    \affaddr{University of Trento}\\
    \affaddr{Trento, ITALY}\\
-   \email{\large jm@disi.unitn.it}
+   \email{jm@disi.unitn.it}
 }
 
 %\title{What's in a name? Automated topic naming of software maintenance activities}
-\title{Automated topic naming to support cross-project analysis of software maintenance activities}
+\title{Automated Topic Naming to Support Cross-project Analysis of Software Maintenance Activities}
 \maketitle
 %\thispagestyle{empty}
 
@@ -413,7 +413,7 @@ topics, NFRs and new visualizations.
 % Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
 
 
-\section{Study design and execution}
+\section{Study Design and Execution}
 Figure \ref{fig:process} gives an outline of our methodology.
 We began by gathering source data and creating topic models. For semi-unsupervised labelling, we generated three sets of word-lists as signifiers for NFRs.
 %e created labels using a well-known NFR taxonomy. 
@@ -426,7 +426,7 @@ In supervised learning, we trained our data with manual annotations in order to 
   \label{fig:process}
 \end{figure}
 
-\subsection{Generating the data}
+\subsection{Generating the Data}
 \label{sec:wordlist}
 
 To evaluate our approach, we sought candidate systems that were mature projects and had openly accessible source control repositories. 
@@ -476,7 +476,7 @@ We applied Blei's LDA implementation~\cite{Blei2003} against the word distributi
 We set the number of topics to generate to $20$, because past experimentation showed that fewer topics might aggregate multiple unique topics while any more topics dilutes the results and creates indistinct topics~\cite{Hindle09ICSM}. 
 % Furthermore, more than $20$ topics quickly became infeasible for inspection.
 
-\subsubsection{The high-level labels}
+\subsubsection{The High-level Labels}
 
 %\noindent \textbf{The high-level labels} --- 
 
@@ -492,7 +492,7 @@ We claim that these NFRs are maintenance concerns (to varying degrees) in all so
 %FAT
 %\newpage
 
-\subsubsection{Creating a validation corpus}
+\subsubsection{Creating a Validation Corpus}
 To evaluate both semi-unsupervised and supervised classification, we
 created a validation set of manually labelled topics. For MySQL 3.23
 and MaxDB 7.500, the annotators (the first two authors) annotated each extracted topic in each period with
@@ -533,7 +533,7 @@ The %area under the -- NE confusing to have area again ... and not importantana
 ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen negative instance.
 We consider our labelling classifiers acceptable if they outperform a random classifier (0.5). 
 
-\subsection{Semi-unsupervised labelling}
+\subsection{Semi-unsupervised Labelling}
 \label{sec:unsuplabelling}
 
 In this section we describe how to label topics based on dictionaries
@@ -555,7 +555,7 @@ mined from sources external to the projects.
 %While the topics themselves are generated automatically, how to interpret these topics is less clear.
 %For example,
 
-\subsubsection{Generating word lists}
+\subsubsection{Generating Word Lists}
 
 %\noindent\textbf{Generating word lists} --- 
 
@@ -738,7 +738,7 @@ Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{effic
 
 %\todo[inline]{Should we use F-1 as well to satisfy everyone?}
 
-\subsubsection{Analysis of the semi-unsupervised labelling} %--- %Based
+\subsubsection{Analysis of the Semi-unsupervised Labelling} %--- %Based
                                 %on the labels, and our manual topic
                                 %labelling, 
 %\noindent \textbf{Analysis of the unsupervised labelling} --- %Based on the labels, and our manual topic labelling, 
@@ -825,7 +825,7 @@ but other qualities such as \emph{functionality} did improve.
 Many ROC scores were $0.6$ or less, but our classifier still performed substantially better than random.
 
 %\vspace*{-1em}
-\subsection{Supervised labelling}
+\subsection{Supervised Labelling}
 \label{sec:suplabelling}
 Supervised labelling requires expert analysis of the correct
 class/label to assign a label to a topic. In our approach, we use the top-level NFRs in the ISO9126 standard~\cite{iso9126} for our classes, but other taxonomies are also applicable.%In order to validate how effective these word-bag approaches to topic labelling would be we created a validation data set. 
@@ -844,7 +844,7 @@ The original data is partitioned randomly into ten sub-samples. Each sample is u
 %This is repeated nine more times, with each subsample used once as the training set. 
 We have reported these results below.% in Section \ref{sec:suplabelling}.
 
-\subsubsection{Analysis of the supervised labelling}
+\subsubsection{Analysis of the Supervised Labelling}
 % \label{sec:suplabelling}
 Because our data-set was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. 
 We tried other learners that WEKA~\cite{weka09} provides: rule learners, decision tree learners, vector space learners, and support vector machines.  
@@ -919,7 +919,7 @@ using multi-label learners.
 
 %\balance
 
-\subsection{Applying multiple labels to topics}
+\subsection{Applying Multiple Labels to Topics}
 \label{sec:multilabel}
 
 As noted in Section \ref{sec:wordlist}, each topic in our data-set can be composed of zero, one, or more NFRs. 
@@ -962,7 +962,7 @@ MySQL, BR and Naive Bayes had similar macro-ROC scores of $0.74$.
 % although their results are comparable to the naive Bayesian learners we used in Section \ref{sec:suplabelling}.
 % \todo[inline]{discuss this similarity in more detail}
 
-\section{Understanding software maintenance activities} 
+\section{Understanding Software Maintenance Activities} 
 \label{sec:analysis}
 % \todo[inline]{talk about this topic in one section}
 % \todo[inline]{reference project name Nomen more}
@@ -1093,7 +1093,7 @@ After this point, efforts shift to the newer releases (4.0, 4.1,
 %This analysis allows to address the questions raised in Section \ref{sec:suplabelling}:
 %This analysis addresses our research questions: %raised in Section \ref{sec:analysis}:
 
-\subsection{Do NFR frequencies change over time?}
+\subsection{Do NFR Frequencies Change over Time?}
 %\noindent\textbf{1. Do NFR frequencies change over time?} --- 
 %\subsubsection{Do label frequencies change over time?}
 In both projects the frequencies generally decreased with age. 
@@ -1108,7 +1108,7 @@ This is likely due to our analysis time-frame for MaxDB being shorter than the t
 %LFAT
 \balance
 \newpage
-\subsection{Do projects differ in their relative  topic interest?}
+\subsection{Do Projects Differ in their Relative  Topic Interest?}
 %\subsubsection{Do  projects differ in their relative  topic interest?}
 %\noindent\textbf{2. Do  projects differ in their relative  topic interest?} ---
 Yes. MySQL 3.23 had proportionally more
@@ -1128,7 +1128,7 @@ In both cases \emph{portability} was a constant maintenance concern and was prev
 
 %XXX can just remove this
 %\subsection{Effectiveness}
-\subsection{Annotation observations}
+\subsection{Annotation Observations}
 We found many topics that were not actually non-functional requirements (NFRs) but were often related to them. 
 For instance, concurrency was mentioned often in the commit logs and
 was related to \emph{correctness} and \emph{reliability}, possibly because concurrent code is prone to bugs such as race conditions. %are 
@@ -1149,7 +1149,7 @@ Project specific word-lists would avoid automated mistakes due to the names of e
 
 %FAT
 %\newpage
-\subsection{Summary of techniques}
+\subsection{Summary of Techniques}
 While an unsupervised technique such as LDA is appealing in its lack of human intervention, and thus lower effort, 
 supervised learners have the advantage of domain knowledge, which typically means improved results. 
 % NEIL - we got criticized for making it sound like this is the obvious thing to do... and then why do you need a learner?
@@ -1192,7 +1192,7 @@ such as mailing-list discussions and bug reports, even though that was
 not evaluated in this paper. Bug reports might not exhibit the same
 behaviour as commits in terms of dominant topics.
 
-\subsection{Threats to validity}
+\subsection{Threats to Validity}
 % can always be cut down
 %Our work faced multiple threats to validity and we attempted to address many of them.
 \emph{Construct validity} -- we used only commit messages rather than
@@ -1230,7 +1230,7 @@ did not rate the same documents.
 \balance
 \newpage
 
-\subsection{Future work}
+\subsection{Future Work}
 There are several avenues of further investigation.  
 More external validation would be useful. 
 Although we validated our comparisons using a mailing list for each project, interviews with developers would provide more detail. 
@@ -1281,12 +1281,6 @@ ROC values between $0.6$ and $0.8$. These results, along with the efficient perf
 % During the case study we manually labelled hundreds of topics by hand and then used these annotations to validate the positive performance of topic labelling techniques.
 % The implication of our paper is that topics with labels are more useful for analyzing software development activities than are unlabelled topics. To furnish stakeholders with labelled topics, our technique provides many methods of automatic topic labelling.
 
-\appendix
-
-Our data and scripts are available at:
-
- \url{http://softwareprocess.es/nomen/}
-
 \balance
 
 \bibliographystyle{abbrv}
@@ -1294,6 +1288,16 @@ Our data and scripts are available at:
 \bibliography{icpc}
 
 \balance
+
+\appendix
+
+Our data and scripts are available at:
+
+\url{http://softwareprocess.es/nomen/}
+
+
+
+
 
 \end{document}
 
