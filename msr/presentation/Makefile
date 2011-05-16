@@ -15,6 +15,8 @@ SLIDES=$(shell sh list-final-slides.sh)
 #stop deleting the intermediate files!
 .SECONDARY:
 
+default:	presentation.pdf
+
 rendered:
 	mkdir rendered
 
