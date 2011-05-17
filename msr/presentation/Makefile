@@ -15,6 +15,9 @@ SLIDES=$(shell sh list-final-slides.sh)
 #stop deleting the intermediate files!
 .SECONDARY:
 
+present:	presentation.pdf
+	xpdf -fullscreen -bg white -z page $<
+
 default:	presentation.pdf
 
 rendered:
