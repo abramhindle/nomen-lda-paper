@@ -1,0 +1,3 @@
+#!/bin/sh
+NUMBER=`basename $1 | sed -e 's/[^0-9]//g'`
+sed -e s/ZZ/$NUMBER/ number.svg > $1
