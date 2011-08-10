@@ -105,7 +105,7 @@ on two large-scale RDBMS projects: MySQL and MaxDB.  The case studies
 show that labelled topic extraction can produce appropriate,
 context-sensitive labels relevant to these projects, which provides fresh
 insight into their evolving software development activities.
-
+%160 words
 \keywords{ Software maintenance \and Repository mining \and Latent dirichlet allocation \and Topic models}
 
 \end{abstract}
@@ -399,14 +399,15 @@ In supervised learning, we trained our data with manual annotations in order to 
 
 To evaluate our approach, we sought candidate systems that were mature projects and had openly accessible source control repositories. 
 We selected systems from the same application domain, to control for differences in functional, rather than non-functional, requirements. 
-We selected MySQL 3.23 and MaxDB 7.500 as they were open-source, partially-commercial database systems. 
-MaxDB started in the late 1970s as a research project, and was later acquired by SAP. 
-As of version 7.500, released April 2007, the project has over $940,000$ lines of C source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}, {http://dwheeler.com/sloccount}.}. 
-The MySQL project started in 1994 and MySQL 3.23 was released in early 2001. 
-MySQL contains $320,000$ lines of C and C++ source code.  
+We used three different open-source, partially-commercial database systems:
+\begin{itemize}
+\item  MySQL 3.23. Started in 1994 and MySQL 3.23 was released in early 2001. MySQL contains $320,000$ lines of C and C++ source code\footnote{generated using David A. Wheeler's \emph{SLOCCount}, {http://dwheeler.com/sloccount}.}.
+\item MaxDB 7.500. Started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project has over $940,000$ lines of C source code. 
+\item PostgreSQL 7.3. Started in the 1980s as a Berkeley research project. PostgreSQL 7.3 contains $306,000$ lines of C code.
+\end{itemize}
+  
 %Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
 We explicitly chose older versions of mature projects from a stable problem domain to increase the likelihood that we would encounter primarily maintenance activities in our studies.
-
 
 For each project, we used source control commit comments, the messages
 that programmers write when they commit revisions to a source control
@@ -953,7 +954,7 @@ The \emph{how} of a change is the change itself, the purpose or
 We investigate the history of the two large-scale database systems that we studied. 
 We use our technique to show the topic of development efforts over time in each project.
 %We evaluated two research questions using the ground truth data that we annotated by hand:
-We motivated our investigation with two research questions:
+We motivated our investigation with three research questions:
 \begin{enumerate}
 \item \emph{Do NFR frequencies change over time?} If a particular NFR
   was of more interest at one point in the life-cycle than another,
@@ -969,6 +970,9 @@ We motivated our investigation with two research questions:
   confirm the initial design goals, or to track the progress on that
   quarter's objectives.  The difference in NFR proportion is
   interesting because it implies a difference in focus between two projects.
+
+\item \emph{Do different developers work on different NFRs?} For a given project, it is reasonable to think that developers are either assigned (in commercial organizations) or choose (in open-source organizations) to a particular NFR. For example, one developer might be more junior, and take responsibility for the low-impact reliability fixes. Another, more senior developer might assume responsibility for major improvements such as efficiency improvements. 
+
 \end{enumerate}
 
 %FAT 
@@ -1045,7 +1049,10 @@ In May 2001, there is an increase in the number of topics labelled with \emph{po
 This might be related to release 3.23.38, which focused on Windows compatibility. 
 Similarly, in August, 2002, both \emph{functionality} and \emph{portability} are frequent, and mailing list data suggests this is related to the release of version 3.23.52, a general bug fix with a focus on security (a component of the \emph{functionality} NFR in the ISO9126 model). 
 After this point, efforts shift to the newer releases (4.0, 4.1,
-5.0). We now address our research questions:
+5.0). 
+\todo{add PGSQL disucssion here. Schema additions? Lots of functionality?}
+
+We now address our research questions:
 
 % \subsection{Comparing MaxDB and MySQL}
 
@@ -1064,6 +1071,7 @@ After this point, efforts shift to the newer releases (4.0, 4.1,
 \subsection{Do NFR Frequencies Change over Time?}
 %\noindent\textbf{1. Do NFR frequencies change over time?} --- 
 %\subsubsection{Do label frequencies change over time?}
+\todo{add more on PGSQL}
 In both projects the frequencies generally decreased with age. 
 However, there are variations within our NFR labels. In MySQL, \emph{usability} and \emph{efficiency} do not appear very often in topics. 
 A proportionately smaller number of commits addressed these NFRs.
@@ -1090,6 +1098,9 @@ In both cases \emph{portability} was a constant maintenance concern and was prev
 
 %\todo[inline]{link the actual data, which is interesting, to somethign
  % actionable for a developer or manager}
+
+\subsection{Do different developers work on different NFRs?}
+\todo{figure this out!}
 
 \section{Discussion}
 \label{sec:limit}
