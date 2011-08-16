@@ -2358,6 +2358,8 @@
         <Author name="thomas" count="2"/>
         <Author name="meskes" count="2"/>
       </Authors>
+<annotation name="portability"/>
+<annotation name="functionality" comments=""/>
       <Elements>
         <Elm word="Fix" freq="-3.7898553715"/>
         <Elm word="support" freq="-3.7898553715"/>
@@ -4258,6 +4260,9 @@
         <Author name="thomas" count="1"/>
         <Author name="tgl" count="6"/>
       </Authors>
+<annotation name="maintainability"/>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
       <Elements>
         <Elm word="Update" freq="-3.36729583"/>
         <Elm word="patch" freq="-4.0604430105"/>
@@ -6089,6 +6094,9 @@
         <Author name="ishii" count="2"/>
         <Author name="tgl" count="2"/>
       </Authors>
+<annotation name="functionality" comments=""/>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
       <Elements>
         <Elm word="Remove" freq="-3.4094961845"/>
         <Elm word="pg_connect()" freq="-3.4094961845"/>
@@ -7934,6 +7942,9 @@
         <File name="src/backend/bootstrap/bootstrap.c" count="1"/>
         <File name="contrib/pg_upgrade/pg_upgrade" count="1"/>
       </Files>
+<annotation name="maintainability"/>
+<annotation name="functionality" comments=""/>
+<annotation name="efficiency" comments=""/>
       <Authors>
         <Author name="tgl" count="2"/>
         <Author name="petere" count="2"/>
@@ -9817,6 +9828,8 @@
         <Author name="tgl" count="3"/>
         <Author name="momjian" count="9"/>
       </Authors>
+<annotation name="functionality" comments=""/>
+<annotation name="portability"/>
       <Elements>
         <Elm word="patch" freq="-3.0674634789"/>
         <Elm word="Conway" freq="-3.5374671082"/>
@@ -11687,6 +11700,8 @@
         <Author name="momjian" count="1"/>
         <Author name="tgl" count="2"/>
       </Authors>
+<annotation name="portability"/>
+<annotation name="functionality" comments=""/>
       <Elements>
         <Elm word="time" freq="-3.4339872045"/>
         <Elm word="timestamp" freq="-3.6163087613"/>
@@ -13567,6 +13582,8 @@
         <Author name="momjian" count="8"/>
         <Author name="davec" count="1"/>
       </Authors>
+<annotation name="reliability" comments=""/>
+<annotation name="maintainability"/>
       <Elements>
         <Elm word="Add" freq="-3.064725145"/>
         <Elm word="&gt;" freq="-3.9120230054"/>
@@ -15395,6 +15412,9 @@
         <Author name="tgl" count="3"/>
         <Author name="petere" count="2"/>
       </Authors>
+<annotation name="reliability" comments=""/>
+<annotation name="functionality" comments=""/>
+<annotation name="portability"/>
       <Elements>
         <Elm word="current" freq="-3.3758795737"/>
         <Elm word="Add" freq="-3.6635616462"/>
@@ -17276,6 +17296,7 @@
         <Author name="tgl" count="8"/>
         <Author name="momjian" count="4"/>
       </Authors>
+<annotation name="portability"/>
       <Elements>
         <Elm word="Update" freq="-3.063390922"/>
         <Elm word="Add" freq="-3.2865344733"/>
@@ -19159,6 +19180,9 @@
         <Author name="momjian" count="5"/>
         <Author name="thomas" count="1"/>
       </Authors>
+<annotation name="efficiency" comments=""/>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
       <Elements>
         <Elm word="OPERATOR" freq="-3.8506865872"/>
         <Elm word="snapshot" freq="-4.1383686597"/>
@@ -20974,6 +20998,7 @@
         <Author name="momjian" count="3"/>
         <Author name="tgl" count="1"/>
       </Authors>
+<annotation name="maintainability"/>
       <Elements>
         <Elm word="table" freq="-3.258096538"/>
         <Elm word="compiler" freq="-3.258096538"/>
@@ -22829,6 +22854,8 @@
         <Author name="momjian" count="4"/>
         <Author name="thomas" count="1"/>
       </Authors>
+<annotation name="functionality" comments=""/>
+<annotation name="reliability" comments=""/>
       <Elements>
         <Elm word="Add" freq="-3.4177266836"/>
         <Elm word="privileges" freq="-3.7054087561"/>
@@ -24694,6 +24721,8 @@
         <Author name="inoue" count="1"/>
         <Author name="tgl" count="5"/>
       </Authors>
+<annotation name="maintainability"/>
+<annotation name="functionality" comments=""/>
       <Elements>
         <Elm word="&gt;" freq="-2.9145481178"/>
         <Elm word="Add" freq="-3.4977736908"/>
@@ -26520,6 +26549,9 @@
         <Author name="momjian" count="6"/>
         <Author name="tgl" count="4"/>
       </Authors>
+<annotation name="portability"/>
+<annotation name="functionality" comments=""/>
+<annotation name="usability" comments=""/>
       <Elements>
         <Elm word="Solaris" freq="-4.0012541392"/>
         <Elm word="&gt;" freq="-4.4067192473"/>
@@ -28384,6 +28416,9 @@
         <Author name="momjian" count="4"/>
         <Author name="tgl" count="2"/>
       </Authors>
+<annotation name="portability"/>
+<annotation name="efficiency" comments=""/>
+<annotation name="functionality" comments=""/>
       <Elements>
         <Elm word="&gt;" freq="-3.7376696183"/>
         <Elm word="patch" freq="-3.7376696183"/>
@@ -30217,6 +30252,9 @@
         <Author name="tgl" count="5"/>
         <Author name="thomas" count="1"/>
       </Authors>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
+<annotation name="functionality" comments=""/>
       <Elements>
         <Elm word="transaction" freq="-2.4713667332"/>
         <Elm word="Fix" freq="-2.8648010099"/>
@@ -32144,6 +32182,10 @@
         <Author name="momjian" count="4"/>
         <Author name="ishii" count="1"/>
       </Authors>
+<annotation name="maintainability"/>
+<annotation name="functionality" comments=""/>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
       <Elements>
         <Elm word="type" freq="-3.9856305148"/>
         <Elm word="Fix" freq="-4.185042169"/>
@@ -34015,6 +34057,9 @@
         <Author name="momjian" count="2"/>
         <Author name="tgl" count="3"/>
       </Authors>
+<annotation name="usability" comments=""/>
+<annotation name="functionality" comments=""/>
+<annotation name="portability"/>
       <Elements>
         <Elm word="&gt;" freq="-3.1623054734"/>
         <Elm word="error" freq="-3.6323091026"/>
@@ -35852,6 +35897,7 @@
         <Author name="thomas" count="1"/>
         <Author name="tgl" count="2"/>
       </Authors>
+<annotation name="portability"/>
       <Elements>
         <Elm word="&gt;" freq="-3.8305753122"/>
         <Elm word="values" freq="-3.916583275"/>
@@ -37710,6 +37756,9 @@
         <Author name="inoue" count="1"/>
         <Author name="tgl" count="5"/>
       </Authors>
+<annotation name="reliability" comments=""/>
+<annotation name="functionality" comments=""/>
+<annotation name="portability"/>
       <Elements>
         <Elm word="escape" freq="-3.817712326"/>
         <Elm word="Fix" freq="-4.5108595065"/>
