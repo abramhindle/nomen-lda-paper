@@ -34,7 +34,7 @@ def get_exps():
     mysql_dir = "../../data/mysql-tagged/"
     pg_dir = "../../data/pgsql-tagged/"
 
-    exprs = [ ["maxdb",maxdb_dir, maxdb_periods] , [ "mysql",mysql_dir, mysql_periods ] ["pgsql",pg_dir, pgsql_periods]
+    exprs = [ ["maxdb",maxdb_dir, maxdb_periods] , [ "mysql",mysql_dir, mysql_periods ], ["pgsql",pg_dir, pgsql_periods]]
     return exprs
 
 __exp1_wordlist__ = [
