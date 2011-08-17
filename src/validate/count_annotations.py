@@ -219,6 +219,29 @@ def per_period_reports( name , ndir , periods, odir ):
     boxplot_to_file( tbpfile, name, annotation_names, "Total", count_lct )
     
     return True
+
+def get_pg_author_counts():
+    """
+    Retrieve the author contributions (commits) in Postgres for ESE paper
+    """
+    exps = G.get_exps()
+    pgsql_dir = exps[2][1]
+    pgsql_periods = exps[2][2]
+    pg_author_list = []
+    #print sample
+    for period in pgsql_periods:
+        tree = load_period_file( pgsql_dir, period )
+        root = tree.getroot() # assume this is the root element Period
+        authors = root[2] # 3rd element of Period is the list of Authors
+        author_map = {}
+        total = 0
+        for author in authors:
+            author.get("name")
+            author_map[author.get("name")] = int(author.get("count"))
+            total = total + int(author.get("count"))
+        pg_author_list.append([period, total, author_map])
+    print pg_author_list
+    return pg_author_list # format: [Period_time, total commits, author_map]
     
 # The main for this program
 # load up periods per project
