@@ -113,9 +113,11 @@ def plot_timeline(proj, period_map):
         
     for i in range(len(period_map.keys()[0])):
         if proj == 'mysql':
-             l = Line2D([datetime.date(2000,07,31),datetime.date(2004,8,9)],[5*i,5*i]  , lw = 0.5, color='black')#5*len(period_map.keys()
-        else:                                                                            
-             l = Line2D([datetime.date(2004,06,29),datetime.date(2006,6,19)],[5*i,5*i]  ,lw = 0.5,  color='black')#5*len(period_map.keys()
+            l = Line2D([datetime.date(2000,07,31),datetime.date(2004,8,9)],[5*i,5*i]  , lw = 0.5, color='black')#5*len(period_map.keys()
+        if proj == 'maxdb':                                                                            
+            l = Line2D([datetime.date(2004,06,29),datetime.date(2006,6,19)],[5*i,5*i]  ,lw = 0.5,  color='black')#5*len(period_map.keys()
+        if proj == 'pgsql':
+            l = Line2D([datetime.date(2002,02,7),datetime.date(2004,6,28)],[5*i,5*i]  ,lw = 0.5,  color='black')#5*len(period_map.keys()
         ax.add_line(l)                              
 
     # label the model with key events
@@ -128,7 +130,9 @@ def plot_timeline(proj, period_map):
     if proj == 'maxdb':#                     2005-01-11,7.5.00.23
         events_dates = [datetime.date(2004,7,2), datetime.date(2005,1,11),datetime.date(2005,3,8),datetime.date(2005,6,10),datetime.date(2006,03,01)]
         events_rel = ["7.5.00.15", "7.5.00.23", "7.5.00.24 PHP","7.6.00 prod.","7.5.00.34"]
-        
+     if proj == 'maxdb':
+         events_dates = []
+         events_rel = []
         
     l = Line2D(events_dates,[37.5],ls=' ',marker='o')
     ax.add_line(l)
