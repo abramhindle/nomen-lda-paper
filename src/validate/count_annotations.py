@@ -240,7 +240,6 @@ def get_pg_author_counts():
             author_map[author.get("name")] = int(author.get("count"))
             total = total + int(author.get("count"))
         pg_author_list.append([period, total, author_map])
-    print pg_author_list
     return pg_author_list # format: [Period_time, total commits, author_map]
     
 # The main for this program
