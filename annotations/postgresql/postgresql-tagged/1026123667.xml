@@ -2958,6 +2958,7 @@
         <Author name="momjian" count="7"/>
         <Author name="thomas" count="1"/>
       </Authors>
+<annotation name="functionality" comments=""/>
       <Elements>
         <Elm word="Add" freq="-3.5819333848"/>
         <Elm word="regression" freq="-3.5819333848"/>
@@ -5298,6 +5299,9 @@
         <Author name="tgl" count="1"/>
         <Author name="ishii" count="1"/>
       </Authors>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
+<annotation name="functionality" comments=""/>
       <Elements>
         <Elm word="Added" freq="-3.1462946316"/>
         <Elm word="Fix" freq="-3.4339767041"/>
@@ -7626,6 +7630,9 @@
         <Author name="tgl" count="2"/>
         <Author name="petere" count="1"/>
       </Authors>
+<annotation name="reliability" comments=""/>
+<annotation name="functionality" comments=""/>
+<annotation name="portability"/>
       <Elements>
         <Elm word="patch" freq="-3.4011973817"/>
         <Elm word="Conway" freq="-3.9120230054"/>
@@ -9939,6 +9946,8 @@
         <Author name="tgl" count="1"/>
         <Author name="barry" count="1"/>
       </Authors>
+<annotation name="maintainability"/>
+<annotation name="functionality" comments=""/>
       <Elements>
         <Elm word="macros" freq="-3.4914442595"/>
         <Elm word="typmod" freq="-3.4914442595"/>
@@ -12262,6 +12271,9 @@
         <Author name="tgl" count="4"/>
         <Author name="ishii" count="2"/>
       </Authors>
+<annotation name="reliability" comments=""/>
+<annotation name="efficiency" comments=""/>
+<annotation name="usability" comments=""/>
       <Elements>
         <Elm word="&gt;" freq="-2.1220011561"/>
         <Elm word="Fix" freq="-3.4657359028"/>
@@ -14561,6 +14573,9 @@
       <Document time="1027026709." author="momjian" document=" New depend code auto-drops sequence, fix copy2.out. "/>
       <Document time="1026979189." author="momjian" document="Make src/backend/port/*.c file location dependent only on configure.in. "/>
       <Document time="1026366765." author="inoue" document="Make NAMEDATALEN changeable at compile time. "/>
+<annotation name="portability"/>
+<annotation name="functionality" comments=""/>
+<annotation name="maintainability"/>
       <Files>
         <File name="src/backend/executor/nodeFunctionscan.c" count="1"/>
         <File name="src/interfaces/libpq/Makefile" count="1"/>
@@ -16943,6 +16958,8 @@
       <Document time="1026536153." author="momjian" document="Re-add -I documentation, per Tom. "/>
       <Document time="1026513792." author="tgl" document="Second phase of committing Rod Taylor's pg_depend/pg_constraint patch. pg_relcheck is goneSEMICOLON CHECK, UNIQUE, PRIMARY KEY, and FOREIGN KEY constraints all have real live entries in pg_constraint.  pg_depend exists, and RESTRICT/CASCADE options work on most kinds of DROPSEMICOLON however, pg_depend is not yet very well populated with dependencies. (Most of the ones that are present at this point just replace formerly hardwired associations, such as the implicit drop of a relation's pg_type entry when the relation is dropped.)  Need to add more logic to create dependency entries, improve pg_dump to dump constraints in place of indexes and triggers, and add some regression tests. "/>
       <Document time="1026367032." author="momjian" document="Fix another --help typo in pg_restore. "/>
+<annotation name="portability"/>
+<annotation name="functionality" comments=""/>
       <Files>
         <File name="src/backend/commands/aggregatecmds.c" count="1"/>
         <File name="doc/src/sgml/ref/drop_operator.sgml" count="1"/>
@@ -19339,6 +19356,7 @@
       <Document time="1026758751." author="momjian" document="Fix make_ctags for exhuberant tags. "/>
       <Document time="1026712585." author="momjian" document="Fix BACKSLASH? and BACKSLASHpset pager handling.  BACKSLASH? wasn't honoring pager before. "/>
       <Document time="1026367214." author="momjian" document="Fix getopt flags.  Man thing thing was messed up. "/>
+<annotation name="functionality" comments=""/>
       <Files>
         <File name="src/backend/catalog/genbki.sh" count="1"/>
         <File name="doc/src/sgml/ref/drop_operator.sgml" count="1"/>
@@ -21713,8 +21731,10 @@
       <Document time="1028013157." author="momjian" document="Move item:  &lt; * Allow logging of query durations "/>
       <Document time="1027552266." author="petere" document="Remove unused system table columns:  pg_language.lancompiler pg_operator.oprprec pg_operator.oprisleft pg_proc.proimplicit pg_proc.probyte_pct pg_proc.properbyte_cpu pg_proc.propercall_cpu pg_proc.prooutin_ratio pg_shadow.usetrace pg_type.typprtlen pg_type.typreceive pg_type.typsend  Attempts to use the obsoleted attributes of pg_operator or pg_proc in the CREATE commands will be greeted by a warning.  For pg_type, there is no warning (yet) because pg_dump scripts still contain these attributes.  Also remove new but already obsolete spellings isVolatile, isStable, isImmutable in WITH clause.  (Use new syntax instead.) "/>
       <Document time="1027148521." author="ishii" document="Apply patches from Neil Conway.  &gt; Hi Tatsuo, &gt; &gt; I've attached a patch for the version of pgbench in CVS. It includes the &gt; following changes: &gt; &gt;     - fix some spelling mistakes, indentation stuff, etc. &gt; &gt;     - minor code cleanup -- (void) args instead of (), etc. &gt; &gt;     - allocate the state array dynamically, so that it is only as &gt;     large as needed. This reduces the memory consumption of pgbench &gt;     slightly, and makes a larger MAXCLIENTS setting possible &gt; &gt;     - (the only controversial change) add an option &quot;-l&quot; to log &gt;     transaction latencies to a file. The &quot;transaction latency&quot; &gt;     is the time between when the BEGIN is issued and the transaction &gt;     commits. This is written to a file, along with the client # &gt;     and the transaction #. The data in the file can then be used &gt;     for things like: &gt; &gt;         - consistency analysis: is the TPS the same through the &gt;         entire run of pgbench, or does it change? &gt; &gt;         - more detailed stats: what is the average latency, worse-case &gt;         latency, best-case latency? &gt; &gt;         - graphs: feed the data to gnuplot, graph latency versus. time &gt; &gt;         - etc. &gt; &gt;     I was going to store this data in memory and write it to disk &gt;     at the end of the pgbench run, but that isn't feasible because &gt;     the data can be very large: for example, ~70MB if benchmarking &gt;     128 clients doing 100,000 transactions each. &gt; &gt; Cheers, &gt; &gt; Neil "/>
+<annotation name="maintainability"/>
       <Document time="1027119230." author="tgl" document="Make note that ALTER TABLE can change table owner these days. "/>
       <Document time="1026982037." author="momjian" document="Here (finally SEMICOLON-)) is a doc patch covering the Table Function C API. It reflects the changes in the tablefunc-fix patch that I sent in the other day. It also refers to &quot;see contrib/tablefunc for more examples&quot;, which is next on my list of things to finish and submit.  Joe Conway "/>
+<annotation name="portability"/>
       <Document time="1026958520." author="momjian" document="Done, not sure when, reported by Neil Conway:  &gt; * -Report failure to find readline or zlib at end of configure run "/>
       <Document time="1026536534." author="momjian" document="Add SET statement_timeout capability.  Timeout is in ms.  A value of zero turns off the timer. "/>
       <Document time="1026370609." author="momjian" document="Done, according to Rod Taylor:  &gt; * -Add ALTER TRIGGER ... RENAME "/>
@@ -24073,6 +24093,7 @@
     <Topic>
       <Document time="1028626486." author="momjian" document="Of course, the simple change has ripple effects! Here's a patch for the rangefunc regression test for the new behavior.  Joe Conway "/>
       <Document time="1028626336." author="momjian" document="This patch fixes two typos in the documentation for the newly added START TRANSACTION command.  Neil Conway "/>
+<annotation name="portability"/>
       <Document time="1028458390." author="thomas" document="Implement WAL log location control using &quot;-X&quot; or PGXLOG. "/>
       <Document time="1028456793." author="thomas" document="Implement WAL log location control using &quot;-X&quot; or PGXLOG. "/>
       <Document time="1028449904." author="momjian" document="The attached patch implements START TRANSACTION, per SQL99. The functionality of the command is basically identical to that of BEGINSEMICOLON it just accepts a few extra options (only one of which PostgreSQL currently implements), and is standards-compliant. The patch includes a simple regression test and documentation.  [ Regression tests removed, per Peter.]  Neil Conway "/>
@@ -26424,6 +26445,7 @@
       <Document time="1027159114." author="momjian" document="The attached patch fixes 2 trivial warnings generated by bison 1.35, as a result of Peter's recent CREATE CAST changes.  Neil Conway "/>
       <Document time="1026980037." author="momjian" document="Move libc replacement files from src/backend/port to src/port. "/>
       <Document time="1026972149." author="ishii" document="I have committed many support files for CREATE CONVERSION. Default conversion procs and conversions are added in initdb. Currently supported conversions are:  UTF-8(UNICODE) &lt;--&gt; SQL_ASCII, ISO-8859-1 to 16, EUC_JP, EUC_KR,     EUC_CN, EUC_TW, SJIS, BIG5, GBK, GB18030, UHC,     JOHAB, TCVN  EUC_JP &lt;--&gt; SJIS EUC_TW &lt;--&gt; BIG5 MULE_INTERNAL &lt;--&gt; EUC_JP, SJIS, EUC_TW, BIG5  Note that initial contents of pg_conversion system catalog are created in the initdb process. So doing initdb required is ideal, it's possible to add them to your databases by hand, however. To accomplish this:  psql -f your_postgresql_install_path/share/conversion_create.sql your_database  So I did not bump up the version in cataversion.h.  TODO: Add more conversion procs Add [CASCADE|RESTRICT] to DROP CONVERSION Add tuples to pg_depend Add regression tests Write docs Add SQL99 CONVERT command? -- Tatsuo Ishii "/>
+<annotation name="portability"/>
       <Document time="1026825904." author="ishii" document="Add conversion procs for CREATE CONVERSION "/>
       <Document time="1026812794." author="momjian" document="Move few remaining src/utils files to backend/port so everything is in one place.  Everything may be moved to src/utils eventually.  Add DLLINIT variable to simplify makfiles. "/>
       <Document time="1026794910." author="momjian" document="Add comment for isbn,issn data type, from Pete St. Onge "/>
@@ -28840,13 +28862,16 @@
     </Topic>
     <Topic>
       <Document time="1028505090." author="momjian" document="Rename backend_pid to pg_backend_pid, move docs to monitoring section. "/>
+<annotation name="portability"/>
       <Document time="1028457378." author="thomas" document="Implement hex literal conversion to bit string literal.  May not be the long-term solution (some continuing discussion with  Peter E.) but better than the current mapping of a conversion to integer  which I'd put in years ago before we had any bit string types at all. This is already supported in the bit string implementation elsewhere. "/>
       <Document time="1028452446." author="momjian" document="Add missing fileSEMICOLON  new docs for start_transaction. "/>
       <Document time="1028059713." author="momjian" document="This patch fixes one serious bug (runaway INSERT) and a few rare (and hard to reproduce) error conditions.  Manfred Koizar "/>
+<annotation name="reliability" comments=""/>
       <Document time="1027644779." author="petere" document="Remove extra comma. "/>
       <Document time="1027411194." author="barry" document="Initial restructuring to add jdbc3 support.  There was a significant amount of duplicated code between the jdbc1 and jdbc2.  This checkin restructures the code so that the duplication is removed so that the jdbc3 support can be added without adding yet another copy of everything.  Also many classes were renamed to avoid confusion with multiple different objects having the same name.  The timestamp tests were also updated to add support for testing timestamp without time zone in addition to timestamp with time zone   Modified Files:  jdbc/Makefile jdbc/build.xml jdbc/example/ImageViewer.java  jdbc/example/basic.java jdbc/example/blobtest.java  jdbc/example/threadsafe.java  jdbc/org/postgresql/Driver.java.in  jdbc/org/postgresql/Field.java  jdbc/org/postgresql/core/QueryExecutor.java  jdbc/org/postgresql/fastpath/Fastpath.java  jdbc/org/postgresql/jdbc1/CallableStatement.java  jdbc/org/postgresql/jdbc1/DatabaseMetaData.java  jdbc/org/postgresql/jdbc1/PreparedStatement.java  jdbc/org/postgresql/jdbc2/Array.java  jdbc/org/postgresql/jdbc2/CallableStatement.java  jdbc/org/postgresql/jdbc2/DatabaseMetaData.java  jdbc/org/postgresql/jdbc2/PreparedStatement.java  jdbc/org/postgresql/jdbc2/UpdateableResultSet.java  jdbc/org/postgresql/largeobject/LargeObjectManager.java  jdbc/org/postgresql/largeobject/PGblob.java  jdbc/org/postgresql/largeobject/PGclob.java  jdbc/org/postgresql/test/jdbc2/BlobTest.java  jdbc/org/postgresql/test/jdbc2/ConnectionTest.java  jdbc/org/postgresql/test/jdbc2/DatabaseMetaDataTest.java  jdbc/org/postgresql/test/jdbc2/TimestampTest.java  jdbc/org/postgresql/test/jdbc2/UpdateableResultTest.java  jdbc/org/postgresql/util/Serialize.java  Added Files:  jdbc/org/postgresql/PGConnection.java  jdbc/org/postgresql/PGStatement.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1Connection.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1ResultSet.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java  jdbc/org/postgresql/jdbc1/Jdbc1Connection.java  jdbc/org/postgresql/jdbc1/Jdbc1ResultSet.java  jdbc/org/postgresql/jdbc1/Jdbc1Statement.java  jdbc/org/postgresql/jdbc2/AbstractJdbc2Connection.java  jdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java  jdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java  jdbc/org/postgresql/jdbc2/Jdbc2Connection.java  jdbc/org/postgresql/jdbc2/Jdbc2ResultSet.java  jdbc/org/postgresql/jdbc2/Jdbc2Statement.java  Removed Files:  jdbc/org/postgresql/Connection.java  jdbc/org/postgresql/ResultSet.java  jdbc/org/postgresql/Statement.java  jdbc/org/postgresql/jdbc1/Connection.java  jdbc/org/postgresql/jdbc1/ResultSet.java  jdbc/org/postgresql/jdbc1/Statement.java  jdbc/org/postgresql/jdbc2/Connection.java  jdbc/org/postgresql/jdbc2/ResultSet.java  jdbc/org/postgresql/jdbc2/Statement.java "/>
       <Document time="1027264181." author="meskes" document="Fixed some minor typos. "/>
       <Document time="1026867917." author="barry" document="fixed bug in support for timestamp without time zone reported by Yuva Chandolu (ychandolu@ebates.com) "/>
+<annotation name="functionality" comments=""/>
       <Document time="1026790348." author="momjian" document="Remove indenting of Makefile comments, per Peter.BACKSLASH "/>
       <Document time="1026712671." author="momjian" document="Improve relcache.c error reporting for the next guy who has to debug this thing. "/>
       <Document time="1026437780." author="momjian" document="Change error messages ExecAppend-&gt;ExecInsert and ExecReplace-&gt;ExecUpdate as discussed on hackers. "/>
@@ -31213,10 +31238,12 @@
       <Document time="1028185670." author="inoue" document="1) Improve the handling of the queries like (select ..) union (select ..)    whose first non-space character is '('. 2) Handle Insert .. () VALUES (). "/>
       <Document time="1027944295." author="ishii" document="Fix typo. Remove #ifdef MULTIBYTE "/>
       <Document time="1027687553." author="inoue" document="Fix a bug about the handling of CX parameter of the connection string reported by Sergey Smirnov. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1027552602." author="petere" document="Remove _deadcode. "/>
       <Document time="1027156616." author="momjian" document="oid is needed, it is added at the end of the struct (after the null bitmap, if present).  Per Tom Lane's suggestion the information whether a tuple has an oid or not is carried in the tuple descriptor.  For debugging reasons tdhasoid is of type char, not bool.  There are predefined values for WITHOID, WITHOUTOID and UNDEFOID.  This patch has been generated against a cvs snapshot from last week and I don't expect it to apply cleanly to current sources.  While I post it here for public review, I'm working on a new version against a current snapshot.  (There's been heavy activity recentlySEMICOLON hope to catch up some day ...)  This is a long patchSEMICOLON  if it is too hard to swallow, I can provide it in smaller pieces:  Part 1:  Accessor macros Part 2:  tdhasoid in TupDesc Part 3:  Regression test Part 4:  Parameter withoid to heap_addheader Part 5:  Eliminate t_oid from HeapTupleHeader  Part 2 is the most hairy part because of changes in the executor and even in the parserSEMICOLON  the other parts are straightforward.  Up to part 4 the patched postmaster stays binary compatible to databases created with an unpatched version.  Part 5 is small (100 lines) and finally breaks compatibility.  Manfred Koizar "/>
       <Document time="1027026859." author="momjian" document="Back out BETWEEN node patch, was causing initdb failure. "/>
       <Document time="1026701276." author="tgl" document="Remove no-longer-appropriate notes about lack of CASCADE/RESTRICT behavior. "/>
+<annotation name="maintainability"/>
       <Document time="1026438020." author="momjian" document="Remove duplicate:  &lt; * Use BlockNumber rather than int where appropriate "/>
       <Files>
         <File name="src/backend/commands/vacuumlazy.c" count="1"/>
@@ -33608,8 +33635,10 @@
     <Topic>
       <Document time="1028519761." author="tgl" document="Temporary solution for XLogDir breakage. "/>
       <Document time="1028456145." author="thomas" document="Add Myannar Time, Iran Time variant name, and Marquesas Time. "/>
+<annotation name="portability"/>
       <Document time="1028080564." author="tgl" document="Teach pg_dump to dump user-defined operator classes.  For the moment, this only works against 7.3 or later databasesSEMICOLON the pushups required to do it without regprocedure/regtype/etc seem more trouble than they're worth, considering that existing users aren't expecting pg_dump support for this. "/>
       <Document time="1027547904." author="momjian" document="Add mention of copyright year update. "/>
+<annotation name="license"/>
       <Document time="1027240792." author="momjian" document="Schema TODO.detail file not needed anymore. "/>
       <Document time="1027161173." author="momjian" document="Fix regression tests for new SHOW output. "/>
       <Document time="1027052544." author="ishii" document="Temporary ifdef out migrating functions to avoid compiler warnings. "/>
@@ -35941,6 +35970,7 @@
     <Topic>
       <Document time="1028626529." author="momjian" document="Patch for current CVS. It add test of lca() to ltree test suite.  Teodor Sigaev "/>
       <Document time="1028064730." author="tgl" document="Use Max/Min macros, not MAX/MIN, to eliminate portability issues. "/>
+<annotation name="portability"/>
       <Document time="1028061140." author="momjian" document="Add tablefunc to contrib makefile. "/>
       <Document time="1028049758." author="davec" document="added tests for crossReferences "/>
       <Document time="1027546932." author="momjian" document="Done:  &gt; * -Add Intimate Shared Memory(ISM) for Solaris "/>
@@ -38272,10 +38302,13 @@
     </Topic>
     <Topic>
       <Document time="1028004481." author="inoue" document="Fix a bug about automatic client_encoding setting. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1027944295." author="ishii" document="Fix typo. Remove #ifdef MULTIBYTE "/>
       <Document time="1027687553." author="inoue" document="Fix a bug about the handling of CX parameter of the connection string reported by Sergey Smirnov. "/>
       <Document time="1027357200." author="ishii" document="Fix typo. "/>
       <Document time="1027160263." author="momjian" document="Fix problems caused by code drift of API for without-oids. "/>
+<annotation name="maintainability"/>
+<annotation name="functionality" comments=""/>
       <Document time="1027157865." author="momjian" document="Patch problems caused by code drift since OID patch creation. "/>
       <Document time="1027155433." author="momjian" document="This patch fixes a regression caused by my recent changes to heap tuple header.  The fix is based on the thought that HEAP_MOVED_IN is not needed any more as soon as HEAP_XMIN_COMMITTED has been set.  So in tqual.c and vacuum.c the HEAP_MOVED bits are cleared when HEAP_XMIN_COMMITTED is set.  Vacuum robustness is enhanced by rearranging ifs, so that we have a chance to elog(ERROR, ...) before an assertion fails.  A new regression test is included.  Manfred Koizar "/>
       <Document time="1027107102." author="momjian" document="Another &quot;$@&quot; cleanup with new syntax, ${1+&quot;$@&quot;}. "/>
@@ -40602,12 +40635,14 @@
     <Topic>
       <Document time="1028532556." author="tgl" document="Restructure system-catalog index updating logic.  Instead of having hardwired lists of index names for each catalog, use the relcache's mechanism for caching lists of OIDs of indexes of any table.  This reduces the common case of updating system catalog indexes to a single line, makes it much easier to add a new system index (in fact, you can now do so on-the-fly if you want to), and as a nice side benefit improves performance a little.  Per recent pghackers discussion. "/>
       <Document time="1028452297." author="momjian" document="[ Previous patch reversed.]  Please use this patch instead of my previously submitted one.  It is just remerged against HEAD for new alter_table.out stuff.  Another reason this patch is useful for _interactive_ users: imagine a view based on a many way join.  Imagine creating a complicated insert rule that inserts into all the joined tables and when you insert you get a check failure, but you need to know which actual table the constraint was on that failed!  Christopher Kings-Lynne "/>
+<annotation name="usability" comments=""/>
       <Document time="1028061634." author="momjian" document="Add ltree data type to contrib, from Teodor Sigaev and Oleg Bartunov. "/>
       <Document time="1028021096." author="tgl" document="Rewrite xindex.sgml for CREATE OPERATOR CLASS.  catalogs.sgml finally contains descriptions of every single system table.  Update 'complex' tutorial example too. "/>
       <Document time="1027159051." author="momjian" document="I can't remember who said they were working on schema related psql changes, but I kept finding myself wishing I could see what schema a table or view exists in when I use BACKSLASHdt, BACKSLASHdv, etc. So, here is a patch which does just that.  It sorts on &quot;Schema&quot; first, and &quot;Name&quot; second.  It also changes the test for system objects to key off the namespace name starting with 'pg_' instead of the object name.  Sample output:  test=# create schema testschemaSEMICOLON CREATE SCHEMA test=# create view testschema.ts_view as select 1SEMICOLON CREATE VIEW test=# BACKSLASHdv                   List of relations          Name|   Schema| Type|  Owner --------------------+------------+------+----------   __testpassbyval| public| view| postgres   fooview| public| view| postgres   master_pg_proc| public| view| postgres   rmt_pg_proc| public| view| postgres   vw_dblink_get_pkey| public| view| postgres   vw_dblink_replace| public| view| postgres   ts_view| testschema| view| postgres (7 rows)  Joe Conway "/>
       <Document time="1026982210." author="momjian" document="REVOKE ALL ON FUNCTION nonexistant() FROM PUBLICSEMICOLON  Used to report that GRANT could not find function nonexistant.  Rod Taylor "/>
       <Document time="1026981704." author="momjian" document="Finished the Between patch Christopher started.  Implements between (symmetric / asymmetric) as a node.  Executes the left or right expression once, makes a Const out of the resulting Datum and executes the &gt;=, &lt;= portions out of the Const sets.  Of course, the parser does a fair amount of preparatory work for this to happen.  Rod Taylor "/>
       <Document time="1026804626." author="momjian" document="Mark 'line' as 'not implemented' in SGML and psql BACKSLASHdT, per Thomas Lockhart.  initdb not forced. "/>
+<annotation name="portability"/>
       <Files>
         <File name="contrib/ltree/ltree_op.c" count="1"/>
         <File name="src/backend/utils/adt/geo_ops.c" count="1"/>
@@ -42970,10 +43005,13 @@
     </Topic>
     <Topic>
       <Document time="1028682824." author="petere" document="Updated translation from Dennis Bjorklund &lt;db@zigo.dhs.org&gt; "/>
+<annotation name="portability"/>
       <Document time="1028677283." author="tgl" document="Still more paranoia in PageAddItem: disallow specification of an item offset past the last-used-item-plus-one, since that would result in leaving uninitialized holes in the item pointer array.  AFAICT the only place that was depending on this was btree index build, which was being cavalier about when to fill in the P_HIKEY pointerSEMICOLON easily fixed. Also a small performance improvement: shuffle itemid's by means of memmove, not a one-at-a-time loop. "/>
       <Document time="1028519399." author="tgl" document="Fix merge failures for anonymous-type patch.  From Joe Conway. "/>
+<annotation name="functionality" comments=""/>
       <Document time="1028339674." author="tgl" document="RemoveAttrDefaultById() neglected to obtain exclusive lock on the relation being modified.  In most paths of control we'd already have such a lock, but if we were dropping the default due to a cascaded delete of some function it depended on, maybe not. "/>
       <Document time="1028096848." author="momjian" document="Move backend_pid to functions/misc. "/>
+<annotation name="maintainability"/>
       <Document time="1028094552." author="momjian" document="Rename pid function to backend_pid(). "/>
       <Document time="1026981830." author="momjian" document="The attached patch (against HEAD) implements    COPY x (a,d,c,b) from stdinSEMICOLON   COPY x (a,c) to stdoutSEMICOLON  as well as the corresponding changes to pg_dump to use the new functionality.  This functionality is not available when using the BINARY option.  If a column is not specified in the COPY FROM statement, its default values will be used.  In addition to this functionality, I tweaked a couple of the error messages emitted by the new COPY &lt;options&gt; checks.  Brent Verner "/>
       <Document time="1026981749." author="momjian" document="You made a tiny little type in a comment in parsenodes.h (abotu instead of about).  Christopher Kings-Lynne "/>
@@ -45305,6 +45343,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="none"/>
       <Document time="1028625844." author="momjian" document="This patch changes the behavior of PostgreSQL so that if any queries are executed in an implicitely aborted transaction (e.g. after an occur occurs), we return an error (and not just a warning). For example:  nconway=# beginSEMICOLON BEGIN nconway=# insertSEMICOLON -- syntax error ERROR:  parser: parse error at or near &quot;SEMICOLON&quot; nconway=# select * from aSEMICOLON ERROR:  current transaction is aborted, queries ignored until end of transaction block  The old behavior was:  nconway=# beginSEMICOLON BEGIN nconway=# insertSEMICOLON ERROR:  parser: parse error at or near &quot;SEMICOLON&quot; nconway=# select * from aSEMICOLON WARNING:  current transaction is aborted, queries ignored until end of transaction block *ABORT STATE*  Which can be confusing: if the client isn't paying careful attention, they will conclude that the query has executed (because no error is returned).  Neil Conway "/>
       <Document time="1028615793." author="tgl" document="Restructure local-buffer handling per recent pghackers discussion. The local buffer manager is no longer used for newly-created relations (unless they are TEMP)SEMICOLON a new non-TEMP relation goes through the shared bufmgr and thus will participate normally in checkpoints.  But TEMP relations use the local buffer manager throughout their lifespan.  Also, operations in TEMP relations are not logged in WAL, thus improving performance. Since it's no longer necessary to fsync relations as they move out of the local buffers into shared buffers, quite a lot of smgr.c/md.c/fd.c code is no longer needed and has been removed: there's no concept of a dirty relation anymore in md.c/fd.c, and we never fsync anything but WAL. Still TODO: improve local buffer management algorithms so that it would be reasonable to increase NLocBuffer. "/>
       <Document time="1028457972." author="thomas" document="Implement IS OF type predicate. Can now do queries of the form:  select value IS OF (integer, float8)SEMICOLON "/>
@@ -47667,9 +47706,11 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="reliability" comments=""/>
       <Document time="1028505615." author="momjian" document="Fix compile failures for FRS composite tyhpe patch until Joe can fix it. "/>
       <Document time="1028451717." author="momjian" document="This patch fixes a &quot;multi-line string literal&quot; warning encountered when compiling psql with GCC 3.1.  Neil Conway "/>
       <Document time="1028447590." author="momjian" document="Here is a doc patch for the SHOW X changes and new config-settings functions. If there are no objections, please apply.  Joe Conway "/>
+<annotation name="portability"/>
       <Document time="1028193513." author="momjian" document="* -Remove LockMethodTable.prio field, not used (Bruce) "/>
       <Document time="1028099596." author="momjian" document="Done:  &gt; * -Remove LockMethodTable.prio field, not used (Bruce) "/>
       <Document time="1028061071." author="momjian" document="As mentioned above, here is my contrib/tablefunc patch. It includes three functions which exercise the tablefunc API.  show_all_settings()    - returns the same information as SHOW ALL, but as a query result  normal_rand(int numvals, float8 mean, float8 stddev, int seed)    - returns a set of normally distributed float8 values    - This routine implements Algorithm P (Polar method for normal      deviates) from Knuth's _The_Art_of_Computer_Programming_, Volume 2,      3rd ed., pages 122-126. Knuth cites his source as &quot;The polar      method&quot;, G. E. P. Box, M. E. Muller, and G. Marsaglia,      _Annals_Math,_Stat._ 29 (1958), 610-611.  crosstabN(text sql)    - returns a set of row_name plus N category value columns    - crosstab2(), crosstab3(), and crosstab4() are defined for you,      but you can create additional crosstab functions per directions      in the README.  Joe Conway "/>
