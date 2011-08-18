@@ -9,7 +9,7 @@ import lxml.etree
 import datetime
 
 if __name__ == '__main__':
-    maxdb_file = 'label-summary.csv'
+    maxdb_file = 'pg-label-summary.csv'
     maxdb = open(maxdb_file,'w')
     
     exps = get_exps.get_exps() 
