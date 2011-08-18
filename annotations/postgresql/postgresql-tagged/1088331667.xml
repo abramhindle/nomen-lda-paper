@@ -1586,6 +1586,8 @@
     </Authors>
     <Topic>
       <Document time="1090771206." author="petere" document="Translation updates "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1090393660." author="momjian" document="Allow borland compiles. "/>
       <Document time="1090370231." author="momjian" document="Suppress readline usage in mingw in configure. "/>
       <Document time="1090049216." author="tgl" document="Invent ResourceOwner mechanism as per my recent proposal, and use it to keep track of portal-related resources separately from transaction-related resources.  This allows cursors to work in a somewhat sane fashion with nested transactions.  For now, cursor behavior is non-subtransactional, that is a cursor's state does not roll back if you abort a subtransaction that fetched from the cursor.  We might want to change that later. "/>
@@ -3080,6 +3082,7 @@
     </Topic>
     <Topic>
       <Document time="1090019904." author="momjian" document="Here is a patch required to build plperl with win32. The issues were:  * perl_useshrplib gets set to &quot;yes&quot; and not to &quot;true&quot;. I assume it's set to &quot;true&quot; on unix, so I left both. * Need to translate backslashes into slashes * The linker config coming out of perl was for MSVC and not for mingw  Magnus Hagander "/>
+<annotation name="portability"/>
       <Document time="1089701725." author="tgl" document="Can't have blank lines in resultmapSEMICOLON some versions of expr complain. "/>
       <Document time="1089605346." author="momjian" document="Canonicalize preload_libraries after it is split up, not before. "/>
       <Document time="1089489088." author="momjian" document="Clarify schema meanings in pg_dump manual page by referring to object definitions more frequently. "/>
@@ -4526,6 +4529,9 @@
     <Topic>
       <Document time="1090919449." author="tgl" document="Replace nested-BEGIN syntax for subtransactions with spec-compliant SAVEPOINT/RELEASE/ROLLBACK-TO syntax.  (Alvaro) Cause COMMIT of a failed transaction to report ROLLBACK instead of COMMIT in its command tag.  (Tom) Fix a few loose ends in the nested-transactions stuff. "/>
       <Document time="1089619110." author="momjian" document="New text. "/>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
+<annotation name="functionality"/>
       <Document time="1089608445." author="momjian" document="The outer #define was forgotten.  Attached patch adds itSEMICOLON please apply.  Alvaro "/>
       <Document time="1089607151." author="momjian" document="Add:  &gt; * Add session start time and last statement time to pg_stat_activity "/>
       <Document time="1089529182." author="momjian" document="Fix trim_trailing_separator() to not trim c:BACKSLASH nor BACKSLASHBACKSLASHnetworkBACKSLASH on Win32. "/>
@@ -5966,6 +5972,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1090770560." author="petere" document="Change declared encoding "/>
       <Document time="1090283322." author="momjian" document="*** empty log message *** "/>
       <Document time="1090262079." author="tgl" document="Remove unportable use of strptime() to parse recovery target time spec. Instead use our own abstimein code, which is more flexible anyway. "/>
@@ -7393,6 +7400,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1090852107." author="meskes" document="SQL defines are only used in SQL space in Informix mode. "/>
       <Document time="1090743485." author="momjian" document="Update 7.5 release notes. "/>
       <Document time="1090283416." author="momjian" document="No CVS FAQ, just CVS docs. "/>
@@ -8846,6 +8854,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1090770296." author="petere" document="New translation "/>
       <Document time="1090743485." author="momjian" document="Update 7.5 release notes. "/>
       <Document time="1090740631." author="momjian" document="Improve description of release note creation. "/>
@@ -10306,6 +10315,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1090378589." author="momjian" document="Fix unused variable when Assert() not used. "/>
       <Document time="1090376896." author="momjian" document="Update:  &lt; * Allow psql to display permission information using BACKSLASHdf+ and BACKSLASHl+ &gt; * Consistenly display privilege information for all objects in psql "/>
       <Document time="1090371682." author="momjian" document="Add:  &gt; * Allow psql to display permission information using BACKSLASHdf+ and BACKSLASHl+ "/>
@@ -11756,6 +11767,8 @@
     </Topic>
     <Topic>
       <Document time="1090362173." author="meskes" document="Fixed handling of cyclic defines. "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1090361201." author="meskes" document="Synced parser and keyword list. Fixed handling of cyclic defines. "/>
       <Document time="1090285362." author="tgl" document="Fix incorrect tracking of session authorization in the presence of ACLs that contain rights granted by non-owners.  Per bug report from Nishad Prakash. "/>
       <Document time="1090285337." author="tgl" document="Fix incorrect tracking of session authorization in the presence of ACLs that contain rights granted by non-owners.  Per bug report from Nishad Prakash. "/>
@@ -13266,6 +13279,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="reliability" comments=""/>
+<annotation name="functionality"/>
       <Document time="1090511359." author="momjian" document="Done:  &gt; * -Have psql show more information about sequences "/>
       <Document time="1090488510." author="tgl" document="Still another try at automatically detecting the best match in the zic timezone database for the system behavior we find ourselves in.  Scan backwards from current time and choose the zone that matches furthest back.  As per discussion a week or so back. "/>
       <Document time="1089751695." author="momjian" document="Have BACKSLASHdn+ show permissions and description for schemas.  Dennis Bjorklund "/>
@@ -14707,6 +14722,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1090463478." author="tgl" document="Invent WAL timelines, as per recent discussion, to make point-in-time recovery more manageable.  Also, undo recent change to add FILE_HEADER and WASTED_SPACE records to XLOGSEMICOLON instead make the XLOG page header variable-size with extra fields in the first page of an XLOG file. This should fix the boundary-case bugs observed by Mark Kirkwood. initdb forced due to change of XLOG representation. "/>
       <Document time="1090457025." author="momjian" document="The attached patch shows the new column &quot;tablespace&quot; in the mentioned views.  Klaus Naumann "/>
       <Document time="1089932024." author="momjian" document="Properly order mysql links. "/>
@@ -16172,6 +16189,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
       <Document time="1090432004." author="momjian" document="Mention plpgsql:  &lt; o -Allow parameters to be specified by name and type during definition &gt; o -Allow PL/pgSQL parameters to be specified by name and type during definition "/>
       <Document time="1090366656." author="momjian" document="Done:  &gt; o -Allow parameters to be specified by name and type during definition "/>
       <Document time="1090285050." author="momjian" document="Done:  &gt; * -Allow configuration files to be specified in a different directory "/>
@@ -17607,6 +17625,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1090820879." author="momjian" document="Here is a patch that fixes the pipes used in find_other_exec() when running as a service on windows &lt;= 2000. Required to make the pg_ctl service wrapper to work at all.  Magnus Hagander "/>
       <Document time="1090652807." author="momjian" document="Add steps for creating release notes. "/>
       <Document time="1090457092." author="momjian" document="Please find enclosed a patch that matches the PL/Perl documentation (fairly closely, I hope) to the current PL/Perl implementation.  David Fetter "/>
@@ -19045,6 +19065,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1090541920." author="tgl" document="Add a check on file size as an additional safety check that a WAL file recovered from archive is not corrupt.  It's not much but it will catch one common problem, viz out-of-disk-space. Also, force a WAL recovery scan when recovery.conf is present, even if pg_control shows a clean shutdown.  This allows recovery with a tar backup that was taken with the postmaster shut down, as per complaint from Mark Kirkwood. "/>
       <Document time="1089842108." author="petere" document="Detect locale/encoding mismatch in initdb, or pick a suitable encoding automatically if none was specified. "/>
       <Document time="1089219885." author="momjian" document="Add OSX thread support for next 7.4.X "/>
@@ -20482,6 +20503,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1090913258." author="momjian" document="Update tuple header size. "/>
       <Document time="1090882418." author="tgl" document="Add some more logging to simplify diagnosis of problems in IDENT authorization.  Inspired by problem report from Ian Pilcher. "/>
       <Document time="1090713082." author="tgl" document="log_destination should only be PGC_SIGHUP, not PGC_POSTMASTER, as per discussion yesterday.  Also a few improvements in the associated documentation. "/>
@@ -21937,6 +21959,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1090713702." author="tgl" document="Fix obsolete comment. "/>
       <Document time="1090287586." author="momjian" document="Here is another patch that fixes a stack of pg_dump bugs:  * Fix help text ordering  * Add back --set-session-authorization to pg_dumpall.  Updated the docs for that.  Updated help for that.  * Dump ALTER USER commands for the cluster owner (&quot;pgsql&quot;).  These are dumped AFTER the create user and create database commands in case the permissions to do these have been revoked.  * Dump ALTER OWNER for public schema (because it's possible to change it).  This was done by adding TOC entries for the public schema, and filtering them out at archiver time.  I also save the owner in the TOC entry just for the public schema.  * Suppress dumping single quotes around schema_path and DateStyle options when they are set using ALTER USER or ALTER DATABASE.  Added a comment to the steps in guc.c to remind people to update that list.  * Fix dumping in --clean mode against a pre-7.3 server.  It just sets all drop statements to assume the public schema, allowing it to restore without error.  * Cleaned up text output.  eg. Don't output -- Tablespaces comment if there are none.  Same for groups and users.  * Make the commands to DELETE FROM pg_shadow and DELETE FROM pg_group only be output when -c mode is enabled.  I'm not sure why that hasn't been done before?!?!  This should be good for application asap, after which I will start on regression dumping 7.0-7.4 databases.  Christopher Kings-Lynne "/>
       <Document time="1089611650." author="momjian" document="Fix username mismatch in initdb.  Magnus. "/>
@@ -23370,6 +23394,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1090907163." author="tgl" document="Fix oversight: in case where SIGTERM is received while there are live backends, the archiver and stats processes never got sent a kill signal.  They'd eventually exit on their own, but not for awhile, which is a bit annoying when you are trying to replace the executable file on a platform that doesn't allow removal of busy executables. Also, tweak main loop logic so that we will perform the background tasks after select() returns EINTR. "/>
       <Document time="1090457154." author="momjian" document="The attached patch allows 'select foo()' as well as 'select * from foo()' where foo() is a plperl function that returns a single composite.  Andrew Dunstan "/>
       <Document time="1089900020." author="jurka" document="When retrieving an array of numerics it attempted to set the scale on the retrieved data to zero, which doesn't work for non-integer values.  Oliver Dauben "/>
@@ -24804,6 +24830,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1090816002." author="momjian" document="Adjust release notes based on community feedback. "/>
       <Document time="1090456483." author="momjian" document="Back out pg_autovacuum commit after cvs clean failure causes commit. "/>
       <Document time="1090219623." author="tgl" document="XLOG file archiving and point-in-time recovery.  There are still some loose ends and a glaring lack of documentation, but it basically works.  Simon Riggs with some editorialization by Tom Lane. "/>
@@ -26257,6 +26284,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1090562316." author="momjian" document="Move Win32 defines from port.h to win32.h. "/>
       <Document time="1090367523." author="momjian" document="Add:  &gt; * Fix data types where equality comparison isn't intuitive, e.g. box "/>
       <Document time="1089589968." author="tgl" document="Move TablespaceCreateDbspace() call into smgrcreate(), which is where it probably should have been to begin withSEMICOLON this is to cover cases like needing to recreate the per-db directory during WAL replay. Also, fix heap_create to force pg_class.reltablespace to be zero instead of the database's default tablespaceSEMICOLON this makes the world safe for CREATE DATABASE to handle all tables in the default tablespace alike, as per previous discussion.  And force pg_class.reltablespace to zero when creating a relation without physical storage (eg, a view)SEMICOLON this avoids possibly having dangling references in this column after a subsequent DROP TABLESPACE. "/>
@@ -27686,6 +27714,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
       <Document time="1090271036." author="tgl" document="Install recovery.conf.sample into the /share install directory. "/>
       <Document time="1090099727." author="tgl" document="When renaming a column that participates in a foreign key, we must force relcache rebuild for the other table as well as the column's own table.  Otherwise, already-cached foreign key triggers will stop working.  Per example from Alexander Pravking. "/>
       <Document time="1090099709." author="tgl" document="When renaming a column that participates in a foreign key, we must force relcache rebuild for the other table as well as the column's own table.  Otherwise, already-cached foreign key triggers will stop working.  Per example from Alexander Pravking. "/>
@@ -29113,6 +29142,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1090770297." author="petere" document="file fr.po was initially added on branch REL7_4_STABLE. "/>
       <Document time="1090475076." author="tgl" document="Avoid default: followed by no statement, per Dann Corbit. "/>
       <Document time="1090474884." author="tgl" document="Add missing &lt;getopt.h&gt;, per Dann Corbit. "/>

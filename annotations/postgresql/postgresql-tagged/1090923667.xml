@@ -2500,6 +2500,8 @@
       <Author name="jurka" count="3"/>
     </Authors>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1093046832." author="momjian" document="Add ALTER SCHEMA item detail:  &lt; o Allow databases, schemas, and indexes to be moved to different &lt;   tablespaces &gt; o Allow databases and schemas to be moved to different tablespaces &gt; &gt; One complexity is whether moving a schema should move all existing &gt; schema objects or just define the location for future object creation. &gt; 382c385 &lt; o Add ALTER INDEX that works just like ALTER TABLE already does &gt; o -Add ALTER INDEX that works just like ALTER TABLE already does 384d386 &lt; o Add ALTER INDEX syntax to work like ALTER TABLE indexname "/>
       <Document time="1093044639." author="momjian" document="Add psql tab completion TODO:  &lt; * -Have psql BACKSLASHdn show only visible temp schemas using current_schemas() &lt; * -Have psql 'BACKSLASHi ~/&lt;tab&gt;&lt;tab&gt;' actually load files it displays from home dir 484a483,484 &gt; * -Have psql BACKSLASHdn show only visible temp schemas using current_schemas() &gt; * -Have psql 'BACKSLASHi ~/&lt;tab&gt;&lt;tab&gt;' actually load files it displays from home dir 516a517,527 &gt; &gt; * psql tab completion &gt; &gt; o Provide a list of conversions after ALTER CONVERSION? &gt; o Support for ALTER SEQUENCE clauses &gt; o Add RENAME TO to ALTER TRIGGER &gt; o Support for ALTER USER &gt; o Fix ALTER (GROUP|DOMAIN|...) &lt;sth&gt; DROP &gt; o Support for ALTER LANGUAGE &lt;sth&gt; RENAME TO &gt; o Improve support for COPY &gt; o Improve support for ALTER TABLE "/>
       <Document time="1092985560." author="momjian" document="Add:  &gt; * Add a function that returns the 'uptime' of the postmaster "/>
@@ -4738,6 +4740,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1093360184." author="momjian" document="Update item:  &lt; * Implement dirty reads or shared row locks and use them in RI triggers (?) &gt; * Implement dirty reads or shared row locks and use them in RI triggers &gt; &gt;   Adding shared locks requires recording the table/rows numbers in a &gt;   shared area, and this could potentially be a large amount of data. &gt;   One idea is to store the table/row numbers in a separate table and set &gt;   a bit on the row indicating looking in this new table is required to &gt;   find any shared row locks. &gt; "/>
       <Document time="1093119363." author="tgl" document="Seems it would be nice if the ALTER INDEX ref page were actually linked into the docs ... "/>
       <Document time="1092542964." author="tgl" document="Minor copy-editing for 7.4.4, 7.3.7, 7.2.5 release notes. "/>
@@ -6960,6 +6964,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1093062414." author="tgl" document="Recent tightening of allowed array-literal syntax broke one test case in contrib/ltree.  Fix. "/>
       <Document time="1093061350." author="tgl" document="Whack btree_gist code around until it has some small hope of building on non-gcc compilers. "/>
       <Document time="1092947953." author="momjian" document="Use backslash in %USERPROFILE%BACKSLASH.pgpass. "/>
@@ -9211,6 +9217,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1093507799." author="momjian" document="Update Japanese FAQ.  Jun Kuwamura "/>
       <Document time="1093398340." author="petere" document="Translation update "/>
       <Document time="1093398313." author="petere" document="Translation update "/>
@@ -11452,6 +11459,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="usability" comments=""/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1093478877." author="tgl" document="Fix typo in comment, per Andrew Dunstan. "/>
       <Document time="1093128359." author="momjian" document="Fix tab completion for ALTER INDEX. "/>
       <Document time="1093117546." author="tgl" document="Fix typo (extraneous comma). "/>
@@ -13696,6 +13706,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
+<annotation name="reliability" comments=""/>
       <Document time="1093312313." author="momjian" document="Update that 8.0 will support MS Win natively. "/>
       <Document time="1092814676." author="momjian" document="The enclose patch clarifies and makes a more useful example for the Global Values in PL/Perl section of the documents.  David Fetter "/>
       <Document time="1092627886." author="tgl" document="Dept. of further reflection: I looked around to see if any other callers of XLogInsert had the same sort of checkpoint interlock problem as RecordTransactionCommit, and indeed I found some.  Btree index build and ALTER TABLE SET TABLESPACE write data outside the friendly confines of the buffer manager, and therefore they have to take their own responsibility for checkpoint interlock.  The easiest solution seems to be to force smgrimmedsync at the end of the index build or table copy, even when the operation is being WAL-logged.  This is sufficient since the new index or table will be of interest to no one if we don't get as far as committing the current transaction. "/>
@@ -15948,6 +15961,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="usability" comments=""/>
       <Document time="1093504705." author="momjian" document="Update tcp connection faq. "/>
       <Document time="1093044299." author="momjian" document="Attached is the third version of my patch that adds/fixes several things to/in the psql-tabcomplete code. This diff includes the still missing tab-complete support for TABLESPACE I already sent earlier. New in this version of the patch is a small adaption of the tab-complete code to support the adjusted SAVEPOINT-Syntax commited by Tom, as well as completion of the only half working (and I think only by accident) tabcomplete-suppport for &quot;BEGIN [ TRANSACTION| WORK ]&quot;.  below is a complete list of the things I have changed with this patch:   *) add tablespace support for CREATE/DROP/ALTER and BACKSLASHdb *) sync the list of possible commands following ALTER with the docs (by adding AGGREGATE,CONVERSATION,DOMAIN,FUNCTION,LANGUAGE,OPERATOR,SEQUENCE,TABLESPACE and TYPE) *) provide a list of valid users after &quot;OWNER TO&quot; *) tab-complete support for ALTER (AGGREGATE|CONVERSION|FUNCTION) *) basic tab-complete support for ALTER DOMAIN *) provide a list of suitable indexes following ALTER TABLE &lt;sth&gt; CLUSTER ON(?) *) add &quot;CLUSTER ON&quot; and &quot;SET&quot; to the ALTER TABLE &lt;sth&gt; - tab-complete list(fixes incorrect/wrong tab-complete with ALTER TABLE &lt;sth&gt; SET +&lt;TAB&gt; too) *) provide a list of possible indexes following ALTER TABLE &lt;sth&gt; CLUSTER ON *) provide list of possible commands(WITHOUT CLUSTER,WITHOUT OIDS, TABLESPACE) following ALTER TABLE &lt;sth&gt; SET *) sync &quot;COMMENT ON&quot; with docs by adding &quot;CAST&quot;,&quot;CONVERSION&quot;,&quot;FUNCTION&quot; *) add ABSOLUT to the list of possible commands after FETCH *) &quot;END&quot; was missing from the sql-commands overview (though it had completion support!) - i know it's depreciated but we have ABORT and others still in ... *) fixes small buglet with ALTER (TRIGGER|CLUSTER) ON autocomplete (CLUSTER ON +&lt;TAB&gt; would produce CLUSTER ON ON - same for TRIGGER ON) *) adapt to new SAVEPOINT syntax *) fix incomplete Support for BEGIN [ TRANSACTION| WORK ]  Stefan Kaltenbrunn "/>
       <Document time="1092725492." author="momjian" document="Add DLLIMPORT for PostGIS. "/>
@@ -18179,6 +18194,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1093504153." author="momjian" document="Add:  &gt; * Merge hardwired timezone names with the TZ databaseSEMICOLON allow either kind &gt;   everywhere a TZ name is currently taken &gt; * Allow customization of the known set of TZ names (generalize the &gt;   present australian_timezones hack) "/>
       <Document time="1093292203." author="momjian" document="Update newest version number. "/>
       <Document time="1093073134." author="momjian" document="Mention that to_char(interval) will be removed in 8.1. "/>
@@ -18193,6 +18209,7 @@
       <Document time="1092173447." author="momjian" document="Update DELETE FROM:  &lt; * Allow DELETE to handle table aliases for self-joins &gt; * Allow an alias to be provided for the target table in UPDATE/DELETE 276,279c276,282 &lt;   There is no way to create a table alias for the deleted table for use &lt;   in the DELETE WHERE clause.  The agreed approach is to allow a USING &lt;   clause to specify additional tables.  UPDATE already has an optional &lt;   FROM clause for this purpose. &gt;   This is not SQL-spec but many DBMSs allow it. &gt; &gt; * Allow additional tables to be specified in DELETE for joins &gt; &gt;   UPDATE already allows this (UPDATE...FROM) but we need similar &gt;   functionality in DELETE.  It's been agreed that the keyword should &gt;   be USING, to avoid anything as confusing as DELETE FROM a FROM b. "/>
       <Document time="1091995985." author="tgl" document="If these are ifdef WIN32 in the .c file, should be so in .h as well. "/>
       <Document time="1091849628." author="tgl" document="Some editorial work on the 8.0 release notes.  Update for recent commits, improve existing descriptions. "/>
+<annotation name="functionality"/>
       <Document time="1091822819." author="tgl" document="Add _O_TEXT option to dup2 call on Windows, to ensure redirected postmaster stderr is in text mode.  Per Andreas. "/>
       <Document time="1091763130." author="tgl" document="Create a built-in log rotation program, so that we no longer have to recommend that people go get Apache's rotatelogs program.  Additional benefits are that configuration is done through GUC, rather than externally, and that the postmaster can monitor the log rotator and restart it after failure (though we certainly hope that won't happen often). Andreas Pflug, some rework by Tom Lane. "/>
       <Document time="1091703027." author="dennis" document="Translation updates "/>
@@ -20471,6 +20488,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1093047181." author="momjian" document="&gt; Please find enclose a submission to fix these problems. &gt; &gt; The patch adds missing the &quot;libpgport.a&quot; file to the installation under &gt; &quot;install-all-headers&quot;. It is needed by some contribs. I install the &gt; library in &quot;pkglibdir&quot;, but I was wondering whether it should be &quot;libdir&quot;? &gt; I was wondering also whether it would make sense to have a &quot;libpgport.so&quot;? &gt; &gt; It fixes various macros which are used by contrib makefiles, especially &gt; libpq_*dir and LDFLAGS when used under PGXS. It seems to me that they are &gt; needed to &gt; &gt; It adds the ability to test and use PGXS with contribs, with &quot;make &gt; USE_PGXS=1&quot;. Without the macro, this is exactly as before, there should be &gt; no difference, esp. wrt the vpath feature that seemed broken by previous &gt; submission. So it should not harm anybody, and it is useful at least to me. &gt; &gt; It fixes some inconsistencies in various contrib makefiles &gt; (useless override, &quot;:=&quot; instead of &quot;=&quot;).  Fabien COELHO "/>
       <Document time="1092776086." author="momjian" document="Chain on to SIGPIPE handler rather than just do action on default.  Always create thread-specific variable. "/>
       <Document time="1092685443." author="momjian" document="Throw error if initdb -L is not an absolute path. "/>
@@ -22753,6 +22772,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1093047503." author="momjian" document="Allow psql to use 7.4.X database by not referencing tablespaces.  Greg Sabino Mullan "/>
       <Document time="1092536303." author="tgl" document="Add discussion and example about predicate locking and why &quot;serializable&quot; mode isn't really serializable.  I had thought this was covered already in our docs, but I sure can't find it. "/>
       <Document time="1092428239." author="tgl" document="Clarify trigger function return convention, per Thomas Hallgren. "/>
@@ -24984,6 +25005,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="maintainability"/>
       <Document time="1093053614." author="tgl" document="Recognize plpgsql EXCEPTION condition names at function compile time instead of runtime, for better detection of invalid condition names (and maybe a little more speed, too). "/>
       <Document time="1093045694." author="momjian" document="I notice that contrib/fuzzystrmatch/dmetaphone.c doesn't compile cleanly as it stands - it mixes declarations in code, C++-style. The attached patch shifts declarations to the tops of functions and enables this file to compile cleanly as C.  Richard Poole "/>
       <Document time="1093029627." author="momjian" document="Add mention of environment variable conflict with uncommenting config file variables:  &lt;   Another option is to allow commented values to return to their &lt;   default values. &gt;   This has to address environment variables that are then overridden &gt;   by config file values.  Another option is to allow commented values &gt;   to return to their default values. "/>
@@ -27223,6 +27245,8 @@
     <Topic>
       <Document time="1093394500." author="tgl" document="Allow second and subsequent names in a qualified (dotted) name to be ColLabel instead of just ColId --- that is, any keyword can appear after a dot and it will be taken as an identifier.  Fixes problems with names that are okay as standalone function names but fail when qualified. "/>
       <Document time="1093046434." author="momjian" document="They are two different problemsSEMICOLON the TOC entry is important for any multiline command  or to rerun the command easily later.  Whereas displaying the failed SQL command is a matter of fixing the error messages.  The latter is complicated by failed COPY commands which, with die-on-errors off, results in the data being processed as a command, so dumping the command will dump all of the data.  In the case of long commands, should the whole command be dumped? eg. (eg. several pages of function definition).  In the case of the COPY command, I'm not sure what to do. Obviously, it would be best to avoid sending the data, but the data and command are combined (from memory). Also, the 'data' may be in the form of INSERT statements.  Attached patch produces the first 125 chars of the command:  pg_restore: [archiver (db)] Error while PROCESSING TOC: pg_restore: [archiver (db)] Error from TOC Entry 26SEMICOLON 1255 16449270 FUNCTION plpgsql_call_handler() pjw pg_restore: [archiver (db)] could not execute query: ERROR:  function &quot;plpgsql_call_handler&quot; already exists with same argument types      Command was: CREATE FUNCTION plpgsql_call_handler() RETURNS language_handler      AS '/var/lib/pgsql-8.0b1/lib/plpgsql', 'plpgsql_call_han... pg_restore: [archiver (db)] Error from TOC Entry 27SEMICOLON 1255 16449271 FUNCTION plpgsql_validator(oid) pjw pg_restore: [archiver (db)] could not execute query: ERROR:  function &quot;plpgsql_validator&quot; already exists with same argument types      Command was: CREATE FUNCTION plpgsql_validator(oid) RETURNS void      AS '/var/lib/pgsql-8.0b1/lib/plpgsql', 'plpgsql_validator'      LANGU...  Philip Warner "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1092888034." author="momjian" document="Don't use get_home_path so libpq doesn't pull path.c into the library. "/>
       <Document time="1092603816." author="tgl" document="Xmin calculations should consider only top transaction IDs, and therefore starting with GetCurrentTransactionId is wrong.  Fixes miscomputation of RecentGlobalXmin leading to bizarre behavior reported by Gavin Sherry. "/>
       <Document time="1092257608." author="tgl" document="Fix function definition that somehow missed being ANSI-fied, and align it with previous prototype to suppress complaints from picky compilers, per report from Scott Bailey.  Also, remove substitute strerror definition --- not needed, since we link this with libpgport. "/>
@@ -29446,6 +29470,8 @@
     <Topic>
       <Document time="1093072917." author="momjian" document="Remove Solaris bug mention in pg_hba.conf. "/>
       <Document time="1092871633." author="tgl" document="Clean up some random departures from project's standard declaration style. "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1092813084." author="tgl" document="Brand 7.4.5 ... now that was our shortest-lived release ever ... "/>
       <Document time="1092798967." author="tgl" document="Fix bug introduced into _bt_getstackbuf() on 2003-Feb-21: the initial value of 'start' could be past the end of the page, if the page was split by some concurrent inserting process since we visited it.  In this situation the code could look at bogus entries and possibly find a match (since after all those entries still contain what they had before the split).  This would lead to 'specified item offset is too large' followed by 'PANIC: failed to add item to the page', as reported by Joe Conway for scenarios involving heavy concurrent insertion activity. "/>
       <Document time="1092798933." author="tgl" document="Fix bug introduced into _bt_getstackbuf() on 2003-Feb-21: the initial value of 'start' could be past the end of the page, if the page was split by some concurrent inserting process since we visited it.  In this situation the code could look at bogus entries and possibly find a match (since after all those entries still contain what they had before the split).  This would lead to 'specified item offset is too large' followed by 'PANIC: failed to add item to the page', as reported by Joe Conway for scenarios involving heavy concurrent insertion activity. "/>
@@ -31669,6 +31695,7 @@
     </Topic>
     <Topic>
       <Document time="1092544911." author="momjian" document="Quote PERL expansion for Win32 path that might have spaces. "/>
+<annotation name="portability"/>
       <Document time="1092200527." author="joe" document="Hashed crosstab was dying with an SPI_finish error when the source SQL produced no rows. Now it returns 0 rows instead. Adjusted regression test for this case. "/>
       <Document time="1092199770." author="joe" document="Hashed crosstab was dying with an SPI_finish error when the source SQL produced no rows. Now it returns 0 rows instead. Adjusted regression test for this case. "/>
       <Document time="1092044079." author="tgl" document="Remove no-longer-relevant information about trying to force your OS to support PST8PDT time zone for the regression tests. "/>
@@ -33903,6 +33930,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1093072375." author="momjian" document="Fix pg_ctl -w to properly wait on server startup. "/>
       <Document time="1093047786." author="momjian" document="&gt;&gt;At this stage of the game I would just change pg_hba.conf.sample to use &gt;&gt;'127.0.0.1/32' instead of '127.0.0.1 255.255.255.255'. &gt;&gt; &gt;&gt; &gt; &gt;Yeah, that's probably the path of least resistance.  Note that the &gt;comments and possibly the SGML docs need to be adjusted to match, &gt;however, so it's not quite a one-liner.  Andrew Dunstan "/>
       <Document time="1092812629." author="tgl" document="Update release history for 7.4.5. "/>
@@ -36129,6 +36158,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1093473822." author="tgl" document="Revise ResourceOwner code to avoid accumulating ResourceOwner objects for every command executed within a transaction.  For long transactions this was a significant memory leak.  Instead, we can delete a portal's or subtransaction's ResourceOwner immediately, if we physically transfer the information about its locks up to the parent owner.  This does not fully solve the leak problemSEMICOLON we need to do something about counting multiple acquisitions of the same lock in order to fix it.  But it's a necessary step along the way. "/>
       <Document time="1092990572." author="momjian" document="Add ALTER INDEX, particularly for moving tablespaces.  Gavin Sherry "/>
       <Document time="1092987913." author="momjian" document="&gt; After all that about numbering centuries and millenia correctly, &gt; why does CVS tip still give me &gt; &gt; regression=# select extract(century from now())SEMICOLON &gt;  date_part &gt; ----------- &gt;         20 &gt; (1 row) &gt; [ ... looks in code ... ] &gt; &gt; Apparently it's because you fixed only timestamp_part, and not &gt; timestamptz_part.  I'm not too sure about what timestamp_trunc or &gt; timestamptz_trunc should do, but they may be wrong as well.  Sigh... as usual, what is not tested does not work:-(   &gt; Could we have a more complete patch?  Please find a submission attached. I hope it really fixes all decade, century and millenium issues for extract and *_trunc functions on interval and other timestamp types. If someone could check that the results are reasonnable, it would be great.  I indeed overlooked the fact that there were two functions. The patch fixes the code so that both variants agree.  I added comments to interval extractions, because it relies on the C division to have a negative remainder: -7/10 = 0 and remains -7.  As for *_trunc functions, I have chosen to put the first year of the century or millennium: -100, 1, 101... 1001 2001 etc. Indeed, I don't think it would make sense to put 2000 (last year of the 2nd millennium) for rounding all years of the third millenium.  I also fixed the code so that all decades last 10 years and decade 199 means the 1990's.  I have added some tests that are relevant to deal with tricky cases. The formula may be simplified, but all these cases must pass. Please keep them.  Fabien Coelho "/>
@@ -38389,6 +38420,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
       <Document time="1093147707." author="tgl" document="Code review for ALTER INDEX patch. "/>
       <Document time="1092211752." author="tgl" document="Fix failure to guarantee that a checkpoint will write out pg_clog updates for transaction commits that occurred just before the checkpoint.  This is an EXTREMELY serious bug --- kudos to Satoshi Okada for creating a reproducible test case to prove its existence. "/>
       <Document time="1092211719." author="tgl" document="Fix failure to guarantee that a checkpoint will write out pg_clog updates for transaction commits that occurred just before the checkpoint.  This is an EXTREMELY serious bug --- kudos to Satoshi Okada for creating a reproducible test case to prove its existence. "/>
@@ -40611,6 +40645,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1093032435." author="momjian" document="This patch allows pg_restore to recognize $-quotes in SQL queries. It will treat any unquoted string that starts with a $ and has no preceding identifier chars as a potential $-quote tag, it then makes sure that the tag chars are valid. If so, it processes the $-quote.  Philip Warner "/>
       <Document time="1092351797." author="momjian" document="Cleanup Win32 COPY handling, and move archive examples to SGML. "/>
       <Document time="1092221760." author="jurka" document="Decode V3 notice messages instead of leaving them in raw form.  From Donald Fraser. "/>
@@ -42830,6 +42866,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
+<annotation name="reliability" comments=""/>
       <Document time="1093312610." author="momjian" document="Mention removal of page images in PITR files:  &lt;   partial page writes during recovery. &gt;   partial page writes during recovery.  These pages can also be &gt;   eliminated from point-in-time archive files. "/>
       <Document time="1092813582." author="momjian" document="Add pg_dump section:  &lt; * -Allow pg_dump to dump CREATE CONVERSION (Christopher) &lt; * -Make pg_restore continue after errors, so it acts more like pg_dump scripts 485,486d482 &lt; * Allow pg_dumpall to use non-text output formats &lt; * Have pg_dump use multi-statement transactions for INSERT dumps 493,496d488 &lt; * Allow pg_dump to use multiple -t and -n switches &lt; &lt;   This should be done by allowing a '-t schema.table' syntax. &lt; 498a491,512 &gt; &gt; * pg_dump &gt; o Allow pg_dumpall to use non-text output formats &gt; o Have pg_dump use multi-statement transactions for INSERT dumps &gt; o -Allow pg_dump to dump CREATE CONVERSION (Christopher) &gt; o -Make pg_restore continue after errors, so it acts more like pg_dump &gt;   scripts &gt; o Allow pg_dump to use multiple -t and -n switches &gt; &gt;   This should be done by allowing a '-t schema.table' syntax. &gt; &gt; o Add dumping of comments on composite type columns &gt; o Add dumping of comments on index columns &gt; o Replace crude DELETE FROM method of pg_dumpall for cleaning of &gt;   users and groups with separate DROP commands &gt; o Add dumping and restoring of LOB comments &gt; o Stop dumping CASCADE on DROP TYPE commands in clean mode &gt; o Add full object name to the tag field.  eg. for operators we need &gt;   '=(integer, integer)', instead of just '='. &gt; o Add pg_dumpall custom format dumps. This is probably best done by &gt;   combining pg_dump and pg_dumpall into a single binary &gt; o Add CSV output format "/>
       <Document time="1092770348." author="momjian" document="Fix agressive collection of thread flags. "/>
@@ -45078,6 +45117,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1093320410." author="neilc" document="Various minor improvements to the SGML documentation: fix some incorrect SGML markup, add a &quot;deprecated features&quot; section to the 8.0 release notes, untabify release.sgml and runtime.sgml, and make some other minor improvements. "/>
       <Document time="1093317764." author="tgl" document="Rearrange pg_subtrans handling as per recent discussion.  pg_subtrans updates are no longer WAL-logged nor even fsync'dSEMICOLON we do not need to, since after a crash no old pg_subtrans data is needed again.  We truncate pg_subtrans to RecentGlobalXmin at each checkpoint.  slru.c's API is refactored a little bit to separate out the necessary decisions. "/>
       <Document time="1093156917." author="tgl" document="Tweak code so that pg_subtrans is never consulted for XIDs older than RecentXmin (== MyProc-&gt;xmin).  This ensures that it will be safe to truncate pg_subtrans at RecentGlobalXmin, which should largely eliminate any fear of bloat.  Along the way, eliminate SubTransXidsHaveCommonAncestor, which isn't really needed and could not give a trustworthy result anyway under the lookback restriction. In an unrelated but nearby change, #ifdef out GetUndoRecPtr, which has been dead code since 2001 and seems unlikely to ever be resurrected. "/>

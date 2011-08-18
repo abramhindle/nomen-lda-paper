@@ -3817,6 +3817,8 @@
       <Document time="1094883134." author="momjian" document="Send thread test output to file descriptor 5 like configure does rather than /dev/null, which Win32 doesn't have. "/>
       <Document time="1094805066." author="neilc" document="Apply patch from Steven Singer for contrib/dbmirror. Changes:  -It fixes up some bugs with handling setval calls -Adds upgrade instructions from prior versions -Improved the sample config file -Fixed some things in the clean_pending script "/>
       <Document time="1094690857." author="tgl" document="Clarify description of SET CONSTRAINTS.  Point out that it is still missing the ability to schema-qualify constraint names. "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1094171997." author="tgl" document="Some versions of lex will drop a lex.yy.c file when we probe to see if they are flex.  Clean up after them. "/>
       <Document time="1094009225." author="tgl" document="needs_toast_table() should ignore dropped columns. "/>
       <Document time="1093915752." author="tgl" document="Avoid ambiguity, as per suggestion from Peter Stricker. "/>
@@ -5499,6 +5501,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1095322568." author="neilc" document="Minor doc tweak: mention that function names can be optionally schema- qualified. "/>
       <Document time="1095150097." author="tgl" document="Fix contrib/cube and contrib/seg to compile on Windows. Andreas Pflug "/>
       <Document time="1095146908." author="tgl" document="Fix contrib/dbase to compile under Win32.  Laurent Ballester "/>
@@ -7143,6 +7147,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1095472796." author="petere" document="Allow WIN1250 as server encoding. "/>
       <Document time="1095386357." author="tgl" document="Fix oversight: there's no reason for PG_TRY to use sigsetjmp(buf,1) since we don't change the signal mask during normal backend operations. Use sigsetjmp(buf,0) to avoid many unnecessary kernel calls. "/>
       <Document time="1095318952." author="neilc" document="Fix a read of uninitialized memory in array_out(). Perform some minor cosmetic code cleanup at the same time. "/>
@@ -8790,6 +8796,8 @@
     </Topic>
     <Topic>
       <Document time="1095475246." author="tgl" document="Improve documentation of log rotation options, per Ed L. "/>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1095220006." author="neilc" document="Cosmetic PL/PgSQL fix: declare the second parameter plpgsql_dstring_append as a const char *, so that we don't need to cast away a const in gram.y "/>
       <Document time="1095074066." author="jurka" document="ResultSet.moveToCurrentRow was checking the cached updateability flag assuming it had been set instead of correctly calling the isUpdateable() method which sets the flag if needed.  This usually worked because moveToCurrentRow is only useful after a moveToInsertRow call which would set the flag, but this is not required.  David Bucciarelli "/>
       <Document time="1095028250." author="tgl" document="When LockAcquire fails at the stage of creating a proclock object, be sure to clean up the already-created lock object, if it has no other references.  Avoids possibly-permanent leak of shared memory. "/>
@@ -10434,6 +10442,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1095092421." author="petere" document="New translations "/>
       <Document time="1094845907." author="momjian" document="Fix #if define "/>
       <Document time="1094100922." author="momjian" document="The current implementation of dbsize doesn't handle tables in tablespaces correctly, and is quite restricted on objects covered (only tables and databases, but not tablespaces and indexes).  The attached patch contributes:  - database_size(name) - relation_size(text) These are the well-known functions, tablespace-aware.  - pg_tablespace_size(oid) - pg_database_size(oid) - pg_relation_size(oid) Tablespace-aware implementations, used by the upper functions. pg_relation_size will report sizes of indexes as well.  - pg_size_pretty(bigint) Formatting of sizes, to display '146MB' instead of '152885668'  Andreas Pflug "/>
@@ -12069,6 +12079,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1095380236." author="tgl" document="Add some marginal tweaks to eliminate memory leakages associated with subtransactions.  Trivial subxacts (such as a plpgsql exception block containing no database access) now demonstrably leak zero bytes. "/>
       <Document time="1095146485." author="tgl" document="Make pltcl work on Win32.  Magnus Hagander "/>
       <Document time="1095076961." author="jurka" document="Protected access to variable m_preparedCount via synchronized function to prevent multiple threads using automatic cursors on the same connection from stomping over each others cursor.  Originally Jan Wieck, re-reported by Jack Orenstein after accidental removal. "/>
@@ -14482,6 +14494,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1095054332." author="neilc" document="Fix two typos in comments. "/>
       <Document time="1095054286." author="neilc" document="Fix two typos in comments. "/>
       <Document time="1094875383." author="momjian" document="Check for ignored thread compiler options to reduce compiler noise. "/>
@@ -16120,6 +16133,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1095484992." author="tgl" document="Fix memory leak in tokenize_file, per report from Vadim Passynkov. "/>
       <Document time="1095484978." author="tgl" document="Fix memory leak in tokenize_file, per report from Vadim Passynkov. "/>
       <Document time="1095131232." author="neilc" document="Fix small memory leak in psql. "/>
@@ -17764,6 +17780,7 @@
     <Topic>
       <Document time="1095528534." author="petere" document="Move comment at end of line to a separate line so trailing tabs don't become part of the make variable value. "/>
       <Document time="1094848556." author="momjian" document="Add:  &gt; * Make row-wise comparisons work per SQL spec &gt; "/>
+<annotation name="portability"/>
       <Document time="1094825021." author="momjian" document="Add:  &gt; * Remove Win32 rename/unlink looping if unnecessary "/>
       <Document time="1094824701." author="momjian" document="Add mention loops over unlink/rename might not be needed. "/>
       <Document time="1094173410." author="tgl" document="Apparently HPUX runs the IA64 in big-endian mode. "/>
@@ -19413,6 +19430,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="efficiency"/>
+<annotation name="functionality"/>
       <Document time="1095460194." author="tgl" document="Hashed LEFT JOIN would miss outer tuples with no inner match if the join was large enough to be batched and the tuples fell into a batch where there were no inner tuples at all.  Thanks to Xiaoyu Wang for finding a test case that exposed this long-standing bug. "/>
       <Document time="1095460180." author="tgl" document="Hashed LEFT JOIN would miss outer tuples with no inner match if the join was large enough to be batched and the tuples fell into a batch where there were no inner tuples at all.  Thanks to Xiaoyu Wang for finding a test case that exposed this long-standing bug. "/>
       <Document time="1095460164." author="tgl" document="Hashed LEFT JOIN would miss outer tuples with no inner match if the join was large enough to be batched and the tuples fell into a batch where there were no inner tuples at all.  Thanks to Xiaoyu Wang for finding a test case that exposed this long-standing bug. "/>
@@ -21042,6 +21061,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1094802534." author="momjian" document="Create pg_config_paths in port/ for win32 builds of psql. "/>
       <Document time="1094507764." author="tgl" document="Fix incorrect ordering of smgr cleanup relative to buffer pin cleanup during transaction abort.  Add a regression test case to catch related mistakes in future.  Alvaro Herrera and Tom Lane. "/>
       <Document time="1094170070." author="tgl" document="Yet another place where someone was being careless about the arguments of &lt;ctype.h&gt; macros. "/>
@@ -22678,6 +22699,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1095474717." author="petere" document="Add support for GNU/Hurd and GNU/*BSD.  For our purposes, they behave just like LinuxSEMICOLON we just need to recognize the system types. "/>
       <Document time="1094941712." author="tgl" document="Renumber SnapshotNow and the other special snapshot codes so that ((Snapshot) NULL) can no longer be confused with a valid snapshot, as per my recent suggestion.  Define a macro InvalidSnapshot for 0. Use InvalidSnapshot instead of SnapshotAny as the do-nothing special case for heap_update and heap_delete crosschecksSEMICOLON this seems a little cleaner even though the behavior is really the same. "/>
       <Document time="1094581902." author="tgl" document="Fix places where WaitForxxx can block, to eliminate failure to detect deadlock on Win32.  Magnus Hagander "/>
@@ -24828,6 +24851,9 @@
     <Topic>
       <Document time="1095550790." author="tgl" document="Fix estimate_num_groups to be able to use expression-index statistics when there is an expressional index matching a GROUP BY item. "/>
       <Document time="1095155080." author="petere" document="Translation update "/>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
+<annotation name="functionality"/>
       <Document time="1095123190." author="petere" document="Translation update "/>
       <Document time="1095123082." author="petere" document="Translation update "/>
       <Document time="1095122983." author="petere" document="Translation update "/>
@@ -26479,6 +26505,8 @@
       </Elements>
     </Topic>
     <Topic>
+
+<annotation name="none"/>
       <Document time="1095374120." author="tgl" document="RecentXmin is too recent to use as the cutoff point for accessing pg_subtrans --- what we need is the oldest xmin of any snapshot in use in the current top transaction.  Introduce a new variable TransactionXmin to play this role.  Fixes intermittent regression failure reported by Neil Conway. "/>
       <Document time="1095368305." author="tgl" document="Restructure subtransaction handling to reduce resource consumption, as per recent discussions.  Invent SubTransactionIds that are managed like CommandIds (ie, counter is reset at start of each top transaction), and use these instead of TransactionIds to keep track of subtransaction status in those modules that need it.  This means that a subtransaction does not need an XID unless it actually inserts/modifies rows in the database. Accordingly, don't assign it an XID nor take a lock on the XID until it tries to do that.  This saves a lot of overhead for subtransactions that are only used for error recovery (eg plpgsql exceptions).  Also, arrange to release a subtransaction's XID lock as soon as the subtransaction exits, in both the commit and abort cases.  This avoids holding many unique locks after a long series of subtransactions.  The price is some additional overhead in XactLockTableWait, but that seems acceptable. Finally, restructure the state machine in xact.c to have a more orthogonal set of states for subtransactions. "/>
       <Document time="1094364101." author="tgl" document="Tweak elog.c's logic for promoting errors into more severe errors. Messages of less than ERROR severity should never be promoted (this fixes Gaetano Mendola's problem with a COMMERROR becoming a PANIC, and is obvious in hindsight anyway).  Do all promotion in errstart not errfinish, to ensure that output decisions are made correctlySEMICOLON the former coding could suppress logging of promoted errors, which doesn't seem like a good idea.  Eliminate some redundant code too. "/>
@@ -28133,11 +28161,13 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1095535696." author="tgl" document="Put the brackets in the right places in timestamp entries in table 8-1. Spotted by Josh Purinton. "/>
       <Document time="1095535683." author="tgl" document="Put the brackets in the right places in timestamp entries in table 8-1. Spotted by Josh Purinton. "/>
       <Document time="1095473361." author="petere" document="New config.guess and config.sub "/>
       <Document time="1095149180." author="tgl" document="Fix some minor issues with the new Win32 service code for autovacuum, and add documentation.  Dave Page "/>
       <Document time="1094705971." author="momjian" document="Fix Cygwin defines to be consistent. "/>
+<annotation name="functionality"/>
       <Document time="1094686965." author="momjian" document="Use _timezone global on Cygwin instead of timezone. "/>
       <Document time="1094172822." author="tgl" document="Fix ancient declaration inconsistency in cube &amp; seg ... came across a compiler that warns about it. "/>
       <Document time="1094153995." author="tgl" document="Use $PATH_SEPARATOR like the rest of the autoconf code, instead of hardwiring IFS=: when searching paths. "/>
@@ -29780,6 +29810,8 @@
     <Topic>
       <Document time="1095384019." author="tgl" document="Remove contrib/pg_logger, per recent discussion. "/>
       <Document time="1095186885." author="momjian" document="Mark as done:  &lt; * Point-in-time data recovery using backup and write-ahead log, &lt; * Create native Win32 port, http://momjian.postgresql.org/main/writings/pgsql/project/win32.html &gt; * -Point-in-time data recovery using backup and write-ahead log &gt; * -Create native Win32 port 470c470 &lt;     o Fix PL/pgSQL RENAME to work on variables other than OLD/NEW &gt; o Fix PL/pgSQL RENAME to work on variables other than OLD/NEW "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1095155433." author="petere" document="New translation "/>
       <Document time="1095148733." author="tgl" document="Adjust tsearch2.sql to avoid use of COPY FROM STDIN, so as to simplify life for the Win32 installer.  Per Dave Page. "/>
       <Document time="1095092086." author="petere" document="New translation "/>
@@ -31425,6 +31457,8 @@
     <Topic>
       <Document time="1095470059." author="tgl" document="Here is a patch bringing oid2name into the 21st century.  Alvaro Herrera "/>
       <Document time="1095391826." author="joe" document="Make discovery of python_configdir architecture independent. Solution from James William Pye. "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1094162116." author="tgl" document="Fix getrusage() emulation on Windows.  Magnus Hagander "/>
       <Document time="1094097518." author="tgl" document="Tweak prettyprinting rules for saner indenting of UNION, INTERSECT, EXCEPT constructs. "/>
       <Document time="1093942423." author="tgl" document="Replace log_filename_prefix with more general log_filename parameter, to allow DBA to choose the form in which log filenames reflect the current time.  Also allow for truncating instead of appending to pre-existing files --- this is convenient when the log filename pattern rewrites the same names cyclically.  Per Ed L. "/>
@@ -33053,6 +33087,8 @@
     </Topic>
     <Topic>
       <Document time="1095120292." author="tgl" document="Redesign query-snapshot timing so that volatile functions in READ COMMITTED mode see a fresh snapshot for each command in the function, rather than using the latest interactive command's snapshot.  Also, suppress fresh snapshots as well as CommandCounterIncrement inside STABLE and IMMUTABLE functions, instead using the snapshot taken for the most closely nested regular query.  (This behavior is only sane for read-only functions, so the patch also enforces that such functions contain only SELECT commands.) As per my proposal of 6-Sep-2004SEMICOLON I note that I floated essentially the same proposal on 19-Jun-2002, but that discussion tailed off without any action.  Since 8.0 seems like the right place to be taking possibly nontrivial backwards compatibility hits, let's get it done now. "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1094870332." author="momjian" document="Done:  &lt; * Have AFTER triggers execute after the appropriate SQL statement in a &gt; * -Have AFTER triggers execute after the appropriate SQL statement in a "/>
       <Document time="1094509389." author="tgl" document="Back-patch fix to disallow BEGIN/COMMIT/ROLLBACK inside SQL functions. Not sure why this isn't causing serious problems in some simple tests, but it definitely isn't going to do anything desirable... "/>
       <Document time="1094102326." author="momjian" document="Add:  &gt; * Consider using hash buckets to do DISTINCT, rather than sorting &gt; &gt;   This would be beneficial when there are few distinct values. "/>
@@ -34714,6 +34750,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1095148216." author="tgl" document="Win32 compile fix for misc_utils. Claudio Natoli "/>
       <Document time="1095147563." author="tgl" document="Win32 compile fixes for pgbench, pgcrypto, and tsearch. Claudio Natoli "/>
       <Document time="1095093786." author="petere" document="Translation updates "/>
@@ -36396,6 +36434,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1095458995." author="tgl" document="Now that xmax and cmin are distinct fields again, we should zero xmax when creating a new tuple.  This is just for debugging sanity, though, since nothing should be paying any attention to xmax when the HEAP_XMAX_INVALID bit is set. "/>
       <Document time="1095401193." author="neilc" document="Hyperlink a reference to DROP CAST in the CREATE CAST reference page. "/>
       <Document time="1094861118." author="tgl" document="Fix some problems with restoring databases owned by non-superusers, as per bug #1249SEMICOLON and remove the last vestiges of using BACKSLASHconnect to change authorization. "/>
