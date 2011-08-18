@@ -1785,11 +1785,13 @@
       <Document time="1040358301." author="tgl" document="Cause planner to include costs of InitPlans in startup cost of parent plan node.  Not sure why this oversight has persisted so long ... "/>
       <Document time="1040204777." author="momjian" document="incorporates latest changes in the English original.  Ian Barwick "/>
       <Document time="1040188464." author="tgl" document="Prevent core dump when ExecMarkPos is called before any tuples have been retrieved.  This cannot happen in ordinary execution, but it can happen under EvalPlanQual(). "/>
+<annotation name="reliability" comments=""/>
       <Document time="1039940218." author="momjian" document="Improve comment. "/>
       <Document time="1039744941." author="momjian" document="Done:  &gt; * -Add schema, cast, and conversion backslash commands to psql (Christopher) "/>
       <Document time="1039538624." author="darcy" document="Add an unnecessary assignment to remove a bogus warning.  I checked the logic carefully and I am sure that the test against n happens after it is assigned to. "/>
       <Document time="1039167658." author="momjian" document="Add file. "/>
       <Document time="1039167636." author="momjian" document="Add SGML file. "/>
+<annotation name="portability"/>
       <Document time="1039166291." author="momjian" document="Add missing v6utils file. "/>
       <Document time="1039085264." author="momjian" document="Improvements from Neil Conway. "/>
       <Files>
@@ -3351,6 +3353,7 @@
       <Document time="1039658578." author="davec" document="patch for getTables to fix problems with backends before 7.3  by Kris Jurka "/>
       <Document time="1039597659." author="momjian" document="Bump version for 7.3 and 7.4. "/>
       <Document time="1039503466." author="momjian" document="More minor improvements to the SGML docs, namely doc/src/sgml/runtime.sgml  Neil Conway "/>
+<annotation name="portability"/>
       <Document time="1039167636." author="momjian" document="Add SGML file. "/>
       <Document time="1039121430." author="tgl" document="Phase 1 of read-only-plans project: cause executor state nodes to point to plan nodes, not vice-versa.  All executor state nodes now inherit from struct PlanState.  Copying of plan trees has been simplified by not storing a list of SubPlans in Plan nodes (eliminating duplicate links). The executor still needs such a list, but it can build it during ExecutorStart since it has to scan the plan tree anyway. No initdb forced since no stored-on-disk structures changed, but you will need a full recompile because of node-numbering changes. "/>
       <Files>
@@ -4984,6 +4987,7 @@
     <Topic>
       <Document time="1041295511." author="tgl" document="Code review for transaction-safe-TRUNCATE patch: minor cleanups. "/>
       <Document time="1039909783." author="momjian" document="The actual segfault was caused by a double pfree(), but ISTM that failing to find pg_hba.conf should be a fatal error anyway, so I increased the priority of the elog() from LOG to FATAL and refactored the code a little bit.  Neil Conway "/>
+<annotation name="reliability" comments=""/>
       <Document time="1039909777." author="momjian" document="The actual segfault was caused by a double pfree(), but ISTM that failing to find pg_hba.conf should be a fatal error anyway, so I increased the priority of the elog() from LOG to FATAL and refactored the code a little bit.  Neil Conway "/>
       <Document time="1039751367." author="momjian" document="&gt; There is an ugly little problem with the DB wrapper class. &gt; &gt; In pg.py the attributes of DB are defined as being the same as &gt; the attributes of the corresponding pgobject &quot;db&quot;, using the following  ...  &gt; The problem is that the attributes of db (which are read only) &gt; are not static (they are actually function calls to PostgreSQL), &gt; especially &quot;status&quot; and &quot;error&quot;, but those attributes are copied &gt; and this is done only once when initializing the DB object. &gt; &gt; So, in effect, only the attribute &quot;db.error&quot; of a DB instance &gt; will be updated, but not the attribute &quot;error&quot;. Same with &quot;status&quot;.   &gt; Don't copy the (read only) attributes of the pgobject to the &gt; DB object, but only the methods, and all of them, like this: &gt; &gt; --------------- change in pg.py ------------------ &gt; # Create convience methods, in a way that is still overridable. &gt; for e in self.db.__methods__: &gt;  setattr(self, e, getattr(self.db, e)) &gt; ---------------------------------------------------- &gt; &gt; Furthermore, make an addition to the documentation of the &gt; DB wrapper class (i.e. in pygresql-pg-db.html): &gt; After the sentence &quot;All pgobject methods are included in this class also.&quot; &gt; add the following sentence &quot;The pgobject read-only attributes can be &gt; accessed py adding the prefix 'db.' to them.&quot;  Christoph Zwerschke "/>
       <Document time="1039743307." author="tgl" document="Preliminary code review for domain CHECK constraints patch: add documentation, make VALUE a non-reserved word again, use less invasive method of passing ConstraintTestValue into transformExpr, fix problems with nested constraint testing, do correct thing with NULL result from a constraint expression, remove memory leak.  Domain checks still need much more work if we are going to allow ALTER DOMAIN, however. "/>
@@ -4991,7 +4995,9 @@
       <Document time="1039577265." author="momjian" document="Add:  &gt; &gt; * Wire Protocol Changes &gt; o Show transaction status in psql &gt; o Allow binding of query parameters, support for prepared queries &gt; o Add optional textual message to NOTIFY &gt; o Remove hard-coded limits on user/db/password names &gt; o Remove unused elements of startup packet (unused, tty, passlength) &gt; o Fix COPY/fastpath protocol? &gt; o Replication support? &gt; o Error codes &gt; o Dynamic character set handling &gt; o Special passing of binary values in platform-neutral format (bytea?) &gt; o ecpg improvements? &gt; o Add decoded type, length, precision "/>
       <Document time="1039475384." author="momjian" document="Add:  &gt; * Add ROLLUP, CUBE, GROUPING SETS options to GROUP BY "/>
       <Document time="1039131608." author="momjian" document="Allow 'password' encryption even when pg_shadow has MD5 passwords, per report from Terry Yapt and Hiroshi.  Backpatch to 7.3. "/>
+<annotation name="portability"/>
       <Document time="1039131583." author="momjian" document="Allow 'password' encryption even when pg_shadow has MD5 passwords, per report from Terry Yapt and Hiroshi.  Backpatch to 7.3. "/>
+<annotation name="functionality"/>
       <Files>
         <File name="src/backend/commands/typecmds.c" count="1"/>
         <File name="src/include/libpq/crypt.h" count="2"/>
@@ -6567,11 +6573,13 @@
       <Document time="1040205390." author="momjian" document="*** empty log message *** "/>
       <Document time="1039836022." author="momjian" document="Backpatch SSL fixes into 7.3.1. "/>
       <Document time="1039818565." author="tgl" document="Adjust costsize calculations to avoid introducing unnecessary roundoff error.  This seems to explain the differing choice of plan that's been causing geometry regress test to fail for the last few days. "/>
+<annotation name="functionality"/>
       <Document time="1039624934." author="davec" document="Aaron's patch for Pooled Connections "/>
       <Document time="1039562592." author="tgl" document="Reverse out unintended resultmap change. "/>
       <Document time="1039476103." author="tgl" document="Update obsolete comment. "/>
       <Document time="1039162768." author="momjian" document="PyGreSQL inserttable patch =====================  I suggested an improvement of the inserttable in the PyGreSQL interface already in January, but seemingly it was never implemented. I was told this is the right place to get patches in for PyGreSQL, so I'm reposting my patch here.  I consider the inserttable methode essential in populating the database because of its benefits in performance compared to insert, so I think this patch is quite essential. The attachment is an improved version of the corresponding pg_inserttable function in pgmodule.c, which fixes the following problems:  * The function raised exceptions because PyList_GetItem was used beyond the size of the list. This was checked by comparing the result with NULL, but the exception was not cleaned up, which could result in mysterious errors in the following Python code. Instead of clearing the exception using PyErr_Clear or something like that, I avoided throwing the exception at all by at first requesting the size of the list. Using this opportunity, I also checked the uniformity of the size of the rows passed in the lists/tuples. The function also accepts (and silently ignores) empty lists and sublists. * Python &quot;None&quot; values are now accepted and properly converted to PostgreSQL NULL values * The function now generates an error message in case of a line buffer overflow * It copes with tabulators, newlines and backslashes in strings now * Rewrote the buffer filling code which should now run faster by avoiding unnecessary string copy operations forth and back  Christoph Zwerschke "/>
       <Document time="1039132362." author="momjian" document="Clearify variables names so it is clear which variable is the client-supplied password and which is from pg_shadow. "/>
+<annotation name="portability"/>
       <Files>
         <File name="src/backend/libpq/crypt.c" count="1"/>
         <File name="src/backend/libpq/be-secure.c" count="3"/>
@@ -8122,8 +8130,10 @@
       <Document time="1041015994." author="momjian" document="Trivial patch to increase max_fsm_pages as per earlier discussion.  Philip Warner "/>
       <Document time="1040158319." author="tgl" document="Skip unnecessary plan-copying now that plan trees are read-only in the executor. "/>
       <Document time="1040092229." author="tgl" document="Fix GEQO to work again in CVS tip, by being more careful about memory allocation in best_inner_indexscan().  While at it, simplify GEQO's interface to the main planner --- make_join_rel() offers exactly the API it really wants, whereas calling make_rels_by_clause_joins() and make_rels_by_clauseless_joins() required jumping through hoops. Rewrite gimme_tree for clarity (sometimes iteration is much better than recursion), and approximately halve GEQO's runtime by recognizing that tours of the forms (a,b,c,d,...) and (b,a,c,d,...) are equivalent because of symmetry in make_join_rel(). "/>
+<annotation name="reliability" comments=""/>
       <Document time="1039664713." author="momjian" document="Reorder psql BACKSLASH? help into groupings, idea from Harald Armin Massa. "/>
       <Document time="1039169862." author="momjian" document="This patch improves the documentation for SERIAL columns a little bit.  Neil Conway "/>
+<annotation name="portability"/>
       <Document time="1039138236." author="momjian" document="Add:  &gt; * Add SQL99 WITH clause to SELECT (Tom, Fernando) &gt; * Add SQL99 WITH RECURSIVE to SELECT (Tom, Fernando) 443a444 &gt; * Fernando Nasser &lt;fnasser@redhat.com&gt; "/>
       <Files>
         <File name="src/backend/executor/spi.c" count="1"/>
@@ -9675,10 +9685,12 @@
     <Topic>
       <Document time="1040073766." author="tgl" document="Code review for palloc0 patch --- avoid dangerous and unnecessary practice of evaluating MemSet's arguments multiple times, except for the special case of newNode(), where we can assume the argument is a constant sizeof() operator. Also, add GetMemoryChunkContext() to mcxt.c's API, in preparation for fixing recent GEQO breakage. "/>
       <Document time="1039829347." author="momjian" document="Protect from null param on ecpg disconnect, verified by Roland Karch "/>
+<annotation name="reliability" comments=""/>
       <Document time="1039747801." author="momjian" document="While porting my TPC-C implementation from Oracle, I discovered the attached problem with the EXEC SQL COMMIT RELEASE statement.  Roland Karch "/>
       <Document time="1039745004." author="tgl" document="Don't produce bogus COPY command when there are no undropped columns in a table. "/>
       <Document time="1039665825." author="momjian" document="psql BACKSLASH? rearrangement, suggested by Tom. "/>
       <Document time="1039487167." author="momjian" document="I've simplified the Darwin/Mac OS X startup script I submitted earlier in the year. This version has only the two files required by the Darwin startup bundle design. Plus the sh script now uses Darwin-standard functions to start up PostgreSQL, and it checks for the presence of a variable in /etc/hostconfig, as do other Darwin startup scripts.  I suggest that a new directory be created, contrib/start-scripts/darwin, and that these two files be put into it. Folks who want to use the script can read the comments inside it to figure out how to use it.  David Wheeler "/>
+<annotation name="portability"/>
       <Document time="1039140254." author="momjian" document="It looks like the problem was introduced when the &quot;SET autocommit&quot; and &quot;SET search_path&quot;  commands were added to the beginning of the script.  The attatched patch should fix the problem. It probably should be applied  against the 7.3 and 7.4 branches.  Steven Singer "/>
       <Document time="1039140231." author="momjian" document="It looks like the problem was introduced when the &quot;SET autocommit&quot; and &quot;SET search_path&quot;  commands were added to the beginning of the script.  The attatched patch should fix the problem. It probably should be applied  against the 7.3 and 7.4 branches.  Steven Singer "/>
       <Files>
@@ -11231,7 +11243,9 @@
       <Document time="1039987058." author="tgl" document="Revise executor APIs so that all per-query state structure is built in a per-query memory context created by CreateExecutorState --- and destroyed by FreeExecutorState.  This provides a final solution to the longstanding problem of memory leaked by various ExecEndNode calls. "/>
       <Document time="1039836022." author="momjian" document="Backpatch SSL fixes into 7.3.1. "/>
       <Document time="1039829757." author="tgl" document="Admit defeat on the prospect of keeping straight exactly which platforms produce which output in the geometry test, even with the problem narrowed down to only whether they print minus zero or not.  Instead, use pg_regress' locale-variant mechanism to automatically consider the test to pass if it matches either supplied comparison file.  geometry_1.out replaces the former geometry-positive-zeros.out. "/>
+<annotation name="portability"/>
       <Document time="1039663051." author="momjian" document="Fix line count error reporting in config files, like pg_hba.conf, per report from Oliver Elphick.  Backpatch to 7.3. "/>
+<annotation name="functionality"/>
       <Document time="1039663031." author="momjian" document="Fix line count error reporting in config files, like pg_hba.conf, per report from Oliver Elphick.  Backpatch to 7.3. "/>
       <Document time="1039169232." author="momjian" document="Mark ALTER DOMAIN as supported, fix typo in header. "/>
       <Document time="1039164559." author="momjian" document="Updated IPv6 patch to fix netmask. "/>
@@ -12829,12 +12843,14 @@
     </Topic>
     <Topic>
       <Document time="1041027055." author="tgl" document="Remove overenthusiastic free'ing of comment dependenciesSEMICOLON could lead to core dump in pg_dump when dumping views having comments.  See bug #855. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1041027045." author="tgl" document="Remove overenthusiastic free'ing of comment dependenciesSEMICOLON could lead to core dump in pg_dump when dumping views having comments.  See bug #855. "/>
       <Document time="1040361869." author="momjian" document="Update 7.3.1 to give proper attribution to pg_dump item. "/>
       <Document time="1040361840." author="momjian" document="Update 7.3.1 to give proper attribution to pg_dump item. "/>
       <Document time="1040260063." author="momjian" document="Update RELEASE checklist. "/>
       <Document time="1040260052." author="momjian" document="Update RELEASE checklist. "/>
       <Document time="1039169732." author="momjian" document="Thank you very much, you catch it :). This bug had a long life, because it exists if and only if locale of postmaster was a different from C (or ru_RU.KOI8-R).  Please, apply patch for current CVS &amp; 7.3.1  Magnus Naeslund(f) wrote: &gt; Ok, I nailed the bug, but i'm not sure what the correct fix is. &gt; Attached tsearch_morph.diff that remedies this problem by avoiding it. &gt; Also there's a debug aid patch if someone would like to know how i &gt; finally found it out :) &gt; &gt; There problem in the lemmatize() function is that GETDICT(...) returned &gt; a value not handled (BYLOCALE). &gt; The value (-1) and later used as an index into the dicts[] array. &gt; After that everything went berserk stack went crazy somehow so trapping &gt; the fault sent me to the wrong place, and every time i read the value it &gt; was positive SEMICOLON) &gt; &gt; So now i just return the initial word passed to the lemmatize function, &gt; because i don't know what to do with it.  Magnus Naeslund "/>
+<annotation name="functionality"/>
       <Document time="1039169702." author="momjian" document="Thank you very much, you catch it :). This bug had a long life, because it exists if and only if locale of postmaster was a different from C (or ru_RU.KOI8-R).  Please, apply patch for current CVS &amp; 7.3.1  Magnus Naeslund(f) wrote: &gt; Ok, I nailed the bug, but i'm not sure what the correct fix is. &gt; Attached tsearch_morph.diff that remedies this problem by avoiding it. &gt; Also there's a debug aid patch if someone would like to know how i &gt; finally found it out :) &gt; &gt; There problem in the lemmatize() function is that GETDICT(...) returned &gt; a value not handled (BYLOCALE). &gt; The value (-1) and later used as an index into the dicts[] array. &gt; After that everything went berserk stack went crazy somehow so trapping &gt; the fault sent me to the wrong place, and every time i read the value it &gt; was positive SEMICOLON) &gt; &gt; So now i just return the initial word passed to the lemmatize function, &gt; because i don't know what to do with it.  Magnus Naeslund "/>
       <Document time="1039146490." author="tgl" document="localbuf.c must be able to do blind writes. "/>
       <Document time="1039146483." author="tgl" document="localbuf.c must be able to do blind writes. "/>
@@ -14382,7 +14398,9 @@
       <Document time="1041375963." author="momjian" document="Add:  &gt; * Have DEFAULT dependency track use of sequence, for DROP DEFAULT check "/>
       <Document time="1040528709." author="tgl" document="pg_dump should consider information_schema to be a system schema. Also, tweak -C option (emit CREATE DATABASE command) to emit encoding name rather than encoding number, for consistency with pg_dumpall and better cross-version portability. "/>
       <Document time="1040262024." author="momjian" document="MVCC doc improvements:  &gt; I'm not objecting to improving the text.  I am objecting to deleting it &gt; outright...  Ok, fair enough. I've attached a revised version of the patch -- let me know you think it needs further improvements.  Neil Conway "/>
+<annotation name="portability"/>
       <Document time="1040004094." author="tgl" document="Tweak default memory context allocation policy so that a context is not given any malloc block until something is first allocated in itSEMICOLON but thereafter, MemoryContextReset won't release that first malloc block. This preserves the quick-reset property of the original policy, without forcing 8K to be allocated to every context whether any of it is ever used or not.  Also, remove some more no-longer-needed explicit freeing during ExecEndPlan. "/>
+<annotation name="efficiency"/>
       <Document time="1039483865." author="tgl" document="Some quick fixes for ALTER DOMAIN patch.  It still needs a lot of work, but at least it doesn't generate gcc warnings. "/>
       <Document time="1039473917." author="momjian" document="As far as I figured from the source code this function only deals with cleaning up locale names and nothing else. Since all the locale names are in plain  ASCII I think it will be safe to use ASCII-only lower-case conversion.  Nicolai Tufar "/>
       <Document time="1039170012." author="momjian" document="Attached are two small patches to expose md5 as a user function -- including documentation and regression test mods. It seemed small and unobtrusive enough to not require a specific proposal on the hackers list -- but if not, let me know and I'll make a pitch. Otherwise, if there are no objections please apply.  Joe Conway "/>
@@ -15946,6 +15964,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="reliability" comments=""/>
       <Document time="1041241737." author="momjian" document="Add:  &gt; * Allow infinite dates just like infinite timestamps "/>
       <Document time="1039843070." author="tgl" document="Clean up plantree representation of SubPlan-s --- SubLink does not appear in the planned representation of a subplan at all any more, only SubPlan. This means subselect.c doesn't scribble on its input anymore, which seems like a good thingSEMICOLON and there are no longer three different possible interpretations of a SubLink.  Simplify node naming and improve comments in primnodes.h.  No change to stored rules, though. "/>
       <Document time="1039727818." author="tgl" document="Back-patch fix to prevent core dump in EXPLAIN if optimizer has simplified function call to a constant.  (7.3 won't actually execute such a plan anyway, but core dump is bad regardless.) "/>
@@ -17513,10 +17532,12 @@
     </Topic>
     <Topic>
       <Document time="1041659168." author="tgl" document="Partial code review for ALTER DOMAIN patch.  Incorporates Rod Taylor's patches of 9-Dec (permissions fix) and 13-Dec (performance) as well as a partial fix for locking issues: concurrent DROP COLUMN should not create trouble anymore.  But concurrent DROP TABLE is still a risk, and there is no protection at all against creating a column of a domain while we are altering the domain. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1041152195." author="momjian" document="Clean up quoting in configure.in.  configure did not change. "/>
       <Document time="1040261971." author="momjian" document="Update Russian FAQ.  Update all FAQ's for 7.3.X branch. "/>
       <Document time="1040261928." author="momjian" document="Update Russian FAQ.  Update all FAQ's for 7.3.X branch. "/>
       <Document time="1040082032." author="momjian" document="Update release to mark 7.3. "/>
+<annotation name="portability"/>
       <Document time="1039826745." author="tgl" document="Phase 3 of read-only-plans project: ExecInitExpr now builds expression execution state trees, and ExecEvalExpr takes an expression state tree not an expression plan tree.  The plan tree is now read-only as far as the executor is concerned.  Next step is to begin actually exploiting this property. "/>
       <Document time="1039775784." author="momjian" document="Here's the patch I mentioned on HACKERS to fix up ALTER command tab completion. Note that it's based on 7.3 tarball, not CVS HEAD, or 7.3rel branch. Damn, looking at CVS, this will patch into 7.3rel (just tested, it does) probably collide with Rod Taylor's patch adding ALTER TRIGGER stuff. O.K, second patch attached against HEAD - not tested, hand merged.  Ross Reedstrom "/>
       <Document time="1039163307." author="momjian" document="ALTER DOMAIN .. SET / DROP NOT NULL ALTER DOMAIN .. SET / DROP DEFAULT ALTER DOMAIN .. ADD / DROP CONSTRAINT  New files: - doc/src/sgml/ref/alter_domain.sgml  Rod Taylor "/>
@@ -19136,6 +19157,7 @@
     <Topic>
       <Document time="1041553762." author="tgl" document="Enforces NOT NULL constraints to be applied against new PRIMARY KEY columns in DefineIndex.  So, ALTER TABLE ... PRIMARY KEY will now automatically add the NOT NULL constraint.  It appeared the alter_table regression test wanted this to occur, as after the change the regression test better matched in inline 'fails'/'succeeds' comments.  Rod Taylor "/>
       <Document time="1039750959." author="momjian" document="Check SSL_get_error() value SSL_ERROR_SYSCALL to see if SSL_read() returned -1, per SSL_get_error() documentation.  Nathan Mueller "/>
+<annotation name="portability"/>
       <Document time="1039568427." author="petere" document="file tr.po was initially added on branch REL7_3_STABLE. "/>
       <Document time="1039168803." author="momjian" document="Re-addd Rod's ALTER DOMAIN patch. "/>
       <Document time="1039164378." author="momjian" document="We have just finished porting the old KAME IPv6 patch over to postgresql version 7.3, but yea... this patch adds full IPv6 support to postgres. I've tested it out on 7.2.3 and has been running perfectly stable.  CREDITS:  The KAME Project  (Initial patch)  Nigel Kukard  &lt;nkukard@lbsd.net&gt;  Johan Jordaan  &lt;johanj@lando.co.za&gt; "/>
@@ -20721,6 +20743,7 @@
     <Topic>
       <Document time="1040260022." author="momjian" document="Update INSTALL file for 7.3.1. "/>
       <Document time="1040235600." author="pgsql" document="From the SSL_CTX_new man page:  &quot;SSLv23_method(void), SSLv23_server_method(void), SSLv23_client_method(void)   A TLS/SSL connection established with these methods will understand the SSLv2,  SSLv3, and TLSv1 protocol. A client will send out SSLv2 client hello messages  and will indicate that it also understands SSLv3 and TLSv1. A server will  understand SSLv2, SSLv3, and TLSv1 client hello messages. This is the best  choice when compatibility is a concern.&quot;  This will maintain backwards compatibility for those us that don't use TLS connections ... "/>
+<annotation name="portability"/>
       <Document time="1040235312." author="pgsql" document="From the SSL_CTX_new man page:  &quot;SSLv23_method(void), SSLv23_server_method(void), SSLv23_client_method(void)   A TLS/SSL connection established with these methods will understand the SSLv2,  SSLv3, and TLSv1 protocol. A client will send out SSLv2 client hello messages  and will indicate that it also understands SSLv3 and TLSv1. A server will  understand SSLv2, SSLv3, and TLSv1 client hello messages. This is the best  choice when compatibility is a concern.&quot;  This will maintain backwards compatibility for those us that don't use TLS connections ... "/>
       <Document time="1040204465." author="momjian" document="Update FAQ for 7.3.1. "/>
       <Document time="1039627753." author="davec" document="Mike Beachy's build patch to allow ant builds without make "/>
@@ -22285,11 +22308,13 @@
     </Topic>
     <Topic>
       <Document time="1041279678." author="tgl" document="Better solution to integer overflow problem in hash batch-number computation: reduce the bucket number mod nbatch.  This changes the association between original bucket numbers and batches, but that doesn't matter.  Minor other cleanups in hashjoin code to help centralize decisions. "/>
+<annotation name="functionality"/>
       <Document time="1041218943." author="tgl" document="Adjust hash table sizing algorithm to avoid integer overflow in ExecHashJoinGetBatch().  Fixes core dump on large hash joins, as in example from Rae Stiening. "/>
       <Document time="1041218930." author="tgl" document="Adjust hash table sizing algorithm to avoid integer overflow in ExecHashJoinGetBatch().  Fixes core dump on large hash joins, as in example from Rae Stiening. "/>
       <Document time="1040963922." author="tgl" document="Clamp the output of estimate_hash_bucketsize() to a sane rangeSEMICOLON per example from Bruno Wolff in which it produced a silly result. "/>
       <Document time="1040408153." author="davec" document="patch for null table in getPrimaryKeys "/>
       <Document time="1040188487." author="tgl" document="Update EvalPlanQual() to work with new executor memory management method. It doesn't leak memory anymore ... "/>
+<annotation name="reliability" comments=""/>
       <Document time="1039776689." author="momjian" document="Remove strerror output for openssl SYSCALL error check. "/>
       <Document time="1039169823." author="momjian" document="RANDOM_PAGE_COST clarification of docs.  Joseph Shraibman "/>
       <Files>
@@ -23839,8 +23864,10 @@
     <Topic>
       <Document time="1040785613." author="momjian" document="Add developer organizations:  &lt; * Bruce is Bruce Momjian &lt;pgman@candle.pha.pa.us&gt; &lt; * Christopher is Christopher Kings-Lynne &lt;chriskl@familyhealth.com.au&gt; &lt; * D'Arcy is D'Arcy J.M. Cain &lt;darcy@druid.net&gt; &gt; * Bruce is Bruce Momjian &lt;pgman@candle.pha.pa.us&gt; of Software Research Assoc. &gt; * Christopher is Christopher Kings-Lynne &lt;chriskl@familyhealth.com.au&gt; of &gt;     Family Health Network &gt; * D'Arcy is D'Arcy J.M. Cain &lt;darcy@druid.net&gt; of The Cain Gang Ltd. 460,461c461,462 &lt; * Fernando Nasser &lt;fnasser@redhat.com&gt; &lt; * Gavin Sherry &lt;swm@linuxworld.com.au&gt; &gt; * Fernando Nasser &lt;fnasser@redhat.com&gt; of Red Hat &gt; * Gavin Sherry &lt;swm@linuxworld.com.au&gt; of Alcove Systems Engineering 464,466c465,467 &lt; * Jan is Jan Wieck &lt;wieck@sapserv.debis.de&gt; &lt; * Liam is Liam Stewart &lt;liams@redhat.com&gt; &lt; * Marc is Marc Fournier &lt;scrappy@hub.org&gt; &gt; * Jan is Jan Wieck &lt;JanWieck@Yahoo.com&gt; of PeerDirect Corp. &gt; * Liam is Liam Stewart &lt;liams@redhat.com&gt; of Red Hat &gt; * Marc is Marc Fournier &lt;scrappy@hub.org&gt; of PostgreSQL, Inc. 468,469c469 &lt; * Marko is Marko Kreen &lt;marko@l-t.ee&gt; &lt; * Michael is Michael Meskes &lt;meskes@postgresql.org&gt; &gt; * Michael is Michael Meskes &lt;meskes@postgresql.org&gt; of Credativ 472c472 &lt; * Peter M is Peter T Mount &lt;peter@retep.org.uk&gt; &gt; * Peter M is Peter T Mount &lt;peter@retep.org.uk&gt; of Retep Software 474c474 &lt; * Philip is Philip Warner &lt;pjw@rhyme.com.au&gt; &gt; * Philip is Philip Warner &lt;pjw@rhyme.com.au&gt; of Albatross Consulting Pty. Ltd. 477d476 &lt; * Ryan is Ryan Bradetich &lt;rbrad@hpb50023.boi.hp.com&gt; 479,483c478,481 &lt; * Tatsuo is Tatsuo Ishii &lt;t-ishii@sra.co.jp&gt; &lt; * Thomas is Thomas Lockhart &lt;lockhart@fourpalms.org&gt; &lt; * Tom is Tom Lane &lt;tgl@sss.pgh.pa.us&gt; &lt; * TomH is Tom I Helbekkmo &lt;tih@Hamartun.Priv.no&gt; &lt; * Vadim is Vadim B. Mikheev &lt;vadim4o@email.com&gt; &gt; * Tatsuo is Tatsuo Ishii &lt;t-ishii@sra.co.jp&gt; of Software Research Assoc. &gt; * Thomas is Thomas Lockhart &lt;lockhart@fourpalms.org&gt; of Jet Propulsion Labratory &gt; * Tom is Tom Lane &lt;tgl@sss.pgh.pa.us&gt; of Red Hat &gt; * Vadim is Vadim B. Mikheev &lt;vadim4o@email.com&gt; of Sector Data "/>
       <Document time="1040344224." author="momjian" document="pgindent fe-connect.c --- done to make IPv6 patch easier to apply. "/>
+<annotation name="maintainability"/>
       <Document time="1040256085." author="tgl" document="Add some items to development-branch release notes. "/>
       <Document time="1039597791." author="momjian" document="Back out psql help change.  Not done yet. "/>
+<annotation name="portability"/>
       <Document time="1039503436." author="momjian" document="Following patch avoids removing oids in the temporary table from the temporary table.  Kenji Sugita "/>
       <Document time="1039210813." author="momjian" document="In the examples, I missed changing a few 'column' and 'table' mentions to domain when copying alter table docs. -- Rod Taylor &lt;rbt@rbt.ca&gt; "/>
       <Files>
@@ -25383,11 +25410,14 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1041471354." author="tgl" document="Awhile back I wrote that freebsd.h was probably broken in the places where it diverged from netbsd.h and openbsd.h.  This has now been confirmed. Accordingly, make all three exactly alike. "/>
       <Document time="1041471339." author="tgl" document="Awhile back I wrote that freebsd.h was probably broken in the places where it diverged from netbsd.h and openbsd.h.  This has now been confirmed. Accordingly, make all three exactly alike. "/>
       <Document time="1041291732." author="tgl" document="Code review for CLUSTER ALL patch.  Fix bogus locking, incorrect transaction stop/start nesting, other infelicities. "/>
       <Document time="1040960262." author="tgl" document="Don't try to free executor state of an InitPlan early --- this breaks EXPLAIN ANALYZE.  (Premature optimization is the root of all evil?) "/>
+<annotation name="reliability" comments=""/>
       <Document time="1040450841." author="tgl" document="Fix possible buffer overrun in BACKSLASHd command: substr(..., 128) produces a result of at most 128 chars, but that could be more than 128 bytes. Also ensure we don't try to pfree uninitialized pointers during error cleanup. "/>
+<annotation name="functionality"/>
       <Document time="1040450827." author="tgl" document="Fix possible buffer overrun in BACKSLASHd command: substr(..., 128) produces a result of at most 128 chars, but that could be more than 128 bytes. Also ensure we don't try to pfree uninitialized pointers during error cleanup. "/>
       <Document time="1040411434." author="davec" document="mike beachy's patch for statement handling "/>
       <Document time="1039909179." author="momjian" document="Ok, I think I've gotten this figured out now.  I saw this comment in pqcomm.c, switched the ERROR logs to COMMERROR logs and it all works. I've attached a patch to be-secure.c that fixes all my problems.  Nathan Mueller "/>
@@ -26948,6 +26978,8 @@
       <Document time="1041567769." author="momjian" document="flockfile/funlockfile is POSIX, so NetBSD has them too --- use them. "/>
       <Document time="1041505262." author="momjian" document="Fix BSD/OS thread file locking bug in new fseeko code.  Backpatch to 7.3.X. "/>
       <Document time="1041505233." author="momjian" document="Fix BSD/OS thread file locking bug in new fseeko code.  Backpatch to 7.3.X. "/>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
       <Document time="1041348123." author="inoue" document="Add casts between lo and oid. "/>
       <Document time="1041242810." author="momjian" document="Add missing slash to python install path. "/>
       <Document time="1040677956." author="davec" document="case sensitive updates by Kris Jurka "/>
@@ -28512,6 +28544,7 @@
       <Document time="1041232719." author="tgl" document="Point does not return a center of lseg.  Kenji Sugita "/>
       <Document time="1041232709." author="tgl" document="Point does not return a center of lseg.  Kenji Sugita "/>
       <Document time="1041037588." author="tgl" document="Deliver better error message when a relation name is used in an expression. Per report from Ian Barwick. "/>
+<annotation name="usability" comments=""/>
       <Document time="1041037579." author="tgl" document="Deliver better error message when a relation name is used in an expression. Per report from Ian Barwick. "/>
       <Document time="1040272686." author="petere" document="Fix release notes and installation instructions for 7.3.1 release. "/>
       <Document time="1040164890." author="momjian" document="Improvement to CREATE TRIGGER and catalog documentation.  Neil Conway "/>
@@ -28519,6 +28552,7 @@
       <Document time="1039828571." author="tgl" document="Add a basic regression test for IS DISTINCT FROM, which has spent way too much time in a broken state for lack of anyone noticing. "/>
       <Document time="1039568424." author="petere" document="Translation updates "/>
       <Document time="1039485822." author="momjian" document="This patch updates doc/src/sgml/runtime.sgml to refer to &quot;MacOS X&quot;, not &quot;OS/X&quot;.  Neil Conway "/>
+<annotation name="portability"/>
       <Document time="1039485810." author="momjian" document="This patch updates doc/src/sgml/runtime.sgml to refer to &quot;MacOS X&quot;, not &quot;OS/X&quot;.  Neil Conway "/>
       <Files>
         <File name="src/pl/tcl/Makefile" count="1"/>
@@ -30084,10 +30118,13 @@
     </Topic>
     <Topic>
       <Document time="1040105898." author="tgl" document="To suppress memory leakage in long-lived Lists, lremove() should pfree the cons cell it's deleting from the list.  Do this, and fix a few callers that were bogusly assuming it wouldn't free the cons cell. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1039913146." author="momjian" document="Add major/minor release changes info to RELEASE_CHANGES file. "/>
       <Document time="1039776641." author="momjian" document="This patch fixes minor bugs in dictionary generator in contrib/tsearch (contrib/tsearch/makedict/makedict.pl)  [ Backpatched to 7.3.]  Teodor Sigaev "/>
+<annotation name="functionality"/>
       <Document time="1039776618." author="momjian" document="This patch fixes minor bugs in dictionary generator in contrib/tsearch (contrib/tsearch/makedict/makedict.pl)  [ Backpatched to 7.3.]  Teodor Sigaev "/>
       <Document time="1039776550." author="momjian" document="This patch fixes a few typos in the documentation for the '~/.pgpass' libpq feature.  Neil Conway "/>
+<annotation name="portability"/>
       <Document time="1039726161." author="tgl" document="Phase 2 of read-only-plans project: restructure expression-tree nodes so that all executable expression nodes inherit from a common supertype Expr.  This is somewhat of an exercise in code purity rather than any real functional advance, but getting rid of the extra Oper or Func node formerly used in each operator or function call should provide at least a little space and speed improvement. initdb forced by changes in stored-rules representation. "/>
       <Document time="1039663654." author="momjian" document="Mark SCO Openserver 5.0.4. supported by 7.3.1 as per chat report from user. template/sco updated. "/>
       <Document time="1039663646." author="momjian" document="Mark SCO Openserver 5.0.4. supported by 7.3.1 as per chat report from user. template/sco updated. "/>
@@ -31715,9 +31752,11 @@
       <Document time="1041635102." author="inoue" document="Adjust lo type in contrib during pg_restore so that pg_restore could reload the type. "/>
       <Document time="1041304253." author="tgl" document="Adjust Tcl-related code to compile cleanly with Tcl 8.4 (add const modifiers as needed).  Some desultory const-ification of SPI interface to support this. "/>
       <Document time="1041016249." author="momjian" document="Small fix in documentation and some examples of usage. Please, apply to 7.3 and current CVS  Oleg Bartunov "/>
+<annotation name="portability"/>
       <Document time="1041016229." author="momjian" document="Small fix in documentation and some examples of usage. Please, apply to 7.3 and current CVS  Oleg Bartunov "/>
       <Document time="1040157901." author="tgl" document="Fix typo. "/>
       <Document time="1040081996." author="tgl" document="Fix ALTER TABLE ADD COLUMN to disallow the same column types that are disallowed by CREATE TABLE (eg, pseudo-types)SEMICOLON also disallow these types from being introduced by the range-function syntax.  While at it, allow CREATE TABLE to create zero-column tables, per recent pghackers discussion. I am back-patching this into 7.3 since failure to disallow pseudo-types is arguably a security hole. "/>
+<annotation name="functionality"/>
       <Document time="1040081962." author="tgl" document="Fix ALTER TABLE ADD COLUMN to disallow the same column types that are disallowed by CREATE TABLE (eg, pseudo-types)SEMICOLON also disallow these types from being introduced by the range-function syntax.  While at it, allow CREATE TABLE to create zero-column tables, per recent pghackers discussion. I am back-patching this into 7.3 since failure to disallow pseudo-types is arguably a security hole. "/>
       <Document time="1039843463." author="petere" document="Initial version of the SQL information schema "/>
       <Document time="1039744920." author="tgl" document="Don't force rebuild of all of backend/parser when we only need keywords.o. "/>

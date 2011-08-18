@@ -2541,6 +2541,9 @@
     </Authors>
     <Topic>
       <Document time="1057081949." author="tgl" document="Fix documentation comment about restricted environments, per Kevin Jacobs. "/>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
+<annotation name="functionality"/>
       <Document time="1057077651." author="meskes" document="Use ISO dates in pgtypeslib by default. Applied patch by Philip Yarra to fix some thread issues. Added a new data type &quot;decimal&quot; which is mostly the same as our &quot;numeric&quot; but uses a fixed length array to store the digits. This is for compatibility with Informix and maybe others. "/>
       <Document time="1056605603." author="momjian" document="Fix compile problem for missing LONG_LONG_MIN on BSD/OS. "/>
       <Document time="1056511544." author="momjian" document="In an attempt to simplify my life I'm submitting this patch that restructures the deferred trigger queue.  The fundamental change is to put all the static variables to hold the deferred triggers in a single structure.  Alvaro Herrera "/>
@@ -4649,6 +4652,8 @@
     </Topic>
     <Topic>
       <Document time="1057147056." author="meskes" document="Fixed initialization bug and added postgres_fe.h to pgtypeslib. "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1056507681." author="momjian" document="        Add ipv6 address parsing support to 'inet' and 'cidr' data types.          Regression tests for IPv6 operations added.          Documentation updated to document IPv6 bits.          Stop treating IPv4 as an &quot;unsigned int&quot; and IPv6 as an array of         characters.  Instead, always use the array of characters so we         can have one function fits all.  This makes bitncmp(), addressOK(),         and several other functions &quot;just work&quot; on both address families.          add family() function which returns integer 4 or 6 for IPv4 or         IPv6.  (See examples below)  Note that to add this new function         you will need to dump/initdb/reload or find the correct magic         to add the function to the postgresql function catalogs.          IPv4 addresses always sort before IPv6.          On disk we use AF_INET for IPv4, and AF_INET+1 for IPv6 addresses.         This prevents the need for a dump and reload, but lets IPv6 parsing         work on machines without AF_INET6.          To select all IPv4 addresses from a table:                  select * from foo where family(addr) = 4 ...          Order by and other bits should all work.  Michael Graff "/>
       <Document time="1055887248." author="petere" document="More information schema views. "/>
       <Document time="1055664543." author="momjian" document="Run autoconf/autoheader for ecpg change. "/>
@@ -6739,6 +6744,7 @@
     </Topic>
     <Topic>
       <Document time="1057032277." author="tgl" document="SQL functions can have arguments and results declared ANYARRAY or ANYELEMENT.  The effect is to postpone typechecking of the function body until runtime.  Documentation is still lacking.  Original patch by Joe Conway, modified to postpone type checking by Tom Lane. "/>
+<annotation name="portability"/>
       <Document time="1057017773." author="tgl" document="Update contrib/Makefile's list of subdirectories that it does not try to build. "/>
       <Document time="1056773559." author="tgl" document="Update psql for some features of new FE/BE protocol.  There is a client-side AUTOCOMMIT mode now: 'BACKSLASHset AUTOCOMMIT off' supports SQL-spec commit behavior.  Get rid of LO_TRANSACTION hack --- the LO operations just work now, using libpq's ability to track the transaction status.  Add a VERBOSE variable to control verboseness of error message display, and add a %T prompt-string code to show current transaction-block status.  Superuser state display in the prompt string correctly follows SET SESSION AUTHORIZATION commands. Control-C works to get out of COPY IN state. "/>
       <Document time="1056773161." author="tgl" document="When using new protocol, PQexec can get out of a COPY IN or COPY OUT state by itself, so do so. "/>
@@ -8850,6 +8856,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
       <Document time="1057005582." author="barry" document="Minor jdbc doc updates submitted by Kris Jurka   Modified Files:  sgml/jdbc.sgml "/>
       <Document time="1056517815." author="momjian" document="Please apply attached patch to contrib/dblink. It adds named persistent connections to dblink.  Shridhar Daithanka "/>
       <Document time="1056333894." author="tgl" document="Revise hash join and hash aggregation code to use the same datatype- specific hash functions used by hash indexes, rather than the old not-datatype-aware ComputeHashFunc routine.  This makes it safe to do hash joining on several datatypes that previously couldn't use hashing. The sets of datatypes that are hash indexable and hash joinable are now exactly the same, whereas before each had some that weren't in the other. "/>
@@ -11002,6 +11010,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1056641824." author="meskes" document="Added just another compatibility level for Informix. "/>
       <Document time="1056586074." author="tgl" document="Don't generate 'zero' typeids in the output from gen_cross_product. This is no longer necessary or appropriate since we don't use zero typeid as a wildcard anymore, and it fixes a nasty performance problem with functions with many parameters.  Per recent example from Reuven Lerner. "/>
       <Document time="1056586059." author="tgl" document="Don't generate 'zero' typeids in the output from gen_cross_product. This is no longer necessary or appropriate since we don't use zero typeid as a wildcard anymore, and it fixes a nasty performance problem with functions with many parameters.  Per recent example from Reuven Lerner. "/>
@@ -13114,6 +13124,7 @@
     <Topic>
       <Document time="1057017537." author="tgl" document="Put back inappropriately-removed entry for earthdistance subdirectory. "/>
       <Document time="1056739525." author="petere" document="First batch of object rename commands. "/>
+<annotation name="portability"/>
       <Document time="1056666187." author="tgl" document="Add comment pointing out that XLByteToPrevSeg macro is not broken. "/>
       <Document time="1056591727." author="momjian" document="Add:  &gt; * Allow the identifier length to be increased via a configure option "/>
       <Document time="1056552261." author="meskes" document="Implemented Informix special way to treat NULLs, removed warnings, synced. "/>
@@ -15293,6 +15304,7 @@
     </Topic>
     <Topic>
       <Document time="1056919978." author="meskes" document="- Made sure Informix style decimal vars are initialized. They use a   fixed amount of digits and not an allocated one. So we have to work   around. PostgreSQL numeric type remains the same. - In INFORMIX_SE mode with autcommit set, make all cursors be &quot;with   hold&quot;. Is this really they way SE behaves? "/>
+<annotation name="portability"/>
       <Document time="1056896306." author="petere" document="It was comparing the wrong pair of columns, which triggered the previously mentioned bug. "/>
       <Document time="1056765890." author="momjian" document="Adjust pgtest grep. "/>
       <Document time="1056579230." author="tgl" document="'third' -&gt; 'fourth' where needed, per Joe Conway. "/>
@@ -17408,6 +17420,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1056556278." author="meskes" document="Some systems need another header file included. "/>
       <Document time="1056524495." author="momjian" document="Adjust expected output for new functions. "/>
       <Document time="1056518045." author="momjian" document="client-auth.sgml references a renamed ID in runtime.sgml  Josh Berkus "/>
@@ -19502,6 +19515,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1057032271." author="petere" document="Change EXECUTE INTO to CREATE TABLE AS EXECUTE. "/>
       <Document time="1056571947." author="meskes" document="remove including of postgres_fe.h "/>
       <Document time="1056526817." author="momjian" document="Includes:  - LIKE &lt;subtable&gt; [ INCLUDING DEFAULTS| EXCLUDING DEFAULTS ] - Quick cleanup of analyze.c function prototypes. - New non-reserved keywords (INCLUDING, EXCLUDING, DEFAULTS), SQL 200X  Opted not to extend for check constraints at this time.  As per the definition that it's user defined columns, OIDs are NOT inherited.  Doc and Source patches attached.  -- Rod Taylor &lt;rbt@rbt.ca&gt; "/>
@@ -21598,6 +21612,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1056853859." author="petere" document="Merge PO file updates from 7.3 branch. "/>
       <Document time="1056755317." author="tgl" document="Add is_superuser parameter reporting, soon to be used by psql. "/>
       <Document time="1056752450." author="momjian" document="Document kernel changes needed for BSD/OS 4.3. "/>
@@ -23716,6 +23731,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1057110429." author="tgl" document="Support polymorphic functions in plpgsql.  Along the way, replace linked-list search of function cache with hash-table lookup. By Joe Conway. "/>
       <Document time="1056837912." author="momjian" document="Add:  &gt; * Automatically place fixed-width, NOT NULL columns first in a table "/>
       <Document time="1056764780." author="momjian" document="Update pgtest to use 'gmake check'. "/>
@@ -25825,6 +25842,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1056895992." author="petere" document="Add missing PO files from last commit. "/>
       <Document time="1056591025." author="momjian" document="Back out array mega-patch.  Joe Conway "/>
       <Document time="1056590054." author="tgl" document="In ISO datestyle, never emit just HH:MM, always emit HH:MM:SS or HH:MM:SS.SSS... when there is a nonzero part-of-a-day field in an interval value.  The seconds part used to be suppressed if zero, but there's no equivalent behavior for timestamp, and since we're modeling this format on timestamp it's probably wrong.  Per complaint and patch from Larry Rosenman. "/>
@@ -27968,6 +27986,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="efficiency"/>
       <Document time="1057032349." author="petere" document="Translation update "/>
       <Document time="1056942304." author="tgl" document="Restructure building of join relation targetlists so that a join plan node emits only those vars that are actually needed above it in the plan tree.  (There were comments in the code suggesting that this was done at some point in the dim past, but for a long time we have just made join nodes emit everything that either input emitted.)  Aside from being marginally more efficient, this fixes the problem noted by Peter Eisentraut where a join above an IN-implemented-as-join might fail, because the subplan targetlist constructed in the latter case didn't meet the expectation of including everything. Along the way, fix some places that were O(N^2) in the targetlist length.  This is not all the trouble spots for wide queries by any means, but it's a step forward. "/>
       <Document time="1056861222." author="tgl" document="Support expressions of the form 'scalar op ANY (array)' and 'scalar op ALL (array)', where the operator is applied between the lefthand scalar and each element of the array.  The operator must yield booleanSEMICOLON the result of the construct is the OR or AND of the per-element results, respectively.  Original coding by Joe Conway, after an idea of Peter's.  Rewritten by Tom to keep the implementation strictly separate from subqueries. "/>
@@ -30106,6 +30126,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1057103903." author="momjian" document="Fix ecpg typo --- change SEMICOLONSEMICOLON to SEMICOLON. "/>
       <Document time="1057012301." author="tgl" document="Rename plpython to plpythonu, and update documentation to reflect its now-untrusted status. "/>
       <Document time="1057005510." author="barry" document="Patches applied: 1) Patch from Kris Jurka to fix IPv6 parsing of the jdbc URL 2) Patch from Kris Jurka to fix an ArrayIndexOutOfBounds error    when calling moveToCurrentRow while currentRow is &quot;beforeFirst&quot; 3) Patch from Kim Ho to fix add some bounds checking in setMaxRows(),    setQueryTimeout(), setFetchSize()   Modified Files:  jdbc/org/postgresql/Driver.java.in  jdbc/org/postgresql/errors.properties  jdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java  jdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java  jdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java "/>
@@ -32203,6 +32225,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1057006021." author="tgl" document="Add GUC option log_error_verbosity to control which fields of error reports get put into the postmaster log.  Options are TERSE, DEFAULT, VERBOSE, with the same behavior as implemented on the client side in libpq. "/>
       <Document time="1056518264." author="momjian" document="Attached is a patch that provides *VERY* limited support for multiple slave servers.  I haven't tested it very well, so use at your own risk (and I recommend against using it in production).  Basically, I have a central database server that has 4 summary tables inside it replicated to a remote slave (these database tables are for my mail server authentication, so these are replicated to another server tuned for many connections, and so I don't have postgres connections opened straight to my back-end database server).  Unfortunately, I also wanted to implement a replication database server for hot-backups.  I realized, too late, that the replication process is pretty greedy and will try to replicate all tables marked as a &quot;MasterAddTable&quot;.  To make a long story, I made a patch to RServ.pm and Replicate that allows you to specify, on the command line, a list of tables that you want to replicate...it'll ignore all others.  I haven't finished, since this has to be integrated with CleanLog for instance, but this should (and does) suffice for the moment.  I have yet to test it with two slaves, but at least my mail server replication database now works (it was failing every time it tried to replicate, for a variety of reasons).  Anyone have any suggestions on how to improve on this?  (or, if someone more familiar with this code wants to take the ball and run with it, you're welcome to).  -- Michael A Nachbaur &lt;mike@nachbaur.com&gt; "/>
       <Document time="1056518004." author="momjian" document="Attached is the fully corrected version of the re-ording patch for Runtime.sgml and dependant files.  Josh Berkus "/>
@@ -34309,6 +34332,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1056606304." author="momjian" document="Wrap LONG_LONG_MIN redfinition around HAVE_LONG_LONG_INT_64. "/>
       <Document time="1056529439." author="momjian" document="Done:  &gt; * -Allow CIDR format to be used in pg_hba.conf "/>
       <Document time="1056529175." author="momjian" document="Done:  &gt; * -Allow UPDATE to use SET col = DEFAULT "/>
@@ -36382,6 +36406,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
       <Document time="1057081787." author="tgl" document="STRENGH =&gt; STRENGTH, per Jon Jensen. "/>
       <Document time="1056893119." author="meskes" document="Just another sync. "/>
       <Document time="1056592544." author="momjian" document="sync "/>
@@ -36397,6 +36422,7 @@
       <Document time="1056528555." author="momjian" document="[ Backpatch to 7.3.X.]  If they're not, the below causes problems, as the foreign key is added after the CHECK.  Cluster depends on the index name, so I thought it wise to ensure all names are available, rather than leaving off the CONSTRAINT &quot;$n&quot; portion for internally named constraints.  CREATE TABLE jkey (col integer primary key)SEMICOLON CREATE TABLE j (col integer REFERENCES jkey)SEMICOLON ALTER TABLE j ADD CHECK(col &gt; 5)SEMICOLON   This is a problem in 7.3 series as well as -Tip.  -- Rod Taylor &lt;rbt@rbt.ca&gt; "/>
       <Document time="1056528499." author="momjian" document="If they're not, the below causes problems, as the foreign key is added after the CHECK.  Cluster depends on the index name, so I thought it wise to ensure all names are available, rather than leaving off the CONSTRAINT &quot;$n&quot; portion for internally named constraints.  CREATE TABLE jkey (col integer primary key)SEMICOLON CREATE TABLE j (col integer REFERENCES jkey)SEMICOLON ALTER TABLE j ADD CHECK(col &gt; 5)SEMICOLON  This is a problem in 7.3 series as well as -Tip.  Rod Taylor &lt;rbt@rbt.ca&gt; "/>
       <Document time="1056518124." author="momjian" document="Here's a small patch to pg_hba.conf.sample that explains the use of CIDR addresses.  Andrew Dunstan "/>
+<annotation name="portability"/>
       <Document time="1056508962." author="momjian" document="Prevent compiler warning from sprintf in recent ipv6 patch. "/>
       <Document time="1056136566." author="meskes" document="Synced with backend. "/>
       <Document time="1055797090." author="meskes" document="Fixed two small bugs. "/>
@@ -38477,6 +38503,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1057101052." author="tgl" document="Aggregates can be polymorphic, using polymorphic implementation functions. It also works to create a non-polymorphic aggregate from polymorphic functions, should you want to do that.  Regression test added, docs still lacking.  By Joe Conway, with some kibitzing from Tom Lane. "/>
       <Document time="1056747322." author="tgl" document="Missing calls to PQclear in large_obj.c and describe.c.  Greg Sabino Mullane "/>
       <Document time="1056511150." author="momjian" document="Small patch to link to the proper place in the &quot;runtime&quot; file, and to add the &quot;schemaname&quot; column to the description of the pg_stats view.  Greg Sabino Mullane "/>
@@ -40583,6 +40610,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1057100822." author="tgl" document="Dept. of second thoughts: supporting inlining of polymorphic SQL functions takes only a few more lines of code than preventing it, so might as well support it. "/>
       <Document time="1057037312." author="tgl" document="Department of second thoughts: even if we can't run the full parser on a SQL function with polymorphic inputs, we can at least run the raw parser to catch silly syntactic errors. "/>
       <Document time="1056847807." author="petere" document="Make information schema aware of arrays.  The view element_types is currently not functional, awaiting some fixes in the planner (reported on -hackers). "/>
@@ -42655,6 +42684,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1057021855." author="davec" document="patches by Kim Ho to fix getByte, getSort if input has decimal or whitespace setObject if object is a BIT boolean not on list of SQLKeywords "/>
       <Document time="1056775000." author="momjian" document="Group ISBN/ISSN definitions. "/>
       <Document time="1056517693." author="momjian" document="&gt;&gt; If a transaction marks a tuple for update and later commits without &gt;&gt; actually having updated the tuple, [...] can we simply &gt;&gt; set the HEAP_XMAX_INVALID hint bit of the tuple? &gt; &gt;AFAICS this is a reasonable thing to do.  Thanks for the confirmation.  Here's a patch which also contains some more noncritical changes to tqual.c:  .  make code more readable by introducing local variables for xvac  .  no longer two separate branches for aborted and crashed.     The actions were the same in all cases.  Manfred Koizar "/>

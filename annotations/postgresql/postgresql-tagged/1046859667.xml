@@ -2533,11 +2533,14 @@
       <Author name="davec" count="6"/>
     </Authors>
     <Topic>
+<annotation name="usability" comments=""/>
       <Document time="1049262567." author="tgl" document="Whack getaddrinfo() patch around until it works, more or less, on machines without IPv6.  Or at least it works on HPUX 10.20 ... "/>
       <Document time="1049160789." author="tgl" document="TestConfiguration returns int, not bool.  This mistake is relatively harmless on signed-char machines but would lead to core dump in the deadlock detection code if char is unsigned.  Amazingly, this bug has been here since 7.1 and yet wasn't reported till now.  Thanks to Robert Bruccoleri for providing the opportunity to track it down. "/>
+<annotation name="functionality"/>
       <Document time="1049160770." author="tgl" document="TestConfiguration returns int, not bool.  This mistake is relatively harmless on signed-char machines but would lead to core dump in the deadlock detection code if char is unsigned.  Amazingly, this bug has been here since 7.1 and yet wasn't reported till now.  Thanks to Robert Bruccoleri for providing the opportunity to track it down. "/>
       <Document time="1049160749." author="tgl" document="TestConfiguration returns int, not bool.  This mistake is relatively harmless on signed-char machines but would lead to core dump in the deadlock detection code if char is unsigned.  Amazingly, this bug has been here since 7.1 and yet wasn't reported till now.  Thanks to Robert Bruccoleri for providing the opportunity to track it down. "/>
       <Document time="1048626935." author="petere" document="Merge documentation into one book.  (Build with &quot;make html&quot;.)  Replace vague cross-references with real links. "/>
+<annotation name="portability"/>
       <Document time="1048371085." author="tgl" document="Department of second thoughts: probably shouldn't use nth() to get the appropriate targetlist entry out of the subquery.  Use an explicit search like we do everywhere else. "/>
       <Document time="1048212049." author="momjian" document="Update for new serial functionality. "/>
       <Document time="1048208732." author="momjian" document="This is not the only place in the system catalogs where NULL is effectively used to mean a default value that could also be spelled out explicitly.  (ACLs behave that way, and useconfig/datconfig do too IIRC.)  It's a bit of a hack, but it saves table space and backend code --- without this convention the default would have to be inserted &quot;manually&quot; since we have no mechanism to supply defaults when C code is forming a new catalog tuple.  I'm inclined to leave the code alone.  But Alvaro is right that it'd be good to point out the 'infinity' option in the CREATE USER and ALTER USER man pages.  (Doc patch please?)  Alvaro Herrera "/>
@@ -4899,11 +4902,13 @@
     </Topic>
     <Topic>
       <Document time="1049331621." author="tgl" document="Fix convSockAddr6to4(): eliminate bogus assumptions about byte ordering, remove useless SockAddr_ntop() call.  Per report from Andreas Pflug. "/>
+<annotation name="functionality"/>
       <Document time="1048928225." author="momjian" document="[ Backpatch to 7.3.X.]  typing error in src/backend/libpq/be-secure.c ???  Long Description In src/backend/libpq/be-secure.c: secure_write on SSL_ERROR_WANT_WRITE call secure_read instead secure_write again. May be is this a typing error?  Sergey N. Yatskevich (syatskevich@n21lab.gosniias.msk.ru) "/>
       <Document time="1048928204." author="momjian" document="[ Backpatch to 7.3.X.]  typing error in src/backend/libpq/be-secure.c ???  Long Description In src/backend/libpq/be-secure.c: secure_write on SSL_ERROR_WANT_WRITE call secure_read instead secure_write again. May be is this a typing error?  Sergey N. Yatskevich (syatskevich@n21lab.gosniias.msk.ru) "/>
       <Document time="1048803055." author="momjian" document="Fix syntax error in to_char fixes --- was defining variable in main code block, ala C++. "/>
       <Document time="1048560153." author="tgl" document="Modify keys_are_unique optimization to release buffer pins before it returns NULL.  This avoids out-of-buffers failures during many-way indexscans, as in Shraibman's complaint of 21-Mar. "/>
       <Document time="1048204801." author="momjian" document="The documentation for SELECT is incorrect in a sense: the syntax for a join is defined as:  from_item [ NATURAL ] join_type from_item     [ ON join_condition| USING ( join_column_list ) ]  However, if the join_type is an INNER or OUTER join, an ON, USING, or NATURAL clause *must* be specified (it's not optional, as that segment of the docs suggest).  I'm not exactly sure what the best way to fix this is, so I've attached a patch adding a FIXME comment to the relevant section of the SGML. If anyone has any ideas on the proper way to outline join syntax, please speak up.  Neil Conway &lt;neilc@samurai.com&gt;|| PGP Key ID: DB3C29FC "/>
+<annotation name="portability"/>
       <Document time="1048153167." author="momjian" document="Just some fixups to a couple contrib directories I was trying out.  . replace CREATE OR REPLACE AGGREGATE with a separate DROP and CREATE . add DROP for all CREATE OPERATORs . use IMMUTABLE and STRICT instead of WITH (isStrict) . add IMMUTABLE and STRICT to int_array_aggregate's accumulator function  Gregory Stark "/>
       <Document time="1048043743." author="petere" document="Make the printing code somewhat more independent by not relying on functions and global variables from the rest of psql.  Also clean up some data type mismatches created by the last pager patch. "/>
       <Document time="1047329161." author="momjian" document="Cleanup up psql BACKSLASHconnect and BACKSLASHpset pager setting display, Dennis Bj?rklund. "/>
@@ -7155,7 +7160,9 @@
     </Topic>
     <Topic>
       <Document time="1049449844." author="tgl" document="Avoid repeated computation of the constants date2j(1970, 1, 1) and date2j(2000, 1, 1).  Should make for some marginal speed improvement in date/time operations. "/>
+<annotation name="efficiency"/>
       <Document time="1049424623." author="tgl" document="Don't re-invent the strchr() wheel. "/>
+<annotation name="maintainability"/>
       <Document time="1048955510." author="petere" document="Simplify the socket handling code by supplying a replacement getaddrinfo() function if the OS doesn't provide one. "/>
       <Document time="1048890268." author="tgl" document="Regression output didn't get updated to match recent commit. "/>
       <Document time="1048321745." author="momjian" document="Add PQfreemem() call for Win32. "/>
@@ -7163,6 +7170,7 @@
       <Document time="1048043508." author="petere" document="Improve error message. "/>
       <Document time="1047781180." author="tgl" document="Arrange to print the relevant key values when reporting a foreign-key violation.  Also, factor out some duplicate code in the RI triggers. Patch by Dmitry Tkach, reviewed by Stephan Szabo and Tom Lane. "/>
       <Document time="1047763105." author="momjian" document="A typo in src/backend/libpq/hba.c breaks local ident authentication in the SO_PEERCRED case. elif is misspelled as elsif for the test. A patch is attached.  Bruno Wolff III "/>
+<annotation name="functionality"/>
       <Document time="1047691199." author="momjian" document="Update name of GUC var:  &lt; * Add GUC log_statement_duration to print statement and &gt;= min duration &gt; * Add GUC log_statement_and_duration to print statement and &gt;= min duration "/>
       <Document time="1047688069." author="momjian" document="Add:  &gt; * Add GUC log_statement_duration to print statement and &gt;= min duration "/>
       <Document time="1047537024." author="petere" document="Big editing for consistent content and presentation. "/>
@@ -9445,8 +9453,11 @@
     </Topic>
     <Topic>
       <Document time="1048534370." author="petere" document="Another big editing pass for consistent content and presentation. "/>
+<annotation name="portability"/>
       <Document time="1048495789." author="barry" document="Backport fix for parsing acls (didn't correctly interpret null acl to mean table owner has privs)  Modified Files:   Tag: REL7_3_STABLE  jdbc/org/postgresql/jdbc1/AbstractJdbc1DatabaseMetaData.java "/>
+<annotation name="functionality"/>
       <Document time="1048474514." author="tgl" document="Band-aid patch for Shraibman's 'out of free buffers' bug: disable the keys_are_unique optimization introduced in 7.3.  A better fix will appear in 7.4, but I think back-patching it is too risky for the stable branch. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1048278664." author="meskes" document="Do not free prepares statements at the end of a transaction. "/>
       <Document time="1048153758." author="momjian" document="&gt; Mph.  It fails for me too when I use --enable-integer-datetimes.  Looks &gt; like that patch still needs some work...  Yeah.  I'm really, really, *really* sorry for submitting it in the state it was in.  I shouldn't have done that just before moving to another country.  I found the problem last night, but couldn't get to a Net connection until now.  The problem is in src/bin/psql/common.c, around line 250-335 somewhere depending on the version.  The 2nd and 3rd clauses of the &quot;while&quot; loop condition:          (rstatus == PGRES_COPY_IN) &amp;&amp;         (rstatus == PGRES_COPY_OUT))  should of course be:          (rstatus != PGRES_COPY_IN) &amp;&amp;         (rstatus != PGRES_COPY_OUT))  Jeroen T. Vermeulen "/>
       <Document time="1047121615." author="barry" document="Applied patch from Paul Sorenson to correctly handle schema names in updateable result sets. Applied patch from Rich Cullingford to fix a NPE in the absolute() method of result set. Applied patch from Tarjei Skorgenes to fix a NPE when logging is enabled.   Modified Files:  jdbc/org/postgresql/core/BaseResultSet.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1ResultSet.java  jdbc/org/postgresql/jdbc2/Array.java  jdbc/org/postgresql/util/PSQLException.java "/>
@@ -11723,15 +11734,18 @@
     <Topic>
       <Document time="1049042898." author="meskes" document="Moved Informix stuff to its own compat library. Interval datetype is now fully functional. "/>
       <Document time="1048793357." author="meskes" document="More changes to pgtypeslib and set optimization to -O1. "/>
+<annotation name="efficiency"/>
       <Document time="1048414476." author="tgl" document="Instead of storing pg_statistic stavalues entries as text strings, store them as arrays of the internal datatype.  This requires treating the stavalues columns as 'anyarray' rather than 'text[]', which is not 100% kosher but seems to work fine for the purposes we need for pg_statistic. Perhaps in the future 'anyarray' will be allowed more generally. "/>
       <Document time="1048325014." author="momjian" document="Fix comment-only query to return Null result set, rather than nothing.  Cleans up blank query handling to be more consistent. "/>
       <Document time="1048159590." author="momjian" document="It has been tested only against CVS backend, however.  Some checking of the changes to the SQL to retrieve attributes for older versions of Postgres is probably wise.  Also, please make sure that I have mapped the storage types to the correct storage names, as this is relatively poorly documented.  I think that this patch might need to be considered for back-porting to 7.3.3 since at the moment, people will be losing valuable information after upgrades.  Will dump:  CREATE TABLE test (     a text,     b text,     c text,     d text )SEMICOLON ALTER TABLE ONLY test ALTER COLUMN a SET STATISTICS 55SEMICOLON ALTER TABLE ONLY test ALTER COLUMN a SET STORAGE PLAINSEMICOLON ALTER TABLE ONLY test ALTER COLUMN b SET STATISTICS 1000SEMICOLON ALTER TABLE ONLY test ALTER COLUMN c SET STORAGE EXTERNALSEMICOLON ALTER TABLE ONLY test ALTER COLUMN d SET STORAGE MAINSEMICOLON  Christopher Kings-Lynne "/>
       <Document time="1048149633." author="momjian" document="Item done:  &gt; * -Add start time to pg_stat_activity "/>
       <Document time="1048149295." author="momjian" document="Add start time to pg_stat_activity  Neil Conway "/>
       <Document time="1048002399." author="meskes" document="Some bugfixes for numerical library. "/>
+<annotation name="functionality"/>
       <Document time="1047945006." author="momjian" document="Add:  &gt; * Allow UPDATE tab SET ROW (col, ...) = (...) for updating multiple columns "/>
       <Document time="1047638218." author="barry" document="Fixed parsing to handle BACKSLASHn for updateable result sets.  Bug reported by Rich Cullingford.   Modified Files:  jdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java "/>
       <Document time="1047353297." author="tgl" document="This patch fixes a bunch of spelling mistakes in comments throughout the PostgreSQL source code.  Neil Conway "/>
+<annotation name="portability"/>
       <Document time="1046935784." author="momjian" document="Add:   &gt; o Have ALTER TABLE rename SERIAL sequences "/>
       <Files>
         <File name="src/bin/pg_dump/pg_backup_tar.c" count="1"/>
@@ -14073,6 +14087,7 @@
     </Topic>
     <Topic>
       <Document time="1049443433." author="tgl" document="Code review for pg_stat_get_backend_activity_start patch --- fix return type, make protection condition agree with recent change to pg_stat_get_backend_activity, clean up documentation. "/>
+<annotation name="functionality"/>
       <Document time="1048801630." author="momjian" document="Done:  &gt; o -Allow cursors outside transactions "/>
       <Document time="1048380521." author="momjian" document="Remove ecpg #warning with approval from Michael. "/>
       <Document time="1048284706." author="momjian" document="Remove mention of transactions for insensitive cursors. "/>
@@ -14081,6 +14096,7 @@
       <Document time="1048161657." author="momjian" document="Done:  &gt; o -Add ALTER SEQUENCE to modify min/max/increment/cache/cycle values "/>
       <Document time="1048158012." author="momjian" document="Here's some changes I made last night to psql's common.c (as found in 7.3.2).  It removes some code duplication and #ifdeffing, and some unstructured ugliness such as tacky breaks and an unneeded continue. Breaks up a large function into smaller functions and reduces required nesting levels, and kills a variable or two.  Jeroen T. Vermeulen "/>
       <Document time="1048132183." author="momjian" document="This patch fixes a very small memory leak in psql, spotted with valgrind.  Neil Conway "/>
+<annotation name="reliability" comments=""/>
       <Document time="1047941937." author="momjian" document="Reorder crypt.h include for SunOS compile problem.  Fred Houweling "/>
       <Document time="1047699631." author="momjian" document="Remove unneeded dash blocks around function start comments. "/>
       <Document time="1046991900." author="momjian" document="Done:  &gt; * -Modify regression tests to prevent failures do to minor numeric rounding "/>
@@ -16349,6 +16365,7 @@
     </Topic>
     <Topic>
       <Document time="1048887290." author="momjian" document="Fix NULL casting warning, pointed out by Joe Conway "/>
+<annotation name="portability"/>
       <Document time="1048315778." author="tgl" document="Adjust subquery qual pushdown rules to be more forgiving: if a qual refers to a non-DISTINCT output column of a DISTINCT ON subquery, or if it refers to a function-returning-set, we cannot push it down. But the old implementation refused to push down *any* quals if the subquery had any such 'dangerous' outputs.  Now we just look at the output columns actually referenced by each qual expression.  More code than before, but probably no slower since we don't make unnecessary checks. "/>
       <Document time="1048153904." author="momjian" document="&gt; I can see a couple possible downsides: (a) the library might have some &gt; weird behavior across fork boundariesSEMICOLON (b) the additional memory space &gt; that has to be duplicated into child processes will cost something per &gt; child launch, even if the child never uses it.  But these are only &gt; arguments that it might not *always* be a prudent thing to do, not that &gt; we shouldn't give the DBA the tool to do it if he wants.  So fire away.  Here is a patch for the above, including a documentation update. It creates a new GUC variable &quot;preload_libraries&quot;, that accepts a list in the form:     preload_libraries = '$libdir/mylib1:initfunc,$libdir/mylib2'  If &quot;:initfunc&quot; is omitted or not found, no initialization function is executed, but the library is still preloaded. If &quot;$libdir/mylib&quot; isn't found, the postmaster refuses to start.  In my testing with PL/R, it reduces the first call to a PL/R function (after connecting) from almost 2 seconds, down to about 8 ms.  Joe Conway "/>
       <Document time="1048126852." author="momjian" document="Remove typecasting section that isn't needed anymore. "/>
@@ -18591,6 +18608,8 @@
     </Topic>
     <Topic>
       <Document time="1049423102." author="tgl" document="Fix load_user/load_group to not leave dangling pointers around if the config files are present on one pass and not present on a later pass. "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1049419096." author="tgl" document="const-ify functions used with completion_matches(), to suppress cast-away-const warnings from compilers pickier than gcc. "/>
       <Document time="1049411057." author="tgl" document="Repair incorrect checking of grouped/ungrouped variables in the presence of unnamed joinsSEMICOLON per pghackers discussion 31-Mar-03. "/>
       <Document time="1049411049." author="tgl" document="Repair incorrect checking of grouped/ungrouped variables in the presence of unnamed joinsSEMICOLON per pghackers discussion 31-Mar-03. "/>
@@ -20893,6 +20912,7 @@
     </Topic>
     <Topic>
       <Document time="1049225845." author="meskes" document="More patches for informix compatibility. "/>
+<annotation name="portability"/>
       <Document time="1049078204." author="momjian" document="Backpatch SSL return value changes. "/>
       <Document time="1048829009." author="momjian" document="Fix number of columns in SGML, from Weiping He "/>
       <Document time="1048802301." author="momjian" document="It may not be obvious to you, but the plpython regression tests include output that vary depending on the python build one is running. Basically, the order of keys in a dictionary is non-deterministic, and that part of the test fails for me regularly.  I rewrote the test to work around this problem, and include a patch file with that change and the change to the expected otuput as well.  Mike Meyer "/>
@@ -20901,6 +20921,8 @@
       <Document time="1048478462." author="tgl" document="Adjust amrescan code so that it's allowed to call index_rescan with a NULL key pointer, indicating that the existing scan key should be reused. This behavior isn't used yet but will be needed for my planned fix to the keys_are_unique code. "/>
       <Document time="1048236921." author="momjian" document="Fix sequence casting. "/>
       <Document time="1048160615." author="momjian" document="I'm continuing to work on cleaning up code in psql.  As things appear now, my changes seem to work.  Some possible minor bugs got squished on the way but I can't be sure without more feedback from people who really put the code to the test.  The new patch mostly simplifies variable handling and reduces code duplication.  Changes in the command parser eliminate some redundant variables (boolean state + depth counter), replaces some &quot;else if&quot; constructs with switches, and so on.  It is meant to be applied together with my previous patch, although I hope they don't conflictSEMICOLON I went back to the CVS version for this one.  One more thing I thought should perhaps be changed: an IGNOREEOF value of n will ignore only n-1 EOFs.  I didn't want to touch this for fear of breaking existing applications, but it does seem a tad illogical.  Jeroen T. Vermeulen "/>
+<annotation name="maintainability"/>
+<annotation name="functionality"/>
       <Document time="1048153955." author="momjian" document="This trivial cleans up a little bit of the code in src/test/regress/regress.c (e.g. removing K &amp; R style parameter declarations, improving sprintf() usage, etc.)  Neil Conway "/>
       <Document time="1046998387." author="momjian" document="Add:  &gt; o Report server version number, database encoding, client encoding "/>
       <Files>
@@ -23170,6 +23192,7 @@
       <Document time="1049341490." author="momjian" document="Done in previous release:  &lt; * Add --port flag to regression tests "/>
       <Document time="1049048769." author="meskes" document="Forgot two new files and one that was moved. "/>
       <Document time="1048801501." author="momjian" document="Attached are two patches for psql's tab-completion.c.  The first cleans up a couple of minor errors and ommissions and adds tab completion support to more slash commands, e.g. BACKSLASHdv.  The second is an attempt to add tab completion for schemas and fully qualified relation names (e.g. public.mytable ). I think this covers the TODO-item: &quot;Allow psql to do table completion for SELECT * FROM schema_part and table completion for SELECT * FROM schema_name.&quot;  This happens via union selects querying:  - relation_name in current search pathSEMICOLON  - schema_nameSEMICOLON  - schema.relation_name matching the current input string.  E.g:   SELECT p[TAB] will produce a list of all appropriate relation names in the current search path which begin with 'p', and also all schema names which begin with 'p'SEMICOLON   BACKSLASHd pub[TAB] will produce any relation names in the current search path and also any schema names beginning with 'pub'SEMICOLON   BACKSLASHd public.[TAB] will produce a list of all relations in the schema 'public'SEMICOLON   BACKSLASHd public.my[TAB] produces all relation names beginning with 'my' in schema 'public'.  It seems to work for meSEMICOLON comments, suggestions, particularly regarding the coding and queries, are very welcome.  Note that tables, indexes, views and sequences relations in the 'pg_catalog' namespace are excluded even though they are in the current search path. I found not doing this produced annoying behaviour when expanding names beginning with 'p'. People who work with system tables a lot may not like this thoughSEMICOLON I can look for another solution if necessary.  Ian Barwick "/>
+<annotation name="maintainability"/>
       <Document time="1048623113." author="momjian" document="I mean, bison 1.875.  :-) "/>
       <Document time="1048204276." author="momjian" document="It would also be handy if users could see their own pg_stat_activity queries while the rest remain blank.  Kevin Brown "/>
       <Document time="1047621317." author="tgl" document="Make eval_const_expressions simplify FieldSelect from a whole-row Var into an ordinary one-field Var.  Per example from Chris Mungall. "/>
@@ -25410,8 +25433,10 @@
     <Topic>
       <Document time="1049365541." author="momjian" document="Add prototype for toupper/tolower(). "/>
       <Document time="1049335694." author="tgl" document="Fix buffer overrun in to_ascii(), per report from Guido Notari. "/>
+<annotation name="functionality"/>
       <Document time="1049335687." author="tgl" document="Fix buffer overrun in to_ascii(), per report from Guido Notari. "/>
       <Document time="1049335679." author="tgl" document="Fix buffer overrun in to_ascii(), per report from Guido Notari. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1048802111." author="momjian" document="Add new file. "/>
       <Document time="1048801995." author="momjian" document="Add new files. "/>
       <Document time="1048801678." author="momjian" document="Remove email file. "/>
@@ -27693,7 +27718,9 @@
     </Topic>
     <Topic>
       <Document time="1049184644." author="momjian" document="Update Russian FAQ, from Viktor Vislobokov "/>
+<annotation name="portability"/>
       <Document time="1048577047." author="davec" document="fixed problem where information from previous updates was leaking into subsequent updates patch from Shawn Green, slightly modified "/>
+<annotation name="reliability" comments=""/>
       <Document time="1048576990." author="davec" document="fixed problem where information from previous updates was leaking into subsequent updates patch from Shawn Green, slightly modified "/>
       <Document time="1048575423." author="davec" document="fixed problem where information from previous updates was leaking into subsequent updates patch from Shawn Green "/>
       <Document time="1048236458." author="momjian" document="Done:  &gt; * -Change NUMERIC data type to use base 10,000 internally "/>
@@ -29945,9 +29972,11 @@
       <Document time="1048556350." author="momjian" document="Add comment to postgresql.conf:  #search_path = '$user,public'   # schema names "/>
       <Document time="1048108139." author="petere" document="Set up the privileges on the default schemas in initdb with real GRANT commands, to arrive at a valid and dumpable state. "/>
       <Document time="1048064001." author="momjian" document="Fix typo:  &lt; * Rod is Rod Taylor &lt;pg@rbt.ca)&gt; &gt; * Rod is Rod Taylor &lt;pg@rbt.ca&gt; "/>
+<annotation name="portability"/>
       <Document time="1048026067." author="momjian" document="Compiling anything that uses InvalidOid under g++ yields a warning about the expression using an &quot;old-style cast.&quot;  Therefore, would it be okay to patch postgres_ext.h as follows:  Jeroen T. Vermeulen "/>
       <Document time="1047622907." author="barry" document="Improved error message and added some log messages in batch update functionality   Modified Files:  jdbc/org/postgresql/errors.properties  jdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java  jdbc/org/postgresql/util/PSQLException.java "/>
       <Document time="1047592729." author="tgl" document="GROUP BY got confused if there were multiple equal() GROUP BY items. This bug has been latent since 7.0 or maybe even further back, but it was only exposed when parse_clause.c stopped suppressing duplicate items (see its rev 1.96 of 18-Aug-02). "/>
+<annotation name="functionality"/>
       <Document time="1047592715." author="tgl" document="GROUP BY got confused if there were multiple equal() GROUP BY items. This bug has been latent since 7.0 or maybe even further back, but it was only exposed when parse_clause.c stopped suppressing duplicate items (see its rev 1.96 of 18-Aug-02). "/>
       <Document time="1047194353." author="tgl" document="Revise tuplestore and nodeMaterial so that we don't have to read the entire contents of the subplan into the tuplestore before we can return any tuples.  Instead, the tuplestore holds what we've already read, and we fetch additional rows from the subplan as needed.  Random access to the previously-read rows works with the tuplestore, and doesn't affect the state of the partially-read subplan.  This is a step towards fixing the problems with cursors over complex queries --- we don't want to stick in Materialize nodes if they'll prevent quick startup for a cursor. "/>
       <Document time="1047034150." author="momjian" document="Update FAQ. "/>
@@ -32193,7 +32222,9 @@
     <Topic>
       <Document time="1048801630." author="momjian" document="Done:  &gt; o -Allow cursors outside transactions "/>
       <Document time="1048622295." author="momjian" document="Mention bison 1.85 is now required. "/>
+<annotation name="portability"/>
       <Document time="1048548832." author="momjian" document="Prevent multiple queries in a single string into a single transaction when autocommit is off, and document grouping when autocommit is on. "/>
+<annotation name="functionality"/>
       <Document time="1048158179." author="momjian" document="Attached is a patch that limits the range tested by horology to what is capable using integer-datatime timestamps. It does attempt to exercise the maximum allowable timestamp range. Also is a small error check when converting a timestamp from external to internal format that prevents out of range timestamps from being entered.  Files patched:         Index: src/backend/utils/adt/timestamp.c                 Added range check to prevent out of range timestamps                 from being used.          Index: src/test/regress/sql/horology.sql         Index: src/test/regress/expected/horology-no-DST-before-1970.out         Index: src/test/regress/expected/horology-solaris-1947.out                 Limited range of timestamps being checked to                 Jan 1, 4713 BC  to Dec 31, 294276  In creating this patch, I have seen some definite problems with integer timestamps and how they react when used near their limits. For example, the following statement gives the correct result:          SELECT timestamp without time zone 'Jan 1, 4713 BC'                + interval '109203489 days' AS &quot;Dec 31, 294276&quot;SEMICOLON  However, this statement which is the logical inverse of the above gives incorrect results:          SELECT timestamp without time zone '12/31/294276'              - timestamp without time zone 'Jan 1, 4713 BC' AS &quot;109203489 Days&quot;SEMICOLON  John Cochran "/>
       <Document time="1048155566." author="momjian" document=" Peter found bug in the to_char() routine for PL/MI options. This  patch fix it -- but this patch doesn't contains tests or docs fixes. I  will send it later.   Fixed outputs:  select  to_char(x, '9999.999')  as x,         to_char(x, 'S9999.999') as s,         to_char(x, 'SG9999.999') as sg,         to_char(x, 'MI9999.999') as mi,         to_char(x, 'PL9999.999') as pl,         to_char(x, 'PLMI9999.999') as plmi,         to_char(x, '9999.999SG') as sg2,         to_char(x, '9999.999PL') as pl2,         to_char(x, '9999.999MI') as mi2 from numSEMICOLON  Karel Zak "/>
       <Document time="1048043377." author="petere" document="Fix off-by-one error in the maxlen parameter handling. "/>
@@ -34524,6 +34555,7 @@
       <Document time="1049162025." author="momjian" document="Please, apply patch for contrib/ltree to current CVS and 7.3.2  CHANGES  Mar 28, 2003     Added finctions index(ltree,ltree,offset), text2ltree(text),                     ltree2text(text)  Teodor Sigaev "/>
       <Document time="1048801886." author="momjian" document="This patch implements holdable cursors, following the proposal (materialization into a tuple store) discussed on pgsql-hackers earlier. I've updated the documentation and the regression tests.  Notes on the implementation:  - I needed to change the tuple store API slightly -- it assumes that it won't be used to hold data across transaction boundaries, so the temp files that it uses for on-disk storage are automatically reclaimed at end-of-transaction. I added a flag to tuplestore_begin_heap() to control this behavior. Is changing the tuple store API in this fashion OK?  - in order to store executor results in a tuple store, I added a new CommandDest. This works well for the most part, with one exception: the current DestFunction API doesn't provide enough information to allow the Executor to store results into an arbitrary tuple store (where the particular tuple store to use is chosen by the call site of ExecutorRun). To workaround this, I've temporarily hacked up a solution that works, but is not ideal: since the receiveTuple DestFunction is passed the portal name, we can use that to lookup the Portal data structure for the cursor and then use that to get at the tuple store the Portal is using. This unnecessarily ties the Portal code with the tupleReceiver code, but it works...  The proper fix for this is probably to change the DestFunction API -- Tom suggested passing the full QueryDesc to the receiveTuple function. In that case, callers of ExecutorRun could &quot;subclass&quot; QueryDesc to add any additional fields that their particular CommandDest needed to get access to. This approach would work, but I'd like to think about it for a little bit longer before deciding which route to go. In the mean time, the code works fine, so I don't think a fix is urgent.  - (semi-related) I added a NO SCROLL keyword to DECLARE CURSOR, and adjusted the behavior of SCROLL in accordance with the discussion on -hackers.  - (unrelated) Cleaned up some SGML markup in sql.sgml, copy.sgml  Neil Conway "/>
       <Document time="1048235309." author="momjian" document="Improve psql comment coding. "/>
+<annotation name="maintainability"/>
       <Document time="1048193810." author="meskes" document="Started adding date and timestamp. "/>
       <Document time="1047198850." author="tgl" document="tuplestore_donestoring() isn't needed anymore, but provide a no-op macro definition so as not to create compatibility problems. "/>
       <Files>
@@ -36811,7 +36843,9 @@
     <Topic>
       <Document time="1049427348." author="tgl" document="Prevent EXPLAIN (without ANALYZE) SELECT ... INTO from creating an INTO table.  Needed due to recent change that makes us call ExecutorStart even when not planning to carry out the query. "/>
       <Document time="1049161671." author="momjian" document="The following patch cleans up the deferred trigger mechanism.  There is an unneeded memory context and some variables that are not used anymore. It's pretty trivial and the regression tests pass fine.  There's no change in functionality, only deletion of unused code.  I left an empty function because maybe I'll need it for nested transactions.  Alvaro Herrera "/>
+<annotation name="maintainability"/>
       <Document time="1049078917." author="tgl" document="Fix broken markup. "/>
+<annotation name="portability"/>
       <Document time="1048801157." author="momjian" document="Reorder language creation to restore constistently.  Laurent FAILLIE "/>
       <Document time="1048317144." author="momjian" document="Back out to_char fixes until regression tests are fixed. "/>
       <Document time="1048274267." author="meskes" document="Changes to the parser to accept new datatypes. "/>
@@ -39068,7 +39102,9 @@
     </Topic>
     <Topic>
       <Document time="1048932015." author="momjian" document="[ Backpatch to 7.3.X.]  SSL_read/write can error needing ERROR_WANT_READ or ERROR_WANT_WRITE. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1048570463." author="tgl" document="Factor out duplicate code for computing values of PLpgSQL_datum items. This is to help localize the changes needed for adding a new kind of PLpgSQL_datum (like, say, an array element...) "/>
+<annotation name="maintainability"/>
       <Document time="1048285113." author="petere" document="Make &quot;win&quot; a separate port from &quot;cygwin&quot;.  This means you can now configure under native Windows (MinGW that is), but you won't get very far compiling yet.  The dynaloader files are from Jan Wieck's patch set. "/>
       <Document time="1048195052." author="momjian" document="Re-add type conversion examples. "/>
       <Document time="1048160790." author="momjian" document="Attached is an update to contrib/tablefunc. It implements a new hashed version of crosstab. This fixes a major deficiency in real-world use of the original version. Easiest to undestand with an illustration:  Data: ------------------------------------------------------------------- select * from cthSEMICOLON   id| rowid|        rowdt|   attribute|      val ----+-------+---------------------+----------------+---------------    1| test1| 2003-03-01 00:00:00| temperature| 42    2| test1| 2003-03-01 00:00:00| test_result| PASS    3| test1| 2003-03-01 00:00:00| volts| 2.6987    4| test2| 2003-03-02 00:00:00| temperature| 53    5| test2| 2003-03-02 00:00:00| test_result| FAIL    6| test2| 2003-03-02 00:00:00| test_startdate| 01 March 2003    7| test2| 2003-03-02 00:00:00| volts| 3.1234 (7 rows)  Original crosstab: ------------------------------------------------------------------- SELECT * FROM crosstab(    'SELECT rowid, attribute, val FROM cth ORDER BY 1,2',4) AS c(rowid text, temperature text, test_result text, test_startdate text, volts text)SEMICOLON   rowid| temperature| test_result| test_startdate| volts -------+-------------+-------------+----------------+--------   test1| 42| PASS| 2.6987|   test2| 53| FAIL| 01 March 2003| 3.1234 (2 rows)  Hashed crosstab: ------------------------------------------------------------------- SELECT * FROM crosstab(    'SELECT rowid, attribute, val FROM cth ORDER BY 1',    'SELECT DISTINCT attribute FROM cth ORDER BY 1') AS c(rowid text, temperature int4, test_result text, test_startdate timestamp, volts float8)SEMICOLON   rowid| temperature| test_result|   test_startdate| volts -------+-------------+-------------+---------------------+--------   test1|          42| PASS|| 2.6987   test2|          53| FAIL| 2003-03-01 00:00:00| 3.1234 (2 rows)  Notice that the original crosstab slides data over to the left in the result tuple when it encounters missing data. In order to work around this you have to be make your source sql do all sorts of contortions (cartesian join of distinct rowid with distinct attributeSEMICOLON left join that back to the real source data). The new version avoids this by building a hash table using a second distinct attribute query.  The new version also allows for &quot;extra&quot; columns (see the README) and allows the result columns to be coerced into differing datatypes if they are suitable (as shown above).  In testing a &quot;real-world&quot; data set (69 distinct rowid's, 27 distinct categories/attributes, multiple missing data points) I saw about a 5-fold improvement in execution time (from about 2200 ms old, to 440 ms new).  I left the original version intact because: 1) BC, 2) it is probably slightly faster if you know that you have no missing attributes.  README and regression test adjustments included. If there are no objections, please apply.  Joe Conway "/>
@@ -41338,11 +41374,13 @@
     </Topic>
     <Topic>
       <Document time="1048811152." author="tgl" document="Fix bogus coding of SET DEFAULT ri triggers ... or at least make it less bogus than it was.  Per bug report from Adrian Pop. "/>
+<annotation name="functionality"/>
       <Document time="1048811140." author="tgl" document="Fix bogus coding of SET DEFAULT ri triggers ... or at least make it less bogus than it was.  Per bug report from Adrian Pop. "/>
       <Document time="1048801387." author="momjian" document="Adds  ALTER TABLE foo CLUSTER ON barSEMICOLON  In pg_dumps, to preserve cluster settings.  Christopher Kings-Lynne "/>
       <Document time="1048577325." author="davec" document="added DISTINCT to the query to get cross reference. This is required when two columns in a table are both foreign keys to another table. From Peter Royal proyal@pace2020.com "/>
       <Document time="1048575679." author="davec" document="added DISTINCT to the query to get cross reference. This is required when two columns in a table are both foreign keys to another table. From Peter Royal proyal@pace2020.com "/>
       <Document time="1048153273." author="momjian" document="Minor doc patch: create function  Gavin Sherry "/>
+<annotation name="portability"/>
       <Document time="1048107941." author="petere" document="Avoid mysterious warning about possibly uninitialized variable. "/>
       <Document time="1047829791." author="meskes" document="Forgot some files... "/>
       <Document time="1047617047." author="tgl" document="Async_NotifyHandler must save and restore ImmediateInterruptOK.  Fixes known problem with failure to respond to 'pg_ctl stop -m fast', and probable problems if SIGINT or SIGTERM arrives while processing a SIGUSR2 interrupt that arrived while waiting for a new client query. "/>
@@ -43591,12 +43629,15 @@
       <Document time="1049434377." author="tgl" document="Back-patch changes to validate page header fields immediately after reading in any page.  Also back-port the zero_damaged_pages boolean that determines what to do about it. "/>
       <Document time="1049430767." author="tgl" document="Remove zero_damaged_pages from postgresql.conf.sampleSEMICOLON the only way to find out about it is to read the documentation that tells you how dangerous it is.  Add default_transaction_read_only to documentationSEMICOLON seems to have been overlooked in patch that added read-only transactions. Clean up check_guc comparison script, which has been suffering bit rot. "/>
       <Document time="1048900633." author="tgl" document="Add code to apply some simple sanity checks to the header fields of a page when it's read in, per pghackers discussion around 17-Feb.  Add a GUC variable zero_damaged_pages that causes the response to be a WARNING followed by zeroing the page, rather than the normal ERRORSEMICOLON this is per Hiroshi's suggestion that there needs to be a way to get at the data in the rest of the table. "/>
+<annotation name="maintainability"/>
       <Document time="1048803934." author="momjian" document="Add &lt;stdlib&gt; to add calloc() prototype. "/>
       <Document time="1048800930." author="momjian" document="to_char fixes, Karel Zak "/>
       <Document time="1048793600." author="tgl" document="GetTupleForTrigger must use outer transaction's command counter for time qual checking, not GetCurrentCommandId.  Per test case from Steve Wolfe. "/>
       <Document time="1048793591." author="tgl" document="GetTupleForTrigger must use outer transaction's command counter for time qual checking, not GetCurrentCommandId.  Per test case from Steve Wolfe. "/>
       <Document time="1048578276." author="momjian" document="Use PQfreemem() consistently, and document its use for Notify.  Keep PQfreeNotify() around for binary compatibility. "/>
       <Document time="1048495712." author="barry" document="Fix bug in reading acls (didn't treat null acl as meaning the table owner had full privs), also updated the regression test for this case.   Modified Files:  jdbc/org/postgresql/jdbc1/AbstractJdbc1DatabaseMetaData.java  jdbc/org/postgresql/test/jdbc2/DatabaseMetaDataTest.java "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1048371143." author="momjian" document="Add missing #include for calloc in ecpg. "/>
       <Document time="1048279382." author="momjian" document="Fix ALTER TABLE / CLUSTER ON breakage.  Alvaro Herrera1 "/>
       <Document time="1048204367." author="momjian" document="Add ALTER TABLE &lt;tablename&gt; CLUSTER ON &lt;indexname&gt;  Alvaro Herrera "/>
@@ -45862,6 +45903,7 @@
     <Topic>
       <Document time="1049161725." author="momjian" document="Skip START WITH in sequence definition when it's the default value -- and hasn't been called yet.  Fixes bug where it wasn't supplied (due to being NULL).  Rod Taylor "/>
       <Document time="1048802259." author="momjian" document="New BACKSLASHd format:  Example:  test=# BACKSLASHd test      Table &quot;public.test&quot;  Column|  Type| Modifiers --------+---------+-----------  a| integer| not null Indexes:     &quot;test_pkey&quot; PRIMARY KEY btree (a) Check Constraints:     &quot;$2&quot; CHECK (a &gt; 1) Foreign Key Constraints:     &quot;$1&quot; FOREIGN KEY (a) REFERENCES parent(b) Rules:     myrule AS ON INSERT TO test DO INSTEAD NOTHING Triggers:     &quot;asdf asdf&quot; AFTER INSERT OR DELETE ON test FOR EACH STATEMENT EXECUTE PROCEDURE update_pg_pwd_and_pg_group(),     mytrigger AFTER INSERT OR DELETE ON test FOR EACH ROW EXECUTE PROCEDURE update_pg_pwd_and_pg_group()  I have minimised the double quoting of identifiers as much as I could easily, and I will submit another patch when I have time to work on it that will use a 'fmtId' function to determine it exactly.  I think it's a significant improvement in legibility...  Obviously the table example above is slightly degenerate in that not many tables in production have heaps of (non-constraint) triggers and rules.  Christopher Kings-Lynne "/>
+<annotation name="usability" comments=""/>
       <Document time="1048578383." author="davec" document="patch to notify listeners on error from Csaba Nagy "/>
       <Document time="1048402153." author="tgl" document="Tweak selectivity and related routines to cope with domains.  Per report from Andreas Pflug. "/>
       <Document time="1048402142." author="tgl" document="Tweak selectivity and related routines to cope with domains.  Per report from Andreas Pflug. "/>

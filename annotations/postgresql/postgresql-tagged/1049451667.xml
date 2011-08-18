@@ -1674,6 +1674,7 @@
     </Authors>
     <Topic>
       <Document time="1051521451." author="tgl" document="Minor improvement in wording. "/>
+<annotation name="portability"/>
       <Document time="1051314308." author="tgl" document="In the continuing saga of FE/BE protocol revisions, add reporting of initial values and runtime changes in selected parameters.  This gets rid of the need for an initial 'select pg_client_encoding()' query in libpq, bringing us back to one message transmitted in each direction for a standard connection startup.  To allow server version to be sent using the same GUC mechanism that handles other parameters, invent the concept of a never-settable GUC parameter: you can 'show server_version' but it's not settable by any GUC input source.  Create 'lc_collate' and 'lc_ctype' never-settable parameters so that people can find out these settings without need for pg_controldata.  (These side ideas were all discussed some time ago in pgsql-hackers, but not yet implemented.) "/>
       <Document time="1051301920." author="momjian" document="Prevent unlink/rename Win32 mapping on frontends. "/>
       <Document time="1051294739." author="momjian" document="Fix typo in DLL list. "/>
@@ -2840,6 +2841,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="efficiency"/>
+<annotation name="portability"/>
       <Document time="1052021035." author="tgl" document="When a TIMESTAMP, TIME, or INTERVAL precision is specified larger than our implementation limits, do not issue an ERRORSEMICOLON instead issue a NOTICE and use the max supported value.  Per pgsql-general discussion of 28-Apr, this is needed to allow easy porting from pre-7.3 releases where the limits were higher.  Unrelated change in same area: accept GLOBAL TEMP/TEMPORARY as a synonym for TEMPORARY, as per pgsql-hackers discussion of 15-Apr.  We previously rejected it, but that was based on a misreading of the spec --- SQL92's GLOBAL temp tables are really closer to what we have than their LOCAL ones. "/>
       <Document time="1051216817." author="momjian" document="Add comments to replace/unlink Win32 functions. "/>
       <Document time="1050608077." author="momjian" document="Make pg_dump's concurency capability more prominent. "/>
@@ -4001,6 +4005,7 @@
     </Topic>
     <Topic>
       <Document time="1051668788." author="tgl" document="Infrastructure for deducing Param types from context, in the same way that the types of untyped string-literal constants are deduced (ie, when coerce_type is applied to 'em, that's what the type must be). Remove the ancient hack of storing the input Param-types array as a global variable, and put the info into ParseState instead.  This touches a lot of files because of adjustment of routine parameter lists, but it's really not a large patch.  Note: PREPARE statement still insists on exact specification of parameter types, but that could easily be relaxed now, if we wanted to do so. "/>
+<annotation name="portability"/>
       <Document time="1051248240." author="momjian" document="Use closesocket() for all socket/pipe closing, because Win32 requires it, and map that to close() on Unix. "/>
       <Document time="1051233402." author="tgl" document="Infrastructure for upgraded error reporting mechanism.  elog.c is rewritten and the protocol is changed, but most elog calls are still elog calls.  Also, we need to contemplate mechanisms for controlling all this functionality --- eg, how much stuff should appear in the postmaster log?  And what API should libpq expose for it? "/>
       <Document time="1050727048." author="tgl" document="Add more documentation about shared memory costs. "/>
@@ -5197,6 +5202,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
       <Document time="1051927311." author="momjian" document="Back out second part of patch. "/>
       <Document time="1051600888." author="tgl" document="Code review for holdable-cursors patch.  Fix error recovery, memory context sloppiness, some other things.  Includes Neil's mopup patch of 22-Apr. "/>
       <Document time="1050952802." author="tgl" document="Prevent palloc(0) error when parent table has zero columns. "/>
@@ -6373,6 +6380,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1051480906." author="tgl" document="Department of second thoughts: probably still need an IsTransactionState test in there... "/>
       <Document time="1051340234." author="tgl" document="Tweak stats collector start logic so that we will not try to spawn a new stats collector oftener than once a minute.  Per gripe from Erik Walthinsen 4/25/03. "/>
       <Document time="1051233781." author="momjian" document="Add Win32 shmem/sema prototypes. "/>
@@ -7558,6 +7567,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1052037035." author="tgl" document="Allow 60 in seconds fields of timestamp, time, interval input values. Per recent discussion on pgsql-general, this is appropriate for spec compliance, and has the nice side-effect of easing porting from old pg_dump files that exhibit the 59.999=&gt;60.000 roundoff problem. "/>
       <Document time="1052037015." author="tgl" document="Allow 60 in seconds fields of timestamp, time, interval input values. Per recent discussion on pgsql-general, this is appropriate for spec compliance, and has the nice side-effect of easing porting from old pg_dump files that exhibit the 59.999=&gt;60.000 roundoff problem. "/>
       <Document time="1051410118." author="tgl" document="Repair permissions problem in RI triggers: query parsing has to be done as the correct user, not only query execution.  Per report from Sean Chittenden. "/>
@@ -8694,6 +8705,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1051323273." author="tgl" document="Back-patch fixes for zero-column tables in COPY, pg_dump. "/>
       <Document time="1051054947." author="momjian" document="Remove Win32 special rename/unlink from libpq. "/>
       <Document time="1050798963." author="momjian" document="Allow BACKSLASHr and BACKSLASHrBACKSLASHn termination for COPY files.  Output BACKSLASHrBACKSLASHn termination on Win32.  Disallow literal carriage return as a data value, backslash-carriage-return and BACKSLASHr still allowed.  Doc changes already committed. "/>
@@ -9837,6 +9849,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1050461478." author="tgl" document="First draft of revised FE/BE protocol specification.  Still needs work, but I'm putting it up so people can see and comment on it. "/>
       <Document time="1050148883." author="ishii" document="Fix encoding conversion function bug. See following posting for more details.  Subject: Re: [HACKERS] [BUGS] Bug #943: Server-Encoding from EUC_TW to UTF-8 doesn't From: Tatsuo Ishii &lt;t-ishii@sra.co.jp&gt; To: michael.enke@wincor-nixdorf.com, pgsql-bugs@postgresql.org Cc: pgsql-hackers@postgresql.org Date: Sat, 12 Apr 2003 10:51:45 +0900 (JST) "/>
       <Document time="1050148437." author="ishii" document="Fix encoding conversion function bug. See following posting for more details.  Subject: Re: [HACKERS] [BUGS] Bug #943: Server-Encoding from EUC_TW to UTF-8 doesn't From: Tatsuo Ishii &lt;t-ishii@sra.co.jp&gt; To: michael.enke@wincor-nixdorf.com, pgsql-bugs@postgresql.org Cc: pgsql-hackers@postgresql.org Date: Sat, 12 Apr 2003 10:51:45 +0900 (JST) "/>
@@ -10969,6 +10983,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="reliability" comments=""/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1052014758." author="tgl" document="Fix erroneous space calculation leading to core dump in dumpProcLangs, per report from Olivier Prenant.  Also fix off-by-one space calculation in ReadTocSEMICOLON this woould not have hurt us until we had more than 100 dependencies for a single object, but wrong is wrong. "/>
       <Document time="1052014739." author="tgl" document="Fix erroneous space calculation leading to core dump in dumpProcLangs, per report from Olivier Prenant.  Also fix off-by-one space calculation in ReadTocSEMICOLON this woould not have hurt us until we had more than 100 dependencies for a single object, but wrong is wrong. "/>
       <Document time="1051927171." author="momjian" document="Back out last commit --- wrong patch. "/>
@@ -12139,6 +12156,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
       <Document time="1052008845." author="barry" document="Patch to fix up LONGVARBINARY support submitted by Amit Gollapudi (agollapudi@demandsolutions.com). Also applied the RefCursor support patch by Nic Ferrier.  This patch allows you too return a get a result set from a function that returns a refcursor. For example: call.registerOutParameter(1, Types.OTHER)SEMICOLON call.execute()SEMICOLON ResultSet rs = (ResultSet) call.getObject(1)SEMICOLON  Modified Files:  jdbc/org/postgresql/core/BaseStatement.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1ResultSet.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java  jdbc/org/postgresql/jdbc1/Jdbc1CallableStatement.java  jdbc/org/postgresql/jdbc1/Jdbc1PreparedStatement.java  jdbc/org/postgresql/jdbc1/Jdbc1Statement.java  jdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java  jdbc/org/postgresql/jdbc2/Jdbc2CallableStatement.java  jdbc/org/postgresql/jdbc2/Jdbc2PreparedStatement.java  jdbc/org/postgresql/jdbc2/Jdbc2Statement.java  jdbc/org/postgresql/jdbc3/Jdbc3CallableStatement.java  jdbc/org/postgresql/jdbc3/Jdbc3PreparedStatement.java  jdbc/org/postgresql/jdbc3/Jdbc3Statement.java  Added Files:  jdbc/org/postgresql/PGRefCursorResultSet.java  jdbc/org/postgresql/jdbc1/Jdbc1RefCursorResultSet.java  jdbc/org/postgresql/jdbc2/Jdbc2RefCursorResultSet.java  jdbc/org/postgresql/jdbc3/Jdbc3RefCursorResultSet.java  jdbc/org/postgresql/test/jdbc2/RefCursorTest.java "/>
       <Document time="1051919333." author="tgl" document="Repair sloppiness about where cached mergeclause pathkeys are allocated. Without this fix, CVS tip dumps core when running the regression tests with geqo_threshold = 2.  I would think that a similar patch might be needed in 7.3, but cannot duplicate the failure in that branch --- so for now, leave well enough alone. "/>
       <Document time="1051211367." author="momjian" document="Add PQunescapeBytea() and PQfeeMem() to the Win32 DLL list.  Karl Waclawek "/>
@@ -13294,6 +13313,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1051901005." author="meskes" document="Fixed double definition of ecpg_compat_mode. "/>
       <Document time="1051488583." author="tgl" document="Put back encoding-conversion step in processing of incoming queriesSEMICOLON I had inadvertently omitted it while rearranging things to support length-counted incoming messages.  Also, change the parser's API back to accepting a 'char *' query string instead of 'StringInfo', as the latter wasn't buying us anything except overhead.  (I think when I put it in I had some notion of making the parser API 8-bit-clean, but seeing that flex depends on null-terminated input, that's not really ever gonna happen.) "/>
       <Document time="1050540818." author="tgl" document="Various clarificationsSEMICOLON add a clear DRAFT markerSEMICOLON minor adjustments in some message types.  In particular add text/binary flag to StartCopyIn and StartCopyOut, so that client library can know what is expected or forthcoming. "/>
@@ -14451,6 +14472,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1051518551." author="tgl" document="Okay, I've had it with PQsetdbLogin having slightly different defaults than PQconnectdb.  Reimplement the former to use the same code as the latter.  Fix documentation omissions while at it. "/>
       <Document time="1050951255." author="momjian" document="Add mention of Novell Netware 6 port. "/>
       <Document time="1050898944." author="tgl" document="stddev() and variance() should return NULL when there is just one input value, per recent discussion on pgsql-general. "/>
@@ -15635,6 +15658,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1052029396." author="petere" document="Last round of reference page editing. "/>
       <Document time="1051765025." author="tgl" document="Documentation refers to box() function where it should say box_intersect(). Thanks to Wes Sheldah for finding this one. "/>
       <Document time="1051572649." author="tgl" document="Minor wordsmithing on .pgpass description. "/>
@@ -16817,6 +16841,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
       <Document time="1052037772." author="momjian" document="Disable alternate locations on Win32 because it doesn't support symlinks. "/>
       <Document time="1051222462." author="momjian" document="pgindent new Win32 files. "/>
       <Document time="1051020488." author="petere" document="More editing of reference pages. "/>
@@ -17975,6 +18001,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1051953198." author="momjian" document="Cleanup patch for exec() handling. "/>
       <Document time="1051655154." author="momjian" document="Remove unneeded define. "/>
       <Document time="1051415811." author="petere" document="Editing of more reference pages. "/>
@@ -19153,6 +19180,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="maintainability"/>
+<annotation name="portability"/>
       <Document time="1051823817." author="meskes" document="Added an option to force ecpg to also parse files includes via '#include' and some more Informix stuff. "/>
       <Document time="1051259843." author="tgl" document="const-ify info_cb() to match recent openssl releases.  Per Joe Conway. "/>
       <Document time="1051233934." author="momjian" document="Add Win32 Makefile for IPC stuff. "/>
@@ -20298,6 +20327,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1051948327." author="momjian" document="Handle clog structure in shared memory in exec() case, for Win32. "/>
       <Document time="1051496482." author="tgl" document="Fix plpgsql so that variables of composite types (rowtypes) can be declared without having to write %ROWTYPE.  If the declared type of a variable is a composite type, it'll be taken to be a row variable automatically. "/>
       <Document time="1051320562." author="tgl" document="Make [VACUUM] ANALYZE safe on zero-column tables. "/>
@@ -21443,6 +21474,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1051584038." author="momjian" document="Update German FAQ, from  Ian Barwick "/>
       <Document time="1051500133." author="tgl" document="Prevent coredump in current_schemas() if someone has just deleted a schema that was in our search path. "/>
       <Document time="1051255735." author="tgl" document="Fix breakage induced by yours truly in Kerberos and PAM code. "/>
@@ -22609,6 +22642,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
       <Document time="1051743852." author="tgl" document="Update to describe new set of globally-known contexts planned for support of extended query features in new FE/BE protocol.  TransactionCommandContext is gone (PortalContext replaces it for some purposes), and QueryContext has taken on a new meaning (MessageContext plays its old role). "/>
       <Document time="1051519933." author="tgl" document="Missed some corner cases (PGSERVICE mostly)... "/>
       <Document time="1051502213." author="tgl" document="Make getaddrinfo's behavior with NULL node parameter agree with the Linux man page for it.  This error was preventing CVS tip from accepting remote connections. "/>
@@ -23740,6 +23774,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="efficiency"/>
       <Document time="1051927367." author="momjian" document="SECOND ATTEMPT  Dump/read non-default GUC values for use by exec'ed backend, for Win32. "/>
       <Document time="1051926762." author="momjian" document="Dump/read non-default GUC values for use by exec'ed backends, for Win32. "/>
       <Document time="1051923273." author="tgl" document="Portal and memory management infrastructure for extended query protocol. Both plannable queries and utility commands are now always executed within Portals, which have been revamped so that they can handle the load (they used to be good only for single SELECT queries).  Restructure code to push command-completion-tag selection logic out of postgres.c, so that it won't have to be duplicated between simple and extended queries. initdb forced due to addition of a field to Query nodes. "/>

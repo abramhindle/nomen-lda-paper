@@ -2432,10 +2432,12 @@
       <Document time="1036209153." author="tgl" document="Arrange to compile flex output files as inclusions into other files (usually bison output files), not as standalone files.  This hack works around flex's insistence on including &lt;stdio.h&gt; before we are able to include postgres.hSEMICOLON postgres.h will already be read before the compiler starts to read the flex output file.  Needed for largefile support on some platforms. "/>
       <Document time="1035175664." author="momjian" document="Updates from Ian Barwick. "/>
       <Document time="1035087055." author="barry" document="Applied patch submitted by Mike Beachy to give a better error message if configure hasn't been run before trying to build. Also cleaned up the README file and removed some obsolete files.   Modified Files:  jdbc/README jdbc/build.xml  Removed Files:  jdbc/CHANGELOG jdbc/Implementation jdbc/jdbc.jpx "/>
+<annotation name="usability" comments=""/>
       <Document time="1035007785." author="momjian" document="&gt; Huh, I don't know where I got the idea you were (or someone else was?) &gt; in the position that attislocal should be reset.  I'll clean everything &gt; up and submit the patch I had originally made.  All right, this is it.  This patch merely checks if child tables have the column.  If atttypid and atttypmod are the same, the attributes' attinhcount is incrementedSEMICOLON else the operation is aborted.  If child tables don't have the column, recursively add it.  attislocal is not touched in any case.  Alvaro Herrera "/>
       <Document time="1034980879." author="momjian" document="Update /contrib for &quot;autocommit TO 'on'&quot;.  Create objects in public schema.  Make spacing/capitalization consistent.  Remove transaction block use for object creation.  Remove unneeded function GRANTs. "/>
       <Document time="1034841502." author="momjian" document="Add:  &gt; o Allow copy to understand BACKSLASHx as hex "/>
       <Document time="1034195206." author="momjian" document="Lock on the rule relation wasn't removed after adding the comment.  Added Tom's patch fix for heap_close.  Rod Taylor "/>
+<annotation name="functionality"/>
       <Document time="1033981802." author="ishii" document="Avoid PQisBusy/PQconsumeInput busy loop in case of PQisBusy returning false. per Tom Lane's suggestion. See:  Subject: Suggested change to pgbench From: Tom Lane &lt;tgl@sss.pgh.pa.us&gt; To: Tatsuo Ishii &lt;t-ishii@sra.co.jp&gt; Cc: pgsql-patches@postgreSQL.org Date: Sun, 06 Oct 2002 12:37:27 -0400  for more details. "/>
       <Files>
         <File name="contrib/earthdistance/sql/earthdistance.sql" count="1"/>
@@ -4271,9 +4273,11 @@
       <Document time="1036293781." author="tgl" document="Fix some misstatements in WAL parameter discussion. "/>
       <Document time="1036214181." author="tgl" document="Make it possible to run 'make installcheck' in contrib when building outside the source tree. "/>
       <Document time="1035191646." author="ishii" document="Update multibyte Japanese document "/>
+<annotation name="portability"/>
       <Document time="1035001334." author="tgl" document="Fix psql's BACKSLASHcopy to accept table names containing schemas, as well as a column list.  Bring its parsing of quoted names and quoted strings somewhat up to speed --- I believe it now handles all non-error cases the same way the backend would, but weird boundary conditions are not necessarily done the same way. "/>
       <Document time="1034663055." author="tgl" document="Fix psql to cope with autocommit off, at least during startup. Behavior of backslash commands (especially for large objects) may still require some thought. "/>
       <Document time="1034660905." author="tgl" document="Fix libpq startup code to work correctly in autocommit off mode. In passing, fix breakage for case where PGCLIENTENCODING is set in environment. "/>
+<annotation name="functionality"/>
       <Document time="1034584045." author="momjian" document="This trivial patch fixes a bunch of spelling mistakes in the contrib/dbmirror/README.dbmirror doc file.  Neil Conway "/>
       <Document time="1034454868." author="petere" document="Compute version number for docs on the fly. "/>
       <Document time="1034153978." author="momjian" document="Have SET not start transaction when autocommit off, with doc updates. "/>
@@ -6018,8 +6022,10 @@
       <Document time="1036463773." author="tgl" document="Brand CVS tip as 7.4devel. "/>
       <Document time="1036292528." author="tgl" document="Code review for recent patch to allow ALTER TABLE ADD COLUMN when a child table already has a matching column.  Acquire appropriate lock on child tableSEMICOLON do the right thing with any CHECK constraints attached to the new parent column. "/>
       <Document time="1036233721." author="momjian" document="Add:  &gt; * Acquire lock on a relation before building a relcache entry for it "/>
+<annotation name="reliability" comments=""/>
       <Document time="1036222983." author="momjian" document="Add:  &gt; * Support statement-level triggers and triggers on columns (Neil) "/>
       <Document time="1036220435." author="momjian" document="Re-add Win32 missing files, I think. "/>
+<annotation name="portability"/>
       <Document time="1036220307." author="momjian" document="Re-add Win32 files. "/>
       <Document time="1035880182." author="momjian" document="Update Giles email address. "/>
       <Document time="1035613025." author="momjian" document="Update BSD/OS as supported platform. "/>
@@ -7773,6 +7779,7 @@
       <Document time="1036410152." author="barry" document="Applied two patches from Kris Jurka.   - First fixes a problem with a recent patch allowing setNull on updateable     resultsets   - Second removed toLower() calls on database object names.  Leave it to     the caller to correctly pass lower, upper or mixed case.  The driver     already has methods that the caller can use to determine that postgres     stores identifiers in lowercase. (unless the identifier was quoted when     created).   Modified Files:  jdbc/org/postgresql/jdbc1/AbstractJdbc1DatabaseMetaData.java  jdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java "/>
       <Document time="1036211009." author="tgl" document="Need -I. to build outside source tree. "/>
       <Document time="1035240663." author="petere" document="Translation updates "/>
+<annotation name="portability"/>
       <Document time="1035189219." author="tgl" document="Since ANY is a reserved word, better suggest that ANY be quoted when used for the input type of an aggregate. "/>
       <Document time="1035072908." author="tgl" document="Invert logic in pg_exec_query_string() so that we set a snapshot for all utility statement types *except* a short list, per discussion a few days ago.  Add missing SetQuerySnapshot calls in VACUUM and REINDEX, and guard against calling REINDEX DATABASE from a function (has same problem as VACUUM). "/>
       <Document time="1035008200." author="momjian" document="It includes -Support for mirroring tables in different Schema's -Improved documentation for compiling with 7.1.x and 7.2.x -Fixes a buffer overrun bug.  Steven Singer "/>
@@ -7780,6 +7787,7 @@
       <Document time="1034653760." author="tgl" document="Make SPI's execution of querystrings follow the rules agreed to for command status at the interactive level.  SPI_processed, etc are set in the same way as the returned command status would have been set if the same querystring were issued interactively.  Per gripe from Michael Paesold 25-Sep-02. "/>
       <Document time="1034636667." author="petere" document="Translation updates "/>
       <Document time="1034537957." author="tgl" document="Make macaddr_in reject trailing garbage (except whitespace). Per gripe from Patrick Welche, 13-Oct-2002. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1034454823." author="petere" document="Handle indentation of verbatim environments in HTML output via CSS. "/>
       <Document time="1034323934." author="momjian" document="Prevent tv_sec from becoming negative in connection timeout code. "/>
       <Document time="1034111839." author="tgl" document="Move responsibility for setting QuerySnapshot for utility statements into postgres.cSEMICOLON make sure it happens for all cases that seem to need it. Perhaps it would be better to explicitly exclude just a few utility statement types from setting a snapshot? "/>
@@ -9547,13 +9555,17 @@
       <Document time="1035883470." author="momjian" document="Update comments. "/>
       <Document time="1035586984." author="momjian" document="Add:  &gt; * Allow limits on per-db/user connections "/>
       <Document time="1035528877." author="barry" document="Patch submitted by Kris Jurka to fix arrayindexoutofbounds exception caused by improper array initialization.   Modified Files:  jdbc/org/postgresql/jdbc1/AbstractJdbc1DatabaseMetaData.java "/>
+<annotation name="reliability" comments=""/>
       <Document time="1035173565." author="momjian" document="First step to removing /contrib/retep, with Peter Mount's approval. "/>
       <Document time="1035096950." author="barry" document="Applied patch from Teofilis Martisius to improve performance. Also removed some unused files and fixed the which needed a small change after the previous patch to build.xml.   Modified Files:  jdbc/Makefile jdbc/org/postgresql/core/Encoding.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1Connection.java  Removed Files:  jdbc/utils/CheckVersion.java jdbc/utils/buildDriver  jdbc/utils/changelog.pl "/>
+<annotation name="efficiency"/>
       <Document time="1035088313." author="tgl" document="Disallow aggregate functions in rule WHERE clauses.  Per gripe from Fritz Lehmann-Grube back in January. "/>
       <Document time="1035087055." author="barry" document="Applied patch submitted by Mike Beachy to give a better error message if configure hasn't been run before trying to build. Also cleaned up the README file and removed some obsolete files.   Modified Files:  jdbc/README jdbc/build.xml  Removed Files:  jdbc/CHANGELOG jdbc/Implementation jdbc/jdbc.jpx "/>
       <Document time="1035082305." author="tgl" document="Fix incomplete definition of ALTER TABLE ADD/DROP CONSTRAINT syntax. Add some verbiage about recent tweaks to behavior of ADD and DROP COLUMN when there are descendant tables. "/>
+<annotation name="functionality"/>
       <Document time="1035079836." author="barry" document="Applied patch submitted by Kris Jurka to result in a better error message under some circumstances and handle negative money values better.   Modified Files:  jdbc/org/postgresql/jdbc1/AbstractJdbc1ResultSet.java "/>
       <Document time="1034712257." author="tgl" document="Fix Linux dynloader code for pre-HAVE_DLOPEN systems, which evidently are still in use out there.  Per report from Brendan LeFebvre. "/>
+<annotation name="portability"/>
       <Document time="1034456479." author="momjian" document="Added:  &gt; o Allow psql BACKSLASHcopy to specify column names "/>
       <Document time="1034325719." author="momjian" document="Add tv_sec change for connection timeout suggested by author. "/>
       <Document time="1034133142." author="momjian" document="Again improve MemSet comments. "/>
@@ -11304,6 +11316,7 @@
       <Document time="1035246907." author="momjian" document="Add:  &gt; * Allow pg_dump to dump a specific schema "/>
       <Document time="1035174984." author="momjian" document="Done:  &gt; * -Move /contrib/retep to gborg.postgresql.org "/>
       <Document time="1034984128." author="tgl" document="Un-break createlang build. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1034194825." author="momjian" document="&gt; Alvaro Herrera &lt;alvherre@atentus.com&gt; writes: &gt; &gt; I'm looking at pg_dump/common.c:flagInhAttrs() and suspect that it can &gt; &gt; be more or less rewritten completely, and probably should to get rigth &gt; &gt; all the cases mentioned in the past attisinherited discussion.  Is this &gt; &gt; desirable for 7.3?  It can probably be hacked around and the rewrite &gt; &gt; kept for 7.4, but I think it will be much simpler after the rewrite. &gt; &gt; If it's a bug then it's fair game to fix in 7.3.  But keep in mind that &gt; pg_dump has to behave at least somewhat sanely when called against older &gt; servers ... will your rewrite behave reasonably if the server does not &gt; offer attinhcount values?  Nah.  I don't think it's worth it: I had forgotten that older versions should be supported.  I just left the code as is and added a version-specific test.  This patch allows pg_dump to dump correctly local definition of columns. In particular,  CREATE TABLE p1 (f1 int, f2 int)SEMICOLON CREATE TABLE p2 (f1 int)SEMICOLON CREATE TABLE c () INHERITS (p1, p2)SEMICOLON ALTER TABLE ONLY p1 DROP COLUMN f1SEMICOLON CREATE TABLE p3 (f1 int)SEMICOLON CREATE TABLE c2 (f1 int) INHERITS (p3)SEMICOLON  Will be dumped as CREATE TABLE p1 (f2 int)SEMICOLON CREATE TABLE p2 (f1 int)SEMICOLON CREATE TABLE c (f1 int) INHERITS (p1, p2)SEMICOLON CREATE TABLE c2 (f1 int) INHERITS (p3)SEMICOLON  (Previous version will dump CREATE TABLE c () INHERITS (p1, p2) CREATE TABLE c2 () INHERITS (p3) )  Alvaro Herrera "/>
       <Files>
         <File name="doc/src/sgml/recovery.sgml" count="1"/>
@@ -13090,11 +13103,13 @@
       <Document time="1035174940." author="momjian" document="Completely remove /contrib/retep, with Peter's approvalSEMICOLON  now on Source Forge. "/>
       <Document time="1035001536." author="tgl" document="Add missing #include &lt;errno.h&gt;. "/>
       <Document time="1034982687." author="momjian" document="Clean up for dblink autocommit OFF handling. "/>
+<annotation name="maintainability"/>
       <Document time="1034880710." author="tgl" document="Improve formatting of error message. "/>
       <Document time="1034753049." author="momjian" document="Fix script to handle autocommit = 'off' by prepending autocommit 'on' to the start of the psql commandline.  This is better than adding BEGIN/END because it handles multiple queries well, and allows the return code for psql to return the proper value. "/>
       <Document time="1034732050." author="momjian" document="Remove:  &lt; * Rename oid2name to relfilenode2name and install by default &lt; * Move /contrib/oid2name to /bin, rename to relfilenode2name "/>
       <Document time="1034579733." author="momjian" document="Improvements to Ian Barwick patch. "/>
       <Document time="1034578227." author="momjian" document="FAQ updates from Ian Barwick. "/>
+<annotation name="portability"/>
       <Document time="1034195035." author="momjian" document="   Well, this patch makes Makefile for contrib/rserv use the    contrib/contrib-global.mk library and _generally_ behave like    Makefiles for other contrib modules.    Besides it fixes Perl's interpolation of $libdir variable, which    should be passed to backend instead. This patch is done against    PostgreSQL 7.3b2     Besides, I want to thank Peter Eisentraut for his very friendly and    helpful attitude and politely ask him to check whether contrib    modules actually continue to work after he implements another    major change to their build process.  Alexey Borzov "/>
       <Files>
         <File name="contrib/retep/uk/org/retep/util/misc/WStringTokenizer.java" count="1"/>
@@ -14886,11 +14901,14 @@
       <Document time="1035658859." author="tgl" document="Add missing semicolons to a few PG_FUNCTION_INFO_V1 calls. "/>
       <Document time="1035496134." author="petere" document="Add introductory sections explaining what each book is about.  Remove Y2K statement. "/>
       <Document time="1035256209." author="momjian" document="Move odbc.sgml to gborg ODBC project. "/>
+<annotation name="maintainability"/>
+<annotation name="portability"/>
       <Document time="1035246753." author="momjian" document="Cleanup for CLUSTERDB failure:  On Sat, Oct 19, 2002 at 12:11:32AM +0200, Peter Eisentraut wrote: &gt; $ ./clusterdb &gt; psql: could not connect to server: No such file or directory &gt;         Is the server running locally and accepting &gt;         connections on Unix domain socket &quot;/tmp/.s.PGSQL.5432&quot;? &gt; psql: could not connect to server: No such file or directory &gt;         Is the server running locally and accepting &gt;         connections on Unix domain socket &quot;/tmp/.s.PGSQL.5432&quot;? &gt; clusterdb: While clustering peter, the following failed: &gt; $ &gt; &gt; This could probably handled a little more gracefully.  Yes, sorry.  A patch for this is attached.  Please apply.  Alvaro Herrera "/>
       <Document time="1035078822." author="barry" document="Backed out part of the change from 1.6.  The attempt to support int8 binds in such a way that indexes on int8 columns would be used (by quoting the value) caused other problems.  Will need to wait for the backend to properly fix the root problem.   Modified Files:  jdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java "/>
       <Document time="1034896628." author="barry" document="Fix in updateable result sets to handle binding null values correctly Patch submitted by Kris Jurka (applied with some modifications)   Modified Files:  jdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java "/>
       <Document time="1034754268." author="momjian" document="Improve appearance of SET command. "/>
       <Document time="1034714661." author="tgl" document="Fix unintentional breakage of COPY TO/FROM stdin.  Mea culpa. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1034649825." author="momjian" document="None. "/>
       <Document time="1034630111." author="momjian" document="libpq connection_timeout doesn't do subsecond timing, so make the code clear on that point. "/>
       <Document time="1034195268." author="momjian" document="set.patch updates an example in ref/set.sgml to have microsecond precision.  vacuum.patch updates ref/vacuum.sgml to explicitly state that an exclusive lock is not obtained during normal (non-FULL) vacuum.    Rod Taylor "/>
@@ -16678,12 +16696,14 @@
       <Document time="1035883357." author="momjian" document="Re-add getopt.c for MSWin psql. "/>
       <Document time="1035853518." author="momjian" document="Update from Neil Conway:  &lt; * Add floor(float8) and other missing functions &gt; * -Add floor(float8) and other missing functions 174c174 &lt; * Improve concurrency of hash indexes (Neil Conway) &gt; * Improve concurrency of hash indexes (Neil) 277c277 &lt; o Allow array declarations and other data types in PL/PgSQl DECLARE &gt; o Allow array declarations and other data types in PL/PgSQL DECLARE 293c293 &lt; * -Have pg_dump use ADD PRIMARY KEY after COPY, for performance (Neil Conway) &gt; * -Have pg_dump use ADD PRIMARY KEY after COPY, for performance (Neil) 474c474 &lt; * Precompile SQL functions to avoid overhead (Neil Conway) &gt; * Precompile SQL functions to avoid overhead (Neil) 549c549 &lt; * Neil is Neil Conway &lt;nconway@klamath.dyndns.org&gt; &gt; * Neil is Neil Conway &lt;neilc@samurai.com&gt; "/>
       <Document time="1035781225." author="momjian" document="fseeko NetBSD fix. "/>
+<annotation name="portability"/>
       <Document time="1035532050." author="momjian" document="Change to fseeko(), per Philip. "/>
       <Document time="1035422177." author="momjian" document="Make BSD/OS fseeko thread-safe. "/>
       <Document time="1035337491." author="momjian" document="Updated German FAQ, from Ian Barwick "/>
       <Document time="1035331275." author="petere" document="Update for test changes. "/>
       <Document time="1035095404." author="momjian" document="Add:  &gt; o Add GUC parameter to control the maximum number of rewrite cycles "/>
       <Document time="1035068447." author="tgl" document="Fix rewrite code so that rules are in fact executed in order by name, rather than being reordered according to INSTEAD attribute for implementation convenience. Also, increase compiled-in recursion depth limit from 10 to 100 rewrite cycles.  10 seems pretty marginal for situations where multiple rules exist for the same query.  There was a complaint about this recently, so I'm going to bump it up.  (Perhaps we should make the limit a GUC parameter, but that's too close to being a new feature to do in beta.) "/>
+<annotation name="functionality"/>
       <Document time="1034722496." author="momjian" document="Add:  &gt; * Move /contrib/oid2name to /bin, rename to relfilenode2name "/>
       <Document time="1034542505." author="tgl" document="Make SET really not start a transaction. "/>
       <Document time="1034234119." author="momjian" document="Update IN/EXISTS item. "/>
@@ -18430,6 +18450,7 @@
       <Document time="1036314152." author="momjian" document="Update FAQ_DEV. "/>
       <Document time="1036290040." author="tgl" document="During swap_relfilenodes, swap relation size statistic fields along with the relfilenode and toast fields.  This ensures that the newly-computed statistics will be available on completion of CLUSTER. "/>
       <Document time="1036181539." author="tgl" document="Avoid malloc(0) when printing a table of no columns.  On some platforms this returns NULL, which confuses the code. "/>
+<annotation name="portability"/>
       <Document time="1036109508." author="tgl" document="Avoid use of inline functions that are not declared static.  Needed to conform to C99's brain-dead notion of how inline functions should work. "/>
       <Document time="1035936581." author="momjian" document="Update ports list. "/>
       <Document time="1035935978." author="momjian" document="Update ports list. "/>
@@ -18439,6 +18460,7 @@
       <Document time="1035677742." author="momjian" document="Update ports list. "/>
       <Document time="1035423567." author="momjian" document="Improve coding style of new function. "/>
       <Document time="1035077000." author="tgl" document="Fix case where a function in FROM returns a scalar type, but is referred to with whole-tuple syntax. "/>
+<annotation name="functionality"/>
       <Document time="1034583652." author="momjian" document="I have attached two patches as per:  1) pltcl: Add SPI_freetuptable() calls to avoid memory leaks (Me + Neil Conway) Change sprintf()s to snprintf()s (Neil Conway) Remove header files included elsewhere (Neil Conway)  2)plpython: Add SPI_freetuptable() calls to avoid memory leaks Cosemtic change to remove a compiler warning   Notes:  I have tested pltcl.c for  a) the original leak problem reported for the repeated call of spi_exec in a TCL fragment and  b) the subsequent report resulting from the use of spi_exec -array in a TCL fragment.  The plpython.c patch is exactly the same as that applied to make revision 1.23, the plpython_schema.sql and feature.expected sections of the patch are also the same as last submited, applied and subsequently reversed out. It remains untested by me (other than via make check). However, this should be safe provided PyString_FromString() _copies_ the given string to make a PyObject.   Nigel J. Andrews "/>
       <Document time="1034373317." author="momjian" document="Update FAQ. "/>
       <Document time="1034372740." author="momjian" document="Update Russian FAQ. "/>
@@ -20175,10 +20197,13 @@
     <Topic>
       <Document time="1036488897." author="tgl" document="Fix broken markup. "/>
       <Document time="1036488891." author="tgl" document="Fix broken markup. "/>
+<annotation name="portability"/>
       <Document time="1036437942." author="tgl" document="Remove unnecessary inclusion, per Andreas. "/>
       <Document time="1036280481." author="tgl" document="Remove encoding lookups from grammar stage, push them back to places where it's safe to do database access.  Along the way, fix core dump for 'DEFAULT' parameters to CREATE DATABASE.  initdb forced due to change in pg_proc entry. "/>
       <Document time="1035157090." author="tgl" document="Fix core dump recently introduced into pgbench. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1034475889." author="tgl" document="Fix for bug #795: two clauses that seem redundant are not really, if one is pushed down into an outer join and the other is not. "/>
+<annotation name="functionality"/>
       <Document time="1034326944." author="momjian" document="Add replication, encryption, and cross database FAQ items. "/>
       <Document time="1034324204." author="momjian" document="Oops, back out newNode changes.  We are not ready for that yet. "/>
       <Files>
@@ -21914,6 +21939,7 @@
     </Topic>
     <Topic>
       <Document time="1036438041." author="tgl" document="Fix inclusion order, per Andreas. "/>
+<annotation name="functionality"/>
       <Document time="1036270452." author="tgl" document="Clean up a few fprintf(stderr)'s that should be elog's. "/>
       <Document time="1036222383." author="tgl" document="Fix permissions-checking bugs and namespace-search-path bugs in CONVERSION code.  Still need to figure out what to do about inappropriate coding in parsing. "/>
       <Document time="1036218577." author="momjian" document="Update port list. "/>
@@ -21927,6 +21953,7 @@
       <Document time="1035246907." author="momjian" document="Add:  &gt; * Allow pg_dump to dump a specific schema "/>
       <Document time="1035161251." author="tgl" document="Fix potential problem with btbulkdelete deleting an indexscan's current item, if the page containing the current item is split while the indexscan is stopped and holds no read-lock on the page.  The current item might move right onto a page that the indexscan holds no pin on.  In the prior code this would allow btbulkdelete to reach and possibly delete the item, causing 'my bits moved right off the end of the world!' when the indexscan finally resumes.  Fix by chaining read-locks to the right during _bt_restscan and requiring btbulkdelete to LockBufferForCleanup on every page it scans, not only those with deletable items.  Per my pghackers message of 25-May-02.  (Too bad no one could think of a better way.) "/>
       <Document time="1035083360." author="tgl" document="Fix inconsistent formatting. "/>
+<annotation name="portability"/>
       <Document time="1035008751." author="momjian" document="Fix compile failure caused by new patch. "/>
       <Document time="1034820393." author="petere" document="Put the disk information all in one chapter. "/>
       <Document time="1034757480." author="momjian" document="Fix from Joe on timeout code. "/>
@@ -23690,6 +23717,7 @@
     <Topic>
       <Document time="1036317129." author="tgl" document="Fix dblink regression test so that it works when repeated: don't create a second database, just loop back to 'regression'.  Patch from Joe Conway 10/22/02. "/>
       <Document time="1036210612." author="tgl" document="Fix incorrect subdir value. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1036196398." author="tgl" document="Reduce messages associated with shell-type function arguments/results from WARNING to NOTICE, since they are expected messages in common cases. "/>
       <Document time="1036129223." author="tgl" document="Fix some bogus comments. "/>
       <Document time="1035881811." author="momjian" document="Clean up markup in ports list. "/>
@@ -23702,6 +23730,7 @@
       <Document time="1035244005." author="tgl" document="Make CREATE/ALTER/DROP USER/GROUP transaction-safe, or at least pretty nearly so, by postponing write of flat password file until transaction commit. "/>
       <Document time="1034988242." author="tgl" document="Fix breakage that had crept into setlocale() usage: once again we've been bit by the fact that the locale functions return pointers to modifiable variables.  I added some comments that might help us avoid the mistake in future. "/>
       <Document time="1034454715." author="petere" document="Fix linking problem. "/>
+<annotation name="functionality"/>
       <Document time="1034454591." author="petere" document="Replace &amp;versionSEMICOLON by appropriate version. "/>
       <Files>
         <File name="contrib/dblink/sql/dblink.sql" count="1"/>
@@ -25441,6 +25470,7 @@
     <Topic>
       <Document time="1036214138." author="momjian" document="Add:  &gt; * Allow psql to do table completion for SELECT * FROM schema_part and &gt;   table completion for SELECT * FROM schema_name. "/>
       <Document time="1036212337." author="tgl" document="Fix contrib/rserv to install successfully when built outside source tree. (Not that it will actually work with 7.3, I fear.) "/>
+<annotation name="functionality"/>
       <Document time="1035958550." author="momjian" document="Remove /src/utils.  Is final cleanup of getopt.c resurection. "/>
       <Document time="1035328523." author="momjian" document="Allow 8-byte off_t to properly pg_dump, from Philip Warner with mods by Bruce. "/>
       <Document time="1035252378." author="tgl" document="Fix places that were using IsTransactionBlock() as an (inadequate) check that they'd get to commit immediately on finishing.  There's now a centralized routine PreventTransactionChain() that implements the necessary tests. "/>
@@ -27189,6 +27219,7 @@
       <Document time="1036208764." author="tgl" document="Ooops, forgot to fix contrib regression tests for WARNING/NOTICE change. "/>
       <Document time="1036121839." author="tgl" document="Add missing #include &lt;errno.h&gt;, per gripe from Alessio Bragadini. "/>
       <Document time="1036120722." author="tgl" document="Update description of timestamp types for 7.3 implementation. "/>
+<annotation name="portability"/>
       <Document time="1035881062." author="momjian" document="Update regression for FreeBSD 4.7, for Larry Rosenman "/>
       <Document time="1035679540." author="momjian" document="Update ports. "/>
       <Document time="1035677095." author="momjian" document="Update ports. "/>
@@ -27196,6 +27227,7 @@
       <Document time="1035415436." author="momjian" document="Page BACKSLASHh output and centralize psql paging code in PageOutput(). "/>
       <Document time="1035331389." author="petere" document="Update build system. "/>
       <Document time="1035092298." author="tgl" document="Move BeOS and QNX4 to unsupported-platform list, until someone cares to expend the effort to update them for new semaphore code. "/>
+<annotation name="portability"/>
       <Document time="1035010869." author="momjian" document="Back out Alvaro's patch until regression tests pass. "/>
       <Document time="1035007697." author="momjian" document="This patch adds some missing functions for float8 math operations, specifically ceil(), floor(), and sign(). There may be other functions that need to be added, but this is a start. I've included some simple regression tests.  Neil Conway "/>
       <Document time="1034847232." author="barry" document="Fixed support in jdbc for 7.3 server autocommit.  With these changes the jdbc regression tests pass for both autocommit on and autocommit off   Modified Files:  jdbc/org/postgresql/jdbc1/AbstractJdbc1Connection.java  jdbc/org/postgresql/test/jdbc2/ConnectionTest.java "/>
@@ -28956,8 +28988,10 @@
       <Document time="1035523997." author="momjian" document="Allow fseeko in pg_dump only if fseeko() will work for all supported file sizes. "/>
       <Document time="1035516955." author="tgl" document="Code review for connection timeout patch.  Avoid unportable assumption that tv_sec is signedSEMICOLON return a useful error message on timeout failureSEMICOLON honor PGCONNECT_TIMEOUT environment variable in PQsetdbLoginSEMICOLON make code obey documentation statement that timeout=0 means no timeout. "/>
       <Document time="1035443464." author="momjian" document="Add fseeko for NetBSD. "/>
+<annotation name="portability"/>
       <Document time="1035308819." author="tgl" document="Specify that we need bison &gt;= 1.50. "/>
       <Document time="1035244549." author="tgl" document="Avoid using IsTransactionBlock() in DeferredTriggerSetState()SEMICOLON no real need for this optimization, and it's too easily fooled anyway. "/>
+<annotation name="efficiency"/>
       <Document time="1035075044." author="tgl" document="Make psql's BACKSLASHdf display functions that return sets as having return type 'setof something'SEMICOLON formerly you could not tell at all that the function returns set. "/>
       <Document time="1034628688." author="tgl" document="Arrange to copy relcache's trigdesc structure at the start of any query that uses it.  This ensures that triggers will be applied consistently throughout a query even if someone commits changes to the relation's pg_class.reltriggers field meanwhile.  Per crash report from Laurette Cisneros. While at it, simplify memory management in relcache.c, which no longer needs the old hack to try to keep trigger info in the same place over a relcache entry rebuild.  (Should try to fix rd_att and rewrite-rule access similarly, someday.)  And make RelationBuildTriggers simpler and more robust by making it build the trigdesc in working memory and then CopyTriggerDesc() into cache memory. "/>
       <Document time="1034478574." author="tgl" document="psql thought that backslash is an escape character inside double quotes. It isn't. "/>
@@ -30699,6 +30733,7 @@
     <Topic>
       <Document time="1036305046." author="momjian" document="This patch adds information to the documentation on .pgpass and creates additional index entries for it.  Oliver Elphick "/>
       <Document time="1035964853." author="momjian" document="Clean up Unixware entry for Larry Rosenman "/>
+<annotation name="portability"/>
       <Document time="1035883215." author="momjian" document="Re-add getopt.c. "/>
       <Document time="1035598652." author="tgl" document="Add dummy variable declaration to PG_FUNCTION_INFO_V1() to prevent 'empty declaration' warnings from compilers that care about such things. Per discussion back before 7.2 releaseSEMICOLON we didn't do it then because we'd already missed all the beta cycle ... "/>
       <Document time="1035511740." author="tgl" document="Function-call-style type coercions should be treated as explicit coercions, not implicit ones.  For example, 'select abstime(1035497293)' should succeed because there is an explicit binary coercion from int4 to abstime. "/>
@@ -32450,6 +32485,7 @@
       <Document time="1035220171." author="meskes" document="Merged ecpg_big_bison back into HEAD "/>
       <Document time="1035128028." author="ishii" document="Returns exit status 1 if invalid encoding name or encoding number is given. "/>
       <Document time="1035079858." author="tgl" document="Fix within-function memory leaks in the various PLs' interfaces to SPI_prepare: they all save the prepared plan into topCxt, and so the procCxt copy that's actually returned by SPI_prepare ought to be freed. Diagnosis and plpython fix by Nigel Andrews, followup for other PLs by Tom Lane. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1035079305." author="tgl" document="Fix pltcl self-test for recent changes to elog. "/>
       <Document time="1035008606." author="momjian" document="Remove mention of utils/getopt.c.  Not used anymore. "/>
       <Document time="1034987637." author="tgl" document="Make 'dummy' declarations in header files be 'extern int no_such_variable' instead of 'extern int errno'SEMICOLON the latter is unsafe according to the ANSI C standard, as well as in practice on some platforms. "/>
@@ -34209,12 +34245,14 @@
     </Topic>
     <Topic>
       <Document time="1036110329." author="tgl" document="Fix miscalculation of remaining free space during tuple chain moving. Only affects machines where MAXALIGN &gt; 4, and is a boundary-condition case even there, but still surprising that it's not been identified before.  Also reduce tuple chain move give-up messages from WARNING to DEBUG1, since they are not unexpected conditions. "/>
+<annotation name="functionality"/>
       <Document time="1036049460." author="momjian" document="Clean up gram.y trailing spaces. "/>
       <Document time="1035515953." author="tgl" document="Fix some places that were unportably assuming struct timeval's tv_sec field is signed.  Clean up casting. "/>
       <Document time="1035237845." author="petere" document="Improve ECPG documentation. "/>
       <Document time="1035180697." author="tgl" document="Fix example of doing a restore. "/>
       <Document time="1035178933." author="momjian" document="SET autocommit no longer needed in /contrib because pg_regress.sh does it automatically now on regression session startup. "/>
       <Document time="1035161882." author="momjian" document="Remove trailing blanks in cvs.sgml. "/>
+<annotation name="portability"/>
       <Document time="1035096681." author="momjian" document="Add:  &gt; * Make a transaction-safe TRUNCATE "/>
       <Document time="1034993135." author="petere" document="Improve formatting of --help output. "/>
       <Document time="1034912050." author="momjian" document="Update for tables returning function, item 5.3, from Joe Conway. "/>
@@ -36001,10 +36039,12 @@
       <Document time="1036448069." author="tgl" document="Remove extraneous semicolons after routine bodies.  These don't bother gcc, but some other compilers don't like 'em. "/>
       <Document time="1036197189." author="tgl" document="Reduce a couple of debugging messages from LOG to DEBUG1 category. "/>
       <Document time="1036186352." author="tgl" document="Correct ordering of geometry/freebsd entries, add one for freebsd5. "/>
+<annotation name="portability"/>
       <Document time="1035959292." author="momjian" document="Add additional ORDER BY to join regression test, per Tatsuo. "/>
       <Document time="1035938133." author="momjian" document="Add popen/pclose -&gt; _popen/_pclose() mapping for Win32. "/>
       <Document time="1035863685." author="momjian" document="Add ORDER BY to join regression test. "/>
       <Document time="1035237924." author="petere" document="Remove obsoleted stuff merged in from branch. "/>
+<annotation name="maintainability"/>
       <Document time="1035097136." author="momjian" document="Update char/varchar()/text/bytea to mention they have similar performance characteristics. "/>
       <Document time="1035089935." author="tgl" document="Rule rewriter was doing the wrong thing with conditional INSTEAD rules whose conditions might yield NULL.  The negated qual to attach to the original query is properly 'x IS NOT TRUE', not 'NOT x'.  This fix produces correct behavior, but we may be taking a performance hit because the planner is much stupider about IS NOT TRUE than it is about NOT clauses.  Future TODO: teach prepqual, other parts of planner how to cope with BooleanTest clauses more effectively. "/>
       <Document time="1035005743." author="momjian" document="Make regression tests safe for autocommit = 'off'. "/>

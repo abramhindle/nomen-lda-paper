@@ -2265,6 +2265,9 @@
       <Document time="1054224017." author="meskes" document="Parse forward definiton of structs. "/>
       <Document time="1054177576." author="tgl" document="Knock down a couple more lappend() hotspots for large WHERE clauses. "/>
       <Document time="1053855057." author="momjian" document="Clean up our static cbrt() implementation in float.c. "/>
+<annotation name="maintainability"/>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
       <Document time="1053477310." author="tgl" document="Fix coredump in pg_get_triggerdef, ensure function name is schema- qualified when necessary, simplify argument-printing code. "/>
       <Document time="1053056367." author="tgl" document="Revert change of inclusion order for pg_config_os.hSEMICOLON this broke plperl on Linux and would have who knows what unpleasant effects on other platforms. If you need another include file for Windows, then add itSEMICOLON don't go messing with the semantics of every other port's include files. "/>
       <Document time="1052937454." author="meskes" document="        - Added more compatibility functions. - Accept CPP defines for type definitions. - Do not parse system include files automatically for Informix mode "/>
@@ -3734,6 +3737,7 @@
       <Document time="1053642721." author="tgl" document="Update release history for impending 7.3.3 release. "/>
       <Document time="1053642705." author="tgl" document="Update release history for impending 7.3.3 release. "/>
       <Document time="1053638428." author="petere" document="Fix compilation on Cygwin. "/>
+<annotation name="portability"/>
       <Document time="1052604109." author="tgl" document="Adjust CreateCheckpoint so that buffer dumping activities and cleanup of dead xlog segments are not considered part of a critical section.  It is not necessary to force a database-wide panic if we get a failure in these operations.  Per recent trouble reports. "/>
       <Document time="1052604091." author="tgl" document="Adjust CreateCheckpoint so that buffer dumping activities and cleanup of dead xlog segments are not considered part of a critical section.  It is not necessary to force a database-wide panic if we get a failure in these operations.  Per recent trouble reports. "/>
       <Document time="1052432196." author="tgl" document="Update 3.0 protocol support to match recent agreements about how to handle multiple 'formats' for data I/O.  Restructure CommandDest and DestReceiver stuff one more time (it's finally starting to look a bit clean though).  Code now matches latest 3.0 protocol document as far as message formats go --- but there is no support for binary I/O yet. "/>
@@ -5194,6 +5198,9 @@
     </Topic>
     <Topic>
       <Document time="1054582682." author="meskes" document="Fixed segfault in forward definition parsing. "/>
+<annotation name="reliability" comments=""/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1054197588." author="barry" document="clean up warnings produced by Eclipse "/>
       <Document time="1054184082." author="tgl" document="Fix stupid oversight :-( "/>
       <Document time="1053722075." author="momjian" document="Place statement_timeout in proper order in docs, from Bruno Wolff III. "/>
@@ -6677,6 +6684,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
       <Document time="1054362311." author="momjian" document="Add item about sending success stories to http://advocacy.postgresql.org. "/>
       <Document time="1054195448." author="barry" document="Adding .cvsignore files for Eclipse IDE "/>
       <Document time="1053743600." author="tgl" document="Improve implementation of btrim/ltrim/rtrim: provide a special case for single-byte encodings, and a direct C implementation of the single-argument forms (where spaces are always what gets trimmed).  This is in preparation for using rtrim1() as the bpchar-to-text cast operator, but is a useful performance improvement even if we decide not to do that. "/>
@@ -8162,6 +8171,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1054594829." author="tgl" document="Make the world at least marginally safe for usernames with embedded spaces. Per recent gripe. "/>
       <Document time="1054586346." author="momjian" document="Update Russian FAQ, from Viktor Vislobokov "/>
       <Document time="1054250134." author="tgl" document="Don't explicitly close() the session socket during backend exitSEMICOLON instead leave it for the kernel to do after the process dies.  This allows clients to wait for the backend to exit if they wish (after sending X message, wait till EOF is detected on the socket). "/>
@@ -9642,6 +9653,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="efficiency"/>
+<annotation name="portability"/>
       <Document time="1054340590." author="tgl" document="Small performance improvement for hash joins and hash aggregation: when the plan is ReScanned, we don't have to rebuild the hash table if there is no parameter change for its child node.  This idea has been used for a long time in Sort and Material nodes, but was not in the hash code till now. "/>
       <Document time="1054078614." author="petere" document="Internationalize interactive yes/no responses. "/>
       <Document time="1053763146." author="momjian" document="Add cost estimate discussion to TODO.detail. "/>
@@ -11090,6 +11103,7 @@
       <Document time="1053922287." author="tgl" document="Cause CHAR(n) to TEXT or VARCHAR conversion to automatically strip trailing blanks, in hopes of reducing the surprise factor for newbies.  Remove redundant operators for VARCHAR (it depends wholly on TEXT operations now). Clean up resolution of ambiguous operators/functions to avoid surprising choices for domains: domains are treated as equivalent to their base types and binary-coercibility is no longer considered a preference item when choosing among multiple operators/functions.  IsBinaryCoercible now correctly reflects the notion that you need *only* relabel the type to get from type A to type B: that is, a domain is binary-coercible to its base type, but not vice versa.  Various marginal cleanup, including merging the essentially duplicate resolution code in parse_func.c and parse_oper.c.  Improve opr_sanity regression test to understand about binary compatibility (using pg_cast), and fix a couple of small errors in the catalogs revealed thereby. Restructure &quot;special operator&quot; handling to fetch operators via index opclasses rather than hardwiring assumptions about names (cleans up the pattern_ops stuff a little). "/>
       <Document time="1053604718." author="meskes" document="ecpg now recognizes named structs/unions. So you don't have to list the whole definition everytime you declare a variable anymore. "/>
       <Document time="1053092575." author="meskes" document="Fixed incorrect include and another typo. Sorry, the include did not create a warning/error/problem on my machine, so I didn't notice it. "/>
+<annotation name="functionality"/>
       <Document time="1052446795." author="tgl" document="Reinstate pg_type's typsend and typreceive columns.  They don't do much yet, but they're there.  Also some editorial work on CREATE TYPE reference page. "/>
       <Document time="1052269264." author="tgl" document="Ensure that an Execute operation can't send tuples in cases where Describe would claim that no tuples will be returned.  Only affects SELECTs added to non-SELECT base queries by rewrite rules.  If you want to see the output of such a select, you gotta use 'simple Query' protocol. "/>
       <Document time="1052228905." author="meskes" document="Added rfmtlong compatibility function. "/>
@@ -12581,6 +12595,7 @@
       <Document time="1053637988." author="tgl" document="Add defense against possibility that tzname[] doesn't exist. "/>
       <Document time="1052839754." author="meskes" document="Fixed order of include file search path. "/>
       <Document time="1052607870." author="tgl" document="Make use of new error context stack mechanism to allow random errors detected during buffer dump to be labeled with the buffer location. For example, if a page LSN is clobbered, we now produce something like ERROR:  XLogFlush: request 2C000000/8468EC8 is not satisfied --- flushed only to 0/8468EF0 CONTEXT:  writing block 0 of relation 428946/566240 whereas before there was no convenient way to find out which page had been trashed. "/>
+<annotation name="maintainability"/>
       <Document time="1052267186." author="tgl" document="Restructure command destination handling so that we pass around DestReceiver pointers instead of just CommandDest values.  The DestReceiver is made at the point where the destination is selected, rather than deep inside the executor.  This cleans up the original kluge implementation of tstoreReceiver.c, and makes it easy to support retrieving results from utility statements inside portals.  Thus, you can now do fun things like Bind and Execute a FETCH or EXPLAIN command, and it'll all work as expected (e.g., you can Describe the portal, or use Execute's count parameter to suspend the output partway through).  Implementation involves stuffing the utility command's output into a Tuplestore, which would be kind of annoying for huge output sets, but should be quite acceptable for typical uses of utility commands. "/>
       <Files>
         <File name="src/backend/tcop/pquery.c" count="1"/>
@@ -14034,6 +14049,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1054456293." author="momjian" document="Add:  &gt; * Add config variable to prevent auto-adding missing FROM-clause tables "/>
       <Document time="1054198113." author="barry" document="Applied patch from Fernando Nasser to improve buffer sizes to avoid unnecessary resizing. "/>
       <Document time="1053030923." author="momjian" document="Allow Win32 to compile under MinGW.  Major changes are:          Win32 port is now called 'win32' rather than 'win'         add -lwsock32 on Win32         make gethostname() be only used when kerberos4 is enabled         use /port/getopt.c         new /port/opendir.c routines         disable GUC unix_socket_group on Win32         convert some keywords.c symbols to KEYWORD_P to prevent conflict         create new FCNTL_NONBLOCK macro to turn off socket blocking         create new /include/port.h file that has /port prototypes, move           out of c.h         new /include/port/win32_include dir to hold missing include files         work around ERROR being defined in Win32 includes "/>
@@ -15537,6 +15553,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1054593384." author="momjian" document="Add data partitioning idea to tablespaces discussion. "/>
       <Document time="1054261801." author="tgl" document="Ensure that in all flex lexers that are part of the backend, a yy_fatal_error() call results in elog(ERROR) not exit().  This was already fixed in the main lexer and plpgsql, but extend same technique to all the other dot-l files.  Also, on review of the possible calls to yy_fatal_error(), it seems safe to use elog(ERROR) not elog(FATAL). "/>
       <Document time="1054184953." author="tgl" document="Add a regression test to catch future silliness in the index-building area... "/>
@@ -16989,6 +17007,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
       <Document time="1054589176." author="momjian" document="Add:  &gt; * Allow SET CONSTRAINTS to be qualified by schema/table "/>
       <Document time="1054542904." author="momjian" document="Update Emacs settings, from Andrew Dunstan "/>
       <Document time="1054198364." author="barry" document="Applied patch from Fernando Nasser to fix up small type error "/>
@@ -18452,6 +18471,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="efficiency"/>
+<annotation name="functionality"/>
       <Document time="1053989916." author="tgl" document="Fix misstatement in release-notes item. "/>
       <Document time="1053989906." author="tgl" document="Fix misstatement in release-notes item. "/>
       <Document time="1053932200." author="momjian" document="Add:  &gt; * Allow UPDATE to use SET col = DEFAULT "/>
@@ -19933,6 +19955,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
       <Document time="1054594765." author="momjian" document="In src/include/mb/pg_wchar.h we have:  #define PG_ENCODING_BE_LAST PG_ISO_8859_8 #define PG_ENCODING_FE_LAST PG_WIN1256  but the last client encoding in the enum list is actually PG_GB18030 and it seems that  #define PG_ENCODING_IS_CLIEN_ONLY(_enc) BACKSLASH                 (((_enc) &gt; PG_ENCODING_BE_LAST &amp;&amp; (_enc) &lt;= PG_ENCODING_FE_LAST)  can never be true.  I think the define should read #define PG_ENCODING_FE_LAST PG_GB18030  On the other hand, perhaps no-one cares, because PG_ENCODING_IS_CLIEN_ONLY is never used.  -- Oliver Elphick                                Oliver.Elphick@lfix.co.uk "/>
       <Document time="1054593751." author="momjian" document="Add:  &gt; * Allow a single index to index multiple tables (for inheritance and subtables) 408a410 &gt; * Improve the planner to use CHECK constraints to prune the plan (for subtables) 418a421 &gt; * Allow partitioning of table into multiple subtables 419a423 &gt; T "/>
       <Document time="1054298340." author="meskes" document="Sync and some minor cleanup/fixing work plus an EXEC SQL DESCRIBE prototype. "/>
@@ -21390,6 +21413,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1054422214." author="tgl" document="markTargetListOrigin neglected to handle outer-scope Vars properlySEMICOLON per report from Joe Conway. "/>
       <Document time="1054353310." author="tgl" document="Cause pg_dumpall to support the -a, -s, -x options of pg_dump. "/>
       <Document time="1054060559." author="meskes" document="Allow input from stdin and output to stdout. "/>
@@ -22940,6 +22964,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="efficiency"/>
+<annotation name="portability"/>
       <Document time="1054349715." author="tgl" document="Cause pg_dumpall to include GRANT/REVOKE for database-level permissions in its output.  Make it work with server versions back to 7.0, too. "/>
       <Document time="1054192892." author="barry" document="Initial attempt to integrate in V3 protocol support.  This is still a work in progress, although all RTs pass using the V3 protocol on a 7.4 database and also pass using the V2 protocol on a 7.3 database. SSL support is known not to work.   Modified Files:  jdbc/org/postgresql/PGConnection.java  jdbc/org/postgresql/errors.properties  jdbc/org/postgresql/core/BaseConnection.java  jdbc/org/postgresql/core/Encoding.java  jdbc/org/postgresql/core/Field.java  jdbc/org/postgresql/core/PGStream.java  jdbc/org/postgresql/core/QueryExecutor.java  jdbc/org/postgresql/core/StartupPacket.java  jdbc/org/postgresql/fastpath/Fastpath.java  jdbc/org/postgresql/fastpath/FastpathArg.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1Connection.java  jdbc/org/postgresql/test/jdbc2/BlobTest.java  jdbc/org/postgresql/test/jdbc2/CallableStmtTest.java  jdbc/org/postgresql/test/jdbc2/MiscTest.java  jdbc/org/postgresql/test/jdbc3/Jdbc3TestSuite.java "/>
       <Document time="1054175569." author="tgl" document="Fix some planner performance problems with large WHERE clauses, by introducing new 'FastList' list-construction subroutines to use in hot spots.  This avoids the O(N^2) behavior of repeated lappend's by keeping a tail pointer, while not changing behavior by reversing list order as the lcons() method would do. "/>
@@ -24400,6 +24426,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1054594303." author="momjian" document="Add:  &gt; * Allow logging of only data definition(DDL), or DDL and modification statements "/>
       <Document time="1054364097." author="momjian" document="Add:  &gt; * Prevent whole-row references from leaking memory, e.g. SELECT COUNT(tab.*) "/>
       <Document time="1054255236." author="tgl" document="Adopt latest bison's spelling of 'syntax error' rather than 'parse error' for grammar-detected problems.  Revert Makefile hack that kept it looking like the pre-bison-1.875 output. "/>
@@ -25841,6 +25869,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1054592216." author="momjian" document="Add Turkish FAQ, from Devrim GUNDUZ. "/>
       <Document time="1054580463." author="momjian" document="Update URL to point to proper location. "/>
       <Document time="1054152235." author="tgl" document="Replace functional-index facility with expressional indexes.  Any column of an index can now be a computed expression instead of a simple variable. Restrictions on expressions are the same as for predicates (only immutable functions, no sub-selects).  This fixes problems recently introduced with inlining SQL functions, because the inlining transformation is applied to both expression trees so the planner can still match them up.  Along the way, improve efficiency of handling index predicates (both predicates and index expressions are now cached by the relcache) and fix 7.3 oversight that didn't record dependencies of predicate expressions. "/>
@@ -27366,6 +27396,7 @@
     <Topic>
       <Document time="1054315322." author="meskes" document="Create a real prototype function for describe. "/>
       <Document time="1054160349." author="tgl" document="Fix things so that an error occuring during standalone-backend processing in initdb will result in exit(1), allowing the initdb script to realize that there's something wrong. "/>
+<annotation name="functionality"/>
       <Document time="1054157102." author="tgl" document="In bootstrap and standalone-backend modes, do not sort LOG elevel out of orderSEMICOLON the 'server log' output is actually client output in these scenarios and we ought to treat elevels the same way as in the client case.  This allows initdb to not send backend stderr to /dev/null anymore, which makes it much more likely that people will notice problems during initdb. "/>
       <Document time="1053717758." author="meskes" document="Forgot these. "/>
       <Document time="1053650336." author="tgl" document="Update for 7.3.3. "/>
@@ -28819,6 +28850,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
+<annotation name="efficiency"/>
       <Document time="1054164988." author="tgl" document="Fix breakage of LINUX_PROFILE code due to recent Windows changes. "/>
       <Document time="1053443127." author="meskes" document="Reversed my incorrect fix. "/>
       <Document time="1053379434." author="tgl" document="Back-patch change to avoid O(N^2) behavior with lots of deferred triggers, by making deferredTriggerInvokeEvents only scan events added since it last ran. "/>
@@ -30262,6 +30296,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1054259087." author="barry" document="one more change to correctly support the removeall of autocommit "/>
       <Document time="1054246122." author="tgl" document="AFAICT, none of our shared libraries are anywhere near big enough to need -fPIC on HPPA.  Reduce to -fpic. "/>
       <Document time="1054110928." author="momjian" document="Add info about selecting a random row. "/>

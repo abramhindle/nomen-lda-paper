@@ -2699,10 +2699,12 @@
       <Author name="pgsql" count="1"/>
     </Authors>
     <Topic>
+<annotation name="portability"/>
       <Document time="1039081109." author="momjian" document="Document get/set bit/byte functions. "/>
       <Document time="1039056187." author="momjian" document="Update docs mention of query string for debug_ commands, from Joseph Shraibman. "/>
       <Document time="1038971359." author="momjian" document="Deal with cases where getpeereid _and_ another creditial method is supported. "/>
       <Document time="1038806914." author="tgl" document="Fix dependency generation for multicolumn foreign keys.  From Adam Buraczewski. "/>
+<annotation name="functionality"/>
       <Document time="1038806909." author="tgl" document="Fix dependency generation for multicolumn foreign keys.  From Adam Buraczewski. "/>
       <Document time="1038037270." author="tgl" document="Release note improvements (Neil, Tom) "/>
       <Document time="1038037263." author="tgl" document="Release note improvements (Neil, Tom) "/>
@@ -4839,9 +4841,11 @@
       <Document time="1039022622." author="darcy" document="Remove typprtlen from getdescr() as it is not available in 7.3.  Return -1 for that field so that existing programs don't break. "/>
       <Document time="1038623950." author="tgl" document="Tighten selection of equality and ordering operators for grouping operations: make sure we use operators that are compatible, as determined by a mergejoin link in pg_operator.  Also, add code to planner to ensure we don't try to use hashed grouping when the grouping operators aren't marked hashable. "/>
       <Document time="1038615938." author="tgl" document="Repair prehistoric logic error in lseg_eq and lseg_ne. "/>
+<annotation name="functionality"/>
       <Document time="1038615933." author="tgl" document="Repair prehistoric logic error in lseg_eq and lseg_ne. "/>
       <Document time="1038357833." author="momjian" document="Update trigger discussion. "/>
       <Document time="1038265929." author="tgl" document="Restructure outfuncs and readfuncs to use macros in the same style as just done for copyfuncs/equalfuncs.  Read functions in particular get a lot shorter than before, and it's much easier to compare an out function with the corresponding read function to make sure they agree. initdb forced due to small changes in nodestring format (regularizing a few cases that were formerly idiosyncratic). "/>
+<annotation name="maintainability"/>
       <Document time="1038093202." author="momjian" document="Update regression for new patches. Bump up catversion. "/>
       <Document time="1038041439." author="tgl" document="Update ports list from recent regression-test-database entries. "/>
       <Document time="1038041434." author="tgl" document="Update ports list from recent regression-test-database entries. "/>
@@ -4852,6 +4856,7 @@
       <Document time="1037431280." author="momjian" document="Update for RC1. "/>
       <Document time="1037017888." author="barry" document="Update jdbc doc to reflect correct name of the PGConnection class. "/>
       <Document time="1036904198." author="momjian" document="Add code to handle [ON COMMIT { PRESERVE ROWS| DELETE ROWS| DROP }] for temp tables.  Gavin Sherry "/>
+<annotation name="portability"/>
       <Document time="1036805172." author="tgl" document="Update discussion of floating-point problems in regression tests. "/>
       <Document time="1036794422." author="momjian" document="The &quot;Allow easy display of usernames in a group (pg_hba.conf uses groups now)&quot; item on the open items, and subsequent plpgsql function I sent in, made me realize it was too hard to get the upper and lower bound of an array. The attached creates two functions that I think will be very useful when combined with the ability of plpgsql to return sets.  array_lower(array, dim_num) - and - array_upper(array, dim_num)  They return the value (as an int) of the upper and lower bound of the requested dim in the provided array.  Joe Conway "/>
       <Document time="1036551204." author="momjian" document="Update FAQ_DEV. "/>
@@ -6982,6 +6987,8 @@
       <Document time="1038784462." author="tgl" document="Run COPY OUT in a temporary memory context that's reset once per row, and eliminate its manual pfree() calls.  This solves the encoding-conversion bug recently reported, and should be faster and more robust than the original coding anyway.  For example, we are no longer at risk if datatype output routines leak memory or choose to return a constant string. "/>
       <Document time="1038213207." author="tgl" document="Restructure the code in copyfuncs and equalfuncs to put much heavier reliance on macros, in hopes of eliminating silly typos (like copying to the wrong field) and just generally making it easier to see the forest instead of the trees.  As an example, here is the new code for A_Indices:  static A_Indices * _copyAIndices(A_Indices *from) { A_Indices  *newnode = makeNode(A_Indices)SEMICOLON  COPY_NODE_FIELD(lidx)SEMICOLON COPY_NODE_FIELD(uidx)SEMICOLON  return newnodeSEMICOLON }  static bool _equalAIndices(A_Indices *a, A_Indices *b) { COMPARE_NODE_FIELD(lidx)SEMICOLON COMPARE_NODE_FIELD(uidx)SEMICOLON  return trueSEMICOLON }  I plan to redo outfuncs/readfuncs in a similar style, but am committing what I've got. "/>
       <Document time="1037939683." author="petere" document="Fixups for man pages "/>
+<annotation name="maintainability"/>
+<annotation name="portability"/>
       <Document time="1037939517." author="petere" document="Fixups for man pages "/>
       <Document time="1037432062." author="momjian" document="Update TODO/FAQ for 7.3 release. "/>
       <Document time="1037264847." author="momjian" document="There was an error in the gcc portion of the patch I sent you.  Here is the  fix.  Billy G. Allie "/>
@@ -9152,6 +9159,7 @@
       <Document time="1037175125." author="momjian" document="Update xact.c comments for clarity. "/>
       <Document time="1037018004." author="barry" document="Merge changes from head. (update classname for PGConnection) "/>
       <Document time="1036906336." author="momjian" document="Add documentation for array_upper/lower(). "/>
+<annotation name="portability"/>
       <Document time="1036800741." author="momjian" document="Here is a patch that does just that, while maintaining the &quot;traditional&quot; behavior, so the change should be transparent. Use the command &quot;BACKSLASHpset pager always&quot; to turn it on. Anything else does the normal toggle between &quot;on&quot; and &quot;off&quot;  Greg Sabino Mullane "/>
       <Document time="1036749427." author="momjian" document="I'm using libpgtcl with PostgreSQL-7.2.3. There is a discrepancy between the documentation and behavior of &quot;pg_result $res -oid&quot; when $res is not from an INSERT.  The documentation says it should return an empty string, but in fact it returns 0. I think it used to return an empty string around PostgreSQL-7.1.3 when PQoidStatus() was used, but now it uses PQoidValue() which returns InvalidOid, 0 in this case.  Assuming the current behavior is desired, here is a patch to the documentation doc/src/sgml/libpgtcl.sgml to match what really happens:   ljb "/>
       <Document time="1036749400." author="momjian" document="I'm using libpgtcl with PostgreSQL-7.2.3. There is a discrepancy between the documentation and behavior of &quot;pg_result $res -oid&quot; when $res is not from an INSERT.  The documentation says it should return an empty string, but in fact it returns 0. I think it used to return an empty string around PostgreSQL-7.1.3 when PQoidStatus() was used, but now it uses PQoidValue() which returns InvalidOid, 0 in this case.  Assuming the current behavior is desired, here is a patch to the documentation doc/src/sgml/libpgtcl.sgml to match what really happens:   ljb "/>
@@ -11270,6 +11278,7 @@
     </Topic>
     <Topic>
       <Document time="1038917543." author="tgl" document="Fix off-by-one bug in usage check. "/>
+<annotation name="functionality"/>
       <Document time="1038917538." author="tgl" document="Fix off-by-one bug in usage check. "/>
       <Document time="1038796081." author="momjian" document="Done in 7.3, so removed:  &lt; o Allow psql BACKSLASHcopy to specify column names 199d197 &lt; o Add SET REAL_FORMAT and SET DOUBLE_PRECISION_FORMAT using printf args "/>
       <Document time="1038786249." author="tgl" document="Fix pg_dump failure against 7.1 or older servers, per report from Philip Warner. "/>
@@ -11285,6 +11294,7 @@
       <Document time="1037346605." author="momjian" document="Add DOMAIN check constraints.  Rod Taylor "/>
       <Document time="1037171426." author="momjian" document="Add:  &gt; * Fix SELECT ... INTO and CREATE TABLE AS to have appopriate OID column &gt; o -MOVE 0 should not move to end of cursor (Bruce) "/>
       <Document time="1037063020." author="petere" document="Improve wording. "/>
+<annotation name="portability"/>
       <Document time="1037062745." author="petere" document="Improve wording. "/>
       <Document time="1037016672." author="barry" document="Fixes bug where join to pg_description was incorrect.  Also modifies the regression test to test for this case.  Patch submitted by Kris Jurka.   Modified Files:  jdbc/org/postgresql/jdbc1/AbstractJdbc1DatabaseMetaData.java  jdbc/org/postgresql/test/jdbc2/DatabaseMetaDataTest.java "/>
       <Document time="1036557467." author="petere" document="Translation updates "/>
@@ -13413,6 +13423,7 @@
     <Topic>
       <Document time="1038366292." author="momjian" document="Recreate HISTORY file to match release.sgml changes.  Stamp 7.3 final in configure/configure.in. "/>
       <Document time="1038366243." author="momjian" document="Recreate HISTORY file to match release.sgml changes.  Stamp 7.3 final in configure/configure.in. "/>
+<annotation name="portability"/>
       <Document time="1038041450." author="momjian" document="When I made the cube(text) function for 7.3, I neglected to add a matching create cast command. The attached diff adds a create cast as assignment to cube.sql.in .  Bruno Wolff III "/>
       <Document time="1038021001." author="tgl" document="Redesign internal logic of nodeLimit so that it does not need to fetch one more row from the subplan than the COUNT would appear to require. This costs a little more logic but a number of people have complained about the old implementation. "/>
       <Document time="1037939602." author="petere" document="Regenerate "/>
@@ -15548,7 +15559,9 @@
     </Topic>
     <Topic>
       <Document time="1039079082." author="momjian" document="More cleanup of userid to be AclId rather than Oid. "/>
+<annotation name="maintainability"/>
       <Document time="1037079576." author="tgl" document="Remove NO_MKTIME_BEFORE_1970.  I had speculated that it was not needed anymore given the mktime() workaround now done in DetermineLocalTimeZone. This has now been confirmed by Robert Bruccoleri for Irix, and I'm going to extrapolate to AIX as well. "/>
+<annotation name="portability"/>
       <Document time="1037079548." author="tgl" document="Remove NO_MKTIME_BEFORE_1970.  I had speculated that it was not needed anymore given the mktime() workaround now done in DetermineLocalTimeZone. This has now been confirmed by Robert Bruccoleri for Irix, and I'm going to extrapolate to AIX as well. "/>
       <Document time="1036580114." author="momjian" document="Remove completed items:  &lt; A dash (-) marks changes that will appear in the upcoming 7.3 release. &gt; A dash (-) marks changes that will appear in the upcoming 7.4 release. 38d37 &lt; * -Change DEBUG startup tag to LOG (Bruce) 40,51d38 &lt; * -Add pg_backend_pid() function to backend &lt; * -Allow logging of query durations &lt; &lt; &lt; Permissions &lt; =========== &lt; &lt; * -Improve control over user privileges, including table creation &lt; * -Allow user/group names to be specified directly in pg_hba.conf (Bruce) &lt; * -Add ~/.pgpass to store passwords with user/host/password combinations &lt; * -Allow permissions for functions (Peter E) &lt; * -Allow object creation to be disabled for specific users 58,60d44 &lt; * -Make it easier to create a database owned by someone who can't createdb, &lt;   perhaps CREATE DATABASE dbname WITH OWNER = &quot;user&quot; (Gavin) &lt; * -Make equals sign optional in CREATE DATABASE WITH param = 'val' 65,66d48 &lt; * -Prevent SIGHUP and 'pg_ctl reload' from changing command line &lt;   specified parameters to postgresql.conf defaults (Peter E) 69,70d50 &lt; * -Reserve last few process slots for super-user if max_connections reached &lt; * -Add GUC parameter to print queries that generate errors 79d58 &lt; * -Add domain capability (Rod Taylor) 82,84d60 &lt; * -SELECT cash_out(2) crashes because of opaque &lt; * -Declare typein/out functions in pg_proc with a special &quot;C string&quot; data type &lt; * -Functions returning sets do not totally work 89d64 &lt; * -Add GUC parameter for DATESTYLE 91,93d65 &lt; * -Allow bytea to handle LIKE with non-TEXT patterns &lt; * -to_char(0,'FM999.99') returns a period, to_char(1,'FM999.99') doesn't (Karel) &lt; * -Add floor(float8) and other missing functions 97d68 &lt; o -Store binary-compatible type information in the system 104d74 &lt; o -Ensure we have array-eq operators for every built-in array type 139,140d108 &lt; * -Remove brackets as multi-statement rule grouping, must use parens (Bruce) &lt; * -Prevent aggregates from being used in rule WHERE clauses 154d121 &lt; * -Allow UPDATE/DELETE on inherited table 166d132 &lt; * -Add deleted bit to index tuples to reduce heap access 176d141 &lt; * -Test hash index performance and discourage usage 182d146 &lt; * -Add SIMILAR TO to allow character classes, 'pg_[a-c]%' 184d147 &lt; * -Remove LIMIT #,# and force use LIMIT and OFFSET clauses in 7.3 (Bruce) 186,187d148 &lt; * -Disallow TRUNCATE on tables that are involved in referential constraints &lt; * -Add OR REPLACE clauses to non-FUNCTION object creation 190d150 &lt; * -Prevent create/drop scripts from allowing extra args (Bruce) 201,205d160 &lt; o -Add ALTER TABLE DROP COLUMN feature &lt; o -Add ALTER TABLE DROP non-CHECK CONSTRAINT &lt; o -ALTER TABLE ADD PRIMARY KEY (Tom) &lt; o -ALTER TABLE ADD UNIQUE (Tom) &lt; o -ALTER TABLE ALTER COLUMN SET/DROP NOT NULL (Christopher) 210d164 &lt; o -Have ALTER TABLE OWNER change all dependant objects like indexes 214,216d167 &lt; o -Cluster all tables at once using pg_index.indisclustered set during &lt;           previous CLUSTER &lt; o -Prevent loss of indexes, permissions, inheritance 221d171 &lt; o -Allow specification of column names 224d173 &lt; o -Change syntax to WITH DELIMITER, (keep old syntax around?) 228d176 &lt; o -Generate failure on short COPY lines rather than pad NULLs 242,243d189 &lt; o -Allow INSERT INTO my_table VALUES (a, b, c, DEFAULT, x, y, z, ...) &lt; o -Disallow missing columns in INSERT ... (col) VALUES, per ANSI 248,249d193 &lt; o -Add command to display locks &lt; o -Add SET or BEGIN timeout parameter to cancel query 251d194 &lt; o -Remove SET KSQO option now that OR processing is improved (Bruce) 254,256d196 &lt; o -Add SHOW command to see locale &lt; o -Allow SHOW to output as a query result, like EXPLAIN &lt; o -Abort all SET changes made in an aborted transaction 264d203 &lt; o -Fix PL/PgSQL to handle quoted mixed-case identifiers 287,291d225 &lt; * -Have pg_dump use LEFT OUTER JOIN in multi-table SELECTs &lt;   or multiple SELECTS to avoid bad system catalog entries &lt; * -Have pg_dump -C dump database location and encoding information &lt; * -Allow psql BACKSLASHd to show foreign keys &lt; * -Allow psql BACKSLASHd to show temporary table structure (Tom) 294d227 &lt; * -Have pg_dump use ADD PRIMARY KEY after COPY, for performance (Neil) 302d234 &lt; o -Updateable resultSet 307d238 &lt; o -Implement cancel() method on Statement 309d239 &lt;         o -Add support for CallableStatements 311d240 &lt; o -Compile under jdk 1.4 334d262 &lt; * -Allow oid to act as a foreign key 337,338d264 &lt; * -Allow user to control trigger firing order (Tom) &lt; * -Add ALTER TRIGGER ... RENAME 341d266 &lt; * -Fix foreign key constraints to not error on intermediate db states (Stephan) 350,359d274 &lt; * -Add pg_depend table for dependency recordingSEMICOLON use sysrelid, oid, &lt;   depend_sysrelid, depend_oid, name &lt; * -Auto-destroy sequence on DROP of table with SERIALSEMICOLON perhaps a separate &lt;   SERIAL type &lt; * -Prevent column dropping if column is used by foreign key &lt; * -Propagate column or table renaming to foreign key constraints &lt; * -Automatically drop constraints/functions when object is dropped &lt; * -Make foreign key constraints clearer in dump file &lt; * -Make other constraints clearer in dump file &lt; * -Make foreign keys easier to identify 367d281 &lt; * -Allow autocommit so always in a transaction block 377d290 &lt; * -Add SQL92 schemas (Tom) 400d312 &lt; * -Cache most recent query plan(s) (Neil) [prepare] 439d350 &lt; * -Cache system catalog information in per-database files (Tom) 450,451d360 &lt; * -Reorder postgresql.conf WAL items in order of importance (Bruce) &lt; * -Remove wal_files postgresql.conf option because WAL files are now recycled 465,466d373 &lt; * -Improve dynamic memory allocation by introducing tuple-context memory &lt;   allocation (Tom) 468d374 &lt; * -Nested FULL OUTER JOINs don't work (Tom) 470,472d375 &lt; * -Add new pg_proc cachable settings to specify whether function can be &lt;   evaluated only once or once per query &lt; * -Change FIXED_CHAR_SEL to 0.20 from 0.04 to give better selectivity (Bruce) 494,496d396 &lt; * -Add Intimate Shared Memory(ISM) for Solaris &lt; * -Use faster flex flags for performance improvement (Peter E) &lt; * -Add BSD-licensed qsort() for Solaris 503,507d402 &lt; * -Fix problems with libpq non-blocking/async code &lt; * -Make sure all block numbers are unsigned to increase maximum table size &lt; * -Merge LockMethodCtl and LockMethodTable into one shared structure (Bruce) &lt; * -HOLDER/HOLDERTAB rename to PROCLOCK/PROCLOCKTAG (Bruce) &lt; * -Remove LockMethodTable.prio field, not used (Bruce) 512,513d406 &lt; * -Make one version of simple_prompt() in code (Bruce, Tom) &lt; * -Compile in syslog functionaility by default (Tatsuo) 517d409 &lt; * -Report failure to find readline or zlib at end of configure run 519,520d410 &lt; * -Increase identifier length (NAMEDATALEN) if small performance hit, &lt; * -Increase maximum number of function parameters if little wasted space 529,530d418 &lt; * -Fix glibc's mktime() to handle pre-1970's dates &lt; * -Move /contrib/retep to gborg.postgresql.org "/>
       <Files>
@@ -17647,6 +17660,8 @@
       <Document time="1039068598." author="davec" document="changed sort of column names to sort by attnum, not attname "/>
       <Document time="1038971447." author="momjian" document="Done:  &gt; * -Add OpenBSD's getpeereid() call for local socket authentication "/>
       <Document time="1038970243." author="momjian" document="Add OpenBSD local indent credentials, from William Ahern. "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1038277774." author="tgl" document="Remove unused constisset and constiscast fields of Const nodes.  Clean up code and documentation associated with Param nodes. "/>
       <Document time="1038211875." author="darcy" document="I'm sending you a small patch to pgdb.py module.  This raises pgdb.DatabaseError when any of the fetch* methods was invoked but previous call to execute* did not produce any result set or no call was issued yet. Also, raises pgdb.NotSupportedError when .nextset() is invoked, instead of NameError.  This behaviour complies with DB-API 2.0.  Thanks for your work!  Timur Irmatov. "/>
       <Document time="1038042351." author="momjian" document="Transaction safe Truncate  Rod Taylor "/>
@@ -19772,6 +19787,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1038434685." author="tgl" document="Update resultmap pattern for geometry-solaris-i386-pc: should match solaris 2.8 as well as 2.7.  Per report from Martin Renters. "/>
       <Document time="1038366349." author="momjian" document="Move to URGENT, for Justin:  &lt; * Create native Win32 port [win32] "/>
       <Document time="1038297717." author="tgl" document="Use Params, rather than run-time-modified Const nodes, to handle sublink results and COPY's domain constraint checking.  A Const that isn't really constant is just a Bad Idea(tm).  Remove hacks in parse_coerce and other places that were needed because of the former klugery. "/>
@@ -21896,6 +21913,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1038192733." author="tgl" document="Restructure planning of nestloop inner indexscans so that the set of usable joinclauses is determined accurately for each join.  Formerly, the code only considered joinclauses that used all of the rels from the outer side of the joinSEMICOLON thus for example FROM (a CROSS JOIN b) JOIN c ON (c.f1 = a.x AND c.f2 = b.y) could not exploit a two-column index on c(f1,f2), since neither of the qual clauses would be in the joininfo list it looked in.  The new code does this correctly, and also is able to eliminate redundant clauses, thus fixing the problem noted 24-Oct-02 by Hans-J&#252;rgen Sch&#246;nig. "/>
       <Document time="1037842944." author="barry" document="Fix a stupid cut and paste error from the commit last night.   Modified Files:   Tag: REL7_3_STABLE  AbstractJdbc2Statement.java "/>
       <Document time="1037842673." author="barry" document="Fix a dumb cut and paste error from my last commit and update some of the jdbc3 metadata responses   Modified Files:  jdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java  jdbc/org/postgresql/jdbc3/AbstractJdbc3DatabaseMetaData.java "/>
@@ -24015,14 +24034,17 @@
       <Document time="1038208513." author="darcy" document="Change the pkey method so that the caller can optionally set the dictionary used for the primary key lookup.  This will prevent a database lookup for each connection object that gets created.  This could be a significant optimization on a busy system.  Similarly, the get_attnames method allows for the attributes dictionary to be installed directly. "/>
       <Document time="1038205712." author="darcy" document="Change the debug variable to allow better control by the caller over how debug output is managed.  The user can continue to use the current method of passing a formatting string to have a replacement done and output will be sent to the standard output exactly as it did before.  In addition they can set it to a file object, sys.stderr for example, and the query string will be printed to it.  Thay can also set it to a method (function) and the query string will be passed to that method giving them the maximum flexibility to do whatever they want with the query string.  I will be working with the PyGreSQL documentation shortly and at that time will properly document this feature. "/>
       <Document time="1038000352." author="tgl" document="Fix a dozen or so places that were passing unpredictable data strings as elog format strings.  Hai-Chen Tu pointed out the problem in contrib/dbmirror, but it wasn't the only such error. "/>
+<annotation name="functionality"/>
       <Document time="1038000328." author="tgl" document="Fix a dozen or so places that were passing unpredictable data strings as elog format strings.  Hai-Chen Tu pointed out the problem in contrib/dbmirror, but it wasn't the only such error. "/>
       <Document time="1037999106." author="momjian" document="Fix elog in dbmirror to use %s.  Hai-Chen Tu "/>
+<annotation name="reliability" comments=""/>
       <Document time="1037999081." author="momjian" document="Fix elog in dbmirror to use %s.  Hai-Chen Tu "/>
       <Document time="1037939497." author="tgl" document="Fix breakage in new-in-7.3 timetz_zone() function: was giving random results due to doing arithmetic on uninitialized values.  Add some documentation about the AT TIME ZONE construct.  Update some other date/time documentation that seemed out of date for 7.3. "/>
       <Document time="1037939480." author="tgl" document="Fix breakage in new-in-7.3 timetz_zone() function: was giving random results due to doing arithmetic on uninitialized values.  Add some documentation about the AT TIME ZONE construct.  Update some other date/time documentation that seemed out of date for 7.3. "/>
       <Document time="1037857518." author="tgl" document="This locale-specific variant file seems not to have been updated when a test was added to select_having.sql back in June. "/>
       <Document time="1037149358." author="tgl" document="Update AIX resultmap for horology tests, per Andreas. "/>
       <Document time="1037149352." author="tgl" document="Update AIX resultmap for horology tests, per Andreas. "/>
+<annotation name="portability"/>
       <Document time="1037063642." author="petere" document="Merge documentation updates from 7.3 branch. "/>
       <Document time="1037063159." author="petere" document="Merge release note updates from 7.3 branch. "/>
       <Document time="1036626762." author="momjian" document="Stamp beta5. "/>
@@ -26150,13 +26172,16 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="licenseing"/>
       <Document time="1038825756." author="momjian" document="Add for D'Arcy:  &gt; * Python &gt; o Allow users to register their own types with _pg &gt; o Allow SELECT to return a dictionary of dictionaries &gt; o Allow COPY BINARY FROM "/>
       <Document time="1038651661." author="tgl" document="Be more realistic about plans involving Materialize nodes: take their cost into account while planning. "/>
       <Document time="1038632895." author="tgl" document="Upgrade planner and executor to allow multiple hash keys for a hash join, instead of only one.  This should speed up planning (only one hash path to consider for a given pair of relations) as well as allow more effective hashing, when there are multiple hashable joinclauses. "/>
+<annotation name="efficiency"/>
       <Document time="1038041421." author="momjian" document="This is a patch to make cube output work like double precision output with regard to the extra_float_digits setting.  Since builtins.h was already included, I just deleted the extern statement (and accompaning comments).   Bruno Wolff III "/>
       <Document time="1037796867." author="barry" document="Backport bug with executeBatch.  This bug was a regression from 7.2 and has been reported by Marko Strukelj and Keith Wannamaker   Modified Files:   Tag: REL7_3_STABLE  jdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java  jdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java  jdbc/org/postgresql/test/jdbc2/BatchExecuteTest.java "/>
       <Document time="1037594612." author="momjian" document="Re-order REINDEX options in manual for consistency.  REINDEX DATABASE/TABLE/INDEX is the proper order. "/>
       <Document time="1037062926." author="petere" document="Improve formatting of release notes.  Update makefile rule to make HISTORY file. "/>
+<annotation name="portability"/>
       <Document time="1036639413." author="tgl" document="Remove GPL file pursuant to relicensing. "/>
       <Document time="1036639388." author="tgl" document="Remove GPL file pursuant to relicensing. "/>
       <Files>
@@ -28268,8 +28293,10 @@
     <Topic>
       <Document time="1038633759." author="tgl" document="Make install and clean targets behave more normally. "/>
       <Document time="1038305847." author="momjian" document="Fix typo in release notes. "/>
+<annotation name="portability"/>
       <Document time="1038305819." author="momjian" document="Fix typo in release notes. "/>
       <Document time="1037795672." author="barry" document="Fixed bug reported by Marko Strukelj and Keith Wannamaker.  Using executeBatch on a preparedStatement would reset the prepared statment causing subsequent uses of the preparedStatement to fail (i.e. the following series of calls would fail: addBatch() executeBatch() addBatch() executBatch()).  This is a regression from 7.2 where this worked correctly.  The regression test has also been modified to explicitly test for this case.   Modified Files:  jdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java  jdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java  jdbc/org/postgresql/test/jdbc2/BatchExecuteTest.java "/>
+<annotation name="functionality"/>
       <Document time="1037612461." author="momjian" document="Stamp RC2. "/>
       <Document time="1037435122." author="momjian" document="Fix CLUSTER regression failure caused by new patch, from Neil Conway "/>
       <Document time="1037347775." author="momjian" document="New version attached.  The following is implemented:  - CLUSTER ALL clusters all the tables that have some index with   indisclustered set and the calling user owns. - CLUSTER tablename clusters the named table, using the index with   indisclustered set.  If no index has the bit set, throws elog(ERROR). - The multi-relation version (CLUSTER ALL) uses a multitransaction   approach, similar to what VACUUM does.  Alvaro Herrera "/>
@@ -30441,6 +30468,7 @@
       <Document time="1039043651." author="momjian" document="Stamp minor version numbers for 7.4 release. "/>
       <Document time="1038806945." author="tgl" document="Fix script name in README. "/>
       <Document time="1038806941." author="tgl" document="Fix script name in README. "/>
+<annotation name="portability"/>
       <Document time="1038042283." author="momjian" document="This minor patch corrects an error in the function docs: it's &quot;version()&quot;, not &quot;version&quot;.  Neil Conway "/>
       <Document time="1037744497." author="momjian" document="Most of the code follows the American spelling of the word, which is &quot;canceled&quot;, so I changed the one remaining usage of the British spelling (&quot;cancelled&quot;) over to the former, and updated the translation files appropriately.  Neil Conway "/>
       <Document time="1037665833." author="momjian" document="Fix markup breakage. "/>
@@ -32622,6 +32650,7 @@
       <Document time="1037346884." author="momjian" document="OpenSSL 0.9.6g in Debian/unstable stopped working with pgcrypto.  This is pgcrypto bug as it assumed too much about inner workings of OpenSSL.  Following patch stops pgcrypto using EVP* functions for ciphers and lets it manage ciphers itself.  This patch supports Blowfish, DES and CAST5 algorithms.  Marko Kreen "/>
       <Document time="1037341568." author="momjian" document="Rename show_btree_build_stats to log_btree_build_stats "/>
       <Document time="1037150437." author="momjian" document="Add AIX as supported platform. "/>
+<annotation name="portability"/>
       <Document time="1037150395." author="momjian" document="Add AIX as supported platform. "/>
       <Document time="1036906648." author="momjian" document="I am attaching a patch file that will replace the previous one.  It only contains the patches to Makefile.global.in and Makefile.unixware.  The Makefile.unixware patch has been updated to include the contents of LD_LIBRARY_PATH, if present, to the -rpath (-R) option.  This change will  simplify configuring and building PostgreSQL on systems that support  LD_LIBRARY_PATH.  You can set LD_LIBRARY_PATH to include all the directorys  you want to have searched for additional libraries, run configure, then run  make.  The paths in LD_LIBRARY_PATH will then be embedded in the executables  via the -rpath (-R) option to the linker, and so will not require  LD_LIBRARY_PATH in order to run.  Billy G. Allie "/>
       <Document time="1036745135." author="momjian" document="Update release docs for 7.3. "/>
@@ -34715,6 +34744,7 @@
     </Topic>
     <Topic>
       <Document time="1038605922." author="momjian" document="This patch fixes two tiny memory leaks in pg_dump and two in pg_dumpall.  Neil Conway "/>
+<annotation name="reliability" comments=""/>
       <Document time="1038443170." author="tgl" document="Add note that scaling factor should be &gt;= # of clients. "/>
       <Document time="1038354866." author="momjian" document="Add to trigger thread. "/>
       <Document time="1038213410." author="tgl" document="Un-break triggers declared for INSERT OR DELETE OR UPDATE.  This worked okay in 7.3, so I think it must have been busted in the recent triggers patch. "/>
@@ -34725,6 +34755,7 @@
       <Document time="1037226245." author="tgl" document="Allow +1300 as a numeric timezone specifierSEMICOLON we already accept FJST as meaning +1300. "/>
       <Document time="1037132790." author="tgl" document="Improve comment: add note that grotty special case in mdread() is required by hash index implementation. "/>
       <Document time="1037017808." author="barry" document="Merge fix from head for proper join to pg_description   Modified Files:   Tag: REL7_3_STABLE  jdbc/org/postgresql/jdbc1/AbstractJdbc1DatabaseMetaData.java  jdbc/org/postgresql/test/jdbc2/DatabaseMetaDataTest.java "/>
+<annotation name="functionality"/>
       <Document time="1036804822." author="momjian" document="The attached patch defines functions for getting distances between points on the surface of the earth and locating points within a specified distance using an index based on the contrib/cube package. The new functions are all of language type sql. A couple of bugs in the old earthdistance function based on the point datatype are fixed. A regression test has been added for both sets of functions. The README file has been updated to include documentation on the new stuff. There are comments about how this package is also useful for Astronomers.  Bruno Wolff III "/>
       <Document time="1036795072." author="tgl" document="Add extra_float_digits GUC parameter to allow adjustment of displayed precision for float4, float8, and geometric types.  Set it in pg_dump so that float data can be dumped/reloaded exactly (at least on platforms where the float I/O support is properly implemented).  Initial patch by Pedro Ferreira, some additional work by Tom Lane. "/>
       <Document time="1036724910." author="tgl" document="Move substitute extern declarations to end of file, so that they are not read until after we've read the port-specific header file.  In particular this should make it safer to #include system headers for inet_atonSEMICOLON in general it seems that the port header file ought to be in a position to set definitions before we do stuff based on having a definition or not. "/>
@@ -36831,6 +36862,7 @@
       <Document time="1037924104." author="momjian" document="Add:  &gt; * Have sequence dependency track use of DEFAULT sequences, seqname.nextval "/>
       <Document time="1037322600." author="tgl" document="Improve warning messages from tsearch trigger functionSEMICOLON clean up some casting infelicities.  Allow char(n) fields to be indexed.  Per Bjoern Metzdorf. "/>
       <Document time="1037270145." author="barry" document="Applied patch submitted by Mats Lofkvist fixing serious threading problem introduced in beta3. Fixed bug with using setNull()(or setXXX(x, null))  and serverside prepare statements. Improved error message when using a connection object that has already been closed.    Modified Files:  jdbc/org/postgresql/errors.properties  jdbc/org/postgresql/core/Encoding.java  jdbc/org/postgresql/core/QueryExecutor.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1Connection.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java "/>
+<annotation name="reliability" comments=""/>
       <Document time="1037241035." author="petere" document="Update German translations. "/>
       <Document time="1036750989." author="tgl" document="Back-patch changes to address Perl _GNU_SOURCE problem. "/>
       <Document time="1036724991." author="tgl" document="Add #define _GNU_SOURCE to work around what seems to be Perl 5.8.0's problem.  Per recent discussions about plperl failing to build on Linux. "/>
@@ -38936,6 +38968,7 @@
       <Document time="1037346605." author="momjian" document="Add DOMAIN check constraints.  Rod Taylor "/>
       <Document time="1037343445." author="momjian" document="Rename hostname_lookup to log_hostname. "/>
       <Document time="1037303524." author="momjian" document="Fix version number for FreeBSD/alpha on ports list. "/>
+<annotation name="portability"/>
       <Document time="1037303498." author="momjian" document="Fix version number for FreeBSD/alpha on ports list. "/>
       <Document time="1036792190." author="momjian" document="Update FAQ_SCO from Larry Rosenman, correction from Tom Lane. "/>
       <Document time="1036792155." author="momjian" document="Update FAQ_SCO from Larry Rosenman, correction from Tom Lane. "/>
@@ -41079,6 +41112,7 @@
       <Document time="1037003624." author="tgl" document="Add cast to suppress compile warning on Alphas. "/>
       <Document time="1037003618." author="tgl" document="Add cast to suppress compile warning on Alphas. "/>
       <Document time="1036950341." author="petere" document="Cleanup pass over User's Guide.  Key word table updated. "/>
+<annotation name="portability"/>
       <Document time="1036906336." author="momjian" document="Add documentation for array_upper/lower(). "/>
       <Files>
         <File name="doc/src/sgml/array.sgml" count="2"/>
@@ -43170,8 +43204,10 @@
     <Topic>
       <Document time="1039050037." author="tgl" document="Repair oversight in recent change of dependency extraction code: when recursing to handle a join alias var, the context had better be set to be appropriate to the join var's query level.  Per report from Hristo Neshev. "/>
       <Document time="1039050019." author="tgl" document="Repair oversight in recent change of dependency extraction code: when recursing to handle a join alias var, the context had better be set to be appropriate to the join var's query level.  Per report from Hristo Neshev. "/>
+<annotation name="functionality"/>
       <Document time="1038997111." author="momjian" document="Make usesysid consistently int4, not oid.  Catalog patch from Alvaro Herrera for same.  catversion updated. initdb required. "/>
       <Document time="1038824461." author="tgl" document="Repair core dump when trying to delete an entry from an already-NULL datconfig or useconfig field.  Per report from Dustin Sallings. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1038824447." author="tgl" document="Repair core dump when trying to delete an entry from an already-NULL datconfig or useconfig field.  Per report from Dustin Sallings. "/>
       <Document time="1038782013." author="tgl" document="Repair coredump in COPY OUT when client encoding is different from server encoding, per report from Nicolai Tufar.  This is a minimum-risk patch for 7.3.1 --- I intend to apply a more general repair in HEAD. "/>
       <Document time="1038356560." author="momjian" document="Update build rules for /HISTORY. "/>
@@ -43181,6 +43217,8 @@
       <Document time="1037945596." author="tgl" document="TAS code originally written for s390 (32-bit) does not work for s390x (64-bit).  Fix it.  Per report from Permaine Cheung. "/>
       <Document time="1037744294." author="momjian" document="Back out NetBSD/arm32 port. "/>
       <Document time="1037744268." author="momjian" document="Back out NetBSD/arm32 port. "/>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
       <Document time="1037342415." author="momjian" document="Rename show_source_port to log_source_port. "/>
       <Document time="1037339242." author="momjian" document="Rename:  ! #show_parser_stats = false ! #show_planner_stats = false ! #show_executor_stats = false ! #show_statement_stats = false  TO:  ! #log_parser_stats = false ! #log_planner_stats = false ! #log_executor_stats = false ! #log_statement_stats = false "/>
       <Document time="1037336006." author="momjian" document="Rename server_min_messages to log_min_messages.  Part of consolidation of log_ settings. "/>

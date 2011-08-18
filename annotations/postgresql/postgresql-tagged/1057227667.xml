@@ -2962,6 +2962,8 @@
       <Author name="teodor" count="7"/>
     </Authors>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1059778909." author="tgl" document="Get the include ordering right for TCL includes vs whatever is coming from --with-includes. "/>
       <Document time="1059292042." author="momjian" document="This is a totally trivial patch for something that was a very minor nit that annoyed me the other day while I was documenting my current project. It makes pg_dump use the same layout for types as for tables, by putting &quot;BACKSLASHnBACKSLASHt&quot; before the first field and &quot;BACKSLASHn&quot; before the final &quot;)SEMICOLON&quot;  Can't really justify this too much except to say I had an itch and I scratched it SEMICOLON-)  Andrew Dunstan "/>
       <Document time="1059290180." author="momjian" document="This makes the initcap function compatible with Oracle 9i, it has been tested on both redhat 8 and FreebSD. -- Mike Nolan "/>
@@ -4823,6 +4825,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1059794572." author="tgl" document="inet_recv() wasn't IPv6-ready. "/>
       <Document time="1059776343." author="meskes" document="Missed two places to replace union member. "/>
       <Document time="1059726493." author="scrappy" document="python needs to be removed from here "/>
@@ -4839,6 +4843,7 @@
       <Document time="1058474704." author="tgl" document="Repair boundary-case bug introduced by patch of two months ago that fixed incorrect initial setting of StartUpID.  The logic in XLogWrite() expects that Write-&gt;curridx is advanced to the next page as soon as LogwrtResult points to the end of the current page, but StartupXLOG() failed to make that happen when the old WAL ended exactly on a page boundary.  Per trouble report from Hannu Krosing. "/>
       <Document time="1058215316." author="tgl" document="Fix a *second* buffer overrun bug in to_ascii().  Grumble. "/>
       <Document time="1058215306." author="tgl" document="Fix a *second* buffer overrun bug in to_ascii().  Grumble. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1058215298." author="tgl" document="Fix a *second* buffer overrun bug in to_ascii().  Grumble. "/>
       <Document time="1057680684." author="meskes" document="More informix fixes. "/>
       <Document time="1057275707." author="tgl" document="Fix bug I introduced in recent rewrite of NUMERIC code: numeric to integer conversions gave the wrong answer for values with stripped trailing zeroes, such as 10000000. "/>
@@ -6683,6 +6688,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1059769154." author="petere" document="Russian translation updates by Serguei Mokhov "/>
       <Document time="1059768752." author="petere" document="While having a parallel-make-safe genbki.sh is good, it's better not to uselessly invoke it in parallel in the first place. "/>
       <Document time="1059718877." author="tgl" document="Fix some minor portability issues, per Chris K-L. "/>
@@ -8560,6 +8567,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1059806678." author="momjian" document="Remove docs that say psql BACKSLASHencoding doesn't track SET client_encoding. "/>
       <Document time="1059337954." author="tgl" document="Remove unportable // comments. "/>
       <Document time="1059278303." author="momjian" document="&gt;&gt;You can alias $0, similar to the argument variables. And, I confirmed &gt;&gt;that you cannot change the value, similar to the argument variables: &gt; &gt; Perhaps you shouldn't mark it isconstSEMICOLON then it would actually have some &gt; usefulness (you could use it directly as a temporary variable to hold &gt; the intended result).  I can't see much value in aliasing it if it's &gt; const, either.  OKSEMICOLON the only change in this version is &quot;isconst = falseSEMICOLON&quot;. Now you can use $0 as a result placeholder if desired. E.g.:  create or replace function tmp(anyelement, anyelement) returns anyarray as ' declare   v_ret alias for $0SEMICOLON   v_el1 alias for $1SEMICOLON   v_el2 alias for $2SEMICOLON begin   v_ret := ARRAY[v_el1, v_el2]SEMICOLON   return v_retSEMICOLON endSEMICOLON ' language 'plpgsql'SEMICOLON  create table f(f1 text, f2 text, f3 int, f4 int)SEMICOLON insert into f values ('a','b',1,2)SEMICOLON insert into f values ('z','x',3,4)SEMICOLON  select tmp(f1,f2) from fSEMICOLON select tmp(f3,f4) from fSEMICOLON   Joe Conway "/>
@@ -10544,6 +10553,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1059760138." author="momjian" document="Update comments. "/>
       <Document time="1059760105." author="momjian" document="Update comments. "/>
       <Document time="1059711319." author="tgl" document="Adjust 'permission denied' messages to be more useful and consistent. "/>
@@ -12420,6 +12431,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
+<annotation name="reliability" comments=""/>
       <Document time="1059775843." author="tgl" document="Fix a few of the more blatantly unportable constructs in this file. "/>
       <Document time="1059721803." author="momjian" document="--enable-thread-safeness -&gt; --enable-thread-safety "/>
       <Document time="1059714112." author="tgl" document="Improve description of restoring pg_dumpall backups, per gripe from Havard Eidnes. "/>
@@ -14266,6 +14280,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
       <Document time="1059751555." author="meskes" document="Added missing TO keyword. "/>
       <Document time="1058828694." author="momjian" document="Add:  &gt; * Have AFTER triggers execute after the appropriate SQL statement in a &gt;   function, not at the end of the function "/>
       <Document time="1058514306." author="momjian" document="Stephen Robert Norris wrote: &gt; Well, no. What it says is that certain values must be escaped (but &gt; doesn't say which ones). Then it says there are alternate escape &gt; sequences for some values, which it lists. &gt; &gt; It doesn't say &quot;The following table contains the characters which must &gt; be escaped:&quot;, which would be much clearer (and actually useful).  Attached documentation patch updates the wording for bytea input escaping, per complaint by Stephen Norris above.  Joe Conway "/>
@@ -16092,6 +16107,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1059788645." author="momjian" document="Add:  &lt; &gt; o Allow PL/pgSQL EXECUTE query_var INTO record_varSEMICOLON "/>
       <Document time="1059719889." author="tgl" document="Update contrib regression tests for recent error message editing. "/>
       <Document time="1059690977." author="tgl" document="Cause library-preload feature to report error if specified initialization function is not found.  Also, make all the PL libraries have initialization functions with standard names.  Patch from Joe Conway. "/>
@@ -18072,6 +18088,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="efficiency"/>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
       <Document time="1059795610." author="tgl" document="Comment out entries for IPv6 localhost connections, since they fail on machines with no IPv6 support. "/>
       <Document time="1059787646." author="tgl" document="Code review for sslmode patch: eliminate memory leak, avoid giving a completely useless error message in 'allow' case, don't retry connection at the sendauth stage (by then the server will either let us in or not, no point in wasting cycles on another try in the other SSL state). "/>
       <Document time="1059740463." author="meskes" document="- Added some Informix error codes in Informix mode. - Added just another pgtypeslib function. "/>
@@ -19959,6 +19978,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1059775437." author="tgl" document="Fix inconsistent static-vs-not-static declarations. "/>
       <Document time="1059775219." author="tgl" document="Fix inconsistent static-vs-not-static declarations. "/>
       <Document time="1059775062." author="tgl" document="Fix inconsistent static-vs-not-static declarations. "/>
@@ -21806,6 +21826,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
       <Document time="1059779572." author="tgl" document="Since HPUX now exists for Itanium, we should decouple the assumption that OS=hpux is the same as CPU=hppa.  First steps at doing this. With these patches, we still work on hppa with either gcc or HP's cc. We might work on hpux/itanium with gcc, but I can't test it.  Definitely will not work on hpux/itanium with non-gcc compiler, for lack of spinlock code. "/>
       <Document time="1059349153." author="momjian" document="Tom, happier with the attached patch?  I'd have to disagree with regards to the memory leaks not being worth a mention - any such leak can cause problems when the PostgreSQL installation is either unattended, long-living andor has very high connection levels. Half a kilobyte on start-up isn't negligible in this light.  Regards, Lee.  Tom Lane writes:  &gt; Lee Kindness &lt;lkindness@csl.co.uk&gt; writes:  &gt; &gt; Guys, attached is a patch to fix two memory leaks on start-up.  &gt;  &gt; I do not like the changes to miscinit.c.  In the first place, it is not  &gt; a &quot;memory leak&quot; to do a one-time allocation of state for a proc_exit  &gt; function.  A bigger complaint is that your proposed change introduces  &gt; fragile coupling between CreateLockFile and its callers, in order to  &gt; save no resources worth mentioning.  More, it introduces an assumption  &gt; that the globals directoryLockFile and socketLockFile don't change while  &gt; the postmaster is running.  UnlinkLockFile should unlink the file that  &gt; it was originally told to unlink, regardless of what happens to those  &gt; globals.  &gt;  &gt; If you are intent on spending code to free stuff just before the  &gt; postmaster exits, a better fix would be for UnlinkLockFile to free its  &gt; string argument after using it.  Lee Kindness "/>
       <Document time="1059348624." author="momjian" document="Adjust oid2name to skip certain row types, per Tom. "/>
@@ -23710,6 +23732,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
       <Document time="1059294953." author="momjian" document="&gt; Joe Conway &lt;mail@joeconway.com&gt; writes: &gt;&gt;ISTM that &quot;source&quot; is worth knowing. &gt; &gt; Hm, possibly.  Any other opinions?  This version has the seven fields I proposed, including &quot;source&quot;. Here's an example that shows why I think it's valuable:  regression=# BACKSLASHx Expanded display is on. regression=# select * from pg_settings where name = 'enable_seqscan'SEMICOLON -[ RECORD 1 ]----------- name| enable_seqscan setting| on context| user vartype| bool source| default min_val| max_val|  regression=# update pg_settings set setting = 'off' where name = 'enable_seqscan'SEMICOLON -[ RECORD 1 ]--- set_config| off  regression=# select * from pg_settings where name = 'enable_seqscan'SEMICOLON -[ RECORD 1 ]----------- name| enable_seqscan setting| off context| user vartype| bool source| session min_val| max_val|  regression=# alter user postgres set enable_seqscan to 'off'SEMICOLON ALTER USER  (log out and then back in again)  regression=# BACKSLASHx Expanded display is on. regression=# select * from pg_settings where name = 'enable_seqscan'SEMICOLON -[ RECORD 1 ]----------- name| enable_seqscan setting| off context| user vartype| bool source| user min_val| max_val|  In the first case, enable_seqscan is set to its default value. After setting it to off, it is obvious that the value has been changed for the session only. In the third case, you can see that the value has been set specifically for the user.  Joe Conway "/>
       <Document time="1059021864." author="momjian" document="Add to 7.3.4 release notes:  * Repair breakage in timestamp-to-date conversion for dates before 2000 "/>
       <Document time="1059021833." author="momjian" document="Add to 7.3.4 release notes:  * Repair breakage in timestamp-to-date conversion for dates before 2000 "/>
@@ -25536,6 +25559,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1059769084." author="petere" document="Use only two-part shared library version numbers, for better portability and consistency. "/>
       <Document time="1059701658." author="tgl" document="Fix mistaken error code assignments, per Peter's note 7/28/03. "/>
       <Document time="1059435092." author="tgl" document="Code review for recent GUC changes --- try to make it less obvious that these things were added at different times by different people SEMICOLON-). Includes Aizaz Ahmed's patch to remove duplicate array in help_config.c. "/>
@@ -27397,6 +27422,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
       <Document time="1059726297." author="scrappy" document="clean python out of Makefile "/>
       <Document time="1059725944." author="scrappy" document="remove python module, as its moved to http://www.pygresql.org "/>
       <Document time="1059639820." author="momjian" document="Add fflush of stdout when outputing query. "/>
@@ -29244,6 +29271,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1059794700." author="tgl" document="Postmaster erroneously rejected SSL connections on IPv6. "/>
       <Document time="1059247342." author="momjian" document="Have SSL text print only when SSL mode is enabled. "/>
       <Document time="1059185316." author="momjian" document="Done:  &gt; * -Allow SSL-enabled clients to turn off SSL transfers "/>
@@ -31076,6 +31105,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1059531533." author="tgl" document="Fix longstanding error in _bt_search(): should moveright at top of loop not bottom.  Otherwise we fail to moveright when the root page was split while we were &quot;in flight&quot; to it.  This is not a significant problem when the root is above the leaf level, but if the root was also a leaf (ie, a single-page index just got split) we may return the wrong leaf page to the caller, resulting in failure to find a key that is in fact present.  Bug has existed at least since 7.1, probably forever. "/>
       <Document time="1059531528." author="tgl" document="Fix longstanding error in _bt_search(): should moveright at top of loop not bottom.  Otherwise we fail to moveright when the root page was split while we were &quot;in flight&quot; to it.  This is not a significant problem when the root is above the leaf level, but if the root was also a leaf (ie, a single-page index just got split) we may return the wrong leaf page to the caller, resulting in failure to find a key that is in fact present.  Bug has existed at least since 7.1, probably forever. "/>
       <Document time="1059531518." author="tgl" document="Fix longstanding error in _bt_search(): should moveright at top of loop not bottom.  Otherwise we fail to moveright when the root page was split while we were &quot;in flight&quot; to it.  This is not a significant problem when the root is above the leaf level, but if the root was also a leaf (ie, a single-page index just got split) we may return the wrong leaf page to the caller, resulting in failure to find a key that is in fact present.  Bug has existed at least since 7.1, probably forever. "/>
@@ -32890,6 +32921,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1059794668." author="tgl" document="Fix some unprotected references to AF_UNIX ... wouldn't compile on platforms without AF_UNIX sockets. "/>
       <Document time="1059693641." author="tgl" document="When using a temp installation, unset PGUSER and other variables we might have inherited from the environment that would possibly cause psql to fail to connect to the temp installation properly.  Per trouble report from Markus Bertheau 7/1/03. "/>
       <Document time="1059640916." author="momjian" document="Update Turkish FAQ, Devrim GUNDUZ "/>
@@ -34832,6 +34864,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
       <Document time="1059770766." author="tgl" document="Fix compile warning. "/>
       <Document time="1059760416." author="petere" document="Make ecpg SQLSTATE-aware.  Map existing SQLCODE assignments to SQLSTATEs, rather than parsing the message.  Add some documentation about embedded SQL. "/>
       <Document time="1059731564." author="momjian" document="cvs log used -b for head, not -rHEAD. "/>
@@ -36737,6 +36772,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1059451397." author="tgl" document="Apply (a somewhat revised version of) Greg Mullane's patch to eliminate heuristic determination of day vs month in date/time input.  Add the ability to specify that input is interpreted as yy-mm-dd order (which formerly worked, but only for yy greater than 31).  DateStyle's input component now has the preferred spellings DMY, MDY, or YMDSEMICOLON the older keywords European and US are now aliases for the first two of these. Per recent discussions on pgsql-general. "/>
       <Document time="1059366321." author="tgl" document="elog() is no longer a gettext trigger --- all remaining uses are considered internal errors. "/>
       <Document time="1059356993." author="tgl" document="elog mop-up: bring some straggling fprintf(stderr)'s into the elog world. "/>
@@ -38665,6 +38701,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1059790695." author="momjian" document="Update, add Greg:  &lt; * Fernando Nasser &lt;fnasser@redhat.com&gt; of Red Hat &lt; * Gavin Sherry &lt;swm@linuxworld.com.au&gt; of Alcove Systems Engineering &gt; * Fernando is Fernando Nasser &lt;fnasser@redhat.com&gt; of Red Hat &gt; * Gavin is Gavin Sherry &lt;swm@linuxworld.com.au&gt; of Alcove Systems Engineering &gt; * Greg is Greg Sabino Mullane &lt;greg@turnstep.com&gt; "/>
       <Document time="1059686517." author="tgl" document="Upgrade parsing code for ACLs to be less hokey and more cognizant of the actual logical structure and quoting rules being used.  Fixes bug reported by Chris K-L on 7/8/03. "/>
       <Document time="1059678437." author="momjian" document="Modify:  &gt; * Implement dirty reads or shared row locks and use them in RI triggers "/>

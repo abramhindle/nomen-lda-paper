@@ -2141,14 +2141,17 @@
     </Authors>
     <Topic>
       <Document time="1043742869." author="momjian" document="Revert optimizer page count change. "/>
+<annotation name="efficiency"/>
       <Document time="1043561614." author="momjian" document="Add:  &gt; * Add group object ownership, so groups can rename/drop/grant on objects, &gt;   so we can implement roles "/>
       <Document time="1043463209." author="tgl" document="Suppress gcc warnings. "/>
       <Document time="1043286260." author="tgl" document="Fix sloppy comment. "/>
       <Document time="1042685752." author="momjian" document="Oops, put back changes.  Those were Peter's, not mine. "/>
       <Document time="1042435765." author="tgl" document="Cause planner to account for evaluation costs in targetlists and HAVING quals.  Normally this is an insignificant effect --- but it will not be insignificant when these clauses contain sub-selects. The added costs cannot affect the planning of the query containing them, but they might have an impact when the query is a sub-query of a larger one. "/>
       <Document time="1042322625." author="momjian" document="Fix markup problem in link to other SGML file. "/>
+<annotation name="portability"/>
       <Document time="1042086749." author="tgl" document="Guard against stopping when numberTuples=0 and counter wraps around. "/>
       <Document time="1042072917." author="tgl" document="Fix for bug #866.  7.3 contains new logic for avoiding redundant calls to the index AM when we know we are fetching a unique row.  However, this logic did not consider the possibility that it would be asked to fetch backwards.  Also fix mark/restore to work correctly in this scenario. "/>
+<annotation name="functionality"/>
       <Document time="1042072900." author="tgl" document="Fix for bug #866.  7.3 contains new logic for avoiding redundant calls to the index AM when we know we are fetching a unique row.  However, this logic did not consider the possibility that it would be asked to fetch backwards.  Also fix mark/restore to work correctly in this scenario. "/>
       <Document time="1041939800." author="momjian" document="Small syntax cleanup. "/>
       <Document time="1041792347." author="petere" document="Revert rpath-mangling patch.  See discussion on -patches around Nov 29 for the rationale. "/>
@@ -3729,6 +3732,7 @@
       <Document time="1044155234." author="tgl" document="Cleaner solution to the problem of loading pre-7.3 dumps containing columns of type lo (see contrib/lo).  Rather than hacking the function definitions on-the-fly, just modify the queries issued by FixupBlobRefs so that they work even if CREATE CAST hasn't been issued. "/>
       <Document time="1044155219." author="tgl" document="Cleaner solution to the problem of loading pre-7.3 dumps containing columns of type lo (see contrib/lo).  Rather than hacking the function definitions on-the-fly, just modify the queries issued by FixupBlobRefs so that they work even if CREATE CAST hasn't been issued. "/>
       <Document time="1043302994." author="tgl" document="Update 'Mathematical Functions' table to reflect 7.3 addition of float8 forms of ceil(), floor(), sign().  Back-patch this and other recent doc fixes in this file to the 7.3 branch. "/>
+<annotation name="portability"/>
       <Document time="1043302979." author="tgl" document="Update 'Mathematical Functions' table to reflect 7.3 addition of float8 forms of ceil(), floor(), sign().  Back-patch this and other recent doc fixes in this file to the 7.3 branch. "/>
       <Document time="1043197070." author="tgl" document="Back-patch typprtlen fix, two other minor post-7.3 fixes. "/>
       <Document time="1042671664." author="momjian" document="Reorder VARCHAR() to appear before CHAR() in docs. "/>
@@ -5299,6 +5303,8 @@
     </Topic>
     <Topic>
       <Document time="1043820543." author="tgl" document="Repair array subscript overrun identified by Yichen Xie.  Reduce the value of MAX_TIME_PRECISION in floating-point-timestamp-storage case from 13 to 10, which is as much as time_out is actually willing to print. (The alternative of increasing the number of digits we are willing to print looks riskySEMICOLON we might find ourselves printing roundoff garbage.) "/>
+<annotation name="functionality"/>
+<annotation name="reliability" comments=""/>
       <Document time="1043820522." author="tgl" document="Repair array subscript overrun identified by Yichen Xie.  Reduce the value of MAX_TIME_PRECISION in floating-point-timestamp-storage case from 13 to 10, which is as much as time_out is actually willing to print. (The alternative of increasing the number of digits we are willing to print looks riskySEMICOLON we might find ourselves printing roundoff garbage.) "/>
       <Document time="1043820075." author="tgl" document="Fix array subscript overruns identified by Yichen Xie. "/>
       <Document time="1043820065." author="tgl" document="Fix array subscript overruns identified by Yichen Xie. "/>
@@ -6888,7 +6894,10 @@
     </Topic>
     <Topic>
       <Document time="1043403835." author="tgl" document="Back-patch fix for not shell-quoting editor name, as it also fixes silly buffer overrun (someone needs to learn to count characters...) "/>
+<annotation name="reliability" comments=""/>
+<annotation name="functionality"/>
       <Document time="1043161912." author="petere" document="Fix sed expression for BSD sed. "/>
+<annotation name="portability"/>
       <Document time="1042786871." author="tgl" document="Adjust API of expression_tree_mutator and query_tree_mutator to simplify callers.  It turns out the common case is that the caller does want to recurse into sub-queries, so push support for that into these subroutines. "/>
       <Document time="1042553735." author="barry" document="Backport to 7.3 of patch to correctly handle fractional seconds   Modified Files:   Tag: REL7_3_STABLE  jdbc/org/postgresql/jdbc1/AbstractJdbc1ResultSet.java  jdbc/org/postgresql/test/jdbc2/TimestampTest.java "/>
       <Document time="1042538876." author="barry" document="Patch from Kris Jurka to improve the performance of getImportedKeys().  The fix uses explicit joins to avoid using the genetic query optimizer for consistent results.   Modified Files:   Tag: REL7_3_STABLE  jdbc/org/postgresql/jdbc1/AbstractJdbc1DatabaseMetaData.java "/>
@@ -8467,6 +8476,7 @@
       <Document time="1044155365." author="tgl" document="Remove restriction that cast functions cannot be volatile.  This restriction was debatable to begin with, but it has now become obvious that it breaks forward-porting of user-defined typesSEMICOLON contrib/lo being the most salient example. "/>
       <Document time="1043810004." author="tgl" document="Extend join-selectivity API (oprjoin interface) so that join type is passed to join selectivity estimators.  Make use of this in eqjoinsel to derive non-bogus selectivity for IN clauses.  Further tweaking of cost estimation for IN. initdb forced because of pg_proc.h changes. "/>
       <Document time="1043725256." author="momjian" document="Fix typo 233 pages -&gt; 333 pages. "/>
+<annotation name="portability"/>
       <Document time="1043718708." author="tgl" document="Upgrade cost estimation for joins, per discussion with Bradley Baetz. Try to model the effect of rescanning input tuples in mergejoinsSEMICOLON account for JOIN_IN short-circuiting where appropriate.  Also, recognize that mergejoin and hashjoin clauses may now be more than single operator calls, so we have to charge appropriate execution costs. "/>
       <Document time="1043365762." author="davec" document="added fix from Joel Hock to get the inserted row into the current buffer "/>
       <Document time="1043106884." author="tgl" document="IN clauses appearing at top level of WHERE can now be handled as joins. There are two implementation techniques: the executor understands a new JOIN_IN jointype, which emits at most one matching row per left-hand row, or the result of the IN's sub-select can be fed through a DISTINCT filter and then joined as an ordinary relation. Along the way, some minor code cleanup in the optimizerSEMICOLON notably, break out most of the jointree-rearrangement preprocessing in planner.c and put it in a new file prep/prepjointree.c. "/>
@@ -10094,8 +10104,11 @@
       <Document time="1044070524." author="tgl" document="Make plpython's spi_execute interface handle NULLs properly. From Andrew Bosma. "/>
       <Document time="1043821101." author="tgl" document="Guard against array overrun, per report from Yichen Xie.  This case can only occur if the constant DEFAULT_CLIENT_AUTHSVC is given a bogus value, so it doesn't seem worth back-patching, but I'll fix it in HEAD. "/>
       <Document time="1043567035." author="momjian" document="Mark IN performance problem as fixed in 7.4 "/>
+<annotation name="efficiency"/>
+<annotation name="functionality"/>
       <Document time="1043481964." author="tgl" document="Use stat(2) to probe for existing xlog segments in InstallXLogFileSegment, rather than actually opening the files.  This eliminates some corner cases where the file indeed exists but open() fails for another reason, such as being out of file descriptors.  The net reliability gain is probably tiny, since xlog.c is full of other file open calls that will elog(PANIC) if they fail for any reasonSEMICOLON but this specific failure mode has been observed in the field, so we may as well fix it. "/>
       <Document time="1042353180." author="momjian" document="SGML build cleanups from Neil Conway. "/>
+<annotation name="portability"/>
       <Document time="1042092275." author="momjian" document="add to threads discussion. "/>
       <Document time="1041931529." author="momjian" document="Document libpq service capability, and add sample file. "/>
       <Document time="1041841104." author="momjian" document="Enable IPv6 connections to the server, and add pg_hba.conf IPv6 entries if the OS supports it.  Code will still compile on non-IPv6-aware machines (feature added by Bruce).  Nigel Kukard "/>
@@ -11670,6 +11683,7 @@
     </Topic>
     <Topic>
       <Document time="1044230948." author="tgl" document="Fix nodeUnique to behave correctly when reversing direction after reaching either end of subplan results.  This prevents misbehavior of cursors on SELECT DISTINCT ... queries.  Per bug report 1-Feb-02. "/>
+<annotation name="functionality"/>
       <Document time="1044230937." author="tgl" document="Fix nodeUnique to behave correctly when reversing direction after reaching either end of subplan results.  This prevents misbehavior of cursors on SELECT DISTINCT ... queries.  Per bug report 1-Feb-02. "/>
       <Document time="1044076039." author="tgl" document="Apply ljb's patch to prevent both memory leak and core dump during connection shutdown.  This is a grotty workaround for a Tcl bug, but said bug has been there long enough that I'm not holding my breath for a real fix.  Per discussions and testing from ljb and g.hintermayer. "/>
       <Document time="1044076023." author="tgl" document="Apply ljb's patch to prevent both memory leak and core dump during connection shutdown.  This is a grotty workaround for a Tcl bug, but said bug has been there long enough that I'm not holding my breath for a real fix.  Per discussions and testing from ljb and g.hintermayer. "/>
@@ -11681,6 +11695,7 @@
       <Document time="1042666550." author="momjian" document="Add ORDER BY for inet regression, pointed out by Rod Taylor. "/>
       <Document time="1042541209." author="barry" document="Patch from Aaron Mulder to have pooled connections implement PGConnection   Modified Files:  jdbc/org/postgresql/jdbc2/optional/PooledConnectionImpl.java  jdbc/org/postgresql/test/jdbc2/optional/BaseDataSourceTest.java "/>
       <Document time="1042261202." author="petere" document="Fix markup. "/>
+<annotation name="portability"/>
       <Document time="1042024491." author="momjian" document="Add:  &gt; o Allow fastpast to pass values in portable format "/>
       <Document time="1041849225." author="momjian" document="Add prototype for getaddrinfo(). "/>
       <Files>
@@ -13302,9 +13317,11 @@
     </Topic>
     <Topic>
       <Document time="1043638396." author="tgl" document="Back-patch fix for alphabetization mistakes in datetime token tables. "/>
+<annotation name="functionality"/>
       <Document time="1043316656." author="tgl" document="Change CREATE TABLE AS / SELECT INTO to create the new table with OIDs, for backwards compatibility with pre-7.3 behavior.  Per discussion on pgsql-general and pgsql-hackers. "/>
       <Document time="1043316637." author="tgl" document="Change CREATE TABLE AS / SELECT INTO to create the new table with OIDs, for backwards compatibility with pre-7.3 behavior.  Per discussion on pgsql-general and pgsql-hackers. "/>
       <Document time="1042694837." author="tgl" document="Repair an embarrassingly large number of alphabetization mistakes in the datetime token tables.  Even more embarrassing, the regression tests revealed some of the problems --- but evidently the bogus output wasn't questioned.  Add code to postmaster startup to directly check the tables for correct ordering, in hopes of not being embarrassed like this again. "/>
+<annotation name="portability"/>
       <Document time="1042694804." author="tgl" document="Repair an embarrassingly large number of alphabetization mistakes in the datetime token tables.  Even more embarrassing, the regression tests revealed some of the problems --- but evidently the bogus output wasn't questioned.  Add code to postmaster startup to directly check the tables for correct ordering, in hopes of not being embarrassed like this again. "/>
       <Document time="1042681818." author="momjian" document="More comment cleanups for shared_buffers in postgresql.conf. "/>
       <Document time="1042681796." author="momjian" document="More comment cleanups for shared_buffers in postgresql.conf. "/>
@@ -14892,6 +14909,8 @@
       <Document time="1042092437." author="tgl" document="Repair inconsistent rounding behavior for timestamp, time, interval, per gripe from Csaba Nagy.  There is still potential for platform-specific behavior for values that are exactly halfway between integers, but at least we now get the expected answer for all other cases. "/>
       <Document time="1042092417." author="tgl" document="Repair inconsistent rounding behavior for timestamp, time, interval, per gripe from Csaba Nagy.  There is still potential for platform-specific behavior for values that are exactly halfway between integers, but at least we now get the expected answer for all other cases. "/>
       <Document time="1042080049." author="tgl" document="Repair bug noticed by Deepak Bhole: a shell type should have a dependency on its namespace, so that it will go away if the schema is dropped. "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1042080039." author="tgl" document="Repair bug noticed by Deepak Bhole: a shell type should have a dependency on its namespace, so that it will go away if the schema is dropped. "/>
       <Document time="1041911296." author="momjian" document="Enable IPv6 libpq 'hostaddr' addresses.  Update docs. "/>
       <Document time="1041851240." author="momjian" document="Update comments on IPv6  #define. "/>
@@ -16470,6 +16489,7 @@
     </Topic>
     <Topic>
       <Document time="1044145766." author="tgl" document="Changes of 6-Sep-02 broke pg_restore's ability to recognize tar-format files.  Fix it. "/>
+<annotation name="functionality"/>
       <Document time="1044145756." author="tgl" document="Changes of 6-Sep-02 broke pg_restore's ability to recognize tar-format files.  Fix it. "/>
       <Document time="1044076943." author="tgl" document="Prevent core dump from calling Tcl_DontCallWhenDeleted() with a null interp pointer.  Per report from Gerhard Hintermayer. "/>
       <Document time="1044076932." author="tgl" document="Prevent core dump from calling Tcl_DontCallWhenDeleted() with a null interp pointer.  Per report from Gerhard Hintermayer. "/>
@@ -16483,9 +16503,12 @@
       <Document time="1043646319." author="tgl" document="Get rid of last few unadorned 'permission denied' messages. "/>
       <Document time="1043645029." author="tgl" document="Prevent core dump when die_horribly() is called with null AH pointer. Problem reported and fixed by Oliver Elphick. "/>
       <Document time="1043645018." author="tgl" document="Prevent core dump when die_horribly() is called with null AH pointer. Problem reported and fixed by Oliver Elphick. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1042768904." author="tgl" document="Add code to print information about a detected deadlock cycle.  The printed data is comparable to what you could read in the pg_locks view, were you fortunate enough to have been looking at it at the right time. "/>
       <Document time="1042414979." author="tgl" document="Fix some minor grammatical errors. "/>
+<annotation name="portability"/>
       <Document time="1042107558." author="momjian" document="Fix indenting of log_min_error_statement. "/>
+<annotation name="maintainability"/>
       <Document time="1042107542." author="momjian" document="Fix indenting of log_min_error_statement. "/>
       <Document time="1042084625." author="momjian" document="I was playing around with 7.3.1 and found some more SSL problems.  The first, that I missed when checking over 7.3.1, was that the client method was switched to SSLv23 along with the server.  The SSLv23 client method does SSLv2 by default, but can also understand SSLv3.  In our situation the SSLv2 backwords compatibility is really only needed on the server.  This is the first patch.  The last thing is that I found a way for the server to understand SSLv2 HELLO messages (sent by pre-7.3 clients) but then get them to talk SSLv3.  This is the last one.  Nathan Mueller "/>
       <Document time="1042084618." author="momjian" document="I was playing around with 7.3.1 and found some more SSL problems.  The first, that I missed when checking over 7.3.1, was that the client method was switched to SSLv23 along with the server.  The SSLv23 client method does SSLv2 by default, but can also understand SSLv3.  In our situation the SSLv2 backwords compatibility is really only needed on the server.  This is the first patch.  The last thing is that I found a way for the server to understand SSLv2 HELLO messages (sent by pre-7.3 clients) but then get them to talk SSLv3.  This is the last one.  Nathan Mueller "/>
@@ -18064,9 +18087,11 @@
     </Topic>
     <Topic>
       <Document time="1043809028." author="petere" document="Factor out the code that detects the long long int snprintf format into a separate macro.  Also add support for %I64d which is the way on Windows.  The code that checks for the 64-bit int type now gives more reasonable results when cross-compiling: In that case we just take the compiler's information and trust that the arithmetic works.  Disabling int64 is too pessimistic. "/>
+<annotation name="maintainability"/>
       <Document time="1043383131." author="petere" document="Grant options, and cascading revoke.  Grant options are allowed only for users right now, not groups.  Extension of has_foo_privileges functions to query the grant options.  Extension of aclitem type to store grantor. "/>
       <Document time="1043197272." author="meskes" document="Synced parser. "/>
       <Document time="1042685075." author="momjian" document="Revert my changes to features.sgml. "/>
+<annotation name="portability"/>
       <Document time="1041995929." author="momjian" document="Upgrade to my2pg 1.9 "/>
       <Document time="1041995923." author="momjian" document="Upgrade to my2pg 1.9 "/>
       <Document time="1041920352." author="tgl" document="Tweak mdnblocks() to avoid doing lseek() on segments that it has previously determined not to be the last segment of a relation. This reduces the expected cost to one seek, rather than one seek per segment.  We can get away with this because truncation of a relation will cause a relcache flush and so the md.c file descriptor will be closedSEMICOLON when it is re-opened we will re-determine the last segment. "/>
@@ -19655,6 +19680,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="none"/>
       <Document time="1043871897." author="tgl" document="SPI_exec shouldn't return SPI_OK_SELECT if it hasn't actually returned a tuple table.  Fixes core dump in pltcl (and probably other PLs) when executing a query rewritten by a rule.  Per bug report from Wolfgang Walter. "/>
       <Document time="1043871886." author="tgl" document="SPI_exec shouldn't return SPI_OK_SELECT if it hasn't actually returned a tuple table.  Fixes core dump in pltcl (and probably other PLs) when executing a query rewritten by a rule.  Per bug report from Wolfgang Walter. "/>
       <Document time="1043196266." author="tgl" document="Avoid gratuitous variation in spelling of same error message. "/>
@@ -21237,6 +21263,7 @@
       <Document time="1044069913." author="tgl" document="Clean up plpython error reporting so that its regression test passes with some amount of cleanliness.  I see no need to report the internal Python name rather than the SQL procedure name in error tracebacks. "/>
       <Document time="1043727412." author="momjian" document="Move:  &gt; * Add the concept of dataspaces/tablespaces [tablespaces] 307d307 &lt; * Add the concept of dataspaces/tablespaces [tablespaces] "/>
       <Document time="1043666703." author="momjian" document="Remove mention of 6.5 max backends. "/>
+<annotation name="portability"/>
       <Document time="1042691847." author="petere" document="Add remaining documentation tables to information schema. "/>
       <Document time="1042604374." author="petere" document="Add sql_features table to information schema.  Generate the features list in the documentation from that same data. "/>
       <Document time="1042557542." author="petere" document="Escape ampersand. "/>
@@ -21246,6 +21273,7 @@
       <Document time="1042331903." author="momjian" document="Back out flockfile change for NetBSD.  Giles Lean reports they are not supported. "/>
       <Document time="1042154859." author="tgl" document="Add missing #include &lt;getopt.h&gt;. "/>
       <Document time="1041998043." author="momjian" document="Backpatch extra slash removal into 7.3.X. HEAD already has it. "/>
+<annotation name="functionality"/>
       <Document time="1041983212." author="momjian" document="Document that psql BACKSLASHencoding doesn't see SET CLIENT_ENCODING changes. "/>
       <Files>
         <File name="doc/FAQ" count="1"/>
@@ -22823,6 +22851,7 @@
       <Document time="1044233803." author="tgl" document="Brand 7.3.2. "/>
       <Document time="1044233310." author="tgl" document="Update release history for 7.3.2. "/>
       <Document time="1044233300." author="tgl" document="Update release history for 7.3.2. "/>
+<annotation name="portability"/>
       <Document time="1043896448." author="tgl" document="Update release history for 7.2.4. "/>
       <Document time="1043896436." author="tgl" document="Update release history for 7.2.4. "/>
       <Document time="1043896394." author="tgl" document="Brand 7.2.4. "/>
@@ -22830,6 +22859,7 @@
       <Document time="1043829714." author="momjian" document="Update release steps. "/>
       <Document time="1043195901." author="tgl" document="Back-patch fix for VACUUM being confused by SELECT FOR UPDATE of tuple that was previously outdated by a transaction that later aborted. Also, prevent VACUUM from being called inside function. "/>
       <Document time="1042667134." author="momjian" document="This patch fixes an incorrect statement and makes a few cleanups to contrib/fulltextindex/README.fti  Backpatched to 7.3.X too.  Neil Conway "/>
+<annotation name="maintainability"/>
       <Document time="1042667117." author="momjian" document="This patch fixes an incorrect statement and makes a few cleanups to contrib/fulltextindex/README.fti  Backpatched to 7.3.X too.  Neil Conway "/>
       <Document time="1042435131." author="tgl" document="Recent changes in sublink representation require exprType() to accept SubPlan nodes, else explaining queries containing sublinks may fail. "/>
       <Document time="1042401526." author="momjian" document="Update CHAR() description. "/>
@@ -24398,12 +24428,14 @@
     <Topic>
       <Document time="1043212020." author="tgl" document="Implement choice between hash-based and sort-based grouping for doing DISTINCT processing on the output of an IN sub-select. "/>
       <Document time="1042748886." author="tgl" document="Fix bogus formatting of DROP DATABASE command, per Christopher Kings-Lynne. "/>
+<annotation name="portability"/>
       <Document time="1042748879." author="tgl" document="Fix bogus formatting of DROP DATABASE command, per Christopher Kings-Lynne. "/>
       <Document time="1042428929." author="tgl" document="Revise cost_qual_eval() to compute both startup (one-time) and per-tuple costs for expression evaluation, not only per-tuple cost as before. This extension is needed in order to deal realistically with hashed or materialized sub-selects. "/>
       <Document time="1042286370." author="ishii" document="Fix typo in an error messages "/>
       <Document time="1042286111." author="ishii" document="Fix typo in an error message "/>
       <Document time="1042093435." author="momjian" document="Remove bit.c/h routines.  Not used anymore. "/>
       <Document time="1042084476." author="momjian" document="Fix dumping of DEFERRABLE/INITIALLY DEFERRED:  &gt; The big problem is that while pg_dump's dump_trigger() looks at &gt; tginitdeferred and dumps accordingly, pg_get_constraintdef doesn't look &gt; at tginitdeferred, and therefore doesn't record the requirement as part &gt; of ALTER TABLE ADD CONSTRAINT.  pg_get_constraintdef should probably be looking at condeferrable and condeferred in the pg_constraint row it's looking at.  Maybe something like the attached.  (Added, output only non-default values.)  Stephan Szabo "/>
+<annotation name="functionality"/>
       <Document time="1042084446." author="momjian" document="Fix dumping of DEFERRABLE/INITIALLY DEFERRED:  &gt; The big problem is that while pg_dump's dump_trigger() looks at &gt; tginitdeferred and dumps accordingly, pg_get_constraintdef doesn't look &gt; at tginitdeferred, and therefore doesn't record the requirement as part &gt; of ALTER TABLE ADD CONSTRAINT.  pg_get_constraintdef should probably be looking at condeferrable and condeferred in the pg_constraint row it's looking at.  Maybe something like the attached.  (Added, output only non-default values.)  Stephan Szabo "/>
       <Document time="1042082794." author="momjian" document="Enhanced error/help message for pg_controldata.  Serguei Mokhov "/>
       <Document time="1042003346." author="tgl" document="Code review for FETCH/MOVE 0 changes.  Improve documentation, do the right thing with the destination when FETCH 0 can't return a row, don't try to stuff LONG_MAX into an int value. "/>
@@ -25992,6 +26024,7 @@
       <Document time="1042114207." author="tgl" document="Call timestamp_in with proper arguments, per gripe from Mark Halliwell. "/>
       <Document time="1042085914." author="momjian" document="The second was that renegotiation was just plain broken.  I can't believe I didn't notice this before -- once 64k was sent to/from the server the client would crash.  Basicly, in 7.3 the server SSL code set the initial state to &quot;about to renegotiate&quot; without actually starting the renegotiation.  In addition, the server and client didn't properly handle the SSL_ERROR_WANT_(READ|WRITE) error.  This is fixed in the second patch.  Nathan Mueller "/>
       <Document time="1042085905." author="momjian" document="The second was that renegotiation was just plain broken.  I can't believe I didn't notice this before -- once 64k was sent to/from the server the client would crash.  Basicly, in 7.3 the server SSL code set the initial state to &quot;about to renegotiate&quot; without actually starting the renegotiation.  In addition, the server and client didn't properly handle the SSL_ERROR_WANT_(READ|WRITE) error.  This is fixed in the second patch.  Nathan Mueller "/>
+<annotation name="reliability" comments=""/>
       <Document time="1041990966." author="tgl" document="Apply the proper version of Christopher Kings-Lynne's describe patch (ie, the one with describe-schema support).  Minor code review. Adjust display of casts to use standard type names. "/>
       <Files>
         <File name="configure.in" count="2"/>
@@ -27558,6 +27591,7 @@
     </Topic>
     <Topic>
       <Document time="1044142297." author="tgl" document="Fix assign_session_authorization() to not be confused by all-numeric user names.  Per recent reports. "/>
+<annotation name="functionality"/>
       <Document time="1044142288." author="tgl" document="Fix assign_session_authorization() to not be confused by all-numeric user names.  Per recent reports. "/>
       <Document time="1043991120." author="tgl" document="Handle mixed-case names properly in plpgsql_parse_tripwordtype. From Neil Conway. "/>
       <Document time="1043991113." author="tgl" document="Handle mixed-case names properly in plpgsql_parse_tripwordtype. From Neil Conway. "/>
@@ -27573,6 +27607,7 @@
       <Document time="1042337001." author="momjian" document="Fix capitalization. "/>
       <Document time="1042336969." author="momjian" document="Fix capitalization. "/>
       <Document time="1041997970." author="momjian" document="Fix doc chmod .pgpass line in 7.3.X.  Head already fixed. "/>
+<annotation name="portability"/>
       <Document time="1041995842." author="momjian" document="Upgrade to even newer ora2pg 2.0. "/>
       <Document time="1041995834." author="momjian" document="Upgrade to even newer ora2pg 2.0. "/>
       <Files>
@@ -29140,6 +29175,7 @@
     <Topic>
       <Document time="1043993287." author="tgl" document="Allow a time zone to be specified (and silently ignored) in the input for type 'time without time zone', as we already did for type 'timestamp without time zone'.  This patch was proposed by Tom Lockhart on 7-Nov-02, but he never got around to applying it.  Adjust regression tests and documentation to match. "/>
       <Document time="1043887043." author="tgl" document="Back-patch fix to avoid integer overflow in ExecHashJoinGetBatch(), which leads to core dump in large-enough hash joins. "/>
+<annotation name="functionality"/>
       <Document time="1043398714." author="tgl" document="Modify planner's implied-equality-deduction code so that when a set of known-equal expressions includes any constant expressions (including Params from outer queries), we actively suppress any 'var = var' clauses that are or could be deduced from the set, generating only the deducible 'var = const' clauses instead.  The idea here is to push down the restrictions implied by the equality set to base relations whenever possible.  Once we have applied the 'var = const' clauses, the 'var = var' clauses are redundant, and should be suppressed both to save work at execution and to avoid double-counting restrictivity. "/>
       <Document time="1042678861." author="momjian" document="Back out ORDER BY addition to Inet, for Tom. "/>
       <Document time="1042523255." author="momjian" document="Add:  &gt; o Allow PL/PgSQL to support array element assignment "/>
@@ -30741,9 +30777,11 @@
       <Document time="1043284600." author="tgl" document="Make estimation of mergejoin scan selectivities more robust, per recent example from Ra&#199;l Guti&#197;rrez. "/>
       <Document time="1043281595." author="tgl" document="Improve print_expr() a little.  It's still not very bright though. "/>
       <Document time="1043204796." author="tgl" document="Fix coredump problem in plpgsql's RETURN NEXT.  When a SELECT INTO that's selecting into a RECORD variable returns zero rows, make it assign an all-nulls row to the RECORDSEMICOLON this is consistent with what happens when the SELECT INTO target is not a RECORD.  In support of this, tweak the SPI code so that a valid tuple descriptor is returned even when a SPI select returns no rows. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1043204771." author="tgl" document="Fix coredump problem in plpgsql's RETURN NEXT.  When a SELECT INTO that's selecting into a RECORD variable returns zero rows, make it assign an all-nulls row to the RECORDSEMICOLON this is consistent with what happens when the SELECT INTO target is not a RECORD.  In support of this, tweak the SPI code so that a valid tuple descriptor is returned even when a SPI select returns no rows. "/>
       <Document time="1042888011." author="momjian" document="Improve symlink handling for C tags file. "/>
       <Document time="1042677335." author="tgl" document="Allow merge and hash joins to occur on arbitrary expressions (anything not containing a volatile function), rather than only on 'Var = Var' clauses as before.  This makes it practical to do flatten_join_alias_vars at the start of planning, which in turn eliminates a bunch of klugery inside the planner to deal with alias vars.  As a free side effect, we now detect implied equality of non-Var expressionsSEMICOLON for example in SELECT ... WHERE a.x = b.y and b.y = 42 we will deduce a.x = 42 and use that as a restriction qual on a.  Also, we can remove the restriction introduced 12/5/02 to prevent pullup of subqueries whose targetlists contain sublinks. Still TODO: make statistical estimation routines in selfuncs.c and costsize.c smarter about expressions that are more complex than plain Vars.  The need for this is considerably greater now that we have to be able to estimate the suitability of merge and hash join techniques on such expressions. "/>
+<annotation name="portability"/>
       <Document time="1042254206." author="petere" document="Read-only transactions, as defined in SQL. "/>
       <Files>
         <File name="src/backend/optimizer/plan/createplan.c" count="1"/>
@@ -32366,9 +32404,11 @@
       <Document time="1043353130." author="tgl" document="Fix obsolete error message (isImmutable doesn't exist). "/>
       <Document time="1043353120." author="tgl" document="Fix obsolete error message (isImmutable doesn't exist). "/>
       <Document time="1043196702." author="tgl" document="Back-patch fix to ensure pg_clog updates are not only written but sync'ed before we consider the checkpoint to be done. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1042791903." author="tgl" document="Fix parse_agg.c to detect ungrouped Vars in sub-SELECTsSEMICOLON remove code that used to do it in planner.  That was an ancient kluge that was never satisfactorySEMICOLON errors should be detected at parse time when possible. But at the time we didn't have the support mechanism (expression_tree_walker et al) to make it convenient to do in the parser. "/>
       <Document time="1042413577." author="petere" document="Replace RelidGetNamespaceId() by get_rel_namespace(). "/>
       <Document time="1042279466." author="momjian" document="&gt; &gt; This patch improves the documentation for the shared_buffers GUC param. &gt; &gt; I'd suggest that the runtime.sgml description explicitly say &quot;values of &gt; at least a few thousand are recommended for production installations&quot;.  Neil Conway "/>
+<annotation name="portability"/>
       <Document time="1042279454." author="momjian" document="&gt; &gt; This patch improves the documentation for the shared_buffers GUC param. &gt; &gt; I'd suggest that the runtime.sgml description explicitly say &quot;values of &gt; at least a few thousand are recommended for production installations&quot;.  Neil Conway "/>
       <Document time="1042260706." author="tgl" document="Add missing &lt;limits.h&gt; for INT64_IS_BUSTED case. "/>
       <Document time="1042260546." author="tgl" document="Add missing &lt;limits.h&gt; for INT64_IS_BUSTED case. "/>

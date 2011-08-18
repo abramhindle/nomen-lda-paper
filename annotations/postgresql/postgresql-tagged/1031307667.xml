@@ -2158,6 +2158,7 @@
       <Document time="1033677542." author="momjian" document="Add:  &gt; * Add schema, cast, and conversion backslash commands to psql "/>
       <Document time="1033286814." author="momjian" document="Add Bear's SSL comments. "/>
       <Document time="1033002970." author="petere" document="Enhance the description of user and database management.  Reduce the number of forward references in the admin guide. "/>
+<annotation name="portability"/>
       <Document time="1032974593." author="momjian" document="Stamp configure for beta2. "/>
       <Document time="1032760262." author="momjian" document="The valid return value should be MODIFY instead of MODIFIED. The error message said so :-)  In 25.3. Using PL/Python          If the trigger &quot;when&quot; is BEFORE, you may return None or &quot;OK&quot;         from the Python function to indicate the tuple is unmodified, &quot;SKIP&quot;         to abort the event, or &quot;MODIFIED&quot; to indicate you've modified the tuple.  should read         If the trigger &quot;when&quot; is BEFORE, you may return None or &quot;OK&quot;         from the Python function to indicate the tuple is unmodified, &quot;SKIP&quot;         to abort the event, or &quot;MODIFY&quot; to indicate you've modified the tuple.  elein "/>
       <Document time="1032745878." author="tgl" document="Remove extraneous| ... while bison 1.28 doesn't object, newer versions do. "/>
@@ -4129,10 +4130,13 @@
       <Document time="1032917204." author="tgl" document="Update some obsolete comments and column descriptions. "/>
       <Document time="1032738758." author="tgl" document="server_min_messages and friends should have valid values at bootup. "/>
       <Document time="1032572227." author="tgl" document="Back-patch fix for failure to dump views containing FULL JOIN USING. The bug is not present in CVS tip due to cleanup of JOIN handling, but 7.2.* is broken. "/>
+<annotation name="functionality" comments=""/>
       <Document time="1032554695." author="tgl" document="Update regression expected results for to_char() change. "/>
       <Document time="1032056089." author="tgl" document="Update obsolete comment. "/>
       <Document time="1032048676." author="tgl" document="Some PL/PgSQL documentation improvements from Neil Conway. "/>
+<annotation name="portability"/>
       <Document time="1032047960." author="tgl" document="Cosmetic fixes from Neil Conway. "/>
+<annotation name="maintainability"/>
       <Document time="1031804404." author="momjian" document="No change. "/>
       <Document time="1031737124." author="barry" document="Patches submitted by Kris Jurka (jurka@ejurka.com) for the following bugs:   - Properly drop tables in jdbc regression tests with cascade for 7.3   - problem with Statement.execute() and executeUpdate() not clearing binds   - problem with ResultSet not correctly handling default encoding   - changes to correctly support show transaction isolation level in 7.3   - changed DatabaseMetaDataTest to handle differences in FK names in 7.3   - better fix for dynamically checking server NAME data length   (With the fixes above the jdbc regression tests pass on jdbc2 and jdbc3    against both a 7.2 and 7.3 server) Patchs submitted by David Wall (d.wall@computer.org):   - problem with getBlob when largeobject oid is null   - improvements to BlobOutputStream Patch submitted by Haris Peco (snpe@snpe.co.yu):   - problem with callable statement not supporting prepared statement methods   Modified Files:  jdbc/org/postgresql/Driver.java.in  jdbc/org/postgresql/jdbc1/AbstractJdbc1Connection.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1DatabaseMetaData.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java  jdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java  jdbc/org/postgresql/jdbc2/AbstractJdbc2Statement.java  jdbc/org/postgresql/jdbc2/Jdbc2ResultSet.java  jdbc/org/postgresql/jdbc3/Jdbc3ResultSet.java  jdbc/org/postgresql/largeobject/BlobOutputStream.java  jdbc/org/postgresql/largeobject/LargeObject.java  jdbc/org/postgresql/test/TestUtil.java  jdbc/org/postgresql/test/jdbc2/DatabaseMetaDataTest.java  jdbc/org/postgresql/test/jdbc2/UpdateableResultTest.java  jdbc/org/postgresql/test/jdbc2/optional/BaseDataSourceTest.java  jdbc/org/postgresql/test/jdbc2/optional/ConnectionPoolTest.java  jdbc/org/postgresql/test/jdbc2/optional/SimpleDataSourceTest.java "/>
       <Document time="1031352383." author="momjian" document="Update for new IP. "/>
@@ -6104,6 +6108,9 @@
       <Document time="1033094789." author="tgl" document="Fix problems with loss of tuple commit status bits during WAL redo of VACUUM FULL tuple moves.  Store full-width t_infomask in WAL, rather than storing low 8 bits and expecting to be able to reconstruct upper bits.  While at it, remove redundant t_oid field from WAL headers (the OID, if present, is now recorded in the data portion of the tuple). WAL version number bumped --- this does not force an initdb, you can instead run pg_resetxlog after a clean shutdown of the old postmaster. "/>
       <Document time="1033033078." author="momjian" document="Clean up SSL compiler warnings. "/>
       <Document time="1032561537." author="petere" document="Put in defense against gcc -ffast-math. "/>
+<annotation name="maintainability"/>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
       <Document time="1032508497." author="momjian" document="This patch cleans up some of the code in src/util/adt/formatting.c, fixes a few minor bugs (typos, potential buffer overruns, etc.), and fixes some spelling/grammar mistakes.  Neil Conway "/>
       <Document time="1032507555." author="momjian" document="This patch corrects a minor mis-statement in the CREATE DOMAIN docs, pointed out by Chris KL on -hackers a little while ago -- NOT NULL != CHECK xxx IS NOT NULL.  Neil Conway "/>
       <Document time="1032109456." author="petere" document="Cast functions can be immutable or stable. "/>
@@ -8070,8 +8077,10 @@
       <Document time="1033890963." author="momjian" document="Clarify comment. "/>
       <Document time="1033684802." author="tgl" document="Restore NOTICEs that were mistakenly removed from triggers regression test expected output.  Tweak contrib/spi Makefile so that refint.so is by default built with appropriate NOTICE support for regression testing. "/>
       <Document time="1033174628." author="tgl" document="ARGH!  Vacuum must not advance pg_database.datvacuumxid nor truncate CLOG unless it's processed *all* tables in the database.  Vacuums run by unprivileged users don't count.  (Beats head against nearest convenient wall...) "/>
+<annotation name="functionality" comments=""/>
       <Document time="1032756168." author="tgl" document="Get rid of bogus use of heap_mark4update in reindex operations (cf. recent bug report).  Fix processing of nailed-in-cache indexesSEMICOLON it appears that REINDEX DATABASE has been broken for months :-(. "/>
       <Document time="1032647965." author="tgl" document="Provide an upgrade strategy for dump files containing functions declared with OPAQUE.  CREATE LANGUAGE, CREATE TRIGGER, and CREATE TYPE will all accept references to functions declared with OPAQUE --- but they will issue a NOTICE, and will modify the function entries in pg_proc to have the preferred type-safe argument or result types instead of OPAQUE. Per recent pghackers discussions. "/>
+<annotation name="maintainability"/>
       <Document time="1032507846." author="momjian" document="Mention that pg_get_viewdef(name) is deprecated.  Rod Taylor "/>
       <Document time="1032490113." author="tgl" document="Department of second thoughts: suppressing implicit casts everywhere in ruleutils display is not such a great idea.  For arguments of functions and operators I think we'd better keep the historical behavior of showing such casts explicitly, to ensure that the function/operator is reparsed the same way when the rule is reloaded.  This also makes the output of EXPLAIN less obscurantist about exactly what's happening. "/>
       <Document time="1032203333." author="momjian" document="Add mention of removed -enable-multibyte/locale in HISTORY. "/>
@@ -10110,8 +10119,10 @@
     </Topic>
     <Topic>
       <Document time="1033679791." author="momjian" document="This is small README fix for contrib/intarray. Thank you.  Teodor Sigaev "/>
+<annotation name="portability"/>
       <Document time="1033153448." author="tgl" document="Don't mess with HEAP_XMAX_INVALID in heaptuple.c routinesSEMICOLON there is no reason to worry about the tuple commit status bits until the tuple is inserted in a relation by heapam.c.  Also, improve comments for heap_addheader(). "/>
       <Document time="1033000300." author="tgl" document="Remove ShutdownBufferPoolAccess exit callback, and do the work in ProcKill instead, where we still have a PGPROC with which to wait on LWLocks.  This fixes 'can't wait without a PROC structure' failures occasionally seen during backend shutdown (I'm surprised they weren't more frequent, actually).  Add an Assert() to LWLockAcquire to help catch any similar mistakes in future.  Fix failure to update MyProcPid for standalone backends and pgstat processes. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1032311704." author="momjian" document="Fix pgaccess URL, from Justin. "/>
       <Document time="1031804802." author="momjian" document="The small context diff below corrects what seems to be an oversight in fmgr.h - it's discouraged to access fcinfo directly but there is no macro to get the number of arguments passed to the function. Checking the number of arguments is often useful when you have a function which can be called like:   func('arg')SEMICOLON  func(null)SEMICOLON  func()SEMICOLON  all mapping to the same C function.  the macro has a function-like appearance to match the other PG_* macros.  Lee Kindness. "/>
       <Document time="1031429547." author="petere" document="Fix help output. "/>
@@ -12064,6 +12075,7 @@
     </Topic>
     <Topic>
       <Document time="1033858996." author="momjian" document="Add more documentation about CURRENT_TIMESTAMP.  Also, code &lt; and &gt; as &amp;ltSEMICOLON/&amp;gtSEMICOLON for cleaner SGML. "/>
+<annotation name="portability"/>
       <Document time="1033783724." author="tgl" document="Require superuser privilege to create a binary-compatible cast, per discussion some weeks ago.  Also, add a check that two types to be binary-equivalenced match as to typlen, typbyval, and typalignSEMICOLON if they don't then it's surely a mistake to equivalence them. "/>
       <Document time="1033679273." author="momjian" document="This patch removes two unused global variables from globals.c  Neil Conway "/>
       <Document time="1033626409." author="momjian" document="Add wording so people know PANIC is really &quot;off&quot; for log_min_error_statement. "/>
@@ -12077,6 +12089,7 @@
       <Document time="1032561581." author="petere" document="Revision "/>
       <Document time="1032395939." author="momjian" document="Add 'adddepend' script to handle pre-7.3 object dependencies. "/>
       <Document time="1031363916." author="petere" document="Make sure the pg_dump tar archiver can handle members larger than 2 GB, but does not create members larger than allowed by the tar format.  Also, fix the generation of the tar header to conform to POSIX. "/>
+<annotation name="functionality"/>
       <Files>
         <File name="src/include/miscadmin.h" count="1"/>
         <File name="contrib/adddepend/README.adddepend" count="1"/>
@@ -14037,8 +14050,10 @@
     </Topic>
     <Topic>
       <Document time="1033875822." author="momjian" document="Fix markup error. "/>
+<annotation name="portability"/>
       <Document time="1033257624." author="tgl" document="Make the world at least somewhat safe for zero-column tables, and remove the special case in ALTER DROP COLUMN to prohibit dropping a table's last column. "/>
       <Document time="1033257618." author="tgl" document="Make the world at least somewhat safe for zero-column tables, and remove the special case in ALTER DROP COLUMN to prohibit dropping a table's last column. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1033033143." author="momjian" document="Back out /pl memory leak patch.  Wait for new version. "/>
       <Document time="1033031820." author="momjian" document="Pass postmaster -d down to the postgres backend to trigger special -d handling in the backend. "/>
       <Document time="1032750238." author="tgl" document="In UpdateStats(), don't bother to update the pg_class row if it already contains the correct statistics.  This is a partial solution for the problem of allowing concurrent CREATE INDEX commands: unless they commit at nearly the same instant, the second one will see the first one's pg_class updates as committed, and won't try to update again, thus avoiding the 'tuple concurrently updated' failure. "/>
@@ -16004,7 +16019,9 @@
     <Topic>
       <Document time="1033429557." author="tgl" document="Back-patch fix to not change pg_database.datvacuumxid or truncate CLOG when an unprivileged user runs VACUUM. "/>
       <Document time="1032508629." author="momjian" document="The patch fix bug described in TODO:   * to_char(0,'FM999.99') returns a period, to_char(1,'FM999.99') does not  Karel Zak "/>
+<annotation name="functionality"/>
       <Document time="1032508461." author="momjian" document="Tiny patch fixing small documentation typo.  Oleg Bartunov "/>
+<annotation name="portability"/>
       <Document time="1032508435." author="momjian" document="This patch fixes two typos in src/backend/storage/ipc/README.  Neil Conway "/>
       <Document time="1032345509." author="ishii" document="Add GRANT EXECUTE ON FUNCTION "/>
       <Document time="1032206563." author="momjian" document="Remove retest Makefile entry because it does not compile. "/>
@@ -17973,11 +17990,13 @@
       <Document time="1033457336." author="momjian" document="Update FAQ for 7.2.3 version. "/>
       <Document time="1033113540." author="momjian" document="Have -d5 -d0 not affect the extra variables set with -d5. "/>
       <Document time="1033095513." author="tgl" document="Ensure that before truncating CLOG, we force a checkpoint even if no recent WAL activity has occurred.  Without this, it's possible that a later crash might leave tuples on disk with un-updated commit status bits. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1033031910." author="momjian" document="This patch removes a use of uninitialized memory in lmgr/lock.c, by adding a missing sprintf().  Neil Conway "/>
       <Document time="1032907103." author="tgl" document="Add missing correction of sublevelsup when pulling up a subquery. Fixes problem with cases like SELECT * FROM foo t WHERE NOT EXISTS (SELECT remoteid FROM (SELECT f1 as remoteid FROM foo WHERE f1 = t.f1) AS t1) "/>
       <Document time="1032337371." author="momjian" document="Add:  &gt; o Allow EXPLAIN EXECUTE to see prepared plans "/>
       <Document time="1032153881." author="tgl" document="Fix for rare race-condition-like failure: if a backend receives SIGUSR2 (notify/SI-overrun interrupt) while it is in process of doing proc_exit, it is possible for Async_NotifyHandler() to try to start a transaction when one is already running.  This leads to Asserts() or worse.  I think it may only be possible to occur when frontend synchronization is lost (ie, the elog(FATAL) in SocketBackend() fires), but that is a standard occurrence after error during COPY.  In any case, I have seen this failure occur during regression tests, so it is definitely possible. "/>
       <Document time="1032046374." author="tgl" document="Fix portability bug in get_normal_pair (RAND_MAX != MAX_RANDOM_VALUE). Also try to improve readability and performance. "/>
+<annotation name="portability"/>
       <Document time="1031438344." author="momjian" document="Changes to documentation and the regression tests for the default NAMEDATALEN of 64.  Kris Jurka "/>
       <Files>
         <File name="doc/src/FAQ/FAQ_DEV.html" count="1"/>
@@ -19937,10 +19956,12 @@
       <Document time="1032759545." author="momjian" document="Nothing. "/>
       <Document time="1032745483." author="tgl" document="Remove commas from %type and %token lists, for compatibility with newer versions of bison. "/>
       <Document time="1032566161." author="tgl" document="Performance improvement for MultiRecordFreeSpace on large relations --- avoid O(N^2) behavior.  Problem noted and fixed by Stephen Marshall &lt;smarshall@wsicorp.com&gt;, with some help from Tom Lane. "/>
+<annotation name="efficiency"/>
       <Document time="1032313307." author="momjian" document="Point out that CREATE INDEX uses sorts and hence sort_mem GUC parameter. "/>
       <Document time="1031989976." author="barry" document="Added regression test for using server side prepared statements in jdbc and fixed a bug found by the regression test   Modified Files:  jdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java  jdbc/org/postgresql/test/jdbc2/Jdbc2TestSuite.java  Added Files:  jdbc/org/postgresql/test/jdbc2/ServerPreparedStmtTest.java "/>
       <Document time="1031732867." author="momjian" document="Add mention of config.log for configure failure debugging. "/>
       <Document time="1031458528." author="barry" document="Fixed DatabaseMetaData to correctly handle NAME size of 64 Fixed Statement to correctly DEALLOCATE any prepared statements   Modified Files:  jdbc/org/postgresql/PGStatement.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1DatabaseMetaData.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java "/>
+<annotation name="reliability" comments=""/>
       <Files>
         <File name="contrib/dblink/dblink.sql.in" count="1"/>
         <File name="src/backend/commands/vacuumlazy.c" count="1"/>
@@ -21896,6 +21917,7 @@
     </Topic>
     <Topic>
       <Document time="1033679472." author="momjian" document="&gt; The previous patch fixed an infinite recursion bug in &gt; contrib/tablefunc/tablefunc.c:connectby. But, other unmanageable error &gt; seems to occur even if a table has commonplace tree data(see below). &gt; &gt; I would think the patch, ancestor check, should be &gt; &gt;   if (strstr(branch_delim|| branchstr-&gt;data|| branch_delim, &gt;                        branch_delim|| current_key|| branch_delim)) &gt; &gt; This is my image, not a real code. However, if branchstr-&gt;data includes &gt; branch_delim, my image will not be perfect.  Good point. Thank you Masaru for the suggested fix.  Attached is a patch to fix the bug found by Masaru. His example now produces:  regression=# SELECT * FROM connectby('connectby_tree', 'keyid', 'parent_keyid', '11', 0, '-') AS t(keyid int, parent_keyid int, level int, branch text)SEMICOLON   keyid| parent_keyid| level|  branch  -------+--------------+-------+----------      11||     0| 11      10|           11|     1| 11-10     111|           11|     1| 11-111       1|          111|     2| 11-111-1 (4 rows)  While making the patch I also realized that the &quot;no show branch&quot; form of the  function was not going to work very well for recursion detection. Therefore  there is now a default branch delimiter ('~') that is used internally, for  that case, to enable recursion detection to work. If you need a different  delimiter for your specific data, you will have to use the &quot;show branch&quot; form  of the function.  Joe Conway "/>
+<annotation name="reliability" comments=""/>
       <Document time="1033032270." author="momjian" document="Attached is a patch to contrib/dbmirror that fixes a bug that was causing  the postmaster to crash when the trigger was running on a table without a  primary key.  I've also updated the docs to explicitly say that tables need primary keys.  Steven Singer "/>
       <Document time="1032377048." author="momjian" document="Rename help file upgrade_7.3 to upgrade_tips_7.3. "/>
       <Document time="1032047161." author="tgl" document="Avoid overflow for large elapsed times in BACKSLASHtiming output.  Per Kenji Sugita. "/>
@@ -23844,6 +23866,7 @@
     <Topic>
       <Document time="1033804826." author="momjian" document="Update:  &gt; * Allow sorting, temp files, temp tables to use multiple work directories "/>
       <Document time="1033772767." author="momjian" document="Update wording for temp files:  &gt; * Allow sorting/temp files to use multiple work directories "/>
+<annotation name="portability"/>
       <Document time="1033766816." author="momjian" document="Add:  &gt; * Allow sorting to use multiple work directories "/>
       <Document time="1033032206." author="momjian" document="I have attached the pltcl patch again, just in case. For the sake of clarity let's say this patch superscedes the previous one.  I have also attached a patch addressing the similar memory leak problem in plpython. This includes a slight adjustment of the tests in the source directory. The patch also includes a cosmetic change to remove a compiler warning although I think the change makes the code look worse though.  BTW, by my reckoning the memory leak would occur with prepared plans and without. If that is not the case then I've been barking up the wrong tree.  Nigel J. Andrews "/>
       <Document time="1032399320." author="tgl" document="Extend pg_cast castimplicit column to a three-way valueSEMICOLON this allows us to be flexible about assignment casts without introducing ambiguity in operator/function resolution.  Introduce a well-defined promotion hierarchy for numeric datatypes (int2-&gt;int4-&gt;int8-&gt;numeric-&gt;float4-&gt;float8). Change make_const to initially label numeric literals as int4, int8, or numeric (never float8 anymore). Explicitly mark Func and RelabelType nodes to indicate whether they came from a function call, explicit cast, or implicit castSEMICOLON use this to do reverse-listing more accurately and without so many heuristics. Explicit casts to char, varchar, bit, varbit will truncate or pad without raising an error (the pre-7.2 behavior), while assigning to a column without any explicit cast will still raise an error for wrong-length data like 7.3. This more nearly follows the SQL spec than 7.2 behavior (we should be reporting a 'completion condition' in the explicit-cast cases, but we have no mechanism for that, so just do silent truncation). Fix some problems with enforcement of typmod for array elementsSEMICOLON it didn't work at all in 'UPDATE ... SET array[n] = foo', for example. Provide a generalized array_length_coerce() function to replace the specialized per-array-type functions that used to be needed (and were missing for NUMERIC as well as all the datetime types). Add missing conversions int8&lt;-&gt;float4, text&lt;-&gt;numeric, oid&lt;-&gt;int8. initdb forced. "/>
@@ -25868,6 +25891,7 @@
     </Topic>
     <Topic>
       <Document time="1033767241." author="tgl" document="Fix a couple of grammatical errors in error messages. "/>
+<annotation name="portability"/>
       <Document time="1033688030." author="momjian" document="Add auto-vacuum emails. "/>
       <Document time="1033680374." author="momjian" document="Add SSL documentation info to README.SSL "/>
       <Document time="1033602347." author="tgl" document="pg_resetxlog was missing support for the pg_control fields added in 7.3. "/>
@@ -25875,6 +25899,7 @@
       <Document time="1033457667." author="momjian" document="Brand 7.2.3. "/>
       <Document time="1033447141." author="davec" document="schema awareness patch provided by Kris Jurka "/>
       <Document time="1033433242." author="tgl" document="Back-patch fix for bad SIGUSR2 interrupt handling during backend shutdown. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1033163470." author="momjian" document="&gt; Fix clusterdb to be schema-aware  Please apply the patch attached and this should be solved.  Alvaro Herrera "/>
       <Document time="1032978436." author="tgl" document="Shouldn't be here ... "/>
       <Document time="1032925062." author="momjian" document="Make PL/pgSQL capitalization consistent. "/>
@@ -27942,6 +27967,7 @@
     </Topic>
     <Topic>
       <Document time="1033766395." author="tgl" document="Tweak a few of the most heavily used function call points to zero out just the significant fields of FunctionCallInfoData, rather than MemSet'ing the whole struct to zero.  Unused positions in the arg[] array will thereby contain garbage rather than zeroes.  This buys back some of the performance hit from increasing FUNC_MAX_ARGS.  Also tweak tuplesort.c code for more speed by marking some routines 'inline'.  All together these changes speed up simple sorts, like count(distinct int4column), by about 25% on a P4 running RH Linux 7.2. "/>
+<annotation name="efficiency"/>
       <Document time="1032836264." author="tgl" document="Further thinking about heap_mark4update: in HeapTupleSelfUpdated case, executor should not return the tuple as successfully marked, because in fact it's been deleted.  Not clear that this case has ever been seen in practice (I think you'd have to write a SELECT FOR UPDATE that calls a function that deletes some row the SELECT will visit later...) but we should be consistent.  Also add comments to several other places that got it right but didn't explain what they were doing. "/>
       <Document time="1032550983." author="momjian" document="Change domain patch to COERCE_IMPLICIT_CAST, per Tom. "/>
       <Document time="1032517147." author="meskes" document="Synced yet again. Deactivated backend prepare/execute/deallocate for the time being. "/>
@@ -29911,6 +29937,7 @@
     <Topic>
       <Document time="1033784369." author="tgl" document="Restrict CREATE OPERATOR CLASS to superusers, per discussion some weeks ago. "/>
       <Document time="1033687963." author="momjian" document="Add:  &lt; * Provide automatic running of vacuum in the background (Tom) &gt; * Provide automatic running of vacuum in the background (Tom) [vacuum] "/>
+<annotation name="efficiency"/>
       <Document time="1033608613." author="tgl" document="Re-enable pg_resetxlog to accept -l values in hexadecimal (it used to be able to do that, but the ability seems to have got lost in the shuffle).  Add a -o nextOID switch for completeness.  Improve the documentation to explain how and why to use these switches. "/>
       <Document time="1033431539." author="tgl" document="Back-patch fix for 'can't wait without a PROC structure' failures: remove separate ShutdownBufferPoolAccess exit callback, and do the work in ProcKill instead, before we delete MyProc. "/>
       <Document time="1033106679." author="momjian" document="Simplify SSL certificate instructions. "/>
@@ -31882,7 +31909,9 @@
       <Document time="1033687225." author="momjian" document="Add:  &gt; * Check GUC geqo_threshold to see if it is still accurate "/>
       <Document time="1033679736." author="momjian" document="The attached adds a bit to the contrib/tablefunc regression test for behavior of connectby() in the presence of infinite recursion. Please apply this one in addition to the one sent earlier.  Joe Conway "/>
       <Document time="1033679381." author="momjian" document="The attached patch fixes a number of issues related to compiling the client utilities (libpq.dll and psql.exe) for win32 (missing defines, adjustments to includes, pedantic casting, non-existent functions) per:    http://developer.postgresql.org/docs/postgres/install-win32.html.  It compiles cleanly under Windows 2000 using Visual Studio .net. Also compiles clean and passes all regression tests (regular and contrib) under Linux.  In addition to a review by the usual suspects, it would be very desirable for  someone well versed in the peculiarities of win32 to take a look.  Joe Conway "/>
+<annotation name="portability"/>
       <Document time="1033463204." author="tgl" document="Pass less-unsafe parameters to Darwin's NSLinkModule.  While this change prevents a backend coredump when loading a broken shlib, it also seems to suppress the error messages that might help debug the problem :-(.  Perhaps someone would like to supply a 'linkEdit' hook to get the best of both worlds.  But in the meantime, backend crash trumps error reporting. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1032739731." author="tgl" document="I haven't seen any objections, so here is a patch. It removes &quot;#define YYERROR_VERBOSE&quot; from contrib/cube and contrib/seg, and adjusts the expected output accordingly. Hopefully this will consistently pass across multiple bison versions.  Joe Conway "/>
       <Document time="1032508540." author="momjian" document="Tom Lane wrote: &gt; I see in your recent bytea-LIKE patch &gt; &gt;         if (datatype != BYTEAOID &amp;&amp; pg_database_encoding_max_length() &gt; 1) &gt;             len = pg_mbcliplen((const unsigned char *) workstr, len, len - 1)SEMICOLON &gt;         else &gt;             len -= -1SEMICOLON &gt; &gt; Surely there's one too many minus signs in that last?  Joe Conway "/>
       <Document time="1032047761." author="tgl" document="The attached adds GRANTs to PUBLIC for contrib/fuzzystringmatch.  Joe Conway "/>
@@ -33860,7 +33889,9 @@
       <Document time="1032730043." author="tgl" document="Bring SIMILAR TO and SUBSTRING into some semblance of conformance with the SQL99 standard.  (I'm not sure that the character-class features are quite right, but that can be fixed later.)  Document SQL99 and POSIX regexps as being different featuresSEMICOLON provide variants of SUBSTRING for each. "/>
       <Document time="1032555362." author="tgl" document="Code review for check-domain-constraints-in-COPY patch.  Do correct thing when default expression for a domain is being used.  Avoid repetitive catalog lookups. "/>
       <Document time="1032329409." author="ishii" document="Fix bug in encoding conversion map. "/>
+<annotation name="functionality"/>
       <Document time="1032326488." author="ishii" document="Update Japanese README so that it reflects the changes made to the conversion function interface. "/>
+<annotation name="portability"/>
       <Document time="1031804484." author="momjian" document="Joe Conway wrote:  &gt; Hannu Krosing wrote:  &gt;  &gt;&gt; It seems that my last mail on this did not get through to the list  &gt;&gt; SEMICOLON(  &gt;&gt;  &gt;&gt; Please consider renaming the new builtin function  &gt;&gt; split(text,text,int)  &gt;&gt;  &gt;&gt; to something else, perhaps  &gt;&gt;  &gt;&gt; split_part(text,text,int)  &gt;&gt;  &gt;&gt; (like date_part)  &gt;&gt;  &gt;&gt; The reason for this request is that 3 most popular scripting  &gt;&gt; languages (perl, python, php) all have also a function with similar  &gt;&gt; signature, but returning an array instead of single element and the  &gt;&gt; (optional) third argument is limit (maximum number of splits to  &gt;&gt; perform)  &gt;&gt;  &gt;&gt; I think that it would be good to have similar function in (some  &gt;&gt; future release of) postgres, but if we now let in a function with  &gt;&gt; same name and arguments but returning a single string instead an  &gt;&gt; array of them, then we will need to invent a new and not so easy to  &gt;&gt; recognise name for the &quot;real&quot; split function.  &gt;&gt;  &gt;  &gt; This is a good point, and I'm not opposed to changing the name, but  &gt; it is too bad your original email didn't get through before beta1 was  &gt;  rolled. The change would now require an initdb, which I know we were  &gt;  trying to avoid once beta started (although we could change it  &gt; without *requiring* an initdb I suppose).  &gt;  &gt; I guess if we do end up needing an initdb for other reasons, we  &gt; should make this change too. Any other opinions? Is split_part an  &gt; acceptable name?  &gt;  &gt; Also, if we add a todo to produce a &quot;real&quot; split function that  &gt; returns an array, similar to those languages, I'll take it for 7.4.  No one commented on the choice of name, so the attached patch changes the name of split(text,text,int) to split_part(text,text,int) per Hannu's recommendation above. This can be applied without an initdb if current beta testers are advised to run:     update pg_proc set proname = 'split_part' where proname = 'split'SEMICOLON  in the case they want to use this function. Regression and doc fix is also included in the patch.  Joe Conway "/>
       <Files>
         <File name="src/backend/utils/mb/conversion_procs/README.euc_jp" count="1"/>
@@ -35811,6 +35842,7 @@
     <Topic>
       <Document time="1033687075." author="tgl" document="Avoid palloc(0) when MaxBackends = 1. "/>
       <Document time="1033679862." author="momjian" document="This patch fixes a few grammatical errors, removes some duplicate entries, and attributes some JDBC changes to the right people.  Neil Conway "/>
+<annotation name="portability"/>
       <Document time="1033600886." author="tgl" document="Alter scale selection for NUMERIC division and transcendental functions so that precision of result is always at least as good as you'd get from float8 arithmetic (ie, always at least 16 digits of accuracy).  Per pg_hackers discussion a few days ago. "/>
       <Document time="1032738170." author="tgl" document="Replace pg_attribute.attisinherited with attislocal and attinhcount columns, to allow more correct behavior in multiple-inheritance cases. Patch by Alvaro Herrera, review by Tom Lane. "/>
       <Document time="1032508042." author="momjian" document="I have included fixes to declare some floating point constants as double instead of int, change the calculation method to use the haversine formula which is more accurrate for short distances, added a grant to public for geo_distance and added a regression test.  I will resubmit the earth distance stuff based on cube after 7.3 is released.  Bruno Wolff III "/>
@@ -37786,7 +37818,9 @@
     </Topic>
     <Topic>
       <Document time="1033687149." author="tgl" document="In a bootstrap process or standalone backend, set MaxBackends = 1 to avoid unnecessary consumption of semaphores. "/>
+<annotation name="efficiency"/>
       <Document time="1033430108." author="tgl" document="Back-patch fix to ensure a checkpoint occurs before truncating CLOG, even if no recent WAL activity has occurred. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1033112055." author="momjian" document="Make postgres -d0 set server_min_messages to notice.  Reset doesn't work at this area in the code. "/>
       <Document time="1033029714." author="momjian" document="Allow SSL to work withouth client-side certificate infrastructure. "/>
       <Document time="1032923665." author="tgl" document="Change default privileges for languages and functions to be PUBLIC USAGE and PUBLIC EXECUTE, respectively.  Per discussion about easing updates from prior versions. "/>
@@ -39784,12 +39818,15 @@
       <Document time="1033461360." author="barry" document="Fixed test suite to call PoolingDataSourceTest which was missed   Modified Files:  OptionalTestSuite.java "/>
       <Document time="1033457057." author="momjian" document="Update HISTORY/release.sgml for 7.2.3. "/>
       <Document time="1033456985." author="momjian" document="Update HISTORY/release.sgml for 7.2.3. "/>
+<annotation name="portability"/>
       <Document time="1033433830." author="tgl" document="Back-patch fixes to work around broken mktime() in recent glibc releases. "/>
+<annotation name="functionality"/>
       <Document time="1033431893." author="tgl" document="Back-patch fix for correct TAS operation on multi-CPU PPC machines. "/>
       <Document time="1032951690." author="barry" document="Applied patch from Aaron Mulder (ammulder@alumni.princeton.edu) that fixes jdbc datasource support for jdk1.4/jdbc3   Modified Files:  jdbc/build.xml jdbc/org/postgresql/Driver.java.in  jdbc/org/postgresql/jdbc2/optional/BaseDataSource.java  jdbc/org/postgresql/jdbc2/optional/PGObjectFactory.java  jdbc/org/postgresql/jdbc2/optional/PooledConnectionImpl.java  jdbc/org/postgresql/jdbc2/optional/PoolingDataSource.java  jdbc/org/postgresql/test/jdbc2/optional/BaseDataSourceTest.java  jdbc/org/postgresql/test/jdbc2/optional/OptionalTestSuite.java  jdbc/org/postgresql/test/jdbc3/Jdbc3TestSuite.java  Added Files:  jdbc/org/postgresql/jdbc3/Jdbc3ConnectionPool.java  jdbc/org/postgresql/jdbc3/Jdbc3ObjectFactory.java  jdbc/org/postgresql/jdbc3/Jdbc3PooledConnection.java  jdbc/org/postgresql/jdbc3/Jdbc3PoolingDataSource.java  jdbc/org/postgresql/jdbc3/Jdbc3SimpleDataSource.java  jdbc/org/postgresql/test/jdbc2/optional/PoolingDataSourceTest.java  jdbc/org/postgresql/test/jdbc3/Jdbc3ConnectionPoolTest.java  jdbc/org/postgresql/test/jdbc3/Jdbc3PoolingDataSourceTest.java  jdbc/org/postgresql/test/jdbc3/Jdbc3SimpleDataSourceTest.java  jdbc/org/postgresql/test/util/MiniJndiContext.java  jdbc/org/postgresql/test/util/MiniJndiContextFactory.java "/>
       <Document time="1032912898." author="petere" document="Tweak conversion names to follow the established naming scheme, and document that scheme. "/>
       <Document time="1032829812." author="petere" document="Move PyGreSQL usage documentation from README into DocBook.  Some other editing. "/>
       <Document time="1032742640." author="petere" document="Translation updates, some messages tweaked. "/>
+<annotation name="portability"/>
       <Document time="1032669429." author="tgl" document="Move most of the error checking for foreign-key constraints out of parse analysis and into the execution code (in tablecmds.c).  This eliminates a lot of unreasonably complex code that needed to have two or more execution paths in case it was dealing with a not-yet-created table column vs. an already-existing one.  The execution code is always dealing with already-created tables and so needs only one case.  This also eliminates some potential race conditions (the table wasn't locked between parse analysis and execution), makes it easy to fix the gripe about wrong referenced-column names generating a misleading error message, and lets us easily add a dependency from the foreign-key constraint to the unique index that it requires the referenced table to have.  (Cf. complaint from Kris Jurka 12-Sep-2002 on pgsql-bugs.)  Also, third try at building a deletion mechanism that is not sensitive to the order in which pg_depend entries are visited.  Adding the above- mentioned dependency exposed the folly of what dependency.c had been doing: it failed for cases where B depends on C while both auto-depend on A.  Dropping A should succeed in this case, but was failing if C happened to be visited before B.  It appears the only solution is two separate walks over the dependency tree. "/>
       <Document time="1032581645." author="tgl" document="Fix PPC s_lock operations to work correctly on multi-CPU machines. Need 'isync' during TAS and 'sync' during S_UNLOCK. "/>
       <Document time="1032251260." author="momjian" document="Remove src/test/regress/sql: plpgsql-nsp-testing.sql  per Joe Conway. "/>

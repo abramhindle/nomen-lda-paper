@@ -1805,6 +1805,7 @@
       <Document time="1044599619." author="tgl" document="Revise mechanism for getting rid of temp tables at backend shutdown. Instead of grovelling through pg_class to find them, make use of the handy dandy dependency mechanism: just delete everything that depends on our temp schema.  Unlike the pg_class scan, the dependency mechanism is smart enough to delete things in an order that doesn't fall foul of any dependency restrictions.  Fixes problem reported by David Heggie: a temp table with a serial column may cause a backend FATAL exit at shutdown time, if it chances to try to delete the temp sequence first. "/>
       <Document time="1044599586." author="tgl" document="Revise mechanism for getting rid of temp tables at backend shutdown. Instead of grovelling through pg_class to find them, make use of the handy dandy dependency mechanism: just delete everything that depends on our temp schema.  Unlike the pg_class scan, the dependency mechanism is smart enough to delete things in an order that doesn't fall foul of any dependency restrictions.  Fixes problem reported by David Heggie: a temp table with a serial column may cause a backend FATAL exit at shutdown time, if it chances to try to delete the temp sequence first. "/>
       <Document time="1044337800." author="tgl" document="Minor code cleanup: remove no-longer-useful pull_subplans() function, and convert pull_agg_clause() into count_agg_clause(), which is a more efficient way of doing what it's really being used for. "/>
+<annotation name="maintainability"/>
       <Document time="1044299064." author="momjian" document="Change MOVE LAST to MOVE ALL.  Standard says FETCH LAST is after last row, and we don't do that. "/>
       <Files>
         <File name="src/backend/nodes/outfuncs.c" count="1"/>
@@ -3546,10 +3547,12 @@
     <Topic>
       <Document time="1045716075." author="momjian" document="Back out LOCKTAG changes by Rod Taylor, pending code review. Sorry. "/>
       <Document time="1045606837." author="momjian" document="Hungarian FAQ is text, not HTML, so remove it. "/>
+<annotation name="portability"/>
       <Document time="1045554570." author="momjian" document="Add:  &gt; * Add a script to ask system configuration questions and tune postgresql.conf "/>
       <Document time="1045525032." author="momjian" document="Update: &lt; * -Make a transaction-safe TRUNCATE &gt; * -Make a transaction-safe TRUNCATE (Rod) "/>
       <Document time="1045524984." author="momjian" document="Done:  &gt; * -Make a transaction-safe TRUNCATE "/>
       <Document time="1045363198." author="tgl" document="Marginal tweaks to make sure that roundoff error won't cause us to make a bad choice between sorted and hashed aggregation. "/>
+<annotation name="functionality"/>
       <Document time="1045249551." author="momjian" document="Update FAQ's in head and 7.3.X. "/>
       <Document time="1045249499." author="momjian" document="Update FAQ's in head and 7.3.X. "/>
       <Document time="1045130794." author="momjian" document="&gt; ================================================================= &gt; User interface proposal for multi-row function targetlist entries &gt; ================================================================= &gt; 1. Only one targetlist entry may return a set. &gt; 2. Each targetlist item (other than the set returning one) is &gt;    repeated for each item in the returned set. &gt;  Having gotten no objections (actually, no response at all), I can only assume no one had heartburn with this change. The attached patch covers the first of the two proposals, i.e. restricting the target list to only one set returning function.  It compiles cleanly, and passes all regression tests. If there are no objections, please apply.  Any suggestions on where this should be documented (other than maybe sql-select)?  Thanks,  Joe  p.s. Here's what the previous example now looks like: CREATE TABLE bar(f1 int, f2 text, f3 int)SEMICOLON INSERT INTO bar VALUES(1, 'Hello', 42)SEMICOLON INSERT INTO bar VALUES(2, 'Happy', 45)SEMICOLON  CREATE TABLE foo(a int, b text)SEMICOLON INSERT INTO foo VALUES(42, 'World')SEMICOLON INSERT INTO foo VALUES(42, 'Everyone')SEMICOLON INSERT INTO foo VALUES(45, 'Birthday')SEMICOLON INSERT INTO foo VALUES(45, 'New Year')SEMICOLON  CREATE TABLE foo2(a int, b text)SEMICOLON INSERT INTO foo2 VALUES(42, '!!!!')SEMICOLON INSERT INTO foo2 VALUES(42, '????')SEMICOLON INSERT INTO foo2 VALUES(42, '####')SEMICOLON INSERT INTO foo2 VALUES(45, '$$$$')SEMICOLON  CREATE OR REPLACE FUNCTION getfoo(int) RETURNS SETOF text AS '    SELECT b FROM foo WHERE a = $1 ' language 'sql'SEMICOLON  CREATE OR REPLACE FUNCTION getfoo2(int) RETURNS SETOF text AS '    SELECT b FROM foo2 WHERE a = $1 ' language 'sql'SEMICOLON  regression=# SELECT f1, f2, getfoo(f3) AS f4 FROM barSEMICOLON   f1|  f2|    f4 ----+-------+----------    1| Hello| World    1| Hello| Everyone    2| Happy| Birthday    2| Happy| New Year (4 rows)  regression=# SELECT f1, f2, getfoo(f3) AS f4, getfoo2(f3) AS f5 FROM barSEMICOLON ERROR:  Only one target list entry may return a set result   Joe Conway "/>
@@ -5311,6 +5314,7 @@
       <Document time="1045258801." author="meskes" document="In Informix mode ecpg should still be able to parse preprocessor directives. "/>
       <Document time="1045246633." author="meskes" document="- Synced parser and keyword file. - More work on Informix compatibility. "/>
       <Document time="1045100423." author="barry" document="Applied patch to update translation file, submitted by Zhenbang Wei   Modified Files:  jdbc/org/postgresql/errors_zh_TW.properties "/>
+<annotation name="portability"/>
       <Document time="1045100393." author="barry" document="Applied patch to update translation file, submitted by Zhenbang Wei Modified Files:   Tag: REL7_3_STABLE  jdbc/org/postgresql/errors_zh_TW.properties "/>
       <Document time="1044954819." author="tgl" document="Use a varno not chosen at random for dummy variables in the top-level targetlist of a set-operation tree.  I'm not sure that this solution will really stand the test of time --- perhaps we need to make a special RTE for such vars to refer to.  But this quick hack fixes Brandon Craig Rhodes' complaint of 10-Feb-02 about EXCEPT in CREATE RULE, while not changing any behavior in the better-tested cases where leftmostRTI is one anyway. "/>
       <Document time="1044954786." author="tgl" document="Use a varno not chosen at random for dummy variables in the top-level targetlist of a set-operation tree.  I'm not sure that this solution will really stand the test of time --- perhaps we need to make a special RTE for such vars to refer to.  But this quick hack fixes Brandon Craig Rhodes' complaint of 10-Feb-02 about EXCEPT in CREATE RULE, while not changing any behavior in the better-tested cases where leftmostRTI is one anyway. "/>
@@ -7064,8 +7068,10 @@
       <Document time="1045644360." author="momjian" document="We just released new version of contrib/btree_gist (7.3 and current CVS) with support of int8, float4, float8 in addition to int4. Thanks Janko Richter for contribution.  Oleg Bartunov "/>
       <Document time="1045525694." author="momjian" document="Remove IN/EXISTS TODO.detail item. "/>
       <Document time="1045194609." author="tgl" document="Parser was dropping foreign-key constraints on the floor if present in an ALTER TABLE ADD COLUMN command.  Per bug #896. "/>
+<annotation name="functionality"/>
       <Document time="1045194601." author="tgl" document="Parser was dropping foreign-key constraints on the floor if present in an ALTER TABLE ADD COLUMN command.  Per bug #896. "/>
       <Document time="1045133266." author="momjian" document="Add local ident OpenBSD mention that was missing in one place. "/>
+<annotation name="portability"/>
       <Document time="1044484892." author="tgl" document="Replace regular expression package with Henry Spencer's latest version (extracted from Tcl 8.4.1 release, as Henry still hasn't got round to making it a separate library).  This solves a performance problem for multibyte, as well as upgrading our regexp support to match recent Tcl and nearly match recent Perl. "/>
       <Document time="1044368408." author="barry" document="Patch from Nic Ferrier to add support for result sets being cursor based so that rows can be fetched incrementally.  This is enabled by using setFetchSize() "/>
       <Document time="1044303444." author="momjian" document="Don't print NO ACTION foreign key actions in dumps and psql BACKSLASHd. "/>
@@ -8856,6 +8862,7 @@
     </Topic>
     <Topic>
       <Document time="1046343387." author="barry" document="A little cleanup.  Removing an unnecessary method.  Modified Files: jdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java "/>
+<annotation name="maintainability"/>
       <Document time="1046122705." author="barry" document="Backport a fix from 7.4 to 7.3 to better handle case in updateable result sets. This backports part of the fix made in version 1.11.   Modified Files:   Tag: REL7_3_STABLE  jdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java "/>
       <Document time="1045642404." author="momjian" document="This patch includes more SGML markup fixes as well as a few minor additions to the docs.  Neil Conway "/>
       <Document time="1045562862." author="momjian" document="*** empty log message *** "/>
@@ -8864,10 +8871,13 @@
       <Document time="1045380636." author="tgl" document="COALESCE() and NULLIF() are now first-class expressions, not macros that turn into CASE expressions.  They evaluate their arguments at most once.  Patch by Kris Jurka, review and (very light) editorializing by me. "/>
       <Document time="1045249154." author="momjian" document="*** empty log message *** "/>
       <Document time="1045207285." author="momjian" document="Fix broken markup I just introduced. "/>
+<annotation name="portability"/>
       <Document time="1045047662." author="barry" document="Backport a patch from Kris Jurka to 7.3.  Allows getTables() method to work against 7.1 servers.   Modified Files:   Tag: REL7_3_STABLE  jdbc/org/postgresql/jdbc1/AbstractJdbc1DatabaseMetaData.java "/>
       <Document time="1044753653." author="tgl" document="Replace planner's representation of relation sets, per pghackers discussion. Instead of Lists of integers, we now store variable-length bitmap sets. This should be faster as well as less error-prone. "/>
+<annotation name="efficiency"/>
       <Document time="1044375360." author="davec" document="Fix for rollback SQLException from Kris Jurka "/>
       <Document time="1044374512." author="davec" document="Applied Kris Jurkas patch to fix rollback and SQLException "/>
+<annotation name="reliability" comments=""/>
       <Document time="1044305823." author="momjian" document="Add mention of CURRENT_SCHEMA for object creation. "/>
       <Document time="1044305810." author="momjian" document="Add mention of CURRENT_SCHEMA for object creation. "/>
       <Files>
@@ -10658,8 +10668,10 @@
       <Document time="1045190400." author="tgl" document="Repair rule permissions-checking bug reported by Tim Burgess 10-Feb-02: the table(s) modified by the original query would get checked for the type of write permission needed by a rule query. "/>
       <Document time="1045190390." author="tgl" document="Repair rule permissions-checking bug reported by Tim Burgess 10-Feb-02: the table(s) modified by the original query would get checked for the type of write permission needed by a rule query. "/>
       <Document time="1045132663." author="momjian" document="This patch fixes an error in the usage message for 'clusterdb', and makes a few editorial changes to the documentation.   Neil Conway "/>
+<annotation name="portability"/>
       <Document time="1045127296." author="momjian" document="[ Have readline save edit history.] &gt; &gt; &gt; I already posted a one-line patch to implement this, but it doesn't &gt; &gt; seem to hve come through to the list. Here it is inline, instead of as &gt; &gt; an attachment: &gt; &gt; We need this to work without readline as well.  (Of course there won't be &gt; any history, but it needs to compile.)  &lt;blush&gt; Even after slogging my way through the nesting #ifdefs for readline and win32, I forgot! Let's make that a three line patch, then.  Ross J. Reedstrom "/>
       <Document time="1045076944." author="momjian" document="Done:  &gt; * -Get faster regex() code from Henry Spencer &lt;henry@zoo.utoronto.ca&gt; "/>
+<annotation name="efficiency"/>
       <Document time="1044461559." author="davec" document="patch from Oliver Jowett to implement some of the jdbc3 methods "/>
       <Document time="1044373477." author="davec" document="applied patch from Oliver Jowett "/>
       <Document time="1044324943." author="tgl" document="Determine the set of constraints applied to a domain at executor startup, not in the parserSEMICOLON this allows ALTER DOMAIN to work correctly with domain constraint operations stored in rules.  Rod TaylorSEMICOLON code review by Tom Lane. "/>
@@ -12419,9 +12431,11 @@
     <Topic>
       <Document time="1045892703." author="tgl" document="More infrastructure for btree compaction project.  Tree-traversal code now knows what to do upon hitting a dead page (in theory anyway, it's untested...).  Add a post-VACUUM-cleanup entry point for index AMs, to provide a place for dead-page scavenging to happen. Also, fix oversight that broke btpo_prev links in temporary indexes. initdb forced due to additions in pg_am. "/>
       <Document time="1045881267." author="tgl" document="Revert patch that broke BACKSLASHd commands, until it can be fixed. "/>
+<annotation name="functionality"/>
       <Document time="1045563351." author="momjian" document="Add:  &gt; * Allow WAL information to recover corrupted pg_controldata "/>
       <Document time="1045558059." author="momjian" document="Add:  &gt; * Allow pg_dump to dump sequences using NO_MAXVALUE and NO_MINVALUE "/>
       <Document time="1045525709." author="momjian" document="Update marks:  &lt; o Allow CLUSTER to cluster all tables (Alvaro Herrera) &gt; o -Allow CLUSTER to cluster all tables (Alvaro Herrera) 243c243 &lt; * Allow pg_dump to dump a specific schema (Neil Conway) &gt; * -Allow pg_dump to dump a specific schema (Neil Conway) 398c398 &lt; * Make IN/NOT IN have similar performance to EXISTS/NOT EXISTS (Tom) &gt; * -Make IN/NOT IN have similar performance to EXISTS/NOT EXISTS (Tom) "/>
+<annotation name="portability"/>
       <Document time="1045525622." author="momjian" document="Mark as done:  &gt; o -Add ALTER TABLE tab SET WITHOUT OIDS (Rod)  &gt; o -Allow CLUSTER to cluster all tables (Alvaro Herrera)  &gt; * -Allow pg_dump to dump a specific schema (Neil Conway)  &gt; * -Make IN/NOT IN have similar performance to EXISTS/NOT EXISTS (Tom)  &gt; * Rod is Rod Taylor &lt;pg@rbt.ca)&gt; "/>
       <Document time="1045260165." author="momjian" document="Add:  &gt; * Allow incremental backups "/>
       <Document time="1045251700." author="momjian" document="Add:  &gt; * Add schema option to createlang "/>
@@ -14186,9 +14200,11 @@
       <Document time="1046234863." author="tgl" document="Remove REWRITE_INVOKE_MAX in favor of making an accurate check for recursion in RewriteQuery()SEMICOLON also, detect recursion in fireRIRrules(), so as to catch self-referential views per example from Ryan VanderBijl. Minor code restructuring to make it easier to catch recursive case. "/>
       <Document time="1046206683." author="meskes" document="Allow SET CONNECTION to be followed by connection object without leading &quot;TO&quot; or &quot;=&quot;. Allow whenever statement to list function without parameters. "/>
       <Document time="1045250036." author="momjian" document="Allow PAM to work on MAC OS X, report from Aaron Hillegass.  Change was actually made in a previous commit. "/>
+<annotation name="portability"/>
       <Document time="1045133626." author="momjian" document="[ Revert patch ]  &gt; ================================================================= &gt; User interface proposal for multi-row function targetlist entries &gt; ================================================================= &gt; 1. Only one targetlist entry may return a set. &gt; 2. Each targetlist item (other than the set returning one) is &gt;    repeated for each item in the returned set. &gt;  Having gotten no objections (actually, no response at all), I can only assume no one had heartburn with this change. The attached patch covers the first of the two proposals, i.e. restricting the target list to only one set returning function.  Joe Conway "/>
       <Document time="1044852221." author="barry" document="up build # to 108 "/>
       <Document time="1044337703." author="tgl" document="Detect duplicate aggregate calls and evaluate only one copy.  This speeds up some useful real-world cases like SELECT x, COUNT(*) FROM t GROUP BY x HAVING COUNT(*) &gt; 100. "/>
+<annotation name="efficiency"/>
       <Files>
         <File name="src/interfaces/ecpg/ChangeLog" count="1"/>
         <File name="HISTORY" count="1"/>
@@ -15920,6 +15936,7 @@
       <Document time="1045993699." author="tgl" document="If a shutdown request comes in while we're still starting up, don't service it until after we execute SetThisStartUpID().  Else shutdown process will write the wrong SUI into the shutdown checkpoint, which seems likely to be trouble --- although I've not quite figured out how significant it really is. "/>
       <Document time="1045246304." author="momjian" document="Add:  &gt; * Cache last known per-tuple offsets to speed long tuple access "/>
       <Document time="1045130055." author="momjian" document="[ dumping schemas ]  &gt; I don't care what you use for short options if all useful ones are taken. &gt; But the long option should be --schema.  Ok, fair enough: a revised patch is attached that uses the '-n' short option and the '--schema' long option.  Neil Conway "/>
+<annotation name="usability" comments=""/>
       <Document time="1044853039." author="tgl" document="Detect case where an outer join can be reduced to a plain inner join because there are WHERE clauses that will reject the null-extended rows. Per suggestion from Brandon Craig Rhodes, 19-Nov-02. "/>
       <Document time="1044791786." author="tgl" document="Create a distinction between Lists of integers and Lists of OIDs, to get rid of the assumption that sizeof(Oid)==sizeof(int).  This is one small step towards someday supporting 8-byte OIDs.  For the moment, it doesn't do much except get rid of a lot of unsightly casts. "/>
       <Document time="1044640049." author="davec" document="applied Kris Jurka's patch for numeric "/>
@@ -17693,7 +17710,9 @@
       <Document time="1045178947." author="tgl" document="transformExpr() was missing some cases it ought to allowSEMICOLON per report from Greg Stark.  Also, twiddle the FuncCall case to not scribble on the input structure, which was the proximate cause of the problem. Someday we ought to fix things so that transformExpr() isn't called on already-transformed trees ... "/>
       <Document time="1044768639." author="tgl" document="Make further use of new bitmapset code: executor's chgParam, extParam, locParam lists can be converted to bitmapsets to speed updating.  Also, replace 'locParam' with 'allParam', which contains all the paramIDs relevant to the node (i.e., the union of extParam and locParam)SEMICOLON this saves a step during SetChangedParamList() without costing anything elsewhere. "/>
       <Document time="1044594163." author="tgl" document="Avoid generating relid lists with duplicate entries.  Fixes bugs reported by Stefanos Harhalakis 2/2/2003. "/>
+<annotation name="functionality"/>
       <Document time="1044568942." author="tgl" document="Fix core dump when pltcl_elog is called with wrong number of parameters, per report from Ian Harding. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1044568931." author="tgl" document="Fix core dump when pltcl_elog is called with wrong number of parameters, per report from Ian Harding. "/>
       <Document time="1044507624." author="ishii" document="Fix regexp slowness reported by Wade Klaver. "/>
       <Document time="1044375838." author="momjian" document="Revert doc change so we mention moving past the last row of a cursor. "/>
@@ -19450,6 +19469,7 @@
     <Topic>
       <Document time="1046399844." author="tgl" document="Change EXTRACT(EPOCH FROM timestamp) so that a timestamp without time zone is assumed to be in local time, not GMT.  This improves consistency with other operations, which all assume local timezone when it matters.  Per bug #897. "/>
       <Document time="1046399818." author="tgl" document="Change EXTRACT(EPOCH FROM timestamp) so that a timestamp without time zone is assumed to be in local time, not GMT.  This improves consistency with other operations, which all assume local timezone when it matters.  Per bug #897. "/>
+<annotation name="portability"/>
       <Document time="1045642342." author="momjian" document="This patch adds a note to the documentation describing why the performance of min() and max() is slow when applied to the entire table, and suggesting the simple workaround most experienced Pg users eventually learn about (SELECT xyz ... ORDER BY xyz LIMIT 1).  Neil Conway "/>
       <Document time="1045187121." author="tgl" document="Arrange to give error when a SetOp member statement refers to a variable of the containing query (which really can only happen in a rule context). Per example from Brandon Craig Rhodes.  Also, make the error message more specific for the similar case with sub-select in FROM.  The revised coding should be easier to adapt to SQL99's LATERAL(), when we get around to supporting that. "/>
       <Document time="1045159912." author="meskes" document="- Applied error reporting patch by Matthew Vanecek - Started with an Informix compatibility option. "/>
@@ -21190,6 +21210,7 @@
       <Document time="1045357960." author="tgl" document="Teach planner how to propagate pathkeys from sub-SELECTs in FROM up to the outer query.  (The implementation is a bit klugy, but it would take nontrivial restructuring to make it nicer, which this is probably not worth.)  This avoids unnecessary sort steps in examples like SELECT foo,count(*) FROM (SELECT ... ORDER BY foo,bar) sub GROUP BY foo which means there is now a reasonable technique for controlling the order of inputs to custom aggregates, even in the grouping case. "/>
       <Document time="1045132010." author="momjian" document="The attached patch provides cube with 4 functions for building cubes directly from float8 values. (As opposed to converting the values to strings and then parsing the strings.) The functions are: cube(float8) returns cube cube(float8,float8) returns cube cube(cube,float8) returns cube cube(cube,float8,float8) returns cube  Bruno Wolff III "/>
       <Document time="1045015618." author="petere" document="Fix buffer clearing bug. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1044494215." author="tgl" document="Allow qualified type names in CREATE CAST, DROP CAST.  Also allow the construction 'SETOF type[]' which for some reason was previously overlooked (you'd have to name the array type directly to make it work). "/>
       <Document time="1044494202." author="tgl" document="Allow qualified type names in CREATE CAST, DROP CAST.  Also allow the construction 'SETOF type[]' which for some reason was previously overlooked (you'd have to name the array type directly to make it work). "/>
       <Files>
@@ -22928,9 +22949,12 @@
       <Document time="1046050331." author="tgl" document="Improve coding of log_heap_clean() and heap_xlog_clean(). "/>
       <Document time="1045644777." author="momjian" document="At present it is impossible to kill createuser except with kill -9  Oliver Elphick "/>
       <Document time="1045644649." author="momjian" document="Please apply patches for contrib/ltree.  ltree_73.patch.gz - for 7.3 :         Fix ~ operation bug: eg '1.1.1' ~ '*.1'  ltree_74.patch.gz - for current CVS     Fix ~ operation bug: eg '1.1.1' ~ '*.1'     Add ? operation     Optimize index storage  Last change needs drop/create all ltree indexes, so only for 7.4  Teodor Sigaev "/>
+<annotation name="reliability" comments=""/>
       <Document time="1045644608." author="momjian" document="Please apply patches for contrib/ltree.  ltree_73.patch.gz - for 7.3 :         Fix ~ operation bug: eg '1.1.1' ~ '*.1'  ltree_74.patch.gz - for current CVS     Fix ~ operation bug: eg '1.1.1' ~ '*.1'     Add ? operation     Optimize index storage  Last change needs drop/create all ltree indexes, so only for 7.4  Teodor Sigaev "/>
       <Document time="1045644490." author="momjian" document="The following patches eliminate the overflows in the j2date() and date2j() functions which limited the maximum date for a timestamp to AD 1465001. The new limit is AD 5874897. The files affected are:  doc/src/sgml/datatype.sgml:     Documentation change due to patch. Included is a notice about     the reduced range when using an eight-byte integer for timestamps.  src/backend/utils/adt/datetime.c:     Replacement functions for j2date() and date2j() functions.  src/include/utils/datetime.h:     Corrected a bug with the limit on the earliest possible date,     Nov 23,-4713 has a Julian day count of -1. The earliest possible     date should be Nov 24, -4713 with a day count of 0.  src/test/regress/expected/horology-no-DST-before-1970.out: src/test/regress/expected/horology-solaris-1947.out: src/test/regress/expected/horology.out:     Copies of expected output for regression testing.     Note: Only horology.out has been physically tested. I do not have access     to a Solaris box and I don't know how to provoke the &quot;pre-1970&quot; test.  src/test/regress/sql/horology.sql:     Added some test cases to check extended range.  John Cochran "/>
+<annotation name="functionality"/>
       <Document time="1045636721." author="momjian" document="Add SQL 200X standards URL. "/>
+<annotation name="portability"/>
       <Document time="1045636592." author="momjian" document="Mark as done, fix grammar:  &lt; * Prevent index uniqueness checks when UPDATE does not modifying column &gt; * Prevent index uniqueness checks when UPDATE does not modify the column 235c235 &lt; o Make PL/PgSQL %TYPE schema-aware &gt; o -Make PL/PgSQL %TYPE schema-aware "/>
       <Document time="1045606988." author="momjian" document="Update URL. "/>
       <Document time="1045604285." author="momjian" document="New URL. "/>
@@ -24693,6 +24717,7 @@
       <Document time="1045736724." author="tgl" document="Fix timestamptz_in so that parsing of 'now'::timestamptz gives right answer when SET TIMEZONE has been done since the start of the current transaction.  Per bug report from Robert Haas. I plan some futher cleanup in HEAD, but this is a low-risk patch for the immediate issue in 7.3. "/>
       <Document time="1045736695." author="tgl" document="Fix timestamptz_in so that parsing of 'now'::timestamptz gives right answer when SET TIMEZONE has been done since the start of the current transaction.  Per bug report from Robert Haas. I plan some futher cleanup in HEAD, but this is a low-risk patch for the immediate issue in 7.3. "/>
       <Document time="1045645444." author="momjian" document="Here's the patch I promised over on HACKERS - it alters the implementation of 'BACKSLASHe' history tracking for systems that have a readline compatability library without replace_history_entry.  I fall back to pushing the query onto the history stack after the BACKSLASHe, rather than replacing it.  The patch adds one more place to look for readline headers, and a test for replace_history_entry. I've only included the patch for configure.in  Ross J. Reedstrom "/>
+<annotation name="usability" comments=""/>
       <Document time="1045279105." author="momjian" document="Propogate pg_ctl -D to the postmaster as a -D flag for identification by ps for multiple postmasters, for Kevin Brown. "/>
       <Document time="1045275174." author="tgl" document="Fix SPI result logic for case where there are multiple statements of the same type in a rule.  Per bug report from Pavel Hanak. "/>
       <Document time="1045275165." author="tgl" document="Fix SPI result logic for case where there are multiple statements of the same type in a rule.  Per bug report from Pavel Hanak. "/>
@@ -26428,6 +26453,7 @@
     <Topic>
       <Document time="1046666794." author="tgl" document="Be smart about outer-join qualifications that mention only one side of the join, per recent discussion on pgsql-sql.  Not clear that this will come up often in real queries, but it's not any more expensive to do it right, so we may as well do it right. "/>
       <Document time="1046360630." author="darcy" document="Back patch bug fix to quote function. "/>
+<annotation name="reliability" comments=""/>
       <Document time="1046360532." author="darcy" document="Back patch bug fix to quote function. "/>
       <Document time="1045645373." author="momjian" document="- Modifies LOCKTAG to include a 'classId'. Relation receive a classId of RelOid_pg_class, and transaction locks XactLockTableId. RelId is renamed to objId.  - LockObject() and UnlockObject() functions created, and their use sprinkled throughout the code to do descent locking for domains and types. They accept lock modes AccessShare and AccessExclusive, as we only really need a 'read' and 'write' lock at the moment.  Most locking cases are held until the end of the transaction.  This fixes the cases Tom mentioned earlier in regards to locking with Domains.  If the patch is good, I'll work on cleaning up issues with other database objects that have this problem (most of them).  Rod Taylor "/>
       <Document time="1045645142." author="momjian" document="Allow PQcmdTuples to return row counts for MOVE and FETCH.  Neil Conway "/>
@@ -28170,6 +28196,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1046066237." author="tgl" document="During VACUUM FULL, truncate off any deletable pages that are at the end of a btree index.  This isn't super-effective, since we won't move nondeletable pages, but it's better than nothing.  Also, improve stats displayed during VACUUM VERBOSE. "/>
       <Document time="1045911464." author="tgl" document="Simplify timezone-handling code per proposal to pghackers: get rid of setting timezone-related variables during transaction start.  They were not used anyway in platforms that HAVE_TM_ZONE or HAVE_INT_TIMEZONE, which it appears is *all* the platforms we are currently supporting. For platforms that have neither, we now only support UTC or numeric- offset-from-UTC timezones. "/>
       <Document time="1045562890." author="momjian" document="Update German FAQ, from Ian Barwick. "/>
@@ -29926,6 +29954,8 @@
     <Topic>
       <Document time="1045269642." author="momjian" document="Make pg_dump/restore safer for autocommit=off in postgresql.conf. "/>
       <Document time="1045213665." author="momjian" document="Update FAQ. "/>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
       <Document time="1045132507." author="momjian" document="This trivial patch removes the usage of some old statistics code that no longer works -- IncrHeapAccessStat() didn't actually *do* anything anymore, so no reason to keep it around AFAICS. I also fixed a grammatical error in a comment.   Neil Conway "/>
       <Document time="1045088089." author="barry" document="Backport patch from Fernando Nasser and Harald Krake to fix an invalid datatype problem.   Modified Files:   Tag: REL7_3_STABLE  jdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java "/>
       <Document time="1044852106." author="barry" document="Merge changes from head to 7.3 branch: better error message on character set conversion problems and patch from Kris Jurka for numeric scale  Modified Files:   Tag: REL7_3_STABLE  jdbc/org/postgresql/errors.properties  jdbc/org/postgresql/core/Encoding.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1DatabaseMetaData.java "/>
@@ -31661,6 +31691,7 @@
       <Document time="1045999032." author="tgl" document="First cut at recycling space in btree indexes.  Still some rough edges to fix, but it seems to basically work... "/>
       <Document time="1045803981." author="tgl" document="Make btree index structure adjustments and WAL logging changes needed to support btree compaction, as per proposal of a few days ago.  btree index pages no longer store parent links, instead they have a level indicator (counting up from zero for leaf pages).  The FixBTree recovery logic is removed, and replaced by code that detects missing parent-level insertions during WAL replay.  Also, generate appropriate WAL entries when updating btree metapage and when building a btree index from scratch.  I believe btree indexes are now completely WAL-legal for the first time. initdb forced due to index and WAL changes. "/>
       <Document time="1045645587." author="momjian" document="This patch makes the following changes to the documentation:  - more work from the SGML police  - some grammar improvements: rewriting a paragraph or two, replacing contractions where (IMHO) appropriate  - fix missing utility commands in lock mode docs  - improve CLUSTER, REINDEX, SET SESSION AUTHORIZATION ref pages  Neil Conway "/>
+<annotation name="portability"/>
       <Document time="1045644879." author="momjian" document="Here's some changes I made last night to psql's common.c (as found in 7.3.2).  It removes some code duplication and #ifdeffing, and some unstructured ugliness such as tacky breaks and an unneeded continue. Breaks up a large function into smaller functions and reduces required nesting levels, and kills a variable or two.  Jeroen T. Vermeulen "/>
       <Document time="1045604249." author="momjian" document="New URL for FAQ. "/>
       <Document time="1045373389." author="momjian" document="Update wording: &lt; * Disallow DROP COLUMN on a column that is part of a multi-column index &gt; * Require DROP COLUMN CASCADE for a column that is part of a multi-column index "/>
@@ -33434,6 +33465,7 @@
       <Document time="1046680283." author="tgl" document="Improve description of geometric operators. "/>
       <Document time="1045683086." author="ishii" document="Fix for GUC client_encoding variable not being handled correctly. See following thread for more details.  Subject: [HACKERS] client_encoding directive is ignored in postgresql.conf From: Tatsuo Ishii &lt;t-ishii@sra.co.jp&gt; Date: Wed, 29 Jan 2003 22:24:04 +0900 (JST) "/>
       <Document time="1045682098." author="ishii" document="Back patch for GUC client_encoding variable not being handled correctly. However the patch for PostgresPollingStatusType() is not included to avoid 7.3 libpq vs. pre-7.3 backend compatibility problem. See following thread for more details.  Subject: [HACKERS] client_encoding directive is ignored in postgresql.conf From: Tatsuo Ishii &lt;t-ishii@sra.co.jp&gt; Date: Wed, 29 Jan 2003 22:24:04 +0900 (JST) "/>
+<annotation name="functionality"/>
       <Document time="1045645507." author="momjian" document="Autoconf run for readline/libedit patch. "/>
       <Document time="1045552404." author="momjian" document="Rename 'holder' references to 'proclock' for PROCLOCK references, for consistency. "/>
       <Document time="1045508799." author="meskes" document="Added Informix &quot;database&quot; command. "/>
@@ -35181,7 +35213,10 @@
     </Topic>
     <Topic>
       <Document time="1046832679." author="tgl" document="Reimplement free-space-map management as per recent discussions. Adjustable threshold is gone in favor of keeping track of total requested page storage and doling out proportional fractions to each relation (with a minimum amount per relation, and some quantization of the results to avoid thrashing with small changes in page counts).  Provide special- case code for indexes so as not to waste space storing useless page free space counts.  Restructure internal data storage to be a flat array instead of list-of-chunksSEMICOLON this may cost a little more work in data copying when reorganizing, but allows binary search to be used during lookup_fsm_page_entry(). "/>
+<annotation name="efficiency"/>
       <Document time="1046655959." author="tgl" document="Repair memory leak introduced by recent change to make SPI return a tupdesc even with zero tuples returned: some plpgsql routines assumed they didn't need to do SPI_freetuptable() after retrieving no tuples. "/>
+<annotation name="reliability" comments=""/>
+<annotation name="functionality"/>
       <Document time="1046655947." author="tgl" document="Repair memory leak introduced by recent change to make SPI return a tupdesc even with zero tuples returned: some plpgsql routines assumed they didn't need to do SPI_freetuptable() after retrieving no tuples. "/>
       <Document time="1045869894." author="tgl" document="Repair nasty oversight in bt_split: if the index is temporary, we weren't updating the left-link from the split page's right sibling.  This could result in backwards index scans missing some entries. Same bug exists in HEAD, will be patched later. "/>
       <Document time="1045204351." author="momjian" document="Properly document location of pg_service.conf.sample. "/>
