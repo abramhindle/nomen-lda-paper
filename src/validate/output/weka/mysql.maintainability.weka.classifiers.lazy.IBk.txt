@@ -1,0 +1,62 @@
+
+IB1 instance-based classifier
+using 1 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0.01 seconds
+Time taken to test model on training data: 6.94 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         585               99.8294 %
+Incorrectly Classified Instances         1                0.1706 %
+Kappa statistic                          0.9952
+Mean absolute error                      0.0048
+Root mean squared error                  0.0396
+Relative absolute error                  1.3273 %
+Root relative squared error              9.353  %
+Total Number of Instances              586     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0.007      0.998     1         0.999      1        0
+                 0.993     0          1         0.993     0.996      1        1
+Weighted Avg.    0.998     0.006      0.998     0.998     0.998      1    
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 449   0 |   a = 0
+   1 136 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         466               79.5222 %
+Incorrectly Classified Instances       120               20.4778 %
+Kappa statistic                          0.2342
+Mean absolute error                      0.2408
+Root mean squared error                  0.431 
+Relative absolute error                 67.103  %
+Root relative squared error            101.8326 %
+Total Number of Instances              586     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.978     0.803      0.8       0.978     0.88       0.602    0
+                 0.197     0.022      0.73      0.197     0.31       0.602    1
+Weighted Avg.    0.795     0.62       0.783     0.795     0.747      0.602
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 439  10 |   a = 0
+ 110  27 |   b = 1
+

@@ -1,0 +1,68 @@
+
+JRIP rules:
+===========
+
+(W_error >= 1) and (W_added >= 1) => A_reliability=1 (44.0/20.0)
+(W_diffs >= 1) and (W_memory >= 1) => A_reliability=1 (16.0/5.0)
+ => A_reliability=0 (915.0/105.0)
+
+Number of Rules : 3
+
+
+Time taken to build model: 88.55 seconds
+Time taken to test model on training data: 5.1 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         845               86.6667 %
+Incorrectly Classified Instances       130               13.3333 %
+Kappa statistic                          0.2887
+Mean absolute error                      0.2201
+Root mean squared error                  0.3317
+Relative absolute error                 89.3022 %
+Root relative squared error             94.5995 %
+Total Number of Instances              975     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.97      0.75       0.885     0.97      0.926      0.61     0
+                 0.25      0.03       0.583     0.25      0.35       0.61     1
+Weighted Avg.    0.867     0.647      0.842     0.867     0.843      0.61 
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 810  25 |   a = 0
+ 105  35 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         827               84.8205 %
+Incorrectly Classified Instances       148               15.1795 %
+Kappa statistic                          0.091 
+Mean absolute error                      0.2363
+Root mean squared error                  0.3522
+Relative absolute error                 95.8492 %
+Root relative squared error            100.4268 %
+Total Number of Instances              975     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.976     0.914      0.864     0.976     0.917      0.53     0
+                 0.086     0.024      0.375     0.086     0.14       0.53     1
+Weighted Avg.    0.848     0.786      0.794     0.848     0.805      0.53 
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 815  20 |   a = 0
+ 128  12 |   b = 1
+

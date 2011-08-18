@@ -1,0 +1,66 @@
+
+JRIP rules:
+===========
+
+ => A_efficiency=0 (975.0/82.0)
+
+Number of Rules : 1
+
+
+Time taken to build model: 53.43 seconds
+Time taken to test model on training data: 5.31 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         893               91.5897 %
+Incorrectly Classified Instances        82                8.4103 %
+Kappa statistic                          0     
+Mean absolute error                      0.1541
+Root mean squared error                  0.2775
+Relative absolute error                 99.5424 %
+Root relative squared error             99.9995 %
+Total Number of Instances              975     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         1          0.916     1         0.956      0.5      0
+                 0         0          0         0         0          0.5      1
+Weighted Avg.    0.916     0.916      0.839     0.916     0.876      0.5  
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 893   0 |   a = 0
+  82   0 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         882               90.4615 %
+Incorrectly Classified Instances        93                9.5385 %
+Kappa statistic                          0.065 
+Mean absolute error                      0.1521
+Root mean squared error                  0.2802
+Relative absolute error                 98.2213 %
+Root relative squared error            100.9404 %
+Total Number of Instances              975     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.982     0.939      0.919     0.982     0.95       0.508    0
+                 0.061     0.018      0.238     0.061     0.097      0.508    1
+Weighted Avg.    0.905     0.862      0.862     0.905     0.878      0.508
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 877  16 |   a = 0
+  77   5 |   b = 1
+

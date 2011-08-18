@@ -1,0 +1,103 @@
+
+J48 pruned tree
+------------------
+
+W_bug <= 0
+|   W_Fix <= 0
+|   |   W_fix <= 0
+|   |   |   W_Fixed <= 0
+|   |   |   |   W__ <= 0
+|   |   |   |   |   W_file <= 0: 0 (286.0/82.0)
+|   |   |   |   |   W_file > 0
+|   |   |   |   |   |   W_InnoDB <= 0: 1 (13.0/5.0)
+|   |   |   |   |   |   W_InnoDB > 0: 0 (2.0)
+|   |   |   |   W__ > 0
+|   |   |   |   |   W_4_0 <= 0
+|   |   |   |   |   |   W_Added <= 0
+|   |   |   |   |   |   |   W_anymore <= 0: 1 (20.0/7.0)
+|   |   |   |   |   |   |   W_anymore > 0: 0 (3.0)
+|   |   |   |   |   |   W_Added > 0: 0 (3.0)
+|   |   |   |   |   W_4_0 > 0: 0 (4.0)
+|   |   |   W_Fixed > 0
+|   |   |   |   W_example <= 0: 1 (35.0/9.0)
+|   |   |   |   W_example > 0: 0 (2.0)
+|   |   W_fix > 0
+|   |   |   W_Changed <= 0
+|   |   |   |   W_options <= 0
+|   |   |   |   |   W_files <= 0: 1 (47.0/5.0)
+|   |   |   |   |   W_files > 0
+|   |   |   |   |   |   W_Added <= 0: 1 (2.0)
+|   |   |   |   |   |   W_Added > 0: 0 (2.0)
+|   |   |   |   W_options > 0: 0 (3.0/1.0)
+|   |   |   W_Changed > 0: 0 (3.0/1.0)
+|   W_Fix > 0
+|   |   W_using <= 0
+|   |   |   W_memory <= 0
+|   |   |   |   W_information <= 0: 1 (56.0/6.0)
+|   |   |   |   W_information > 0: 0 (3.0/1.0)
+|   |   |   W_memory > 0: 0 (3.0/1.0)
+|   |   W_using > 0: 0 (3.0/1.0)
+W_bug > 0: 1 (96.0/5.0)
+
+Number of Leaves  : 	19
+
+Size of the tree : 	37
+
+
+Time taken to build model: 7.82 seconds
+Time taken to test model on training data: 0.67 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         462               78.8396 %
+Incorrectly Classified Instances       124               21.1604 %
+Kappa statistic                          0.5798
+Mean absolute error                      0.3096
+Root mean squared error                  0.3934
+Relative absolute error                 62.4012 %
+Root relative squared error             78.9955 %
+Total Number of Instances              586     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.861     0.273      0.726     0.861     0.788      0.826    0
+                 0.727     0.139      0.862     0.727     0.789      0.826    1
+Weighted Avg.    0.788     0.2        0.8       0.788     0.788      0.826
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 230  37 |   a = 0
+  87 232 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         424               72.3549 %
+Incorrectly Classified Instances       162               27.6451 %
+Kappa statistic                          0.4527
+Mean absolute error                      0.3512
+Root mean squared error                  0.4448
+Relative absolute error                 70.7965 %
+Root relative squared error             89.3206 %
+Total Number of Instances              586     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.809     0.348      0.661     0.809     0.727      0.755    0
+                 0.652     0.191      0.803     0.652     0.72       0.755    1
+Weighted Avg.    0.724     0.263      0.738     0.724     0.723      0.755
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 216  51 |   a = 0
+ 111 208 |   b = 1
+
