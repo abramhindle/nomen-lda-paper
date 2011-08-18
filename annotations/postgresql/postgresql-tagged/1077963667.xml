@@ -2061,6 +2061,7 @@
     </Authors>
     <Topic>
       <Document time="1079944704." author="momjian" document="I just noticed that BACKSLASHdp outputs &quot;Table&quot; to indicate relations (tables, sequences and views).  This patch allows it to handle views and sequences.  Euler Taveira de Oliveira "/>
+<annotation name="portability"/>
       <Document time="1079889576." author="dennis" document="Translation updates "/>
       <Document time="1079878938." author="dennis" document="Translation updates "/>
       <Document time="1079600278." author="momjian" document="Remove acccidental object/binary files. "/>
@@ -3877,6 +3878,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1080365068." author="tgl" document="Now that we are allowing index opclasses to contain operators that are only stable and not immutable, pred_test_simple_clause has to guard against making invalid deductions.  Add a test for immutability of the selected test_op. "/>
       <Document time="1078990750." author="momjian" document="Document the SSL and Kerberos are not thread-safe. "/>
       <Document time="1078989073." author="neilc" document="Revise int2/int4/int8/float4/float8 input routines to allow for any amount of leading or trailing whitespace (where &quot;whitespace&quot; is defined by isspace()). This is for SQL conformance, as well as consistency with other numeric types (e.g. oid, numeric).  Also refactor pg_atoi() to avoid looking at errno where not necessary, and add a bunch of regression tests for the input to these types. "/>
@@ -5736,6 +5738,8 @@
       </Elements>
     </Topic>
     <Topic>
+
+<annotation name="portability"/>
       <Document time="1080459451." author="momjian" document="Clean up thread test program. "/>
       <Document time="1080446564." author="momjian" document="Add test for thread-safe errno to thread test program. "/>
       <Document time="1080100629." author="tgl" document="Fix small typo. "/>
@@ -7564,6 +7568,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1080028055." author="neilc" document="Improve the locale and character set docs, add some &lt;xref&gt;s pointing to the character set docs where appropriate, and improve the postmaster reference page. Character set cross-refs suggested by Gavin Kistner. "/>
       <Document time="1079926150." author="tgl" document="Revise syntax-error reporting behavior to give pleasant results for errors in internally-generated queries, such as those submitted by plpgsql functions.  Per recent discussions with Fabien Coelho. "/>
       <Document time="1079670377." author="momjian" document="Fix log_executor_stats if() test. "/>
@@ -9398,6 +9404,8 @@
     </Topic>
     <Topic>
       <Document time="1080189529." author="tgl" document="Add a more useful error message for the case where someone tries to pass a whole row or record variable into a SQL function.  Eventually this case should be made to actually work, but for now this is better than what it did before. "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1080186028." author="tgl" document="Replace max_expr_depth parameter with a max_stack_depth parameter that is measured in kilobytes and checked against actual physical execution stack depth, as per my proposal of 30-Dec.  This gives us a fairly bulletproof defense against crashing due to runaway recursive functions. "/>
       <Document time="1080103037." author="tgl" document="PQresult should be PGresult. "/>
       <Document time="1079741606." author="tgl" document="Add a usage example for has_function_privilege(). "/>
@@ -11219,6 +11227,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1080115829." author="momjian" document="&gt;&gt;Also, what is the default connection mode of psql? It should probably be &gt;&gt;equivalent to &quot;-h localhost&quot;, shouldn't it? &gt;&gt; &gt;&gt; &gt; &gt;Now that is something I had not thought of.  Seems we can assume a Win32 &gt;psql can never use unix domain sockets, so defaulting that to localhost &gt;is a good solution too.  Andrew Dunstan "/>
       <Document time="1080040140." author="neilc" document="Fix typo in postmaster reference page: from Tom. "/>
       <Document time="1079547387." author="momjian" document="Fix pg_autovacuum to handle unsigned and oids better.  Matthew T. O'Connor "/>
@@ -13022,6 +13032,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1080428375." author="momjian" document="Clean up function call arg appearance. "/>
       <Document time="1080269339." author="momjian" document="Fix for SSL compile. "/>
       <Document time="1080119091." author="momjian" document="Here's a patch implementing the &quot;thread method&quot; to workaround the bug with socket calls in signal handlers (APC) on Win32. See details in mail to pgsql-hackers-win32 a couple of minutes ago.  Magnus Hagander "/>
@@ -14837,6 +14848,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
+<
       <Document time="1079938231." author="momjian" document="Add mention of &quot;-D_POSIX_PTHREAD_SEMANTICS&quot; enabling 5-arg getpwuid_r(). "/>
       <Document time="1079817082." author="momjian" document="Always test getpwuid_r because HEAD always uses *_r if it finds them. Not an issue for 7.4.X. "/>
       <Document time="1079385650." author="momjian" document="float8-small-is-zero and float8-exp-three-digits will likely need similar changes.  Claudio Natoli "/>
@@ -16651,6 +16665,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1080119251." author="momjian" document="Update description error text:          (errmsg(&quot;no socket configured for listening&quot;)))SEMICOLON "/>
       <Document time="1080117898." author="momjian" document="Add thread locking to SSL and Kerberos connections.  I have removed the docs mentioning that SSL and Kerberos are not thread-safe.  Manfred Spraul "/>
       <Document time="1080088515." author="tgl" document="Upgrade ALTER TABLE DROP COLUMN so that it can drop an OID column, and remove separate implementation of ALTER TABLE SET WITHOUT OIDS in favor of doing a regular DROP.  Also, cause CREATE TABLE to account completely correctly for the inheritance status of the OID column.  This fixes problems with dropping OID columns that have dependencies, as noted by Christopher Kings-Lynne, as well as making sure that you can't drop an OID column that was inherited from a parent. "/>
@@ -18483,6 +18498,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
+<
       <Document time="1080426762." author="momjian" document="Change small 'if/else' test to use Max(). "/>
       <Document time="1080374922." author="tgl" document="Fix brain-dead placement of global variable declaration. "/>
       <Document time="1080343456." author="momjian" document="Add -D_REENTRANT for Solaris threading. "/>
@@ -20308,6 +20326,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1080259077." author="tgl" document="Convert some GUC variable references to links. "/>
       <Document time="1080251770." author="teodor" document="1 Minimize memory allocation for void (but not null) value. 2 Add silly ordering for ts_vector to aim grouping, union, except etc. Don't use BTree opclass (tsvector_ops). "/>
       <Document time="1080111746." author="neilc" document="Update the float8 regression tests: they should now pass on FreeBSD 4.x and (in theory) QNX. Thanks to Chris KL for the report. "/>
@@ -22140,6 +22160,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1080428500." author="momjian" document="Add comment about psql BACKSLASHs (history display):          /* This scrolls off the screen when using /dev/tty */ "/>
       <Document time="1079293653." author="momjian" document="Fix ecpg_sqlca_key_destructor to return void. "/>
       <Document time="1078890009." author="momjian" document="Add comment for Win32. "/>
@@ -23967,6 +23988,8 @@
     </Topic>
     <Topic>
       <Document time="1080099562." author="tgl" document="Repair misleading description of MOVE's command tag result. "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1079987662." author="tgl" document="Standardize output buffer size and display format for strftimeSEMICOLON followup to complaint from Korean User's Group. "/>
       <Document time="1079601101." author="momjian" document="Add permission mode to opens(). "/>
       <Document time="1079385450." author="momjian" document="Handle OID's and unsigned values better in pg_autovacuum.  Matthew T. O'Connor "/>
@@ -25802,6 +25825,8 @@
     <Topic>
       <Document time="1080251449." author="teodor" document="Minimize memory allocation for void (but not null) value. "/>
       <Document time="1080116555." author="neilc" document="Fix some whitespace formatting, and remove an overly-verbose parameter description: postgresql.conf is not the place for documentating the functionality of a GUC var. "/>
+<annotation name="efficiency"/>
+<annotation name="portability"/>
       <Document time="1080115568." author="momjian" document="Use the new GUC variable default_with_oids in pg_dump, rather than using WITH/WITHOUT OIDS in dump files.  This makes dump files more portable.  I have updated the pg_dump version so old binary dumps will load fine.  Pre-7.5 dumps use WITHOUT OIDS in SQL were needed, so they should be fine. "/>
       <Document time="1079815179." author="momjian" document="Handle draft version of getpwuid_r() that accepts only four arguments.  Backpatch to 7.4.X.  Required for Solaris 7 &amp; 8. "/>
       <Document time="1079815166." author="momjian" document="Handle draft version of getpwuid_r() that accepts only four arguments.  Backpatch to 7.4.X.  Required for Solaris 7 &amp; 8. "/>
@@ -27617,6 +27642,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1079385697." author="momjian" document="Check for EOF on pipe differs under win32, as it is based on a socket implementation.  Claudio Natoli "/>
       <Document time="1079294773." author="momjian" document="Mark linux as thread-enabled with new 7.5 tests. "/>
       <Document time="1078892147." author="neilc" document="Tweak some text to avoid using &lt;command&gt;SET&lt;/command&gt; as a verb, per suggestion from Peter E. "/>
@@ -29447,6 +29473,7 @@
     </Topic>
     <Topic>
       <Document time="1079383585." author="momjian" document="Improve random regression tests to fail less frequently. "/>
+<annotation name="functionality"/>
       <Document time="1079325686." author="tgl" document="Tweak planner so that index expressions and predicates are matched to queries without regard to whether coercions are stated explicitly or implicitly.  Per suggestion from Stephan Szabo. "/>
       <Document time="1079319661." author="tgl" document="Fix error in termination of COPY IN mode when using V2 protocol. Report and fix per ljb, 8-Mar-04. "/>
       <Document time="1079319654." author="tgl" document="Fix error in termination of COPY IN mode when using V2 protocol. Report and fix per ljb, 8-Mar-04. "/>
@@ -31256,6 +31283,9 @@
     <Topic>
       <Document time="1080554839." author="momjian" document="Update FAQ from Robert Treat "/>
       <Document time="1080270757." author="momjian" document="Update gcc solaris flags. "/>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
+<
       <Document time="1080170156." author="momjian" document="Add:  * Have pg_dump use multi-statement transactions for INSERT dumps "/>
       <Document time="1079831385." author="tgl" document="Rewrite pg_dump's comment-dumping code to pull over all the comments in one query, rather than making a separate query for each object that could have a comment.  This costs relatively little space (a few tens of K typically) and saves substantial time in databases with many objects. I find it reduces the runtime of 'pg_dump -s regression' by about a third. "/>
       <Document time="1079648636." author="momjian" document="Add comment about using this testing for wal_sync_method. "/>
@@ -33069,6 +33099,8 @@
     </Topic>
     <Topic>
       <Document time="1080159654." author="tgl" document="Adjust error message wording per Andrew Dunstan's advice. "/>
+<annotation name="portability"/>
+<annotation name="usability" comments=""/>
       <Document time="1080139760." author="neilc" document="Make a cross-reference in the ALTER TABLE ref page into a &lt;xref&gt;. "/>
       <Document time="1079937497." author="tgl" document="Add timestamp-versus-timestamptz cross-type comparison functions, flesh out the index operator classes to include these.  In passing, fix erroneous volatility marking of ACL functions. "/>
       <Document time="1079657640." author="momjian" document="Have program default to 1000 loops, and add file name and loop option.  Make open/close loop testings the same.  Add descriptions for certain tests. "/>
@@ -34909,6 +34941,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1080289108." author="neilc" document="More cross-reference work, other minor SGML fixes and improvements. "/>
       <Document time="1080097568." author="tgl" document="Use dollar-quoting for function bodies, unless disabled with --disable-dollar-quoting.  Andrew Dunstan "/>
       <Document time="1080095986." author="momjian" document="When changing select() calls for delays into pg_usleep(), two comments in s_lock.c were not updated, and still refers to select. Made my grep hit the wrong files, so I figured a simple patch was in order.. (other refs in the same comment block was changed..)  Magnus Hagander "/>
@@ -36738,6 +36771,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1080472154." author="tgl" document="Some further editorializing on README.CVS. "/>
       <Document time="1080472148." author="tgl" document="Some further editorializing on README.CVS. "/>
       <Document time="1080118454." author="momjian" document="Allow unlink/rename of files open by another process on Win32, using a special Win32 open flag FILE_SHARE_DELETE.  Claudio Natoli "/>

@@ -1611,9 +1611,12 @@
     <Topic>
       <Document time="1077319863." author="momjian" document="Add to PL/java description. "/>
       <Document time="1077014717." author="neilc" document="Fix a minor SGML markup infelicity in recently-applied log_disconnections patch. "/>
+<annotation name="portability"/>
       <Document time="1077008786." author="momjian" document="Fix prototype for on_proc_exit in log_disconnections patch. "/>
       <Document time="1076729203." author="tgl" document="Repair optimization bug I introduced in a moment of brain fade back in Nov 2002: when constant-expression simplification removes all the aggregate function calls from a query, that doesn't mean we can act as though there never were any aggregates.  Per bug report from Gabor Szucs. "/>
       <Document time="1076729190." author="tgl" document="Repair optimization bug I introduced in a moment of brain fade back in Nov 2002: when constant-expression simplification removes all the aggregate function calls from a query, that doesn't mean we can act as though there never were any aggregates.  Per bug report from Gabor Szucs. "/>
+<annotation name="efficiency"/>
+<annotation name="functionality"/>
       <Document time="1076568262." author="wieck" document="Added hints about the reason, why the command string in the view pg_stat_activity is missing, as per Bruces suggestion.  Jan "/>
       <Document time="1076221029." author="momjian" document="Add PITR web page:  &lt; * Point-in-time data recovery using backup and write-ahead log &lt; * Create native Win32 port, http://momjian.postgresql.org/main/writings/pgsql/win32.html &gt; * Point-in-time data recovery using backup and write-ahead log, &gt;   http://momjian.postgresql.org/main/writings/pgsql/project/pitr.html &gt; * Create native Win32 port, http://momjian.postgresql.org/main/writings/pgsql/project/win32.html "/>
       <Document time="1075701658." author="neilc" document="Use Tcl_PutEnv() in place of putenv() in libpgtcl, as the latter can apparently corrupt the Tcl runtime. Per suggestion from Michael Brusser &lt;michael@synchronicity.com&gt; "/>
@@ -3217,6 +3220,7 @@
     <Topic>
       <Document time="1077936484." author="tgl" document="Adjust remove_redundant_join_clauses() so that when it has a choice of which redundant clause to remove, it removes the more expensive one. In simple scenarios the clauses will be like 'var = var' and there's no difference, but we are now capable of considering cases where there are sub-selects in the clauses, and it makes a BIG difference. "/>
       <Document time="1077007517." author="momjian" document="Here is an updated version of the win32 readdir patch.  1) Now puts in exactly the same change as the current-cvs mingw code does. (see http://cvs.sourceforge.net/viewcvs.py/mingw/runtime/mingwex/dirent.c?r1= 1.3&amp;r2=1.4, second part of the patch).  2) Updates both xlog.c and slru.c in backend/access/transam/  3) Also updates pg_resetxlog, which also uses readdir() and checks the errno value after the loop.  Magnus Hagander "/>
+<annotation name="portability"/>
       <Document time="1076871002." author="meskes" document="        - Added missing braces to array parsing.         - Set ecpg version to 3.1.1.         - Removed that old debugging output that I forgot the last time. "/>
       <Document time="1076870934." author="meskes" document="        - Added missing braces to array parsing. - Set ecpg version to 3.1.1. - Removed that old debugging output that I forgot the last time. "/>
       <Document time="1076665633." author="momjian" document="Fix typo:  &lt; * Allow cross-db queries with transaction sematics &gt; * Allow cross-db queries with transaction semantics "/>
@@ -4859,6 +4863,7 @@
       <Document time="1077677118." author="tgl" document="Implement dollar-quoting in the backend lexer and psql.  Documentation is still lacking, as is support in plpgsql and other places, but this is the basic feature.  Patch by Andrew Dunstan, some tweaking by Tom Lane. Also, enable %option nodefault in these two lexers, and patch some gaps revealed thereby. "/>
       <Document time="1077050804." author="momjian" document="Done: &gt; * -Change CVS ID to PostgreSQL "/>
       <Document time="1077006957." author="momjian" document="Under Win32, stat() returns an st_ino field, but it has no meaning (on Win2K, and possibly all Win32 variants, it is always 0). This causes a number of problems in the dfmgr.c logic, which basically all revolve around the fact that *any* two files will appear to have the same inode.  Claudio Natoli "/>
+<annotation name="portability"/>
       <Document time="1076990877." author="momjian" document="Change may -&gt; might, and remove an extra tab. "/>
       <Document time="1076896898." author="tgl" document="First steps towards statistics on expressional (nee functional) indexes. This commit teaches ANALYZE to store such stats in pg_statistic, but nothing is done yet about teaching the planner to use 'em. Also, repair longstanding oversight in separate ANALYZE command: it updated the pg_class.relpages and reltuples counts for the table proper, but not for indexes. "/>
       <Document time="1075802421." author="jurka" document="Newer versions of the 1.4.2 jdk give warnings about having return in a finally clause. "/>
@@ -6473,6 +6478,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1077936130." author="tgl" document="process_implied_equality must copy the substructure of the clauses it is generating, to avoid problems when subselects are involved.  Per report from Damon Hart. "/>
       <Document time="1077936120." author="tgl" document="process_implied_equality must copy the substructure of the clauses it is generating, to avoid problems when subselects are involved.  Per report from Damon Hart. "/>
       <Document time="1077341713." author="tgl" document="Implement a solution to the 'Turkish locale downcases I incorrectly' problem, per previous discussion.  Make some additional changes to centralize the knowledge of just how identifier downcasing is done, in hopes of simplifying any future tweaking in this area. "/>
@@ -8092,11 +8099,13 @@
     </Topic>
     <Topic>
       <Document time="1077598508." author="tgl" document="Fix obsolete comment. "/>
+<annotation name="portability"/>
       <Document time="1077441246." author="neilc" document="Document the family() function (added during the 7.4 dev cycle but not documented), and fix a typo. "/>
       <Document time="1077327431." author="momjian" document="Add:  &gt; * Have psql show more information about sequences "/>
       <Document time="1076621884." author="momjian" document="Fix typo:  On Mon, 2004-01-26 at 21:28, Peter Eisentraut wrote: &gt; Christophe Combelles wrote: &gt; &gt; At the bottom of this doc file : &gt; &gt; file:///usr/share/doc/postgresql-doc/html/tutorial-createdb.html &gt; &gt; &quot;and it also happens that that user always has permission&quot; &gt; &gt;                       ---- x2 &gt; The first &quot;that&quot; serves as a conjuction, the second one serves as an &gt; article.  Looks correct to me.  A better workaround for the sentence would be something like:          &quot;and it also happens that the user always has permission&quot;  Looks easier to read, I think.  Enver ALTIN (a.k.a. skyblue) "/>
       <Document time="1075626313." author="joe" document="Fix text_position to not scan past end of source string in multibyte case, per report from Korea PostgreSQL Users' Group. Copied from Tom Lane's 7.4 branch patch. "/>
       <Document time="1075527934." author="tgl" document="Fix text_position to not scan past end of source string in multibyte case, per report from Korea PostgreSQL Users' Group. "/>
+<annotation name="functionality"/>
       <Document time="1075527921." author="tgl" document="Fix text_position to not scan past end of source string in multibyte case, per report from Korea PostgreSQL Users' Group.  Also do some cosmetic cleanup in nearby code. "/>
       <Files>
         <File name="doc/TODO" count="1"/>
@@ -9691,12 +9700,15 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="reliability" comments=""/>
+
       <Document time="1077872363." author="neilc" document="Fix a few omissions in the initcap() documentation &amp; source code comments, make some unrelated improvements to the functions documentation, and perform some minor consistency cleanup elsewhere. Original initcap() change from Dennis B., additional changes by Neil C. "/>
       <Document time="1077862998." author="momjian" document="Update plpython docs to mention shared libs are possible in 2.3 or later. "/>
       <Document time="1077779380." author="momjian" document="Update the pl/python shared build docs to match the recent version of python. "/>
       <Document time="1077362998." author="tgl" document="Fix random build breakage from log_disconnections patch. "/>
       <Document time="1077050268." author="momjian" document="Add:  &gt; o Allow the schema of objects to be changed "/>
       <Document time="1077008966." author="momjian" document="Rename function log_session_end to log_disconnections. "/>
+<annotation name="portability"/>
       <Document time="1076627609." author="momjian" document="Add bitmap discussion to performance TODO.detail. "/>
       <Document time="1076555075." author="momjian" document="Add:  &gt; o Disallow dropping of an inherited constraint "/>
       <Document time="1076402562." author="tgl" document="Centralize implementation of delay code by creating a pg_usleep() subroutine in src/port/pgsleep.c.  Remove platform dependencies from miscadmin.h and put them in port.h where they belong.  Extend recent vacuum cost-based-delay patch to apply to VACUUM FULL, ANALYZE, and non-btree index vacuuming.  By the way, where is the documentation for the cost-based-delay patch? "/>
@@ -11326,6 +11338,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1077750651." author="tgl" document="Teach plpgsql's lexer about dollar-quoted literals. Andrew Dunstan, some help from Tom Lane. "/>
       <Document time="1077595423." author="tgl" document="Replace opendir/closedir calls throughout the backend with AllocateDir and FreeDir routines modeled on the existing AllocateFile/FreeFile. Like the latter, these routines will avoid failing on EMFILE/ENFILE conditions whenever possible, and will prevent leakage of directory descriptors if an elog() occurs while one is open. Also, reduce PANIC to ERROR in MoveOfflineLogs() --- this is not critical code and there is no reason to force a DB restart on failure. All per recent trouble report from Olivier Hubaut. "/>
       <Document time="1077595390." author="tgl" document="Replace opendir/closedir calls throughout the backend with AllocateDir and FreeDir routines modeled on the existing AllocateFile/FreeFile. Like the latter, these routines will avoid failing on EMFILE/ENFILE conditions whenever possible, and will prevent leakage of directory descriptors if an elog() occurs while one is open. Also, reduce PANIC to ERROR in MoveOfflineLogs() --- this is not critical code and there is no reason to force a DB restart on failure. All per recent trouble report from Olivier Hubaut. "/>
@@ -12960,6 +12974,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="maintainability"/>
+<annotation name="functionality"/>
       <Document time="1077936284." author="tgl" document="genericcostestimate() neglected to include qual startup cost in indexTotalCost.  I think this may not make any real difference in 7.4, but it definitely is a problem with CVS tip's new equation. "/>
       <Document time="1077936274." author="tgl" document="genericcostestimate() neglected to include qual startup cost in indexTotalCost.  I think this may not make any real difference in 7.4, but it definitely is a problem with CVS tip's new equation. "/>
       <Document time="1077080493." author="neilc" document="Improve the consistency of the error message emitted when rejecting invalid input to the oid type. Also, remove some long-unused code from adt/numutils.c "/>
@@ -14575,6 +14591,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1077756082." author="momjian" document="For application to HEAD, following community review.  * Changes incorrect CYGWIN defines to __CYGWIN__  * Some localtime returns NULL checks (when unchecked cause SEGVs under Win32 regression tests)  * Rationalized CreateSharedMemoryAndSemaphores and AttachSharedMemoryAndSemaphores (Bruce, I finally remembered to do it)SEMICOLON requires attention.  Claudio Natoli "/>
       <Document time="1077235890." author="tgl" document="Cosmetic changes (mostly whitespace) to make it easier to diff the backend lexer against psql's. "/>
       <Document time="1077139512." author="momjian" document="Here is a patch that implements setitimer() on win32. With this patch applied, deadlock detection and statement_timeout now works.  The file timer.c goes into src/backend/port/win32/.  The patch also removes two lines of &quot;printf debugging&quot; accidentally left in pqsignal.h, in the console control handler.  Magnus Hagander "/>
@@ -16209,6 +16227,8 @@
     </Topic>
     <Topic>
       <Document time="1077782366." author="momjian" document="For immediate application to HEAD.  Corrects bit-rot of recently applied patch. win32/cygwin only.  Claudio Natoli "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1077656956." author="meskes" document="- Corrected error handling in PGTYPEStimestamp_from_asc. - Set pgtypeslib version to 1.2. "/>
       <Document time="1077656869." author="meskes" document="- Corrected error handling in PGTYPEStimestamp_from_asc. - Set pgtypeslib version to 1.2. "/>
       <Document time="1077646304." author="jurka" document="Closing a Connection or Statement object twice should be a no-op instead of throwing an Exception.  Per report from Victor Sergienko. "/>
@@ -17854,6 +17874,9 @@
     </Topic>
     <Topic>
       <Document time="1077605098." author="tgl" document="Don't crash when a rowtype argument to a plpgsql function is NULL. Per report from Chris Campbell. "/>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
+<
       <Document time="1077605087." author="tgl" document="Don't crash when a rowtype argument to a plpgsql function is NULL. Per report from Chris Campbell. "/>
       <Document time="1077605073." author="tgl" document="Don't crash when a rowtype argument to a plpgsql function is NULL. Per report from Chris Campbell. "/>
       <Document time="1076844457." author="neilc" document="Minor documentation tweak. "/>
@@ -19466,6 +19489,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1077080167." author="neilc" document="Remove a caveat from the &quot;backup&quot; documentation: pg_dump now does a better job of handling dependencies between database objects. "/>
       <Document time="1076627151." author="momjian" document="Mostly done:  &lt; * Allow better handling of numeric constants, type conversion [typeconv] "/>
       <Document time="1076614873." author="momjian" document="Remove URL for specific pljava implementation:  &lt; o Allow Java server-side programming, http://pljava.sourceforge.net &lt;   [java] &gt; o Allow Java server-side programming [java] "/>
@@ -21078,6 +21102,8 @@
       <Document time="1077681562." author="tgl" document="anyarray really needs to be declared with typalign = 'd', so that entries in pg_statistic are correctly aligned if they contain values that require double alignment.  Too bad we cannot force initdb for this in 7.4 branch. "/>
       <Document time="1077681550." author="tgl" document="anyarray really needs to be declared with typalign = 'd', so that entries in pg_statistic are correctly aligned if they contain values that require double alignment.  Too bad we cannot force initdb for this in 7.4 branch. "/>
       <Document time="1077618387." author="joe" document="pply quote_literal to the start_with argument of connectby. Fixes problem reported by David Garamond when working with bytea parent and child keys. "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1077618367." author="joe" document="Apply quote_literal to the start_with argument of connectby. Fixes problem reported by David Garamond when working with bytea parent and child keys. "/>
       <Document time="1077618336." author="joe" document="Apply quote_literal to the start_with argument of connectby. Fixes problem reported by David Garamond when working with bytea parent and child keys. "/>
       <Document time="1077587176." author="tgl" document="Do a direct probe during postmaster startup to determine the maximum number of openable files and the number already opened.  This eliminates depending on sysconf(_SC_OPEN_MAX), and allows much saner behavior on platforms where open-file slots are used up by semaphores. "/>
@@ -22689,6 +22715,8 @@
     </Topic>
     <Topic>
       <Document time="1077353335." author="momjian" document="The following bug has been logged online:  Bug reference:      1081 Logged by:          Aarjav Trivedi  Email address:      aarjav@cc.gatech.edu  PostgreSQL version: 7.4  Operating system:   Linux  Description:        Spelling error in tsearch2.sql leading to problems with tsearch  Details:  On line 620 of tsearch2.sql which is required to install and run TSEARCH,  REATE FUNCTION tsstat_in(cstring)  should be  CREATE FUNCTION tsstat_in(cstring)  because of this error, TSEARCH fails to work as specified, "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1077327749." author="momjian" document="The following bug has been logged online:  Bug reference:      1081 Logged by:          Aarjav Trivedi  Email address:      aarjav@cc.gatech.edu  PostgreSQL version: 7.4  Operating system:   Linux  Description:        Spelling error in tsearch2.sql leading to problems with tsearch  Details:  On line 620 of tsearch2.sql which is required to install and run TSEARCH,  REATE FUNCTION tsstat_in(cstring)  should be  CREATE FUNCTION tsstat_in(cstring)  because of this error, TSEARCH fails to work as specified, "/>
       <Document time="1077017285." author="neilc" document="Significant improvements to the documentation for the new cost-based vacuum delay feature, including updating the docs for Tom's recent improvements. There is still more work to be done here: for example, adding some more information on the practical use of cost-based vacuum delay to the &quot;maintenance&quot; section would probably be a good idea. "/>
       <Document time="1077004383." author="neilc" document="Minor SGML markup improvements. "/>
@@ -24316,6 +24344,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="reliability" comments=""/>
+<
       <Document time="1077320735." author="momjian" document="Add:  &gt; * Allow external interfaces to extend the GUC variable set "/>
       <Document time="1077158542." author="momjian" document="Update:  &lt; * Add GUC variable to prevent waiting on locks &gt; * Add NO WAIT option to various SQL commands "/>
       <Document time="1077006875." author="momjian" document="Please apply this patch to contrib/dbmirror In incorperates changes from myself and a number of contributors.  This update to dbmirror provides:  -replication of sequence operations via setval/nextval -DBMirror.pl support for logging to syslog -changed the names of the tables to dbmirror_*  (no quotes required) -Support for writitng SQL statements to files instead of directly to  a slave database -More options for DBMirror.pl in the config files.  Steven Singer "/>
@@ -25922,6 +25952,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
+<
       <Document time="1077026836." author="neilc" document="Add a few more &lt;xref&gt; tags to the SGML docs, where appropriate. Original patch from Michael Glaesemann, additional changes by Neil Conway. "/>
       <Document time="1076665242." author="momjian" document="Tom Lane wrote: &gt; momjian@svr1.postgresql.org (Bruce Momjian) writes: &gt;&gt;      someone asked me about the FK deadlock fix, mentioned in the 7.3.3 &gt;&gt;      release notes as 3rd change: &gt;&gt;      http://www.postgresql.org/docs/current/static/release-7-3-3.html &gt;&gt;      Actually, that fix was available with 7.4, not 7.3. Don't know if we can &gt;&gt;      retroactively change the release-notes though. &gt; &gt; This is completely erroneous, please undo it. &gt; &gt; 2003-05-21 14:14  tgl &gt; &gt;       * src/: backend/utils/adt/ri_triggers.c, &gt;       test/regress/expected/foreign_key.out (REL7_3_STABLE): Back-patch &gt;       Jan's fix to avoid primary key lookup (and lock) if foreign key &gt;       does not change on UPDATE.  Oh ... didn't know that you did a backpatch. Sorry   Jan "/>
       <Document time="1076665205." author="momjian" document="Tom Lane wrote: &gt; momjian@svr1.postgresql.org (Bruce Momjian) writes: &gt;&gt;      someone asked me about the FK deadlock fix, mentioned in the 7.3.3 &gt;&gt;      release notes as 3rd change: &gt;&gt;      http://www.postgresql.org/docs/current/static/release-7-3-3.html &gt;&gt;      Actually, that fix was available with 7.4, not 7.3. Don't know if we can &gt;&gt;      retroactively change the release-notes though. &gt; &gt; This is completely erroneous, please undo it. &gt; &gt; 2003-05-21 14:14  tgl &gt; &gt;       * src/: backend/utils/adt/ri_triggers.c, &gt;       test/regress/expected/foreign_key.out (REL7_3_STABLE): Back-patch &gt;       Jan's fix to avoid primary key lookup (and lock) if foreign key &gt;       does not change on UPDATE.  Oh ... didn't know that you did a backpatch. Sorry   Jan "/>
@@ -27531,6 +27564,7 @@
       <Document time="1077611719." author="tgl" document="Cause pg_dump to emit a 'SET client_encoding' command at the start of any restore operation, thereby ensuring that dumped data is interpreted the same way it was dumped even if the target database has a different encoding.  Per suggestions from Pavel Stehule and others.  Also, simplify scheme for handling check_function_bodies ... we may as well just set that at the head of the script. "/>
       <Document time="1077587283." author="tgl" document="NOFILE isn't used anywhere any more. "/>
       <Document time="1076582395." author="tgl" document="Check only live tuples for OID validity, to avoid issues after ALTER TABLE.  Per recent discussion. "/>
+<annotation name="none"/>
       <Document time="1076396124." author="tgl" document="Restructure smgr API as per recent proposal.  smgr no longer depends on the relcache, and so the notion of 'blind write' is gone.  This should improve efficiency in bgwriter and background checkpoint processes. Internal restructuring in md.c to remove the not-very-useful array of MdfdVec objects --- might as well just use pointers. Also remove the long-dead 'persistent main memory' storage manager (mm.c), since it seems quite unlikely to ever get resurrected. "/>
       <Document time="1075804095." author="jurka" document="ConnectionPool and SimpleDataSource are marked Serializable, but their superclass (which contains a number of state variables) is not.  To correctly serialize these objects we need to manually implement writeObject and readObject.  Per report from R. Lemos "/>
       <Files>
@@ -29164,6 +29198,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1077678392." author="tgl" document="Add %option nodefault to all our flex lexers.  Fix a couple of rule gaps exposed thereby.  AFAICT these would not lead to any worse problems than junk emitted on the backend's stdout, but we should have the option to catch possible worse errors in future. "/>
       <Document time="1077527470." author="tgl" document="Write #include &lt;dl.h&gt;, not #include &quot;dl.h&quot;, to correctly reflect the fact that dl.h is a system header and not one of ours. "/>
       <Document time="1076635093." author="momjian" document="Jan:  someone asked me about the FK deadlock fix, mentioned in the 7.3.3 release notes as 3rd change:       http://www.postgresql.org/docs/current/static/release-7-3-3.html  Actually, that fix was available with 7.4, not 7.3. Don't know if we can retroactively change the release-notes though. "/>
@@ -30779,6 +30815,8 @@
       <Document time="1076636254." author="momjian" document="Add CVS ID tags to port/win32/files. "/>
       <Document time="1076633896." author="momjian" document="Improve BACKSLASH? wording, remove 'internal'. "/>
       <Document time="1076616416." author="wieck" document="Fixed bug where FlushRelationBuffers() did call StrategyInvalidateBuffer() for already empty buffers because their buffer tag was not cleard out when the buffers have been invalidated before.  Also removed the misnamed BM_FREE bufhdr flag and replaced the checks, which effectively ask if the buffer is unpinned, with checks against the refcount field.  Jan "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1076297336." author="neilc" document="Win32 signals cleanup. Patch by Magnus Hagander, with input from Claudio Natoli and Bruce Momjian (and some cosmetic fixes from Neil Conway). Changes:      - remove duplicate signal definitions from pqsignal.h      - replace pqkill() with kill() and redefine kill() in Win32      - use ereport() in place of fprintf() in some error handling in       pqsignal.c      - export pg_queue_signal() and make use of it where necessary      - add a console control handler for Ctrl-C and similar handling       on Win32      - do WaitForSingleObjectEx() in CHECK_FOR_INTERRUPTS() on Win32SEMICOLON       query cancelling should now work on Win32      - various other fixes and cleanups "/>
       <Document time="1075875893." author="wieck" document="Backing out the background writer sync() option.  Jan "/>
       <Files>
@@ -32402,6 +32440,7 @@
     </Topic>
     <Topic>
       <Document time="1077620872." author="joe" document="When returning type &quot;record&quot;, replace use of pgresultGetTupleDesc with ReturnSetInfo-&gt;expectedDesc. This allows custom datatypes (e.g. from tsearch2) to be returned at runtime. Previous behavior depended on the type oid to match between the remote and local database, which obviously doesn't work well for custom types. Per report from Mark Gibson. "/>
+<annotation name="functionality"/>
       <Document time="1077620854." author="joe" document="When returning type &quot;record&quot;, replace use of pgresultGetTupleDesc with ReturnSetInfo-&gt;expectedDesc. This allows custom datatypes (e.g. from tsearch2) to be returned at runtime. Previous behavior depended on the type oid to match between the remote and local database, which obviously doesn't work well for custom types. Per report from Mark Gibson. "/>
       <Document time="1077620838." author="joe" document="When returning type &quot;record&quot;, replace use of pgresultGetTupleDesc with ReturnSetInfo-&gt;expectedDesc. This allows custom datatypes (e.g. from tsearch2) to be returned at runtime. Previous behavior depended on the type oid to match between the remote and local database, which obviously doesn't work well for custom types. Per report from Mark Gibson. "/>
       <Document time="1076626790." author="momjian" document="Remove:  &lt; o http://gborg.postgresql.org/project/pgreplication/projdisplay.php "/>

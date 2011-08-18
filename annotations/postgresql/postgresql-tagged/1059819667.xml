@@ -4387,6 +4387,8 @@
       <Author name="meskes" count="2"/>
     </Authors>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1062269974." author="momjian" document="Guard against pgindent changing =- to = -. "/>
       <Document time="1061091229." author="momjian" document="Add mention that Kerberos 4 isn't recommended. "/>
       <Document time="1060987018." author="barry" document="Fixed improper message length for the connection termination message 'X' when using the V3 protocol.   Modified Files:  jdbc1/AbstractJdbc1Connection.java "/>
@@ -6158,6 +6160,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
+<annotation name="functionality"/>
       <Document time="1061969735." author="momjian" document="Update URL for 7.3 changes:  http://developer.postgresql.org/~momjian/upgrade_tips_7.3 "/>
       <Document time="1061906462." author="teodor" document="fix module name in MODULE_PATHNAME substitution "/>
       <Document time="1061174472." author="tgl" document="Clean up locktable init code per recent gripe from Kurt Roeckx. No change in behavior, but old code would have failed to detect overrun of MAX_LOCKMODES. "/>
@@ -8009,6 +8014,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1061104466." author="momjian" document="Add mention of sort_mem in the restore docs. "/>
       <Document time="1060799875." author="teodor" document="More accuracy work with MinWords option of headline function "/>
       <Document time="1060738484." author="tgl" document="Cope with NoData message from backend.  Needed for case where PQexecParams is used with a statement that doesn't return data. "/>
@@ -9746,6 +9753,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1062227985." author="momjian" document="Fix unixware template --- had spaces around equals. "/>
       <Document time="1061794105." author="momjian" document="Fix unixware thread test. "/>
       <Document time="1061626954." author="petere" document="Fix uninstall target. "/>
@@ -11488,6 +11497,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1061953011." author="tgl" document="Push subplan clauses to the back in qual lists for join plans, not only scan plans.  Per observation from Rod Taylor. "/>
       <Document time="1060758724." author="momjian" document="I'm quite fond of doing VPATH builds, i.e. building outside the source tree. This also catches lots of little Makefile bugs, so here's a small patch for one of them (replacing an explicit reference to thread.c with a reference to it as the first prerequsite of the rule makes make look for it in the place where it was found (the source tree) rather than in the build tree. (using GNU make 3.79.1)  John Gray "/>
       <Document time="1060657489." author="tgl" document="Rewriter and planner should use only resno, not resname, to identify target columns in INSERT and UPDATE targetlists.  Don't rely on resname to be accurate in ruleutils, either.  This fixes bug reported by Donald Fraser, in which renaming a column referenced in a rule did not work very well. "/>
@@ -13253,6 +13264,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1062117842." author="tgl" document="Make documentation of pg_restore's -N, -o, -r switches bear some slight resemblance to their actual behavior. "/>
       <Document time="1062116494." author="tgl" document="pg_dump and pg_restore -r had managed to diverge on the ordering of different object types.  Fix, and centralize logic to try to prevent the same mistake in future. "/>
       <Document time="1061627128." author="petere" document="Bring the makefiles up to our conventions. "/>
@@ -15547,6 +15560,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1062093154." author="tgl" document="Fix stupid typo (mine I suppose) in CopyGetData.  Per report from Dave Cramer. "/>
       <Document time="1062002652." author="tgl" document="Department of second thoughts: can't reorder merge-join clauses. "/>
       <Document time="1061866054." author="tgl" document="Allow parsing of time and timetz inputs to accept the documented input syntax '040506' for '04:05:06', as well as '0405' for '04:05:00'.  This has been broken since 7.2 but was only recently complained of. "/>
@@ -17936,6 +17950,8 @@
     </Topic>
     <Topic>
       <Document time="1061248562." author="tgl" document="When compiling a plpgsql trigger function, include the OID of the table the trigger is attached to in the hashkey.  This ensures that we will create separate compiled trees for each table the trigger is used with, avoiding possible datatype-mismatch problems if the tables have different rowtypes.  This is essentially the same bug recently identified in plpython --- though plpgsql doesn't seem as prone to crash when the rowtype changes underneath it.  But failing robustly is no substitute for just working. "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1060388449." author="momjian" document="Remove simple_prompt from /contrib C files, now that it is in /port.  They had the old versions anyway. "/>
       <Document time="1060382629." author="momjian" document="Remove, no in /port. "/>
       <Document time="1060298422." author="tgl" document="create_unique_plan() should not discard existing output columns of the subplan it starts with, as they may be needed at upper join levels. See comments added to code for the non-obvious reason why.  Per bug report from Robert Creager. "/>
@@ -19682,6 +19698,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1061928540." author="meskes" document="Fixed connect statement with username in variable. "/>
       <Document time="1061868625." author="tgl" document="Add the Brazilian time zone abbreviations BRT, BRST, FNT, FNST. ACT and ACST were already present.  AMT and AMST conflict with the existing entries for ArmeniaSEMICOLON no change there for the moment. "/>
       <Document time="1061861393." author="petere" document="Translation updates "/>
@@ -21449,6 +21467,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1062087804." author="teodor" document="More accuracy works with stopwords in queries "/>
       <Document time="1061946927." author="tgl" document="Use separate SQLSTATE codes for file not found/file exists, rather than lumping them into ERRCODE_UNDEFINED_OBJECT/ERRCODE_DUPLICATE_OBJECT. This seems reasonable since 'object' was meant to refer to 'object in the database' and a file is outside the database.  Per request from Dave Cramer. "/>
       <Document time="1061833438." author="meskes" document="Synced parser and fixed a bug in error output to log file. "/>
@@ -23194,6 +23213,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1062039534." author="petere" document="Add &quot;override&quot; for make variable JADEFLAGS, since upper directory passes this variable on the command line. "/>
       <Document time="1061799059." author="momjian" document="Add:  &gt; * Add a libpq function to support Parse/DescribeStatement capability "/>
       <Document time="1061780241." author="momjian" document="Add:  * Allow TRUNCATE ... CASCADE/RESTRICT "/>
@@ -24928,7 +24949,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1061715645." author="ishii" document="Fix bug in GB18030 conversion script "/>
+<annotation name="functionality"/>
       <Document time="1061109182." author="momjian" document="The attached patch adds some clarification to the documentation of the binary format read/created by COPY BINARY. It also mentions the contrib/binarycopy module.  Lee Kindness. "/>
       <Document time="1061095306." author="momjian" document="Update for 7.3 tips URL. "/>
       <Document time="1060742521." author="tgl" document="Include 'IPv4', 'IPv6', or 'Unix' in socket-creation failure messages, in hopes of soothing fears of those with partial IPv6 support.  Still an open question whether we should report EAFNOSUPPORT errors at all, though. "/>
@@ -26664,6 +26687,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1062365886." author="petere" document="Translation update "/>
       <Document time="1061966138." author="pgsql" document="update to beta2 "/>
       <Document time="1061937331." author="momjian" document="psql's HISTSIZE from .psqlrc do not want to be set so I did it for psql that HISTSIZE might take effect from my .psqlrc  Andriy Tkachuk "/>
@@ -28437,6 +28462,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1062404150." author="momjian" document="Rename DoIt to changeVar, for clarity. "/>
       <Document time="1062365538." author="petere" document="Add/edit index entries. "/>
       <Document time="1061773362." author="petere" document="Change warnings for non-existing or pre-existing cursors to errors. "/>
@@ -30354,6 +30381,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1062041367." author="tgl" document="Adjust date/time input parsing code to correctly distinguish the four SQLSTATE error codes required by SQL99 (invalid format, datetime field overflow, interval field overflow, invalid time zone displacement value). Also emit a HINT about DateStyle in cases where it seems appropriate. Per recent gripes. "/>
       <Document time="1062036815." author="petere" document="Major cleanup of SPI chapter "/>
       <Document time="1061790376." author="ishii" document="Fix GB18030 to UTF-8 mapping table "/>
@@ -32106,6 +32135,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1061958814." author="petere" document="Share PG_DIAG_* macros between client and server and use them internally. "/>
       <Document time="1061926704." author="tgl" document="Mop-up for previous change to determine default shared_buffers and max_connections at initdb time.  Get rid of DEF_NBUFFERS and DEF_MAXBACKENDS macros, which aren't doing anything useful anymore, and put more likely defaults into postgresql.conf.sample. "/>
       <Document time="1061777409." author="barry" document="Applied patches from Oliver Jowett to fix the following bugs:  - adds a finalizer method to AbstractJdbc1Statement to clean up in the case of    poor user code which fails to close the statement object  - fix ant build file to correctly detect dependencies across jdbc1/jdbc2/jdbc3  - fix a coupld of server prepared statement bugs and added regression test for    them Applied patch from Kim Ho:  - adds support for get/setMaxFieldSize(). Also fixed build.xml to provide a better error message in the event that an older version of the driver exists in the classpath when trying to build. "/>
@@ -33892,6 +33923,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1061842407." author="tgl" document="Refactor code so that to_date() does not call to_timestamp() and then perform a timestamp-to-date coercion.  Instead both routines share a subroutine that delivers the parsing result as a struct tm.  This avoids problems with timezone dependency of to_date's result, and should be at least marginally faster too. "/>
       <Document time="1061112292." author="momjian" document="Add to release notes. "/>
       <Document time="1061092434." author="momjian" document="Add description of error style. "/>
@@ -35703,6 +35736,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1062365319." author="petere" document="Set LC_ALL=C when running collateindex.pl to get predictable sort order. "/>
       <Document time="1062111546." author="tgl" document="Ensure that FK constraints are dumped after primary/unique constraints, rather than relying on OID order of pg_constraint entries.  Per gripe from Greg Stark. "/>
       <Document time="1060815381." author="tgl" document="libpq failed to cope with COPY FROM STDIN if the command was issued via extended query protocol, because it sends Sync right after Execute without realizing that the command to be executed is COPY.  There seems to be no reasonable way for it to realize that, either, so the best fix seems to be to make the backend ignore Sync during copy-in mode.  Bit of a wart on the protocol, but little alternative.  Also, libpq must send another Sync after terminating the COPY, if the command was issued via Execute. "/>
@@ -37429,6 +37464,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
+<annotation name="functionality"/>
       <Document time="1061937143." author="momjian" document="This patch adds a new regression test for the UPDATE command. Right now all that is tested is Rod Taylor's recent addition to allow this syntax:      UPDATE ... SET &lt;col&gt; = DEFAULTSEMICOLON  If anyone else would like to add more UPDATE tests, go ahead -- I just wanted to write a test for the above functionality, and couldn't see an existing test that it would be appropriate to add to.  Neil Conway "/>
       <Document time="1061781665." author="momjian" document="Add quotes to += of unixware threads define. "/>
       <Document time="1060987511." author="barry" document="Updated the blob regression test to actually use the getBlob/getClob methods and test them, in addition to testing the underlying LargeObject API methods.   Modified Files:  jdbc/build.xml jdbc/org/postgresql/test/jdbc2/BlobTest.java "/>
@@ -39172,6 +39210,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="efficiency"/>
+<annotation name="maintainability"/>
       <Document time="1061947871." author="momjian" document="Call it Linux, not GNU/Linux. "/>
       <Document time="1061895039." author="barry" document="Attempt to fix setMaxFieldSize() logic that was checked in yesterday. I think this should fix the problem, but since I don't have a reproducable test case, I can't be sure.  This problem is reported by Kim Ho of redhat, who will test this fix.  This also includes a test case for the original functionality.   Modified Files:  jdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java  jdbc/org/postgresql/test/jdbc2/ResultSetTest.java "/>
       <Document time="1061764598." author="petere" document="Add macros for error result fields to libpq. "/>

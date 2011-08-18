@@ -1696,6 +1696,9 @@
     <Topic>
       <Document time="1082931836." author="neilc" document="Remove the last traces of Joe Hellerstein's &quot;xfunc&quot; optimization. Patch from Alvaro Herrera. Also, removed lispsort.c, since it is no longer used. "/>
       <Document time="1082449547." author="momjian" document="Document partial indexes for IS NULL lookups. "/>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
+<
       <Document time="1082426282." author="momjian" document="Prevent doubling of escapes when not in quote mode for CSV. "/>
       <Document time="1081379661." author="momjian" document="Update:  &lt; * Allow LOCALE on a per-column basis, default to ASCII &gt; * Allow locale to be set at database creation &gt; * Allow locale on a per-column basis, default to ASCII &gt; * Optimize locale to have minimal performance impact when not used (Peter E) 105d106 &lt; * Optimize locale to have minimal performance impact when not used (Peter E) 111d111 &lt; * Allow locale to be set at database creation "/>
       <Document time="1081377284." author="momjian" document="Add:  &gt; * Allow locale to be set at database creation "/>
@@ -3153,6 +3156,8 @@
     <Topic>
       <Document time="1083006408." author="momjian" document="Please find a attached a small patch that adds accessor functions for &quot;aclitem&quot; so that it is not an opaque datatype.  I needed these functions to browse aclitems from user land. I can load them when necessary, but it seems to me that these accessors for a backend type belong to the backend, so I submit them.  Fabien Coelho "/>
       <Document time="1082966681." author="momjian" document="Unconditionally define:  -D_REENTRANT -D_THREAD_SAFE -D_POSIX_PTHREAD_SEMANTICS  for all ports.  It can't hurt if they are not supported, but it makes our job easier for porting.  Should fix Darwin compile and other platforms without mucking with the thread detection code. "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1082953763." author="momjian" document="Improve error message for platform thread failure. "/>
       <Document time="1082861920." author="neilc" document="Fix typo in libpq docs. "/>
       <Document time="1082851847." author="tgl" document="Ensure getaddrinfo_all returns null result on failure. "/>
@@ -4644,6 +4649,8 @@
       <Document time="1081148846." author="momjian" document="Allow LIKE/ILIKE to appear in more places in a query.  Fabien COELHO "/>
       <Document time="1080701501." author="momjian" document="Add:  &gt; * Add GUC variable to allow output of interval values in ISO8601 format "/>
       <Document time="1080600467." author="barry" document="Fix for bug with the jdbc driver not properly working with binary cursors and the V3 protocol.  Modified Files:   Tag: REL7_4_STABLE  jdbc/org/postgresql/Driver.java.in  jdbc/org/postgresql/core/BaseResultSet.java  jdbc/org/postgresql/core/BaseStatement.java  jdbc/org/postgresql/core/Field.java  jdbc/org/postgresql/core/PGStream.java  jdbc/org/postgresql/core/QueryExecutor.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1DatabaseMetaData.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1ResultSet.java  jdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java  jdbc/org/postgresql/jdbc1/Jdbc1CallableStatement.java  jdbc/org/postgresql/jdbc1/Jdbc1PreparedStatement.java  jdbc/org/postgresql/jdbc1/Jdbc1RefCursorResultSet.java  jdbc/org/postgresql/jdbc1/Jdbc1ResultSet.java  jdbc/org/postgresql/jdbc1/Jdbc1Statement.java  jdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java  jdbc/org/postgresql/jdbc2/Array.java  jdbc/org/postgresql/jdbc2/Jdbc2CallableStatement.java  jdbc/org/postgresql/jdbc2/Jdbc2PreparedStatement.java  jdbc/org/postgresql/jdbc2/Jdbc2RefCursorResultSet.java  jdbc/org/postgresql/jdbc2/Jdbc2ResultSet.java  jdbc/org/postgresql/jdbc2/Jdbc2Statement.java  jdbc/org/postgresql/jdbc3/AbstractJdbc3ResultSet.java  jdbc/org/postgresql/jdbc3/Jdbc3CallableStatement.java  jdbc/org/postgresql/jdbc3/Jdbc3PreparedStatement.java  jdbc/org/postgresql/jdbc3/Jdbc3RefCursorResultSet.java  jdbc/org/postgresql/jdbc3/Jdbc3ResultSet.java  jdbc/org/postgresql/jdbc3/Jdbc3Statement.java  jdbc/org/postgresql/test/jdbc2/Jdbc2TestSuite.java  jdbc/org/postgresql/test/jdbc2/OID74Test.java  Added Files:   Tag: REL7_4_STABLE  jdbc/org/postgresql/test/jdbc2/ServerCursorTest.java "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Files>
         <File name="configure.in" count="2"/>
         <File name="src/interfaces/jdbc/org/postgresql/core/Field.java" count="1"/>
@@ -6130,6 +6137,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="maintainability"/>
+<annotation name="portability"/>
       <Document time="1082585189." author="tgl" document="Another round of code cleanup on bufmgr.  Use BM_VALID flag to keep track of whether we have successfully read data into a bufferSEMICOLON this makes the error behavior a bit more transparent (IMHO anyway), and also makes it work correctly for local buffers which don't use Start/TerminateBufferIO. Collapse three separate functions for writing a shared buffer into one. This overlaps a bit with cleanups that Neil proposed awhile back, but seems not to have committed yet. "/>
       <Document time="1082432208." author="momjian" document="In reading the 7.4.2 docs, the sql reference page for PREPARE doesn't reference DEALLOCATE in any way. It points to EXECUTE, but not to DEALLOCATE. Suggested fix:  ... This also means that a single  prepared statement cannot be used by multiple simultaneous database clientsSEMICOLON however, each client can create their own prepared statement  to use. The prepared statement can be manually cleaned up using the DEALLOCATE command.  James Robinson "/>
       <Document time="1082424134." author="momjian" document="Remove debug code that acidentally got into CVS from previous commit. "/>
@@ -7591,6 +7600,8 @@
     </Topic>
     <Topic>
       <Document time="1082954305." author="momjian" document="More thread error improvments. "/>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1082954178." author="momjian" document="More thread error message improvments. "/>
       <Document time="1082953919." author="momjian" document="Improve thread error message. "/>
       <Document time="1082941499." author="momjian" document="Add mention to check config.log if thread test failure. "/>
@@ -9080,6 +9091,8 @@
     </Topic>
     <Topic>
       <Document time="1082954178." author="momjian" document="More thread error message improvments. "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1082586263." author="tgl" document="Tweak indexscan and seqscan code to arrange that steps from one page to the next are handled by ReleaseAndReadBuffer rather than separate ReleaseBuffer and ReadBuffer calls.  This cuts the number of acquisitions of the BufMgrLock by a factor of 2 (possibly more, if an indexscan happens to pull successive rows from the same heap page).  Unfortunately this doesn't seem enough to get us out of the recently discussed context-switch storm problem, but it's surely worth doing anyway. "/>
       <Document time="1081799932." author="momjian" document="Change psql BACKSLASHcopy stdin/stdout to read from command input/output.  Add pstdin/pstdout to read from psql's stdin/stdout.  BACKWARD INCOMPATIBLE CHANGE "/>
       <Document time="1080959444." author="tgl" document="Fix poor choice of error message in corner cases. "/>
@@ -10547,6 +10560,8 @@
     </Topic>
     <Topic>
       <Document time="1083105391." author="momjian" document="Use mktemp for temporary file names, per suggestion from Peter. "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1082982512." author="jurka" document="Update the build.xml file to support building with the new 1.5 jdk and ant 1.6. "/>
       <Document time="1082786085." author="jurka" document="Allow updateable ResultSets to support types that aren't directly mappable to Java types, for example cidr.  Per report from Moray Taylor. "/>
       <Document time="1082437226." author="momjian" document="&gt; &gt;&gt; My question is whether postgres can index null values, and if not, do I &gt; &gt;&gt; have to accept a full table scan when locating records. &gt; &gt; &gt; &gt; It indexes them, but &quot;is null&quot; is not an indexable operator, so you &gt; &gt; can't directly solve the above with a 3-column index.  What you can do &gt; &gt; instead is use a partial index, for instance &gt; &gt; &gt; &gt; create index i on CUSTOMER.WCCustOrderStatusLog (WCOrderStatusID) &gt; &gt; where Acknowledged is null and Processing is nullSEMICOLON &gt; &gt; That's a very nifty trick and exactly the sort of answer I was after!  Add CREATE INDEX doc mention of using partial indexes for IS NULL indexingSEMICOLON  idea from Tom. "/>
@@ -12004,6 +12019,8 @@
     </Topic>
     <Topic>
       <Document time="1083020936." author="momjian" document="Fix vpath for thread test. "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1082999688." author="momjian" document="More cleanup of thread tests. "/>
       <Document time="1082954051." author="momjian" document="More thread error improvements. "/>
       <Document time="1082790574." author="momjian" document="Check for gmake, then make, when doing thread test. "/>
@@ -13483,6 +13500,7 @@
     <Topic>
       <Document time="1082940476." author="momjian" document="No need to use our standard libs for the thread test --- they might not be compiled yet. "/>
       <Document time="1082631755." author="neilc" document="Improvements to the backup &amp; restore documentation. "/>
+<annotation name="portability"/>
       <Document time="1082408593." author="momjian" document="Done:  &gt; o -Allow dump/load of CSV format "/>
       <Document time="1081754540." author="momjian" document="&gt; &gt; This update fixes a few small typos in names, &gt; &gt; pronouns and formatting in the Russian FAQ.  Serguei Mokhov "/>
       <Document time="1081377980." author="tgl" document="Still another place to make the world safe for zero-column tables. Per example from Jiang Wei. "/>
@@ -14933,6 +14951,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1082951454." author="neilc" document="Tiny assorted fixes: correct a typo in a comment in vacuumlazy.c, remove some unused #include directives from bufmgr.c, and clarify comments in bufmgr.h and buf.h "/>
       <Document time="1082780068." author="momjian" document="Add mention to run thread test program if user is experiencing problems with threaded applications. "/>
       <Document time="1082617100." author="momjian" document="This patch makes the EXECUTE command's completion tag return the completion tag of the actual statement executed.  This allows the correct update count to be returned for UPDATE/INSERT/DELETE statements.  Kris Jurka "/>
@@ -16401,6 +16421,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
       <Document time="1082658818." author="momjian" document="Fix filename mention in psqlrc.sample file. "/>
       <Document time="1082326411." author="tgl" document="Tweak findTargetlistEntry so that bare names occurring in GROUP BY clauses are sought first as local FROM columns, then as local SELECT-list aliases, and finally as outer FROM columnsSEMICOLON the former behavior made outer FROM columns take precedence over aliases.  This does not change spec conformance because SQL99 allows only the first case anyway, and it seems more useful and self-consistent.  Per gripe from Dennis Bjorklund 2004-04-05. "/>
       <Document time="1082326377." author="tgl" document="Tweak findTargetlistEntry so that bare names occurring in GROUP BY clauses are sought first as local FROM columns, then as local SELECT-list aliases, and finally as outer FROM columnsSEMICOLON the former behavior made outer FROM columns take precedence over aliases.  This does not change spec conformance because SQL99 allows only the first case anyway, and it seems more useful and self-consistent.  Per gripe from Dennis Bjorklund 2004-04-05. "/>
@@ -17852,6 +17873,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1082648782." author="tgl" document="Put information about tag in Outputs section, where it belongs. "/>
       <Document time="1082620254." author="momjian" document="Per discussion earlier today, here is a fix that lets ereport() on win32 report socket errors.  Magnus Hagander "/>
       <Document time="1082431142." author="momjian" document="Update mention of diff. "/>
@@ -19328,6 +19351,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1083007481." author="momjian" document="Please find attached a small patch against current cvs head, so that 'information_schema' is considered a system schema by various pg_stat*_*_{tables,sequences} views.  Fabien COELHO "/>
       <Document time="1082975590." author="dennis" document="Translation updates "/>
       <Document time="1082861624." author="neilc" document="Document that PQoidValue(), PQcmdTuples(), and PQoidStatus() now work when the command that generated the PGresult was an EXECUTE of an appropriate prepared statement. "/>
@@ -20819,6 +20843,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1082766739." author="neilc" document="Add ceiling() as an alias for ceil(), and power() as an alias for pow(). Regression tests and documentation have both been updated.  SQL2003 requires that both ceiling() and ceil() be present, so I have documented both spellings. SQL2003 doesn't mention pow() as far as I can see, so I decided to replace pow() with power() in the documentation: there is little reason to encourage the continued usage of a function that isn't compliant with the standard, given a standard-compliant alternative.  RELEASE NOTES: should state that pow() is considered deprecated (although I don't see the need to ever remove it.) "/>
       <Document time="1082480008." author="momjian" document="Improve IS NULL partial index wording. "/>
       <Document time="1082436006." author="momjian" document="Remove pg_encoding.  Not needed anymore since we have an initdb in C. "/>
@@ -22340,6 +22366,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1082941748." author="momjian" document="More thread cleanups. "/>
       <Document time="1082773309." author="momjian" document="Report error if thread-test is run without having threading enabled in configure. "/>
       <Document time="1082637408." author="petere" document="Fix typo "/>
@@ -23812,6 +23839,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1083110967." author="momjian" document="Improve thread failure wording. "/>
       <Document time="1083018753." author="momjian" document="Fix subdir for thread test program. "/>
       <Document time="1082954918." author="momjian" document="Clean tools/thread on make clean/distclean. "/>
@@ -25273,6 +25301,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="maintainability"/>
       <Document time="1082484210." author="momjian" document="Add:  &gt; * Allow AFTER triggers on system tables "/>
       <Document time="1082435624." author="pgsql" document="Remove all of the libpgtcl and pgtclsh files, including all references to them within the various makefiles  with_tcl is still required for the src/pl/tcl language "/>
       <Document time="1082082963." author="momjian" document="Modify COPY for() loop to use attnum as a variable name, not 'i'. "/>
@@ -26750,6 +26779,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1083100961." author="momjian" document="Move postgres.h to the top of the C file. "/>
       <Document time="1083015648." author="momjian" document="Add $(X) for cross-compiling.  Seems the mingw compiler running on FreeBSD doesn't add .EXE to links.  Michiel Ephraim "/>
       <Document time="1082715447." author="meskes" document="Fixed memory misusage in variable handling. "/>
@@ -28216,6 +28247,8 @@
     </Topic>
     <Topic>
       <Document time="1083109871." author="momjian" document="Do thread testing from configure in a much cleaner fashion. "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1082437909." author="momjian" document="Remove TCL docs. "/>
       <Document time="1081801158." author="momjian" document="Here's an attempt at new socket and signal code for win32.  It works on the principle of turning sockets into non-blocking, and then emulate blocking behaviour on top of that, while allowing signals to run. Signals are now implemented using an event instead of APCs, thus getting rid of the issue of APCs not being compatible with &quot;old style&quot; sockets functions.  It also moves the win32 specific code away from pqsignal.h/c into port/win32, and also removes the &quot;thread style workaround&quot; of the APC issue previously in place.  In order to make things work, a few things are also changed in pgstat.c:  1) There is now a separate pipe to the collector and the bufferer. This is required because the pipe will otherwise only be signalled in one of the processes when the postmaster goes down. The MS winsock code for select() must have some kind of workaround for this behaviour, but I have found no stable way of doing that. You really are not supposed to use the same socket from more than one process (unless you use WSADuplicateSocket(), in which case the docs specifically say that only one will be flagged).  2) The check for &quot;postmaster death&quot; is moved into a separate select() call after the main loop. The previous behaviour select():ed on the postmaster pipe, while later explicitly saying &quot;we do NOT check for postmaster exit inside the loop&quot;. The issue was that the code relies on the same select() call seeing both the postmaster pipe *and* the pgstat pipe go away. This does not always happen, and it appears that useing WSAEventSelect() makes it even more common that it does not. Since it's only called when the process exits, I don't think using a separate select() call will have any significant impact on how the stats collector works.  Magnus Hagander "/>
       <Document time="1081634579." author="momjian" document="Please find a small patch to fix the brain damage &quot;century&quot; and &quot;millennium&quot; date part implementation in postgresql, both in the code and the documentation, so that it conforms to the official definition. If you do not agree with the official definition, please send your complaint to &quot;pope@vatican.org&quot;. I'm not responsible for themSEMICOLON-)  With the previous version, the centuries and millenniums had a wrong number and started the wrong year. Moreover century number 0, which does not exist in reality, lasted 200 years. Also, millennium number 0 lasted 2000 years.  If you want postgresql to have it's own definition of &quot;century&quot; and &quot;millennium&quot; that does not conform to the one of the society, just give them another name. I would suggest &quot;pgCENTURY&quot; and &quot;pgMILLENNIUM&quot;SEMICOLON-)  IMO, if someone may use the options, it means that postgresql is used for historical data, so it make sense to have an historical definition. Also, I just want to divide the year by 100 or 1000, I can do that quite easily.  BACKWARD INCOMPATIBLE CHANGE  Fabien Coelho - coelho@cri.ensmp.fr "/>
@@ -29687,6 +29720,7 @@
     <Topic>
       <Document time="1083110810." author="momjian" document="Enable thread testing outside the source tree. "/>
       <Document time="1082620118." author="momjian" document="Attached is are a few small fixes for dbmirror.  1. Fixed bug where sequences were being mirrored incorrectly if they exceeded 127 2. Fixed a bug in the perl script with mirroring sequences(John Burtenshaw sent an email to patches describing the bug in March but I htink he forgot to attach his patch) 3. The dates/times in the transaction files will always use 2 digits.  Steven Singer "/>
+<annotation name="functionality"/>
       <Document time="1082615949." author="momjian" document="Please find attached a small patch so that &quot;pg_restore&quot; ignores some sql errors. This is the second submission, which integrates Tom comments about localisation and exit code. I also added some comments about one sql command which is not ignored.  Fabien COELHO "/>
       <Document time="1082449587." author="momjian" document="Done:  &gt; * -Exit postmaster if postgresql.conf can not be opened "/>
       <Document time="1082431637." author="tgl" document="Code review for ARC patch.  Eliminate static variables, improve handling of VACUUM cases so that VACUUM requests don't affect the ARC state at all, avoid corner case where BufferSync would uselessly rewrite a buffer that no longer contains the page that was to be flushed.  Make some minor other cleanups in and around the bufmgr as well, such as moving PinBuffer and UnpinBuffer into bufmgr.c where they really belong. "/>

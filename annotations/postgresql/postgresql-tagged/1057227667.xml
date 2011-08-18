@@ -2963,6 +2963,7 @@
     </Authors>
     <Topic>
 <annotation name="portability"/>
+<annotation name="reliability" comments=""/>
 <annotation name="functionality"/>
       <Document time="1059778909." author="tgl" document="Get the include ordering right for TCL includes vs whatever is coming from --with-includes. "/>
       <Document time="1059292042." author="momjian" document="This is a totally trivial patch for something that was a very minor nit that annoyed me the other day while I was documenting my current project. It makes pg_dump use the same layout for types as for tables, by putting &quot;BACKSLASHnBACKSLASHt&quot; before the first field and &quot;BACKSLASHn&quot; before the final &quot;)SEMICOLON&quot;  Can't really justify this too much except to say I had an itch and I scratched it SEMICOLON-)  Andrew Dunstan "/>

@@ -3591,6 +3591,8 @@
       <Author name="barry" count="17"/>
     </Authors>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1064906552." author="tgl" document="Adjust documentation examples to match recent error message rewordings. A couple other minor fixes. "/>
       <Document time="1064806665." author="tgl" document="Restructure plpgsql's caching of 'simple' expression evaluation trees to be less dangerous, and often faster as well.  ExprState trees are not kept across transaction boundariesSEMICOLON this eliminates problems with resource leakage in failed transactions.  But by keeping them in a per-transaction EState, we can safely arrange for a single ExprState to be shared by all the expression evaluations done in a given plpgsql function call.  (Formerly it seemed necessary to create and destroy an ExprState for each exec_eval_simple_expr() call.)  This saves time in any scenario where a plpgsql function executes more than one expression. Seems to be about as fast as 7.3 for simple cases, and significantly faster for functions that do a lot of calculations. "/>
       <Document time="1064715815." author="momjian" document="Mark Linux for threads. "/>
@@ -5827,6 +5829,7 @@
       <Document time="1064885143." author="momjian" document="Update HISTORY for 7.4.  Neil Conway "/>
       <Document time="1064726373." author="momjian" document="Update docs on function call permissions in view, from Tom. "/>
       <Document time="1064700995." author="tgl" document="Fix typo in message. "/>
+<annotation name="portability"/>
       <Document time="1064698170." author="momjian" document="Add compile step to instructions. "/>
       <Document time="1064553421." author="tgl" document="Fix tid scan evaluation of non-constant TID valuesSEMICOLON can't try to do it during ExecInitTidScan, because the rest of the executor isn't ready. "/>
       <Document time="1064371733." author="tgl" document="pg_dump/pg_restore now always use SET SESSION AUTHORIZATION, not BACKSLASHconnect, to control object ownership.  The use-set-session-authorization and no-reconnect switches are obsolete (still accepted on the command line, but they don't do anything).  This is a precursor to fixing handling of CREATE SCHEMA, which will be a separate commit. "/>
@@ -8070,6 +8073,8 @@
     <Topic>
       <Document time="1064873915." author="momjian" document="This patch makes a few incremental improvements to geqo.sgml and arch-dev.sgml  Neil Conway "/>
       <Document time="1064867849." author="petere" document="Eliminate another gratuitous message wording difference. "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1064809318." author="tgl" document="Fix broken definition of :print: character class, per Bruno Wolff. Also, make :alnum: character class directly dependent on isalnum() rather than guessing. "/>
       <Document time="1064715889." author="momjian" document="Make dbf2pg safe for non-ASCII character sets.  M?rcio Dick Smiderle "/>
       <Document time="1064519886." author="tgl" document="Fix grammatical error introduced into error message. "/>
@@ -10352,6 +10357,8 @@
     <Topic>
       <Document time="1064891804." author="momjian" document="Release updates by Tom. "/>
       <Document time="1064875858." author="momjian" document="This patch fixes an obvious bug in the &quot;should I print the duration of this query?&quot; logic in postgres.c  Also, make it print &quot;duration:&quot; like log_duration.  Neil Conway "/>
+<annotation name="functionality"/>
+<annotation name="reliability" comments=""/>
       <Document time="1064873808." author="momjian" document="A) Fixes a bug that prevented mirroring of data on a table that has had a column dropped.  B) Updated the documentation for the 7.4 release.  Steven Singer "/>
       <Document time="1064823622." author="momjian" document="Fix #error message to mention renamed option --disable-spinlocks. "/>
       <Document time="1064808324." author="petere" document="More message editing, some suggested by Alvaro Herrera "/>
@@ -10365,6 +10372,7 @@
       <Document time="1062992342." author="momjian" document="For flex/bison files to be new. "/>
       <Document time="1062805930." author="momjian" document="Done:  &lt; * Allow psql to do table completion for SELECT * FROM schema_part and &gt; * -Allow psql to do table completion for SELECT * FROM schema_part and "/>
       <Document time="1062742850." author="momjian" document="Update as done:  &gt; * -Improve concurrency of hash indexes (Tom) "/>
+<annotation name="portability"/>
       <Document time="1062741221." author="momjian" document="Improve prototype casting for thread calls. "/>
       <Document time="1062650206." author="momjian" document="Lowercase CHECKPOINT_SEGMENTS. "/>
       <Document time="1062626143." author="momjian" document="Mark Unixware as not requiring *_r functions. "/>
@@ -12605,6 +12613,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1064876078." author="momjian" document="I've not changed any malloc/calloc to palloc. It looks to me that these memory areas are for the lifetime of the backend and in the interests of not breaking something that's not broken I left alone.  Note for anyone reading this and wanting it for tsearch-v2-stable (i.e. for 7.3 backend) this patch probably will not apply cleanly to that source. It should be simple enough to see what's going on and apply the changes by hand if need be.   -- Nigel J. Andrews "/>
       <Document time="1064809062." author="petere" document="Translation update "/>
       <Document time="1064723122." author="momjian" document="Adjust pgindent for newer awks.  Nigel J. Andrews "/>
@@ -14990,6 +15000,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
       <Document time="1064545331." author="tgl" document="Make the world safe (more or less) for dropped columns in plpgsql rowtypes. "/>
       <Document time="1063790091." author="barry" document="Applied patch from Fernando Nasser of RedHat to fix some error messages that would not get correctly looked up in the translation files for jdbc   Modified Files:  jdbc/org/postgresql/errors.properties  jdbc/org/postgresql/jdbc2/AbstractJdbc2ResultSet.java "/>
       <Document time="1063749542." author="tgl" document="Make psql correctly track the effects of SET CLIENT_ENCODING commands. I thought I'd fixed this earlier, but I didn't get it right ... "/>
@@ -17239,6 +17250,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1064868093." author="petere" document="Adjust the new Norwegian translation for some of the easier message changes between 7.3 and 7.4, for example quoting and function names. "/>
       <Document time="1064867884." author="petere" document="Make message fit guidelines. "/>
       <Document time="1064711987." author="momjian" document="Cleanup pgindent patch. "/>
@@ -19519,6 +19531,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1064901371." author="tgl" document="Minor copy-editing. "/>
       <Document time="1064876156." author="momjian" document="The brackets aren't put on the CHECK constraints properly.  Before patch:  test=# select pg_get_constraintdef(oid) from pg_constraintSEMICOLON                                        pg_get_constraintdef -------------------------------------------------------------------------------------------------   CHECK (VALUE &gt;= 0)   CHECK ((((a)::text = 'asdf'::text) OR ((a)::text = 'fdsa'::text)) OR ((a)::text = 'dfd'::text))   PRIMARY KEY (b)   FOREIGN KEY (a) REFERENCES test2(b)   UNIQUE (b) (5 rows)  test=# select pg_get_constraintdef(oid, true) from pg_constraintSEMICOLON                                 pg_get_constraintdef -----------------------------------------------------------------------------------   CHECK VALUE &gt;= 0   CHECK a::text = 'asdf'::text OR a::text = 'fdsa'::text OR a::text = 'dfd'::text   PRIMARY KEY (b)   FOREIGN KEY (a) REFERENCES test2(b)   UNIQUE (b) (5 rows)  After patch:  test=# select pg_get_constraintdef(oid) from pg_constraintSEMICOLON                                        pg_get_constraintdef -------------------------------------------------------------------------------------------------   CHECK (VALUE &gt;= 0)   CHECK ((((a)::text = 'asdf'::text) OR ((a)::text = 'fdsa'::text)) OR ((a)::text = 'dfd'::text))   PRIMARY KEY (b)   FOREIGN KEY (a) REFERENCES test2(b)   UNIQUE (b) (5 rows)  test=# select pg_get_constraintdef(oid, true) from pg_constraintSEMICOLON                                 pg_get_constraintdef -----------------------------------------------------------------------------------   CHECK (VALUE &gt;= 0)  `  CHECK (a::text = 'asdf'::text OR a::text = 'fdsa'::text OR a::text = 'dfd'::text)   PRIMARY KEY (b)   FOREIGN KEY (a) REFERENCES test2(b)   UNIQUE (b) (5 rows)  It's important that those brackets are there to (a) match all other constraints and (b) so that people can just copy and paste them and it will work as SQL.   Christopher Kings-Lynne "/>
       <Document time="1064444041." author="tgl" document="Repair some REINDEX problems per recent discussions.  The relcache is now able to cope with assigning new relfilenode values to nailed-in-cache indexes, so they can be reindexed using the fully crash-safe method.  This leaves only shared system indexes as special cases.  Remove the 'index deactivation' code, since it provides no useful protection in the shared- index case.  Require reindexing of shared indexes to be done in standalone mode, but remove other restrictions on REINDEX.  -P (IgnoreSystemIndexes) now prevents using indexes for lookups, but does not disable index updates. It is therefore safe to allow from PGOPTIONS.  Upshot: reindexing system catalogs can be done without a standalone backend for all cases except shared catalogs. "/>
@@ -19528,6 +19541,7 @@
       <Document time="1063348809." author="momjian" document="Remove WIN32_CONSOLE support, at the request of the author. "/>
       <Document time="1063319438." author="momjian" document="Consistenly lowercase GUC variable names, in docs and error messages. "/>
       <Document time="1063239282." author="momjian" document="Add:  &gt; * Have EXPLAIN ANALYZE highlight poor optimizer estimates "/>
+<annotation name="functionality"/>
       <Document time="1062748633." author="momjian" document="This fixes three minor typos in hba.c.  -- Alvaro Herrera (&lt;alvherre[a]dcc.uchile.cl&gt;) "/>
       <Document time="1062638841." author="momjian" document="Done:  * -Have standalone backend read postgresql.conf (Tom) "/>
       <Document time="1062553537." author="petere" document="Remove outdated CLI things. "/>
@@ -21782,6 +21796,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1064873712." author="momjian" document="Change 7.3.4 release note format to match the rest of the 7.3.x releases.  Rod Taylor "/>
       <Document time="1064873208." author="momjian" document="Update release notes. "/>
       <Document time="1064709499." author="tgl" document="Got the link order wrong :-( "/>
@@ -21794,6 +21809,7 @@
       <Document time="1063238363." author="momjian" document="Add HINT if CREATE FUNCTION specifies a valid language, but the language isn't loaded into the database. "/>
       <Document time="1063146532." author="tgl" document="Remove a bunch of content-free Diagnostics sections, as per previous discussion.  (Still have some work to do editing the remainder.) "/>
       <Document time="1063119284." author="meskes" document="Fixed a few bugs that came up on pgsql-interfaces. "/>
+<annotation name="functionality"/>
       <Document time="1062808295." author="tgl" document="Allow IPv4-format entries in pg_hba.conf to match IPv6 connections that have IPv4-embedded-in-IPv6 addresses.  Per idea of Andreas Pflug. "/>
       <Document time="1062737440." author="momjian" document="Add:  &lt; &gt; * Print table names with constraint names in error messages, or make constraint &gt;   names unique within a schema "/>
       <Document time="1062636860." author="momjian" document="Mark unixware as verified. "/>
@@ -24071,6 +24087,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="usability" comments=""/>
       <Document time="1064886089." author="momjian" document="Remove, already done:  &lt; o Fixed PL/Tcl's spi_prepare to accept full qualified type names in &lt;   the parameter type list "/>
       <Document time="1064884519." author="momjian" document="Add:  &gt; o Fixed PL/Tcl's spi_prepare to accept full qualified type names in &gt;   the parameter type list "/>
       <Document time="1064694284." author="momjian" document="Finalize configuration of thread_test program. "/>
@@ -26294,6 +26312,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1064874093." author="momjian" document="&gt; &gt; &gt; &gt;  a) Write documentation how the win32 console needs to be set up so that &gt; &gt;     psql can handle 8-bit characters. &gt; &gt;     Where should it be added? The Section &quot;Installation on Windows&quot; in the &gt; &gt;     Administrator's Guide seems natural to me. &gt; &gt; &gt; &gt;  b) Add code to psql that prints a warning on startup of psql when the &gt; &gt;     console codepage differs from the windows codepage, something like &gt; &gt; &gt; &gt;     Warning: Console codepage (850) differs from windows codepage (1252) &gt; &gt;              8-bit characters will not work correctly. See PostgreSQL &gt; &gt;              documentation &quot;Installation on Windows&quot; for details. &gt; Attached are two patches:   - installdoc.patch contains an additional paragraph on the win32 console    codepage for the chapter &quot;Installation on Windows&quot;    Due to a lack of SGML-tools, I have only edited the text and not tested    the SGML code - please check it before merging into the CVS branch.   - psqlcodepage.patch adds the warning about a problematic codepage to psql.   Christoph Dalitz "/>
       <Document time="1064396318." author="tgl" document="Add positive defense against dropped columns, per suggestion from Christopher Kings-Lynne.  Also fix a couple more schema-awareness issues. "/>
       <Document time="1063688871." author="tgl" document="Fix some problems with dropped columns in plpython trigger functions. "/>
@@ -28493,6 +28513,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
       <Document time="1064886124." author="momjian" document="Update Jan's completed item. "/>
       <Document time="1064785579." author="wieck" document="Backpatched changes for rules when casts are dumped according to discussion on hackers.   Jan "/>
       <Document time="1064603789." author="meskes" document="Fixed segfault after error in parsing precision argument. "/>
@@ -30738,6 +30760,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1064715001." author="tgl" document="Remove erroneous restriction that -t cannot be used to select a sequence for dumping. "/>
       <Document time="1064361530." author="tgl" document="Minor copy-editing for plpgsql chapter. "/>
       <Document time="1064344301." author="tgl" document="_SPI_cursor_operation forgot to check for failure return from _SPI_begin_call.  Per gripe from Tomasz Myrta. "/>
@@ -32980,6 +33004,8 @@
       <Document time="1064887600." author="tgl" document="Improve context display for failures during COPY IN, as recently discussed on pghackers. "/>
       <Document time="1064877846." author="wieck" document="Fixed type lookup in spi_prepare for possible qualified type name specification.  Jan "/>
       <Document time="1064063450." author="meskes" document="- Renamed my own strndup() function because of a name clash. "/>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
       <Document time="1063687809." author="tgl" document="Since SPI_modifytuple's natts argument is the number of attributes to be changed, it should allow a zero value (implying no changes to make). "/>
       <Document time="1063683218." author="tgl" document="Fix LISTEN/NOTIFY race condition reported by Gavin Sherry.  While a really general fix might be difficult, I believe the only case where AtCommit_Notify could see an uncommitted tuple is where the other guy has just unlistened and not yet committed.  The best solution seems to be to just skip updating that tuple, on the assumption that the other guy does not want to hear about the notification anyway.  This is not perfect --- if the other guy rolls back his unlisten instead of committing, then he really should have gotten this notify.  But to do that, we'd have to wait to see if he commits or not, or make UNLISTEN hold exclusive lock on pg_listener until commit.  Either of these answers is deadlock-prone, not to mention horrible for interactive performance.  Do it this way for now.  (What happened to that project to do LISTEN/NOTIFY in memory with no table, anyway?) "/>
       <Document time="1063593432." author="petere" document="Allow translation of SQL help in psql. "/>
@@ -35220,6 +35246,8 @@
       <Document time="1064519297." author="petere" document="Forget to update the real source of the regression test results after message editing. "/>
       <Document time="1064441136." author="scrappy" document="not change, just added a space to test something "/>
       <Document time="1064312032." author="barry" document="Fix to properly handle timezone offsets that are partial hours.  If the offset was a partial hour and less than gmt (i.e. -02:30) the code would corrupt the minutes part.   Modified Files:  jdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1064223481." author="barry" document="Additional jdbc regression tests submitted by Oliver Jowett.  Some tests are currently commented out, pending fixes for the bugs these tests uncovered.   Modified Files:  jdbc/org/postgresql/test/jdbc2/Jdbc2TestSuite.java  jdbc/org/postgresql/test/jdbc2/ServerPreparedStmtTest.java  Added Files:  jdbc/org/postgresql/test/jdbc2/CursorFetchTest.java "/>
       <Document time="1063872867." author="barry" document="Applied patch from Oliver Jowett to clean up some instances where the wrong type was being reported for PREPAREs.   Modified Files:  jdbc/org/postgresql/jdbc1/AbstractJdbc1Statement.java  jdbc/org/postgresql/test/jdbc2/ServerPreparedStmtTest.java "/>
       <Document time="1063701148." author="tgl" document="I don't care whether it's informix-compatible or not: #defining a word like 'date' in a public header file is a damn fool idea. "/>
@@ -37468,6 +37496,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1064441300." author="scrappy" document="test 2, benign, no change "/>
       <Document time="1064311866." author="barry" document="A fix for jdbc regression test submitted yesterday by Kim Ho at Redhat   Modified Files:  ResultSetTest.java "/>
       <Document time="1064220899." author="barry" document="Applied jdbc patch from Kim Ho at RedHat to improve boolean support, as well as some additional regression tests for this an other recent changes.   Modified Files:  jdbc/org/postgresql/jdbc1/AbstractJdbc1ResultSet.java  jdbc/org/postgresql/test/jdbc2/DateTest.java  jdbc/org/postgresql/test/jdbc2/ResultSetTest.java  jdbc/org/postgresql/test/jdbc2/TimeTest.java  jdbc/org/postgresql/test/jdbc2/TimestampTest.java "/>
@@ -39724,6 +39754,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1064874168." author="momjian" document="I discovered that TupleDescGetAttInMetadata and BuildTupleFromCStrings don't deal well with tuples having dropped columns. The attached fixes the issue. Please apply.  Joe Conway "/>
       <Document time="1064867958." author="petere" document="Apparently, gettext doesn't like double parentheses around argument.  What were they doing here anyway? "/>
       <Document time="1064729483." author="tgl" document="Now that we have UPDATE tab SET col = DEFAULT, get rid of horrid hack in the RI triggers for ON DELETE/UPDATE SET DEFAULT.  The code depended way too much on knowledge of plan structure, and yet still would fail if the generated query got rewritten by rules. "/>
@@ -41961,6 +41993,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1064875988." author="momjian" document="[ Patch applied only to 7.3.X.]  Hi There's a bug in the clusterdb script where it looks like the arguments to the psql command are being passed in the wrong order, so it fails when you run it on a database that is not on localhost. Here's the output from the command:  133 anands-Computer:bin/scripts&gt; clusterdb -h wooster -U rr granada psql: warning: extra option wooster ignored psql: warning: extra option -U ignored psql: warning: extra option rr ignored psql: warning: extra option -F: ignored psql: warning: extra option -P ignored psql: warning: extra option format=unaligned ignored psql: warning: extra option -t ignored psql: warning: extra option -c ignored psql: warning: extra option SELECT nspname, pg_class.relname, pg_class_2.relname FROM pg_class, pg_class AS pg_class_2 JOIN pg_namespace ON (pg_namespace.oid=relnamespace), pg_index WHERE pg_class.oid=pg_index.indrelid AND pg_class_2.oid=pg_index.indexrelid AND pg_index.indisclustered AND pg_class.relowner=(SELECT usesysid FROM pg_user WHERE usename=current_user) ignored psql: FATAL:  user &quot;-h&quot; does not exist    I'm attaching a patch that fixes the problem. The diff was run on postgresql 7.3.4  Thanks a lot. Anand Ranganathan "/>
       <Document time="1064847425." author="petere" document="New Norwegian translation by Trond Endrest&#248;l, actually made for 7.3, but this should help people get started in 7.4 as well. "/>
       <Document time="1064820725." author="momjian" document="Update docs that point to thread test program. "/>
@@ -44577,6 +44611,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1064899589." author="tgl" document="Use slightly less broken markup. "/>
       <Document time="1064843488." author="petere" document="New translations "/>
       <Document time="1064704534." author="wieck" document="Fixed calculation of bid when generating accounts. Used to create accounts.bid values of zero.  Jan "/>
@@ -46796,6 +46832,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1064825436." author="momjian" document="Update HISTORY to current. "/>
       <Document time="1064805980." author="tgl" document="Add a mechanism to let dynamically loaded modules register post-commit/ post-abort cleanup hooks.  I'm surprised that we have not needed this already, but I need it now to fix a plpgsql problem, and the usefulness for other dynamically loaded modules seems obvious. "/>
       <Document time="1064296269." author="inoue" document="Putting back the previous change must be the first thing. ALso put back a #ifndef ENABLE_REINDEX_NAILED_RELATIONS which was removed about a year ago. "/>

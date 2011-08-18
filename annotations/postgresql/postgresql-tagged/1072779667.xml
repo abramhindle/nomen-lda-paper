@@ -2253,6 +2253,8 @@
     <Topic>
       <Document time="1075024216." author="momjian" document="Add Joe to TODO:  &gt; * Joe is Joe Conway &lt;mail@joeconway.com&gt; "/>
       <Document time="1074388175." author="tgl" document="Repair misestimation of indexscan CPU costs.  When an indexqual contains a run-time key (that is, a nonconstant expression compared to the index variable), the key is evaluated just once per scan, but we were charging costs as though it were evaluated once per visited index entry. "/>
+<annotation name="functionality"/>
+<annotation name="efficiency"/>
       <Document time="1074201266." author="wieck" document="Adjusted calculation of shared memory requirements to new ARC buffer replacement strategy.  Jan "/>
       <Document time="1074139314." author="tgl" document="Fix permission-checking bug reported by Tim Burgess 10-Feb-03 (this time for sure...).  Rather than relying on the query context of a rangetable entry to identify what permissions it wants checked, store a full AclMode mask in each RTE, and check exactly those bits.  This allows an RTE specifying, say, INSERT privilege on a view to be copied into a derived UPDATE query without changing meaning.  Per recent discussion thread. initdb forced due to change of stored rule representation. "/>
       <Document time="1073600154." author="momjian" document="Throw compile error if our non-thread-safe snprintf is used. "/>
@@ -3868,9 +3870,11 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="efficiency"/>
       <Document time="1075113204." author="momjian" document="Update datestamp. "/>
       <Document time="1074920060." author="tgl" document="Revise GEQO planner to make use of some heuristic knowledge about SQL, namely that it's good to join where there are join clauses rather than where there are not.  Also enable it to generate bushy plans at need, so that it doesn't fail in the presence of multiple IN clauses containing sub-joins.  These changes appear to improve the behavior enough that we can substantially reduce the default pool size and generations count, thereby decreasing the runtime, and yet get as good or better plans as we were getting in 7.4.  Consequently, adjust the default GEQO parameters.  I also modified the way geqo_effort is used so that it affects both population size and number of generationsSEMICOLON it's now useful as a single control to adjust the GEQO runtime-vs-plan-quality tradeoff.  Bump geqo_threshold to 12, since even with these changes GEQO seems to be slower than the regular planner at 11 relations. "/>
       <Document time="1074502181." author="tgl" document="Recognize that IN subqueries return already-unique results if they use UNION/INTERSECT/EXCEPT (without ALL).  This adds on to the previous optimization for subqueries using DISTINCT. "/>
+<annotation name="portability"/>
       <Document time="1073818018." author="neilc" document="Minor documentation improvements. "/>
       <Document time="1073427982." author="neilc" document="Make the 'wal_debug' GUC variable a boolean (rather than an integer), and hide it behind #ifdef WAL_DEBUG blocks. "/>
       <Document time="1073192852." author="tgl" document="Rewrite OR indexscan processing to be more flexible.  We can now for the first time generate an OR indexscan for a two-column index when the WHERE condition is like 'col1 = foo AND (col2 = bar OR col2 = baz)' --- before, the OR had to be on the first column of the index or we'd not notice the possibility of using it.  Some progress towards extracting OR indexscans from subclauses of an OR that references multiple relations, too, although this code is #ifdef'd out because it needs more work. "/>
@@ -5492,11 +5496,13 @@
     </Topic>
     <Topic>
       <Document time="1075340583." author="tgl" document="Fix typo. "/>
+<annotation name="portability"/>
       <Document time="1075182652." author="tgl" document="Run stats test separately, not as part of a parallel group, to avoid possible failures due to stats collector not updating fast enough under heavy load.  Per report from Jeremy Yoder. "/>
       <Document time="1075182633." author="tgl" document="Run stats test separately, not as part of a parallel group, to avoid possible failures due to stats collector not updating fast enough under heavy load.  Per report from Jeremy Yoder. "/>
       <Document time="1075113315." author="momjian" document="Clarify that the 'user' column still applies for 'trust'. "/>
       <Document time="1075003601." author="tgl" document="Fix problems with dropped columns in pltcl triggers, per report from Patrick Samson. "/>
       <Document time="1075003589." author="tgl" document="Fix problems with dropped columns in pltcl triggers, per report from Patrick Samson. "/>
+<annotation name="functionality"/>
       <Document time="1074540498." author="petere" document="Fix typo. "/>
       <Document time="1074540486." author="petere" document="Fix typo. "/>
       <Document time="1074070032." author="tgl" document="pg_settings should have UPDATE privilege allowed to public. (Can't force initdb for this in 7.4 branch, but we can at least see to it that post-7.4.2 installations will get it right.) "/>
@@ -7109,6 +7115,7 @@
     <Topic>
       <Document time="1075341759." author="tgl" document="Review uses of IsUnderPostmaster, change some tests to look at whereToSendOutput instead because they are really inquiring about the correct client communication protocol.  Update some comments. This is pointing towards supporting regular FE/BE client protocol in a standalone backend, per discussion a month or so back. "/>
       <Document time="1075266325." author="tgl" document="simplify_function() mustn't try to evaluate functions that return composite types, because TupleTableSlots aren't Datums and can't be stored in Const nodes.  We can remove this restriction if we ever adopt a cleaner runtime representation for whole-tuple results, but at the moment it's broken.  Per example from Thomas Hallgren. "/>
+<annotation name="portability"/>
       <Document time="1075266304." author="tgl" document="simplify_function() mustn't try to evaluate functions that return composite types, because TupleTableSlots aren't Datums and can't be stored in Const nodes.  We can remove this restriction if we ever adopt a cleaner runtime representation for whole-tuple results, but at the moment it's broken.  Per example from Thomas Hallgren. "/>
       <Document time="1075174722." author="momjian" document="Add Name:  &gt; * -Add checks for fclose() failure (Tom) "/>
       <Document time="1075174690." author="momjian" document="Done:  &gt; * -Add checks for fclose() failure (Tom) "/>
@@ -8720,6 +8727,8 @@
     <Topic>
       <Document time="1074646174." author="tgl" document="This is a patch to support readline prompts which contain non-printing characters, as for fancy colorized prompts.  This was nearly a direct lift from bash-2.05b's lib/readline/display.c, per guidance from Chet Ramey.  Reece Hart "/>
       <Document time="1073815097." author="neilc" document="Add CREATE TRIGGER, CREATE INDEX, and CREATE SEQUENCE to the list of expressions supported by CREATE SCHEMA.  Also added the beginning of some regression tests for CREATE SCHEMASEMICOLON plenty more work is needed here. "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1073632635." author="momjian" document="Add comment about synchronous signals. "/>
       <Document time="1073595098." author="momjian" document="Update OSF thread flags for non-gcc compiles. "/>
       <Document time="1073595084." author="momjian" document="Update OSF thread flags for non-gcc compiles. "/>
@@ -10331,6 +10340,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1075175993." author="momjian" document="[all] Removed call to getppid in SendPostmasterSignal, replacing with a PostmasterPid variable, which gets set (early) in PostmasterMain getppid would not be the postmaster?  [fork/exec] Implements processCancelRequest by keeping an array of  pid/cancel_key structs in shared mem  [fork/exec] Moves AttachSharedMemoryAndSemaphores call for backends into SubPostmasterMain  [win32] Implements reaper/waitpid by keeping an arrays of children pids,handles in postmaster local mem       - this item is largely untested, for reasons which should be obvious, but appears sound  [win32/all] Added extern for pgpipe in Win32 case, and changed the second pipe call (which seems to have been missed earlier) to pgpipe  [win32] #define'd ftruncate to chsize in the Win32 case  [win32] PG_USLEEP for Win32 has a misplaced paren. Fixed.  [win32] DLLIMPORT handling for MingW case   Claudio Natoli "/>
       <Document time="1074660536." author="tgl" document="Implement 'BACKSLASHcopy from -' to support reading copy data from the same source the BACKSLASHcopy came from.  Also, fix prompting logic so that initial and per-line prompts appear for all cases of reading from an interactive terminal.  Patch by Mark Feit, with some kibitzing by Tom Lane. "/>
       <Document time="1074228692." author="petere" document="Some refinement of XSLT processing: The result now looks just about as good as the result of the SGML-based tool chain. "/>
@@ -11946,6 +11956,8 @@
     <Topic>
       <Document time="1075015723." author="momjian" document="Update null storage description. "/>
       <Document time="1074992445." author="wieck" document="Added GUC variable bgwriter_flush_method controlling the action done by the background writer between writing dirty blocks and napping.      none (default)   no action sync             bgwriter calls smgrsync() causing a sync(2)  A global sync() is only good on dedicated database servers, so more flush methods should be added in the future.  Jan "/>
+<annotation name="efficiency"/>
+<annotation name="portability"/>
       <Document time="1074756215." author="tgl" document="Fix oversight in optimization that avoids an unnecessary projection step when scanning a table that we need all the columns from.  In case of SELECT INTO, we have to check that the hasoids flag matches the desired output type, too.  Per report from Mike Mascari. "/>
       <Document time="1074756201." author="tgl" document="Fix oversight in optimization that avoids an unnecessary projection step when scanning a table that we need all the columns from.  In case of SELECT INTO, we have to check that the hasoids flag matches the desired output type, too.  Per report from Mike Mascari. "/>
       <Document time="1074502348." author="tgl" document="Don't return an overoptimistic result from join_in_selectivity when we have detected that an IN subquery must return unique results. "/>
@@ -13551,6 +13563,7 @@
       <Document time="1075346044." author="tgl" document="Make USING and WITH optional to bring the syntax of BACKSLASHcopy into exact agreement with what the backend grammar actually accepts (which is a bit looser than what its documentation claims).  Per report from Bill Moran, though I did not use his patch since it removed all the undocumented flexibility that the code historically had and the backend still has. "/>
       <Document time="1074823059." author="tgl" document="Remove ExpandDatabasePath(), which is unused and must have been so since 7.1, because the path interpretation it embodies has been wrong since 7.1. "/>
       <Document time="1074731111." author="tgl" document="Back-patch repairs for --disable-shared support. "/>
+<annotation name="portability"/>
       <Document time="1074304290." author="tgl" document="Tighten short-circuit tests for deciding whether we need to invoke tuptoaster.c --- fields that are compressed in-line are not a reason to invoke the toaster.  Along the way, add a couple more htup.h macros to eliminate confusing negated tests, and get rid of the already vestigial TUPLE_TOASTER_ACTIVE symbol. "/>
       <Document time="1073530968." author="tgl" document="Make some improvements in the intelligence of the partial-index predicate tester.  It can now deal with commuted clauses (for instance, 4 &lt; x implies x &gt; 3), subclauses more complicated than a simple Var (for example, upper(x) = 't' implies upper(x) &gt; 'a'), and &lt;&gt; operators (for example, x &lt; 3 implies x &lt;&gt; 4).  Still only understands operators associated with btree opclasses, though. Inspired by example from Martin Hampl. "/>
       <Document time="1073437273." author="momjian" document="Done:  &gt; * -Have psql BACKSLASHdn show only visible temp schemas using current_schemas() "/>
@@ -15156,6 +15169,8 @@
     </Topic>
     <Topic>
       <Document time="1075294027." author="tgl" document="Fix oversight in check_ungrouped_columns optimization that avoids unnecessary checks for complex grouping expressions: we cannot check whether the expressions are simple Vars until after we apply flatten_join_alias_vars, because in the case of FULL JOIN that routine can introduce non-Var expressions.  Per example from Joel Knight. "/>
+<annotation name="functionality"/>
+<annotation name="efficiency"/>
       <Document time="1075294004." author="tgl" document="Fix oversight in check_ungrouped_columns optimization that avoids unnecessary checks for complex grouping expressions: we cannot check whether the expressions are simple Vars until after we apply flatten_join_alias_vars, because in the case of FULL JOIN that routine can introduce non-Var expressions.  Per example from Joel Knight. "/>
       <Document time="1075087182." author="neilc" document="Fix an obsolete file path mentioned in a comment. "/>
       <Document time="1074995006." author="neilc" document="Revert the change to print.c, as this breaks src/bin/scripts. The proper way to fix this is probably implementing safe memory handling functions once in a static lib and then using that in the various client apps, but for the moment I've just reverted the change to un-break the tree. "/>
@@ -16762,6 +16777,8 @@
     <Topic>
       <Document time="1075175696." author="momjian" document="Back out win32 patch so we can apply it separately. "/>
       <Document time="1075024585." author="momjian" document="*** empty log message *** "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1074565204." author="tgl" document="Remove JDBC from the build system and documentation, too. "/>
       <Document time="1074410157." author="tgl" document="Don't use %s-with-precision format spec to truncate data being displayed in a COPY error message.  It seems that glibc gets indigestion if it is asked to truncate strings that contain invalid UTF-8 encoding sequences. vsnprintf will return -1 in such cases, leading to looping and eventual memory overflow in elog.c.  Instead use our own, more robust pg_mbcliplen routine.  I believe this problem accounts for several recent reports of unexpected 'out of memory' errors during COPY IN. "/>
       <Document time="1074410129." author="tgl" document="Don't use %s-with-precision format spec to truncate data being displayed in a COPY error message.  It seems that glibc gets indigestion if it is asked to truncate strings that contain invalid UTF-8 encoding sequences. vsnprintf will return -1 in such cases, leading to looping and eventual memory overflow in elog.c.  Instead use our own, more robust pg_mbcliplen routine.  I believe this problem accounts for several recent reports of unexpected 'out of memory' errors during COPY IN. "/>
@@ -18394,6 +18411,9 @@
       <Document time="1075240303." author="neilc" document="Improve the documentation of the 'join_collapse_limit' GUC var. Thanks to Tom Lane for some editorial suggestions. "/>
       <Document time="1075182418." author="momjian" document="Pgindent win32 signal code. "/>
       <Document time="1074746014." author="tgl" document="Repair error apparently introduced in the initial coding of GUC: the default value for geqo_effort is supposed to be 40, not 1.  The actual 'genetic' component of the GEQO algorithm has been practically disabled since 7.1 because of this mistake.  Improve documentation while at it. "/>
+<annotation name="maintainability"/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1074561150." author="tgl" document="Improve discussion of consistent-snapshot backup technique.  Haphazard editing of this text had left nearly contradictory statements in adjacent paragraphs ... "/>
       <Document time="1073343878." author="tgl" document="Improve UniquePath logic to detect the case where the input is already known unique (eg, it is a SELECT DISTINCT ... subquery), and not do a redundant unique-ification step. "/>
       <Document time="1073206942." author="tgl" document="Fix ReadOffset() to work correctly when off_t is wider than int. "/>
@@ -19995,6 +20015,8 @@
       <Document time="1075019400." author="momjian" document="Fix typo I mistakenly added. "/>
       <Document time="1075018042." author="neilc" document="More fallout from the recent psql patch: rename xmalloc and friends to pg_malloc, to avoid linker failures on same platforms. "/>
       <Document time="1074991129." author="neilc" document="This patch makes some of the memory manipulation performed by psql a little more sane. Some parts of the code was using a static function xmalloc() that did safe memory allocation (where &quot;safe&quot; means &quot;bail out on OOM&quot;), but most of it was just invoking calloc() or malloc() directly. Now almost everything invokes xmalloc() or xcalloc(). "/>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
       <Document time="1074888810." author="momjian" document="Add:  &gt; * Improve CREATE SCHEMA regression test "/>
       <Document time="1074824025." author="petere" document="Translation update "/>
       <Document time="1074824012." author="petere" document="Translation update "/>
@@ -21614,6 +21636,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1075175515." author="momjian" document="Attached is a patch that fixes some trivial typos and alignment.  Please apply.  Alvaro Herrera "/>
       <Document time="1075174531." author="tgl" document="Ensure that close() and fclose() are checked for errors, at least in cases involving writes.  Per recent discussion about the possibility of close-time failures on some filesystems.  There is a TODO item for this, too. "/>
       <Document time="1075173201." author="neilc" document="The attached patch clarifies (or, rather, makes explicit) to readers how to handle memory management for char pointers returned by libpq functions. Original patch by Gavin Sherry, some tweaking and consistency improvements by Neil Conway. "/>
@@ -23242,6 +23266,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
       <Document time="1075301663." author="meskes" document="Removed some debugging output. "/>
       <Document time="1074852334." author="momjian" document="Add:  &gt; * Allow column-level privileges "/>
       <Document time="1074069576." author="tgl" document="Revert ill-starred change of 13-Feb-02: it appeared to fix a problem of incorrect permissions checking, but in fact disabled most all permissions checks for view updates.  This corrects problems reported by Sergey Yatskevich among others, at the cost of re-introducing the problem previously reported by Tim Burgess.  However, since we'd lived with that problem for quite awhile without knowing it, we can live with it awhile longer until a proper fix can be made in 7.5. "/>
@@ -24863,6 +24888,8 @@
       <Document time="1074729851." author="tgl" document="Fix bit-rot in support for building with --disable-shared.  This patch gets us past 'make install', but initdb still fails for lack of conversion libraries ... "/>
       <Document time="1074688084." author="dennis" document="Translation updates "/>
       <Document time="1074100458." author="dennis" document="Translation updates "/>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1074100441." author="dennis" document="Translation updates "/>
       <Document time="1074051805." author="petere" document="Fix format string error. "/>
       <Document time="1074037519." author="petere" document="Make rule and stylesheet to try out XSLT for DocBook processing "/>
@@ -26521,6 +26548,8 @@
     </Topic>
     <Topic>
       <Document time="1075147738." author="teodor" document="Docs fix from  Kris Jurka &lt;books@ejurka.com&gt; "/>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1075147732." author="teodor" document="Docs fix from  Kris Jurka &lt;books@ejurka.com&gt; "/>
       <Document time="1074999908." author="tgl" document="Example of a function taking a composite type should show how to call it. "/>
       <Document time="1073700740." author="momjian" document="Allow psql to handle tilde user expansion for file names.  Zach Irmen "/>
@@ -28198,6 +28227,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="efficiency"/>
       <Document time="1075008978." author="momjian" document="Mention that log_statement only prints query on PREPARE, not EXECUTE, and PL/pgSQL only prints queries on first function call. "/>
       <Document time="1074841991." author="neilc" document="Fix a minor bug introduced by the recent CREATE TABLE AS / WITH OIDS patch: a 3-value enum was mistakenly assigned directly to a 'bool' in transformCreateStmt(). Along the way, change makeObjectName() to be static, as it isn't used outside analyze.c "/>
       <Document time="1074496001." author="tgl" document="Add a hash table to cache lookups of 'C'-language functions (that is, dynamically loaded C functions).  Some limited testing suggests that this puts the lookup speed for external functions just about on par with built-in functions.  Per discussion with Eric Ridge. "/>
@@ -29803,6 +29834,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1075005913." author="tgl" document="Support named parameters in information_schema.parameters, per Dennis Bjorklund.  I did not force initdb for this, but you'd need to do one to get the improved view. "/>
       <Document time="1074749671." author="tgl" document="Correct error introduced in recent hasoids changes --- it's not a bool field anymore. "/>
       <Document time="1073810971." author="momjian" document="Drops in the CreateProcess calls for Win32 (essentially wrapping up the fork/exec portion of the port), and fixes a handful of whitespace issues  Claudio Natoli "/>
@@ -31418,6 +31451,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
       <Document time="1075162600." author="tgl" document="Repair incorrect order of operations in GetNewTransactionId().  We must complete ExtendCLOG() before advancing nextXid, so that if that routine fails, the next incoming transaction will try it again.  Per trouble report from Christopher Kings-Lynne. "/>
       <Document time="1075162583." author="tgl" document="Repair incorrect order of operations in GetNewTransactionId().  We must complete ExtendCLOG() before advancing nextXid, so that if that routine fails, the next incoming transaction will try it again.  Per trouble report from Christopher Kings-Lynne. "/>
       <Document time="1075162559." author="tgl" document="Repair incorrect order of operations in GetNewTransactionId().  We must complete ExtendCLOG() before advancing nextXid, so that if that routine fails, the next incoming transaction will try it again.  Per trouble report from Christopher Kings-Lynne. "/>
@@ -33064,6 +33098,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1075182326." author="momjian" document="Here's the latest win32 signals code, this time in the form of a patch against the latest shapshot. It also includes the replacement of kill() with pqkill() and sigsetmask() with pqsigsetmask().  Passes all tests fine on my linux machine once applied. Still doesn't link completely on Win32 - there are a few things still required. But much closer than before.  At Bruce's request, I'm goint to write up a README file about the method of signals delivery chosen and why the others were rejected (basically a summary of the mailinglist discussions). I'll finish that up once/if the patch is accepted.   Magnus Hagander "/>
       <Document time="1074730939." author="tgl" document="If we don't have shared libraries, we don't have conversions.  Make conversion_create.sql be empty (except for a helpful comment) in this case.  Allows initdb to succeed with --disable-shared. "/>
       <Document time="1074560825." author="pgsql" document="JDBC is now on GBorg "/>

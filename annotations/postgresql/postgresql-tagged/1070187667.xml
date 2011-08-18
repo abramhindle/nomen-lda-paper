@@ -2076,6 +2076,7 @@
     </Authors>
     <Topic>
       <Document time="1071962702." author="tgl" document="Fix broken IDENT support for FreeBSD (appears to have been broken by ill-considered conditional logic in getpeereid patch of 3-Dec-2002). Per bug #1021. "/>
+<annotation name="maintainability"/>
       <Document time="1071962692." author="tgl" document="Fix broken IDENT support for FreeBSD (appears to have been broken by ill-considered conditional logic in getpeereid patch of 3-Dec-2002). Per bug #1021. "/>
       <Document time="1071363736." author="momjian" document="Add fadvise TODO.detail. "/>
       <Document time="1070953001." author="tgl" document="query_tree_mutator should copy RangeTblEntry nodes even when it's not planning to modify them itself.  Otherwise we end up with shared RTE substructure, which breaks inheritance_planner because the rte-&gt;inh flag needs to be independent in each copied subquery.  Per bug report from Chris Piker. "/>
@@ -2086,6 +2087,7 @@
       <Document time="1070338142." author="momjian" document="This patch refactors execTuples.c in two ways.  Neil Conway "/>
       <Document time="1070315622." author="tgl" document="Force zero_damaged_pages to be effectively ON during recovery from WAL, since there is no need to worry about damaged pages when we are going to overwrite them anyway from the WAL.  Per recent discussion. "/>
       <Document time="1070315610." author="tgl" document="Force zero_damaged_pages to be effectively ON during recovery from WAL, since there is no need to worry about damaged pages when we are going to overwrite them anyway from the WAL.  Per recent discussion. "/>
+<annotation name="portability"/>
       <Document time="1070315599." author="tgl" document="Force zero_damaged_pages to be effectively ON during recovery from WAL, since there is no need to worry about damaged pages when we are going to overwrite them anyway from the WAL.  Per recent discussion. "/>
       <Document time="1070188166." author="momjian" document="Add:  &gt; * Have pg_ctl look at PGHOST in case it is a socket directory "/>
       <Files>
@@ -3693,6 +3695,7 @@
       <Document time="1072760583." author="tgl" document="ShmemInitHash forgot to specify HASH_ALLOC flag bit in its hash_create call.  You'd think this would cause some problems, but because of the way hash_create is coded, the only side-effect was creation of a useless memory context for the hashtable. "/>
       <Document time="1072751589." author="tgl" document="Tweak OpernameGetCandidates() to reduce palloc overhead --- profiling showed that for common operator names such as '=', the pallocs done by this routine occupied a surprisingly large fraction of the total time for the parser to process an operator. "/>
       <Document time="1072234238." author="tgl" document="Fix compile warning. "/>
+<annotation name="functionality"/>
       <Document time="1072154198." author="momjian" document="Test for __alpha and __alpha__. "/>
       <Document time="1070925610." author="tgl" document="Whole-row references were broken for subqueries and functions, because attr_needed/attr_widths optimization failed to allow for Vars with attno zero in this case.  Per report from Tatsuo Ishii. "/>
       <Document time="1070925598." author="tgl" document="Whole-row references were broken for subqueries and functions, because attr_needed/attr_widths optimization failed to allow for Vars with attno zero in this case.  Per report from Tatsuo Ishii. "/>
@@ -5309,6 +5312,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1072047154." author="tgl" document="Further cleanup in _bt_first: eliminate duplicate code paths. "/>
       <Document time="1071963962." author="tgl" document="Dept. of third thoughts: in fact, libpq should support SCM_CREDS challenge even when HAVE_GETPEEREID is defined, else it will be unable to connect to pre-7.4 backends that are using IDENT authentication. "/>
       <Document time="1071963949." author="tgl" document="Dept. of third thoughts: in fact, libpq should support SCM_CREDS challenge even when HAVE_GETPEEREID is defined, else it will be unable to connect to pre-7.4 backends that are using IDENT authentication. "/>
@@ -6964,6 +6968,7 @@
       <Document time="1071952374." author="momjian" document="In my mind there were two categories of open issues   a) ones that are 100% backward (such as the comment about      outputting this format) and   b) ones that aren't (such as deprecating the current      postgresql shorthand of          '1Y1M'::interval = 1 year 1 minute      in favor of the ISO-8601          'P1Y1M'::interval = 1 year 1 month.  Attached is a patch that addressed all the discussed issues that did not break backward compatability, including the ability to output ISO-8601 compliant intervals by setting datestyle to iso8601basic.  Interval values can now be written as  ISO 8601 time intervals, using the &quot;Format with time-unit designators&quot;. This format always starts with the character 'P', followed  by a string of values followed by single character time-unit designators. A 'T' separates the date and time parts of the interval.  Ron Mayer "/>
       <Document time="1071882380." author="petere" document="7.4.1 release note improvements "/>
       <Document time="1071882374." author="petere" document="7.4.1 release note improvements "/>
+<annotation name="functionality"/>
       <Document time="1071710153." author="tgl" document="Repair badly broken estimation of output buffer size in lquery_out(). "/>
       <Document time="1071710141." author="tgl" document="Repair badly broken estimation of output buffer size in lquery_out(). "/>
       <Document time="1071698886." author="tgl" document="Repair planner failure when there are multiple IN clauses, each with a join in its subselect.  In this situation we *must* build a bushy plan because there are no valid left-sided or right-sided join trees. Accordingly, hoary sanity check needs an update.  Per report from Alessandro Depase. "/>
@@ -8584,6 +8589,8 @@
       <Document time="1072666656." author="tgl" document="Clean up the usage of canonicalize_qual(): in particular, be consistent about whether it is applied before or after eval_const_expressions(). I believe there were some corner cases where the system would fail to recognize that a partial index is applicable because of the previous inconsistency.  Store normal rather than 'implicit AND' representations of constraints and index predicates in the catalogs. initdb forced due to representation change of constraints/predicates. "/>
       <Document time="1072341844." author="momjian" document="Patch that makes quoting &quot;sameuser&quot;, &quot;samegroup&quot;, and &quot;all&quot; remove special meaning of these terms in pg_hba.conf.  Also changes ugly pg_hba.conf IPv6 netmask of ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff to ::1/128.  Andrew Dunstan "/>
       <Document time="1072234580." author="tgl" document="Fix a number of places where reconfiguring with a different installation prefix would fail, because the new path did not get propagated to where it needed to be.  Note this would fail even with --enable-depend. "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1072042594." author="petere" document="Some refining of release notes.  Markup is still broken by someone else, so I cannot remake HISTORY. "/>
       <Document time="1071804234." author="tgl" document="Use a shutdown callback to clear setArgsValid in a FuncExprState that is evaluating a set-valued function.  This fixes some additional problems with rescanning partially-evaluated SRFs. "/>
       <Document time="1071804222." author="tgl" document="Use a shutdown callback to clear setArgsValid in a FuncExprState that is evaluating a set-valued function.  This fixes some additional problems with rescanning partially-evaluated SRFs. "/>
@@ -10207,8 +10214,10 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
       <Document time="1072235707." author="tgl" document="Use inlined TAS() on PA-RISC, if we are compiling with gcc. Patch inspired by original submission from ViSolve. "/>
       <Document time="1071793673." author="teodor" document="Fix signed char in comparison and check memory allocation "/>
+<annotation name="usability" comments=""/>
       <Document time="1071736555." author="davec" document="backpatch for rs.previous from Kris Jurka, reported by Andrew Fyfe "/>
       <Document time="1071606478." author="petere" document="Add example for converting epoch back to timestamp. "/>
       <Document time="1071520217." author="momjian" document="Add Czech FAQ to 7.4.X branch. "/>
@@ -11873,6 +11882,8 @@
       <Document time="1072321449." author="meskes" document="Fixed segfault in parsing of EXEC SQL SELECT * FROM foo() AS TBL( c int, i int)SEMICOLON "/>
       <Document time="1071738510." author="davec" document="fixed up OID74 test to conform with other tests, by Kris Jurka "/>
       <Document time="1071737947." author="momjian" document="Please find enclosed a patch exemplifying typical use of the ARE Class-Shorthand Escapes&lt;C2&gt;&lt;AE&gt;.  I believe it will help intrepid regex users. :)  David Fetter "/>
+<annotation name="reliability" comments=""/>
+<annotation name="portability"/>
       <Document time="1071736152." author="davec" document="back patch by Kris Jurka to get the correct protocol version from the server "/>
       <Document time="1071736034." author="davec" document="patch by Kris Jurka to use the correct protocol based upon server information "/>
       <Document time="1071693522." author="davec" document="patch from Kris Jurka to fix large object 7.1 compatible protocol issues modified test case from Alexey Yudichev to be part of the testsuite "/>
@@ -13515,6 +13526,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1072222851." author="tgl" document="Push responsibility for selecting out-of-line-assembler TAS code out to the platform template files, instead of doing it directly in configure.in. This seems cleaner, and also opens the door to making the choice be dependent on the compiler being used. "/>
       <Document time="1072157644." author="momjian" document="Remove __alpha__ additions in main.c but document that they are missing. "/>
       <Document time="1071954414." author="momjian" document="Another markup fix for recent patch. "/>
@@ -15155,6 +15168,7 @@
     <Topic>
       <Document time="1072760062." author="tgl" document="Use hash table name, not one-size-fits-all 'DynaHashTable', to identify memory contexts belonging to hash tables.  Makes the memory stats printout a little more useful. "/>
       <Document time="1072157526." author="momjian" document="Remove NEED_I386_TAS_ASM and just test for compiler defines. "/>
+<annotation name="portability"/>
       <Document time="1071737205." author="momjian" document="Here is the definition of relation_byte_size() in optimizer/path/costsize.c:  ---------------------------------------------------------------------- /*  * relation_byte_size  *        Estimate the storage space in bytes for a given number of tuples  *        of a given width (size in bytes).  */ static double relation_byte_size(double tuples, int width) {         return tuples * (MAXALIGN(width) + MAXALIGN(sizeof(HeapTupleData)))SEMICOLON }  ----------------------------------------------------------------------  Shouldn't this be HeapTupleHeaderData and not HeapTupleData ?  (Of course, from a costing perspective these shouldn't be very different but ...)  Sailesh Krishnamurthy "/>
       <Document time="1071099044." author="davec" document="incremented build to 211 "/>
       <Document time="1070338789." author="momjian" document="I've run across a pretty serious problem with pg_autovacuum. pg_autovacuum looses track of any table that's ever been truncated (possibly other situations too).   When i truncate a table it gets a new relfilenode in pg_class.  This is a problem because pg_autovacuum assumes pg_class.relfilenode will join to pg_stats_all_tables.relid. pg_stats_all_tables.relid is actallly the oid from pg_class, not the relfilenode.   These two values start out equal so pg_autovacuum works initially, but it fails later on because of this incorrect assumption.  This patch fixes that problem.  Applied to HEAD and 7.4.X.  Brian Hirt "/>
@@ -16770,6 +16784,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1072754565." author="tgl" document="Using canonicalize_qual() to get rid of duplicate index predicate conditions is overkillSEMICOLON set_union() does the job about as well, and much more efficiently.  Furthermore this avoids assuming that canonicalize_qual() will check for duplicate clauses at all, which it may not always do. "/>
       <Document time="1072486800." author="meskes" document="Fixed docs to clearly note that ecpg is originally a C precompiler and C++ stuff is not 100%. "/>
       <Document time="1072228675." author="tgl" document="alter_table test sometimes failed in parallel mode, because of transient table name conflict against rangefuncs test. "/>
@@ -18413,6 +18429,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1072723997." author="meskes" document="Added missing whitespaces to array argument parsing. "/>
       <Document time="1072723984." author="meskes" document="Added missing whitespaces to array argument parsing. "/>
       <Document time="1072567218." author="tgl" document="Remove incorrect remark about having to restart backend to load a new version of a shared library. "/>
@@ -20082,6 +20100,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1072239194." author="momjian" document="Supress non-temp schemas from psql BACKSLASHdn display. "/>
       <Document time="1072221197." author="tgl" document="Mop-up for HAS_TEST_AND_SET refactoring.  Un-break two or three platforms that were broken, try to make layout of s_lock.h entries consistent, use HAVE_SPINLOCKS in preference to HAS_TEST_AND_SET everywhere outside s_lock.h itself. "/>
       <Document time="1072168290." author="momjian" document="Move slock_t typdefs into s_lock.h from include/port files for centralization and easier maintanence. "/>
@@ -21736,6 +21756,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="efficiency"/>
       <Document time="1072576738." author="tgl" document="Improve spinlock code for recent x86 processors: insert a PAUSE instruction in the s_lock() wait loop, and use test before test-and-set in TAS() macro to avoid unnecessary bus traffic.  Patch from Manfred Spraul, reworked a bit by Tom. "/>
       <Document time="1071550713." author="petere" document="Override some of the changes in DocBook DSSSL stylesheets 1.78 to restore previous behavior of &lt;literal&gt;, &lt;envar&gt;, &lt;acronym&gt;, and others. "/>
       <Document time="1071550692." author="petere" document="Override some of the changes in DocBook DSSSL stylesheets 1.78 to restore previous behavior of &lt;literal&gt;, &lt;envar&gt;, &lt;acronym&gt;, and others. "/>
@@ -23355,6 +23376,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1071797158." author="petere" document="Forgot to change one compatlib.h. "/>
       <Document time="1071797157." author="petere" document="Forgot to change one compatlib.h. "/>
       <Document time="1071381346." author="neilc" document="Fix two typos in the documentation for PREPARE. "/>
@@ -25001,6 +25024,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1072229691." author="tgl" document="More bogosity in alter_table test: sometimes causes prepare test to fail by means of arbitrarily renaming tables the other test depends on. "/>
       <Document time="1072229685." author="tgl" document="More bogosity in alter_table test: sometimes causes prepare test to fail by means of arbitrarily renaming tables the other test depends on. "/>
       <Document time="1072154393." author="momjian" document="This applied patch remove NEED_SPARC_TAS_ASM and instead uses __sparc|| __sparc__. "/>
@@ -26638,6 +26662,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1072128627." author="momjian" document="Clarification:  &lt; * Have psql BACKSLASHdn show only visible schemas using current_schemas() &gt; * Have psql BACKSLASHdn show only visible temp schemas using current_schemas() "/>
       <Document time="1072068280." author="tgl" document="Update HISTORY for 7.4.1 release. "/>
       <Document time="1072002240." author="momjian" document="Update 7.4.1 release notes in preparation for release. "/>
@@ -28253,6 +28278,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1072651445." author="tgl" document="Fix sanity-check code that mistakenly assumed error and notice messages could never exceed 30K.  Per report from Andreas Pflug. "/>
       <Document time="1072651437." author="tgl" document="Fix sanity-check code that mistakenly assumed error and notice messages could never exceed 30K.  Per report from Andreas Pflug. "/>
       <Document time="1072342370." author="momjian" document="Continued rearrangement to permit pgstat + BootstrapMain processes to be fork/exec'd, in the same mode as the previous patch for backends.  Claudio Natoli "/>
@@ -29891,6 +29918,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1072341383." author="momjian" document="&gt; &gt; I have no idea if this in Oracle or not.  But it's something I &gt; &gt; needed, and other people in the past asked about it too. &gt; &gt; It is in Oracle, but you aren't exactly on the spot.  It should be &gt; &gt; IYYY - 4 digits  ('2003') &gt; IYY  - 3 digits  ('003') &gt; IY   - 2 digits  ('03') &gt; I    - 1 digit   ('3')  Here is an updated patch that does that.  Kurt Roeckx "/>
       <Document time="1071738612." author="davec" document="backpatch for OID74Test to conform with jdbc tests "/>
       <Document time="1071736325." author="davec" document="patch for building for an alternate port "/>
@@ -31539,6 +31567,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1071993604." author="tgl" document="Previous change exposed some opportunities for further simplification in _bt_first(). "/>
       <Document time="1071708592." author="tgl" document="Reorder tests in parse_coerce so that ANY/ANYELEMENT/ANYARRAY coercion does not affect UNKNOWN-type literals or Params.  This fixes the recent complaint about count('x') being broken, and improves consistency in a few other respects too. "/>
       <Document time="1071708579." author="tgl" document="Reorder tests in parse_coerce so that ANY/ANYELEMENT/ANYARRAY coercion does not affect UNKNOWN-type literals or Params.  This fixes the recent complaint about count('x') being broken, and improves consistency in a few other respects too. "/>
@@ -33159,6 +33189,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="reliability" comments=""/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1072650591." author="tgl" document="Avoid infinite loop if connection is lost during PQexecStart() or PQexecFinish().  Per report from Andreas Pflug. "/>
       <Document time="1072650581." author="tgl" document="Avoid infinite loop if connection is lost during PQexecStart() or PQexecFinish().  Per report from Andreas Pflug. "/>
       <Document time="1072169530." author="momjian" document="Have configure --without-spinlocks actually not use spinlock code, even if supported by the cpu. "/>

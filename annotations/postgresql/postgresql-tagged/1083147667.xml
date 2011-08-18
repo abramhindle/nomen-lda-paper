@@ -2496,6 +2496,8 @@
     <Topic>
       <Document time="1085644225." author="momjian" document="Document new pg_ctl 'kill' command, specificially for Win32. "/>
       <Document time="1085200489." author="tgl" document="Use wide-character library routines, if available, for upper/lower/initcap functions.  This allows these functions to work correctly with Unicode and other multibyte encodings.  Per prior discussion.  Also, revert my earlier change to move installation path mashing from Makefile.global to configure.  Turns out not to work well because configure script is working with unexpanded variables, and so fails to match in cases where it should match. "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1085040644." author="momjian" document="Add:  &gt; * Investigate SMP context switching issues "/>
       <Document time="1085038036." author="momjian" document="Remove item:  &lt; * Allow col IS TRUE/FALSE use an index like col = TRUE/FALSE "/>
       <Document time="1085032860." author="momjian" document="Add:  &gt; * Allow col IS TRUE/FALSE use an index like col = TRUE/FALSE "/>
@@ -4540,6 +4542,8 @@
     </Topic>
     <Topic>
       <Document time="1085112878." author="tgl" document="Revert addition of -lpgport, which breaks the build on platforms that are sticky about non-PIC code in shared libraries.  Windows will have to find another solution (probably similar to the way libpq does it). "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1084867920." author="momjian" document="Run autoconf for link update. "/>
       <Document time="1084568684." author="momjian" document="Adjust find_my_exec/find_other_exec() so that the return parameter is last, not first.  This fits our style better. "/>
       <Document time="1083963436." author="tgl" document="The timezone() family of functions (a/k/a AT TIME ZONE construct) can safely be marked immutable, since their results don't depend on the TimeZone GUC variable.  Per recent discussion. "/>
@@ -6655,6 +6659,7 @@
       <Document time="1085612431." author="momjian" document="Move setlocale() outside of NLS-only defines. "/>
       <Document time="1085532461." author="momjian" document="Allow relative paths as long as the hardcoded path matches the bin path up to the last bin directory name. "/>
       <Document time="1085187407." author="tgl" document="Put path configuration information into a .h file instead of cluttering several different module Makefiles with it.  Also, do any adjustment of installation paths during configure, rather than every time Makefile.global is read. "/>
+<annotation name="portability"/>
       <Document time="1085080050." author="tgl" document="Fix speling. "/>
       <Document time="1085018776." author="tgl" document="Improve error reporting behavior in parse_hba(): give more complete error report for getaddrinfo failures, point at correct token for syntax errors in all cases, don't log redundant messages. "/>
       <Document time="1085015393." author="momjian" document="Done:  &gt; * -Make pg_restore continue after errors, so it acts more like pg_dump scripts "/>
@@ -8725,6 +8730,8 @@
     <Topic>
       <Document time="1085735562." author="tgl" document="Code review for EXEC_BACKEND changes.  Reduce the number of #ifdefs by about a third, make it work on non-Windows platforms again.  (But perhaps I broke the WIN32 code, since I have no way to test that.)  Fold all the paths that fork postmaster child processes to go through the single routine SubPostmasterMain, which takes care of resurrecting the state that would normally be inherited from the postmaster (including GUC variables). Clean up some places where there's no particularly good reason for the EXEC and non-EXEC cases to work differently.  Take care of one or two FIXMEs that remained in the code. "/>
       <Document time="1085692357." author="tgl" document="Get rid of the former rather baroque mechanism for propagating the values of ThisStartUpID and RedoRecPtr into new backends.  It's a lot easier just to make them all grab the values out of shared memory during startup. This helps to decouple the postmaster from checkpoint execution, which I need since I'm intending to let the bgwriter do it instead, and it also fixes a bug in the Win32 port: ThisStartUpID wasn't getting propagated at all AFAICS.  (Doesn't give me a lot of faith in the amount of testing that port has gotten.) "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1085169982." author="tgl" document="Fix random breakage in exec.c for platforms where strdup is a macro. "/>
       <Document time="1085107456." author="pgsql" document="just testing activitymail ... only added a space here so that the commit would pick it up "/>
       <Document time="1085019150." author="momjian" document="Configure adjustments for irix.  David Turover "/>
@@ -10835,6 +10842,7 @@
       <Document time="1085522939." author="tgl" document="Add code to identify_system_timezone() to try all zones in the zic database, not just ones that we cons up POSIX names for.  This looks grim but it seems to take less than a second even on a relatively slow machine, and since it only happens once during postmaster startup, that seems acceptable. "/>
       <Document time="1085368331." author="tgl" document="Avoid calling select_default_timezone() when backing out an unwanted TZ setting.  This is a temporary kluge to keep Alvaro happySEMICOLON eventually we should fix the TZ library API to make the problem really go away. "/>
       <Document time="1085206468." author="tgl" document="Clean up failure to remove exec.o on 'make clean'. "/>
+<annotation name="portability"/>
       <Document time="1085161859." author="meskes" document="Fixed DEALLOCATE PREPARE to use correct function call "/>
       <Document time="1085161811." author="meskes" document="- Fixed DEALLOCATE PREPARE to use correct function call - Made sure connect statement does not accept single char variable,   but only strings. "/>
       <Document time="1085041166." author="momjian" document="Update SCO FAQ.  Larry Rosenman "/>
@@ -12898,6 +12906,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1085560863." author="neilc" document="Reimplement the linked list data structure used throughout the backend.  In the past, we used a 'Lispy' linked list implementation: a &quot;list&quot; was merely a pointer to the head node of the list. The problem with that design is that it makes lappend() and length() linear time. This patch fixes that problem (and others) by maintaining a count of the list length and a pointer to the tail node along with each head node pointer. A &quot;list&quot; is now a pointer to a structure containing some meta-data about the listSEMICOLON the head and tail pointers in that structure refer to ListCell structures that maintain the actual linked list of nodes.  The function names of the list API have also been changed to, I hope, be more logically consistent. By default, the old function names are still availableSEMICOLON they will be disabled-by-default once the rest of the tree has been updated to use the new API names. "/>
       <Document time="1085461220." author="momjian" document="Make the locale location relocatable.  Adjust get_*_path functions to be limited to MAXPGPATH. "/>
       <Document time="1085022643." author="momjian" document="Clearify CHECK handling of unknown test values.  Karl O. Pinc "/>
@@ -15113,6 +15122,9 @@
     </Topic>
     <Topic>
       <Document time="1085730813." author="tgl" document="Seems we forgot the installdirs target in this makefile. "/>
+<annotation name="maintainability"/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1085684860." author="momjian" document="pgindent files for Tom. "/>
       <Document time="1085610443." author="momjian" document="[ Backpatch to 7.4.X.]  Fix problem with doing 7.0.X dumps on character varying[] fields.  Christopher Kings-Lynne "/>
       <Document time="1085610262." author="momjian" document="Fix problem with doing 7.0.X dumps on character varying[] fields.  Christopher Kings-Lynne "/>
@@ -17226,6 +17238,9 @@
     <Topic>
       <Document time="1085526686." author="tgl" document="Fix erroneous error message printout when a configuration file contains an overlength token.  Printout was always garbage and could dump core entirely :-(.  Per report from Martin Pitt. "/>
       <Document time="1085526674." author="tgl" document="Fix erroneous error message printout when a configuration file contains an overlength token.  Printout was always garbage and could dump core entirely :-(.  Per report from Martin Pitt. "/>
+<annotation name="functionality"/>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1085444630." author="momjian" document="Make validate_exec take a const char *, for gcc 3.4, which is more strict. "/>
       <Document time="1085365210." author="neilc" document="A few cosmetic fixes and code cleanup. "/>
       <Document time="1085340272." author="tgl" document="Make --without-docdir configure option actually work, per Manfred. "/>
@@ -19308,6 +19323,7 @@
     <Topic>
       <Document time="1085298645." author="tgl" document="Handle impending sinval queue overflow by means of a separate signal (SIGUSR1, which we have not been using recently) instead of piggybacking on SIGUSR2-driven NOTIFY processing.  This has several good results: the processing needed to drain the sinval queue is a lot less than the processing needed to answer a NOTIFYSEMICOLON there's less contention since we don't have a bunch of backends all trying to acquire exclusive lock on pg_listenerSEMICOLON backends that are sitting inside a transaction block can still drain the queue, whereas NOTIFY processing can't run if there's an open transaction block.  (This last is a fairly serious issue that I don't think we ever recognized before --- with clients like JDBC that tend to sit with open transaction blocks, the sinval queue draining mechanism never really worked as intended, probably resulting in a lot of useless cache-reset overhead.)  This is the last of several proposed changes in response to Philip Warner's recent report of sinval-induced performance problems. "/>
       <Document time="1085009967." author="momjian" document="Only do find_my_exec if it doesn't come from the postmaster. "/>
+<annotation name="portability"/>
       <Document time="1085001320." author="momjian" document="Re-add elog() to exec.c, per Tom. "/>
       <Document time="1084931185." author="momjian" document="Trim down relocatable docs, per Peter. "/>
       <Document time="1084835686." author="momjian" document="Improve configure win32 link test to run from config.status.  Andrew Dunstan "/>
@@ -21355,6 +21371,7 @@
     </Topic>
     <Topic>
       <Document time="1085677726." author="momjian" document="Move pgkill out into /port so pg_ctl can use it on Win32. "/>
+<annotation name="functionality"/>
       <Document time="1085612048." author="tgl" document="Use new forboth() macro to make loop coding a bit clearer. "/>
       <Document time="1085610941." author="tgl" document="Use a cleaner substitute for the inability to apply length() to the tail of a list.  Per private discussion with Neil. "/>
       <Document time="1085361842." author="tgl" document="New two-stage sampling method for ANALYZE, as per discussions a few weeks ago.  This should give significantly better results when the density of live tuples is not uniform throughout a table.  Manfred Koizar, with minor kibitzing from Tom Lane. "/>
@@ -21363,6 +21380,7 @@
       <Document time="1085111381." author="pgsql" document="benign change ...added space to end of line "/>
       <Document time="1085032021." author="momjian" document="Add ctype.h include for new macro in port.h. "/>
       <Document time="1084824385." author="momjian" document="Add documentation that installations are relocatable unless configure locations are overridden. "/>
+<annotation name="portability"/>
       <Document time="1084349441." author="momjian" document="Remove:  &lt; o Add PL/PHP (Joe) "/>
       <Document time="1084256515." author="tgl" document="Repair recalculation failure for nested sub-SELECTs, per bug report from Didier Moens.  Bug is new in 7.4, and was caused by not updating everyplace I should've when replacing locParam markers by allParam. "/>
       <Document time="1084256497." author="tgl" document="Repair recalculation failure for nested sub-SELECTs, per bug report from Didier Moens.  Bug is new in 7.4, and was caused by not updating everyplace I should've when replacing locParam markers by allParam. Add a regression test to catch related errors in future. "/>
@@ -23438,6 +23456,8 @@
     <Topic>
       <Document time="1085683169." author="momjian" document="Cleanup for Win32 pgkill. "/>
       <Document time="1085634040." author="neilc" document="Add an index entry for &quot;Performance Tips&quot;. Patch from Alvaro Herrera. "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1085369213." author="tgl" document="Seems we had the wrong sign convention for the default Etc/GMTx zone names.  Per report from Alvaro. "/>
       <Document time="1085206508." author="tgl" document="Fix for vpath builds. "/>
       <Document time="1085190962." author="tgl" document="Handle inclusion of port modules 'correctly', viz the same way libpq does it.  Fixes OS X, which needs path.c.  It may be that Win32 needs some more port modules, but they are easily added. "/>
@@ -25483,6 +25503,8 @@
       <Document time="1085383380." author="momjian" document="Add:  &gt; * Allow GRANT/REVOKE permissions to be given to all schema objects with one command "/>
       <Document time="1085170958." author="tgl" document="Probably need sys/time.h here too to be safe. "/>
       <Document time="1085036298." author="momjian" document="Add:  &gt; o Add default clustering to system tables "/>
+<annotation name="usability" comments=""/>
+<annotation name="functionality"/>
       <Document time="1085033270." author="momjian" document="Add:  &gt; o Add ALTER DOMAIN TYPE "/>
       <Document time="1085026896." author="momjian" document="Add $libdir to mingw and cygwin for installcheck too. "/>
       <Document time="1084321385." author="momjian" document="Add DELETE:  &gt; * Add MERGE command that does UPDATE/DELETE, or on failure, INSERT (rules, triggers?) "/>
@@ -27532,6 +27554,7 @@
     </Topic>
     <Topic>
       <Document time="1085611053." author="momjian" document="Renumber to prevent duplicate oids.  Update catalog version. "/>
+<annotation name="portability"/>
       <Document time="1085606641." author="tgl" document="Recent commits added created files that weren't getting deleted by 'make clean'. "/>
       <Document time="1085081891." author="momjian" document="Small variable rename in exec.c. "/>
       <Document time="1084572242." author="neilc" document="Improve documentation for SQLSTATE error codes, per recent thread on -patches. "/>
@@ -29585,6 +29608,8 @@
     </Topic>
     <Topic>
       <Document time="1085602563." author="tgl" document="Add &lt;limits.h&gt;, per Magnus. "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1085528781." author="tgl" document="Tweaks per discussion with Magnus: suppress chatter on unpatched MinGW systems, add verbose logging (at DEBUG4) to help identify why a given time zone is not matched. "/>
       <Document time="1085463728." author="momjian" document="Skip settting LC_ALL in the backend. "/>
       <Document time="1085388862." author="neilc" document="Clarify an entry in the 7.4 release notes. "/>
@@ -31676,6 +31701,8 @@
     <Topic>
       <Document time="1085643011." author="tgl" document="Recommend ALTER TABLE ... TYPE as the best way to reclaim space occupied by deleted columns.  The old method involving UPDATE and VACUUM FULL will be considerably less efficient. "/>
       <Document time="1085611716." author="momjian" document="Fix problems in pg_autovacuum:  1) temp table crash  2) Check send_query() function call return value.  Backpatch to 7.4.X. "/>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1085611705." author="momjian" document="Fix problems in pg_autovacuum:  1) temp table crash  2) Check send_query() function call return value.  Backpatch to 7.4.X. "/>
       <Document time="1085534444." author="momjian" document="Add FRONTEND to ecpglib. "/>
       <Document time="1085523509." author="momjian" document="Fix set_pglocale to properly pass my_exec_path to get_locale_path instead of argv0. "/>
@@ -33731,6 +33758,7 @@
       <Document time="1084934991." author="tgl" document="setRuleCheckAsUser has to be applied to any subqueries appearing in a rule's event_qual, not only to the rule's action.  Per example from Arturs Zoldners. "/>
       <Document time="1084545565." author="teodor" document="Update docs from Andrew J. Kopciuch &lt;akopciuch@bddf.ca&gt; "/>
       <Document time="1084413387." author="momjian" document="Here's a patch that will allow external modules like pl&lt;lang&gt; to set additional flags for the dlltool and dllwrap commands. More info here:  http://archives.postgresql.org/pgsql-hackers/2004-05/msg00350.php  Thomas Hallgren "/>
+<annotation name="portability"/>
       <Document time="1083914401." author="tgl" document="NATURAL CROSS JOIN is a contradiction in terms, not to mention disallowed by the SQL spec and by our parser.  Thanks to Jonathan Scott for finding this longstanding error. "/>
       <Document time="1083914384." author="tgl" document="NATURAL CROSS JOIN is a contradiction in terms, not to mention disallowed by the SQL spec and by our parser.  Thanks to Jonathan Scott for finding this longstanding error. "/>
       <Document time="1083885805." author="momjian" document="sysv_shmem.c patch is to correct a bug that prevents the postmaster recovering from an unexpected backend termination.  The remaining patches are to allow whitespace in db/install directory names.  Claudio Natoli "/>
@@ -35770,6 +35798,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1085339623." author="tgl" document="Fix broken markup. "/>
       <Document time="1085085374." author="momjian" document="Remove pyton, spell check fix:  &gt; * Support composite types as table columns 286,289d286 &lt; * Python &lt; o Allow users to register their own types with pg_ &lt; o Allow SELECT to return a dictionary of dictionaries &lt; o Allow COPY BINARY FROM 456d452 &lt; * Support composite types as table columns "/>
       <Document time="1085083046." author="momjian" document="Updates from Tom:  &lt; Bracketed items &quot;[]&quot; have more detailed. &gt; Bracketed items &quot;[]&quot; have more detail. 35,36d34 &lt; * Remove unreferenced table files and temp tables during database vacuum &lt;   or postmaster startup (Bruce) 68c66 &lt; * Allow pg_dump to dump sequences using NO_MAXVALUE and NO_MINVALUE &gt; * -Allow pg_dump to dump sequences using NO_MAXVALUE and NO_MINVALUE 70c68 &lt; * Prevent whole-row references from leaking memory, e.g. SELECT COUNT(tab.*) &gt; * -Prevent whole-row references from leaking memory, e.g. SELECT COUNT(tab.*) 76c74 &lt; * Make LENGTH() of CHAR() not count trailing spaces &gt; * -Make LENGTH() of CHAR() not count trailing spaces 145c143 &lt; * Allow SELECT * FROM tab WHERE int2col = 4 to use int2col index, int8, &gt; * -Allow SELECT * FROM tab WHERE int2col = 4 to use int2col index, int8, 179c177 &lt; * Allow more ISOLATION LEVELS to be accepted, but issue a warning for them &gt; * -Allow more ISOLATION LEVELS to be accepted 186c184 &lt; * Add GUC setting to make created tables default to WITHOUT OIDS &gt; * -Add GUC setting to make created tables default to WITHOUT OIDS 265d262 &lt; * Allow fastpast to pass values in portable format 271c268 &lt; * Move psql backslash database information into the backend, use nmumonic &gt; * Move psql backslash database information into the backend, use nmeumonic 275,283d271 &lt; * JDBC &lt; o Comprehensive test suite. This may be available already. &lt; o JDBC-standard BLOB support &lt; o Error Codes (pending backend implementation) &lt; o Support both 'make' and 'ant' &lt; o Fix LargeObject API to handle OIDs as unsigned ints &lt; o Use cursors implicitly to avoid large results (see setCursorName()) &lt; o Add LISTEN/NOTIFY support to the JDBC driver (Barry) &lt; 332c320 &lt; * Have pg_dump -c clear the database using dependency information &gt; * -Have pg_dump -c clear the database using dependency information 367,368c355,356 &lt; * Cache last known per-tuple offsets to speed long tuple access &lt; * Automatically place fixed-width, NOT NULL columns first in a table &gt; * Cache last known per-tuple offsets to speed long tuple access, adjusting &gt;   for NULLs and TOAST values 467c455,456 &lt; * Change representation of whole-tuple parameters to functions &gt; * -Change representation of whole-tuple parameters to functions &gt; * Support composite types as table columns 478,479d466 &lt; * Allow the regression tests to start postmaster with -i so the tests &lt;   can be run on systems that don't support unix-domain sockets "/>
@@ -37799,6 +37829,8 @@
     </Topic>
     <Topic>
       <Document time="1085615055." author="tgl" document="Reduce the minimum allocable chunk size to 8 bytes (from 16).  Now that ListCells are only 8 bytes instead of 12 (on 4-byte-pointer machines anyway), it's worth maintaining a separate freelist for 8-byte objects. Remembering that alloc chunks carry 8 bytes of overhead, this should reduce the net storage requirement for a long List by about a third. "/>
+<annotation name="efficiency"/>
+<annotation name="portability"/>
       <Document time="1085520951." author="momjian" document="Add exec.c to ecpg library because path.c now uses it. "/>
       <Document time="1085365448." author="tgl" document="Use case-insensitive comparison so that explicitly setting timezone=unknown in postgresql.conf does the right thing.  variable.c got this right, but not pgtz.c ... "/>
       <Document time="1085108057." author="pgsql" document="attempt at a multi file commit, to seee how it formats "/>
@@ -39859,6 +39891,7 @@
     </Topic>
     <Topic>
       <Document time="1085614212." author="tgl" document="A couple other cosmetic cleanups in new List stuff. "/>
+<annotation name="maintainability"/>
       <Document time="1085610931." author="momjian" document="*) inet_(client|server)_(addr|port)() and necessary documentation for the four functions.   &gt; Also, please justify the temp-related changes.  I was not aware that we &gt; had any breakage there.  patch-tmp-schema.txt contains the following bits:  *) Changes pg_namespace_aclmask() so that the superuser is always able to create objects in the temp namespace. *) Changes pg_namespace_aclmask() so that if this is a temp namespace, objects are only allowed to be created in the temp namespace if the user has TEMP privs on the database.  This encompasses all object creation, not just TEMP tables. *) InitTempTableNamespace() checks to see if the current user, not the session user, has access to create a temp namespace.  The first two changes are necessary to support the third change.  Now it's possible to revoke all temp table privs from non-super users and limiting all creation of temp tables/schemas via a function that's executed with elevated privs (security definer).  Before this change, it was not possible to have a setuid function to create a temp table/schema if the session user had no TEMP privs.  patch-area-path.txt contains:  *) Can now determine the area of a closed path.   patch-dfmgr.txt contains:  *) Small tweak to add the library path that's being expanded.  I was using $lib/foo.so and couldn't easily figure out what the error message, &quot;invalid macro name in dynamic library path&quot; meant without looking through the source code.  With the path in there, at least I know where to start looking in my config file.  Sean Chittenden "/>
       <Document time="1085609676." author="momjian" document="Renumber bit/boolean aggregates to remove duplicates. "/>
       <Document time="1085599557." author="momjian" document="The added aggregates are:  (1) boolean-and and boolean-or aggregates named bool_and and bool_or.     they (SHOULDSEMICOLON-) correspond to standard sql every and some/any aggregates.     they do not have the right name as there is a problem with     the standard and the parser for some/any. Tom also think that     the standard name is misleading because NULL are ignored.     Also add 'every' aggregate.  (2) bitwise integer aggregates named bit_and and bit_or for     int2, int4, int8 and bit types. They are not standard, but I find     them useful. I needed them once.   The patches adds:  - 2 new very short strict functions for boolean aggregates in   src/backed/utils/adt/bool.c,   src/include/utils/builtins.h and src/include/catalog/pg_proc.h  - the new aggregates declared in src/include/catalog/pg_proc.h and   src/include/catalog/pg_aggregate.h  - some documentation and validation about these new aggregates.  Fabien COELHO "/>
@@ -41914,6 +41947,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1085643475." author="momjian" document="Change pg_ctl to be in C.  This was the final shell script and is helpful for the Win32 port.  Andrew Dunstan, with additions by Bruce. "/>
       <Document time="1085598453." author="momjian" document="The patch adresses the TODO list item &quot;Allow external interfaces to extend the GUC variable set&quot;.  Plugin modules like the pl&lt;lang&gt; modules needs a way to declare configuration parameters. The postmaster has no knowledge of such modules when it reads the postgresql.conf file. Rather than allowing totally unknown configuration parameters, the concept of a variable &quot;class&quot; is introduced. Variables that belongs to a declared classes will create a placeholder value of string type and will not generate an error. When a module is loaded, it will declare variables for such a class and make those variables &quot;consume&quot; any placeholders that has been defined. Finally, the module will generate warnings for unrecognized placeholders defined for its class.  More detail: The design is outlined after the suggestions made by Tom Lane and Joe Conway in this thread:  http://archives.postgresql.org/pgsql-hackers/2004-02/msg00229.php  A new string variable 'custom_variable_classes' is introduced. This variable is a comma separated string of identifiers. Each identifier denots a 'class' that will allow its members to be added without error. This variable must be defined in postmaster.conf.  The lexer (guc_file.l) is changed so that it can accept a qualified name in the form &lt;ID&gt;.&lt;ID&gt; as the name of a variable. I also changed so that the 'custom_variable_classes', if found, is added first of all variables in order to remove the order of declaration issue.  The guc_variables table is made more dynamic. It is originally created with 20% slack and can grow dynamically. A capacity is introduced to avoid resizing every time a new variable is added. guc_variables and num_guc_variables becomes static (hidden).  The GucInfoMain now uses the new function get_guc_variables() and GetNumConfigOptions  instead or using the guc_variables directly.  The find_option() function, when passed a missing name, will check if the name is qualified. If the name is qualified and if the qualifier denotes a class included in the 'custom_variable_classes', a placeholder variable will be created. Such a placeholder will not participate in a list operation but will otherwise function as a normal string variable.  Define&lt;type&gt;GucVariable() functions will be added, one for each variable type. They are inteded to be used by add-on modules like the pl&lt;lang&gt; mappings. Example:  extern void DefineCustomBoolVariable(          const char* name,          const char* short_desc,          const char* long_desc,          bool* valueAddr,          GucContext context,          GucBoolAssignHook assign_hook,          GucShowHook show_hook)SEMICOLON  (I created typedefs for the assign-hook and show-hook functions). A call to these functions will define a new GUC-variable. If a placeholder exists it will be replaced but it's value will be used in place of the default value. The valueAddr is assumed ot point at a default value when the define function is called. The only constraint that is imposed on a Custom variable is that its name is qualified.  Finally, a function:  void EmittWarningsOnPlacholders(const char* className)  was added. This function should be called when a module has completed its variable definitions. At that time, no placeholders should remain for the class that the module uses. If they do, elog(INFO, ...) messages will be issued to inform the user that unrecognized variables are present.  Thomas Hallgren "/>
       <Document time="1085452537." author="momjian" document="Remove pstrdup() call from exec.c because DLLIMPORT flag on CurrentMemoryContext caused compile problems.  Recode to not make a copy of the PATH but copy parts out into MAXPGPATH variables. "/>
@@ -41922,6 +41956,8 @@
       <Document time="1084954909." author="momjian" document="Win32 can't have the same function coming from two library object files, so we make is_absolute_path a macro so libpq doesn't use path.o. "/>
       <Document time="1084910768." author="momjian" document="Add:  &gt; * Allow binaries to be statically linked so they are more easily relocated "/>
       <Document time="1084820450." author="momjian" document="Reformat sgml doc paragraph. "/>
+<annotation name="functionality"/>
+<annotation name="reliability" comments=""/>
       <Document time="1084579279." author="momjian" document="Properly document rotatelogs, and add mention of it to pg_ctl manual page. "/>
       <Document time="1084566552." author="momjian" document="Remove extra 'then'. "/>
       <Document time="1084415940." author="tgl" document="Tighten up overflow check in path_recv, pursuant to code review inspired by Ken Ashcraft's report.  I think there is no actual bug here since if the int32 value does wrap a little bit, palloc will still reject it. Still it's better that the code be obviously correct. "/>

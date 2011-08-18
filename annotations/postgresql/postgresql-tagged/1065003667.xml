@@ -1883,12 +1883,15 @@
     </Authors>
     <Topic>
       <Document time="1067241165." author="momjian" document="Here is an update to the dbmirror README file.  -References to older versions of PostgreSQL have been removed(It no longer compiles against older versions) -Added a link to PgPerl at GBorg.  Steven Singer "/>
+<annotation name="portability"/>
       <Document time="1066858034." author="momjian" document="Release notes updates from Neil Conway. "/>
       <Document time="1066694550." author="tgl" document="It is possible for ResolveNew to be used to insert a sublink into a subquery that didn't previously have one.  We have traditionally made the caller of ResolveNew responsible for updating the hasSubLinks flag of the outermost query, but this fails to account for hasSubLinks in subqueries.  Fix ResolveNew to handle this.  We might later want to change the calling convention of ResolveNew so that it can fix the outer query too, simplifying callers.  But I went with the localized fix for now.  Per bug report from J Smith, 20-Oct-03. "/>
       <Document time="1066694519." author="tgl" document="It is possible for ResolveNew to be used to insert a sublink into a subquery that didn't previously have one.  We have traditionally made the caller of ResolveNew responsible for updating the hasSubLinks flag of the outermost query, but this fails to account for hasSubLinks in subqueries.  Fix ResolveNew to handle this.  We might later want to change the calling convention of ResolveNew so that it can fix the outer query too, simplifying callers.  But I went with the localized fix for now.  Per bug report from J Smith, 20-Oct-03. "/>
+<annotation name="functionality"/>
       <Document time="1066613801." author="tgl" document="Adjust libpq to avoid deadlock when both client and server want to send data, and both have filled the transmission buffers.  One scenario where this can happen was illustrated here: http://archives.postgresql.org/pgsql-hackers/2003-04/msg00979.php "/>
       <Document time="1066429795." author="tgl" document="Fix busted markup. "/>
       <Document time="1066423743." author="tgl" document="Fix elog tab-insertion code to insert tabs only where wanted. "/>
+<annotation name="usability" comments=""/>
       <Document time="1066352375." author="tgl" document="Ensure that all places that are complaining about exhaustion of shared memory say 'out of shared memory'SEMICOLON some were doing that and some just said 'out of memory'.  Also add a HINT about increasing max_locks_per_transaction where relevant, per suggestion from Sean Chittenden.  (The former change does not break the strings freezeSEMICOLON the latter does, but I think it's worth doing anyway.) "/>
       <Document time="1065659739." author="petere" document="New translations "/>
       <Document time="1065652729." author="petere" document="New translations "/>
@@ -3587,6 +3590,8 @@
     <Topic>
       <Document time="1067560981." author="momjian" document="Mark release note comments as new subsections rather than footnotes, per Peter.  Remove &quot;Changes&quot; section and pull all sections below it up one level.  More comment additions. "/>
       <Document time="1067499629." author="momjian" document="Update FAQ_DEV:  elog =&gt; ereport. "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1067477899." author="momjian" document="Add first release note detail item. "/>
       <Document time="1067161816." author="momjian" document="Update MOVE/FETCH release note mention. "/>
       <Document time="1067142171." author="momjian" document="Update linux/mips port. "/>
@@ -5261,6 +5266,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
       <Document time="1067497244." author="wieck" document="Support for qualified type names in PL/Tcl's spi_prepare command.  This is not 100% backward compatible as formerly a double quoted type name containing a dot could be used. But I don't think may people use dot's in the name of user defined types.  Jan "/>
       <Document time="1067467017." author="tgl" document="compact_fsm_storage() does need to handle the case where a relation's FSM data has to be both moved down and compressed.  Per report from Dror Matalon. "/>
       <Document time="1067402152." author="tgl" document="Don't include &quot;schema.&quot; in the set of possible tab completions once &quot;schema.&quot; has been typed.  This allows readline to complete subsequent characters immediately if all relations in the target schema start with the same prefix.  This actually worked before, but I unintentionally broke it a few days ago. Also, make completion schema-aware for GRANT, REVOKE, VACUUM. "/>
@@ -6925,6 +6931,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1067563884." author="momjian" document="More SGML cleanup. "/>
       <Document time="1067563775." author="momjian" document="SGML cleanup. "/>
       <Document time="1067563536." author="momjian" document="Update SGML release notes with Peter's direction. Does not compile because of section adjustments still needed. "/>
@@ -8617,6 +8625,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
       <Document time="1067160555." author="momjian" document="Allow win32 client compiles with MSC.  Hiroshi Saito "/>
       <Document time="1067119401." author="petere" document="Translation updates "/>
       <Document time="1067011676." author="petere" document="Translation updates "/>
@@ -10336,6 +10346,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="functionality"/>
       <Document time="1067161435." author="momjian" document="Add:  &gt; * Change LIMIT/OFFSET to use int8 "/>
       <Document time="1067154825." author="momjian" document="Uppercase a few keywords in queries. "/>
       <Document time="1067146870." author="momjian" document="Update for m68k from Peter. "/>
@@ -12023,6 +12035,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1067592756." author="momjian" document="Update HISTORY. "/>
       <Document time="1067297407." author="momjian" document="Change Solaris tests to test for SHM_SHARE_MMU, per Tom. "/>
       <Document time="1067042349." author="momjian" document="Update ports for freebsd, cygwin. "/>
@@ -13696,6 +13709,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1067127533." author="petere" document="Get Tru64/cc to compile.  Need to add -ieee so that it doesn't choke on 0.0/0.0.  That option appears to affect the regression test result as well. The compiler documentation doesn't recommend -O4 for universal use, so let's stick to the conservative -O (== -O2) by default. "/>
       <Document time="1067023889." author="momjian" document="Mark BSD/OS as working in 7.4. "/>
       <Document time="1066467726." author="tgl" document="Must free the pgParameterStatus chain in freePGconn().  My fault, well spotted by Neil Conway. "/>
@@ -15367,6 +15382,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1067488139." author="momjian" document="Update more release descriptions. "/>
       <Document time="1067486041." author="momjian" document="Add more footnote comments to the release notes. "/>
       <Document time="1067452975." author="momjian" document="Update for OSF 4.0 platform. "/>
@@ -17059,6 +17075,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1067590695." author="tgl" document="Small fix to Christopher's recent improvements --- underscore is not a special character in regexes, but it is for LIKE, so NOT LIKE 'pg_%' is incorrect.  Need NOT LIKE 'pgBACKSLASH_%'. "/>
       <Document time="1067567858." author="tgl" document="Further work on tab completion code: arrange for system catalogs to be offered for completion only when the input-so-far is at least 'pg_'. This seems to be the best compromise behavior emerging from yesterday's discussion.  While at it, refactor code to eliminate repetitive use of nearly identical queries, which was exceedingly tedious to maintain. Also const-ify code more thoroughly in hopes of moving constant data into text segment, and remove unnecessary length limit on queries. "/>
       <Document time="1067552335." author="tgl" document="Allow the query for a plpgsql cursor to begin with '(' as well as 'SELECT'. Per example from Kumar, 30-Oct-03. "/>
@@ -18754,6 +18772,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="usability" comments=""/>
       <Document time="1067593465." author="momjian" document="Remove &lt;note&gt; take, use another paragraph for description. "/>
       <Document time="1067371287." author="momjian" document="Document --describe-config. "/>
       <Document time="1067144311." author="momjian" document="Fix Hans' name in SGML. "/>
@@ -20439,6 +20459,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1067484054." author="tgl" document="Fix some corner cases in ACL manipulation: don't foul up on an empty ACL array, and force languages to be treated as owned by the bootstrap user ID.  (pg_language should have a lanowner column, but until it does this will have to do as a workaround.) "/>
       <Document time="1067387958." author="momjian" document="Add --describe-config to top of postgres manual page. "/>
       <Document time="1067146356." author="momjian" document="Mark Linux/ppc as working. "/>
@@ -22109,6 +22131,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="reliability" comments=""/>
       <Document time="1067393139." author="tgl" document="Don't choke when the handler for a procedural language is located in the pg_catalog schema.  Per bug report some months back from Jochem van Dieten. "/>
       <Document time="1067393129." author="tgl" document="Don't choke when the handler for a procedural language is located in the pg_catalog schema.  Per bug report some months back from Jochem van Dieten. "/>
       <Document time="1066860653." author="momjian" document="Here is a documentation patch that makes zulu, etc. all more consistent. "/>
@@ -23783,6 +23807,7 @@
     </Topic>
     <Topic>
       <Document time="1067476811." author="momjian" document="Update for 7.4 --- prefer IN to EXISTS. "/>
+<annotation name="portability"/>
       <Document time="1067162084." author="momjian" document="'sun' =&gt; '__sun__' "/>
       <Document time="1066810587." author="pgsql" document="up configure to beta5 "/>
       <Document time="1066668868." author="meskes" document="Install dummy sqlda.h file since this is needed for compatibility. "/>
@@ -25458,6 +25483,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1067590700." author="wieck" document="Fix for possible referential integrity violation when a qualified ON INSERT rule split the query into one INSERT and one UPDATE where the UPDATE then hit's the just created row without modifying the key fields again. In this special case, the new key slipped in totally unchecked.  Jan "/>
       <Document time="1067590661." author="wieck" document="Fix for possible referential integrity violation when a qualified ON INSERT rule split the query into one INSERT and one UPDATE where the UPDATE then hit's the just created row without modifying the key fields again. In this special case, the new key slipped in totally unchecked.  Jan "/>
       <Document time="1067184879." author="petere" document="Correct version numbers. "/>
@@ -27148,6 +27175,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
+<annotation name="portability"/>
       <Document time="1067527169." author="meskes" document="Applied patch by Dave Cramer to fix several bugs in compatlib. "/>
       <Document time="1067390289." author="tgl" document="Adjust wording to avoid giving the impression that schema USAGE privilege hides system catalog entries. "/>
       <Document time="1067142479." author="momjian" document="Fix #elif typo. "/>
@@ -28849,6 +28878,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
+<annotation name="functionality"/>
       <Document time="1067564986." author="momjian" document="Fix markup by using &lt;note&gt; for comments. "/>
       <Document time="1067258554." author="tgl" document="Un-break Darwin port. "/>
       <Document time="1067241099." author="momjian" document="Fix MOVE/FETCH wording. "/>
@@ -30541,6 +30573,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1067286910." author="momjian" document="Update Win32 clients. "/>
       <Document time="1067161911." author="momjian" document="Fix two bugs in funcs.source that made the tutorial script fail.  Make a LOT of fixes to syscat.source to:  * Set search_path properly (and reset it) * Add schema name to all results * Add schema name to ORDER BY first * Make checks for user-defined objects match reality * format_type all type names * Respect attisdropped * Change !~ to 'not like' since it's more standard   Christopher Kings-Lynne "/>
       <Document time="1067027453." author="momjian" document="Update Linux/Sparc 32-bit port. "/>
@@ -32215,6 +32249,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1067577535." author="tgl" document="Use Tcl ByteArray objects to avoid unwanted character set translation in libpgtcl's lo_read/lo_write commands.  Also, deal correctly with failure return from lo_read().  ljb and Tom Lane. "/>
       <Document time="1067396158." author="tgl" document="Include -lkrb5 when needed for shlibs depending on libpq.  Per report from Johan Henselmans. "/>
       <Document time="1067120299." author="petere" document="Translation update "/>
@@ -33898,6 +33933,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1067592622." author="momjian" document="Update with more comments. "/>
       <Document time="1067469015." author="tgl" document="Give a useful error message if a RangeVar is encountered in an expression. Per example from Ian Barwick, 28-Oct-03. "/>
       <Document time="1067390805." author="tgl" document="Guard against Ant versions that print CLASSPATH before the version number in -version output.  Per report from Johann Uhrmann. "/>

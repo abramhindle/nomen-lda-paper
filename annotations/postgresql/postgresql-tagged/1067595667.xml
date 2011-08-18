@@ -4958,6 +4958,8 @@
     <Topic>
       <Document time="1069897494." author="joe" document="Added missing SPI_finish() calls to get_tuple_of_interest(). Fixes bug reported by Andrea Grassi. "/>
       <Document time="1069897453." author="joe" document="Added missing SPI_finish() calls to get_tuple_of_interest(). Fixes bug reported by Andrea Grassi. "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1069897405." author="joe" document="Added missing SPI_finish() calls to get_tuple_of_interest(). Fixes bug reported by Andrea Grassi. "/>
       <Document time="1068971037." author="tgl" document="More release-notes copy editing, from Neil Conway. "/>
       <Document time="1068971028." author="tgl" document="More release-notes copy editing, from Neil Conway. "/>
@@ -6522,6 +6524,7 @@
       <Document time="1069897811." author="tgl" document="Second try at fixing no-room-to-move-down PANIC in compact_fsm_storage. Ward's report that it can still happen in RC2 forces me to realize that this is not a can't-happen condition after all, and that the compaction code had better cope rather than panicking. "/>
       <Document time="1069873576." author="teodor" document="Utility for convert myspell dictionaries to ispell, full README will be later "/>
       <Document time="1069021007." author="tgl" document="Sync HEAD with update committed only in 7.4 branch. "/>
+<annotation name="functionality"/>
       <Document time="1068753700." author="momjian" document="Add owner description to initdb C code.  Andrew Dunstan "/>
       <Document time="1068753435." author="wieck" document="2nd try for the ARC strategy.  I added a couple more Assertions while tracking down the exact cause of the former bug.  All 93 regression tests pass now.  Jan "/>
       <Document time="1068689742." author="tgl" document="Cross-data-type comparisons are now indexable by btrees, pursuant to my pghackers proposal of 8-Nov.  All the existing cross-type comparison operators (int2/int4/int8 and float4/float8) have appropriate support. The original proposal of storing the right-hand-side datatype as part of the primary key for pg_amop and pg_amproc got modified a bit in the eventSEMICOLON it is easier to store zero as the 'default' case and only store a nonzero when the operator is actually cross-type.  Along the way, remove the long-since-defunct bigbox_ops operator class. "/>
@@ -8074,6 +8077,8 @@
     </Topic>
     <Topic>
       <Document time="1069454491." author="tgl" document="Remove unused variable. "/>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1068009201." author="petere" document="Check off UnixWare. "/>
       <Document time="1068009006." author="petere" document="Check off UnixWare. "/>
       <Document time="1067669788." author="petere" document="Spell checking, consistent terminology. "/>
@@ -9564,6 +9569,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="maintainability"/>
+<annotation name="portability"/>
       <Document time="1070068938." author="momjian" document="Attached is a patch to correct white space issues in FAQ_MSWIN.  Daniel Convissor "/>
       <Document time="1069805415." author="petere" document="Install all the headers files that the ones that are already installed depend on. "/>
       <Document time="1069805342." author="petere" document="Install all the headers files that the ones that are already installed depend on. "/>
@@ -11057,6 +11064,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1070186047." author="momjian" document="*** empty log message *** "/>
       <Document time="1070185478." author="momjian" document="Add:  &gt; * Make LENGTH() of CHAR() not count trailing spaces &gt; "/>
       <Document time="1070184850." author="momjian" document="*** empty log message *** "/>
@@ -12557,6 +12566,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1070181716." author="momjian" document="Update TODO 7.4 mention. "/>
       <Document time="1069880101." author="petere" document="Cast field-length variables used in printf to int, because sometimes they might be of a wider type. "/>
       <Document time="1069880099." author="petere" document="Cast field-length variables used in printf to int, because sometimes they might be of a wider type. "/>
@@ -14082,6 +14092,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1069812052." author="tgl" document="Get rid of hashkeys field of Hash plan node, since it's redundant with the hashclauses field of the parent HashJoin.  This avoids problems with duplicated links to SubPlans in hash clauses, as per report from Andrew Holm-Hansen. "/>
       <Document time="1069278648." author="momjian" document="SERIAL no longer creates an index by default, as of 7.3. "/>
       <Document time="1068976191." author="momjian" document="Update HISTORY "/>
@@ -15554,6 +15566,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1070184951." author="momjian" document="Remove win32-only mention for pgadmin. "/>
       <Document time="1069806438." author="petere" document="Fix language. "/>
       <Document time="1069806424." author="petere" document="Fix language. "/>
@@ -17053,6 +17066,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1070186207." author="momjian" document="Fix URL. "/>
       <Document time="1070068170." author="momjian" document="Update most recent version to 7.4. "/>
       <Document time="1070013828." author="joe" document="Fix regression in dblink_disconnect() reported by Eduardo Stern: persistent_conn was left dangling after a disconnect in the unnamed connection case, causing a subsequent disconnect to crash the backend. "/>
@@ -18536,6 +18550,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
+<annotation name="functionality"/>
       <Document time="1070163556." author="pgsql" document="make sure the $Id tags are converted to $PostgreSQL as well ... "/>
       <Document time="1070160043." author="tgl" document="Put out a more useful version indication in the welcome banner for a standalone backend --- the CVS revision number of postgres.c is not real useful to anyone. "/>
       <Document time="1069974770." author="petere" document="Conditionalize variable that is only used conditionally, to avoid warning. "/>
@@ -20473,6 +20490,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="maintainability"/>
       <Document time="1070185657." author="momjian" document="There is an unused variable in an example function in the PL/PgSQL documentationSEMICOLON this patch removes it.  Neil Conway "/>
       <Document time="1070068845." author="momjian" document="Update Russian FAQ, both branches.  Viktor Vislobokov "/>
       <Document time="1070068833." author="momjian" document="Update Russian FAQ, both branches.  Viktor Vislobokov "/>
@@ -21950,6 +21969,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1069805836." author="tgl" document="Band-aid solution for problems with SubPlans used in hash join clauses, per report from Andrew Holm-Hansen.  The difficulty arises from the fact that the planner allowed a Hash node's hashkeys to share substructure with the parent HashJoin node's hashclauses, plus some rather bizarre choices about who initializes what during executor startup.  A cleaner but more invasive solution is to not store hashkeys separately in the plan tree at all, but let the HashJoin node deconstruct hashclauses during executor startup.  I plan to fix it that way in HEAD. "/>
       <Document time="1068975672." author="momjian" document="pgadmin III released. "/>
       <Document time="1068530982." author="momjian" document="* ioctlsocket_ret         - is not initialized to 1 (at least in the WIN_32 code I started with!)  Claudio Natoli "/>
@@ -23421,6 +23442,9 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
+<annotation name="reliability" comments=""/>
       <Document time="1070068170." author="momjian" document="Update most recent version to 7.4. "/>
       <Document time="1070039342." author="teodor" document="Fix free instead of pfree "/>
       <Document time="1069703401." author="tgl" document="Repair missed renamings of show_statement_stats and show_executor_stats. "/>
@@ -24900,6 +24924,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="functionality"/>
       <Document time="1069967321." author="teodor" document="Fixes about word with several infiniteve "/>
       <Document time="1069967080." author="teodor" document="Fixes about word with several infiniteve "/>
       <Document time="1069805960." author="petere" document="New translation "/>
@@ -26387,6 +26412,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1070183224." author="momjian" document="Update wording:  &lt; * Allow clients to query WITH HOLD cursors and prepared statements &gt; * Allow clients to query a list of WITH HOLD cursors and prepared statements "/>
       <Document time="1068849041." author="tgl" document="Add fflush() before popen() callsSEMICOLON avoids any possible problem with double or out-of-sequence output with child process. "/>
       <Document time="1068625725." author="momjian" document="Typo fix in comment from David Wheeler "/>
@@ -27853,6 +27879,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1069718880." author="petere" document="Upgrade to DocBook V4.2 SGML. "/>
       <Document time="1069265980." author="meskes" document="Fixed typo in create schema parsing. "/>
       <Document time="1069265893." author="meskes" document="Fixed typo in create schema parsing. "/>
@@ -29384,6 +29412,7 @@
       <Document time="1069281241." author="momjian" document="Remove items completed in 7.4:  &lt; * -Allow elog() to return error codes, module name, file name, line &lt;   number, not just messages (Tom) &lt; * -Add error codes (Tom) &lt; * -Make error messages more consistent 40d35 &lt; * -Add GUC log_statement_and_duration to print statement and &gt;= min duration 51d45 &lt; * -Allow easy display of usernames in a group 53d46 &lt; * -Add start time to pg_stat_activity 55d47 &lt; * -Have standalone backend read postgresql.conf (Tom) 59d50 &lt; * -Allow CIDR format to be used in pg_hba.conf 74d64 &lt; * -Add IPv6 capability to INET/CIDR types 77d66 &lt; * -Change NUMERIC data type to use base 10,000 internally 82d70 &lt; * -Add GUC variables to control floating number output digits (Pedro Ferreira) 90,92d77 &lt; * -Allow current datestyle to restrict datesSEMICOLON  prevent month/day swapping &lt;   from making invalid dates valid &lt; * -Prevent month/day swapping of ISO dates to make invalid dates valid 102d86 &lt; o -Allow arrays to be ORDER'ed 104d87 &lt; o -Support construction of array result values in expressions (Joe) 128d110 &lt; * -Remove Cyrillic recode support 146,147d127 &lt; * -Allow CREATE INDEX zman_index ON test (date_trunc( 'day', zman ) datetime_ops) &lt;   fails index can't store constant parameters 155d134 &lt; * -Add btree index support for reltime, tinterval, regproc (Tom) 157d135 &lt; * -Certain indexes will not shrink, e.g. indexes on ever-increasing 161d138 &lt; * -Allow LIKE indexing optimization for non-ASCII locales using special index 173d149 &lt; * -Improve concurrency of hash indexes (Tom) 181d156 &lt; * -Allow LIMIT/OFFSET to use expressions (Tom) 187d161 &lt; * -Return proper effected tuple count from complex commands [return] 191d164 &lt; * -Make a transaction-safe TRUNCATE (Rod) 196,197d168 &lt; * -Allow UPDATE to use SET col = DEFAULT &lt; * -Add config variable to prevent auto-adding missing FROM-clause tables 199d169 &lt; * -Have SELECT '13 minutes'::interval display zero seconds in ISO datestyle 224,225d193 &lt; o -Add ALTER TABLE tab SET WITHOUT OIDS (Rod) &lt; o -Add ALTER SEQUENCE to modify min/max/increment/cache/cycle values 237d204 &lt; o -Allow CLUSTER to cluster all tables (Alvaro Herrera) 248d214 &lt; o -MOVE 0 should not move to end of cursor (Bruce) 252d217 &lt; o -Allow cursors outside transactions 264,265d228 &lt; o -Allow EXPLAIN EXECUTE to see prepared plans &lt;  o -Allow SHOW of some non-modifiable variables, like pg_controldata 280d242 &lt; o -Allow array declarations and other data types in PL/PgSQL DECLARE 282,283d243 &lt; o -Make PL/PgSQL %TYPE schema-aware &lt; o -Allow PL/PgSQL to support array element assignment (Joe) 294,298d253 &lt; * -Allow psql to show transaction status if backend protocol changes made &lt; * -Add schema, cast, and conversion backslash commands to psql (Christopher) &lt; * -Allow pg_dump to dump a specific schema (Neil Conway) &lt; * -Allow psql to do table completion for SELECT * FROM schema_part and &lt;   table completion for SELECT * FROM schema_name. 300,302d254 &lt; * -Allow SSL-enabled clients to turn off SSL transfers &lt; * -Modify pg_get_triggerdef() to take a boolean to pretty-print, &lt;   and use that as part of pg_dump along with psql 327d278 &lt; o -Add SQLSTATE 330d280 &lt; o -Make casts work in variable initializations 334,336d283 &lt; o -Allow multi-threaded use of SQLCA &lt; o -Understand structure definitions outside a declare section &lt; o -Allow :var[:index] or :var[&lt;integer&gt;] as cvariable for an array var 356d302 &lt; * -Support statement-level triggers (Neil) 460,461d405 &lt; * -Add checkpoint_min_warning postgresql.conf option to warn about checkpoints &lt;   that are too frequent (Bruce) 472,476d415 &lt; * -Improve Subplan list handling &lt; * -Allow Subplans to use efficient joins(hash, merge) with upper variable &lt; * -Add hash for evaluating GROUP BY aggregates (Tom) &lt; * -Allow merge and hash joins on expressions not just simple variables (Tom) &lt; * -Make IN/NOT IN have similar performance to EXISTS/NOT EXISTS (Tom) 480d418 &lt; * -Inline simple SQL functions to avoid overhead (Tom) 495d432 &lt; * -Get faster regex() code from Henry Spencer &lt;henry@zoo.utoronto.ca&gt; 511,512d447 &lt; * -Modify regression tests to prevent failures do to minor numeric rounding &lt; * -Add OpenBSD's getpeereid() call for local socket authentication 537,542d471 &lt; o -Show transaction status in psql &lt; o -Allow binding of query parameters, support for prepared queries &lt; o -Remove hard-coded limits on user/db/password names &lt; o -Remove unused elements of startup packet (unused, tty, passlength) &lt; o -Fix COPY/fastpath protocol &lt; o -Error codes 544d472 &lt; o -Special passing of binary values in platform-neutral format (bytea?) 547d474 &lt; o -Report server version number, database encoding, client encoding "/>
       <Document time="1068851985." author="tgl" document="Add CHECK_FOR_INTERRUPTS() to bootstrap command loop, so that control-C can terminate the bootstrap run. "/>
       <Document time="1068772367." author="momjian" document="pgindent new initdb.c from Tom. "/>
+<annotation name="none"/>
       <Document time="1068628243." author="momjian" document="Add:  &gt; * Ignore temporary tables from other session when processing inheritance "/>
       <Document time="1068461783." author="pgsql" document="autoconf "/>
       <Document time="1067891306." author="davec" document="patch for rs.previous and test case as well as patch for allowing server and port to be specified in test cases "/>
@@ -30848,6 +30877,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="maintainability"/>
+<annotation name="portability"/>
       <Document time="1069822772." author="tgl" document="Repair subselect.c's occasional assignment of the wrong vartypmod to Vars created to fill subplan args lists.  This is an ancient error, going back at least to 7.0, but is more easily triggered in 7.4 than before because we no longer compare varlevelsup when deciding whether a Param slot can be re-used.  Fixes bug reported by Klint Gore. "/>
       <Document time="1069822752." author="tgl" document="Repair subselect.c's occasional assignment of the wrong vartypmod to Vars created to fill subplan args lists.  This is an ancient error, going back at least to 7.0, but is more easily triggered in 7.4 than before because we no longer compare varlevelsup when deciding whether a Param slot can be re-used.  Fixes bug reported by Klint Gore. "/>
       <Document time="1069712714." author="tgl" document="Avoid using string literal with embedded newline. "/>
@@ -32320,6 +32351,7 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
       <Document time="1070181670." author="momjian" document="Updates:  &lt;   manuals (Rory) &gt;   manuals 496c496 &lt; * Jan is Jan Wieck &lt;JanWieck@Yahoo.com&gt; of PeerDirect Corp. &gt; * Jan is Jan Wieck &lt;JanWieck@Yahoo.com&gt; of Afilias, Inc. "/>
       <Document time="1070153476." author="pgsql" document="$Header: -&gt; $PostgreSQL Changes ... "/>
       <Document time="1069275307." author="wieck" document="Background writer process  This first part of the background writer does no syncing at all. It's only purpose is to keep the LRU heads clean so that regular backends seldom to never have to call write().  Jan "/>
@@ -34784,6 +34816,8 @@
       </Elements>
     </Topic>
     <Topic>
+<annotation name="portability"/>
+<annotation name="functionality"/>
       <Document time="1069847598." author="ishii" document="Patches from Yutaka Tanida. Create primary key indexes after data insertion to reduce initialization time. "/>
       <Document time="1069847332." author="ishii" document="Patches from Yutaka Tanida. Create primary key indexes after data insertion to reduce initialization time. "/>
       <Document time="1069805906." author="petere" document="More adjustment of error messages "/>
