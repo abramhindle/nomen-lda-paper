@@ -45,8 +45,11 @@ def plot_timeline(proj, period_map):
     ax.set_ylim(0,40)#35)
     if proj == 'mysql':
         ax.set_xlim(datetime.date(2000,07,31),datetime.date(2004,8,9))#5*len(period_map.keys()
-    else:
+    if proj == 'maxdb':
         ax.set_xlim(datetime.date(2004,06,29),datetime.date(2006,6,19))#5*len(period_map.keys()
+    if proj == 'pgsql':
+        ax.set_xlim(datetime.date(2002,02,7),datetime.date(2004,6,28))
+
     #ax.set_xlabel('Date')
     ax.set_yticks([2.5,7.5,12.5,17.5,22.5,27.5,32.5,37.5])
     ax.set_yticklabels(['None', 'Portability', 'Efficiency', 'Reliability', 'Functionality', 'Usability', 'Maintainability','*Key Events*'])#,fontproperties = font)
@@ -113,9 +116,11 @@ def plot_timeline(proj, period_map):
         
     for i in range(len(period_map.keys()[0])):
         if proj == 'mysql':
-             l = Line2D([datetime.date(2000,07,31),datetime.date(2004,8,9)],[5*i,5*i]  , lw = 0.5, color='black')#5*len(period_map.keys()
-        else:                                                                            
-             l = Line2D([datetime.date(2004,06,29),datetime.date(2006,6,19)],[5*i,5*i]  ,lw = 0.5,  color='black')#5*len(period_map.keys()
+            l = Line2D([datetime.date(2000,07,31),datetime.date(2004,8,9)],[5*i,5*i]  , lw = 0.5, color='black')#5*len(period_map.keys()
+        if proj == 'maxdb':                                                                            
+            l = Line2D([datetime.date(2004,06,29),datetime.date(2006,6,19)],[5*i,5*i]  ,lw = 0.5,  color='black')#5*len(period_map.keys()
+        if proj == 'pgsql':
+            l = Line2D([datetime.date(2002,02,7),datetime.date(2004,6,28)],[5*i,5*i]  ,lw = 0.5,  color='black')#5*len(period_map.keys()
         ax.add_line(l)                              
 
     # label the model with key events
@@ -128,7 +133,9 @@ def plot_timeline(proj, period_map):
     if proj == 'maxdb':#                     2005-01-11,7.5.00.23
         events_dates = [datetime.date(2004,7,2), datetime.date(2005,1,11),datetime.date(2005,3,8),datetime.date(2005,6,10),datetime.date(2006,03,01)]
         events_rel = ["7.5.00.15", "7.5.00.23", "7.5.00.24 PHP","7.6.00 prod.","7.5.00.34"]
-        
+    if proj == 'pgsql':
+         events_dates = [datetime.date(2002,02,04), datetime.date(2002,11,27), datetime.date(2003,11,17), datetime.date(2004,6,1) ]
+         events_rel = ["7.2", "7.3", "7.4", "7.5/8.0 alpha"]
         
     l = Line2D(events_dates,[37.5],ls=' ',marker='o')
     ax.add_line(l)
