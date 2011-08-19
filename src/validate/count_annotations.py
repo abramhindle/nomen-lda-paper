@@ -1,5 +1,6 @@
 import lxml.etree
 import operator
+import string
 from lxml.builder import E
 from collections import defaultdict
 import get_exps as G
@@ -227,32 +228,51 @@ def get_pg_author_counts():
     exps = G.get_exps()
     pgsql_dir = exps[2][1]
     pgsql_periods = exps[2][2]
-    pg_author_list = []
-    #print sample
+    pg_nfr_db = {"usability":{},"efficiency":{},"functionality":{},"reliability":{},"maintainability":{},"none":{},"portability":{}}
+    for key in pg_nfr_db.keys():
+        pg_nfr_db[key] = defaultdict(int) #"momjian":33 defaultdict provides an integer default if no key found
     for period in pgsql_periods:
         tree = load_period_file( pgsql_dir, period )
         root = tree.getroot() # assume this is the root element Period
-        authors = root[2] # 3rd element of Period is the list of Authors
-        author_map = {}
-        total = 0
-        for author in authors:
-            author.get("name")
-            author_map[author.get("name")] = int(author.get("count"))
-            total = total + int(author.get("count"))
-        pg_author_list.append([period, total, author_map])
-    return pg_author_list # format: [Period_time, total commits, author_map]
+        #print root.get( "time" )
+        for element in root.iter("Topic"):
+            anno = []
+            auth = []
+            for a in element.iter():
+                if a.tag == "Annotation" or a.tag == "annotation":
+                    anno.append(string.lower(a.get( "name" )))
+                if a.tag == "Author":
+                    auth.append(a.get( "name" ))
+            for nfr in anno:
+                for author in auth:
+                    pg_nfr_db[nfr][author] = pg_nfr_db[nfr][author] + 1
+    return pg_nfr_db 
     
+def format_author_nfr(author_nfr_map,print_by_nfr=True):
+    """This will pretty print the code that sums authors."""
+    out = [] # careful, not all NFRs have the author.
+    for key in author_nfr_map.keys():
+        print key
+        for author in author_nfr_map[key].keys():
+            if author == 'wieck':
+                print author_nfr_map[key][author]
+                out.append(str(author_nfr_map[key][author]))
+    print ','.join(out)               
 # The main for this program
 # load up periods per project
 # and the write out if a project
 if __name__ == '__main__':
-    exps = get_exps()
-    assert(len(exps) >= 2)
-    for e in exps:
-        print ("Dealing with " + e[0])
-        per_period_reports( e[0], e[1], e[2], "output/" )
+    x = {'none': {'momjian': 19, 'thomas': 4, 'davec': 2, 'neilc': 1, 'ishii': 3, 'darcy': 1, 'barry': 2, 'inoue': 1, 'pgsql': 1, 'meskes': 2, 'petere': 7, 'tgl': 21, 'joe': 1}, 
+         'portability': {'momjian': 221, 'thomas': 5, 'davec': 22, 'neilc': 25, 'ishii': 12, 'darcy': 4, 'barry': 23, 'wieck': 8, 'inoue': 7, 'pgsql': 9, 'teodor': 18, 'jurka': 9, 'meskes': 62, 'scrappy': 6, 'petere': 97, 'dennis': 7, 'tgl': 217, 'joe': 11}, 
+         'efficiency':  {'momjian': 129, 'thomas': 6, 'davec': 10, 'neilc': 22, 'ishii': 13, 'barry': 23, 'wieck': 4, 'inoue': 10, 'pgsql': 7, 'teodor': 10, 'jurka': 6, 'meskes': 21, 'scrappy': 2, 'petere': 47, 'dennis': 4, 'tgl': 125, 'joe': 4}, 
+         'reliability':  {'momjian': 156, 'thomas': 6, 'davec': 17, 'neilc': 23, 'ishii': 10, 'darcy': 3, 'barry': 34, 'wieck': 5, 'inoue': 9, 'pgsql': 3, 'teodor': 7, 'jurka': 12, 'meskes': 38, 'scrappy': 4, 'petere': 61, 'dennis': 3, 'tgl': 157, 'joe': 11}, 
+         'functionality':  {'momjian': 230, 'thomas': 18, 'davec': 33, 'neilc': 21, 'ishii': 21, 'darcy': 4, 'barry': 36, 'wieck': 13, 'inoue': 17, 'pgsql': 9, 'teodor': 19, 'jurka': 8, 'meskes': 58, 'scrappy': 3, 'petere': 99, 'dennis': 4, 'tgl': 227, 'joe': 6}, 
+         'maintainability':  {'momjian': 138, 'thomas': 9, 'davec': 18, 'neilc': 15, 'ishii': 22, 'darcy': 4, 'barry': 23, 'wieck': 3, 'inoue': 10, 'pgsql': 8, 'teodor': 10, 'jurka': 7, 'meskes': 28, 'scrappy': 5, 'petere': 68, 'tgl': 135, 'joe': 5}, 
+         'usability':  {'momjian': 175, 'thomas': 7, 'davec': 18, 'neilc': 35, 'ishii': 12, 'darcy': 2, 'barry': 27, 'wieck': 10, 'inoue': 7, 'pgsql': 7, 'teodor': 14, 'jurka': 6, 'tgl': 176, 'scrappy': 2, 'petere': 96, 'dennis': 11, 'meskes': 48, 'joe': 9}}
 
-        
-        
-        
-
+    format_author_nfr( x )
+    #exps = get_exps()
+    #assert(len(exps) >= 2)
+    #for e in exps:
+        #print ("Dealing with " + e[0])
+        #per_period_reports( e[0], e[1], e[2], "output/" )
