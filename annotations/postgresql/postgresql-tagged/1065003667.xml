@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Period time="1065003667.">
     <Documents>
       <Document time="1065058252." author="tgl" document="Repair RI trigger visibility problems (this time for sure SEMICOLON-)) per recent discussion on pgsql-hackers: in READ COMMITTED mode we just have to force a QuerySnapshot update in the trigger, but in SERIALIZABLE mode we have to run the scan under a current snapshot and then complain if any rows would be updated/deleted that are not visible in the transaction snapshot. ">

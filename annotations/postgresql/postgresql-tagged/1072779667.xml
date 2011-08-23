@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Period time="1072779667.">
     <Documents>
       <Document time="1072832705." author="tgl" document="Avoid running out of memory during hash_create, by not passing a number-of-buckets that exceeds the size we actually plan to allow the hash table to grow to.  Per trouble report from Sean Shanny. ">

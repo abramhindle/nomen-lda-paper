@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <Period time="1090923667.">
     <Documents>
       <Document time="1091039007." author="tgl" document="Fix subtransaction behavior for large objects, temp namespace, files, password/group files.  Also allow read-only subtransactions of a read-write parent, but not vice versa.  These are the reasonably noncontroversial parts of Alvaro's recent mop-up patch, plus further work on large objects to minimize use of the TopTransactionResourceOwner. ">
