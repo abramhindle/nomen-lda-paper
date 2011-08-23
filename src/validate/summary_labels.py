@@ -9,8 +9,8 @@ import lxml.etree
 import datetime
 
 if __name__ == '__main__':
-    maxdb_file = 'pg-label-summary.csv'
-    maxdb = open(maxdb_file,'w')
+    #maxdb_file = 'pg-label-summary.csv'
+    #maxdb = open(maxdb_file,'w')
     
     exps = get_exps.get_exps() 
     # test_period = '1098931753'

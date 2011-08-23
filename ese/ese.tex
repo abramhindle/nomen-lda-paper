@@ -480,9 +480,6 @@ projects.
 
 %\noindent \textbf{Creating a validation corpus} --- 
 
-%FAT
-%\newpage
-
 \subsubsection{Creating a Validation Corpus}
 To evaluate both semi-unsupervised and supervised classification, we
 created a validation set of manually labelled topics. For MySQL 3.23
@@ -568,10 +565,6 @@ Our first word-list set, \textsf{exp1}, was generated using the ontology describ
 That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. 
 The labels we used:
 
-%FAT we can remove this
-%\balance
-%LFAT
-\newpage
 \begin{quotation}
 \small \noindent \textsf{
 integrity, security,
@@ -710,15 +703,18 @@ MaxDB 7.500 & Named Topics   & 281 & 125 & 328 \\ % these numbers are
 MySQL 3.23  & Named Topics   & 524 & 273 & 773 \\
   & Unnamed Topics & 476 & 727 & 227 \\
   & Total  Topics  & 1000 & 1000 & 1000 \\
+\midrule
+PgSQL 3.23  & Named Topics   & - & - & - \\
+  & Unnamed Topics & - & - & - \\
+  & Total  Topics  & - & - & - \\
 
-\todo{update with PGSQL}
 \bottomrule
 \end{tabular}
 	\caption{Automatic topic labelling for MaxDB and MySQL}% \todo[inline]{this stupid table is before table 1}}
 	\label{tbl:wordlist}
 
 \end{table}
-
+\todo{update with PGSQL}
 % was best performing
 For \textsf{exp1} the labels with the most topics
 were
@@ -963,8 +959,6 @@ indicates the performance of a random classifier.
 \label{fig:mulan}
 \end{figure*}
 
-%FAT 
-%\newpage
 
 Two perspectives to evaluate multi-label learners are with micro or macro measurements (used in Figure \ref{fig:mulan}).
 Macro measurements are aggregated at a class or label level (per class) while micro measurements are at the element level (per element).
@@ -1029,12 +1023,9 @@ improvements.
 
 \end{enumerate}
 
-%FAT 
-
-%\newpage
 
 %\subsection{Timeline analysis}
-Figures \ref{fig:mysql-timeline} and \ref{fig:maxdb-timeline} show the
+Figures \ref{fig:mysql-timeline} and \ref{fig:maxdb-timeline} and \ref{fig:pgsql-timeline} show the
 temporal patterns of NFR frequencies.
 %NEIL- I think this (below) is just confusing, although maybe important to note.
 % based on the manually annotated
@@ -1056,7 +1047,7 @@ have longer lasting effects?
 The topmost row in each diagram lists historical events for that project (such as a release). 
 %We refer to these occurrences in the discussion which follows.
 
-\begin{figure*}[t]
+\begin{figure}[t]
 \centering
 \subfloat[MySQL 3.23]{
 \includegraphics[width=\textwidth]{figures/mysql-timeline.png}
@@ -1067,6 +1058,7 @@ The topmost row in each diagram lists historical events for that project (such a
 \includegraphics[width=\textwidth]{figures/maxdb-timeline.png}
 \label{fig:maxdb-timeline}
 }
+
 \subfloat[PostgreSQL 7.2]{					
 \includegraphics[width=\textwidth]{figures/pgsql-timeline}
 \label{fig:pgsql-timeline}
@@ -1080,7 +1072,8 @@ The topmost row in each diagram lists historical events for that project (such a
 % \todo[inline]{better discussion}
 }
 \label{fig:timelines}
-\end{figure*}
+% Timelines created using src/validate/summary_labels.py
+\end{figure}
 
 %\noindent \textbf{Understanding the figures} -- 
  % boxes. not sure boxes is important..
@@ -1145,9 +1138,7 @@ This suggests that maintenance activity is not necessarily strictly decreasing w
 In MaxDB, we can observe that \emph{Maintainability} topics became more prevalent as MaxDB matures. 
 This is likely due to our analysis time-frame for MaxDB being shorter than the time-frame for the MySQL product. 
 
-%LFAT
-\balance
-\newpage
+
 \subsection{Do Projects Differ in their Relative  Topic Interest?}
 %\subsubsection{Do  projects differ in their relative  topic interest?}
 %\noindent\textbf{2. Do  projects differ in their relative  topic interest?} ---
@@ -1192,8 +1183,6 @@ Despite this difference, the name of the module could fool our learners into bel
 In these cases the advantages of tailoring topic names to specific project terminologies are more clear. 
 Project specific word-lists would avoid automated mistakes due to the names of entities and modules of a software project.
 
-%FAT
-%\newpage
 \subsection{Summary of Techniques}
 While an unsupervised technique such as LDA is appealing in its lack of human intervention, and thus lower effort, 
 supervised learners have the advantage of domain knowledge, which typically means improved results. 
@@ -1279,10 +1268,6 @@ of developer comments.
 However, only two annotators were used; their annotations could be
 biased as we did not analyze for inter-rater reliability because they
 did not rate the same documents.
-
-%LFAT
-\balance
-\newpage
 
 \subsection{Future Work}
 There are several avenues of further investigation.  
