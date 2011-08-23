@@ -254,7 +254,7 @@ def format_author_nfr(author_nfr_map,print_by_nfr=True):
     for key in author_nfr_map.keys():
         print key
         for author in author_nfr_map[key].keys():
-            if author == 'wieck':
+            if author == 'joe':
                 print author_nfr_map[key][author]
                 out.append(str(author_nfr_map[key][author]))
     print ','.join(out)               
