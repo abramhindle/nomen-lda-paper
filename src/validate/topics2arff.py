@@ -2,6 +2,8 @@ import count_annotations as A
 import get_exps as G
 import check_validity as V
 from collections import defaultdict
+import warnings
+import unicodedata
 
 
 # returns a dictionary of word counts
@@ -120,8 +122,13 @@ def save_arff( filename, lines):
     FILE.writelines( lines )
     FILE.close
         
+def i_hate_python_and_unicode( maybe_a_unicode_string ):
+    if (type(maybe_a_unicode_string) == type("")):
+       return maybe_a_unicode_string
+    return unicodedata.normalize('NFKD', maybe_a_unicode_string).encode('ascii','ignore')
 
-    
+def arff_clean_up( arff ):
+    return [i_hate_python_and_unicode(x) for x in arff]
 
 if __name__ == '__main__':
     exps = G.get_exps()
@@ -136,12 +143,18 @@ if __name__ == '__main__':
         xperiods = A.load_periods( ndir, periods )
         xp.append( xperiods )
         arff = to_arff( name, xperiods )
+        arff = arff_clean_up(arff)
+        for line in arff:
+            if (type("") != type(line)):
+                warnings.warn("A line is not a string!"+str(type(line)) + str(line))
+        warnings.warn(str(len(arff)))
         save_arff( outputdir + "/" + name + ".arff" , arff )
     # now do everything at once ALL PROJECTS
     names = [e[0] for e in exps]
     name = "__".join(names)
     print("Now dealing with "+name)
     arff = to_arff( name, A.flatten( xp ) )
+    arff = arff_clean_up(arff)
     # commented temporarily
     save_arff( outputdir + "/" + name + ".arff" , arff )
     # arffs = to_arff2( name, xp[0], xp[1] )

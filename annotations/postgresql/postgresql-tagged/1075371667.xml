@@ -24345,7 +24345,6 @@
     </Topic>
     <Topic>
 <annotation name="reliability" comments=""/>
-<
       <Document time="1077320735." author="momjian" document="Add:  &gt; * Allow external interfaces to extend the GUC variable set "/>
       <Document time="1077158542." author="momjian" document="Update:  &lt; * Add GUC variable to prevent waiting on locks &gt; * Add NO WAIT option to various SQL commands "/>
       <Document time="1077006875." author="momjian" document="Please apply this patch to contrib/dbmirror In incorperates changes from myself and a number of contributors.  This update to dbmirror provides:  -replication of sequence operations via setval/nextval -DBMirror.pl support for logging to syslog -changed the names of the tables to dbmirror_*  (no quotes required) -Support for writitng SQL statements to files instead of directly to  a slave database -More options for DBMirror.pl in the config files.  Steven Singer "/>
@@ -25954,7 +25953,6 @@
     <Topic>
 <annotation name="portability"/>
 <annotation name="reliability" comments=""/>
-<
       <Document time="1077026836." author="neilc" document="Add a few more &lt;xref&gt; tags to the SGML docs, where appropriate. Original patch from Michael Glaesemann, additional changes by Neil Conway. "/>
       <Document time="1076665242." author="momjian" document="Tom Lane wrote: &gt; momjian@svr1.postgresql.org (Bruce Momjian) writes: &gt;&gt;      someone asked me about the FK deadlock fix, mentioned in the 7.3.3 &gt;&gt;      release notes as 3rd change: &gt;&gt;      http://www.postgresql.org/docs/current/static/release-7-3-3.html &gt;&gt;      Actually, that fix was available with 7.4, not 7.3. Don't know if we can &gt;&gt;      retroactively change the release-notes though. &gt; &gt; This is completely erroneous, please undo it. &gt; &gt; 2003-05-21 14:14  tgl &gt; &gt;       * src/: backend/utils/adt/ri_triggers.c, &gt;       test/regress/expected/foreign_key.out (REL7_3_STABLE): Back-patch &gt;       Jan's fix to avoid primary key lookup (and lock) if foreign key &gt;       does not change on UPDATE.  Oh ... didn't know that you did a backpatch. Sorry   Jan "/>
       <Document time="1076665205." author="momjian" document="Tom Lane wrote: &gt; momjian@svr1.postgresql.org (Bruce Momjian) writes: &gt;&gt;      someone asked me about the FK deadlock fix, mentioned in the 7.3.3 &gt;&gt;      release notes as 3rd change: &gt;&gt;      http://www.postgresql.org/docs/current/static/release-7-3-3.html &gt;&gt;      Actually, that fix was available with 7.4, not 7.3. Don't know if we can &gt;&gt;      retroactively change the release-notes though. &gt; &gt; This is completely erroneous, please undo it. &gt; &gt; 2003-05-21 14:14  tgl &gt; &gt;       * src/: backend/utils/adt/ri_triggers.c, &gt;       test/regress/expected/foreign_key.out (REL7_3_STABLE): Back-patch &gt;       Jan's fix to avoid primary key lookup (and lock) if foreign key &gt;       does not change on UPDATE.  Oh ... didn't know that you did a backpatch. Sorry   Jan "/>

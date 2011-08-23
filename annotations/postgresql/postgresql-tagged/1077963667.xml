@@ -14851,7 +14851,6 @@
     <Topic>
 <annotation name="portability"/>
 <annotation name="reliability" comments=""/>
-<
       <Document time="1079938231." author="momjian" document="Add mention of &quot;-D_POSIX_PTHREAD_SEMANTICS&quot; enabling 5-arg getpwuid_r(). "/>
       <Document time="1079817082." author="momjian" document="Always test getpwuid_r because HEAD always uses *_r if it finds them. Not an issue for 7.4.X. "/>
       <Document time="1079385650." author="momjian" document="float8-small-is-zero and float8-exp-three-digits will likely need similar changes.  Claudio Natoli "/>
@@ -18501,7 +18500,6 @@
     <Topic>
 <annotation name="portability"/>
 <annotation name="reliability" comments=""/>
-<
       <Document time="1080426762." author="momjian" document="Change small 'if/else' test to use Max(). "/>
       <Document time="1080374922." author="tgl" document="Fix brain-dead placement of global variable declaration. "/>
       <Document time="1080343456." author="momjian" document="Add -D_REENTRANT for Solaris threading. "/>
@@ -31286,7 +31284,6 @@
       <Document time="1080270757." author="momjian" document="Update gcc solaris flags. "/>
 <annotation name="reliability" comments=""/>
 <annotation name="portability"/>
-<
       <Document time="1080170156." author="momjian" document="Add:  * Have pg_dump use multi-statement transactions for INSERT dumps "/>
       <Document time="1079831385." author="tgl" document="Rewrite pg_dump's comment-dumping code to pull over all the comments in one query, rather than making a separate query for each object that could have a comment.  This costs relatively little space (a few tens of K typically) and saves substantial time in databases with many objects. I find it reduces the runtime of 'pg_dump -s regression' by about a third. "/>
       <Document time="1079648636." author="momjian" document="Add comment about using this testing for wal_sync_method. "/>
