@@ -1086,7 +1086,7 @@ The topmost row in each diagram lists historical events for that project (such a
 We analyzed each project's developer mailing list for external validation. 
 %As discussed earlier, the top row in each figure shows key events for each project. 
 We use \textit{labelled topic extraction} to pick out the underlying NFR activity behind these events. 
-For example, both projects show a high number of NFRs recognized at the first period of analysis. 
+For example, both MaxDB and MySQL show a high number of NFRs recognized at the first period of analysis. 
 This is due to our window choice: we deliberately targeted our
 analysis to when both MySQL 3.23
 and MaxDB 7.500 were first announced. For MaxDB, version 7.5.00  was released in December of 2003. 
@@ -1106,7 +1106,11 @@ Similarly, in August, 2002, both \emph{functionality} and \emph{portability} are
 of version 3.23.52, a general bug fix with a focus on security (a component of the \emph{functionality} NFR in the ISO9126 model). 
 After this point, efforts shift to the newer releases (4.0, 4.1,
 5.0). 
-\todo{add PGSQL disucssion here. Schema additions? Lots of functionality?}
+
+By contrast, the PostgreSQL timeline  (Figure \ref{fig:pgsql-timeline}) is extracted from a central trunk and is not version-specific. Therefore development 
+tends to be focused on releases 7.3, 7.4 and 7.5/8.0 alpha. For example, a priority for the 8.0 candidate was a Windows-native port of the source code, which seems to 
+correlate with the \emph{portability} NFR increasing in frequency in mid-2004. Before the 7.4 release, \emph{usability,functionality} and \emph{portability} all 
+increase in frequency, possibly reflecting the interest in adding features and documentation for the release.
 
 We now address our research questions:
 
@@ -1128,8 +1132,8 @@ We now address our research questions:
 \subsection{Do NFR Frequencies Change over Time?}
 %\noindent\textbf{1. Do NFR frequencies change over time?} --- 
 %\subsubsection{Do label frequencies change over time?}
-\todo{add more on PGSQL}
-In both projects the frequencies generally decreased with age. 
+%\todo{add more on PGSQL}
+In both MaxDB and MySQL the frequencies generally decreased with age. 
 However, there are variations within our NFR labels. In MySQL, \emph{usability} and \emph{efficiency} do not appear very often in topics. 
 A proportionately smaller number of commits addressed these NFRs.
 %As discussed in the previous section, 
@@ -1138,10 +1142,10 @@ This suggests that maintenance activity is not necessarily strictly decreasing w
 In MaxDB, we can observe that \emph{Maintainability} topics became more prevalent as MaxDB matures. 
 This is likely due to our analysis time-frame for MaxDB being shorter than the time-frame for the MySQL product. 
 
+In PostgreSQL, by comparison, the frequencies seem to by cyclic, since we are not studying a maintenance-phase for the product, but rather ongoing
+feature addition and usability improvements.
 
 \subsection{Do Projects Differ in their Relative  Topic Interest?}
-%\subsubsection{Do  projects differ in their relative  topic interest?}
-%\noindent\textbf{2. Do  projects differ in their relative  topic interest?} ---
 Yes. MySQL 3.23 had proportionally more
 topics labelled \emph{functionality}, while MaxDB had proportionally more
 \emph{efficiency} related topics. MaxDB was a very mature release ``donated'' to the open-source community, 
@@ -1149,20 +1153,15 @@ whereas MySQL was in its relative infancy, and
 security problems were more common (security is a component of \emph{functionality} in the ISO9126 model). 
 In both cases \emph{portability} was a constant maintenance concern and was prevalent throughout the lifetime of the projects. It may surprise developers
 how often portability arises as a concern.
-%On one hand, this analysis is unsurprising; on the other hand, it provides confirmation that our approach identifies actual patterns.
-%\subsection{Summary}
-
-%\todo[inline]{link the actual data, which is interesting, to somethign
- % actionable for a developer or manager}
+\todo{add the pgsql data}
 
 \subsection{Do different developers work on different NFRs?}
-\todo{figure this out!}
+We did a t-test to assess whether there was statistically significant differences in the types of NFRs developers chose to work on, for the PostgreSQL project only. 
+\todo{add more, figure}
 
 \section{Discussion}
 \label{sec:limit}
 
-%XXX can just remove this
-%\subsection{Effectiveness}
 \subsection{Annotation Observations}
 We found many topics that were not actually non-functional requirements (NFRs) but were often related to them. 
 For instance, concurrency was mentioned often in the commit logs and
