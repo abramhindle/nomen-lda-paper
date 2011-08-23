@@ -18,6 +18,9 @@ momjian      | 22        | 44            | x
 tlpeters     | 11        | 66            | x  
 x            | x         | x             | x  
 
-So the algorithm: iterate over each period, and each topic in that period. For each topic, record the annotations and the authors, the count per author, and the total commits in that topic.
+So the algorithm: iterate over each period, and each topic in that period. For each topic, record the annotations and the authors. Note: total commits are irrelevant as there is no (good) association between number of commits and topic. So we just track topics.
 
-Keep two lists; author and nfr. Everytime we see an author, we find the relevant NFRs in that topic and 
+In a topic, we get the NFRs associated. We also get the authors in that topic. In the NFR list we update the author +1 for that NFR, or add him/her if necessary; in the author list we +1 that NFR or 
+
+author_db = [(authorname,nfr-map)+]
+nfr-map = {nfr:topics}
