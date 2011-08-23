@@ -13,12 +13,16 @@ NUMBERTARGETS=$(shell sh number-targets.sh)
 SLIDES=$(shell sh list-final-slides.sh)
 
 #stop deleting the intermediate files!
-#.SECONDARY:
+.SECONDARY:
 
 present:	presentation.pdf
 	xpdf -fullscreen -bg white -z page $<
 
 default:	presentation.pdf
+
+present2:
+	xpdf -fullscreen -bg white -z page presentation.pdf
+
 
 rendered:
 	mkdir rendered

@@ -23,6 +23,7 @@ def ext_annotation_map():
     am["integrity"] = "reliability"
     am["concurrency"] = "efficiency"
     am["test"] = "reliability"
+    am["testing"] = "reliability"
     am["rename"] = "" #not sure here
     am["distribution"] = "maintainability"
     am["patch"] = "reliability"
@@ -31,6 +32,7 @@ def ext_annotation_map():
     am["Understandability"] = "understandability"
     am["build"] = "maintainability"
     am["none"] = "none"
+    am["licenseing"] = "" #hmmm and it is mispelled that's sorta pathetic come on man
     am["specificiation"] = "portability" #misspelling
     am["fault tolerance"] = "reliability"
     return am

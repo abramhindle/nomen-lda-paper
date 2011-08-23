@@ -5,6 +5,7 @@ from lxml.builder import E
 from collections import defaultdict
 import get_exps as G
 import quality_map as Q
+import warnings
 
 
 # * TODO
@@ -139,6 +140,7 @@ def period_file( ndir, period ):
 
 # returns the etree 
 def load_period_file( ndir, period ):
+    warnings.warn( str(period) )
     tree = lxml.etree.parse( period_file( ndir, period ) )
     return tree
 
