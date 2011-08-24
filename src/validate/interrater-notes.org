@@ -1,0 +1,88 @@
+These are Kappa values
+
+Fleiss Kappa
+    A_portability   A_functionality     A_reliability A_maintainability
+     -0.046627578      -0.043241020       0.004101225       0.081275504
+     A_efficiency       A_usability            A_none
+      0.211635362      -0.078431373       0.054121959
+We disagree on portability, functionality, usability, and have poor
+agreement on reliability
+
+Cohen Kappa
+    A_portability   A_functionality     A_reliability A_maintainability
+      0.153548387      -0.013588517       0.004573794       0.082001031
+     A_efficiency       A_usability            A_none
+      0.231496539       0.009287926       0.062133646
+
+We disagree on functionality  and have poor agreement on reliability and
+usability.
+
+Spearman says
+   A_portability   A_functionality     A_reliability A_maintainability
+      0.253037469      -0.014415214       0.004579664       0.082215613
+     A_efficiency       A_usability            A_none
+      0.258037216       0.014436230       0.080667468
+
+We disagree on functionality and reliability and usability and none and
+maintainability aren't great :|
+
+We agree on portability and efficiency
+
+One issue is that we have 2 ratings 1 or 0
+
+
+Globally we have "slight" agreement :|
+
+> > kappam.fleiss(mat)$value
+[1] 0.105742
+> > kappa2(mat)$value
+[1] 0.1078387
+
+The correlation coeffecient is similar 0.108
+
+So our agreement is not really that strong across our tags.
+
+Here's a summary, pos agree is positive agreement ( a positive tag )
+pos disagree is we applied a tag and it wasn't applied by the other dude.
+Neg agree is we didn't tag it together!
+
+[1] "A_portability"
+[1] "Pos Disagree:  378"
+[1] "Pos Agree:  189"
+[1] "Neg Agree:  73"
+[1] "A_functionality"
+[1] "Pos Disagree:  335"
+[1] "Pos Agree:  111"
+[1] "Neg Agree:  194"
+[1] "A_reliability"
+[1] "Pos Disagree:  289"
+[1] "Pos Agree:  19"
+[1] "Neg Agree:  332"
+[1] "A_maintainability"
+[1] "Pos Disagree:  213"
+[1] "Pos Agree:  25"
+[1] "Neg Agree:  402"
+[1] "A_efficiency"
+[1] "Pos Disagree:  127"
+[1] "Pos Agree:  31"
+[1] "Neg Agree:  482"
+[1] "A_usability"
+[1] "Pos Disagree:  150"
+[1] "Pos Agree:  2"
+[1] "Neg Agree:  488"
+[1] "A_none"
+[1] "Pos Disagree:  25"
+[1] "Pos Agree:  1"
+[1] "Neg Agree:  614"
+
+In every case it seems our agreement is different. I checked the data it
+seems to be the right stuff..
+
+This in interrater.R in the master branch.
+
+I split postgresql into 2 projects pgsqln pgsqla to allow for this.
+
+abram
+
+
+
