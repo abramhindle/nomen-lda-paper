@@ -134,6 +134,7 @@ public class CrossValidationExperiment {
 					HOMER homer = new HOMER(learner, 3, HierarchyBuilder.Method.Random);
 					homer.setDebug( debugOn );
 					results = eval.crossValidate(homer, dataSet, numFolds);
+					
 				}
 				if (methodsToCompare[i].equals("MLStacking")) {
 					J48 baseClassifier = new J48();
@@ -149,6 +150,8 @@ public class CrossValidationExperiment {
 				System.out.println(results.toString());
 				System.out.println(results.toCSV());
 				} catch (java.io.NotSerializableException e) {
+					e.printStackTrace();
+				} catch (java.lang.ArrayIndexOutOfBoundsException e) {
 					e.printStackTrace();
 				}
 			}
