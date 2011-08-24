@@ -1,5 +1,6 @@
 arff-files: topics2arff.py names.py quality_map.py get_exps.py check_validity.py count_annotations.py
 	python topics2arff.py
+	touch arff-files
 
 validity-report: check_validity.py get_exps.py info_theory.py quality_map.py
 	python check_validity.py
@@ -23,3 +24,10 @@ categories: make_categories.py
 mulan:	Makefile.mulan
 	make -fMakefile.mulan all
 	
+csvs:	arff-files ARFF.pm arff2csv.pl output/pgsqla.arff.csv output/pgsqln.arff.csv
+	touch csvs
+
+output/pgsqla.arff.csv: output/pgsqla.arff ARFF.pm arff2csv.pl 
+	perl arff2csv.pl output/pgsqla.arff
+output/pgsqln.arff.csv: output/pgsqln.arff ARFF.pm arff2csv.pl 
+	perl arff2csv.pl output/pgsqla.arff

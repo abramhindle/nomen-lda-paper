@@ -71,6 +71,16 @@ sub writeout {
     close $fd;
 }
 
+sub writeout_csv {
+    my ($self,$filename) = @_;
+    my $fd = write_open_or_stdout( $filename || "-" );
+    my $header = $self->header();
+    die "NO ATTRIBUTES?" unless $header->{attributes};
+    $self->print_csv_header( $fd, $self->header() );
+    print_data( $fd, $self->data() );
+    close $fd;
+}
+
 sub _gen_type {
     my ($type, @classes) = @_;
     if ($type eq "REAL") {
@@ -183,6 +193,16 @@ sub print_header {
     }
     print $fd "\@DATA$/";
 }
+sub print_csv_header {
+    my ($self,$fd, $header) = @_;
+
+    my %superheader = %$header;
+    #print the header of the new CSV file
+    confess "Not an arrayref! ".Dumper($header) unless 'ARRAY' eq ref($superheader{attributes});
+    my @superattrs = @{$superheader{attributes}};
+    print $fd join(",",@superattrs),$/;
+}
+
 
 sub attributes {
     my ($self,@more) = @_;

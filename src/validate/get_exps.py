@@ -37,7 +37,7 @@ def get_exps():
     pgn_dir = "../../data/pgsqln-tagged/"
 
     #exprs = [ ["maxdb",maxdb_dir, maxdb_periods] , [ "mysql",mysql_dir, mysql_periods ], ["pgsql",pg_dir, pgsql_periods]]
-    exprs = [ ["maxdb",maxdb_dir, maxdb_periods] , [ "mysql",mysql_dir, mysql_periods ], ["pgsqla",pg_dir, pgsql_periods] , ["pgsqln",pg_dir, pgsql_periods]]]
+    exprs = [ ["maxdb",maxdb_dir, maxdb_periods] , [ "mysql",mysql_dir, mysql_periods ], ["pgsqla",pga_dir, pgsql_periods] , ["pgsqln",pgn_dir, pgsql_periods]]
     return exprs
 
 __exp1_wordlist__ = [
