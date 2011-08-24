@@ -30,4 +30,4 @@ csvs:	arff-files ARFF.pm arff2csv.pl output/pgsqla.arff.csv output/pgsqln.arff.c
 output/pgsqla.arff.csv: output/pgsqla.arff ARFF.pm arff2csv.pl 
 	perl arff2csv.pl output/pgsqla.arff
 output/pgsqln.arff.csv: output/pgsqln.arff ARFF.pm arff2csv.pl 
-	perl arff2csv.pl output/pgsqla.arff
+	perl arff2csv.pl output/pgsqln.arff

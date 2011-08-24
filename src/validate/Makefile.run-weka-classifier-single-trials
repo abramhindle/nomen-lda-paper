@@ -1,30 +1,31 @@
 #Run this makefile once and with 1 thread.
 CPUS=3
 
-all: maxdb pgsqla pgsqln mysql maxdb
+all: pgsqla pgsqln mysql maxdb
 
 Makefile.pgsqla: make-single-class-arff-files.pl
 	perl make-single-class-arff-files.pl pgsqla
-pgsqla: 
+pgsqla:	Makefile.pgsqla 
 	make -f Makefile.pgsqla -j $(CPUS) all
 	touch pgsqla
 
 Makefile.pgsqln: make-single-class-arff-files.pl
 	perl make-single-class-arff-files.pl pgsqln
-pgsqln: 
+pgsqln: Makefile.pgsqln 
 	make -f Makefile.pgsqln -j $(CPUS) all
 	touch pgsqln
 
 Makefile.mysql: make-single-class-arff-files.pl
 	perl make-single-class-arff-files.pl mysql
-mysql: 
+mysql: Makefile.mysql
 	make -f Makefile.mysql -j $(CPUS) all
 	touch mysql
 
 
 Makefile.maxdb: make-single-class-arff-files.pl
 	perl make-single-class-arff-files.pl maxdb
-maxdb: 
+
+maxdb:  Makefile.maxdb
 	make -f Makefile.maxdb -j $(CPUS) all
 	touch maxdb
 
