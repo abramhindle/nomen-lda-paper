@@ -1249,10 +1249,14 @@ in Aranda et al.~\cite{aranda09icse} %We did not show these results to the stake
 \emph{Internal validity} -- %includes inter-rater reliability and our lack of rival explanation building. 
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
 We did not attempt to match our results to any particular model.
-We assessed inter-rater reliability (IRR), a measure of the correlation between the manual annotations the first two authors created. Perfect IRR (1.0) indicates complete agreement 
-on the appropriate annotation for that topic. We verified IRR using manually annotated PostgreSQL topics, and achieved a result of \todo[inline]{insert here}. 
+We assessed inter-rater reliability (IRR) using Cohen's Kappa to measure the level of agreement between the manual 
+annotations the first two authors created, under some model of random agreement. Perfect IRR (1.0) indicates 
+complete agreement on the appropriate annotation for that topic. We verified IRR using manually annotated PostgreSQL topics, 
+and achieved a result of 0.108 (slight agreement), with a correlation coefficient of 0.108. 
 Some of the reasons for this are a disagreement over the appropriate classification for documentation topics (should this be considered
-usability or portability?). A short education session on what a given NFR from the ISO standard encompasses would reduce this error rate.
+usability or portability?), and a disagreement on functionality as a software quality. A short education session on the meaning of a given NFR from 
+the ISO standard would reduce this error rate.
+In general there is disagreement over what constitutes a non-functional requirement \cite{Glinz_2007}.
 
 \emph{External validity} -- %was addressed by our use of two case studies, but there are still issues. 
 Our data originated from OSS database projects and thus might not be applicable to commercially developed software or other domains. 
