@@ -1206,6 +1206,7 @@ bear this out.
 % >      0.258037216       0.014436230       0.080667468
 
 \begin{table}
+\centering
 \begin{tabular}{l|c|c}
 \hline
             & Cohen's Kappa & Spearman Correlation \\ \hline
@@ -1222,10 +1223,15 @@ Everything & 0.107 & 0.108 \\ \hline
 \label{tab:interr}
 \end{table}
 
+Table \ref{tab:iterr} describes the Cohen Kappa and the Spearman
+correlation of our per topic annotations for each tag. We had to
+evaluate inter-rater reliability this way because 1 topic could be
+tagged with more than 1 annotation.
+
 We feel these results are poor. The aggregate view of with a Kappa of
 $0.1$ indicates there is some agreement but not a lot. We found that
 there was a lot of agreement in terms of lack of a tag, but often more
-disagreement when a tag should be applied. 
+disagreement when a tag should be applied.
 
 After some discussion we concluded that usability was a source of
 disagreement. Do user manuals improve usability? Is a command-line
