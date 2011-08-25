@@ -472,18 +472,16 @@ To facilitate cross-project comparison, we used a taxonomy of NFRs. This taxonom
 ISO9126 describes six high-level NFRs: maintainability, functionality,
 portability, efficiency, usability, and reliability~\footnote{While there may be lingering debate in some circles about these terms, an ISO standard
 seems like a reasonable starting point for our work.}.
-%There is some debate about the terms in this model. 
-%However, ISO9126 is ``an international standard and thus provides an 
-%internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
+There is some debate about the terms in this model. 
+However, ISO9126 is ``an international standard and thus provides an 
+internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
 We claim that these NFRs are maintenance concerns (to varying degrees) in all software projects, and are therefore well-suited for comparisons between
 projects.
 
-%\noindent \textbf{Creating a validation corpus} --- 
-
 \subsubsection{Creating a Validation Corpus}
 To evaluate both semi-unsupervised and supervised classification, we
-created a validation set of manually labelled topics. For MySQL 3.23
-and MaxDB 7.500, the annotators (the first two authors) annotated each extracted topic in each period with
+created a validation set of manually labelled topics. For each project, 
+the annotators (the first two authors) annotated each extracted topic in each period with
 the six NFR labels listed above.
 Annotators did not annotate each other's annotations, but some brief
 inspection of annotations was used to confirm that the annotators were
@@ -530,25 +528,7 @@ We consider our labelling classifiers acceptable if they outperform a random cla
 In this section we describe how to label topics based on dictionaries
 mined from sources external to the projects.
 
-%\subsection{Generating word lists}
-%\label{sec:genwordlist}
-% %\todo[inline]{Make it clear where the data comes from! Neil says: Also, I
-%   didn't get the impression they understood that we weren't generating
-%   labels from the data, but rather from independent taxonomies. Of
-%   course if you use labels from the data it isn't comparable. But the
-%   point of ISO 9126 etc. was to avoid exactly this problem.}
-
-% \todo[inline]{Need to hammer it in that the word bags are not project specific and
-%  are inherited so it isn't a supervised method}
-
-
-%Topics are word distributions, lists of words ranked by frequency, that are burdensome to interpret and hard to distinguish and understand. 
-%While the topics themselves are generated automatically, how to interpret these topics is less clear.
-%For example,
-
 \subsubsection{Generating Word Lists}
-
-%\noindent\textbf{Generating word lists} --- 
 
 In order to automatically label each topic with 
 one of the six high-level NFRs,
@@ -583,8 +563,6 @@ we considered to be
 relevant to discussion of \emph{reliability}, but is not in the standard. 
 We therefore took the NFRs from the ISO9126 and added to them.
 
-%\todo[inline]{* clarify the mailinglist stuff we did}
-%\todo[inline]{This part doesn't make a lot of sense}
 To construct these expanded word-lists, we used
 WordNet~\cite{Fellbaum1998}.
 %, an English-language ``lexical database'' that contains semantic relations between words,
@@ -638,24 +616,18 @@ resilience integrity stability stable crash bug fails redundancy error failure\\
 
 \subsubsection{Automatic Labelled Topic Extraction}
 
-%\todo[inline]{NEIL: this could be a subsubsection}
-%\todo[inline]{* the hierarchy of tags was not clear}
-%\noindent \textbf{Generating labels automatically} --- 
-
 Using our three word-lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labelled our topics with an NFR where there was a match between a word in
 the list and the same word somewhere in the distribution of words that constitute the topic.
 A \emph{named topic} is a topic with a matching NFR label. \emph{Unnamed
 topics} occur where there is no such match, which may indicate either a lack of precision, or simply that this topic is not associated with non-functional
 requirements.
-All experiments were run on MaxDB 7.500 and MySQL 3.23 data. LDA
+All experiments were run on the datasets for each project (e.g., PostgreSQL, MySQL, MaxDB). LDA
 extracted $20$ topics per period for each project.
-% Is this good enough
 This labelling is \emph{semi-unsupervised} because the corpus is not derived from 
 the project being analyzed, and we did not label the project's topics
 ourselves for a training set. The motivation behind this technique is that
-because most software often addresses similar issues, thus we can use the
+because most software often addresses similar issues, we can use the
 domain knowledge of software to label relevant topics.
-%\todo[inline]{Neil does this explain the unsupervised aspect well enough?} 
 
 Table \ref{tbl:wordlist} shows how many topics were labelled for MaxDB
 and MySQL.
