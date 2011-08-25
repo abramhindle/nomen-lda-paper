@@ -472,9 +472,9 @@ To facilitate cross-project comparison, we used a taxonomy of NFRs. This taxonom
 ISO9126 describes six high-level NFRs: maintainability, functionality,
 portability, efficiency, usability, and reliability~\footnote{While there may be lingering debate in some circles about these terms, an ISO standard
 seems like a reasonable starting point for our work.}.
-%There is some debate about the terms in this model. 
-%However, ISO9126 is ``an international standard and thus provides an 
-%internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
+There is some debate about the terms in this model. 
+However, ISO9126 is ``an international standard and thus provides an 
+internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
 We claim that these NFRs are maintenance concerns (to varying degrees) in all software projects, and are therefore well-suited for comparisons between
 projects.
 
@@ -482,8 +482,8 @@ projects.
 
 \subsubsection{Creating a Validation Corpus}
 To evaluate both semi-unsupervised and supervised classification, we
-created a validation set of manually labelled topics. For MySQL 3.23
-and MaxDB 7.500, the annotators (the first two authors) annotated each extracted topic in each period with
+created a validation set of manually labelled topics. For each project,
+ the annotators (the first two authors) annotated each extracted topic in each period with
 the six NFR labels listed above.
 Annotators did not annotate each other's annotations, but some brief
 inspection of annotations was used to confirm that the annotators were
@@ -647,13 +647,13 @@ the list and the same word somewhere in the distribution of words that constitut
 A \emph{named topic} is a topic with a matching NFR label. \emph{Unnamed
 topics} occur where there is no such match, which may indicate either a lack of precision, or simply that this topic is not associated with non-functional
 requirements.
-All experiments were run on MaxDB 7.500 and MySQL 3.23 data. LDA
+All experiments were run on the datasets for each project (e.g., PostgreSQL, MySQL, MaxDB). LDA
 extracted $20$ topics per period for each project.
 % Is this good enough
 This labelling is \emph{semi-unsupervised} because the corpus is not derived from 
 the project being analyzed, and we did not label the project's topics
 ourselves for a training set. The motivation behind this technique is that
-because most software often addresses similar issues, thus we can use the
+because most software often addresses similar issues, we can use the 
 domain knowledge of software to label relevant topics.
 %\todo[inline]{Neil does this explain the unsupervised aspect well enough?} 
 
