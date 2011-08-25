@@ -1,0 +1,62 @@
+
+IB1 instance-based classifier
+using 1 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0.04 seconds
+Time taken to test model on training data: 48.94 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         640              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0016
+Root mean squared error                  0.0016
+Relative absolute error                  0.5382 %
+Root relative squared error              0.4099 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        0
+                 1         0          1         1         1          1        1
+Weighted Avg.    1         0          1         1         1          1    
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 528   0 |   a = 0
+   0 112 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         528               82.5    %
+Incorrectly Classified Instances       112               17.5    %
+Kappa statistic                          0     
+Mean absolute error                      0.1768
+Root mean squared error                  0.4181
+Relative absolute error                 61.0771 %
+Root relative squared error            110.0375 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         1          0.825     1         0.904      0.513    0
+                 0         0          0         0         0          0.513    1
+Weighted Avg.    0.825     0.825      0.681     0.825     0.746      0.513
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 528   0 |   a = 0
+ 112   0 |   b = 1
+

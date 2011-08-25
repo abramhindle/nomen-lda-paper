@@ -1,16 +1,16 @@
 
 ZeroR predicts class value: 0
 
-Time taken to build model: 0.01 seconds
-Time taken to test model on training data: 0.83 seconds
+Time taken to build model: 0.02 seconds
+Time taken to test model on training data: 0.77 seconds
 
 === Error on training data ===
 
-Correctly Classified Instances         549               93.686  %
-Incorrectly Classified Instances        37                6.314  %
+Correctly Classified Instances         543               92.6621 %
+Incorrectly Classified Instances        43                7.3379 %
 Kappa statistic                          0     
-Mean absolute error                      0.1196
-Root mean squared error                  0.2432
+Mean absolute error                      0.1372
+Root mean squared error                  0.2608
 Relative absolute error                100      %
 Root relative squared error            100      %
 Total Number of Instances              586     
@@ -19,26 +19,26 @@ Total Number of Instances              586
 === Detailed Accuracy By Class ===
 
                TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
-                 1         1          0.937     1         0.967      0.5      0
+                 1         1          0.927     1         0.962      0.5      0
                  0         0          0         0         0          0.5      1
-Weighted Avg.    0.937     0.937      0.878     0.937     0.906      0.5  
+Weighted Avg.    0.927     0.927      0.859     0.927     0.891      0.5  
 
 
 === Confusion Matrix ===
 
    a   b   <-- classified as
- 549   0 |   a = 0
-  37   0 |   b = 1
+ 543   0 |   a = 0
+  43   0 |   b = 1
 
 
 
 === Stratified cross-validation ===
 
-Correctly Classified Instances         549               93.686  %
-Incorrectly Classified Instances        37                6.314  %
+Correctly Classified Instances         543               92.6621 %
+Incorrectly Classified Instances        43                7.3379 %
 Kappa statistic                          0     
-Mean absolute error                      0.1198
-Root mean squared error                  0.2432
+Mean absolute error                      0.1374
+Root mean squared error                  0.2608
 Relative absolute error                100      %
 Root relative squared error            100      %
 Total Number of Instances              586     
@@ -47,14 +47,14 @@ Total Number of Instances              586
 === Detailed Accuracy By Class ===
 
                TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
-                 1         1          0.937     1         0.967      0.471    0
-                 0         0          0         0         0          0.471    1
-Weighted Avg.    0.937     0.937      0.878     0.937     0.906      0.471
+                 1         1          0.927     1         0.962      0.474    0
+                 0         0          0         0         0          0.474    1
+Weighted Avg.    0.927     0.927      0.859     0.927     0.891      0.474
 
 
 === Confusion Matrix ===
 
    a   b   <-- classified as
- 549   0 |   a = 0
-  37   0 |   b = 1
+ 543   0 |   a = 0
+  43   0 |   b = 1
 

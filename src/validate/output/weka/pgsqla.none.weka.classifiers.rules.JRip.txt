@@ -1,0 +1,66 @@
+
+JRIP rules:
+===========
+
+ => A_none=0 (640.0/5.0)
+
+Number of Rules : 1
+
+
+Time taken to build model: 22.45 seconds
+Time taken to test model on training data: 3.62 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         635               99.2188 %
+Incorrectly Classified Instances         5                0.7813 %
+Kappa statistic                          0     
+Mean absolute error                      0.0155
+Root mean squared error                  0.088 
+Relative absolute error                 91.128  %
+Root relative squared error             99.9848 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         1          0.992     1         0.996      0.5      0
+                 0         0          0         0         0          0.5      1
+Weighted Avg.    0.992     0.992      0.984     0.992     0.988      0.5  
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 635   0 |   a = 0
+   5   0 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         634               99.0625 %
+Incorrectly Classified Instances         6                0.9375 %
+Kappa statistic                         -0.0026
+Mean absolute error                      0.0162
+Root mean squared error                  0.092 
+Relative absolute error                 94.2568 %
+Root relative squared error            104.3265 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.998     1          0.992     0.998     0.995      0.347    0
+                 0         0.002      0         0         0          0.347    1
+Weighted Avg.    0.991     0.992      0.984     0.991     0.988      0.347
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 634   1 |   a = 0
+   5   0 |   b = 1
+

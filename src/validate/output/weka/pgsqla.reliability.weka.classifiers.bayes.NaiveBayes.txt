@@ -1,0 +1,55 @@
+
+=== Error on training data ===
+
+Correctly Classified Instances         604               94.375  %
+Incorrectly Classified Instances        36                5.625  %
+Kappa statistic                          0.8603
+Mean absolute error                      0.062 
+Root mean squared error                  0.2243
+Relative absolute error                 16.3184 %
+Root relative squared error             51.4786 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.931     0.018      0.993     0.931     0.961      0.99     0
+                 0.982     0.069      0.829     0.982     0.899      0.99     1
+Weighted Avg.    0.944     0.031      0.951     0.944     0.945      0.99 
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 444  33 |   a = 0
+   3 160 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         432               67.5    %
+Incorrectly Classified Instances       208               32.5    %
+Kappa statistic                          0.174 
+Mean absolute error                      0.3266
+Root mean squared error                  0.5347
+Relative absolute error                 85.9338 %
+Root relative squared error            122.7207 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.763     0.583      0.793     0.763     0.778      0.642    0
+                 0.417     0.237      0.376     0.417     0.395      0.642    1
+Weighted Avg.    0.675     0.495      0.687     0.675     0.68       0.642
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 364 113 |   a = 0
+  95  68 |   b = 1
+

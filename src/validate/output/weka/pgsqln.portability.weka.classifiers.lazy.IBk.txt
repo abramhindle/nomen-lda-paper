@@ -1,0 +1,62 @@
+
+IB1 instance-based classifier
+using 1 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0.12 seconds
+Time taken to test model on training data: 59.28 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         640              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0016
+Root mean squared error                  0.0016
+Relative absolute error                  0.3514 %
+Root relative squared error              0.3309 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        0
+                 1         0          1         1         1          1        1
+Weighted Avg.    1         0          1         1         1          1    
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 428   0 |   a = 0
+   0 212 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         407               63.5938 %
+Incorrectly Classified Instances       233               36.4063 %
+Kappa statistic                          0.0785
+Mean absolute error                      0.3684
+Root mean squared error                  0.6006
+Relative absolute error                 83.1118 %
+Root relative squared error            127.614  %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.834     0.764      0.688     0.834     0.754      0.525    0
+                 0.236     0.166      0.413     0.236     0.3        0.525    1
+Weighted Avg.    0.636     0.566      0.597     0.636     0.604      0.525
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 357  71 |   a = 0
+ 162  50 |   b = 1
+

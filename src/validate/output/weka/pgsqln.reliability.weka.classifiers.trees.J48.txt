@@ -1,0 +1,193 @@
+
+J48 pruned tree
+------------------
+
+W_domain <= 0
+|   W_start <= 0
+|   |   W_catalog <= 0
+|   |   |   W_force <= 0
+|   |   |   |   W_compatibility <= 0
+|   |   |   |   |   W_Applied <= 0
+|   |   |   |   |   |   W_consistent <= 0
+|   |   |   |   |   |   |   W_Back_patch <= 0
+|   |   |   |   |   |   |   |   W_character <= 0
+|   |   |   |   |   |   |   |   |   W_Update_ <= 0
+|   |   |   |   |   |   |   |   |   |   W_tuple <= 0
+|   |   |   |   |   |   |   |   |   |   |   W_docs <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_bit <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_Fixed <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_column <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_variable_ <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_point <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_control <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_array <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_run <= 0: 0 (161.0/17.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_run > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_result <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Lane_ <= 0: 0 (9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Lane_ > 0: 1 (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_result > 0: 1 (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_array > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_case <= 0: 0 (7.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_case > 0: 1 (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_control > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_function <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_update <= 0: 0 (6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_update > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_function > 0: 1 (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_point > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_patch <= 0: 1 (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_patch > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_avoid <= 0: 0 (8.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_avoid > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_variable_ > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_case <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_table_ <= 0: 1 (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_table_ > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_case > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_column > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Conway <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_dependency <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_fully <= 0: 1 (13.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_fully > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_dependency > 0: 0 (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Conway > 0: 0 (6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_Fixed > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_change <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Win32 <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_problems <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Adjust <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_TODO <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_default <= 0: 1 (15.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_default > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_libraries <= 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_libraries > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_TODO > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Adjust > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_problems > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Win32 > 0: 0 (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_change > 0: 0 (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_bit > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_buffer <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_CREATE <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_previous <= 0: 1 (10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_previous > 0: 0 (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_CREATE > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_buffer > 0: 0 (6.0)
+|   |   |   |   |   |   |   |   |   |   |   W_docs > 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_log <= 0: 0 (34.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_log > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   W_tuple > 0: 0 (20.0/1.0)
+|   |   |   |   |   |   |   |   |   W_Update_ > 0: 0 (22.0/1.0)
+|   |   |   |   |   |   |   |   W_character > 0: 0 (23.0/1.0)
+|   |   |   |   |   |   |   W_Back_patch > 0: 0 (24.0/1.0)
+|   |   |   |   |   |   W_consistent > 0: 0 (26.0)
+|   |   |   |   |   W_Applied > 0
+|   |   |   |   |   |   W_usage <= 0
+|   |   |   |   |   |   |   W_cursor <= 0
+|   |   |   |   |   |   |   |   W_Fix <= 0
+|   |   |   |   |   |   |   |   |   W_parser <= 0: 1 (6.0)
+|   |   |   |   |   |   |   |   |   W_parser > 0: 0 (3.0)
+|   |   |   |   |   |   |   |   W_Fix > 0: 0 (14.0)
+|   |   |   |   |   |   |   W_cursor > 0: 1 (3.0)
+|   |   |   |   |   |   W_usage > 0: 1 (3.0)
+|   |   |   |   W_compatibility > 0
+|   |   |   |   |   W_handle <= 0
+|   |   |   |   |   |   W_small <= 0
+|   |   |   |   |   |   |   W_docs <= 0
+|   |   |   |   |   |   |   |   W_eliminates <= 0: 0 (16.0)
+|   |   |   |   |   |   |   |   W_eliminates > 0: 1 (2.0)
+|   |   |   |   |   |   |   W_docs > 0: 1 (2.0)
+|   |   |   |   |   |   W_small > 0: 1 (3.0)
+|   |   |   |   |   W_handle > 0: 1 (6.0)
+|   |   |   W_force > 0
+|   |   |   |   W_handle <= 0
+|   |   |   |   |   W_cases <= 0
+|   |   |   |   |   |   W_patch_ <= 0
+|   |   |   |   |   |   |   W__which <= 0
+|   |   |   |   |   |   |   |   W_Add <= 0
+|   |   |   |   |   |   |   |   |   W_error <= 0: 1 (3.0)
+|   |   |   |   |   |   |   |   |   W_error > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   W_Add > 0: 1 (12.0)
+|   |   |   |   |   |   |   W__which > 0: 0 (2.0)
+|   |   |   |   |   |   W_patch_ > 0: 0 (2.0)
+|   |   |   |   |   W_cases > 0: 0 (3.0)
+|   |   |   |   W_handle > 0: 0 (5.0)
+|   |   W_catalog > 0: 0 (27.0/1.0)
+|   W_start > 0
+|   |   W_Conway_ <= 0
+|   |   |   W_updated <= 0
+|   |   |   |   W_thought <= 0
+|   |   |   |   |   W_typo <= 0
+|   |   |   |   |   |   W_apply <= 0
+|   |   |   |   |   |   |   W_pg_statistic <= 0: 0 (21.0/1.0)
+|   |   |   |   |   |   |   W_pg_statistic > 0: 1 (2.0)
+|   |   |   |   |   |   W_apply > 0: 1 (2.0)
+|   |   |   |   |   W_typo > 0: 1 (2.0)
+|   |   |   |   W_thought > 0: 1 (3.0)
+|   |   |   W_updated > 0: 1 (4.0)
+|   |   W_Conway_ > 0: 1 (4.0)
+W_domain > 0: 0 (32.0/1.0)
+
+Number of Leaves  : 	64
+
+Size of the tree : 	127
+
+
+Time taken to build model: 46.31 seconds
+Time taken to test model on training data: 4.18 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         608               95      %
+Incorrectly Classified Instances        32                5      %
+Kappa statistic                          0.854 
+Mean absolute error                      0.0896
+Root mean squared error                  0.2117
+Relative absolute error                 24.8322 %
+Root relative squared error             49.8618 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.99      0.179      0.947     0.99      0.968      0.952    0
+                 0.821     0.01       0.961     0.821     0.886      0.952    1
+Weighted Avg.    0.95      0.139      0.95      0.95      0.949      0.952
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 484   5 |   a = 0
+  27 124 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         455               71.0938 %
+Incorrectly Classified Instances       185               28.9063 %
+Kappa statistic                          0.1107
+Mean absolute error                      0.2993
+Root mean squared error                  0.5153
+Relative absolute error                 82.895  %
+Root relative squared error            121.3703 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.855     0.755      0.786     0.855     0.819      0.545    0
+                 0.245     0.145      0.343     0.245     0.286      0.545    1
+Weighted Avg.    0.711     0.611      0.681     0.711     0.693      0.545
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 418  71 |   a = 0
+ 114  37 |   b = 1
+

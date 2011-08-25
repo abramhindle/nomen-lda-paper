@@ -1,0 +1,74 @@
+
+RIpple DOwn Rule Learner(Ridor) rules
+--------------------------------------
+
+A_none = 1  (586.0/542.0)
+           Except (W_merged <= 0.5) and (W_fix > 0.5) => A_none = 0  (61.0/0.0) [27.0/0.0]
+           Except (W_Added > 0.5) and (W_ignore <= 0.5) and (W_monty_mysql_fi <= 0.5) => A_none = 0  (66.0/0.0) [19.0/0.0]
+           Except (W_Fix > 0.5) and (W_table <= 0.5) => A_none = 0  (43.0/0.0) [28.0/0.0]
+           Except (W_Fixed > 0.5) and (W_Changelog <= 0.5) => A_none = 0  (32.0/0.0) [9.0/0.0]
+           Except (W_merged <= 0.5) and (W_monty_mysql_fi <= 0.5) and (W__ > 0.5) => A_none = 0  (16.0/0.0) [13.0/0.0]
+           Except (W_merged <= 0.5) and (W_bug > 0.5) => A_none = 0  (13.0/0.0) [6.0/0.0]
+           Except (W_merged <= 0.5) and (W_monty_mysql_fi <= 0.5) and (W_Changelog <= 0.5) and (W_error > 0.5) => A_none = 0  (9.0/0.0) [4.0/0.0]
+           Except (W_test > 0.5) => A_none = 0  (13.0/0.0) [3.0/0.0]
+           Except (W_Auto <= 0.5) => A_none = 0  (138.0/25.0) [66.0/10.0]
+
+Total number of rules (incl. the default rule): 10
+
+Time taken to build model: 3.4 seconds
+Time taken to test model on training data: 0.39 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         540               92.1502 %
+Incorrectly Classified Instances        46                7.8498 %
+Kappa statistic                          0.2459
+Mean absolute error                      0.0785
+Root mean squared error                  0.2802
+Relative absolute error                 56.0209 %
+Root relative squared error            106.3152 %
+Total Number of Instances              586     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.98      0.795      0.938     0.98      0.958      0.592    0
+                 0.205     0.02       0.45      0.205     0.281      0.592    1
+Weighted Avg.    0.922     0.737      0.902     0.922     0.908      0.592
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 531  11 |   a = 0
+  35   9 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         541               92.3208 %
+Incorrectly Classified Instances        45                7.6792 %
+Kappa statistic                         -0.0033
+Mean absolute error                      0.0768
+Root mean squared error                  0.2771
+Relative absolute error                 54.7461 %
+Root relative squared error            105.1417 %
+Total Number of Instances              586     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.998     1          0.925     0.998     0.96       0.499    0
+                 0         0.002      0         0         0          0.499    1
+Weighted Avg.    0.923     0.925      0.855     0.923     0.888      0.499
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 541   1 |   a = 0
+  44   0 |   b = 1
+

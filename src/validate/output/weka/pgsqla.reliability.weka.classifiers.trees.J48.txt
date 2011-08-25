@@ -1,0 +1,231 @@
+
+J48 pruned tree
+------------------
+
+W_core <= 0
+|   W_leak <= 0
+|   |   W_7_3_ <= 0
+|   |   |   W_fixed <= 0
+|   |   |   |   W_Code <= 0
+|   |   |   |   |   W_queries <= 0
+|   |   |   |   |   |   W_buffer <= 0
+|   |   |   |   |   |   |   W_Adjust <= 0
+|   |   |   |   |   |   |   |   W_processing <= 0
+|   |   |   |   |   |   |   |   |   W_messages <= 0
+|   |   |   |   |   |   |   |   |   |   W_format <= 0
+|   |   |   |   |   |   |   |   |   |   |   W_tuple <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_information <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_Lane_ <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Done_ <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_representation <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_multiple <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_implementation <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_shared <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_options <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_broken <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_calls <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Added <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_mention <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_versions <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_ALTER <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_API <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_bit <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_temp <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_directory <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Repair <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_extra <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_commands <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_ensure <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Fixed <= 0: 0 (48.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Fixed > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_segfault <= 0: 0 (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_segfault > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_ensure > 0: 1 (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_commands > 0: 1 (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_extra > 0: 1 (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Repair > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_discussion <= 0: 1 (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_discussion > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_directory > 0: 1 (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_temp > 0: 1 (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_bit > 0: 0 (8.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_API > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_code <= 0: 1 (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_code > 0: 0 (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_ALTER > 0: 0 (12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_versions > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_support_ <= 0: 1 (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_support_ > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_mention > 0: 0 (19.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Added > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Remove <= 0: 1 (9.0/3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Remove > 0: 0 (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_calls > 0: 0 (14.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_broken > 0: 0 (13.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_options > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_regression <= 0: 1 (5.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_regression > 0: 0 (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_shared > 0: 0 (16.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_implementation > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_documentation <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_error <= 0: 0 (6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_error > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_documentation > 0: 1 (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_multiple > 0: 0 (12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_representation > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Also_ <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Remove <= 0: 0 (6.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Remove > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Also_ > 0: 1 (4.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Done_ > 0: 0 (25.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_Lane_ > 0: 0 (20.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_information > 0: 0 (23.0)
+|   |   |   |   |   |   |   |   |   |   |   W_tuple > 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_tests <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_memory <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_handling <= 0: 0 (9.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_handling > 0: 1 (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_memory > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_tests > 0: 1 (3.0)
+|   |   |   |   |   |   |   |   |   |   W_format > 0: 0 (18.0)
+|   |   |   |   |   |   |   |   |   W_messages > 0
+|   |   |   |   |   |   |   |   |   |   W_compile <= 0
+|   |   |   |   |   |   |   |   |   |   |   W_current <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_Added_ <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   W__c <= 0: 0 (21.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   W__c > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_Added_ > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   W_current > 0: 1 (3.0)
+|   |   |   |   |   |   |   |   |   |   W_compile > 0: 1 (5.0)
+|   |   |   |   |   |   |   |   W_processing > 0: 0 (19.0)
+|   |   |   |   |   |   |   W_Adjust > 0: 0 (38.0/1.0)
+|   |   |   |   |   |   W_buffer > 0
+|   |   |   |   |   |   |   W_parameters <= 0
+|   |   |   |   |   |   |   |   W_update <= 0
+|   |   |   |   |   |   |   |   |   W_Christopher <= 0
+|   |   |   |   |   |   |   |   |   |   W_Chris <= 0
+|   |   |   |   |   |   |   |   |   |   |   W_completion <= 0: 0 (20.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   W_completion > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   W_Chris > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   W_Christopher > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   W_update > 0: 1 (2.0)
+|   |   |   |   |   |   |   W_parameters > 0: 1 (3.0)
+|   |   |   |   |   W_queries > 0: 0 (29.0)
+|   |   |   |   W_Code > 0
+|   |   |   |   |   W_types <= 0
+|   |   |   |   |   |   W_read <= 0
+|   |   |   |   |   |   |   W_Prevent <= 0
+|   |   |   |   |   |   |   |   W_transaction <= 0: 0 (12.0)
+|   |   |   |   |   |   |   |   W_transaction > 0
+|   |   |   |   |   |   |   |   |   W_minor <= 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   W_minor > 0: 0 (3.0)
+|   |   |   |   |   |   |   W_Prevent > 0: 1 (2.0)
+|   |   |   |   |   |   W_read > 0: 1 (3.0)
+|   |   |   |   |   W_types > 0: 1 (5.0)
+|   |   |   W_fixed > 0
+|   |   |   |   W_Kris <= 0
+|   |   |   |   |   W_null <= 0
+|   |   |   |   |   |   W_ensure <= 0
+|   |   |   |   |   |   |   W_Peter <= 0
+|   |   |   |   |   |   |   |   W_introduced <= 0
+|   |   |   |   |   |   |   |   |   W_fix_ <= 0
+|   |   |   |   |   |   |   |   |   |   W_Minor <= 0
+|   |   |   |   |   |   |   |   |   |   |   W_data <= 0: 0 (27.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   W_data > 0
+|   |   |   |   |   |   |   |   |   |   |   |   W__ <= 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W__ > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   W_Minor > 0: 1 (3.0/1.0)
+|   |   |   |   |   |   |   |   |   W_fix_ > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   W_introduced > 0: 1 (2.0)
+|   |   |   |   |   |   |   W_Peter > 0: 1 (3.0)
+|   |   |   |   |   |   W_ensure > 0: 1 (3.0)
+|   |   |   |   |   W_null > 0: 1 (4.0)
+|   |   |   |   W_Kris > 0: 1 (4.0)
+|   |   W_7_3_ > 0
+|   |   |   W_parser <= 0
+|   |   |   |   W_logic <= 0
+|   |   |   |   |   W_run <= 0
+|   |   |   |   |   |   W_initdb <= 0: 1 (14.0/1.0)
+|   |   |   |   |   |   W_initdb > 0: 0 (3.0/1.0)
+|   |   |   |   |   W_run > 0: 0 (2.0)
+|   |   |   |   W_logic > 0: 0 (3.0)
+|   |   |   W_parser > 0: 0 (4.0)
+|   W_leak > 0
+|   |   W_COPY <= 0
+|   |   |   W_makes <= 0
+|   |   |   |   W_Remove <= 0: 1 (12.0)
+|   |   |   |   W_Remove > 0
+|   |   |   |   |   W_code <= 0: 0 (5.0)
+|   |   |   |   |   W_code > 0: 1 (2.0)
+|   |   |   W_makes > 0: 0 (3.0)
+|   |   W_COPY > 0: 0 (4.0)
+W_core > 0
+|   W_Create <= 0
+|   |   W_real <= 0
+|   |   |   W_parts <= 0: 1 (17.0/1.0)
+|   |   |   W_parts > 0: 0 (2.0)
+|   |   W_real > 0: 0 (3.0)
+|   W_Create > 0: 0 (4.0)
+
+Number of Leaves  : 	83
+
+Size of the tree : 	165
+
+
+Time taken to build model: 49.56 seconds
+Time taken to test model on training data: 3.87 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         622               97.1875 %
+Incorrectly Classified Instances        18                2.8125 %
+Kappa statistic                          0.9265
+Mean absolute error                      0.0449
+Root mean squared error                  0.1498
+Relative absolute error                 11.808  %
+Root relative squared error             34.3797 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.977     0.043      0.985     0.977     0.981      0.993    0
+                 0.957     0.023      0.934     0.957     0.945      0.993    1
+Weighted Avg.    0.972     0.038      0.972     0.972     0.972      0.993
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 466  11 |   a = 0
+   7 156 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         409               63.9063 %
+Incorrectly Classified Instances       231               36.0938 %
+Kappa statistic                          0.0512
+Mean absolute error                      0.3664
+Root mean squared error                  0.5796
+Relative absolute error                 96.3904 %
+Root relative squared error            133.0317 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.757     0.706      0.758     0.757     0.758      0.537    0
+                 0.294     0.243      0.293     0.294     0.294      0.537    1
+Weighted Avg.    0.639     0.588      0.64      0.639     0.639      0.537
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 361 116 |   a = 0
+ 115  48 |   b = 1
+

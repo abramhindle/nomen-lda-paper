@@ -1,0 +1,70 @@
+
+RIpple DOwn Rule Learner(Ridor) rules
+--------------------------------------
+
+A_functionality = 1  (640.0/295.0)
+           Except (W_Fix <= 0.5) and (W_bug <= 0.5) and (W_fix <= 0.5) and (W_Remove <= 0.5) and (W__ <= 0.5) => A_functionality = 0  (31.0/0.0) [14.0/4.0]
+           Except (W_Fix <= 0.5) and (W_SQL > 0.5) and (W_updates <= 0.5) => A_functionality = 0  (17.0/0.0) [6.0/3.0]
+           Except (W_Fix <= 0.5) => A_functionality = 0  (131.0/58.0) [71.0/31.0]
+           Except (W_support > 0.5) and (W__ > 0.5) and (W_work <= 0.5) and (W__Add <= 0.5) => A_functionality = 0  (13.0/0.0) [6.0/3.0]
+           Except (W_fix <= 0.5) and (W_CREATE > 0.5) and (W_make <= 0.5) and (W_names <= 0.5) => A_functionality = 0  (15.0/2.0) [6.0/3.0]
+
+Total number of rules (incl. the default rule): 6
+
+Time taken to build model: 33.29 seconds
+Time taken to test model on training data: 3.12 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         447               69.8438 %
+Incorrectly Classified Instances       193               30.1563 %
+Kappa statistic                          0.3954
+Mean absolute error                      0.3016
+Root mean squared error                  0.5491
+Relative absolute error                 60.6817 %
+Root relative squared error            110.1661 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.698     0.301      0.665     0.698     0.681      0.698    0
+                 0.699     0.302      0.73      0.699     0.714      0.698    1
+Weighted Avg.    0.698     0.302      0.7       0.698     0.699      0.698
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 206  89 |   a = 0
+ 104 241 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         382               59.6875 %
+Incorrectly Classified Instances       258               40.3125 %
+Kappa statistic                          0.1868
+Mean absolute error                      0.4031
+Root mean squared error                  0.6349
+Relative absolute error                 81.1162 %
+Root relative squared error            127.3699 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.546     0.359      0.565     0.546     0.555      0.593    0
+                 0.641     0.454      0.623     0.641     0.631      0.593    1
+Weighted Avg.    0.597     0.411      0.596     0.597     0.596      0.593
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 161 134 |   a = 0
+ 124 221 |   b = 1
+

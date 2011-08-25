@@ -1,0 +1,67 @@
+
+JRIP rules:
+===========
+
+(W_O_N_2_ >= 1) => A_efficiency=1 (6.0/0.0)
+ => A_efficiency=0 (634.0/52.0)
+
+Number of Rules : 2
+
+
+Time taken to build model: 49.61 seconds
+Time taken to test model on training data: 3.53 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         588               91.875  %
+Incorrectly Classified Instances        52                8.125  %
+Kappa statistic                          0.1735
+Mean absolute error                      0.1492
+Root mean squared error                  0.2731
+Relative absolute error                 89.9339 %
+Root relative squared error             95.1325 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0.897      0.918     1         0.957      0.552    0
+                 0.103     0          1         0.103     0.188      0.552    1
+Weighted Avg.    0.919     0.815      0.925     0.919     0.887      0.552
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 582   0 |   a = 0
+  52   6 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         582               90.9375 %
+Incorrectly Classified Instances        58                9.0625 %
+Kappa statistic                          0.0781
+Mean absolute error                      0.1565
+Root mean squared error                  0.2855
+Relative absolute error                 94.3042 %
+Root relative squared error             99.4311 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.995     0.948      0.913     0.995     0.952      0.512    0
+                 0.052     0.005      0.5       0.052     0.094      0.512    1
+Weighted Avg.    0.909     0.863      0.876     0.909     0.874      0.512
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 579   3 |   a = 0
+  55   3 |   b = 1
+

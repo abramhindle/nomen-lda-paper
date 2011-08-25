@@ -1,0 +1,62 @@
+
+IB1 instance-based classifier
+using 1 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0.02 seconds
+Time taken to test model on training data: 5.07 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         584               99.6587 %
+Incorrectly Classified Instances         2                0.3413 %
+Kappa statistic                          0.9759
+Mean absolute error                      0.0075
+Root mean squared error                  0.0541
+Relative absolute error                  5.3454 %
+Root relative squared error             20.5477 %
+Total Number of Instances              586     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.996     0          1         0.996     0.998      1        0
+                 1         0.004      0.957     1         0.978      1        1
+Weighted Avg.    0.997     0          0.997     0.997     0.997      1    
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 540   2 |   a = 0
+   0  44 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         205               34.9829 %
+Incorrectly Classified Instances       381               65.0171 %
+Kappa statistic                          0.0354
+Mean absolute error                      0.5641
+Root mean squared error                  0.6831
+Relative absolute error                402.1664 %
+Root relative squared error            259.1836 %
+Total Number of Instances              586     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.308     0.136      0.965     0.308     0.467      0.685    0
+                 0.864     0.692      0.092     0.864     0.166      0.685    1
+Weighted Avg.    0.35      0.178      0.9       0.35      0.445      0.685
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 167 375 |   a = 0
+   6  38 |   b = 1
+

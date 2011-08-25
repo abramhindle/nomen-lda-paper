@@ -1,0 +1,105 @@
+
+J48 pruned tree
+------------------
+
+W_performance <= 0
+|   W_unnecessary <= 0
+|   |   W_Avoid <= 0
+|   |   |   W_entries <= 0: 0 (488.0/20.0)
+|   |   |   W_entries > 0
+|   |   |   |   W_updated <= 0
+|   |   |   |   |   W_older <= 0
+|   |   |   |   |   |   W_connection <= 0: 0 (30.0/1.0)
+|   |   |   |   |   |   W_connection > 0: 1 (3.0/1.0)
+|   |   |   |   |   W_older > 0: 1 (2.0)
+|   |   |   |   W_updated > 0: 1 (2.0)
+|   |   W_Avoid > 0
+|   |   |   W_field <= 0
+|   |   |   |   W_stored <= 0
+|   |   |   |   |   W_object <= 0: 0 (30.0/1.0)
+|   |   |   |   |   W_object > 0: 1 (3.0/1.0)
+|   |   |   |   W_stored > 0: 1 (2.0)
+|   |   |   W_field > 0: 1 (3.0)
+|   W_unnecessary > 0
+|   |   W_method <= 0
+|   |   |   W_return <= 0
+|   |   |   |   W_rid <= 0
+|   |   |   |   |   W_Sherry <= 0: 0 (23.0/1.0)
+|   |   |   |   |   W_Sherry > 0: 1 (2.0)
+|   |   |   |   W_rid > 0: 1 (2.0)
+|   |   |   W_return > 0: 1 (2.0)
+|   |   W_method > 0: 1 (3.0)
+W_performance > 0
+|   W_CVS <= 0
+|   |   W_functions_ <= 0
+|   |   |   W_Clean <= 0
+|   |   |   |   W_cache <= 0
+|   |   |   |   |   W_7_4 <= 0: 0 (32.0/1.0)
+|   |   |   |   |   W_7_4 > 0: 1 (3.0/1.0)
+|   |   |   |   W_cache > 0: 1 (2.0)
+|   |   |   W_Clean > 0: 1 (2.0)
+|   |   W_functions_ > 0: 1 (3.0)
+|   W_CVS > 0: 1 (3.0)
+
+Number of Leaves  : 	20
+
+Size of the tree : 	39
+
+
+Time taken to build model: 31.84 seconds
+Time taken to test model on training data: 4.27 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         613               95.7813 %
+Incorrectly Classified Instances        27                4.2188 %
+Kappa statistic                          0.6942
+Mean absolute error                      0.0782
+Root mean squared error                  0.1978
+Relative absolute error                 47.1739 %
+Root relative squared error             68.8998 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.995     0.414      0.96      0.995     0.977      0.798    0
+                 0.586     0.005      0.919     0.586     0.716      0.798    1
+Weighted Avg.    0.958     0.377      0.956     0.958     0.954      0.798
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 579   3 |   a = 0
+  24  34 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         555               86.7188 %
+Incorrectly Classified Instances        85               13.2813 %
+Kappa statistic                          0.0373
+Mean absolute error                      0.16  
+Root mean squared error                  0.3583
+Relative absolute error                 96.3668 %
+Root relative squared error            124.8015 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.945     0.914      0.912     0.945     0.928      0.459    0
+                 0.086     0.055      0.135     0.086     0.105      0.459    1
+Weighted Avg.    0.867     0.836      0.842     0.867     0.854      0.459
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 550  32 |   a = 0
+  53   5 |   b = 1
+

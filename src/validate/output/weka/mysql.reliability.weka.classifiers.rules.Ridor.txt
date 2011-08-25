@@ -6,60 +6,60 @@ A_reliability = 0  (586.0/0.0)
 
 Total number of rules (incl. the default rule): 1
 
-Time taken to build model: 5.6 seconds
-Time taken to test model on training data: 0.46 seconds
+Time taken to build model: 4.55 seconds
+Time taken to test model on training data: 0.54 seconds
 
 === Error on training data ===
 
-Correctly Classified Instances         487               83.1058 %
-Incorrectly Classified Instances        99               16.8942 %
+Correctly Classified Instances         469               80.0341 %
+Incorrectly Classified Instances       117               19.9659 %
 Kappa statistic                          0     
-Mean absolute error                      0.1689
-Root mean squared error                  0.411 
-Relative absolute error                 60.0049 %
-Root relative squared error            109.6939 %
+Mean absolute error                      0.1997
+Root mean squared error                  0.4468
+Relative absolute error                 62.3536 %
+Root relative squared error            111.7792 %
 Total Number of Instances              586     
 
 
 === Detailed Accuracy By Class ===
 
                TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
-                 1         1          0.831     1         0.908      0.5      0
+                 1         1          0.8       1         0.889      0.5      0
                  0         0          0         0         0          0.5      1
-Weighted Avg.    0.831     0.831      0.691     0.831     0.754      0.5  
+Weighted Avg.    0.8       0.8        0.641     0.8       0.712      0.5  
 
 
 === Confusion Matrix ===
 
    a   b   <-- classified as
- 487   0 |   a = 0
-  99   0 |   b = 1
+ 469   0 |   a = 0
+ 117   0 |   b = 1
 
 
 
 === Stratified cross-validation ===
 
-Correctly Classified Instances         488               83.2765 %
-Incorrectly Classified Instances        98               16.7235 %
-Kappa statistic                          0.0421
-Mean absolute error                      0.1672
-Root mean squared error                  0.4089
-Relative absolute error                 59.3805 %
-Root relative squared error            109.1363 %
+Correctly Classified Instances         467               79.6928 %
+Incorrectly Classified Instances       119               20.3072 %
+Kappa statistic                          0.0511
+Mean absolute error                      0.2031
+Root mean squared error                  0.4506
+Relative absolute error                 63.4047 %
+Root relative squared error            112.7269 %
 Total Number of Instances              586     
 
 
 === Detailed Accuracy By Class ===
 
                TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
-                 0.996     0.97       0.835     0.996     0.908      0.513    0
-                 0.03      0.004      0.6       0.03      0.058      0.513    1
-Weighted Avg.    0.833     0.807      0.795     0.833     0.765      0.513
+                 0.983     0.949      0.806     0.983     0.886      0.517    0
+                 0.051     0.017      0.429     0.051     0.092      0.517    1
+Weighted Avg.    0.797     0.763      0.731     0.797     0.727      0.517
 
 
 === Confusion Matrix ===
 
    a   b   <-- classified as
- 485   2 |   a = 0
-  96   3 |   b = 1
+ 461   8 |   a = 0
+ 111   6 |   b = 1
 

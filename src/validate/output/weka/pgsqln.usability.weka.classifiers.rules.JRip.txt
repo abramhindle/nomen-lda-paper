@@ -1,0 +1,66 @@
+
+JRIP rules:
+===========
+
+ => A_usability=0 (640.0/164.0)
+
+Number of Rules : 1
+
+
+Time taken to build model: 34.69 seconds
+Time taken to test model on training data: 4.39 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         476               74.375  %
+Incorrectly Classified Instances       164               25.625  %
+Kappa statistic                          0     
+Mean absolute error                      0.3812
+Root mean squared error                  0.4366
+Relative absolute error                 99.903  %
+Root relative squared error             99.9998 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         1          0.744     1         0.853      0.5      0
+                 0         0          0         0         0          0.5      1
+Weighted Avg.    0.744     0.744      0.553     0.744     0.634      0.5  
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 476   0 |   a = 0
+ 164   0 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         473               73.9063 %
+Incorrectly Classified Instances       167               26.0938 %
+Kappa statistic                          0.0521
+Mean absolute error                      0.3739
+Root mean squared error                  0.4358
+Relative absolute error                 97.9739 %
+Root relative squared error             99.8128 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.971     0.933      0.751     0.971     0.847      0.518    0
+                 0.067     0.029      0.44      0.067     0.116      0.518    1
+Weighted Avg.    0.739     0.701      0.671     0.739     0.66       0.518
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 462  14 |   a = 0
+ 153  11 |   b = 1
+

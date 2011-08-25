@@ -1,0 +1,67 @@
+
+RIpple DOwn Rule Learner(Ridor) rules
+--------------------------------------
+
+A_none = 0  (389.0/168.0)
+           Except (W_v1_09 > 0.5) and (W_add <= 0.5) => A_none = 1  (54.0/11.0) [28.0/8.0]
+           Except (W_test <= 0.5) and (W_V75_ <= 0.5) and (W_error <= 0.5) and (W_7_5_00_ <= 0.5) and (W_check <= 0.5) and (W_7_5 > 0.5) and (W_7_5_00 <= 0.5) => A_none = 1  (5.0/0.0) [8.0/2.0]
+
+Total number of rules (incl. the default rule): 3
+
+Time taken to build model: 12.53 seconds
+Time taken to test model on training data: 1.09 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         274               70.437  %
+Incorrectly Classified Instances       115               29.563  %
+Kappa statistic                          0.3644
+Mean absolute error                      0.2956
+Root mean squared error                  0.5437
+Relative absolute error                 60.2385 %
+Root relative squared error            109.7673 %
+Total Number of Instances              389     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.905     0.56       0.68      0.905     0.777      0.673    0
+                 0.44      0.095      0.779     0.44      0.563      0.673    1
+Weighted Avg.    0.704     0.359      0.723     0.704     0.684      0.673
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 200  21 |   a = 0
+  94  74 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         258               66.3239 %
+Incorrectly Classified Instances       131               33.6761 %
+Kappa statistic                          0.292 
+Mean absolute error                      0.3368
+Root mean squared error                  0.5803
+Relative absolute error                 68.6166 %
+Root relative squared error            117.1507 %
+Total Number of Instances              389     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.801     0.518      0.67      0.801     0.73       0.642    0
+                 0.482     0.199      0.648     0.482     0.553      0.642    1
+Weighted Avg.    0.663     0.38       0.661     0.663     0.653      0.642
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 177  44 |   a = 0
+  87  81 |   b = 1
+
