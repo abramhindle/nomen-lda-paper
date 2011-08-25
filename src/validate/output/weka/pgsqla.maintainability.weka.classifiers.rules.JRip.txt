@@ -1,0 +1,66 @@
+
+JRIP rules:
+===========
+
+ => A_maintainability=0 (640.0/112.0)
+
+Number of Rules : 1
+
+
+Time taken to build model: 47.19 seconds
+Time taken to test model on training data: 4.78 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         528               82.5    %
+Incorrectly Classified Instances       112               17.5    %
+Kappa statistic                          0     
+Mean absolute error                      0.2888
+Root mean squared error                  0.38  
+Relative absolute error                 99.7726 %
+Root relative squared error             99.9996 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         1          0.825     1         0.904      0.5      0
+                 0         0          0         0         0          0.5      1
+Weighted Avg.    0.825     0.825      0.681     0.825     0.746      0.5  
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 528   0 |   a = 0
+ 112   0 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         520               81.25   %
+Incorrectly Classified Instances       120               18.75   %
+Kappa statistic                         -0.0127
+Mean absolute error                      0.2918
+Root mean squared error                  0.3853
+Relative absolute error                100.7979 %
+Root relative squared error            101.4102 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.983     0.991      0.824     0.983     0.896      0.484    0
+                 0.009     0.017      0.1       0.009     0.016      0.484    1
+Weighted Avg.    0.813     0.821      0.697     0.813     0.742      0.484
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 519   9 |   a = 0
+ 111   1 |   b = 1
+

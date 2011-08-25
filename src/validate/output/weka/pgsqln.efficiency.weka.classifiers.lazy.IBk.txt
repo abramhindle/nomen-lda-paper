@@ -1,0 +1,62 @@
+
+IB1 instance-based classifier
+using 1 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0.09 seconds
+Time taken to test model on training data: 55.74 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         640              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0016
+Root mean squared error                  0.0016
+Relative absolute error                  0.4776 %
+Root relative squared error              0.3861 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        0
+                 1         0          1         1         1          1        1
+Weighted Avg.    1         0          1         1         1          1    
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 509   0 |   a = 0
+   0 131 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         508               79.375  %
+Incorrectly Classified Instances       132               20.625  %
+Kappa statistic                         -0.0031
+Mean absolute error                      0.2072
+Root mean squared error                  0.4534
+Relative absolute error                 63.5136 %
+Root relative squared error            112.3758 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.998     1          0.795     0.998     0.885      0.517    0
+                 0         0.002      0         0         0          0.517    1
+Weighted Avg.    0.794     0.796      0.632     0.794     0.704      0.517
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 508   1 |   a = 0
+ 131   0 |   b = 1
+

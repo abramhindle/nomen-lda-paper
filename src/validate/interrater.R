@@ -37,11 +37,11 @@ weight <- "unweighted"
 #}
 
 sapply(names(pa),function(i) {
-  mat <- matrix(c( pa[,i], pn[,i] ), ncol=2)
+  mat <- matrix(c( as.factor(pa[,i]), as.factor(pn[,i]) ), ncol=2)
   kappam.fleiss(mat)$value
 })
 sapply(names(pa),function(i) {
-  mat <- matrix(c( pa[,i], pn[,i] ), ncol=2)
+  mat <- matrix(c( as.factor(pa[,i]), as.factor(pn[,i]) ), ncol=2)
   kappa2(mat)$value
 })
 sapply(names(pa),function(i) {

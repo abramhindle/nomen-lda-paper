@@ -22,34 +22,34 @@ Weighted Avg.    1         0          1         1         1          1
 === Confusion Matrix ===
 
    a   b   <-- classified as
- 487   0 |   a = 0
-   0  99 |   b = 1
+ 469   0 |   a = 0
+   0 117 |   b = 1
 
 
 
 === Stratified cross-validation ===
 
-Correctly Classified Instances         490               83.6177 %
-Incorrectly Classified Instances        96               16.3823 %
-Kappa statistic                          0.3047
-Mean absolute error                      0.1638
-Root mean squared error                  0.4047
-Relative absolute error                 58.1686 %
-Root relative squared error            108.0169 %
+Correctly Classified Instances         481               82.0819 %
+Incorrectly Classified Instances       105               17.9181 %
+Kappa statistic                          0.3398
+Mean absolute error                      0.1792
+Root mean squared error                  0.4233
+Relative absolute error                 55.9453 %
+Root relative squared error            105.8885 %
 Total Number of Instances              586     
 
 
 === Detailed Accuracy By Class ===
 
                TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
-                 0.943     0.687      0.871     0.943     0.905      0.628    0
-                 0.313     0.057      0.525     0.313     0.392      0.628    1
-Weighted Avg.    0.836     0.581      0.813     0.836     0.819      0.628
+                 0.938     0.65       0.853     0.938     0.893      0.644    0
+                 0.35      0.062      0.586     0.35      0.439      0.644    1
+Weighted Avg.    0.821     0.532      0.799     0.821     0.803      0.644
 
 
 === Confusion Matrix ===
 
    a   b   <-- classified as
- 459  28 |   a = 0
-  68  31 |   b = 1
+ 440  29 |   a = 0
+  76  41 |   b = 1
 

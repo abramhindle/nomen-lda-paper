@@ -1,0 +1,161 @@
+
+J48 pruned tree
+------------------
+
+W_remove <= 0
+|   W_temp <= 0
+|   |   W__Allow <= 0
+|   |   |   W_removed <= 0
+|   |   |   |   W_behavior <= 0
+|   |   |   |   |   W_Avoid <= 0
+|   |   |   |   |   |   W_issues <= 0
+|   |   |   |   |   |   |   W_commands <= 0
+|   |   |   |   |   |   |   |   W_join <= 0
+|   |   |   |   |   |   |   |   |   W_needed <= 0
+|   |   |   |   |   |   |   |   |   |   W_Kris <= 0
+|   |   |   |   |   |   |   |   |   |   |   W_triggers <= 0: 0 (271.0/32.0)
+|   |   |   |   |   |   |   |   |   |   |   W_triggers > 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_proper <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_putting <= 0: 0 (7.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_putting > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_proper > 0: 1 (3.0)
+|   |   |   |   |   |   |   |   |   |   W_Kris > 0
+|   |   |   |   |   |   |   |   |   |   |   W_Make <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_fixes <= 0: 0 (8.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_fixes > 0: 1 (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   W_Make > 0: 1 (3.0)
+|   |   |   |   |   |   |   |   |   W_needed > 0
+|   |   |   |   |   |   |   |   |   |   W____ <= 0
+|   |   |   |   |   |   |   |   |   |   |   W_results_ <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_handling <= 0: 0 (15.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_handling > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   W_results_ > 0: 1 (3.0)
+|   |   |   |   |   |   |   |   |   |   W____ > 0: 1 (4.0/1.0)
+|   |   |   |   |   |   |   |   W_join > 0: 0 (22.0)
+|   |   |   |   |   |   |   W_commands > 0: 0 (26.0)
+|   |   |   |   |   |   W_issues > 0
+|   |   |   |   |   |   |   W_function <= 0
+|   |   |   |   |   |   |   |   W_types_ <= 0
+|   |   |   |   |   |   |   |   |   W_correct <= 0: 0 (12.0)
+|   |   |   |   |   |   |   |   |   W_correct > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   W_types_ > 0: 1 (3.0)
+|   |   |   |   |   |   |   W_function > 0: 1 (3.0)
+|   |   |   |   |   W_Avoid > 0
+|   |   |   |   |   |   W_number <= 0
+|   |   |   |   |   |   |   W_thread <= 0
+|   |   |   |   |   |   |   |   W_prevent <= 0
+|   |   |   |   |   |   |   |   |   W_recently <= 0: 0 (19.0/1.0)
+|   |   |   |   |   |   |   |   |   W_recently > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   W_prevent > 0: 1 (2.0)
+|   |   |   |   |   |   |   W_thread > 0: 1 (2.0)
+|   |   |   |   |   |   W_number > 0: 1 (3.0)
+|   |   |   |   W_behavior > 0
+|   |   |   |   |   W_correct <= 0: 0 (46.0)
+|   |   |   |   |   W_correct > 0
+|   |   |   |   |   |   W_version <= 0: 0 (5.0)
+|   |   |   |   |   |   W_version > 0: 1 (2.0)
+|   |   |   W_removed > 0
+|   |   |   |   W_query <= 0
+|   |   |   |   |   W_clear <= 0
+|   |   |   |   |   |   W_list <= 0
+|   |   |   |   |   |   |   W_relation <= 0: 0 (17.0)
+|   |   |   |   |   |   |   W_relation > 0: 1 (2.0)
+|   |   |   |   |   |   W_list > 0: 1 (2.0)
+|   |   |   |   |   W_clear > 0: 1 (3.0)
+|   |   |   |   W_query > 0: 1 (3.0)
+|   |   W__Allow > 0
+|   |   |   W_thread <= 0
+|   |   |   |   W_CVS <= 0
+|   |   |   |   |   W_incorrect <= 0
+|   |   |   |   |   |   W_docs <= 0: 0 (17.0)
+|   |   |   |   |   |   W_docs > 0
+|   |   |   |   |   |   |   W_Remove <= 0: 0 (2.0)
+|   |   |   |   |   |   |   W_Remove > 0: 1 (2.0)
+|   |   |   |   |   W_incorrect > 0: 1 (2.0)
+|   |   |   |   W_CVS > 0: 1 (2.0)
+|   |   |   W_thread > 0: 1 (6.0)
+|   W_temp > 0: 0 (29.0)
+W_remove > 0
+|   W_anyway_ <= 0
+|   |   W_protocol <= 0
+|   |   |   W_removed <= 0
+|   |   |   |   W_people <= 0
+|   |   |   |   |   W_text <= 0
+|   |   |   |   |   |   W_Store <= 0
+|   |   |   |   |   |   |   W_improve <= 0
+|   |   |   |   |   |   |   |   W_apply <= 0
+|   |   |   |   |   |   |   |   |   W__ <= 0: 0 (41.0/3.0)
+|   |   |   |   |   |   |   |   |   W__ > 0
+|   |   |   |   |   |   |   |   |   |   W_work <= 0: 1 (3.0)
+|   |   |   |   |   |   |   |   |   |   W_work > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   W_apply > 0: 1 (3.0/1.0)
+|   |   |   |   |   |   |   W_improve > 0: 1 (4.0/1.0)
+|   |   |   |   |   |   W_Store > 0: 1 (3.0)
+|   |   |   |   |   W_text > 0: 1 (6.0/1.0)
+|   |   |   |   W_people > 0: 1 (4.0)
+|   |   |   W_removed > 0: 0 (8.0)
+|   |   W_protocol > 0: 1 (4.0)
+|   W_anyway_ > 0: 1 (5.0)
+
+Number of Leaves  : 	48
+
+Size of the tree : 	95
+
+
+Time taken to build model: 45.49 seconds
+Time taken to test model on training data: 4.21 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         597               93.2813 %
+Incorrectly Classified Instances        43                6.7188 %
+Kappa statistic                          0.7642
+Mean absolute error                      0.117 
+Root mean squared error                  0.2418
+Relative absolute error                 36.9159 %
+Root relative squared error             60.8133 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.99      0.302      0.931     0.99      0.959      0.913    0
+                 0.698     0.01       0.946     0.698     0.804      0.913    1
+Weighted Avg.    0.933     0.244      0.934     0.933     0.929      0.913
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 509   5 |   a = 0
+  38  88 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         476               74.375  %
+Incorrectly Classified Instances       164               25.625  %
+Kappa statistic                          0.0978
+Mean absolute error                      0.2772
+Root mean squared error                  0.4867
+Relative absolute error                 87.4797 %
+Root relative squared error            122.3978 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.874     0.786      0.819     0.874     0.846      0.544    0
+                 0.214     0.126      0.293     0.214     0.248      0.544    1
+Weighted Avg.    0.744     0.656      0.716     0.744     0.728      0.544
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 449  65 |   a = 0
+  99  27 |   b = 1
+

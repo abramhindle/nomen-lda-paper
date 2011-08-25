@@ -1,0 +1,67 @@
+
+JRIP rules:
+===========
+
+(W_test <= 0) and (W_v1_09 >= 1) => A_none=1 (75.0/14.0)
+ => A_none=0 (314.0/107.0)
+
+Number of Rules : 2
+
+
+Time taken to build model: 21.14 seconds
+Time taken to test model on training data: 1.13 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         268               68.8946 %
+Incorrectly Classified Instances       121               31.1054 %
+Kappa statistic                          0.3211
+Mean absolute error                      0.4212
+Root mean squared error                  0.4589
+Relative absolute error                 85.8266 %
+Root relative squared error             92.6471 %
+Total Number of Instances              389     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.937     0.637      0.659     0.937     0.774      0.65     0
+                 0.363     0.063      0.813     0.363     0.502      0.65     1
+Weighted Avg.    0.689     0.389      0.726     0.689     0.656      0.65 
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 207  14 |   a = 0
+ 107  61 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         255               65.5527 %
+Incorrectly Classified Instances       134               34.4473 %
+Kappa statistic                          0.2566
+Mean absolute error                      0.431 
+Root mean squared error                  0.4721
+Relative absolute error                 87.8277 %
+Root relative squared error             95.3135 %
+Total Number of Instances              389     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.873     0.631      0.645     0.873     0.742      0.608    0
+                 0.369     0.127      0.689     0.369     0.481      0.608    1
+Weighted Avg.    0.656     0.413      0.664     0.656     0.629      0.608
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 193  28 |   a = 0
+ 106  62 |   b = 1
+

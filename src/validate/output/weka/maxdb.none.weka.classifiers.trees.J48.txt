@@ -1,0 +1,111 @@
+
+J48 pruned tree
+------------------
+
+W_database <= 0
+|   W_tests <= 0
+|   |   W_windows <= 0
+|   |   |   W__SYSDD80_cpnix_ <= 0
+|   |   |   |   W__SYSDD_punix_ <= 0
+|   |   |   |   |   W_test <= 0
+|   |   |   |   |   |   W_handling <= 0
+|   |   |   |   |   |   |   W_v1_09 <= 0
+|   |   |   |   |   |   |   |   W_error <= 0
+|   |   |   |   |   |   |   |   |   W_update <= 0
+|   |   |   |   |   |   |   |   |   |   W_file <= 0
+|   |   |   |   |   |   |   |   |   |   |   W_added <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_optimizer <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_problems <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_UNICODE <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Test <= 0: 1 (101.0/29.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Test > 0: 0 (3.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_UNICODE > 0: 0 (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_problems > 0: 0 (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_optimizer > 0: 0 (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   W_added > 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_set <= 0: 0 (7.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_set > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   W_file > 0
+|   |   |   |   |   |   |   |   |   |   |   W_Added <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_PTS <= 0: 0 (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_PTS > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   W_Added > 0: 0 (2.0)
+|   |   |   |   |   |   |   |   |   W_update > 0: 0 (8.0/1.0)
+|   |   |   |   |   |   |   |   W_error > 0: 0 (28.0/7.0)
+|   |   |   |   |   |   |   W_v1_09 > 0
+|   |   |   |   |   |   |   |   W_add <= 0: 1 (31.0/3.0)
+|   |   |   |   |   |   |   |   W_add > 0: 0 (2.0)
+|   |   |   |   |   |   W_handling > 0: 0 (11.0/2.0)
+|   |   |   |   |   W_test > 0: 0 (56.0/10.0)
+|   |   |   |   W__SYSDD_punix_ > 0: 1 (20.0/2.0)
+|   |   |   W__SYSDD80_cpnix_ > 0: 1 (18.0/1.0)
+|   |   W_windows > 0: 0 (17.0/1.0)
+|   W_tests > 0
+|   |   W_select <= 0: 0 (23.0)
+|   |   W_select > 0
+|   |   |   W_error <= 0: 1 (2.0)
+|   |   |   W_error > 0: 0 (3.0)
+W_database > 0: 0 (36.0/1.0)
+
+Number of Leaves  : 	23
+
+Size of the tree : 	45
+
+
+Time taken to build model: 12.59 seconds
+Time taken to test model on training data: 2 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         327               84.0617 %
+Incorrectly Classified Instances        62               15.9383 %
+Kappa statistic                          0.677 
+Mean absolute error                      0.2464
+Root mean squared error                  0.351 
+Relative absolute error                 50.206  %
+Root relative squared error             70.8596 %
+Total Number of Instances              389     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.842     0.161      0.873     0.842     0.857      0.894    0
+                 0.839     0.158      0.801     0.839     0.82       0.894    1
+Weighted Avg.    0.841     0.16       0.842     0.841     0.841      0.894
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 186  35 |   a = 0
+  27 141 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         258               66.3239 %
+Incorrectly Classified Instances       131               33.6761 %
+Kappa statistic                          0.3258
+Mean absolute error                      0.36  
+Root mean squared error                  0.5008
+Relative absolute error                 73.3592 %
+Root relative squared error            101.098  %
+Total Number of Instances              389     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.647     0.315      0.73      0.647     0.686      0.716    0
+                 0.685     0.353      0.596     0.685     0.637      0.716    1
+Weighted Avg.    0.663     0.332      0.672     0.663     0.665      0.716
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 143  78 |   a = 0
+  53 115 |   b = 1
+

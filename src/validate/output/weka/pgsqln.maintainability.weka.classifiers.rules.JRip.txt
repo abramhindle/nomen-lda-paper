@@ -1,0 +1,66 @@
+
+JRIP rules:
+===========
+
+ => A_maintainability=0 (640.0/126.0)
+
+Number of Rules : 1
+
+
+Time taken to build model: 43.84 seconds
+Time taken to test model on training data: 3.94 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         514               80.3125 %
+Incorrectly Classified Instances       126               19.6875 %
+Kappa statistic                          0     
+Mean absolute error                      0.3162
+Root mean squared error                  0.3976
+Relative absolute error                 99.8193 %
+Root relative squared error             99.9997 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         1          0.803     1         0.891      0.5      0
+                 0         0          0         0         0          0.5      1
+Weighted Avg.    0.803     0.803      0.645     0.803     0.715      0.5  
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 514   0 |   a = 0
+ 126   0 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         514               80.3125 %
+Incorrectly Classified Instances       126               19.6875 %
+Kappa statistic                          0     
+Mean absolute error                      0.3162
+Root mean squared error                  0.3977
+Relative absolute error                 99.7993 %
+Root relative squared error             99.9997 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         1          0.803     1         0.891      0.488    0
+                 0         0          0         0         0          0.488    1
+Weighted Avg.    0.803     0.803      0.645     0.803     0.715      0.488
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 514   0 |   a = 0
+ 126   0 |   b = 1
+

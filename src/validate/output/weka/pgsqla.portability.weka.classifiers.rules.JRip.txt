@@ -1,0 +1,66 @@
+
+JRIP rules:
+===========
+
+ => A_portability=1 (640.0/120.0)
+
+Number of Rules : 1
+
+
+Time taken to build model: 25.31 seconds
+Time taken to test model on training data: 3.78 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         520               81.25   %
+Incorrectly Classified Instances       120               18.75   %
+Kappa statistic                          0     
+Mean absolute error                      0.3047
+Root mean squared error                  0.3903
+Relative absolute error                 99.8007 %
+Root relative squared error             99.9997 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0         0          0         0         0          0.5      0
+                 1         1          0.813     1         0.897      0.5      1
+Weighted Avg.    0.813     0.813      0.66      0.813     0.728      0.5  
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+   0 120 |   a = 0
+   0 520 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         518               80.9375 %
+Incorrectly Classified Instances       122               19.0625 %
+Kappa statistic                          0.0041
+Mean absolute error                      0.305 
+Root mean squared error                  0.3922
+Relative absolute error                 99.8701 %
+Root relative squared error            100.4933 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.008     0.006      0.25      0.008     0.016      0.502    0
+                 0.994     0.992      0.813     0.994     0.894      0.502    1
+Weighted Avg.    0.809     0.807      0.707     0.809     0.73       0.502
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+   1 119 |   a = 0
+   3 517 |   b = 1
+

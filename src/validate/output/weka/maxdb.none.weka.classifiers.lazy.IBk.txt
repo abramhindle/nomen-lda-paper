@@ -1,0 +1,62 @@
+
+IB1 instance-based classifier
+using 1 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0.06 seconds
+Time taken to test model on training data: 18.26 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         389              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0026
+Root mean squared error                  0.0026
+Relative absolute error                  0.5211 %
+Root relative squared error              0.5163 %
+Total Number of Instances              389     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        0
+                 1         0          1         1         1          1        1
+Weighted Avg.    1         0          1         1         1          1    
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 221   0 |   a = 0
+   0 168 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         190               48.8432 %
+Incorrectly Classified Instances       199               51.1568 %
+Kappa statistic                          0.0849
+Mean absolute error                      0.513 
+Root mean squared error                  0.7066
+Relative absolute error                104.536  %
+Root relative squared error            142.651  %
+Total Number of Instances              389     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.109     0.012      0.923     0.109     0.194      0.467    0
+                 0.988     0.891      0.457     0.988     0.625      0.467    1
+Weighted Avg.    0.488     0.392      0.722     0.488     0.38       0.467
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+  24 197 |   a = 0
+   2 166 |   b = 1
+

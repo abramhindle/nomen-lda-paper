@@ -1,0 +1,62 @@
+
+IB1 instance-based classifier
+using 1 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0.07 seconds
+Time taken to test model on training data: 67.9 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         640              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0016
+Root mean squared error                  0.0016
+Relative absolute error                  0.4099 %
+Root relative squared error              0.3575 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        0
+                 1         0          1         1         1          1        1
+Weighted Avg.    1         0          1         1         1          1    
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 477   0 |   a = 0
+   0 163 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         458               71.5625 %
+Incorrectly Classified Instances       182               28.4375 %
+Kappa statistic                         -0.0101
+Mean absolute error                      0.29  
+Root mean squared error                  0.5314
+Relative absolute error                 76.3013 %
+Root relative squared error            121.9688 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.943     0.951      0.744     0.943     0.832      0.489    0
+                 0.049     0.057      0.229     0.049     0.081      0.489    1
+Weighted Avg.    0.716     0.723      0.613     0.716     0.641      0.489
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 450  27 |   a = 0
+ 155   8 |   b = 1
+

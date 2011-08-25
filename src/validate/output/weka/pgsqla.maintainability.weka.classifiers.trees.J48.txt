@@ -1,0 +1,179 @@
+
+J48 pruned tree
+------------------
+
+W_users <= 0
+|   W_null <= 0
+|   |   W_code_ <= 0
+|   |   |   W_left <= 0
+|   |   |   |   W_win32 <= 0
+|   |   |   |   |   W_compiler <= 0
+|   |   |   |   |   |   W_method <= 0
+|   |   |   |   |   |   |   W_binary <= 0
+|   |   |   |   |   |   |   |   W_parser <= 0
+|   |   |   |   |   |   |   |   |   W_columns <= 0
+|   |   |   |   |   |   |   |   |   |   W_process <= 0
+|   |   |   |   |   |   |   |   |   |   |   W_prevent <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_original <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_handling <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Implement <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_attached <= 0: 0 (215.0/12.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_attached > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_query <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_sequence <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_arrays <= 0: 0 (27.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_arrays > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_sequence > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_query > 0: 1 (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Implement > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_GUC <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_1_ <= 0: 0 (10.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_1_ > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_GUC > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_handling > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_functions <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_GUC <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_string <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_complex <= 0: 0 (26.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_complex > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_string > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_GUC > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_functions > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_original > 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_example_ <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_thread <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Remove <= 0: 0 (14.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   W_Remove > 0: 1 (3.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   |   W_thread > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_example_ > 0: 1 (4.0/1.0)
+|   |   |   |   |   |   |   |   |   |   |   W_prevent > 0: 0 (21.0)
+|   |   |   |   |   |   |   |   |   |   W_process > 0
+|   |   |   |   |   |   |   |   |   |   |   W_message <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   W_array <= 0
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_improvements <= 0: 0 (13.0)
+|   |   |   |   |   |   |   |   |   |   |   |   |   W_improvements > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   |   W_array > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   |   W_message > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   W_columns > 0: 0 (35.0)
+|   |   |   |   |   |   |   |   W_parser > 0
+|   |   |   |   |   |   |   |   |   W_version <= 0
+|   |   |   |   |   |   |   |   |   |   W_patch_ <= 0
+|   |   |   |   |   |   |   |   |   |   |   W_10 <= 0: 0 (15.0)
+|   |   |   |   |   |   |   |   |   |   |   W_10 > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   |   W_patch_ > 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   W_version > 0: 1 (3.0)
+|   |   |   |   |   |   |   W_binary > 0: 0 (31.0)
+|   |   |   |   |   |   W_method > 0
+|   |   |   |   |   |   |   W_failures <= 0
+|   |   |   |   |   |   |   |   W_file_ <= 0
+|   |   |   |   |   |   |   |   |   W_7_4 <= 0: 0 (18.0)
+|   |   |   |   |   |   |   |   |   W_7_4 > 0: 1 (3.0/1.0)
+|   |   |   |   |   |   |   |   W_file_ > 0: 1 (2.0)
+|   |   |   |   |   |   |   W_failures > 0: 1 (4.0)
+|   |   |   |   |   W_compiler > 0
+|   |   |   |   |   |   W_variable <= 0
+|   |   |   |   |   |   |   W_tuple <= 0
+|   |   |   |   |   |   |   |   W_mention <= 0: 0 (18.0/2.0)
+|   |   |   |   |   |   |   |   W_mention > 0
+|   |   |   |   |   |   |   |   |   W_it_ <= 0: 1 (2.0)
+|   |   |   |   |   |   |   |   |   W_it_ > 0: 0 (2.0)
+|   |   |   |   |   |   |   W_tuple > 0: 1 (2.0)
+|   |   |   |   |   |   W_variable > 0: 1 (2.0)
+|   |   |   |   W_win32 > 0: 0 (30.0)
+|   |   |   W_left > 0
+|   |   |   |   W_code_ <= 0
+|   |   |   |   |   W_values <= 0
+|   |   |   |   |   |   W_small <= 0: 0 (15.0)
+|   |   |   |   |   |   W_small > 0: 1 (3.0/1.0)
+|   |   |   |   |   W_values > 0: 1 (3.0)
+|   |   |   |   W_code_ > 0: 1 (4.0)
+|   |   W_code_ > 0
+|   |   |   W_removes <= 0
+|   |   |   |   W_avoid <= 0
+|   |   |   |   |   W_order <= 0
+|   |   |   |   |   |   W_stands <= 0: 0 (16.0)
+|   |   |   |   |   |   W_stands > 0: 1 (2.0)
+|   |   |   |   |   W_order > 0: 1 (2.0)
+|   |   |   |   W_avoid > 0: 1 (2.0)
+|   |   |   W_removes > 0: 1 (4.0)
+|   W_null > 0
+|   |   W_server <= 0
+|   |   |   W_apply <= 0
+|   |   |   |   W_transaction <= 0
+|   |   |   |   |   W_Clean <= 0: 0 (17.0/1.0)
+|   |   |   |   |   W_Clean > 0: 1 (4.0/1.0)
+|   |   |   |   W_transaction > 0: 1 (2.0)
+|   |   |   W_apply > 0: 1 (3.0)
+|   |   W_server > 0: 1 (4.0)
+W_users > 0
+|   W_relation <= 0
+|   |   W_result <= 0
+|   |   |   W_7_3 <= 0
+|   |   |   |   W_easily <= 0: 0 (15.0)
+|   |   |   |   W_easily > 0: 1 (2.0)
+|   |   |   W_7_3 > 0: 1 (3.0)
+|   |   W_result > 0: 1 (3.0)
+|   W_relation > 0: 1 (4.0)
+
+Number of Leaves  : 	57
+
+Size of the tree : 	113
+
+
+Time taken to build model: 43.89 seconds
+Time taken to test model on training data: 3.68 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         618               96.5625 %
+Incorrectly Classified Instances        22                3.4375 %
+Kappa statistic                          0.8766
+Mean absolute error                      0.0602
+Root mean squared error                  0.1735
+Relative absolute error                 20.7975 %
+Root relative squared error             45.6561 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.989     0.143      0.97      0.989     0.979      0.966    0
+                 0.857     0.011      0.941     0.857     0.897      0.966    1
+Weighted Avg.    0.966     0.12       0.965     0.966     0.965      0.966
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 522   6 |   a = 0
+  16  96 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         485               75.7813 %
+Incorrectly Classified Instances       155               24.2188 %
+Kappa statistic                          0.0435
+Mean absolute error                      0.263 
+Root mean squared error                  0.4756
+Relative absolute error                 90.8384 %
+Root relative squared error            125.1697 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.886     0.848      0.831     0.886     0.858      0.539    0
+                 0.152     0.114      0.221     0.152     0.18       0.539    1
+Weighted Avg.    0.758     0.72       0.724     0.758     0.739      0.539
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 468  60 |   a = 0
+  95  17 |   b = 1
+

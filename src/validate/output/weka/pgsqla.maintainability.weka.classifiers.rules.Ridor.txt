@@ -1,0 +1,65 @@
+
+RIpple DOwn Rule Learner(Ridor) rules
+--------------------------------------
+
+A_maintainability = 0  (640.0/0.0)
+
+Total number of rules (incl. the default rule): 1
+
+Time taken to build model: 19 seconds
+Time taken to test model on training data: 3.07 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         528               82.5    %
+Incorrectly Classified Instances       112               17.5    %
+Kappa statistic                          0     
+Mean absolute error                      0.175 
+Root mean squared error                  0.4183
+Relative absolute error                 60.4682 %
+Root relative squared error            110.096  %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         1          0.825     1         0.904      0.5      0
+                 0         0          0         0         0          0.5      1
+Weighted Avg.    0.825     0.825      0.681     0.825     0.746      0.5  
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 528   0 |   a = 0
+ 112   0 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         522               81.5625 %
+Incorrectly Classified Instances       118               18.4375 %
+Kappa statistic                         -0.0181
+Mean absolute error                      0.1844
+Root mean squared error                  0.4294
+Relative absolute error                 63.6897 %
+Root relative squared error            113.0028 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.989     1          0.823     0.989     0.898      0.494    0
+                 0         0.011      0         0         0          0.494    1
+Weighted Avg.    0.816     0.827      0.679     0.816     0.741      0.494
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 522   6 |   a = 0
+ 112   0 |   b = 1
+

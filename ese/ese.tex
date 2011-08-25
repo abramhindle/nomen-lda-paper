@@ -55,8 +55,8 @@ John Mylopoulos
 \institute{
   Abram Hindle \at 
   Dept. of Computer Science\\
-  University of California, Davis \\
-  Davis, CA, USA\\
+  University of Alberta\\
+  Edmonton, AB, CANADA\\
   \email{abram@softwareprocess.es}
 \and
   Neil A. Ernst \at
@@ -1131,6 +1131,11 @@ how often portability arises as a concern.
 We did a t-test to assess whether there was statistically significant differences in the types of NFRs developers chose to work on, for the PostgreSQL project only. 
 \todo{add more, figure}
 
+*** We also clustered the authors by similarity and we found that
+among some of the most prolific postgresql authors, their NFR focus
+was distinctly different *** Some confounds are that postgresql
+authors commit the patches of others.
+
 \section{Discussion}
 \label{sec:limit}
 
@@ -1153,6 +1158,67 @@ In MySQL the optimizer is mentioned but often the change addresses  correctness 
 Despite this difference, the name of the module could fool our learners into believing the change was always about \emph{efficiency}. 
 In these cases the advantages of tailoring topic names to specific project terminologies are more clear. 
 Project specific word-lists would avoid automated mistakes due to the names of entities and modules of a software project.
+
+\subsection{Inter-rater reliability}
+
+Authors Neil and Abram each annotated the PostgreSQL topics in order
+to determine inter-rater reliability. While when they read each others
+annotations they generally agreed, the inter-rater reliability did not
+bear this out.
+
+%>    A_portability   A_functionality     A_reliability A_maintainability
+%>      0.153548387      -0.013588517       0.004573794       0.082001031
+%>     A_efficiency       A_usability            A_none
+%>      0.231496539       0.009287926       0.062133646
+
+% > Spearman says
+% >   A_portability   A_functionality     A_reliability A_maintainability
+% >      0.253037469      -0.014415214       0.004579664       0.082215613
+% >     A_efficiency       A_usability            A_none
+% >      0.258037216       0.014436230       0.080667468
+
+\begin{table}
+\centering
+\begin{tabular}{l|c|c}
+\hline
+            & Cohen's Kappa & Spearman Correlation \\ \hline
+Portability & 0.154 & 0.253  \\
+Functionality & -0.014 & -0.014 \\
+Reliability & 0.005 & 0.005 \\
+Maintainability & 0.082 & 0.082 \\
+Efficiency & 0.231 & 0.258 \\
+Usability & 0.009 & 0.014 \\
+None &      0.062 & 0.081 \\ \hline 
+Everything & 0.107 & 0.108 \\ \hline
+\end{tabular}
+\caption{Inter-rater Reliability on PostgreSQL}
+\label{tab:interr}
+\end{table}
+
+Table \ref{tab:iterr} describes the Cohen Kappa and the Spearman
+correlation of our per topic annotations for each tag. We had to
+evaluate inter-rater reliability this way because 1 topic could be
+tagged with more than 1 annotation.
+
+We feel these results are poor. The aggregate view of with a Kappa of
+$0.1$ indicates there is some agreement but not a lot. We found that
+there was a lot of agreement in terms of lack of a tag, but often more
+disagreement when a tag should be applied.
+
+After some discussion we concluded that usability was a source of
+disagreement. Do user manuals improve usability? Is a command-line
+option a usability issue? These kinds of questions illustrate some of
+the agreement, disagreement and ambiguity about these labels. Further
+more, both annotators found that the annotation was time-consuming and
+difficult.
+
+% I think this is largely due to lack of training. So I will write it up as such - as an interesting point to say that agreeing on the meaning of "software quality" is difficult, etc. Ideally we would now do a sample training session where we go over say one period and determine the appropriate annotations, then recalculate Kappa to see what changes.
+
+% The other tack is to ignore the IRR data completely as we did in the workshop. But I don't think it hurts our results that much ¦ just confirms the difficulty of annotation.
+
+% Neil
+
+
 
 \subsection{Summary of Techniques}
 While an unsupervised technique such as LDA is appealing in its lack of human intervention, and thus lower effort, 
@@ -1225,6 +1291,7 @@ We assessed inter-rater reliability (IRR) using Cohen's Kappa to measure the lev
 annotations the first two authors created, under some model of random agreement. Perfect IRR (1.0) indicates 
 complete agreement on the appropriate annotation for that topic. We verified IRR using manually annotated PostgreSQL topics, 
 and achieved a result of 0.108 (slight agreement), with a correlation coefficient of 0.108. 
+
 Some of the reasons for this are a disagreement over the appropriate classification for documentation topics (should this be considered
 usability or portability?), and a disagreement on functionality as a software quality. A short education session on the meaning of a given NFR from 
 the ISO standard would reduce this error rate.

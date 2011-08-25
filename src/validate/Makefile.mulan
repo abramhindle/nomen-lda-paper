@@ -1,13 +1,17 @@
-mulanout=output/pgsql.mulan.out     output/maxdb.mulan.out output/mysql.mulan.out 
-mulantex=output/pgsql.mulan.out.tex output/maxdb.mulan.out.tex output/mysql.mulan.out.tex
+mulanout=output/pgsqln.mulan.out     output/pgsqla.mulan.out     output/maxdb.mulan.out output/mysql.mulan.out 
+mulantex=output/pgsqln.mulan.out.tex output/pgsqla.mulan.out.tex output/maxdb.mulan.out.tex output/mysql.mulan.out.tex
 all=$(mulanout) $(mulantex)
 
 all: $(all)
 
-output/pgsql.mulan.out: output/pgsql.arff output/pgsql.xml
-	sh run-mulan.sh pgsql
-output/pgsql.mulan.out.tex: output/pgsql.mulan.out
-	perl mulan-parser.pl output/pgsql.mulan.out
+output/pgsqln.mulan.out: output/pgsqln.arff output/pgsqln.xml
+	sh run-mulan.sh pgsqln
+output/pgsqln.mulan.out.tex: output/pgsqln.mulan.out
+	perl mulan-parser.pl output/pgsqln.mulan.out
+output/pgsqla.mulan.out: output/pgsqla.arff output/pgsqla.xml
+	sh run-mulan.sh pgsqla
+output/pgsqla.mulan.out.tex: output/pgsqla.mulan.out
+	perl mulan-parser.pl output/pgsqla.mulan.out
 output/mysql.mulan.out: output/mysql.arff output/mysql.xml
 	sh run-mulan.sh mysql
 output/maxdb.mulan.out: output/maxdb.arff output/maxdb.xml

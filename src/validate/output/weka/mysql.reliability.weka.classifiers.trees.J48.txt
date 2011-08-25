@@ -3,81 +3,105 @@ J48 pruned tree
 ------------------
 
 W_message <= 0
-|   W_error <= 0: 0 (534.0/76.0)
+|   W_error <= 0
+|   |   W_Fix <= 0
+|   |   |   W_fixed <= 0
+|   |   |   |   W_Add <= 0: 0 (389.0/47.0)
+|   |   |   |   W_Add > 0
+|   |   |   |   |   W_space <= 0
+|   |   |   |   |   |   W_constraint <= 0
+|   |   |   |   |   |   |   W_style <= 0: 0 (19.0/2.0)
+|   |   |   |   |   |   |   W_style > 0: 1 (3.0/1.0)
+|   |   |   |   |   |   W_constraint > 0: 1 (2.0)
+|   |   |   |   |   W_space > 0: 1 (2.0)
+|   |   |   W_fixed > 0
+|   |   |   |   W_Changelog <= 0
+|   |   |   |   |   W_cause <= 0: 0 (26.0/4.0)
+|   |   |   |   |   W_cause > 0: 1 (2.0)
+|   |   |   |   W_Changelog > 0: 1 (4.0)
+|   |   W_Fix > 0
+|   |   |   W_manual <= 0
+|   |   |   |   W_corruption <= 0
+|   |   |   |   |   W_row <= 0
+|   |   |   |   |   |   W_run <= 0: 0 (71.0/13.0)
+|   |   |   |   |   |   W_run > 0: 1 (2.0)
+|   |   |   |   |   W_row > 0: 1 (4.0)
+|   |   |   |   W_corruption > 0: 1 (4.0)
+|   |   |   W_manual > 0: 1 (6.0/1.0)
 |   W_error > 0
-|   |   W_link <= 0
+|   |   W_information <= 0
 |   |   |   W_index <= 0
-|   |   |   |   W_Eliminate <= 0
-|   |   |   |   |   W_initialization <= 0: 0 (18.0/2.0)
+|   |   |   |   W_my_cnf <= 0
+|   |   |   |   |   W_initialization <= 0: 0 (19.0/3.0)
 |   |   |   |   |   W_initialization > 0: 1 (2.0)
-|   |   |   |   W_Eliminate > 0: 1 (2.0)
+|   |   |   |   W_my_cnf > 0: 1 (2.0)
 |   |   |   W_index > 0: 1 (2.0)
-|   |   W_link > 0: 1 (3.0/1.0)
+|   |   W_information > 0: 1 (2.0)
 W_message > 0
 |   W_Portability <= 0
 |   |   W_exists <= 0: 1 (19.0/6.0)
 |   |   W_exists > 0: 0 (2.0)
 |   W_Portability > 0: 0 (4.0)
 
-Number of Leaves  : 	9
+Number of Leaves  : 	21
 
-Size of the tree : 	17
+Size of the tree : 	41
 
 
-Time taken to build model: 5.92 seconds
-Time taken to test model on training data: 0.63 seconds
+Time taken to build model: 4.47 seconds
+Time taken to test model on training data: 0.64 seconds
 
 === Error on training data ===
 
-Correctly Classified Instances         501               85.4949 %
-Incorrectly Classified Instances        85               14.5051 %
-Kappa statistic                          0.2768
-Mean absolute error                      0.2448
-Root mean squared error                  0.3499
-Relative absolute error                 86.9565 %
-Root relative squared error             93.3738 %
+Correctly Classified Instances         509               86.8601 %
+Incorrectly Classified Instances        77               13.1399 %
+Kappa statistic                          0.4888
+Mean absolute error                      0.2227
+Root mean squared error                  0.3337
+Relative absolute error                 69.5448 %
+Root relative squared error             83.4733 %
 Total Number of Instances              586     
 
 
 === Detailed Accuracy By Class ===
 
                TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
-                 0.986     0.788      0.86      0.986     0.919      0.607    0
-                 0.212     0.014      0.75      0.212     0.331      0.607    1
-Weighted Avg.    0.855     0.657      0.842     0.855     0.819      0.607
+                 0.983     0.59       0.87      0.983     0.923      0.727    0
+                 0.41      0.017      0.857     0.41      0.555      0.727    1
+Weighted Avg.    0.869     0.475      0.867     0.869     0.849      0.727
 
 
 === Confusion Matrix ===
 
    a   b   <-- classified as
- 480   7 |   a = 0
-  78  21 |   b = 1
+ 461   8 |   a = 0
+  69  48 |   b = 1
 
 
 
 === Stratified cross-validation ===
 
-Correctly Classified Instances         478               81.57   %
-Incorrectly Classified Instances       108               18.43   %
-Kappa statistic                          0.116 
-Mean absolute error                      0.2498
-Root mean squared error                  0.3907
-Relative absolute error                 88.6958 %
-Root relative squared error            104.2731 %
+Correctly Classified Instances         457               77.9863 %
+Incorrectly Classified Instances       129               22.0137 %
+Kappa statistic                          0.1081
+Mean absolute error                      0.2928
+Root mean squared error                  0.4318
+Relative absolute error                 91.4216 %
+Root relative squared error            108.0218 %
 Total Number of Instances              586     
 
 
 === Detailed Accuracy By Class ===
 
                TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
-                 0.955     0.869      0.844     0.955     0.896      0.574    0
-                 0.131     0.045      0.371     0.131     0.194      0.574    1
-Weighted Avg.    0.816     0.73       0.764     0.816     0.777      0.574
+                 0.938     0.855      0.815     0.938     0.872      0.57     0
+                 0.145     0.062      0.37      0.145     0.209      0.57     1
+Weighted Avg.    0.78      0.696      0.726     0.78      0.74       0.57 
 
 
 === Confusion Matrix ===
 
    a   b   <-- classified as
- 465  22 |   a = 0
-  86  13 |   b = 1
+ 440  29 |   a = 0
+ 100  17 |   b = 1
 

@@ -2,7 +2,7 @@
 J48 pruned tree
 ------------------
 
-W_table <= 0: 0 (548.0/30.0)
+W_table <= 0: 0 (548.0/36.0)
 W_table > 0
 |   W_column <= 0
 |   |   W_ORDER <= 0: 0 (34.0/3.0)
@@ -14,60 +14,60 @@ Number of Leaves  : 	4
 Size of the tree : 	7
 
 
-Time taken to build model: 6.74 seconds
-Time taken to test model on training data: 0.94 seconds
+Time taken to build model: 4.45 seconds
+Time taken to test model on training data: 0.64 seconds
 
 === Error on training data ===
 
-Correctly Classified Instances         553               94.3686 %
-Incorrectly Classified Instances        33                5.6314 %
-Kappa statistic                          0.1851
-Mean absolute error                      0.1061
-Root mean squared error                  0.2303
-Relative absolute error                 88.7249 %
-Root relative squared error             94.7076 %
+Correctly Classified Instances         547               93.3447 %
+Incorrectly Classified Instances        39                6.6553 %
+Kappa statistic                          0.1597
+Mean absolute error                      0.1241
+Root mean squared error                  0.2491
+Relative absolute error                 90.4566 %
+Root relative squared error             95.5392 %
 Total Number of Instances              586     
 
 
 === Detailed Accuracy By Class ===
 
                TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
-                 1         0.892      0.943     1         0.971      0.569    0
-                 0.108     0          1         0.108     0.195      0.569    1
-Weighted Avg.    0.944     0.836      0.947     0.944     0.922      0.569
+                 1         0.907      0.933     1         0.965      0.556    0
+                 0.093     0          1         0.093     0.17       0.556    1
+Weighted Avg.    0.933     0.84       0.938     0.933     0.907      0.556
 
 
 === Confusion Matrix ===
 
    a   b   <-- classified as
- 549   0 |   a = 0
-  33   4 |   b = 1
+ 543   0 |   a = 0
+  39   4 |   b = 1
 
 
 
 === Stratified cross-validation ===
 
-Correctly Classified Instances         549               93.686  %
-Incorrectly Classified Instances        37                6.314  %
+Correctly Classified Instances         543               92.6621 %
+Incorrectly Classified Instances        43                7.3379 %
 Kappa statistic                          0     
-Mean absolute error                      0.1148
-Root mean squared error                  0.2437
-Relative absolute error                 95.8387 %
-Root relative squared error            100.1953 %
+Mean absolute error                      0.1321
+Root mean squared error                  0.2609
+Relative absolute error                 96.1936 %
+Root relative squared error            100.0598 %
 Total Number of Instances              586     
 
 
 === Detailed Accuracy By Class ===
 
                TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
-                 1         1          0.937     1         0.967      0.48     0
-                 0         0          0         0         0          0.48     1
-Weighted Avg.    0.937     0.937      0.878     0.937     0.906      0.48 
+                 1         1          0.927     1         0.962      0.492    0
+                 0         0          0         0         0          0.492    1
+Weighted Avg.    0.927     0.927      0.859     0.927     0.891      0.492
 
 
 === Confusion Matrix ===
 
    a   b   <-- classified as
- 549   0 |   a = 0
-  37   0 |   b = 1
+ 543   0 |   a = 0
+  43   0 |   b = 1
 

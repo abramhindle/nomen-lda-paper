@@ -1,0 +1,68 @@
+
+JRIP rules:
+===========
+
+(W_think_ >= 1) => A_none=1 (2.0/0.0)
+(W_Elliot >= 1) => A_none=1 (2.0/0.0)
+ => A_none=0 (636.0/18.0)
+
+Number of Rules : 3
+
+
+Time taken to build model: 32.27 seconds
+Time taken to test model on training data: 4.57 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         622               97.1875 %
+Incorrectly Classified Instances        18                2.8125 %
+Kappa statistic                          0.3003
+Mean absolute error                      0.0547
+Root mean squared error                  0.1653
+Relative absolute error                 80.6909 %
+Root relative squared error             90.7345 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0.818      0.972     1         0.986      0.591    0
+                 0.182     0          1         0.182     0.308      0.591    1
+Weighted Avg.    0.972     0.79       0.973     0.972     0.962      0.591
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 618   0 |   a = 0
+  18   4 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         618               96.5625 %
+Incorrectly Classified Instances        22                3.4375 %
+Kappa statistic                          0     
+Mean absolute error                      0.0652
+Root mean squared error                  0.1823
+Relative absolute error                 95.9619 %
+Root relative squared error            100.0241 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         1          0.966     1         0.983      0.462    0
+                 0         0          0         0         0          0.462    1
+Weighted Avg.    0.966     0.966      0.932     0.966     0.949      0.462
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 618   0 |   a = 0
+  22   0 |   b = 1
+

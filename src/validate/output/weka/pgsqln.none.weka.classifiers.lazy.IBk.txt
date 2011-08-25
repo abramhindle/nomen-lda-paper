@@ -1,0 +1,62 @@
+
+IB1 instance-based classifier
+using 1 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0.07 seconds
+Time taken to test model on training data: 70.05 seconds
+
+=== Error on training data ===
+
+Correctly Classified Instances         640              100      %
+Incorrectly Classified Instances         0                0      %
+Kappa statistic                          1     
+Mean absolute error                      0.0016
+Root mean squared error                  0.0016
+Relative absolute error                  2.2995 %
+Root relative squared error              0.8549 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 1         0          1         1         1          1        0
+                 1         0          1         1         1          1        1
+Weighted Avg.    1         0          1         1         1          1    
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 618   0 |   a = 0
+   0  22 |   b = 1
+
+
+
+=== Stratified cross-validation ===
+
+Correctly Classified Instances         615               96.0938 %
+Incorrectly Classified Instances        25                3.9063 %
+Kappa statistic                         -0.0083
+Mean absolute error                      0.0444
+Root mean squared error                  0.2022
+Relative absolute error                 65.4638 %
+Root relative squared error            110.9731 %
+Total Number of Instances              640     
+
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.995     1          0.965     0.995     0.98       0.487    0
+                 0         0.005      0         0         0          0.487    1
+Weighted Avg.    0.961     0.966      0.932     0.961     0.946      0.487
+
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 615   3 |   a = 0
+  22   0 |   b = 1
+
