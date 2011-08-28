@@ -644,8 +644,9 @@ resilience integrity stability stable crash bug fails redundancy error failure\\
 
 Using our three word-lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labelled our topics with an NFR where there was a match between a word in
 the list and the same word somewhere in the distribution of words that constitute the topic.
-A \emph{named topic} is a topic with a matching NFR label. \emph{Unnamed
-topics} occur where there is no such match, which may indicate either a lack of precision, or simply that this topic is not associated with non-functional
+A \emph{named topic} is a topic with a match. 
+\emph{Unnamed topics} occur where there is no such match. 
+This may indicate either a lack of precision in the word-lists, or simply that this topic is not associated with non-functional
 requirements.
 All experiments were run on the datasets for each project (e.g., PostgreSQL, MySQL, MaxDB). LDA
 extracted $20$ topics per period for each project.
@@ -698,29 +699,24 @@ and MySQL.
 % MySQL 3.23  & Named Topics   & 524 & 273 & 773 \\
 %   & Unnamed Topics & 476 & 727 & 227 \\
 %   & Total  Topics  & 1000 & 1000 & 1000 \\
-% \midrule
-% PgSQL 3.23  & Named Topics   & - & - & - \\
-%   & Unnamed Topics & - & - & - \\
-%   & Total  Topics  & - & - & - \\
 	\centering
 \begin{tabular}{l|c|c|c|c}
 \toprule
 \textbf{Project} & \textbf{Measure} & \textsf{exp1} & \textsf{exp2} & \textsf{exp3} \\
 \midrule
-
 % updated for ESE: taken from latest-reports.tar.gz, last five lines of 
 % yes_no_report.txt, using pgsqln instead of pgsqla
  MaxDB 7.500 & Named Topics   & 305 & 183 & 330 \\
              & Unnamed Topics & 84  & 206 & 59  \\
-             & Total Topics   & 400 & 400 & 400 \\
+             %& Total Topics   & 400 & 400 & 400 \\
 \midrule
  MySQL 3.23  & Named Topics   & 341 & 202 & 469 \\
              & Unnamed Topics & 245 & 384 & 117  \\
-             & Total Topics   & 1000 & 1000 & 1000 \\
+             %& Total Topics   & 1000 & 1000 & 1000 \\
 \midrule
  PgSQL 7.3   & Named Topics   & 639 & 543 & 640 \\
              & Unnamed Topics & 1   & 97  & 0  \\
-             & Total Topics   & 640 & 640 & 640 \\
+             %& Total Topics   & 640 & 640 & 640 \\
 \midrule
 \bottomrule
 \end{tabular}
@@ -729,6 +725,7 @@ and MySQL.
 
 \end{table}
 
+\todo{this discussion is about which DB?}
 For \textsf{exp1} the labels with the most topics
 were
 \emph{correctness} (182 topics) and \emph{testability} (121). 
@@ -756,7 +753,8 @@ Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{effic
 				%labelling, 
 %\noindent \textbf{Analysis of the unsupervised labelling} --- %Based on the labels, and our manual topic labelling, 
 %we compared the results of the unsupervised word matching approach. 
-For each quality we assessed whether semi-unsupervised labels matched the manual annotations. %To be clear, the manual annotations were not used to
+For each quality we assessed whether semi-unsupervised labels matched the manual annotations. 
+To be clear, the manual annotations were not used to
 train the labelling process.
 As described in Section \ref{sec:wordlist} we used both ROC and F-1 measures to evaluate the performance of the classification.
 Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. We describe F-1 results in the text below.
