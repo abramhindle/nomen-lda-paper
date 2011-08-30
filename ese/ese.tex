@@ -790,13 +790,6 @@ Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. 
   \label{fig:maxdb-unsup-results}
 \end{figure*}
 
-% \begin{figure}
-%   \centering
-%  \includegraphics[width=0.45\textwidth]{figures/unsupervised-bar-f1}
-%  \caption{Performance, F1 values (range: 0-1), of unsupervised topic labelling for
-%    each NFR and per word-list.}
-%   \label{fig:maxdb-unsup-results-f1}
-% \end{figure}
 
 Because our ground truth annotations were relevant only to ISO9126,
 we estimate that \textsf{exp1} had poor
@@ -881,17 +874,9 @@ seem swapped between projects.
 
 \begin{figure}[t]
 \centering
-% \subfloat[MySQL]{
 \includegraphics[width=0.45\textwidth]{figures/both-supervised}
-% \label{fig:subfig1}
-% }
-% \subfloat[MaxDB]{
-% \includegraphics[width=0.4\textwidth]{figures/maxdb-supervised}
-% \label{fig:subfig2}
-% }
-\caption[]{ROC value for the best learner per label for MaxDB and MySQL. Values range from $0$--$1$.  Dashed line indicates the performance of a random
+\caption[]{ROC value for the best learner per label for MaxDB, MySQL and PgSQL. Values range from $0$--$1$.  Dashed line indicates the performance of a random
 classifier.
-%\todo[inline]{better discussion}
 }
 \label{fig:best-learn-per-tag}
 \end{figure}
@@ -918,15 +903,15 @@ for $N$ features.
 %  0.1700  0.2675  0.3700  0.3933  0.5475  0.6100 
 
 The range of F-measures for MySQL was $0.21$ to $0.77$ with an average
-of $0.48$, while MaxDB had a range of $0.17$ to $0.61$ with an average
-of $0.39$.
+of $0.48$. MaxDB had a range of $0.17$ to $0.61$ with an average
+of $0.39$. Finally, PostgreSQL had a range of $0.04$ to $0.9$ and an average of $0.43$.
 
 
 The less-frequently occurring a label, the harder it is to get accurate
 results, due to the high noise level. Nevertheless, these results are
 better than our previous word-list results of \textsf{exp2} and
 \textsf{exp3}, because the ROC values are sufficiently higher in most
-cases (other than MaxDB \emph{reliability} and MySQL \emph{efficiency}). The
+cases (other than MaxDB \emph{reliability}, MySQL \emph{efficiency}, and PgSQL \emph{usability}). The
 limitation of the approach we took here is that we assume labels are
 independent; however, labels could be correlated with each other. 
 The next section (\ref{sec:multilabel})
@@ -987,16 +972,6 @@ MySQL, BR and Naive Bayes had similar macro-ROC scores of $0.74$.
 
 \section{Understanding Software Maintenance Activities} 
 \label{sec:analysis}
-% \todo[inline]{talk about this topic in one section}
-% \todo[inline]{reference project name Nomen more}
-%In order to test  our ROC values produced acceptable results, we now turn to
-%\emph{applying} those techniques to understand software maintenance
-%activities. 
-%\todo[inline]{more on intro ... why should the reader care about
- % this. It needs to show how the stuff in the intro (applications) is
- % possible}
-%%% XXX NEIL I don't get this.. VVVVV
-%\todo[inline]{fix section headings}
 As we mentioned in the introduction, a key issue in software maintenance is understanding \emph{why} a system has evolved the way it has~\cite{aranda09icse}. 
 In this section we demonstrate the value of labelled topic extraction
 in addressing this issue. 
@@ -1121,7 +1096,7 @@ tends to be focused on releases 7.3, 7.4 and 7.5/8.0 alpha. For example, a prior
 correlate with the \emph{portability} NFR increasing in frequency in mid-2004. Before the 7.4 release, \emph{usability,functionality} and \emph{portability} all 
 increase in frequency, possibly reflecting the interest in adding features and documentation for the release.
 
-We now address our research questions:
+In the following sections we turn to our research questions:
 
 % \subsection{Comparing MaxDB and MySQL}
 
