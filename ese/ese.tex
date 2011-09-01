@@ -604,7 +604,7 @@ words \emph{ease} and \emph{ownership}. In general, as we proceed from word-list
 
 \begin{table*}
 	\centering
-\begin{tabular}{c|p{11cm}}
+\begin{tabular}{c|p{9cm}}
 \toprule
 \textbf{Label} & \textbf{Related terms} \\
 \midrule
@@ -936,6 +936,15 @@ Mulan also includes methods for determining the performance of such techniques.
 % TOO DETAILED The problem framed in the learners above has changed; instead of looking at the precision and recall of applying one label, we rank
 % multiple labels at once. We must check if the full subset of labels was applied, and then how much of that subset was applied.
 
+% numbers from mulan.tar.gz/maxdb.mulan.out.tex. I picked the two best learners for each db.
+% The numbers are the micro and macro AUC numbers.
+% MaxDB macro: BR NaN CLR NaN Homer NaN mlkNN Nan
+% MaxDB micro: BR 0.77 CLR 0.67 Homer 0.61 mlkNN 0.67
+% mysql macro: BR 0.74 CLR 0.65 mlKNN 0.61
+% mysql micro: BR 0.81 CLR 0.8 mlkNN 0.78
+% PgSQLn macro: BR 0.64 MlkNN 0.52
+% PGSQLn micro: BR 0.65 MlkNN 0.59 
+
 \begin{figure*}[t]
 \centering
 \subfloat[MySQL]{
@@ -946,7 +955,11 @@ Mulan also includes methods for determining the performance of such techniques.
 \includegraphics[width=0.3\textwidth]{figures/multi-label-results-maxdb}
 \label{fig:subfig4}
 }
-\caption[]{MySQL and MaxDB macro (grey) and micro (black) ROC results per multi-label learner. Possible values range from $0$--$1$.  Dashed line
+\subfloat[PgSQL]{
+\includegraphics[width=0.3\textwidth]{figures/multi-label-results-pgsql}
+\label{fig:subfig5}
+}
+\caption[]{MySQL, PgSQL and MaxDB macro (grey) and micro (black) ROC results per multi-label learner. Possible values range from $0$--$1$.  Dashed line
 indicates the performance of a random classifier.
 %\todo[inline]{better discussion}% and graphical legend would be nice}
 }
