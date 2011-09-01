@@ -140,7 +140,7 @@ def period_file( ndir, period ):
 
 # returns the etree 
 def load_period_file( ndir, period ):
-    warnings.warn( str(period) )
+    #warnings.warn( str(period) )
     tree = lxml.etree.parse( period_file( ndir, period ) )
     return tree
 

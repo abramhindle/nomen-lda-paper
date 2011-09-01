@@ -21,7 +21,7 @@ noweka: arff-files validity-report graphs boxplots
 categories: make_categories.py
 	python make_categories.py
 
-mulan:	Makefile.mulan
+mulan:	Makefile.mulan output/pgsqln.arff
 	make -fMakefile.mulan all
 	
 csvs:	arff-files ARFF.pm arff2csv.pl output/pgsqla.arff.csv output/pgsqln.arff.csv
@@ -31,3 +31,5 @@ output/pgsqla.arff.csv: output/pgsqla.arff ARFF.pm arff2csv.pl
 	perl arff2csv.pl output/pgsqla.arff
 output/pgsqln.arff.csv: output/pgsqln.arff ARFF.pm arff2csv.pl 
 	perl arff2csv.pl output/pgsqln.arff
+
+output/pgsqln.arff: arff-files

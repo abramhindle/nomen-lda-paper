@@ -19,6 +19,7 @@ import mulan.classifier.transformation.MultiClassLearner;
 import mulan.classifier.transformation.MultiLabelStacking;
 import mulan.data.MultiLabelInstances;
 import mulan.evaluation.Evaluation;
+import mulan.evaluation.MultipleEvaluation;
 import mulan.evaluation.Evaluator;
 import mulan.transformations.multiclass.Copy;
 import mulan.transformations.multiclass.Ignore;
@@ -39,7 +40,8 @@ public class CrossValidationExperiment {
 
 	public static void main(String[] args) {
 		String[] methodsToCompare = { "HOMER", "BR", "CLR", "MLkNN", "MC-Copy",
-				"IncludeLabels", "MC-Ignore", "RAkEL", "LP", "MLStacking" };
+				//"IncludeLabels", "MC-Ignore", "RAkEL", "LP", "MLStacking" };
+				"IncludeLabels", "MC-Ignore", "RAkEL", "LP" };
 
 		try {
 			String path = Utils.getOption("path", args);
@@ -49,7 +51,7 @@ public class CrossValidationExperiment {
 					+ filestem + ".arff", path + filestem + ".xml");
 
 			Evaluator eval = new Evaluator();
-			Evaluation results = null;
+			MultipleEvaluation results = null;
 			boolean debugOn = true;
 			int numFolds = 10;
 
@@ -136,17 +138,17 @@ public class CrossValidationExperiment {
 					results = eval.crossValidate(homer, dataSet, numFolds);
 					
 				}
-				if (methodsToCompare[i].equals("MLStacking")) {
-					J48 baseClassifier = new J48();
-					J48 metaClassifier = new J48();
-					baseClassifier.setUseLaplace(true);
-					metaClassifier.setUseLaplace(true);
-					MultiLabelStacking mls = new MultiLabelStacking(
-							baseClassifier, metaClassifier, 10);
-					mls.setDebug( debugOn );
-					mls.setPhival(0.06);
-					results = eval.crossValidate(mls, dataSet, numFolds);
-				}
+				//if (methodsToCompare[i].equals("MLStacking")) {
+				//	J48 baseClassifier = new J48();
+				//	J48 metaClassifier = new J48();
+				//	baseClassifier.setUseLaplace(true);
+				//	metaClassifier.setUseLaplace(true);
+				//	MultiLabelStacking mls = new MultiLabelStacking(
+				//			baseClassifier, metaClassifier, 10);
+				//	mls.setDebug( debugOn );
+				//	mls.setPhival(0.06);
+				//	results = eval.crossValidate(mls, dataSet, numFolds);
+				//}
 				System.out.println(results.toString());
 				System.out.println(results.toCSV());
 				} catch (java.io.NotSerializableException e) {

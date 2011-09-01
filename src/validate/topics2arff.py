@@ -29,6 +29,7 @@ def annotations_of_topic( topic ):
     annotations, thresh_el = V.create_element_list( topic )
     return annotations
 
+
 def arff_char( c ):
     if (c.isalnum()):
         return c
@@ -47,6 +48,33 @@ def arff_header( name, columns ):
            [ "@DATA" ]
     return [ x + "\n" for x in strs ]
 
+def arff_escape_words(words):    
+    word_columns = [ i_hate_python_and_unicode(arff_escape(w)) for w in words]
+    wcdict = {}
+    out_word_columns = []
+    for word in word_columns:
+       wword = word
+       if (word in wcdict):
+         wword += "__DUPLICATE__"+str(wcdict[word])
+	 wcdict[word] += 1
+	 wcdict[wword] = 1
+       else:
+         wcdict[word] = 1
+       #if ("Bj" in wword):
+       #    print("Found a Bjorklund "+word+" -- "+wword)           
+       out_word_columns.append( wword )
+    # a check
+    #for word in out_word_columns:
+    #    count = 0
+    #    for word2 in out_word_columns:
+    #        if word == word2:
+    #            count += 1
+    #    if (count > 1):
+    #        print(word + " is a duplicate with count " + str(count))
+    return out_word_columns
+
+
+
 def to_arff( name, xperiods ): #name, inputdir, periods ):
     topics = A.flatten([ A.get_topics(x) for x in xperiods ])
     # summarize the words and order by most common
@@ -63,9 +91,15 @@ def to_arff( name, xperiods ): #name, inputdir, periods ):
     # total # of columns
     ncolumns = nannos + nwords
     allcolumns = words + annos
+
+    # words to ARFF Escapes
+    out_word_columns = arff_escape_words(words)
+
+    
     # header is a list of strings
     # too much arff right here.. oh well
-    header = arff_header( name , ["W_"+arff_escape(w)+" INTEGER" for w in words] + ["A_"+arff_escape(a)+" {0,1}" for a in annos] )
+
+    header = arff_header( name , ["W_"+w+" INTEGER" for w in out_word_columns] + ["A_"+arff_escape(a)+" {0,1}" for a in annos] )
     data = []
     for t in topics:
         tannotations, twords = V.create_element_list( t )
@@ -147,7 +181,7 @@ if __name__ == '__main__':
         for line in arff:
             if (type("") != type(line)):
                 warnings.warn("A line is not a string!"+str(type(line)) + str(line))
-        warnings.warn(str(len(arff)))
+        #warnings.warn(str(len(arff)))
         save_arff( outputdir + "/" + name + ".arff" , arff )
     # now do everything at once ALL PROJECTS
     names = [e[0] for e in exps]

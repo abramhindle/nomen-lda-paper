@@ -449,6 +449,23 @@ sub copy {
 }
 
 # THIS MUTATES THE ARFF
+sub drop_duplicate_columns {
+    my ($self) = @_;
+    my @attributes = $self->attributes();
+    my %h = ();
+    $h{$_}++ foreach @attributes;
+    my @dups = ();
+    while (my ($key,$var) = each %h) {
+	if ($var > 1) {
+	   push @dups, $key;
+        }
+    }
+    # cross our fingers it only deletes the last column
+    $self->drop_columns( @dups );
+    return $self;
+}
+
+# THIS MUTATES THE ARFF
 sub drop_columns {
     my ($self,@columns) = @_;
     my %columns = map { $_ => 1 } @columns;

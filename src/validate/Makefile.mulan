@@ -4,6 +4,12 @@ all=$(mulanout) $(mulantex)
 
 all: $(all)
 
+CP=mulan-1.3/mulan-1.3.0/mulan.jar:mulan-1.3/mulan-1.3.0/weka.jar:.
+class: CrossValidationExperiment.class
+
+CrossValidationExperiment.class: CrossValidationExperiment.java
+	javac -cp $(CP) CrossValidationExperiment.java
+
 output/pgsqln.mulan.out: output/pgsqln.arff output/pgsqln.xml
 	sh run-mulan.sh pgsqln
 output/pgsqln.mulan.out.tex: output/pgsqln.mulan.out
