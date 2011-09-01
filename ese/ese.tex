@@ -1,5 +1,3 @@
-
-%
 \RequirePackage{fix-cm}
 %
 %\documentclass{svjour3}                     % onecolumn (standard format)
@@ -34,11 +32,11 @@
 
 \begin{document}
 
-\title{Automated Topic Naming
+\title{Automated Topic Naming}
 %\thanks{Grants or other notes
 %about the article that should go on the front page should be
 %placed here. General acknowledgments should be placed at the end of the article.}
-}
+
 \subtitle{Supporting Cross-project Analysis of Software Maintenance Activities}
 %\titlerunning{Short form of title}        % if too long for running head
 
@@ -61,9 +59,9 @@ John Mylopoulos
 \and
   Neil A. Ernst \at
   Dept. of Computer Science\\
-  University of Toronto\\
-  Toronto, Ontario, CANADA\\
-  \email{nernst@cs.toronto.edu}
+  University of British Columbia\\
+  Vancouver, BC, CANADA\\
+  \email{nernst@cs.ubc.ca}
 \and
   Michael W. Godfrey \at
   David Cheriton School of Computer Science\\
@@ -472,9 +470,9 @@ To facilitate cross-project comparison, we used a taxonomy of NFRs. This taxonom
 ISO9126 describes six high-level NFRs: maintainability, functionality,
 portability, efficiency, usability, and reliability~\footnote{While there may be lingering debate in some circles about these terms, an ISO standard
 seems like a reasonable starting point for our work.}.
-%There is some debate about the terms in this model. 
-%However, ISO9126 is ``an international standard and thus provides an 
-%internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
+There is some debate about the terms in this model. 
+However, ISO9126 is ``an international standard and thus provides an 
+internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
 We claim that these NFRs are maintenance concerns (to varying degrees) in all software projects, and are therefore well-suited for comparisons between
 projects.
 
@@ -482,8 +480,8 @@ projects.
 
 \subsubsection{Creating a Validation Corpus}
 To evaluate both semi-unsupervised and supervised classification, we
-created a validation set of manually labelled topics. For MySQL 3.23
-and MaxDB 7.500, the annotators (the first two authors) annotated each extracted topic in each period with
+created a validation set of manually labelled topics. For each project,
+ the annotators (the first two authors) annotated each extracted topic in each period with
 the six NFR labels listed above.
 Annotators did not annotate each other's annotations, but some brief
 inspection of annotations was used to confirm that the annotators were
@@ -644,16 +642,17 @@ resilience integrity stability stable crash bug fails redundancy error failure\\
 
 Using our three word-lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labelled our topics with an NFR where there was a match between a word in
 the list and the same word somewhere in the distribution of words that constitute the topic.
-A \emph{named topic} is a topic with a matching NFR label. \emph{Unnamed
-topics} occur where there is no such match, which may indicate either a lack of precision, or simply that this topic is not associated with non-functional
+A \emph{named topic} is a topic with a match. 
+\emph{Unnamed topics} occur where there is no such match. 
+This may indicate either a lack of precision in the word-lists, or simply that this topic is not associated with non-functional
 requirements.
-All experiments were run on MaxDB 7.500 and MySQL 3.23 data. LDA
+All experiments were run on the datasets for each project (e.g., PostgreSQL, MySQL, MaxDB). LDA
 extracted $20$ topics per period for each project.
 % Is this good enough
 This labelling is \emph{semi-unsupervised} because the corpus is not derived from 
 the project being analyzed, and we did not label the project's topics
 ourselves for a training set. The motivation behind this technique is that
-because most software often addresses similar issues, thus we can use the
+because most software often addresses similar issues, we can use the 
 domain knowledge of software to label relevant topics.
 %\todo[inline]{Neil does this explain the unsupervised aspect well enough?} 
 
@@ -663,7 +662,7 @@ and MySQL.
 
 %\todo[inline,color=green]{this table should have mysql}
 \begin{table}
-
+\centering
 % % This data came from running  
 % %   python check_validity.py
 % %  in src/validate
@@ -672,11 +671,6 @@ and MySQL.
 % % tail -n 5 *mysql*yes_no*
 % ok the new way is to run lda_relator
 % src/validate/lda_relator_counts.sh
-	\centering
-\begin{tabular}{l|c|c|c|c}
-\toprule
-\textbf{Project} & \textbf{Measure} & \textsf{exp1} & \textsf{exp2} & \textsf{exp3} \\
-\midrule
 % NOTE THESE WERE THE OLD VALUES
 % WHY DID THEY CHANGE???
 % DUNNO
@@ -693,32 +687,44 @@ and MySQL.
 
 % these are lda relator
 
-MaxDB 7.500 & Named Topics   & 281 & 125 & 328 \\ % these numbers are
-				% slightly different solely because
-				% we're counting empty topics
-				% maxdb has 80 empty topics
- & Unnamed Topics & 219  & 375 &  172  \\
- & Total  Topics  & 500 & 500 & 500 \\
-\midrule
-MySQL 3.23  & Named Topics   & 524 & 273 & 773 \\
-  & Unnamed Topics & 476 & 727 & 227 \\
-  & Total  Topics  & 1000 & 1000 & 1000 \\
-\midrule
-PgSQL 3.23  & Named Topics   & - & - & - \\
-  & Unnamed Topics & - & - & - \\
-  & Total  Topics  & - & - & - \\
+% MaxDB 7.500 & Named Topics   & 281 & 125 & 328 \\ % these numbers are
+% 				% slightly different solely because
+% 				% we're counting empty topics
+% 				% maxdb has 80 empty topics
+%  & Unnamed Topics & 219  & 375 &  172  \\
+%  & Total  Topics  & 500 & 500 & 500 \\
+% \midrule
+% MySQL 3.23  & Named Topics   & 524 & 273 & 773 \\
+%   & Unnamed Topics & 476 & 727 & 227 \\
+%   & Total  Topics  & 1000 & 1000 & 1000 \\
 
+\begin{tabular}{l|c|c|c|c}
+\toprule
+\textbf{Project} & \textbf{Measure} & \textsf{exp1} & \textsf{exp2} & \textsf{exp3} \\
+\midrule
+% updated for ESE: taken from latest-reports.tar.gz, last five lines of 
+% yes_no_report.txt, using pgsqln instead of pgsqla
+ MaxDB 7.500 & Named Topics   & 305 & 183 & 330 \\
+             & Unnamed Topics & 84  & 206 & 59  \\
+             %& Total Topics   & 400 & 400 & 400 \\
+\midrule
+ MySQL 3.23  & Named Topics   & 341 & 202 & 469 \\
+             & Unnamed Topics & 245 & 384 & 117  \\
+             %& Total Topics   & 1000 & 1000 & 1000 \\
+\midrule
+ PgSQL 7.3   & Named Topics   & 639 & 543 & 640 \\
+             & Unnamed Topics & 1   & 97  & 0  \\
+             %& Total Topics   & 640 & 640 & 640 \\
 \bottomrule
 \end{tabular}
-	\caption{Automatic topic labelling for MaxDB and MySQL}% \todo[inline]{this stupid table is before table 1}}
+	\caption{Automatic topic labelling for MaxDB, MySQL and PostgreSQL}
 	\label{tbl:wordlist}
 
 \end{table}
-\todo{update with PGSQL}
-% was best performing
+
+\todo{this discussion is about which DB? where do the numbers come from?}
 For \textsf{exp1} the labels with the most topics
 were
-%labels, those with the most topics, 
 \emph{correctness} (182 topics) and \emph{testability} (121). 
 We did not see many results for \emph{usability} or \emph{accuracy}, which were associated with fewer than ten topics. 
 We also looked for correlations between our labels: excluding double matches (self-correlation), our highest co-occurring terms were \emph{verifiability}
@@ -744,7 +750,8 @@ Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{effic
 				%labelling, 
 %\noindent \textbf{Analysis of the unsupervised labelling} --- %Based on the labels, and our manual topic labelling, 
 %we compared the results of the unsupervised word matching approach. 
-For each quality we assessed whether semi-unsupervised labels matched the manual annotations. %To be clear, the manual annotations were not used to
+For each quality we assessed whether semi-unsupervised labels matched the manual annotations. 
+To be clear, the manual annotations were not used to
 train the labelling process.
 As described in Section \ref{sec:wordlist} we used both ROC and F-1 measures to evaluate the performance of the classification.
 Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. We describe F-1 results in the text below.
@@ -783,50 +790,45 @@ Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. 
   \label{fig:maxdb-unsup-results}
 \end{figure*}
 
-% \begin{figure}
-%   \centering
-%  \includegraphics[width=0.45\textwidth]{figures/unsupervised-bar-f1}
-%  \caption{Performance, F1 values (range: 0-1), of unsupervised topic labelling for
-%    each NFR and per word-list.}
-%   \label{fig:maxdb-unsup-results-f1}
-% \end{figure}
 
-
-%\todo[inline]{where is exp1 report?}
-
-%EXP1 could not be evaluated properly!
 Because our ground truth annotations were relevant only to ISO9126,
 we estimate that \textsf{exp1} had poor
 performance via the overlap between ISO9126 and the Kayed ontology.
 For \textsf{exp1} the F-measures for MaxDB were from $0$ to $0.18$ with an average
 of $0.03$, and for MySQL were from $0$ to $0.16$ with an average of
 $0.05$.
+\todo{update these numbers but from where? }
 % 0.177215189873 / 6
 % .02953586497883333333
 % (0.0298507462687 + 0.0661157024793 + 0.0634920634921 + 0 + 0.115384615385) / 6
 % .04580718793751666666
 
 
-% EXP2 source is naming-paper/src/validate/exp2.maxdb.report.txt
+% EXP2 source is latest-reports/exp2-unsup-results.xls. Numbers reflect latest runs as of 08/2011.
 % (change as needed). Second column (after the name) is F1.
-For \textsf{exp2}, the average F-measure (macro-F1) for MaxDB was $0.24$ with a range $0.091$ to
-$0.37$, and $0.16$ for MySQL with a range of $0$ to $0.41$.
+% column format is determined by info-theory.py : accuracy	f1	fn	fp	mcc	precisions	recall	roca	tn	tnr	tp
+For \textsf{exp2}, the average F-measure (macro-F1) for MaxDB was  $0.24$ with a range $0.091$ to
+$0.37$, and $0.16$ for MySQL with a range of $0$ to $0.41$. PostgreSQL had an average F-measure of $0.30$ %using pgsqln
+ with a range of $0.09$ to $0.38$.
 MaxDB had an average precision and recall of $0.25$ and $0.22$
-while MySQL had $0.41$ and $0.10$ respectively.
+while MySQL had $0.41$ and $0.10$ and PostgreSQL $0.31$ and $0.29$, respectively.
 
 % EXP3
 For \textsf{exp3}, the average F-measure (macro-F1) for MaxDB was $0.26$ with a range $0.11$ to
-$0.47$, and $0.36$ for MySQL with a range of $0.10$ to $0.65$.
+$0.47$, and $0.36$ for MySQL with a range of $0.10$ to $0.65$. 
+PostgreSQL had an average of $0.42$ with a range of $0.31$ to $0.54$.
 MaxDB had an average precision and recall of $0.16$ and $0.67$
-while MySQL had $0.3$ and $0.48$ respectively.
+while MySQL had $0.3$ and $0.48$. PostgreSQL had precision and recall of $0.27$ and $0.95$, respectively.
 
-Thus we find that \emph{reliability} and
+Based on this we found that \emph{reliability} and
 \emph{usability} worked well for MaxDB in \textsf{exp2} and better in
 \textsf{exp3}. 
 \textsf{exp1} performed poorly.
 MySQL had reasonable results within \textsf{exp2} for \emph{reliability} and \emph{efficiency}. 
 MySQL's results for \emph{efficiency} did not improve in \textsf{exp3}
 but other qualities such as \emph{functionality} did improve. 
+For PostgreSQL in \textsf{exp2}, \emph{reliability} and \emph{efficiency} were likewise the most accurate,
+while \emph{functionality} remained poor. \emph{Functionality} improved dramatically by \textsf{exp3}.
 Many ROC scores were $0.6$ or less, but our classifier still performed substantially better than random.
 
 %\vspace*{-1em}
@@ -872,17 +874,9 @@ seem swapped between projects.
 
 \begin{figure}[t]
 \centering
-% \subfloat[MySQL]{
 \includegraphics[width=0.45\textwidth]{figures/both-supervised}
-% \label{fig:subfig1}
-% }
-% \subfloat[MaxDB]{
-% \includegraphics[width=0.4\textwidth]{figures/maxdb-supervised}
-% \label{fig:subfig2}
-% }
-\caption[]{ROC value for the best learner per label for MaxDB and MySQL. Values range from $0$--$1$.  Dashed line indicates the performance of a random
+\caption[]{ROC value for the best learner per label for MaxDB, MySQL and PgSQL. Values range from $0$--$1$.  Dashed line indicates the performance of a random
 classifier.
-%\todo[inline]{better discussion}
 }
 \label{fig:best-learn-per-tag}
 \end{figure}
@@ -909,15 +903,15 @@ for $N$ features.
 %  0.1700  0.2675  0.3700  0.3933  0.5475  0.6100 
 
 The range of F-measures for MySQL was $0.21$ to $0.77$ with an average
-of $0.48$, while MaxDB had a range of $0.17$ to $0.61$ with an average
-of $0.39$.
+of $0.48$. MaxDB had a range of $0.17$ to $0.61$ with an average
+of $0.39$. Finally, PostgreSQL had a range of $0.04$ to $0.9$ and an average of $0.43$.
 
 
 The less-frequently occurring a label, the harder it is to get accurate
 results, due to the high noise level. Nevertheless, these results are
 better than our previous word-list results of \textsf{exp2} and
 \textsf{exp3}, because the ROC values are sufficiently higher in most
-cases (other than MaxDB \emph{reliability} and MySQL \emph{efficiency}). The
+cases (other than MaxDB \emph{reliability}, MySQL \emph{efficiency}, and PgSQL \emph{usability}). The
 limitation of the approach we took here is that we assume labels are
 independent; however, labels could be correlated with each other. 
 The next section (\ref{sec:multilabel})
@@ -978,16 +972,6 @@ MySQL, BR and Naive Bayes had similar macro-ROC scores of $0.74$.
 
 \section{Understanding Software Maintenance Activities} 
 \label{sec:analysis}
-% \todo[inline]{talk about this topic in one section}
-% \todo[inline]{reference project name Nomen more}
-%In order to test  our ROC values produced acceptable results, we now turn to
-%\emph{applying} those techniques to understand software maintenance
-%activities. 
-%\todo[inline]{more on intro ... why should the reader care about
- % this. It needs to show how the stuff in the intro (applications) is
- % possible}
-%%% XXX NEIL I don't get this.. VVVVV
-%\todo[inline]{fix section headings}
 As we mentioned in the introduction, a key issue in software maintenance is understanding \emph{why} a system has evolved the way it has~\cite{aranda09icse}. 
 In this section we demonstrate the value of labelled topic extraction
 in addressing this issue. 
@@ -1112,7 +1096,7 @@ tends to be focused on releases 7.3, 7.4 and 7.5/8.0 alpha. For example, a prior
 correlate with the \emph{portability} NFR increasing in frequency in mid-2004. Before the 7.4 release, \emph{usability,functionality} and \emph{portability} all 
 increase in frequency, possibly reflecting the interest in adding features and documentation for the release.
 
-We now address our research questions:
+In the following sections we turn to our research questions:
 
 % \subsection{Comparing MaxDB and MySQL}
 
