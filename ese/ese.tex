@@ -468,8 +468,8 @@ any more topics dilutes the results and creates indistinct topics~\cite{Hindle09
 
 To facilitate cross-project comparison, we used a taxonomy of NFRs. This taxonomy is based on the ISO quality model, ISO9126~\cite{iso9126}. 
 ISO9126 describes six high-level NFRs: maintainability, functionality,
-portability, efficiency, usability, and reliability~\footnote{While there may be lingering debate in some circles about these terms, an ISO standard
-seems like a reasonable starting point for our work.}.
+portability, efficiency, usability, and reliability.\footnote{While there may be lingering debate in some circles about these terms, an ISO standard
+seems like a reasonable starting point for our work.} 
 There is some debate about the terms in this model. 
 However, ISO9126 is ``an international standard and thus provides an 
 internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
@@ -870,8 +870,10 @@ label. When applying our technique, for each NFR one should select the best lear
 %This is why we use ROC values, instead of accuracy, as they can better represent performance on labels which are not applicable to the majority of samples.
 
 Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, as the ROC values for \emph{reliability} and \emph{functionality}
-seem swapped between projects. 
+ swap between projects. For PostgreSQL, the performance is nearly always poorer than the other two systems. 
+\todo{expand on why?}
 
+% PG data from abram's email of 09/01/2011 using first column and pgsqln.
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.45\textwidth]{figures/both-supervised}
@@ -902,16 +904,17 @@ for $N$ features.
 %    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 %  0.1700  0.2675  0.3700  0.3933  0.5475  0.6100 
 
-The range of F-measures for MySQL was $0.21$ to $0.77$ with an average
-of $0.48$. MaxDB had a range of $0.17$ to $0.61$ with an average
-of $0.39$. Finally, PostgreSQL had a range of $0.04$ to $0.9$ and an average of $0.43$.
+The range of F-measures for MySQL was $0.21$ to $0.77$ with a mean
+of $0.48$. MaxDB had a range of $0.17$ to $0.61$ with a mean
+\todo{NE: I believe these numbers are wrong}
+of $0.39$. Finally, PostgreSQL had a range of $0.58$ to $0.69$ and a mean of $0.64$.
 
 
 The less-frequently occurring a label, the harder it is to get accurate
 results, due to the high noise level. Nevertheless, these results are
 better than our previous word-list results of \textsf{exp2} and
 \textsf{exp3}, because the ROC values are sufficiently higher in most
-cases (other than MaxDB \emph{reliability}, MySQL \emph{efficiency}, and PgSQL \emph{usability}). The
+cases (other than MaxDB \emph{reliability}, MySQL \emph{efficiency}, and PgSQL \emph{maintainability}). The
 limitation of the approach we took here is that we assume labels are
 independent; however, labels could be correlated with each other. 
 The next section (\ref{sec:multilabel})
