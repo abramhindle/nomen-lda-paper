@@ -934,7 +934,7 @@ As noted in Section \ref{sec:wordlist}, each topic in our data-set can be compos
 For example, a commit message might address \textit{reliability} in the context of \textit{efficiency}, or make a \textit{maintainability} improvement
 in the source code that related to \textit{usability}. 
 However, traditional machine learning techniques, such as Naive Bayes, can only map topics to a single class. 
-The Mulan~\cite{mulan} library encapsulates several different multi-label machine learners which can label elements with multiple labels.
+tab:iterrThe Mulan~\cite{mulan} library encapsulates several different multi-label machine learners which can label elements with multiple labels.
 Mulan also includes methods for determining the performance of such techniques.
 % TOO DETAILED The problem framed in the learners above has changed; instead of looking at the precision and recall of applying one label, we rank
 % multiple labels at once. We must check if the full subset of labels was applied, and then how much of that subset was applied.
@@ -1235,7 +1235,7 @@ Everything & 0.107 & 0.108 \\ \hline
 \label{tab:interr}
 \end{table}
 
-Table \ref{tab:iterr} describes the Cohen Kappa and the Spearman
+Table \ref{tab:interr} describes the Cohen Kappa and the Spearman
 correlation of our per topic annotations for each tag. We had to
 evaluate inter-rater reliability this way because 1 topic could be
 tagged with more than 1 annotation.
