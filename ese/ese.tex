@@ -1156,13 +1156,28 @@ how often portability arises as a concern.
 \todo{add the pgsql data}
 
 \subsection{Do different developers work on different NFRs?}
-We did a t-test to assess whether there was statistically significant differences in the types of NFRs developers chose to work on, for the PostgreSQL project only. 
-\todo{add more, figure}
 
-*** We also clustered the authors by similarity and we found that
-among some of the most prolific postgresql authors, their NFR focus
-was distinctly different *** Some confounds are that postgresql
-authors commit the patches of others.
+%data/clusters.R
+
+We wanted to see how similar developers were to each other in terms of
+the NFRs that worked on. First we did pairwise $X^2$ (chi-squared)
+tests and Kolmogorov-Smirnov tests for each developer pair and we
+found that $3/10$ of these tests the developers were significantly
+different, that is their distributions were not similar. This implies
+that there are authors who focus on different NFRs or different
+proportion of NFRs.
+
+In Figure \ref{fig:authorcluster} we clustered developers using the
+Ward method of Hierarchical clsutering. We've clustered the authors
+into 2 clusters and 5 clusters.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.9\textwidth]{figures/postgresql-author-cluster}
+  \caption{PostgreSQL Author Clusters: Authors clustered by cosine
+    distance of their NFR contributions}
+\label{fig:authorcluster}
+\end{figure}
 
 \section{Discussion}
 \label{sec:limit}
