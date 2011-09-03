@@ -1180,8 +1180,25 @@ that there are authors who focus on different NFRs or different
 proportion of NFRs.
 
 In Figure \ref{fig:authorcluster} we clustered developers using the
-Ward method of Hierarchical clsutering. We've clustered the authors
-into 2 clusters and 5 clusters.
+Ward method of Hierarchical clustering.  This diagram shows that
+\texttt{petere}, \texttt{tgl} and \texttt{momjian} form their own
+cluster (they are also the most frequent committers). This is
+interesting because it means that the important developers are not
+committing code that fits the same NFR profile. In terms of the larger
+cluster we can see that \texttt{momjian} and \texttt{tgl} are in the
+same cluster, but \texttt{petere} is not. The most frequent
+committers do not share the same clusters. This implies that
+developers do work on different sets of NFRs and have different
+software quality focus.
+
+Figure \ref{fig:authorcluster} clustered the authors into $2$ clusters
+and $6$ clusters. We chose $6$ because the difference in width between
+entities and centroids was minimal at $6$ and the derivative of was
+the highest in that region as well.
+
+It should be noted that much of PostgreSQL development originates from
+the mailinglist and the developers are often pushing integrations.
+
 
 \begin{figure}
   \centering
