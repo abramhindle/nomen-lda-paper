@@ -934,41 +934,52 @@ As noted in Section \ref{sec:wordlist}, each topic in our data-set can be compos
 For example, a commit message might address \textit{reliability} in the context of \textit{efficiency}, or make a \textit{maintainability} improvement
 in the source code that related to \textit{usability}. 
 However, traditional machine learning techniques, such as Naive Bayes, can only map topics to a single class. 
-The Mulan~\cite{mulan} library encapsulates several different multi-label machine learners which can label elements with multiple labels.
+tab:iterrThe Mulan~\cite{mulan} library encapsulates several different multi-label machine learners which can label elements with multiple labels.
 Mulan also includes methods for determining the performance of such techniques.
 % TOO DETAILED The problem framed in the learners above has changed; instead of looking at the precision and recall of applying one label, we rank
 % multiple labels at once. We must check if the full subset of labels was applied, and then how much of that subset was applied.
 
-% numbers from mulan.tar.gz/maxdb.mulan.out.tex. I picked the two best learners for each db.
-% The numbers are the micro and macro AUC numbers.
-% MaxDB macro: BR NaN CLR NaN Homer NaN mlkNN Nan
-% MaxDB micro: BR 0.77 CLR 0.67 Homer 0.61 mlkNN 0.67
-% mysql macro: BR 0.74 CLR 0.65 mlKNN 0.61
-% mysql micro: BR 0.81 CLR 0.8 mlkNN 0.78
-% PgSQLn macro: BR 0.64 MlkNN 0.52
-% PGSQLn micro: BR 0.65 MlkNN 0.59 
+% Data source is src/validate/output/<db>.mulan.out.tex
+% pgsqln & br & clr & homer
+% macro-auc .64 .58 .58
+% micro .65 .6 .6
+%pgsqla
+% macro .63 .56 .54
+% micro .81 .81 .79
+% maxdb (no macro)
+% micro .77 .67 .61
+% mysql
+% macro .74 .65 .64
+% micro .81 .8 .74
 
 \begin{figure*}[t]
 \centering
 \subfloat[MySQL]{
-\includegraphics[width=0.3\textwidth]{figures/multi-label-results-mysql}
+\includegraphics[width=0.4\textwidth]{figures/multi-label-results-mysql}
 \label{fig:subfig3}
 }
 \subfloat[MaxDB]{
-\includegraphics[width=0.3\textwidth]{figures/multi-label-results-maxdb}
+\includegraphics[width=0.4\textwidth]{figures/multi-label-results-maxdb}
 \label{fig:subfig4}
 }
-\subfloat[PgSQL]{
-\includegraphics[width=0.3\textwidth]{figures/multi-label-results-pgsql}
-\label{fig:subfig5}
-}
-\caption[]{MySQL, PgSQL and MaxDB macro (grey) and micro (black) ROC results per multi-label learner. Possible values range from $0$--$1$.  Dashed line
-indicates the performance of a random classifier.
-%\todo[inline]{better discussion}% and graphical legend would be nice}
+\caption[]{MySQL and MaxDB macro and micro-ROC results per multi-label learner. Possible values range from $0$--$1$.  Dashed line indicates the performance of a random classifier.
 }
 \label{fig:mulan}
 \end{figure*}
 
+\begin{figure}
+\centering
+\subfloat[Macro-ROC]{
+\includegraphics[width=0.4\textwidth]{figures/pg-mulan-macro-compare}
+\label{fig:pgcomp-a}
+}
+\subfloat[Micro-ROC]{
+\includegraphics[width=0.4\textwidth]{figures/pg-mulan-micro-compare}
+\label{fig:pgcomp-b}
+}
+\caption{Author \#1 and author \#2 ROC results for PostgreSQL.} 
+\label{fig:pgcomp}
+\end{figure}
 
 Two perspectives to evaluate multi-label learners are with micro or macro measurements (used in Figure \ref{fig:mulan}).
 Macro measurements are aggregated at a class or label level (per class) while micro measurements are at the element level (per element).
@@ -980,11 +991,12 @@ Calibrated Label Ranking (CLR) is a learner that builds two layers. The first la
 determines what labels should be assigned.
 The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act as a hierarchy of learners: BR is flat, while HOMER tries to build a
 deeper hierarchy for a more accurate learner~\cite{mulan}. 
+
+Figure~\ref{fig:pgcomp} shows the ROC results for the PostgreSQL product. In this figure, we show the relative differences when we use different training data sets. In \ref{fig:pgcomp-a} we see that ROC results are very similar. In the other figure, however, author \#1 has dramatically better performance. We speculate that this is due to the particular annotation decisions made by author \#1; in some sense he performed better. \todo{check this writeup of comparison. T-test useful}
+
 These classifiers performed better than other multi-label classifiers as they have the best micro and macro ROC scores. 
 The multi-label and single-label learners had similar performance: for
 MySQL, BR and Naive Bayes had similar macro-ROC scores of $0.74$.
-% although their results are comparable to the naive Bayesian learners we used in Section \ref{sec:suplabelling}.
-% \todo[inline]{discuss this similarity in more detail}
 
 \section{Understanding Software Maintenance Activities} 
 \label{sec:analysis}
@@ -1238,7 +1250,7 @@ Everything & 0.107 & 0.108 \\ \hline
 \label{tab:interr}
 \end{table}
 
-Table \ref{tab:iterr} describes the Cohen Kappa and the Spearman
+Table \ref{tab:interr} describes the Cohen Kappa and the Spearman
 correlation of our per topic annotations for each tag. We had to
 evaluate inter-rater reliability this way because 1 topic could be
 tagged with more than 1 annotation.
