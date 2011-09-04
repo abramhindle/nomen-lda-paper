@@ -1,3 +1,5 @@
+
+
 v <- read.csv("Author_NFRs.csv")
 vv <- v[1:18,]
 for (i in 2:17) {
@@ -19,6 +21,13 @@ dev.off()
 
 nauthors <- authors
 normalize <- function(x) { x / sum(x) }
+
+makeAuthorData <- function(x) {
+  l <- as.factor(labels(nauthors)[[1]])
+  unlist(sapply(c(1:length(l)), function(i) { rep(l[i], x[i]) }))
+}
+
+
 for (author in labels(nauthors)[[2]]) { nauthors[,author] <-
                                           normalize(authors[,author])
                                       }
@@ -40,14 +49,32 @@ for (author1 in labels(authors)[[2]]) {
 }
 chisqm[!is.finite(chisqm)] <- 0
 ksm[!is.finite(ksm)] <- 0
-
-makeAuthorData <- function(x) {
-  l <- as.factor(labels(nauthors)[[1]])
-  unlist(sapply(c(1:length(l)), function(i) { rep(l[i], x[i]) }))
-}
+general<-sapply(labels(authors)[[1]],function(x){sum(authors[x,])})
+ngeneral<-sapply(labels(nauthors)[[1]],function(x){sum(nauthors[x,])})
 
 sapply( authorNames, function(x) { median(chisqm[,x]) })
-#
+
+pdf("author-distance-from-aggregate.pdf")
+d <- sapply(labels(authors)[[2]],function(x){cor(general,authors[,x])})
+asize <- sapply(labels(authors)[[2]],function(x){sum(authors[,x])})
+print(cor(d,asize))
+print(cor(d,asize,method="spearman"))
+plot(d,asize,main="Author Correlation with NFR distribution versus # of Author Topics",xlab="Similarity of Author NFR topics to global distribution",ylab="# of Topics associated with Author")
+text(d,asize,labels(authors)[[2]],pos=3)
+dev.off()
+
+
+pdf("author-distance-from-aggregate-normalized.pdf")
+nd <- sapply(labels(nauthors)[[2]],function(x){cor(general,nauthors[,x])})
+nasize <- sapply(labels(nauthors)[[2]],function(x){sum(nauthors[,x])})
+print(cor(nd,asize))
+print(cor(nd,asize,method="spearman"))
+plot(nd,asize,main="Author Correlation with NFR distribution versus # of Author Topics",xlab="Similarity of Author NFR topics to global distribution",ylab="# of Topics associated with Author")
+text(nd,asize,labels(authors)[[2]],pos=3)
+dev.off()
+
+
+                                        #
 #v
 #v[,1:18]
 #v[c(2:8),1:18]

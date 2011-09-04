@@ -83,7 +83,7 @@ John Mylopoulos
 \maketitle
 
 \begin{abstract}
-% %\todo[inline]{Topics and LDA sooner, Topics/concept location is a known
+
 Researchers have employed a variety of techniques to extract underlying
 topics that relate to software development artifacts.  Typically, these
 techniques use semi-unsupervised machine-learning algorithms to suggest
@@ -374,13 +374,10 @@ topics, NFRs and new visualizations.
 
 %Massey~\cite{massey02icse} and Scacchi~\cite{scacchi02,scacchi05b} looked at the topic of requirements in open-source software. 
 % this reduces the line length and drops a ref even though we still have a scacchi kickin around
-%Massey~\cite{massey02icse} and Scacchi~\cite{scacchi05b} looked at the topic of requirements in open-source software. 
-%Their work discusses the source of the requirements and how they are used in the development process. 
-% German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. 
-%None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
-\todo{re-add this related work?}
-% XXX vanity or space.. 
-%XXXXXXXXXXXX OPTIONAL
+Massey~\cite{massey02icse} and Scacchi~\cite{scacchi05b} looked at the topic of requirements in open-source software. 
+Their work discusses the source of the requirements and how they are used in the development process. 
+ German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. 
+None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
 % NE 0113 this seems too early to mention 'result'.
 % Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance
 % techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
@@ -499,14 +496,9 @@ Given the top-level annotations of \emph{none}, \emph{portability},
 \emph{usability}, and \emph{maintainability}, the annotators annotated each topic
 with the relevant label. Sometimes they used finer-grained
 annotations that would be aggregated up to one of these higher-level labels.
-%\todo[inline]{this confused people. Is it truly unsupervised? Yes, but it needs to be clearer.}
 %We compared against this data-set, but we also used the data-set for our supervised machine learning based topic classification. 
 % A topic may have more than one matching keyword. % ok what?
-%\todo[inline]{inter-rater reliability }
-% \todo[inline]{There should be a section here which is about manual annotation. 
-%It is really important and it is required by both analyses. Plus we can tell them how.}
 
-%\todo[inline]{NEIL: this section should be updated to explain F-measure}
 We validate classification performance using the Receiver Operating
 Characteristic area-under-curve value~\cite{Fawcett2006861},
 abbreviated \emph{ROC}, and the F-measure, which is the harmonic mean of precision and recall, i.e., $2 * (P * R) / (P + R)$. 
@@ -528,21 +520,6 @@ We consider our labelling classifiers acceptable if they outperform a random cla
 In this section we describe how to label topics based on dictionaries
 mined from sources external to the projects.
 
-%\subsection{Generating word lists}
-%\label{sec:genwordlist}
-% %\todo[inline]{Make it clear where the data comes from! Neil says: Also, I
-%   didn't get the impression they understood that we weren't generating
-%   labels from the data, but rather from independent taxonomies. Of
-%   course if you use labels from the data it isn't comparable. But the
-%   point of ISO 9126 etc. was to avoid exactly this problem.}
-
-% \todo[inline]{Need to hammer it in that the word bags are not project specific and
-%  are inherited so it isn't a supervised method}
-
-
-%Topics are word distributions, lists of words ranked by frequency, that are burdensome to interpret and hard to distinguish and understand. 
-%While the topics themselves are generated automatically, how to interpret these topics is less clear.
-%For example,
 
 \subsubsection{Generating Word Lists}
 
@@ -581,12 +558,8 @@ we considered to be
 relevant to discussion of \emph{reliability}, but is not in the standard. 
 We therefore took the NFRs from the ISO9126 and added to them.
 
-%\todo[inline]{* clarify the mailinglist stuff we did}
-%\todo[inline]{This part doesn't make a lot of sense}
 To construct these expanded word-lists, we used
 WordNet~\cite{Fellbaum1998}.
-%, an English-language ``lexical database'' that contains semantic relations between words,
-% including common related forms (similar to word stemming), meronymy and synonymy. 
 We then added Boehm's software quality model~\cite{Boehm+:1976:ICSE}, and classified his eleven `ilities' into their respective ISO9126 NFRs. 
 We did the same for the quality model produced by McCall et al.~\cite{mccall1977}. 
 We then did a simple random analysis of mailing list messages from an open source project, KDE. If we judged a given message to contain terms that were
@@ -636,8 +609,6 @@ resilience integrity stability stable crash bug fails redundancy error failure\\
 
 \subsubsection{Automatic Labelled Topic Extraction}
 
-%\todo[inline]{NEIL: this could be a subsubsection}
-%\todo[inline]{* the hierarchy of tags was not clear}
 %\noindent \textbf{Generating labels automatically} --- 
 
 Using our three word-lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labelled our topics with an NFR where there was a match between a word in
@@ -654,13 +625,13 @@ the project being analyzed, and we did not label the project's topics
 ourselves for a training set. The motivation behind this technique is that
 because most software often addresses similar issues, we can use the 
 domain knowledge of software to label relevant topics.
-%\todo[inline]{Neil does this explain the unsupervised aspect well enough?} 
+
 
 Table \ref{tbl:wordlist} shows how many topics were labelled for MaxDB
 and MySQL.
 
 
-%\todo[inline,color=green]{this table should have mysql}
+
 \begin{table}
 \centering
 % % This data came from running  
@@ -743,7 +714,7 @@ Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{effic
 (200, 190, and 150 topics in common, respectively). 
 
 
-%\todo[inline]{Should we use F-1 as well to satisfy everyone?}
+
 
 \subsubsection{Analysis of the Semi-unsupervised Labelling} %--- %Based
 				%on the labels, and our manual topic
@@ -757,10 +728,6 @@ As described in Section \ref{sec:wordlist} we used both ROC and F-1 measures to 
 Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. We describe F-1 results in the text below.
 
 
-%\todo[inline]{since ROC is new-sounding, I wonder if a more lengthy explanation would be merited. An obvious question is why not precision/recall? --
-% ROC is hot right now and it combines both}
-% Rebuttal: ROC is not new and it is what the machine learning community, search based software engineering and now the MSR community are using +
-%it has natural meaningful quality mappings.
 % \begin{figure}[t]
 % \centering
 % \subfloat[ROC]{
@@ -773,7 +740,7 @@ Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. 
 % %}
 % \caption[]{Performance of unsupervised topic labelling for each NFR per word-list. A) ROC values -- 
 % dashed line indicates the performance of a random classifier. B) F1 measure. Possible values range from 0--1.
-% %\todo[inline]{better discussion}% and graphical legend would be nice}
+
 % }
 % \label{fig:maxdb-unsup-results}
 % \end{figure}
@@ -786,7 +753,7 @@ Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. 
    each NFR and per word-list. The dashed line indicates the performance of a random classifier. This graph shows how well the
    semi-unsupervised topic labelling matched our manual annotations.}
 
-%\todo[inline]{this is too tiny in print}
+
   \label{fig:maxdb-unsup-results}
 \end{figure*}
 
@@ -1081,7 +1048,7 @@ The topmost row in each diagram lists historical events for that project (such a
 	histogram bars indicate label frequency relative to that
 	particular NFR's largest label count. Dashed vertical lines
 	relate a project milestone (\emph{*Key events*}) to our topic windows. 
-% \todo[inline]{better discussion}
+
 }
 \label{fig:timelines}
 % Timelines created using src/validate/summary_labels.py
@@ -1135,8 +1102,6 @@ In the following sections we turn to our research questions:
 % We tagged more MySQL topics with annotations than MaxDB topics, yet both shared similarities. 
 % In terms of non-functional requirements both projects had long running trends that focused on \emph{functionality}, \emph{maintainability}, and
 %\emph{portability}, yet MaxDB had more of a focus on \emph{efficiency} and \emph{reliability}. 
-% \todo[inline]{expand}
-%\todo[inline,color=yellow]{expand on this with dates, and reference to visualizations}
 %\subsection{Research questions}
 %This analysis allows to address the questions raised in Section \ref{sec:suplabelling}:
 %This analysis addresses our research questions: %raised in Section \ref{sec:analysis}:
@@ -1144,7 +1109,7 @@ In the following sections we turn to our research questions:
 \subsection{Do NFR Frequencies Change over Time?}
 %\noindent\textbf{1. Do NFR frequencies change over time?} --- 
 %\subsubsection{Do label frequencies change over time?}
-%\todo{add more on PGSQL}
+
 In both MaxDB and MySQL the frequencies generally decreased with age. 
 However, there are variations within our NFR labels. In MySQL, \emph{usability} and \emph{efficiency} do not appear very often in topics. 
 A proportionately smaller number of commits addressed these NFRs.
@@ -1197,7 +1162,77 @@ entities and centroids was minimal at $6$ and the derivative of was
 the highest in that region as well.
 
 It should be noted that much of PostgreSQL development originates from
-the mailinglist and the developers are often pushing integrations.
+the mailinglist and the developers are often pushing integrations. If
+we compare the total to each author we find that 1 quarter of the
+authors have a similarity of $0.47$ or less. This is depicted in
+Figure \ref{fig:authorsim} where we can see that not all authors are
+as similar to the global trend as others. Of
+course, we found that number of commits had a strong correlation
+($0.59$ Pearson) between the similarity to the aggregate and the
+number of topics associated with that author.
+
+Our theory is that the less frequent committers perhaps are more
+focused and less general, thus their distributions of topics are
+different than the main developers who commit code in many different
+contexts. Perhaps the lead developers ``wear more hats'' or have more
+time to ``wear more hats''.
+
+Given the top 15 PostgreSQL devs we found that proportionally many
+devs had a focus on NFR topics. Authors with top proporitions per NFR
+were:
+\texttt{dennis} for usability; 
+\texttt{scrappy} and \texttt{meskes} for portability;
+\texttt{inoue} and \texttt{neilc} for efficiency;
+\texttt{jurka} and \texttt{joe} for reliability;
+\texttt{thomas} and \texttt{weick} for functionality;
+and \texttt{ishii} and \texttt{scrappy} for maintainability.
+Given these results we found that yes indeed there was often a focus
+of $1/3$ to $1/10$ of commits dedicated to a particular NFR.
+
+
+% Dennis is into usability
+% scrappy and meskes portability
+% Inoue and neilc for effiency
+% jurka joe and barry for Reliabilityb
+% thomas weick teodor for Functionality
+% ishii, scrappy, darcy for maintainability
+
+%\todo{Now look at the authors, what are they into?}
+
+% tgl == momjian
+% > nauthors
+%                     momjian     thomas      davec      neilc      ishii darcy
+% None            0.003       0.150       0.048       0.020       0.081       0.15
+% Portability     0.211       0.083       0.177       0.173       0.122       0.20
+% Efficiency      0.114       0.100       0.080       0.152       0.132       0.00
+% Reliability     0.149       0.100       0.137       0.159       0.102       0.15
+% Functionality   0.220       0.300       0.266       0.145       0.214       0.20
+% Maintainability 0.132       0.150       0.145       0.104       0.224       0.20
+% Usability       0.167       0.116       0.145       0.243       0.122       0.10
+%                      barry      wieck      inoue      pgsql teodor jurka
+% None            0.03488372 0.04444444 0.04166667 0.06521739 0.0250  0.04
+% Portability     0.13372093 0.17777778 0.09722222 0.19565217 0.2250  0.18
+% Efficiency      0.13372093 0.08888889 0.26388889 0.15217391 0.1250  0.12
+% Reliability     0.19767442 0.11111111 0.12500000 0.06521739 0.0875  0.24
+% Functionality   0.20930233 0.28888889 0.23611111 0.19565217 0.2375  0.16
+% Maintainability 0.13372093 0.06666667 0.13888889 0.17391304 0.1250  0.14
+% Usability       0.15697674 0.22222222 0.09722222 0.15217391 0.1750  0.12
+%                         tgl    scrappy     petere     dennis     meskes
+% None            0.006704981 0.08333333 0.02296451 0.06451613 0.02298851
+% Portability     0.207854406 0.25000000 0.20250522 0.22580645 0.23754789
+% Efficiency      0.119731801 0.08333333 0.09812109 0.12903226 0.08045977
+% Reliability     0.150383142 0.16666667 0.12734864 0.09677419 0.14559387
+% Functionality   0.217432950 0.12500000 0.20668058 0.12903226 0.22222222
+% Maintainability 0.129310345 0.20833333 0.14196242 0.00000000 0.10727969
+% Usability       0.168582375 0.08333333 0.20041754 0.35483871 0.18390805
+%                        joe
+% None            0.06122449
+% Portability     0.22448980
+% Efficiency      0.08163265
+% Reliability     0.22448980
+% Functionality   0.12244898
+% Maintainability 0.10204082
+% Usability       0.18367347
 
 
 \begin{figure}
@@ -1207,6 +1242,17 @@ the mailinglist and the developers are often pushing integrations.
     distance of their NFR contributions}
 \label{fig:authorcluster}
 \end{figure}
+
+
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.9\textwidth]{figures/author-distance-from-aggregate}
+  \caption{PostgreSQL Author Similarity to the Global Distribution of NFR topics}
+\label{fig:authorsim}
+\end{figure}
+
 
 \section{Discussion}
 \label{sec:limit}
@@ -1371,7 +1417,7 @@ Furthermore, our analysis techniques rely on a project's use of meaningful commi
 of developer comments. 
 %The OSS projects investigated were database systems, thus 
 %our results might not generalize to other domains. %We only studied database systems.
-% \todo[inline]{If we compare with the same domain we don't get to say it generalizes a lot?}
+
 
 % in Case Study Research: Design Case Studies
 \emph{Reliability} -- each annotator, the first two authors, followed the same protocol and used the same annotations. 
