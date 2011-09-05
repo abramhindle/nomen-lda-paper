@@ -210,10 +210,10 @@ types; this suggests that our goal of trying to extract NFR-related development 
 Concrete applications of topics and \emph{labelled topic extraction}
 range from project dashboards to annotating software artifacts such as revisions and bug reports with
 NFR-related tags.
-Project dashboard~\cite{dashboard} are typically employed by managers and are used to
+Project dashboards~\cite{dashboard} are typically employed by managers and are used to
 provide quick summaries of the effort put into a software project. In this case, 
 labelled topic extraction would allow managers to track effort
-related to NFR topics, such as portability.
+related to NFR topics, such as \emph{portability}.
 These techniques also allow for the annotation of commit comments
  and other software artifacts with NFRs. 
 This would enable querying of bug reports and artifacts by relevant NFRs. 
@@ -387,7 +387,7 @@ None of this work  addressed quality requirements in OSS, nor did it examine req
 Figure \ref{fig:process} gives an outline of our methodology.
 We began by gathering source data and creating topic models. For semi-unsupervised labelling, we generated three sets of word-lists as signifiers for NFRs.
 %e created labels using a well-known NFR taxonomy. 
-In supervised learning, we trained our data with manual annotations in order to match topics with NFRs. Finally, these topics were used to analyze the
+With supervised learning, we trained our data with manual annotations in order to match topics with NFRs. Finally, these topics were used to analyze the
 role of NFRs in software maintenance.
 
 \begin{figure}
@@ -507,8 +507,8 @@ ROC values provide a score %, similar to school letter-grades (A is 0.9, C is 0.
  reflecting how well a particular learner performed for the given data. 
 ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) versus the false
 positive rate (1 - specificity). 
-A perfect learner has a ROC value of 1.0, reflecting perfect recall and precision. 
-A ROC result of 0.5 would be equivalent to a random learner (that is, issuing as many false positives as true positives). 
+A perfect learner has a ROC value of $1.0$, reflecting perfect recall and precision. 
+A ROC result of $0.5$ would be equivalent to a random learner (that is, issuing as many false positives as true positives). 
 The %area under the -- NE confusing to have area again ... and not importantana
 ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen
 negative instance.
@@ -556,7 +556,7 @@ The terms from ISO9126 may not capture all words occurring in the topics that ar
 For example, the term ``redundancy'' is one 
 we considered to be
 relevant to discussion of \emph{reliability}, but is not in the standard. 
-We therefore took the NFRs from the ISO9126 and added to them.
+We therefore took the NFRs from the ISO9126 and added terms to them.
 
 To construct these expanded word-lists, we used
 WordNet~\cite{Fellbaum1998}.
