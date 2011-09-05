@@ -99,7 +99,8 @@ from source control systems such as CVS and BitKeeper.
 These topics are given labels from a generalizable
 cross-project taxonomy, consisting of non-functional
 requirements. Our approach was evaluated with experiments and case studies
-on three large-scale RDBMS projects: MySQL, PostgreSQL and MaxDB.  The case studies
+on three large-scale Relational Database Management Systems (RDBMS) projects: MySQL, PostgreSQL and MaxDB.  
+The case studies
 show that labelled topic extraction can produce appropriate,
 context-sensitive labels relevant to these projects, which provides fresh
 insight into their evolving software development activities.
@@ -111,11 +112,11 @@ insight into their evolving software development activities.
 \section{Introduction}
 A key problem for practising software maintainers is gaining an
 understanding of \emph{why} a system has evolved the way it has. 
-This is different than \emph{how} a system has evolved, because the behaviour of change itself is the
-\emph{how}.
+This is different from \emph{how} a system has evolved. 
+% NE this phrase confuses me: "because the change of behaviour itself is the \emph{how}.
 Looking back on streams of artifacts scattered across different
 repositories, inferring what activities were performed, when, and for
-what reasons, is hard to do without expert advice from the developers
+what reasons, is hard without expert advice from the developers
 involved. 
 %new stuff
 % edit this. awkward
@@ -288,12 +289,12 @@ perspectives.
 Cleland-Huang and her colleagues have investigated mining requirements
 documents for non-functional requirements (NFR) (software
 qualities)~\cite{Cleland-Huang2006}.  Their approach is similar to
-ours, as they mined keywords from NFR catalogues.  They differ because
+ours, as they mine keywords from NFR catalogues.  They differ from our approach because
 they mine requirements documents where as we mine revisions.
 %One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. 
-They demonstrated a recall of $80\%$ with precision of $57\%$ for the \emph{security} NFR, but could not find a reliable source of keywords for other NFRs. 
+Their approach resulted in a recall of $80\%$ with precision of $57\%$ for the \emph{security} NFR, but could not find a reliable source of keywords for other NFRs. 
 Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
-Our research differs because we use a more comprehensive set of terms based on the taxonomy we chose.
+Our research is different because we use a more comprehensive set of terms based on a taxonomy that is an integral part of our framework.
 Another difference is that we make cross-project comparisons instead of focusing
 on a single project.
 %They relied on requirements documents instead of version control
@@ -310,15 +311,15 @@ on a single project.
 %Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) 
 %our study assumes these NFRs are latent in the commit-log messages of the project. 
 
-Similarly, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. 
-Mockus and Votta leveraged WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words,
+Similarly, Mockus and Votta~\cite{Mockus00} study a large-scale industrial change-tracking system. 
+Mockus and Votta leverage WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words,
 including common related forms (similar to word stemming), meronymy and synonymy.
-They used WordNet for word roots as they felt the synonyms would be
+They use WordNet for word roots as they felt the synonyms would be
 non-specific and cause errors.
 %, problems we also encountered. 
-Mockus et al. validated their labels with system developers.
+Mockus et al. validate their labels with system developers.
 Since we study multiple projects, instead of a single project, these
-kind of interviews are somewhat infeasible (particularly in the distributed world of open-source software).
+kind of interviews are not feasible (particularly in the distributed world of open-source software).
 
 Another approach is to extract concerns from software repositories.
 Marcus et al.~\cite{marcus04wcre} use Latent Semantic Indexing (LSI)
@@ -385,9 +386,9 @@ None of this work  addressed quality requirements in OSS, nor did it examine req
 
 \section{Study Design and Execution}
 Figure \ref{fig:process} gives an outline of our methodology.
-We began by gathering source data and creating topic models. For semi-unsupervised labelling, we generated three sets of word-lists as signifiers for NFRs.
+We begin by gathering source data and creating topic models. For semi-unsupervised labelling, we generate three sets of word-lists as signifiers for NFRs.
 %e created labels using a well-known NFR taxonomy. 
-With supervised learning, we trained our data with manual annotations in order to match topics with NFRs. Finally, these topics were used to analyze the
+With supervised learning, we train our data with manual annotations in order to match topics with NFRs. Finally, these topics are used to analyze the
 role of NFRs in software maintenance.
 
 \begin{figure}
