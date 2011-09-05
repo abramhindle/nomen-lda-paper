@@ -694,28 +694,33 @@ and MySQL.
 
 \end{table}
 
-\todo{this discussion is about which DB? where do the numbers come from?}
+%\DONE{this discussion is about which DB? where do the numbers come from?}
 For \textsf{exp1} the labels with the most topics
 were
 \emph{correctness} (182/305/748 topics) and \emph{testability} (121/238/625). 
 We did not see many results for \emph{usability} (4/0/138) or
 \emph{accuracy} (3/0/27), which were associated with fewer than ten topics. 
-We also looked for correlations between our labels: excluding double matches (self-correlation), our highest co-occurring terms were \emph{verifiability}
+We also looked for correlations between our labels: excluding double
+matches (self-correlation), our highest co-occurring terms were
+\emph{verifiability} or \emph{correctness}
 with \emph{traceability}, and \emph{testability} with \emph{correctness} (76 and 62 matches, respectively).
 % See the following sections for our error analysis. 
 
 
 
 For \textsf{exp2}, there are more unnamed topics than \textsf{exp1}. 
-Only \emph{reliability} produces a lot of matches, mostly with the word ``error''. 
+Only \emph{reliability} produces the most matches, mostly due to the word ``error''. 
 Co-occurrence results were poor. This suggests our word lists were overly restrictive.
+For PostgreSQL \emph{reliability} and  \emph{usability} co-occurred
+with \emph{portability} and \emph{efficiency}.
+
 
 For \textsf{exp3}, we generally labelled more topics. 
 As we mentioned, the word-lists are broad, so there are likely to be false-positives (discussed below). 
-The most frequent label, 265 topics, was \emph{usability}, and the
-least frequent label, 44 topics, was \emph{maintainability}. 
-Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{efficiency} with \emph{reliability}, and \emph{efficiency} with \emph{usability}
-(200, 190, and 150 topics in common, respectively). 
+The most frequent label across all projects was \emph{usability}, and the
+least frequent label was \emph{maintainability}. 
+Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{efficiency} with \emph{reliability}, and \emph{efficiency} with \emph{usability}.
+%(200, 190, and 150 topics in common, respectively). 
 
 
 
@@ -766,13 +771,30 @@ Because our ground truth annotations were relevant only to ISO9126,
 we estimate that \textsf{exp1} had poor
 performance via the overlap between ISO9126 and the Kayed ontology.
 For \textsf{exp1} the F-measures for MaxDB were from $0$ to $0.18$ with an average
-of $0.03$, and for MySQL were from $0$ to $0.16$ with an average of
-$0.05$.
-\todo{update these numbers but from where? }
+of $0.03$, for MySQL were from $0$ to $0.16$ with an average of
+$0.05$, and for PostgreSQL $0$ to $0.15$ with an average of $0.07$. 
+
+%\todo{update these numbers but from where? }
 % 0.177215189873 / 6
 % .02953586497883333333
 % (0.0298507462687 + 0.0661157024793 + 0.0634920634921 + 0 + 0.115384615385) / 6
 % .04580718793751666666
+
+% pgsql
+% portability 
+% 0.0910746812386
+% efficiency 
+% 0.154639175258
+% reliability
+% 0.0470588235294
+% maintainability
+% 0
+% usability
+% 0.0720720720721
+%> v <- c(0.0910746812386 , 0.154639175258 , 0.0470588235294 , 0 , 0.0720720720721)
+%> summary(v)
+%   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+%0.00000 0.04706 0.07207 0.07297 0.09107 0.15460 
 
 
 % EXP2 source is latest-reports/exp2-unsup-results.xls. Numbers reflect latest runs as of 08/2011.
