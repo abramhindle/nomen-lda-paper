@@ -774,7 +774,7 @@ For \textsf{exp1} the F-measures for MaxDB were from $0$ to $0.18$ with an avera
 of $0.03$, for MySQL were from $0$ to $0.16$ with an average of
 $0.05$, and for PostgreSQL $0$ to $0.15$ with an average of $0.07$. 
 
-%\todo{update these numbers but from where? }
+%\DONE{update these numbers but from where? }
 % 0.177215189873 / 6
 % .02953586497883333333
 % (0.0298507462687 + 0.0661157024793 + 0.0634920634921 + 0 + 0.115384615385) / 6
@@ -862,9 +862,20 @@ label. When applying our technique, for each NFR one should select the best lear
 %ZeroR occasionally outperforms other learners; for labels which are not as common, this is to be expected because any miscategorization will hurt accuracy. 
 %This is why we use ROC values, instead of accuracy, as they can better represent performance on labels which are not applicable to the majority of samples.
 
-Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have quite different results, as the ROC values for \emph{reliability} and \emph{functionality}
- swap between projects. For PostgreSQL, the performance is nearly always poorer than the other two systems. 
-\todo{expand on why?}
+Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have
+quite different results, as the ROC values for \emph{reliability} and
+\emph{functionality} swap between projects. For PostgreSQL, the
+performance is nearly always more poor than the other two systems. The
+reason for this lack of performance could be that the number of
+topics, $N$ could be non-optimal for PostgreSQL. Perhaps topics were
+getting too mixed and it was becoming hard to distinguish one topic
+from the next. PostgreSQL's dataset was the largest of the 3 projects,
+the XML data-dump that described the PostgreSQL topics that we
+annotated was 8X larger than MySQL and 1.7X larger than MaxDB. These
+size differences arise from the number of commits, the number of files
+and the verbosity of the commit descriptions.
+
+%\DONE{expand on why?}
 
 % PG data from abram's email of 09/01/2011 using first column and pgsqln.
 \begin{figure}[t]
