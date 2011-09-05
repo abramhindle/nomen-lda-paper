@@ -121,7 +121,7 @@ involved.
 % edit this. awkward
 In this work we seek to provide a method of automatically labelling  development topics extracted from commit logs.
 
-Topic modeling is a machine learning technique which creates
+Topic modeling is a machine learning technique that creates
 multinomial distributions of words extracted from a text corpus. 
 This technique infers the hidden structure of a corpus using posterior
 inference: the probability of the hidden structure given the data. 
@@ -273,7 +273,7 @@ begin by creating word-lists to signify when a topic matches an NFR label. We th
  %Section \ref{sec:unsuplabelling} presents our technique for using word-lists to do unsupervised classification, and describes the results.
 In Section \ref{sec:suplabelling}, we manually annotate the topics, and use those annotations as training data for supervised classification.  
 %We then present visualizations of named topics and their trends over time to aid communication and analysis. 
-To demonstrate an application of labelled topic extraction, we use an exploratory case study of two open source database systems to show how named
+To demonstrate an application of labelled topic extraction, we use an exploratory case study of three open source database systems to show how named
 topics can be compared between projects  (Section \ref{sec:analysis}). 
 The paper concludes with a discussion of limitations (Section \ref{sec:limit}), and future work.
 
@@ -285,11 +285,11 @@ The idea of extracting higher-level \emph{concerns} and \emph{topics}, also know
 has been approached from documentation-based and repository-based
 perspectives.
 
-Cleland-Huang and her colleagues have investigated mining requirements documents for non-functional requirements (NFR) (quality
-requirements)~\cite{Cleland-Huang2006}. 
-Their approach is similar to ours, as they mined keywords from NFR
-catalogues.
-They differ because they mine requirements documents where as we mine revisions.
+Cleland-Huang and her colleagues have investigated mining requirements
+documents for non-functional requirements (NFR) (software
+qualities)~\cite{Cleland-Huang2006}.  Their approach is similar to
+ours, as they mined keywords from NFR catalogues.  They differ because
+they mine requirements documents where as we mine revisions.
 %One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. 
 They demonstrated a recall of $80\%$ with precision of $57\%$ for the \emph{security} NFR, but could not find a reliable source of keywords for other NFRs. 
 Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
@@ -905,7 +905,7 @@ As noted in Section \ref{sec:wordlist}, each topic in our data-set can be compos
 For example, a commit message might address \textit{reliability} in the context of \textit{efficiency}, or make a \textit{maintainability} improvement
 in the source code that related to \textit{usability}. 
 However, traditional machine learning techniques, such as Naive Bayes, can only map topics to a single class. 
-tab:iterrThe Mulan~\cite{mulan} library encapsulates several different multi-label machine learners which can label elements with multiple labels.
+The Mulan~\cite{mulan} library encapsulates several different multi-label machine learners which can label elements with multiple labels.
 Mulan also includes methods for determining the performance of such techniques.
 % TOO DETAILED The problem framed in the learners above has changed; instead of looking at the precision and recall of applying one label, we rank
 % multiple labels at once. We must check if the full subset of labels was applied, and then how much of that subset was applied.
@@ -979,7 +979,7 @@ Labelled topics address \emph{why}  because they show reasons why changes
 occurred rather than \emph{how}. 
 The \emph{how} of a change is the change itself, the purpose or
 \emph{why} is what we are after.
-We investigate the history of the two large-scale database systems that we studied. 
+We investigate the history of the three large-scale database systems that we studied. 
 We use our technique to show the topic of development efforts over time in each project.
 %We evaluated two research questions using the ground truth data that we annotated by hand:
 We motivated our investigation with three research questions:
@@ -997,10 +997,10 @@ We motivated our investigation with three research questions:
   more important for one project than another. This could be to
   confirm the initial design goals, or to track the progress on that
   quarter's objectives.  The difference in NFR proportion is
-  interesting because it implies a difference in focus between two projects.
+  interesting because it implies a difference in focus between projects.
 
 \item \emph{Do different developers work on different NFRs?} For a given project, it is reasonable to think that developers are either assigned
-(in commercial organizations) or choose (in open-source organizations) to a particular NFR. For example, one developer might be more junior, and take
+(in commercial organizations) or choose (in open-source organizations) to work on a particular NFR. For example, one developer might be more junior, and take
 responsibility for the low-impact reliability fixes. Another, more senior developer might assume responsibility for major improvements such as efficiency
 improvements. 
 
@@ -1175,10 +1175,10 @@ course, we found that number of commits had a strong correlation
 ($0.59$ Pearson) between the similarity to the aggregate and the
 number of topics associated with that author.
 
-Our theory is that the less frequent committers perhaps are more
+Our theory is that the less frequent committers are more
 focused and less general, thus their distributions of topics are
 different than the main developers who commit code in many different
-contexts. Perhaps the lead developers ``wear more hats'' or have more
+contexts.  The lead developers either ``wear more hats'' or have more
 time to ``wear more hats''.
 
 Given the top 15 PostgreSQL devs we found that proportionally many
@@ -1283,10 +1283,8 @@ Project specific word-lists would avoid automated mistakes due to the names of e
 
 \subsection{Inter-rater reliability}
 
-Authors Neil and Abram each annotated the PostgreSQL topics in order
-to determine inter-rater reliability. While when they read each others
-annotations they generally agreed, the inter-rater reliability did not
-bear this out.
+To determine inter-rater reliability two of the authors---Ernst and Hindle---each annotated the PostgreSQL topics,
+and then evaluated each other's annotations.
 
 %>    A_portability   A_functionality     A_reliability A_maintainability
 %>      0.153548387      -0.013588517       0.004573794       0.082001031
@@ -1330,8 +1328,8 @@ disagreement when a tag should be applied.
 After some discussion we concluded that usability was a source of
 disagreement. Do user manuals improve usability? Is a command-line
 option a usability issue? These kinds of questions illustrate some of
-the agreement, disagreement and ambiguity about these labels. Further
-more, both annotators found that the annotation was time-consuming and
+the agreement, disagreement and ambiguity about these labels. Furthermore, 
+both annotators found that the annotation was time-consuming and
 difficult.
 
 % I think this is largely due to lack of training. So I will write it up as such - as an interesting point to say that agreeing on the meaning of "software quality" is difficult, etc. Ideally we would now do a sample training session where we go over say one period and determine the appropriate annotations, then recalculate Kappa to see what changes.
@@ -1449,7 +1447,7 @@ topics that needed to be manually labelled.
 %costly. Furthermore, previous work was project-specific and thus incomparable. 
 To improve on this, we leveraged software engineering standards,
 specifically the ISO9126 quality taxonomy, to produce a method of partially-automated (supervised) and fully-automated (semi-unsupervised) topic labelling.
-Since the word-list technique is not project-specific, we used it to compare two distinct projects, where we showed our technique produced interesting
+Since the word-list technique is not project-specific, we used it to compare three distinct projects, where we showed our technique produced interesting
 insight into maintenance activity. %topics and artifacts from project histories.
 % Our contributions include:
 % \begin{itemize}
