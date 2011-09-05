@@ -702,6 +702,8 @@ We also looked for correlations between our labels: excluding double matches (se
 with \emph{traceability}, and \emph{testability} with \emph{correctness} (76 and 62 matches, respectively).
 % See the following sections for our error analysis. 
 
+
+
 For \textsf{exp2}, there are more unnamed topics than \textsf{exp1}. 
 Only \emph{reliability} produces a lot of matches, mostly with the word ``error''. 
 Co-occurrence results were poor. This suggests our word lists were overly restrictive.
@@ -725,7 +727,7 @@ For each quality we assessed whether semi-unsupervised labels matched the manual
 To be clear, the manual annotations were not used to
 train the labelling process.
 As described in Section \ref{sec:wordlist} we used both ROC and F-1 measures to evaluate the performance of the classification.
-Figure \ref{fig:maxdb-unsup-results} shows our ROC results for MaxDB and MySQL. We describe F-1 results in the text below.
+Figure \ref{fig:maxdb-unsup-results} shows our ROC results for PostgreSQL, MaxDB and MySQL. We describe F-1 results in the text below.
 
 
 % \begin{figure}[t]
@@ -850,12 +852,14 @@ classifier.
 \label{fig:best-learn-per-tag}
 \end{figure}
 
-For both projects Bayesian techniques did the best out of a wide variety of machine learners tested. 
+For all projects Bayesian techniques did the best out of a wide variety of machine learners tested. 
 Our best learners, Discriminative Multinomial Naive Bayes, Naive Bayes
-and Multinomial Naive Bayes  are all based on Bayes's theorem and all
+and Multinomial Naive Bayes  are all based on Bayes' theorem and all
 assume, naively, that the features supplied are independent. 
 %The features we used are word counts per message. 
-One beneficial aspect of this result is that it suggests we can have very fast training and classifying  since Naive Bayes can be calculated in $O(N)$
+One beneficial aspect of this result is that it suggests we can have
+very fast training and classifying  since training or classifying one
+instance of Naive Bayes can be calculated in $O(N)$
 for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
 
