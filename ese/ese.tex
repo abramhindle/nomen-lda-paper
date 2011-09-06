@@ -105,7 +105,7 @@ show that labelled topic extraction can produce appropriate,
 context-sensitive labels relevant to these projects, which provides fresh
 insight into their evolving software development activities.
 %160 words
-\keywords{ Software maintenance \and Repository mining \and Latent dirichlet allocation \and Topic models}
+\keywords{ Software maintenance \and Repository mining \and Latent Dirichlet allocation \and Topic models}
 
 \end{abstract}
 
@@ -631,7 +631,7 @@ A \emph{named topic} is a topic with a match.
 \emph{Unnamed topics} occur where there is no such match. 
 This may indicate either a lack of precision in the word-lists, or simply that this topic is not associated with non-functional
 requirements.
-All experiments were run on the datasets for each project (e.g., PostgreSQL, MySQL, MaxDB). LDA
+All experiments were run on the data-sets for each project (e.g., PostgreSQL, MySQL, MaxDB). LDA
 extracted $20$ topics per period for each project.
 % Is this good enough
 This labelling is \emph{semi-unsupervised} because the corpus is not derived from 
@@ -710,7 +710,7 @@ and MySQL.
 %\DONE{this discussion is about which DB? where do the numbers come from?}
 For \textsf{exp1} the labels with the most topics
 were
-\emph{correctness} (182/305/748 -- MySQL, MaxDB and Postgresql topics) and \emph{testability} (121/238/625). 
+\emph{correctness} (182/305/748 -- MySQL, MaxDB and PostgreSQL topics) and \emph{testability} (121/238/625). 
 We did not see many results for \emph{usability} (4/0/138) or
 \emph{accuracy} (3/0/27), which were associated with fewer than ten topics. 
 We also looked for correlations between our labels: excluding double
@@ -883,7 +883,7 @@ performance is nearly always more poor than the other two systems. The
 reason for this lack of performance could be that the number of
 topics, $N$ could be non-optimal for PostgreSQL. Perhaps topics were
 getting too mixed and it was becoming hard to distinguish one topic
-from the next. PostgreSQL's dataset was the largest of the 3 projects:
+from the next. PostgreSQL's data-set was the largest of the 3 projects:
 the XML data-dump that described the PostgreSQL topics that we
 annotated was 8 times larger than MySQL and 1.7 times larger than MaxDB. These
 size differences arise from the number of commits, the number of files
@@ -1150,7 +1150,7 @@ of version 3.23.52, a general bug fix with a focus on security (a component of t
 After this point, efforts shift to the newer releases (4.0, 4.1,
 5.0). 
 
-By contrast, the PostgreSQL timeline  (Figure \ref{fig:pgsql-timeline}) is extracted from a central trunk and is not version-specific. Therefore development 
+By contrast, the PostgreSQL time-line  (Figure \ref{fig:pgsql-timeline}) is extracted from a central trunk and is not version-specific. Therefore development 
 tends to be focused on releases 7.3, 7.4 and 7.5/8.0 alpha. For example, a priority for the 8.0 candidate was a Windows-native port of the source code, which seems to 
 correlate with the \emph{portability} NFR increasing in frequency in mid-2004. Before the 7.4 release, \emph{usability,functionality} and \emph{portability} all 
 increase in frequency, possibly reflecting the interest in adding features and documentation for the release.
@@ -1253,7 +1253,7 @@ contexts.  The lead developers either ``wear more hats'' or have more
 time to ``wear more hats''.
 
 Given the top 15 PostgreSQL developers we found that proportionally many
-developers had a focus on NFR topics. Authors with top proporitions per NFR
+developers had a focus on NFR topics. Authors with top proportions per NFR
 were:
 \texttt{dennis} for usability; 
 \texttt{scrappy} and \texttt{meskes} for portability;
