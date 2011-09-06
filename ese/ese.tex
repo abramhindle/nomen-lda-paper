@@ -1181,11 +1181,11 @@ This suggests that maintenance activity is not necessarily strictly decreasing w
 In MaxDB, we can observe that \emph{Maintainability} topics became more prevalent as MaxDB matures. 
 This is likely due to our analysis time-frame for MaxDB being shorter than the time-frame for the MySQL product. 
 
-In PostgreSQL, by comparison, the frequencies seem to by cyclic, since we are not studying a maintenance-phase for the product, but rather ongoing
+In PostgreSQL, by comparison, the frequencies seem to be cyclic, since we are not studying a maintenance-phase for the product, but rather ongoing
 feature addition and usability improvements.
 
 \subsection{Do Projects Differ in their Relative  Topic Interest?}
-Yes. MySQL 3.23 had proportionally more
+\emph{Yes}. MySQL 3.23 had proportionally more
 topics labelled \emph{functionality}, while MaxDB had proportionally more
 \emph{efficiency} related topics. MaxDB was a very mature release ``donated'' to the open-source community, 
 whereas MySQL was in its relative infancy, and	
@@ -1195,9 +1195,9 @@ PostgreSQL had more NFR topics in general, but \emph{portability},
 PostgreSQL. One notable difference between PostgreSQL and the other
 two projects is that many of the commits for PostgreSQL were UI
 changes and documentation changes. PostgreSQL also seemed to focus
-more on reliability later in the case than earlier like MySQL.
+more on \emph{reliability} later in the case study than earlier like MySQL.
 In all cases \emph{portability} was a constant maintenance concern and was prevalent throughout the lifetime of the projects. It may surprise developers
-how often portability arises as a concern.
+how often \emph{portability} arises as a concern.
 
 
 %\DONE{add the pgsql data}
@@ -1207,14 +1207,17 @@ how often portability arises as a concern.
 %data/clusters.R
 
 We wanted to see how similar developers were to each other in terms of
-the NFRs that worked on. First we did pairwise $X^2$ (chi-squared)
+the NFRs that worked on. 
+Within this section we focused on PostgreSQL.
+First we did pairwise $X^2$ (chi-squared)
 tests and Kolmogorov-Smirnov tests for each developer pair and we
 found that $3/10$ of these tests the developers were significantly
 different, that is their distributions were not similar. This implies
 that there are authors who focus on different NFRs or different
 proportion of NFRs.
 
-In Figure \ref{fig:authorcluster} we clustered developers using the
+In Figure \ref{fig:authorcluster} we clustered the top developers from
+PostgreSQL using the
 Ward method of Hierarchical clustering.  This diagram shows that
 \texttt{petere}, \texttt{tgl} and \texttt{momjian} form their own
 cluster (they are also the most frequent committers). This is
@@ -1227,19 +1230,19 @@ developers do work on different sets of NFRs and have different
 software quality focus.
 
 Figure \ref{fig:authorcluster} clustered the authors into $2$ clusters
-and $6$ clusters. We chose $6$ because the difference in width between
-entities and centroids was minimal at $6$ and the derivative of was
-the highest in that region as well.
+and $6$ clusters. We chose $6$ because the difference in distance
+between entities and centroids was minimal at $6$ clusters, and the
+derivative of distance was the highest in that region as well.
 
 It should be noted that much of PostgreSQL development originates from
 the mailinglist and the developers are often pushing integrations. If
-we compare the total to each author we find that 1 quarter of the
-authors have a similarity of $0.47$ or less. This is depicted in
-Figure \ref{fig:authorsim} where we can see that not all authors are
-as similar to the global trend as others. Of
-course, we found that number of commits had a strong correlation
-($0.59$ Pearson) between the similarity to the aggregate and the
-number of topics associated with that author.
+we compare the global NFR distribution to each author we find that 1
+quarter of the authors have a similarity of $0.47$ or less. This is
+depicted in Figure \ref{fig:authorsim} where we can see that not all
+authors are as similar to the global trend as others. Of course, we
+found that number of commits correlated with an author's similarity to the
+global NFR distribution ($0.59$ Pearson).
+
 
 Our theory is that the less frequent committers are more
 focused and less general, thus their distributions of topics are
@@ -1247,8 +1250,8 @@ different than the main developers who commit code in many different
 contexts.  The lead developers either ``wear more hats'' or have more
 time to ``wear more hats''.
 
-Given the top 15 PostgreSQL devs we found that proportionally many
-devs had a focus on NFR topics. Authors with top proporitions per NFR
+Given the top 15 PostgreSQL developers we found that proportionally many
+developers had a focus on NFR topics. Authors with top proporitions per NFR
 were:
 \texttt{dennis} for usability; 
 \texttt{scrappy} and \texttt{meskes} for portability;
