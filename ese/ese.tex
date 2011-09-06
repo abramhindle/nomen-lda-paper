@@ -494,7 +494,7 @@ created a validation set of manually labelled topics. For each project,
 the six NFR labels listed above.
 Annotators did not annotate each other's annotations, but some brief
 inspection of annotations was used to confirm that the annotators were
-acting similarly. PostgreSQL was annotated by both annotators in order
+acting similarly. PostgreSQL (PgSQL) was annotated by both annotators in order
 to evaluate inter-rater reliability.
 We looked at each period's topics, and assessed what the data ---
 consisting of the frequency-weighted word lists and messages ---
@@ -574,7 +574,7 @@ We therefore took the NFRs from the ISO9126 and added terms to them.
 
 To construct these expanded word-lists, we used
 WordNet~\cite{Fellbaum1998}.
-We then added Boehm's software quality model~\cite{Boehm+:1976:ICSE}, and classified his eleven `ilities' into their respective ISO9126 NFRs. 
+We then added Boehm's software quality model~\cite{Boehm+:1976:ICSE}, and classified his eleven `\emph{ilities}' into their respective ISO9126 NFRs. 
 We did the same for the quality model produced by McCall et al.~\cite{mccall1977}. 
 We then did a simple random analysis of mailing list messages from an open source project, KDE. If we judged a given message to contain terms that were
 related to one of the NFRs in ISO9126, we added it to our word-list. This allowed us to expand our word-lists with more software-specific terms.
@@ -587,7 +587,7 @@ For the third set of word-lists, \textsf{exp3}, we extended the word-lists from 
 Similarity in WordNet means siblings in a hypernym tree. 
 We do not include these words here for space considerations (but see the Appendix for our data repository). 
 It is not clear the words associated with our labels in \textsf{exp3} are specific enough. For example, the label \emph{maintainability} is associated with
-words \emph{ease} and \emph{ownership}. In general, as we proceed from word-list in \textsf{exp1} to that in \textsf{exp3}, our lists become more generic.
+words \emph{ease} and \emph{ownership}. In general, as we proceed from word-lists in \textsf{exp1} to that in \textsf{exp3}, our lists become more generic.
 
 \begin{table*}
 	\centering
@@ -710,13 +710,13 @@ and MySQL.
 %\DONE{this discussion is about which DB? where do the numbers come from?}
 For \textsf{exp1} the labels with the most topics
 were
-\emph{correctness} (182/305/748 topics) and \emph{testability} (121/238/625). 
+\emph{correctness} (182/305/748 -- MySQL, MaxDB and Postgresql topics) and \emph{testability} (121/238/625). 
 We did not see many results for \emph{usability} (4/0/138) or
 \emph{accuracy} (3/0/27), which were associated with fewer than ten topics. 
 We also looked for correlations between our labels: excluding double
 matches (self-correlation), our highest co-occurring terms were
 \emph{verifiability} or \emph{correctness}
-with \emph{traceability}, and \emph{testability} with \emph{correctness} (76 and 62 matches, respectively).
+with \emph{traceability}, and \emph{testability} with \emph{correctness}.% (76 and 62 matches, respectively).
 % See the following sections for our error analysis. 
 
 
@@ -824,7 +824,7 @@ For \textsf{exp3}, the average F-measure (macro-F1) for MaxDB was $0.26$ with a 
 $0.47$, and $0.36$ for MySQL with a range of $0.10$ to $0.65$. 
 PostgreSQL had an average of $0.42$ with a range of $0.31$ to $0.54$.
 MaxDB had an average precision and recall of $0.16$ and $0.67$
-while MySQL had $0.3$ and $0.48$. PostgreSQL had precision and recall of $0.27$ and $0.95$, respectively.
+while MySQL had $0.3$ and $0.48$. PostgreSQL had average precision and recall of $0.27$ and $0.95$, respectively.
 
 Based on this we found that \emph{reliability} and
 \emph{usability} worked well for MaxDB in \textsf{exp2} and better in
@@ -835,7 +835,7 @@ MySQL's results for \emph{efficiency} did not improve in \textsf{exp3}
 but other qualities such as \emph{functionality} did improve. 
 For PostgreSQL in \textsf{exp2}, \emph{reliability} and \emph{efficiency} were likewise the most accurate,
 while \emph{functionality} remained poor. \emph{Functionality} improved dramatically by \textsf{exp3}.
-Many ROC scores were $0.6$ or less, but our classifier still performed substantially better than random.
+Many ROC scores were $0.6$ or less, but our classifier, in most cases, still performed substantially better than random.
 
 %\vspace*{-1em}
 \subsection{Supervised Labelling}
@@ -869,7 +869,8 @@ performing learner per label:
 % We considered the best learner for a label to be 
 the learner that had the highest ROC value for that label. 
 The best learner is important because one uses a single learner per
-label. When applying our technique, for each NFR one should select the best learner possible.
+label. When applying our technique, for each NFR one should select the
+best performing learner possible.
 %Figure \ref{fig:best-learn-per-tag} uses the ZeroR learner as a baseline, a common practice in machine learning,
 %as ZeroR naively chooses the largest category all of the time. 
 %ZeroR occasionally outperforms other learners; for labels which are not as common, this is to be expected because any miscategorization will hurt accuracy. 
@@ -882,9 +883,9 @@ performance is nearly always more poor than the other two systems. The
 reason for this lack of performance could be that the number of
 topics, $N$ could be non-optimal for PostgreSQL. Perhaps topics were
 getting too mixed and it was becoming hard to distinguish one topic
-from the next. PostgreSQL's dataset was the largest of the 3 projects,
+from the next. PostgreSQL's dataset was the largest of the 3 projects:
 the XML data-dump that described the PostgreSQL topics that we
-annotated was 8X larger than MySQL and 1.7X larger than MaxDB. These
+annotated was 8 times larger than MySQL and 1.7 times larger than MaxDB. These
 size differences arise from the number of commits, the number of files
 and the verbosity of the commit descriptions.
 
@@ -906,8 +907,8 @@ and Multinomial Naive Bayes  are all based on Bayes' theorem and all
 assume, naively, that the features supplied are independent. 
 %The features we used are word counts per message. 
 One beneficial aspect of this result is that it suggests we can have
-very fast training and classifying  since training or classifying one
-instance of Naive Bayes can be calculated in $O(N)$
+very fast training and classifying  since training on or classifying one
+instance with Naive Bayes can be calculated in $O(N)$
 for $N$ features.
 %http://nlp.stanford.edu/IR-book/html/htmledition/naive-bayes-text-classification-1.html
 
@@ -933,7 +934,7 @@ The less-frequently occurring a label, the harder it is to get accurate
 results, due to the high noise level. Nevertheless, these results are
 better than our previous word-list results of \textsf{exp2} and
 \textsf{exp3}, because the ROC values are sufficiently higher in most
-cases (other than MaxDB \emph{reliability}, MySQL \emph{efficiency}, and PgSQL \emph{maintainability}). The
+cases (other than MaxDB \emph{reliability}, MySQL \emph{efficiency}, and PostgreSQL \emph{maintainability}). The
 limitation of the approach we took here is that we assume labels are
 independent; however, labels could be correlated with each other. 
 The next section (\ref{sec:multilabel})
@@ -1000,7 +1001,7 @@ Mulan also includes methods for determining the performance of such techniques.
 \label{fig:pgcomp}
 \end{figure}
 
-Two perspectives to evaluate multi-label learners are with micro or macro measurements (used in Figure \ref{fig:mulan}).
+Two perspectives used to evaluate multi-label learners are with micro or macro measurements (used in Figure \ref{fig:mulan}).
 Macro measurements are aggregated at a class or label level (per class) while micro measurements are at the element level (per element).
 A macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. 
 For MaxDB, the macro-ROC values are undefined because of poor performance of one of the labels.%, see Figure \ref{fig:mulan}.
@@ -1013,13 +1014,13 @@ deeper hierarchy for a more accurate learner~\cite{mulan}.
 
 Figure~\ref{fig:pgcomp} shows the ROC results for the PostgreSQL
 product. In this figure, we show the relative differences when we use
-different training data sets. In \ref{fig:pgcomp-a} we see that ROC
+different training data sets from different annotators. In \ref{fig:pgcomp-a} we see that ROC
 results are very similar. In the other figure, however, author \#1 has
 dramatically better performance. We speculate that this is due to the
 particular annotation decisions made by author \#1; in some sense he
 performed better. 
-The difference in Macro-ROC was not signifcant, but the difference in
-Micro-ROC was as the p-value of Student's T-test was $< 0.001$. 
+The difference in Macro-ROC was not significant, but the difference in
+Micro-ROC was, as the p-value of Student's T-test was $< 0.001$. 
 %\DONE{check this writeup of comparison. T-test useful}
 
 These classifiers performed better than other multi-label classifiers as they have the best micro and macro ROC scores. 
