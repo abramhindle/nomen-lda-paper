@@ -1327,7 +1327,8 @@ ensuring copyright or license headers were applied to files. In these
 cases we assigned the \emph{None} label to the topic.
 
 We noticed that occasionally the names of modules would conflict with words related to other non-functional requirements. 
-For instance, optimizers are very common modules in database systems: both MySQL and MaxDB have optimizer modules. 
+For instance, optimizers are very common modules in database systems:
+all three projects, MySQL, MaxDB, and PostgreSQL have optimizer modules. 
 In MySQL the optimizer is mentioned but often the change addresses  correctness or another quality. 
 Despite this difference, the name of the module could fool our learners into believing the change was always about \emph{efficiency}. 
 In these cases the advantages of tailoring topic names to specific project terminologies are more clear. 
@@ -1402,7 +1403,9 @@ annotate \emph{all} topics took us approximately 20 hours per project, but we es
 
 Very rarely did \textsf{exp2} and \textsf{exp3} (semi-unsupervised word matching) ever perform as well as the supervised machine learners. 
 For MaxDB, \textit{reliability} was slightly better detected using the static word list of \textsf{exp2}. 
-In general, the machine learners and \textsf{exp3} did better than \textsf{exp2} for both MaxDB and MySQL. 
+In general, the machine learners and \textsf{exp3} did better than
+\textsf{exp2} for MySQL and MaxDB, yet for PostgreSQL the
+\textsf{exp2} wordlists performed better.
 For both MySQL and MaxDB \textit{usability} was better served by \textsf{exp2}. 
 \textit{Usability} was a very infrequent label, however, which made it difficult to detect in any case.
 
@@ -1419,7 +1422,8 @@ require a separate Naive Bayes learner per label.
 
 %{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
 
-With ROC values ranging from $0.6$ to $0.8$ we can see there is promise in these methods.
+With ROC values ranging from $0.6$ to $0.8$ for MySQL and MaxDB and
+$0.47$ to $0.6$ for PostgreSQL ,we can see there is promise in these methods.
 \textsf{exp2} and \textsf{exp3} both indicate that static information can be used to help label topics without any training whatsoever. 
 MySQL and MaxDB's machine learners made some decisions based off a few shared words: \textsf{bug, code, compiler, database, HP UX, delete, memory,
 missing, problems, removed, add, added, changed, problem, and test}. 
