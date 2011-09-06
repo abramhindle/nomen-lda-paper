@@ -408,17 +408,17 @@ We used three different open-source, partially-commercial database systems:
 \begin{itemize}
 \item  MySQL 3.23. Started in 1994 and MySQL 3.23 was released in early 2001. MySQL contains $320,000$ lines of C and C++ source code~\footnote{generated
 using David A. Wheeler's \emph{SLOCCount},
-{http://dwheeler.com/sloccount}.}. We used the MySQL 3.23 version control  history from July
+{http://dwheeler.com/sloccount}.}. We used the MySQL 3.23 source control  history from July
 31st, 2000 to August 9th, 2004.
 \item MaxDB 7.500. Started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project
 has over $940,000$ lines of C source
 code~\footnote{{http://www.sdn.sap.com/irj/sdn/maxdb}}. 
- We used the MaxDB 7.500 version control history from June
+ We used the MaxDB 7.500 source control history from June
 29th, 2004 to June 19th, 2006.
 \item PostgreSQL 7.3. Started in the 1980s as a Berkeley research
   project~\footnote{{http://www.postgresql.org/docs/7.3/static/}}. PostgreSQL
   7.3 contains $306,000$ lines of C code.
- We used the PostgreSQL 7.3 version control  history from May 9th, 2002 to 
+ We used the PostgreSQL 7.3 source control  history from May 9th, 2002 to 
  August 26th, 2004.
 
 \end{itemize}
@@ -476,9 +476,9 @@ any more topics dilutes the results and creates indistinct topics~\cite{Hindle09
 %\noindent \textbf{The high-level labels} --- 
 
 To facilitate cross-project comparison, we used a taxonomy of NFRs. This taxonomy is based on the ISO quality model, ISO9126~\cite{iso9126}. 
-ISO9126 describes six high-level NFRs: maintainability, functionality,
-portability, efficiency, usability, and reliability.\footnote{While there may be lingering debate in some circles about these terms, an ISO standard
-seems like a reasonable starting point for our work.} 
+ISO9126 describes six high-level NFRs: \emph{maintainability, functionality,
+portability, efficiency, usability,} and \emph{reliability}~\footnote{While there may be lingering debate in some circles about these terms, an ISO standard
+seems like a reasonable starting point for our work.}.
 There is some debate about the terms in this model. 
 However, ISO9126 is ``an international standard and thus provides an 
 internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
@@ -494,7 +494,8 @@ created a validation set of manually labelled topics. For each project,
 the six NFR labels listed above.
 Annotators did not annotate each other's annotations, but some brief
 inspection of annotations was used to confirm that the annotators were
-acting similarly.
+acting similarly. PostgreSQL was annotated by both annotators in order
+to evaluate inter-rater reliability.
 We looked at each period's topics, and assessed what the data ---
 consisting of the frequency-weighted word lists and messages ---
 suggested was the label for that topic. 
@@ -511,8 +512,9 @@ annotations that would be aggregated up to one of these higher-level labels.
 %We compared against this data-set, but we also used the data-set for our supervised machine learning based topic classification. 
 % A topic may have more than one matching keyword. % ok what?
 
-We validate classification performance using the Receiver Operating
-Characteristic area-under-curve value~\cite{Fawcett2006861},
+We validate classification performance using the area under the curve
+of Receiver Operating
+Characteristic~\cite{Fawcett2006861},
 abbreviated \emph{ROC}, and the F-measure, which is the harmonic mean of precision and recall, i.e., $2 * (P * R) / (P + R)$. 
 
 ROC values provide a score %, similar to school letter-grades (A is 0.9, C is 0.6),
