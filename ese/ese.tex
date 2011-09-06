@@ -394,7 +394,7 @@ role of NFRs in software maintenance.
 
 \begin{figure}
   \centering
- \includegraphics[width=.45\textwidth]{figures/process-model}
+ \includegraphics[height=.6\textheight]{figures/process-model}
  \caption{Research methodology process view.}
   \label{fig:process}
 \end{figure}
@@ -770,7 +770,7 @@ Figure \ref{fig:maxdb-unsup-results} shows our ROC results for PostgreSQL, MaxDB
 
 \begin{figure*}[t]
   \centering
- \includegraphics[width=0.8\textwidth]{figures/unsupervised-bar}
+ \includegraphics[width=0.9\textwidth]{figures/unsupervised-bar}
  \caption{Performance, ROC values (range: $0$--$1$), of semi-unsupervised topic labelling for
    each NFR and per word-list. The dashed line indicates the performance of a random classifier. This graph shows how well the
    semi-unsupervised topic labelling matched our manual annotations.}
@@ -894,7 +894,7 @@ and the verbosity of the commit descriptions.
 % PG data from abram's email of 09/01/2011 using first column and pgsqln.
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.45\textwidth]{figures/both-supervised}
+\includegraphics[width=0.7\textwidth]{figures/both-supervised}
 \caption[]{ROC value for the best learner per label for MaxDB, MySQL and PgSQL. Values range from $0$--$1$.  Dashed line indicates the performance of a random
 classifier.
 }
@@ -1336,7 +1336,7 @@ For instance, concurrency was mentioned often in the commit logs and
 was related to \emph{correctness} and \emph{reliability}, possibly because concurrent code is prone to bugs such as race conditions. %are 
 % often  was troublesome. 
 \emph{Configuration management} and \emph{source control} related changes appeared often; % and sometimes there were topics dedicated to configuration
-management. 
+% management. 
 these kinds of changes are slightly related to \emph{maintainability}. 
 A non-functional change that was not quality-related was licensing and
 copyright; many changes were simply to do with updating copyrights or
@@ -1386,9 +1386,9 @@ Everything & 0.107 & 0.108 \\ \hline
 \end{table}
 
 Table \ref{tab:interr} describes the Cohen Kappa and the Spearman
-correlation of our per topic annotations for each tag. We had to
+correlation of our per topic annotations for each NFR. We had to
 evaluate inter-rater reliability this way because 1 topic could be
-tagged with more than 1 annotation.
+tagged with more than 1 NFR.
 
 We feel these results are poor. The aggregate view of with a Kappa of
 $0.1$ indicates there is some agreement but not a lot. We found that
