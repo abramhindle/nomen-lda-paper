@@ -1465,7 +1465,9 @@ behaviour as commits in terms of dominant topics.
 
 \subsection{Threats to Validity}
 % can always be cut down
-%Our work faced multiple threats to validity and we attempted to address many of them.
+
+Our work faced multiple threats to validity and we attempted to address many of them:
+
 \emph{Construct validity} -- we used only commit messages rather than
 mail or bug tracker messages. 
 To extend further we would need matching repositories for each project.
@@ -1474,7 +1476,7 @@ To extend further we would need matching repositories for each project.
 Possibly they would have influenced our results, but there would be a degree of correlation between the corpora.
 %Conversely, construct validity was addressed in our validation as we used the files, topics and revisions to annotate the commit messages. 
 %We used mailing-lists to verify the purpose behind some events.
-Our taxonomy for software NFRs is subject to dispute, but seems
+Our taxonomy for software NFRs is subject to dispute, but seems to be
 generally accepted. Finally, there are exogenous sources, such as
 in-person discussions, which we did not access, an omission as noted
 in Aranda et al.~\cite{aranda09icse} %We did not show these results to the stakeholders.
@@ -1484,7 +1486,7 @@ We improved internal validity by trying to correlate and explain the behaviours 
 We did not attempt to match our results to any particular model.
 We assessed inter-rater reliability (IRR), a measure of the correlation between the manual annotations the first two authors created. Perfect IRR (1.0) indicates complete agreement 
 on the appropriate annotation for that topic. We verified IRR using
-manually annotated PostgreSQL topics, and achieved a result of $0.1$.
+manually annotated PostgreSQL topics, and achieved a weak result of $0.1$.
 Some of the reasons for this are a disagreement over the appropriate classification for documentation topics (should this be considered
 usability or portability?). A short education session on what a given NFR from the ISO standard encompasses would reduce this error rate.
 
@@ -1498,9 +1500,10 @@ of developer comments.
 
 % in Case Study Research: Design Case Studies
 \emph{Reliability} -- each annotator, the first two authors, followed the same protocol and used the same annotations. 
-However, only two annotators were used; their annotations could be
-biased as we did not analyze for inter-rater reliability because they
-did not rate the same documents.
+However, only two annotators were used; their annotations exhibit some
+bias as suggested by the weak inter-rater reliability for
+PostgreSQL. Inter-rater reliability could not be checked for MySQL and
+MaxDB because annotators did not rate the same documents.
 
 \subsection{Future Work}
 There are several avenues of further investigation.  
@@ -1508,7 +1511,8 @@ More external validation would be useful.
 Although we validated our comparisons using a mailing list for each project, interviews with developers would provide more detail. 
 We also think multi-label learning techniques, although in their infancy, are crucial in understanding cross-cutting concerns such as NFRs. 
 We want to leverage different kinds of artifacts to discover threads of NFR-related discussions that occur between multiple kinds of artifacts.
-Finally, we would like to extend this analysis to other domains, to see what patterns might occur in, for example, a consumer-facing software product.
+Finally, we would like to extend this analysis to other domains, to
+see what patterns might occur within those domains, such as consumer-facing software products.
 
 \section{Conclusions}
 This paper presented a cross-project data mining technique,
