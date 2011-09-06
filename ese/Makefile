@@ -4,6 +4,14 @@ default: view
 view: ese.pdf
 	xpdf $<
 
+#ese.ps: ese.tex
+#	latex ese
+#	latex ese
+#	bibtex ese
+#	latex ese
+#	latex ese
+#	dvips ese.dvi
+
 ese-pre.pdf: ese.tex 
 	#	pdflatex ese
 	#pdflatex ese
@@ -39,7 +47,7 @@ ese.ps: ese.dvi
 	dvips -Pdownload35 ese.dvi -o ese.ps
 
 
-ese.dvi: ese.tex icpc.bib
+ese.dvi: ese.tex 
 	latex ese
 	latex ese
 	bibtex ese
