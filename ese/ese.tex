@@ -929,7 +929,7 @@ labels
 using multi-label learners.
 %In the next section we will evaluate how well these learners perform
 %together.
-%\todo[inline]{Comment about correlation, we should link to the Mulan section, perfect segway since Mulan relies on correlation.}
+%\DONE[inline]{Comment about correlation, we should link to the Mulan section, perfect segway since Mulan relies on correlation.}
 
 %\balance
 
@@ -998,7 +998,16 @@ determines what labels should be assigned.
 The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act as a hierarchy of learners: BR is flat, while HOMER tries to build a
 deeper hierarchy for a more accurate learner~\cite{mulan}. 
 
-Figure~\ref{fig:pgcomp} shows the ROC results for the PostgreSQL product. In this figure, we show the relative differences when we use different training data sets. In \ref{fig:pgcomp-a} we see that ROC results are very similar. In the other figure, however, author \#1 has dramatically better performance. We speculate that this is due to the particular annotation decisions made by author \#1; in some sense he performed better. \todo{check this writeup of comparison. T-test useful}
+Figure~\ref{fig:pgcomp} shows the ROC results for the PostgreSQL
+product. In this figure, we show the relative differences when we use
+different training data sets. In \ref{fig:pgcomp-a} we see that ROC
+results are very similar. In the other figure, however, author \#1 has
+dramatically better performance. We speculate that this is due to the
+particular annotation decisions made by author \#1; in some sense he
+performed better. 
+The difference in Macro-ROC was not signifcant, but the difference in
+Micro-ROC was as the p-value of Student's T-test was $< 0.001$. 
+%\DONE{check this writeup of comparison. T-test useful}
 
 These classifiers performed better than other multi-label classifiers as they have the best micro and macro ROC scores. 
 The multi-label and single-label learners had similar performance: for
@@ -1167,9 +1176,17 @@ topics labelled \emph{functionality}, while MaxDB had proportionally more
 \emph{efficiency} related topics. MaxDB was a very mature release ``donated'' to the open-source community, 
 whereas MySQL was in its relative infancy, and	
 security problems were more common (security is a component of \emph{functionality} in the ISO9126 model). 
-In both cases \emph{portability} was a constant maintenance concern and was prevalent throughout the lifetime of the projects. It may surprise developers
+PostgreSQL had more NFR topics in general, but \emph{portability},
+\emph{functionality} and \emph{usability} were more prevalent in
+PostgreSQL. One notable difference between PostgreSQL and the other
+two projects is that many of the commits for PostgreSQL were UI
+changes and documentation changes. PostgreSQL also seemed to focus
+more on reliability later in the case than earlier like MySQL.
+In all cases \emph{portability} was a constant maintenance concern and was prevalent throughout the lifetime of the projects. It may surprise developers
 how often portability arises as a concern.
-\todo{add the pgsql data}
+
+
+%\DONE{add the pgsql data}
 
 \subsection{Do different developers work on different NFRs?}
 
@@ -1236,7 +1253,7 @@ of $1/3$ to $1/10$ of commits dedicated to a particular NFR.
 % thomas weick teodor for Functionality
 % ishii, scrappy, darcy for maintainability
 
-%\todo{Now look at the authors, what are they into?}
+%\DONE{Now look at the authors, what are they into?}
 
 % tgl == momjian
 % > nauthors
