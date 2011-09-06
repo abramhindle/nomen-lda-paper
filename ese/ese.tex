@@ -99,7 +99,7 @@ from source control systems such as CVS and BitKeeper.
 These topics are given labels from a generalizable
 cross-project taxonomy, consisting of non-functional
 requirements. Our approach was evaluated with experiments and case studies
-on three large-scale Relational Database Management Systems (RDBMS) projects: MySQL, PostgreSQL and MaxDB.  
+on three large-scale Relational Database Management System (RDBMS) projects: MySQL, PostgreSQL and MaxDB.  
 The case studies
 show that labelled topic extraction can produce appropriate,
 context-sensitive labels relevant to these projects, which provides fresh
@@ -147,13 +147,13 @@ commonly recurring terms, devising an appropriate summary label for
 each clump/topic is harder.  
 A given topic extracted from a set of commit logs might consist of the following terms: \emph{ ``listener change remove add fire''}. 
 This topic might reasonably be labelled as
-``\emph{event handling}'' by a developer who understands the domain well,
+\emph{``event handling''} by a developer who understands the domain well,
 despite the fact that this label does not appear in the word list itself.  
 Current approaches to topic labelling rely on manual intervention by
 human experts, and also are limited to project-specific topic labels.  
 In this paper, we introduce \emph{labelled topic extraction}, an
-approach to topic labelling that creates labels automatically that are
-project independent.
+approach to topic labelling that labels topics automatically with
+labels that are project independent.
 %is both automatic and creates labels that are project independent.
 
 % Changes to software systems, revisions, do not occur without
@@ -311,27 +311,27 @@ on a single project.
 %Thirdly, while the objective of Cleland-Huang's study was to identify new NFRs (for system development) 
 %our study assumes these NFRs are latent in the commit-log messages of the project. 
 
-Similarly, Mockus and Votta~\cite{Mockus00} study a large-scale industrial change-tracking system. 
-Mockus and Votta leverage WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words,
+Similarly, Mockus and Votta~\cite{Mockus00} studied a large-scale industrial change-tracking system. 
+Mockus and Votta leveraged WordNet~\cite{Fellbaum1998}, an English-language ``lexical database'' that contains semantic relations between words,
 including common related forms (similar to word stemming), meronymy and synonymy.
-They use WordNet for word roots as they felt the synonyms would be
+They used WordNet for word roots as they felt the synonyms would be
 non-specific and cause errors.
 %, problems we also encountered. 
-Mockus et al. validate their labels with system developers.
+Mockus et al. validated their labels with system developers.
 Since we study multiple projects, instead of a single project, these
-kind of interviews are not feasible (particularly in the distributed world of open-source software).
+kind of interviews were not feasible (particularly in the distributed world of open-source software).
 
 Another approach is to extract concerns from software repositories.
-Marcus et al.~\cite{marcus04wcre} use Latent Semantic Indexing (LSI)
+Marcus et al.~\cite{marcus04wcre} used Latent Semantic Indexing (LSI)
 to identify commonly occurring concerns for software maintenance. 
 The
 concerns are given by the user, and LSI is used to retrieve them from
 a corpus. 
 Topic modelling generates topics that are independent of a user query, and relate only to word frequencies in the corpus.
 %Some results were interesting, but their precision was quite low. 
-With ConcernLines, Treude et al.~\cite{treude09cl} show tag occurrence
+With ConcernLines, Treude et al.~\cite{treude09cl} showed tag occurrence
 using colour and intensity. 
-They mine
+They mined
 developer created tags 
 %change request tags (such as `milestone 3') and used these 
 in order to analyze the evolution of a single product.
@@ -352,7 +352,8 @@ label accordingly.
 %XXX Possible to cut this
 As discussed earlier, given the topic \emph{``listener change remove add fire''}, Baldi et al. would assign the label \emph{event-handling}. 
 The labels are reasonable enough, but still require an expert in the field to determine them. 
-Furthermore, these labels are project-specific, because they are generated from the data of that project. E.g., we might have a label called \emph{`Oracle'}
+Furthermore, these labels are project-specific, because they are
+generated from the data of that project. For example we might have a label called \emph{`Oracle'}
 in the MySQL case, since Oracle owns MySQL. 
 %We do this differently.
 %This paper does this differently. 
@@ -405,11 +406,21 @@ To evaluate our approach, we sought candidate systems that were mature projects 
 We selected systems from the same application domain, to control for differences in functional, rather than non-functional, requirements. 
 We used three different open-source, partially-commercial database systems:
 \begin{itemize}
-\item  MySQL 3.23. Started in 1994 and MySQL 3.23 was released in early 2001. MySQL contains $320,000$ lines of C and C++ source code\footnote{generated
-using David A. Wheeler's \emph{SLOCCount}, {http://dwheeler.com/sloccount}.}.
+\item  MySQL 3.23. Started in 1994 and MySQL 3.23 was released in early 2001. MySQL contains $320,000$ lines of C and C++ source code~\footnote{generated
+using David A. Wheeler's \emph{SLOCCount},
+{http://dwheeler.com/sloccount}.}. We used MySQL 3.23 history from July
+31st, 2000 to August 9th 2004.
 \item MaxDB 7.500. Started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project
-has over $940,000$ lines of C source code. 
-\item PostgreSQL 7.3. Started in the 1980s as a Berkeley research project. PostgreSQL 7.3 contains $306,000$ lines of C code.
+has over $940,000$ lines of C source
+code~\footnote{{http://www.sdn.sap.com/irj/sdn/maxdb}}. 
+ We used MaxDB 7.500 history from June
+29th, 2004 to June 19th 2006.
+\item PostgreSQL 7.3. Started in the 1980s as a Berkeley research
+  project~\footnote{{http://www.postgresql.org/docs/7.3/static/}}. PostgreSQL
+  7.3 contains $306,000$ lines of C code.
+ We used PostgreSQL 7.3 history from May 9th, 2002 to 
+ August 26th 2004.
+
 \end{itemize}
   
 %Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
