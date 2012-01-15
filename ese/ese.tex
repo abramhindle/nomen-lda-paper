@@ -444,7 +444,8 @@ will be somewhat biased towards database software.
 For each project, we used source control commit comments, the messages
 that programmers write when they commit revisions to a source control
 repository. 
-Most commits we observed had commit comments.
+Most commits we observed had commit comments (90\% in MySQL 3.23,
+98.5\% in PostgreSQL and 99.99\% in MaxDB 7.500).
 Commit comments are often studied by researchers, as they are the most readily accessible source of project interactions, and developers are often
 required to create them by the repository mechanism (e.g., Git).  Additionally, relying only on commit comments makes our approach more generalizable,
 as we do not assume the presence of other artifact corpora.
@@ -469,7 +470,12 @@ algorithm~\cite{Blei2003}, and recorded the topics the algorithm extracted.
 %we created `topics' using Latent Dirichlet Allocation, a topic identification algorithm. 
 
 A topic analysis tool such as LDA will try to find $N$ independent
-word distributions within the word distributions of all input messages. 
+word distributions within the word distributions of all input
+messages. 
+If there are not $N$ independent word distributions, the topics
+produce tend to be duplicates of each other, that is they share the
+top terms. During this study we found that when $N$ was 20 we did not
+witness duplicate topics very often.
 Linear combinations of these $N$ word distributions are meant to represent and recreate the word distributions of any of the original messages. 
 These $N$ word distributions effectively form \emph{topics}: cross-cutting collections of words relevant to one or more of our commit messages. 
 LDA extracts topics in an unsupervised manner; the algorithm relies
