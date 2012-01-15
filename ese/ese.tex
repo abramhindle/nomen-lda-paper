@@ -330,7 +330,8 @@ a corpus.
 Topic modelling generates topics that are independent of a user query, and relate only to word frequencies in the corpus.
 %Some results were interesting, but their precision was quite low. 
 With ConcernLines, Treude et al.~\cite{treude09cl} showed tag occurrence
-using colour and intensity. 
+using colour and intensity, and our plots that rely on color and intensity
+have a similar look and feel to Treude et al.'s plots.
 They mined
 developer created 
 change request tags from IBM Jazz
@@ -429,7 +430,16 @@ code~\footnote{{http://www.sdn.sap.com/irj/sdn/maxdb}}.
   
 %Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
 We explicitly chose older versions of mature projects from a stable problem domain to increase the likelihood that we would encounter primarily
-maintenance activities in our studies.
+maintenance activities in our studies. We felt that a single domain
+would allow for cross-project comparison. At the same time we
+recognize that a problem-domain alone does guarantee functional and
+non-functional similarity.
+For instance each database system has a different focus, PostgreSQL
+tends to focus on fulfilling much of the SQL92 specification and adding
+more features while MySQL has been slow to adopt much of the spec.
+ As a consequence our choice of looking at a
+single domain limits our generalizability. What we show in this paper
+will be somewhat biased towards database software.
 
 For each project, we used source control commit comments, the messages
 that programmers write when they commit revisions to a source control
@@ -1498,8 +1508,9 @@ usability or portability?). A short education session on what a given NFR from t
 Our data originated from OSS database projects and thus might not be applicable to commercially developed software or other domains. 
 Furthermore, our analysis techniques rely on a project's use of meaningful commit messages, although we feel this is the most frequently occurring form
 of developer comments. 
-%The OSS projects investigated were database systems, thus 
-%our results might not generalize to other domains. %We only studied database systems.
+While we tried to control for application domain variability, OSS
+projects investigated were database systems, thus our results might
+not generalize well to other domains.
 
 
 % in Case Study Research: Design Case Studies
