@@ -589,7 +589,9 @@ Our second word-list, \textsf{exp2}, uses the ISO9126 taxonomy described above (
 The terms from ISO9126 may not capture all words occurring in the topics that are nonetheless associated with one of the NFRs. 
 For example, the term ``redundancy'' is one 
 we considered to be
-relevant to discussion of \emph{reliability}, but is not in the standard. 
+relevant to discussion of \emph{reliability}, but is not in the
+standard. We recognize though that terms like this might be used in a
+different context with a different meaning, like code-cloning.
 We therefore took the NFRs from the ISO9126 and added terms to them.
 
 To construct these expanded word-lists, we used
@@ -1500,6 +1502,14 @@ Our taxonomy for software NFRs is subject to dispute, but seems to be
 generally accepted. Finally, there are exogenous sources, such as
 in-person discussions, which we did not access, an omission as noted
 in Aranda et al.~\cite{aranda09icse} %We did not show these results to the stakeholders.
+
+Our word-lists were built up of words that were assumed to be relevant
+to those topics, our automated analysis was ignorant of the multi-uses
+of words and thus topics could be flagged inappropriately. For
+instance, if the word \emph{redundancy} is used would it reference
+reliability or cloned code? This issue is why we checked the
+performance of the techniques, although we did not explicitly check
+for these cases.
 
 \emph{Internal validity} -- %includes inter-rater reliability and our lack of rival explanation building. 
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
