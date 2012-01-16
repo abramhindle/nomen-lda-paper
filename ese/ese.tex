@@ -501,7 +501,10 @@ portability, efficiency, usability,} and \emph{reliability}~\footnote{While ther
 seems like a reasonable starting point for our work.}.
 There is some debate about the terms in this model. 
 However, ISO9126 is ``an international standard and thus provides an 
-internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
+internationally accepted terminology for software quality
+\cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this
+research.  
+\emph{Performance} is an example of RDBMS word related to the \emph{efficiency} NFR.
 We claim that these NFRs are maintenance concerns (to varying degrees) in all software projects, and are therefore well-suited for comparisons between
 projects.
 
@@ -535,7 +538,7 @@ annotations that would be aggregated up to one of these higher-level labels.
 We validate classification performance using the area under the curve
 of Receiver Operating
 Characteristic~\cite{Fawcett2006861},
-abbreviated \emph{ROC}, and the F-measure, which is the harmonic mean of precision and recall, i.e., $2 * (P * R) / (P + R)$. 
+abbreviated \emph{ROC}, sometimes called \emph{AUC}, and the F-measure, which is the harmonic mean of precision and recall, i.e., $2 * (P * R) / (P + R)$. 
 
 ROC values provide a score %, similar to school letter-grades (A is 0.9, C is 0.6),
  reflecting how well a particular learner performed for the given data. 
@@ -546,7 +549,23 @@ A ROC result of $0.5$ would be equivalent to a random learner (that is, issuing 
 The %area under the -- NE confusing to have area again ... and not importantana
 ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen
 negative instance.
+
+We argue for using ROC over F-Measure because ROC suffers less from
+bias than F-Measure and as often F-Measure skews towards the positive
+class~\cite{flach-icml03,Forman:2010:ACS:1882471.1882479}, especially
+in the case of class imbalance. Forman et
+al.~\cite{Forman:2010:ACS:1882471.1882479} demonstrate that cross-fold
+validation will often produce low F-measures given high class
+imbalance and the presence of false negatives.
+Although
+recent work~\cite{Forman:2010:ACS:1882471.1882479} has suggested that while ROC suffers less bias than
+the average F-measure ($F_{avg}$) for cross-folds, F-measures ($F_{tp,fp}$) that are calculated from
+the sums of true-positives,
+false-positive, and false-negatives across folds tend to exhibit no
+bias. Unfortunately our experimental framework lacks a robust way to
+calculate $F_{tp,fp}$, thus we still provide ROC and $F_{avg}$.
 We consider our labelling classifiers acceptable if they outperform a random classifier (0.5). 
+
 
 \subsection{Semi-unsupervised Labelling}
 \label{sec:unsuplabelling}
@@ -607,7 +626,8 @@ Table \ref{tbl:wnsig} shows the labels (NFRs) and word-lists we used for matchin
 
 For the third set of word-lists, \textsf{exp3}, we extended the word-lists from \textsf{exp2} using unfiltered WordNet similarity matches. 
 Similarity in WordNet means siblings in a hypernym tree. 
-We do not include these words here for space considerations (but see the Appendix for our data repository). 
+We do not include these words here for space
+considerations~\footenote{For our data repository visit \url{http://softwareprocess.es/nomen/}}. 
 It is not clear the words associated with our labels in \textsf{exp3} are specific enough. For example, the label \emph{maintainability} is associated with
 words \emph{ease} and \emph{ownership}. In general, as we proceed from word-lists in \textsf{exp1} to that in \textsf{exp3}, our lists become more generic.
 
@@ -648,7 +668,7 @@ resilience integrity stability stable crash bug fails redundancy error failure\\
 %\noindent \textbf{Generating labels automatically} --- 
 
 Using our three word-lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labelled our topics with an NFR where there was a match between a word in
-the list and the same word somewhere in the distribution of words that constitute the topic.
+the list and the same word somewhere in the frequency distribution of words that constitute the topic.
 A \emph{named topic} is a topic with a match. 
 \emph{Unnamed topics} occur where there is no such match. 
 This may indicate either a lack of precision in the word-lists, or simply that this topic is not associated with non-functional

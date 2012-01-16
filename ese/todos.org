@@ -22,7 +22,11 @@
    design choices (e.g., choosing projects from the same application
    domain, using ROC instead of F-Measure as your primary measure) and
    some related discussion on the threats to validity.
-   - [ ] Defend ROC (class sizes)
+   - [X] Defend ROC (class sizes)
+         - in the "Creating a Validation Corpus" we addressed why we
+           used ROC over F-Measure: class imbalance leads to bias in
+           F-Measure. And we cited relevant work that discussed this
+           particular issue.            
    - [ ] Defend low ROC in threats to validity
    - [ ] Skewed classes in threats to validity
    - [X] Address single domain
@@ -67,7 +71,8 @@
          on page 7: you mention that you want to find N independent word
          distributions, but what if no independent word distributions exist? Is
          this possible and did you spot this during your study?
-   - [ ] Mention where performance is in terms of ISO9126
+         - discussed this in the the independent word section./
+   - [X] Mention where performance is in terms of ISO9126
    On page 7, when I was reading the NFR topics from ISO9126 I was
    immediately thinking about performance, which is quite important in
    the area of RDBMS... Does this term fall under the flag of
@@ -77,6 +82,7 @@
          but... it could also be used to indicate code cloning (code
          redundancy). How did you cope with this double meaning?
          Threat to validity and IRR issues
+         - mentioned in threats to validity
 
 
    
@@ -95,8 +101,8 @@
      the analysis was random in the first place?
      -- WE SHOULD CITE YOUR PAPER NEIL
 
-   - [ ] On page 9 you mention an Appendix... I didn't get that one for my review and I also don't see a URL.
-   - [ ] Section 3.2.2... is the term "distribution of words" right?
+   - [X] On page 9 you mention an Appendix... I didn't get that one for my review and I also don't see a URL.
+   - [X] Section 3.2.2... is the term "distribution of words" right?
      What makes it a distribution?
    - [ ] Page 9: "unfiltered WordNet" --> why unfiltered?
    - [ ] Table 2: why are the scores for PostgreSQL so low?
