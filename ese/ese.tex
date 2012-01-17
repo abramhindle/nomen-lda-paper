@@ -272,6 +272,24 @@ begin by creating word-lists to signify when a topic matches an NFR label. We th
 %We show that labels with their topics can be learned and used to classify other data-sets, either without training 
 %Our goal is to label a given topic with either an NFR from our taxonomy,
  %Section \ref{sec:unsuplabelling} presents our technique for using word-lists to do unsupervised classification, and describes the results.
+
+This work extends our previous work~\cite{msr2011}, published at The
+Working Conference on Mining Software Repositories 2011
+(MSR'2011). 
+Within this new paper that builds up upon the previous
+work, we added more machine learning results and another case-study: PostgreSQL. 
+We used two authors to
+each annotate the same PostgreSQL topics in order to compare
+them. 
+Thus we used this new case-study to test inter-rater
+reliability, described in Section \ref{sec:inter-rater}. 
+In Section
+\ref{sec:developers}, we further extended the MSR'2011 paper with an
+analysis of PostgreSQL authors and their association with NFRs and
+topics.
+
+
+
 In Section \ref{sec:suplabelling}, we manually annotate the topics, and use those annotations as training data for supervised classification.  
 %We then present visualizations of named topics and their trends over time to aid communication and analysis. 
 To demonstrate an application of labelled topic extraction, we use an exploratory case study of three open source database systems to show how named
@@ -390,7 +408,7 @@ None of this work  addressed quality requirements in OSS, nor did it examine req
 % Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance
 % techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
 
-\subsection{}
+
 
 
 
@@ -1250,6 +1268,8 @@ how often \emph{portability} arises as a concern.
 %\DONE{add the pgsql data}
 
 \subsection{Do different developers work on different NFRs?}
+
+\label{sec:developers}
 
 %data/clusters.R
 
