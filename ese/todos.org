@@ -1,5 +1,5 @@
 * TODOS
-** 1. Detail the relationship between this paper and previous paper in the paper itself
+** [X] 1. Detail the relationship between this paper and previous paper in the paper itself
 
    1. The reviewers would like to see discussion of the relationship of
    the current draft and the previous MSR 2011 paper and more detailed
@@ -18,7 +18,7 @@
      logs, ...)
 
 
-** 2. Provide more details about design choices
+** [X] 2. Provide more details about design choices
    The reviewers have several requests for more details of the study
    design choices (e.g., choosing projects from the same application
    domain, using ROC instead of F-Measure as your primary measure) and
@@ -156,11 +156,11 @@
    4. Reviewer 3 raises that the extremely low IRR (~0.1) threatens the
    validity of the results of these experiments, and its threats to
    validity should be made more prominent.
-   - [ ] Threats to validity updated for low IRR
-   - [ ] Suggestions on improvement
+   - [X] Threats to validity updated for low IRR
+   - [X] Suggestions on improvement
    - [ ] Compare against random
 
-**  5. What about developer style
+**  [X] 5. What about developer style
    5. Reviewer 4 raises the some observed results may simply be due to
    the differences among developer styles and not necessarily
    reflecting different types of work.
@@ -472,8 +472,13 @@ If possible, please avoid 1-sentence paragraphs (such as the last one in 4).
 
 
 
-Reviewer #3: Summary:
-This paper provides a thorough investigation of automated labeling of commit comments according to an existing, project-independent taxonomy.  While the experiments have admirably realistic subjects (i.e., large open-source projects) the extremely low IRR makes the results hard to trust.  
+Reviewer #3: 
+
+Summary: This paper provides a thorough investigation of
+automated labeling of commit comments according to an existing,
+project-independent taxonomy.  While the experiments have admirably
+realistic subjects (i.e., large open-source projects) the extremely
+low IRR makes the results hard to trust.
 
 Positives:
 1.	This works provides a thorough exploration of applying LDA for topic extraction from commit comments.
@@ -481,13 +486,13 @@ Positives:
 3.	This paper presents some insights into how NFRs are used across several projects.
 
 Threats:
-1.	The extremely low IRR (~0.1) threatens the validity of the results of these experiments.
+[X]1.	The extremely low IRR (~0.1) threatens the validity of the results of these experiments.
 2.	The low F-Measures further call into question how much the low IRR affected the results of these experiments.  
 3.	The motivation, including concrete applications of this work, should be made clearer.
 4.	The presentation of the experiments could be improved in order to ensure reproducibility, which is a key to this paper given the above threats.
 
 Summary of recommended changes:
-1.	The IRR threat to validity should be made more prominent.
+[X]1.	The IRR threat to validity should be made more prominent.
 2.	The experimental section should be reorganized.
 3.	The motivation should include a clearer, concrete application of this work.
 
@@ -495,7 +500,7 @@ Detailed comments:
 1.	Abstract
      a.	Beginning of abstract (i.e., original problem statement) is too detailed and long.  Consider reducing the first four sentences to something shorter, like "When trying to extract topic labels from software current approaches create project-specific word-lists that are difficult to interpret without a summary and impossible to compare across projects."  
      b.	Too detailed: use "source control systems" without "CVS and Bitkeeper" as examples? 
-     c.	Soften or qualify the claim by either alluding to or directly stating the issues encountered with IRR.  
+[X]     c.	Soften or qualify the claim by either alluding to or directly stating the issues encountered with IRR.  
 2.	Introduction
      a.	There seems to be a lack of cites in the introduction.  For instance, the first sentence "A key problem for practicing?" does not include a cite even though it seems to me to be a strong claim.  There are also no cites related to machine learning, etc, but this may be because these topics are considered common knowledge?
      b.	Consider either moving the concrete applications discussion towards the top of the introduction or make it a separate sub-section with a mockup of a tool that would use this information.  It was at first very difficult to imagine that developers would really be interested in labeling commits but, with examples sprinkled throughout the paper, it became more believable.  The motivation of this research needs to be strengthened in the introduction section.
