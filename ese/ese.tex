@@ -1305,6 +1305,16 @@ and \texttt{ishii} and \texttt{scrappy} for maintainability.
 Given these results we found that yes indeed there was often a focus
 of $1/3$ to $1/10$ of commits dedicated to a particular NFR.
 
+One potential confound for this analysis is that we could be
+describing developer style instead of developer focus. Developer style
+would be a developers likelihood to use or not use terms found within
+our dictionaries and training corpus. Further more a top developer, in
+terms of frequency of commits, will have more samples and more likely
+take on a more general role. We found in a previous
+paper~\cite{largechanges} that often the words used to describe a commit
+and the actual author of the commit were often correlated. Thus based
+on that observation developer style might be a confounding concern.
+
 
 % Dennis is into usability
 % scrappy and meskes portability
@@ -1529,6 +1539,13 @@ instance, if the word \emph{redundancy} is used would it reference
 reliability or cloned code? This issue is why we checked the
 performance of the techniques, although we did not explicitly check
 for these cases.
+
+Developer style is another confounding issue, if we are searching for
+these words we are relying on developers to use these words. This
+study might be exploiting the behaviour or style of a few
+developers. If one developer did not describe their commits well or
+used fewer terms it is likely they would be associated with a NFR
+topic regardless of the actual purpose of their commits.
 
 \emph{Internal validity} -- %includes inter-rater reliability and our lack of rival explanation building. 
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
