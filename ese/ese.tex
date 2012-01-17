@@ -632,7 +632,7 @@ A topic could match more than one NFR.
 We used several different sets of word-lists for comparison, which we
 refer to as \textsf{exp1}, \textsf{exp2}, and \textsf{exp3} in the text which follows. 
 
-Our first word-list set, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519} .
+Our first word-list set, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519}
 That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. 
 The labels we used:
 
@@ -796,7 +796,7 @@ For \textsf{exp1} the labels with the most topics
 were
 \emph{correctness} (182/305/748 -- MySQL, MaxDB and PostgreSQL topics) and \emph{testability} (121/238/625). 
 We did not see many results for \emph{usability} (4/0/138) or
-\emph{accuracy} (3/0/27), which were associated with fewer than ten topics. 
+\emph{accuracy} (3/0/27), which were infrequently matched. Note the significantly higher result for \emph{usability} in PostgreSQL -- this suggests a difference in how this project is discussing usability, at least with respect to our analysis.
 We also looked for correlations between our labels: excluding double
 matches (self-correlation), our highest co-occurring terms were
 \emph{verifiability} or \emph{correctness}
@@ -814,8 +814,8 @@ with \emph{portability} and \emph{efficiency}.
 
 For \textsf{exp3}, we generally labelled more topics. 
 As we mentioned, the word-lists are broad, so there are likely to be false-positives (discussed below). 
-The most frequent label across all projects was \emph{usability}, and the
-least frequent label was \emph{maintainability}. 
+The most frequent label across all projects (for this wordlist, and unlike \textsf{exp1}) was \emph{usability}, and the
+least frequent label was \emph{maintainability}. This implies that our signifiers for usability in this experiment were fairly broad.
 Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{efficiency} with \emph{reliability}, and \emph{efficiency} with \emph{usability}.
 %(200, 190, and 150 topics in common, respectively). 
 
