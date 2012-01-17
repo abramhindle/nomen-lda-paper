@@ -17,7 +17,7 @@
      be more precise and specify where the tags come from (source code, cvs
      logs, ...)
 
-   - [ ] Section 2, last paragraph: relation to current work unclear. For example, "Their work discusses the source of the requirements and how they are used in the development process" -- but how is this different from the current authors' work? "None of this work addressed quality requirements in OSS, nor did it examine requirements trends" -- as the authors do? Again, relationship to current work unclear. This paragraph may also make more sense as the second to last paragraph (especially given the word "Finally" in the opening of the preceding paragraph).
+   - [X] Section 2, last paragraph: relation to current work unclear. For example, "Their work discusses the source of the requirements and how they are used in the development process" -- but how is this different from the current authors' work? "None of this work addressed quality requirements in OSS, nor did it examine requirements trends" -- as the authors do? Again, relationship to current work unclear. This paragraph may also make more sense as the second to last paragraph (especially given the word "Finally" in the opening of the preceding paragraph).
 
 
 ** [X] 2. Provide more details about design choices
@@ -91,27 +91,26 @@
 
 
    
-** 3. Fix writing
- 3. The reviewers point out quite some inconsistent and unclear writing
-   in various places of the paper.
+** [ ] 3. Fix writing: The reviewers point out quite some inconsistent and unclear writing in various places of the paper.
     - [ ] Clean Up Writing
     - [ ] Beginning of abstract (i.e., original problem statement) is too detailed and long.  Consider reducing the first four sentences to something shorter, like "When trying to extract topic labels from software current approaches create project-specific word-lists that are difficult to interpret without a summary and impossible to compare across projects."
-    - [ ] Abstract Too detailed: use "source control systems" without "CVS and Bitkeeper" as examples?
+    - [X] Abstract Too detailed: use "source control systems" without "CVS and Bitkeeper" as examples?
     - [ ] Soften or qualify the claim by either alluding to or directly stating the issues encountered with IRR.
     - [ ] Do an audio edit (Neil: what is this?)
-    - [ ] There seems to be a lack of cites in the introduction.  For instance, the first sentence "A key problem for practicing?" does not include a cite even though it seems to me to be a strong claim.  There are also no cites related to machine learning, etc, but this may be because these topics are considered common knowledge?
-    - [ ] Consider either moving the concrete applications discussion towards the top of the introduction or make it a separate sub-section with a mockup of a tool that would use this information.  It was at first very difficult to imagine that developers would really be interested in labeling commits but, with examples sprinkled throughout the paper, it became more believable.  The motivation of this research needs to be strengthened in the introduction section
+    - [X] There seems to be a lack of cites in the introduction.  For instance, the first sentence "A key problem for practicing?" does not include a cite even though it seems to me to be a strong claim.
+    - [X] There are also no cites related to machine learning, etc, but this may be because these topics are considered common knowledge?
+    - [X] Consider either moving the concrete applications discussion towards the top of the introduction or make it a separate sub-section with a mockup of a tool that would use this information.  It was at first very difficult to imagine that developers would really be interested in labeling commits but, with examples sprinkled throughout the paper, it became more believable.  The motivation of this research needs to be strengthened in the introduction section
     - [ ] Reorganize methdology presentation
 	While there is no absolute standard way to present experiments and case studies many researchers are converging on a similar presentation.  For instance, they often present the experimental design, including data about the subject projects, the process, etc and then present the experimental results in a separate section.  This paper could benefit from a presentation that is closer to the standard.  See the following paper for an example: W. J. Dzidek, E. Arisholm, and L. C. Briand, "A Realistic Empirical Evaluation of the Costs and Benefits of UML in Software Maintenance," IEEE Transactions on Software Engineering, vol. 34, no. 3, pp. 407-432, May. 2008. 
-   - [ ] Are the words domain independant Section 3.2.1 
-     "These word list were determined a priori and were not
-         extracted from the projects themselves". How did you do this? How do
-         you make sure that you have not missed important terms? Could I say
-         that they are project AND domain independent?
+    - [ ] Are the words domain independant Section 3.2.1 
+      "These word list were determined a priori and were not
+          extracted from the projects themselves". How did you do this? How do
+          you make sure that you have not missed important terms? Could I say
+          that they are project AND domain independent?
 
-   - [ ] 	The sentence "We explicitly chose older versions of mature?.to increase the likelihood that we would encounter primarily maintenance activities?" came as a surprise.  If you intend to focus on maintenance topics this should be stated in the abstract or somewhere more prominent.  It feels hidden here.
+    - [ ] 	The sentence "We explicitly chose older versions of mature?.to increase the likelihood that we would encounter primarily maintenance activities?" came as a surprise.  If you intend to focus on maintenance topics this should be stated in the abstract or somewhere more prominent.  It feels hidden here.
 
-   - [ ] 	30 days is an arbitrary boundary? 
+    - [ ] 	30 days is an arbitrary boundary? 
     what if a topic was split over two 30 day periods? It would appear to be less important as it would be only = as high in each period. I realize you may have had to choose an arbitrary boundary but please at least discuss this issue.
 
    - [ ] Please list all word-lists that you use explicity in three different tables and reduce the discussion surrounding the word lists.
