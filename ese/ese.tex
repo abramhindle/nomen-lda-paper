@@ -307,19 +307,19 @@ perspectives.
 
 Cleland-Huang and her colleagues have investigated mining requirements
 documents for non-functional requirements (NFR) (software
-qualities)~\cite{Cleland-Huang2006}.  Their approach is similar to
-ours, as they mine keywords from NFR catalogues.  They differ from our approach because
-they mine requirements documents where as we mine revisions.
-%One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. 
+qualities)~\cite{Cleland-Huang2006}.  
+%Their approach is similar to
+%ours, as they mine keywords from NFR catalogues.  They differ from our approach because
+%they mine requirements documents whereas we mine revisions.
+One approach they tried was similar to this one, with keywords mined from NFR catalogues found in Chung et al.~\cite{corollary99}. 
 Their approach resulted in a recall of $80\%$ with precision of $57\%$ for the \emph{security} NFR, but could not find a reliable source of keywords for other NFRs. 
 Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
 Our research is different because we use a more comprehensive set of terms based on a taxonomy that is an integral part of our framework.
 Another difference is that we make cross-project comparisons instead of focusing
 on a single project.
-%They relied on requirements documents instead of version control
-%histories that we use.
-%The objective of Cleland-Huang's study was to identify new NFRs for system development, 
-%yet our objective was to recover those latent NFRs from commit-log messages of the project. 
+They relied on relatively well-structured requirements documents instead of version control histories that we use.
+The objective of Cleland-Huang's study was to identify new NFRs for system development, 
+yet our objective was to recover those latent NFRs from commit-log messages of the project. 
 
 %There are several reasons we did not follow this route. 
 %One, we believe we have a more comprehensive set of terms due to the taxonomy we chose. 
@@ -348,6 +348,7 @@ concerns are given by the user, and LSI is used to retrieve them from
 a corpus. 
 Topic modelling generates topics that are independent of a user query, and relate only to word frequencies in the corpus.
 %Some results were interesting, but their precision was quite low. 
+
 With ConcernLines, Treude et al.~\cite{treude09cl} showed tag occurrence
 using colour and intensity, and our plots that rely on color and intensity
 have a similar look and feel to Treude et al.'s plots.
@@ -397,24 +398,23 @@ Their work discusses the source of the requirements and how they are used in the
  German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. 
 None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
 % NE 0113 this seems too early to mention 'result'.
-% Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance
-% techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
+In Hindle et al. \cite{Hindle2007} we examined release patterns in OSS. That work showed that there is a difference between projects regarding maintenance
+techniques. This supports the result described in this paper, that software qualities are not discussed with the same frequency across projects.
 
 
 
 Finally, 
-this paper and our MSR 2011 paper~\cite{msr2011}, are based off of the
-work of Ernst
-et al.~\cite{ernst10refsq} and the work of Hindle et
+this paper and our MSR 2011 paper~\cite{msr2011} are based off of the
+work of Ernst and Mylopoulos~\cite{ernst10refsq} and the work of Hindle et
 al.~\cite{Hindle09ICSM}.
-In Ernst et al.~\cite{ernst10refsq}, we describe our earlier
-project, similar to this, that identifies changes in quality requirements
-in GNOME software projects; this approach was more exploratory, had
+In Ernst and Mylopoulos~\cite{ernst10refsq}, we describe an earlier
+project that identifies changes in quality requirements
+in GNOME software projects (GNOME is a Linux desktop environment). This earlier approach was more exploratory, had
 less validation, uses different word-lists, solely uses text-matching,
-and does not leverage machine learning strategies. 
-This work, and our
-MSR'2011 paper~\cite{msr2011}, extend this work by using 
-word-lists to label extracted topics.
+and does not leverage machine learning strategies.  
+Our approach in this paper, and our
+MSR 2011 paper~\cite{msr2011}, extends Ernst and Mylopoulos~\cite{ernst10refsq} by using 
+word-lists to label topics, which are completely absent in the earlier work.
  Hindle et
 al.~\cite{Hindle09ICSM}
  propose a windowed method of topic
@@ -423,8 +423,9 @@ topics, NFRs and new visualizations. This windowed method was
 to bucket documents  by time windows (such as months), that could overlap if
 necessary, and then use LDA to extract documents from these
 bucket. These topics were then related to topics in other adjacent
-buckets, and joined if deemed sufficiently similar. This work, and our
-MSR'2011 paper~\cite{msr2011}, extend this method by labelling topics
+buckets, and joined if deemed sufficiently similar. This paper, and our
+MSR'2011 paper~\cite{msr2011}, extend the method of Hindle et
+al.~\cite{Hindle09ICSM} by labelling topics
 and providing an alternative visualization, the topic time-line
 described in Section \ref{sec:analysis}.
 
@@ -538,9 +539,10 @@ any more topics dilutes the results and creates indistinct topics~\cite{Hindle09
 
 To facilitate cross-project comparison, we used a taxonomy of NFRs. This taxonomy is based on the ISO quality model, ISO9126~\cite{iso9126}. 
 ISO9126 describes six high-level NFRs: \emph{maintainability, functionality,
-portability, efficiency, usability,} and \emph{reliability}~\footnote{While there may be lingering debate in some circles about these terms, an ISO standard
-seems like a reasonable starting point for our work.}.
-There is some debate about the terms in this model. 
+portability, efficiency, usability,} and \emph{reliability}
+%\footnote{While there may be lingering debate in some circles about these terms, an ISO standard
+%seems like a reasonable starting point for our work.}.
+There is some debate about the terms in this model, and whether they are a) the correct terms and b) correctly organized. 
 However, ISO9126 is ``an international standard and thus provides an 
 internationally accepted terminology for software quality
 \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this
@@ -630,7 +632,7 @@ A topic could match more than one NFR.
 We used several different sets of word-lists for comparison, which we
 refer to as \textsf{exp1}, \textsf{exp2}, and \textsf{exp3} in the text which follows. 
 
-Our first word-list set, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519} .
+Our first word-list set, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519}
 That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. 
 The labels we used:
 
@@ -658,7 +660,7 @@ To construct these expanded word-lists, we used
 WordNet~\cite{Fellbaum1998}.
 We then added Boehm's software quality model~\cite{Boehm+:1976:ICSE}, and classified his eleven `\emph{ilities}' into their respective ISO9126 NFRs. 
 We did the same for the quality model produced by McCall et al.~\cite{mccall1977}. 
-We then did a simple random analysis of mailing list messages from an open source project, KDE. If we judged a given message to contain terms that were
+We then did a simple random analysis of mailing list messages from an open source ecosystem, KDE. Like the GNOME study we conducted in Ernst and Mylopoulos \cite{ernst10refsq}, KDE contains a suite of different products covering a variety of software categories. If we judged a given message to contain terms that were
 related to one of the NFRs in ISO9126, we added it to our word-list. This allowed us to expand our word-lists with more software-specific terms.
 %Finally, we randomly analyzed two mailing lists from another software project to expand our set with domain-specific terms. 
 % Less info is probably better here...
@@ -794,7 +796,7 @@ For \textsf{exp1} the labels with the most topics
 were
 \emph{correctness} (182/305/748 -- MySQL, MaxDB and PostgreSQL topics) and \emph{testability} (121/238/625). 
 We did not see many results for \emph{usability} (4/0/138) or
-\emph{accuracy} (3/0/27), which were associated with fewer than ten topics. 
+\emph{accuracy} (3/0/27), which were infrequently matched. Note the significantly higher result for \emph{usability} in PostgreSQL -- this suggests a difference in how this project is discussing usability, at least with respect to our analysis.
 We also looked for correlations between our labels: excluding double
 matches (self-correlation), our highest co-occurring terms were
 \emph{verifiability} or \emph{correctness}
@@ -812,8 +814,8 @@ with \emph{portability} and \emph{efficiency}.
 
 For \textsf{exp3}, we generally labelled more topics. 
 As we mentioned, the word-lists are broad, so there are likely to be false-positives (discussed below). 
-The most frequent label across all projects was \emph{usability}, and the
-least frequent label was \emph{maintainability}. 
+The most frequent label across all projects (for this wordlist, and unlike \textsf{exp1}) was \emph{usability}, and the
+least frequent label was \emph{maintainability}. This implies that our signifiers for usability in this experiment were fairly broad.
 Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{efficiency} with \emph{reliability}, and \emph{efficiency} with \emph{usability}.
 %(200, 190, and 150 topics in common, respectively). 
 
