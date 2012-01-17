@@ -827,7 +827,7 @@ Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{effic
 				%labelling, 
 %\noindent \textbf{Analysis of the unsupervised labelling} --- %Based on the labels, and our manual topic labelling, 
 %we compared the results of the unsupervised word matching approach. 
-For each quality we assessed whether semi-unsupervised labels matched the manual annotations. 
+For each quality in the high-level ISO 9126 taxonomy (namely, \emph{Maintainability, Usability, Reliability, Efficiency, Portability, Functionality}) we assessed whether the semi-unsupervised labels for a topic matched the manual annotations we created for the validation corpus. 
 To be clear, the manual annotations were not used to
 train the labelling process.
 As described in Section \ref{sec:wordlist} we used both ROC and F-1 measures to evaluate the performance of the classification.
@@ -867,7 +867,7 @@ Figure \ref{fig:maxdb-unsup-results} shows our ROC results for PostgreSQL, MaxDB
 Because our ground truth annotations were relevant only to ISO9126,
 we estimate that \textsf{exp1} had poor
 performance via the overlap between ISO9126 and the Kayed ontology.
-For \textsf{exp1} the F-measures for MaxDB were from $0$ to $0.18$ with an average
+For \textsf{exp1} the F-measures for the NFRs for MaxDB were from $0$ to $0.18$ with an average (of all NFRs)
 of $0.03$, for MySQL were from $0$ to $0.16$ with an average of
 $0.05$, and for PostgreSQL $0$ to $0.15$ with an average of $0.07$. 
 
@@ -932,7 +932,7 @@ We used a suite of supervised classifiers, WEKA~\cite{weka09},
 that includes machine learning tools such as support vector machines and Bayes-nets. 
 We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}. %\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. 
 Traditional classifiers label topics with a single class, whereas Mulan allows for a mixture of classes per topic, which is what we observed while
-manually labelling topics.
+manually labelling topics. For example, a given topic (word distribution) may be `about' both usability and maintainability, if this topic was a product of a discussion on design tradeoffs.
 The \emph{features} we used are word counts/occurrence	per topic, if
 a word occurs frequently enough in a topic we consider it a feature of
 the topic.
