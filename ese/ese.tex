@@ -401,14 +401,33 @@ None of this work  addressed quality requirements in OSS, nor did it examine req
 % techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
 
 
-Finally, in Ernst et al.~\cite{ernst10refsq}, we describe our earlier
+
+Finally, 
+this paper and our MSR 2011 paper~\cite{msr2011}, are based off of the
+work of Ernst
+et al.~\cite{ernst10refsq} and the work of Hindle et
+al.~\cite{Hindle09ICSM}.
+In Ernst et al.~\cite{ernst10refsq}, we describe our earlier
 project, similar to this, that identifies changes in quality requirements
 in GNOME software projects; this approach was more exploratory, had
 less validation, uses different word-lists, solely uses text-matching,
 and does not leverage machine learning strategies. 
-Hindle et al.~\cite{Hindle09ICSM} propose a windowed method of topic
+This work, and our
+MSR'2011 paper~\cite{msr2011}, extend this work by using 
+word-lists to label extracted topics.
+ Hindle et
+al.~\cite{Hindle09ICSM}
+ propose a windowed method of topic
 analysis that we extend with labelled
-topics, NFRs and new visualizations.
+topics, NFRs and new visualizations. This windowed method was
+to bucket documents  by time windows (such as months), that could overlap if
+necessary, and then use LDA to extract documents from these
+bucket. These topics were then related to topics in other adjacent
+buckets, and joined if deemed sufficiently similar. This work, and our
+MSR'2011 paper~\cite{msr2011}, extend this method by labelling topics
+and providing an alternative visualization, the topic time-line
+described in Section \ref{sec:analysis}.
+
 
 
 
@@ -1129,7 +1148,8 @@ improvements.
 
 
 %\subsection{Timeline analysis}
-Figures \ref{fig:mysql-timeline} and \ref{fig:maxdb-timeline} and \ref{fig:pgsql-timeline} show the
+Topic time-lines are depicted in Figures \ref{fig:mysql-timeline} and
+\ref{fig:maxdb-timeline} and \ref{fig:pgsql-timeline}. These topic time-lines show the
 temporal patterns of NFR frequencies.
 %NEIL- I think this (below) is just confusing, although maybe important to note.
 % based on the manually annotated
