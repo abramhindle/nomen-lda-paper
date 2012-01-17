@@ -18,11 +18,13 @@ kappa2(matrix(c( 1*(runif(600)>.9), 1*(runif(600)>.9)), ncol=2))
 kappa2(matrix(c( 1*(runif(600)>.99), 1*(runif(600)>.99)), ncol=2))
 kappa2(matrix(c( (runif(600)>.5), (runif(600)>.5)), ncol=2))
 
+normit <- function(x) { x*4 + 1 } 
+
 weight <- "unweighted"
 #for (weight in c("unweighted","equal","squared")) {
   for (i in c(1:7)) {
     print(paste(names(pa)[[i]],weight))
-    mat <- matrix(c( pa[,i], pn[,i] ), ncol=2)
+    mat <- matrix(c( normit(pa[,i]), normit(pn[,i]) ), ncol=2)
     print(kappa2(mat, weight=weight))
     print(kappam.fleiss(mat))
     #print(cor(pa[,i],pn[,i]))
@@ -61,3 +63,70 @@ kappa2(mat)$value
     print(paste("Pos Agree: ",length(pa[pa[,i]+pn[,i]==2,i])))
     print(paste("Neg Agree: ",length(pa[pa[,i]+pn[,i]==0,i])))
   }
+
+
+
+sapply(names(pa),function(i) {
+  mat <- matrix(c( normit(pa[,i]), normit(pn[,i]) ), ncol=2)
+  kappa2(mat)$value
+})
+
+kappaof <- function(sai,pai) {
+    mat <- matrix(c( sai, pai ), ncol=2)
+    kappa2(mat)$value
+}
+
+# repeat N times
+# sample from the distribution itself
+# and see what the average Kappa score is per class
+paunion <- pa
+for (i in names(pa)) {
+  paunion[,i] <- (pa[,i] & pn[,i]) * 1
+}
+kappaofself <- function( pan, N) {
+  sapply(names(pan),
+         function(x){
+           mean(sapply(c(1:N),
+                       function(x){
+                         sapply(names(pan),function(i){
+                           kappaof(sample(pan[,i],630,replace=T),pan[,i])})})[x,])})
+}
+# Abram annotations 1000 times
+                                        #    A_portability   A_functionality     A_reliability A_maintainability 
+#     0.0084965406      0.0062652051     -0.0055896254     -0.0008711916 
+#     A_efficiency       A_usability            A_none 
+#    -0.0021828228      0.0031867318     -0.0008958907 
+
+# kappaofself( pn, 1000)
+#  A_functionality     A_portability       A_usability     A_reliability 
+#     0.0057201264     -0.0062654271     -0.0011111470     -0.0024650803 
+#     A_efficiency A_maintainability            A_none 
+#    -0.0020136751      0.0082175191     -0.0009733678 
+kappaofself( pn, 1000)
+kappaofself( pa, 1000)
+kappaofself( paunion, 10)
+kappaofself( paunion, 100)
+kappaofself( paunion, 1000)
+
+kappaofunif <- function( pan, N, threshold) {
+  sapply(names(pan),
+         function(x){
+           mean(sapply(c(1:N),
+                       function(x){
+                         sapply(names(pan),function(i){
+                           kappaof(
+                                   ((runif(N) < threshold) * 1),
+                                   
+                                   pan[,i])})})[x,])})
+}
+#kappaofself( paunion, 1000)
+#    A_portability   A_functionality     A_reliability A_maintainability 
+#     -0.004717955       0.002173449      -0.004581317      -0.001811884 
+#     A_efficiency       A_usability            A_none 
+#     -0.001374283      -0.001031894      -0.001149971
+cc <- c(0,0.01,0.05,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.95,0.99,1.0)
+for (i in cc) {
+  kappaofunif(pa,1000,i)
+  kappaofunif(pn,1000,i)
+  kappaofunif(paunion,1000,i)
+}

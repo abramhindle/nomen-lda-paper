@@ -1497,9 +1497,28 @@ disagreement when a tag should be applied.
 After some discussion we concluded that usability was a source of
 disagreement. Do user manuals improve usability? Is a command-line
 option a usability issue? These kinds of questions illustrate some of
-the agreement, disagreement and ambiguity about these labels. Furthermore, 
+the agreement, disagreement and ambiguity about these labels. 
+Thus we would recommend that future annotators make a concerted effort
+to train and discuss when one applies an annotation.
+Furthermore, 
 both annotators found that the annotation was time-consuming and
 difficult.
+
+We feel that this resulting IRR score, although lackluster, indicates
+the underlying difficulty of annotating such a data-set.
+Consistent training of the annotators (the people) might avoid low IRR scores, or
+using more annotators.
+Other improvements could be gained by approaching some of the original developers
+and using their expertise to annotate the data according to their intent.
+Thus improvements
+could be gained by producing more robust training samples that use
+multiple raters, or experts, who are similarly trained and willing to discuss and
+negotiate disagreements.
+
+
+
+
+
 
 % I think this is largely due to lack of training. So I will write it up as such - as an interesting point to say that agreeing on the meaning of "software quality" is difficult, etc. Ideally we would now do a sample training session where we go over say one period and determine the appropriate annotations, then recalculate Kappa to see what changes.
 
@@ -1626,7 +1645,16 @@ We assessed inter-rater reliability (IRR), a measure of the correlation between 
 on the appropriate annotation for that topic. We verified IRR using
 manually annotated PostgreSQL topics, and achieved a weak result of $0.1$.
 Some of the reasons for this are a disagreement over the appropriate classification for documentation topics (should this be considered
-usability or portability?). A short education session on what a given NFR from the ISO standard encompasses would reduce this error rate.
+usability or portability?). A short education session on what a given
+NFR from the ISO standard encompasses would reduce this error rate.
+Weak IRR results could also be responsible for some the low ROC
+performance, if each rater is picking up on different information it
+might make it more difficult to train a machine learner to do the
+same.
+Furthermore weak IRR results threatens the validity of the
+experiments, if raters cannot agree then consistently labelling by
+ISO-9126 related NFRs could be quite difficult.
+
 
 \emph{External validity} -- %was addressed by our use of two case studies, but there are still issues. 
 Our data originated from OSS database projects and thus might not be applicable to commercially developed software or other domains. 
@@ -1683,7 +1711,12 @@ We first conducted semi-unsupervised labelling using word-lists.
 Our next approach was supervised, using single-label and multi-label learners. 
 Both kinds of learners performed well with average
 %area under the 
-ROC values between $0.6$ and $0.8$. These results, along with the efficient performance of our learners, demonstrate that labelled topic extraction is
+ROC values between $0.6$ and $0.8$. 
+These results were confounded by our low inter-rater reliability score
+on the PostgreSQL data-set, suggesting that annotators need careful
+and thoughtful training.
+With appropriate rigor in annotation, these results, along with the performance of our learners,
+demonstrate that labelled topic extraction can be
 a promising approach for understanding the occurrence of non-functional requirements in software projects. 
 %Although it may seem like common knowledge that maintenance is a concern as a project matures, our technique was able to show this independently.
 %We showed that NFRs are often trending topics in commit comments
