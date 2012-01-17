@@ -126,7 +126,7 @@ kappaofunif <- function( pan, N, threshold) {
 #     -0.001374283      -0.001031894      -0.001149971
 cc <- c(0,0.01,0.05,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.95,0.99,1.0)
 for (i in cc) {
-  kappaofunit(pa,1000,i)
-  kappaofunit(pn,1000,i)
-  kappaofunit(paunion,1000,i)
+  kappaofunif(pa,1000,i)
+  kappaofunif(pn,1000,i)
+  kappaofunif(paunion,1000,i)
 }
