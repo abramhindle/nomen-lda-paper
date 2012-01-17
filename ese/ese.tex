@@ -307,16 +307,17 @@ perspectives.
 
 Cleland-Huang and her colleagues have investigated mining requirements
 documents for non-functional requirements (NFR) (software
-qualities)~\cite{Cleland-Huang2006}.  Their approach is similar to
-ours, as they mine keywords from NFR catalogues.  They differ from our approach because
-they mine requirements documents whereas we mine revisions.
-One approach they tried was similar to this one, with keywords mined from NFR catalogues found in their previous work~\cite{chung99}. 
+qualities)~\cite{Cleland-Huang2006}.  
+%Their approach is similar to
+%ours, as they mine keywords from NFR catalogues.  They differ from our approach because
+%they mine requirements documents whereas we mine revisions.
+One approach they tried was similar to this one, with keywords mined from NFR catalogues found in Chung et al.~\cite{corollary99}. 
 Their approach resulted in a recall of $80\%$ with precision of $57\%$ for the \emph{security} NFR, but could not find a reliable source of keywords for other NFRs. 
 Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
 Our research is different because we use a more comprehensive set of terms based on a taxonomy that is an integral part of our framework.
 Another difference is that we make cross-project comparisons instead of focusing
 on a single project.
-They relied on requirements documents instead of version control histories that we use.
+They relied on relatively well-structured requirements documents instead of version control histories that we use.
 The objective of Cleland-Huang's study was to identify new NFRs for system development, 
 yet our objective was to recover those latent NFRs from commit-log messages of the project. 
 
@@ -347,6 +348,7 @@ concerns are given by the user, and LSI is used to retrieve them from
 a corpus. 
 Topic modelling generates topics that are independent of a user query, and relate only to word frequencies in the corpus.
 %Some results were interesting, but their precision was quite low. 
+
 With ConcernLines, Treude et al.~\cite{treude09cl} showed tag occurrence
 using colour and intensity, and our plots that rely on color and intensity
 have a similar look and feel to Treude et al.'s plots.
@@ -396,24 +398,23 @@ Their work discusses the source of the requirements and how they are used in the
  German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. 
 None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
 % NE 0113 this seems too early to mention 'result'.
-% Hindle et al. \cite{Hindle2007} examined release patterns in OSS. They showed that there is a difference between projects regarding maintenance
-% techniques. This supports our result that software qualities are not discussed with the same frequency across projects.
+In Hindle et al. \cite{Hindle2007} we examined release patterns in OSS. That work showed that there is a difference between projects regarding maintenance
+techniques. This supports the result described in this paper, that software qualities are not discussed with the same frequency across projects.
 
 
 
 Finally, 
-this paper and our MSR 2011 paper~\cite{msr2011}, are based off of the
-work of Ernst
-et al.~\cite{ernst10refsq} and the work of Hindle et
+this paper and our MSR 2011 paper~\cite{msr2011} are based off of the
+work of Ernst and Mylopoulos~\cite{ernst10refsq} and the work of Hindle et
 al.~\cite{Hindle09ICSM}.
-In Ernst et al.~\cite{ernst10refsq}, we describe our earlier
-project, similar to this, that identifies changes in quality requirements
-in GNOME software projects; this approach was more exploratory, had
+In Ernst and Mylopoulos~\cite{ernst10refsq}, we describe an earlier
+project that identifies changes in quality requirements
+in GNOME software projects (GNOME is a Linux desktop environment). This earlier approach was more exploratory, had
 less validation, uses different word-lists, solely uses text-matching,
-and does not leverage machine learning strategies. 
-This work, and our
-MSR'2011 paper~\cite{msr2011}, extend this work by using 
-word-lists to label extracted topics.
+and does not leverage machine learning strategies.  
+Our approach in this paper, and our
+MSR 2011 paper~\cite{msr2011}, extends Ernst and Mylopoulos~\cite{ernst10refsq} by using 
+word-lists to label topics, which are completely absent in the earlier work.
  Hindle et
 al.~\cite{Hindle09ICSM}
  propose a windowed method of topic
@@ -422,8 +423,9 @@ topics, NFRs and new visualizations. This windowed method was
 to bucket documents  by time windows (such as months), that could overlap if
 necessary, and then use LDA to extract documents from these
 bucket. These topics were then related to topics in other adjacent
-buckets, and joined if deemed sufficiently similar. This work, and our
-MSR'2011 paper~\cite{msr2011}, extend this method by labelling topics
+buckets, and joined if deemed sufficiently similar. This paper, and our
+MSR'2011 paper~\cite{msr2011}, extend the method of Hindle et
+al.~\cite{Hindle09ICSM} by labelling topics
 and providing an alternative visualization, the topic time-line
 described in Section \ref{sec:analysis}.
 
@@ -537,9 +539,10 @@ any more topics dilutes the results and creates indistinct topics~\cite{Hindle09
 
 To facilitate cross-project comparison, we used a taxonomy of NFRs. This taxonomy is based on the ISO quality model, ISO9126~\cite{iso9126}. 
 ISO9126 describes six high-level NFRs: \emph{maintainability, functionality,
-portability, efficiency, usability,} and \emph{reliability}~\footnote{While there may be lingering debate in some circles about these terms, an ISO standard
-seems like a reasonable starting point for our work.}.
-There is some debate about the terms in this model. 
+portability, efficiency, usability,} and \emph{reliability}
+%\footnote{While there may be lingering debate in some circles about these terms, an ISO standard
+%seems like a reasonable starting point for our work.}.
+There is some debate about the terms in this model, and whether they are a) the correct terms and b) correctly organized. 
 However, ISO9126 is ``an international standard and thus provides an 
 internationally accepted terminology for software quality
 \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this
