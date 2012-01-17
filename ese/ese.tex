@@ -989,7 +989,7 @@ For example, a commit message might address \textit{reliability} in the context 
 in the source code that related to \textit{usability}. 
 However, traditional machine learning techniques, such as Naive Bayes, can only map topics to a single class. 
 The Mulan~\cite{mulan} library encapsulates several different multi-label machine learners which can label elements with multiple labels.
-Mulan also includes methods for determining the performance of such techniques.
+Mulan also includes methods for determining the performance of these learners.
 % TOO DETAILED The problem framed in the learners above has changed; instead of looking at the precision and recall of applying one label, we rank
 % multiple labels at once. We must check if the full subset of labels was applied, and then how much of that subset was applied.
 
@@ -1035,12 +1035,12 @@ Mulan also includes methods for determining the performance of such techniques.
 \label{fig:pgcomp}
 \end{figure}
 
-Two perspectives used to evaluate multi-label learners are with micro or macro measurements (used in Figure \ref{fig:mulan}).
+Two perspectives used to evaluate multi-label learners are with micro or macro measurements (shown in Figure \ref{fig:mulan}a).
 Macro measurements are aggregated at a class or label level (per class) while micro measurements are at the element level (per element).
 A macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. 
 For MaxDB, the macro-ROC values are undefined because of poor performance of one of the labels.%, see Figure \ref{fig:mulan}.
 
-Figure~\ref{fig:mulan} presents the results of Mulan's best multi-label learners for our data. 
+Figure~\ref{fig:mulan} presents the results of Mulan's best multi-label learners for the MaxDB and MySQL projects, and  Figure~\ref{fig:pgcomp} for PostgreSQL. 
 Calibrated Label Ranking (CLR) is a learner that builds two layers. The first layer determines if an entity should be labelled, while the second layer
 determines what labels should be assigned.
 The Hierarchy Of Multi-label classifiERs (HOMER) and Binary Relevance (BR) act as a hierarchy of learners: BR is flat, while HOMER tries to build a
@@ -1086,7 +1086,7 @@ We motivated our investigation with three research questions:
 \item \emph{Do projects differ in their relative interest in NFRs?} A
   project manager, especially a systems-manager, would be interested
   in knowing whether a particular NFR, such as \emph{reliability}, was
-  more important for one project than another. This could be to
+  more important for one project than another. This question could be used to
   confirm the initial design goals, or to track the progress on that
   quarter's objectives.  The difference in NFR proportion is
   interesting because it implies a difference in focus between projects.
@@ -1100,7 +1100,7 @@ improvements.
 
 
 %\subsection{Timeline analysis}
-Topic time-lines are depicted in Figures \ref{fig:mysql-timeline} and
+Topic time-lines are depicted in Figures \ref{fig:mysql-timeline}, 
 \ref{fig:maxdb-timeline} and \ref{fig:pgsql-timeline}. These topic time-lines show the
 temporal patterns of NFR frequencies.
 %NEIL- I think this (below) is just confusing, although maybe important to note.
@@ -1109,17 +1109,16 @@ temporal patterns of NFR frequencies.
 %results of labelled topic extraction.
 There are two measures represented. 
 One, the relative frequency, shown in the grey histogram boxes, represents the number of topics with that NFR in that period, 
-relative to the maximum number of topics assigned to that NFR. 
+relative to the maximum number of topics assigned to the NFR. 
 For example, in Figure \ref{fig:mysql-timeline} we see a spike in \emph{portability} and \emph{functionality} frequency in September 2002.
-The second, absolute frequency, is shown using cell intensity, and compares the number of topics labelled with that NFR per period 
+The second, absolute frequency, is shown using cell intensity, and compares the number of topics labelled with the NFR per period 
 relative to the maximum number of labelled topics overall. 
 For instance, Figure \ref{fig:mysql-timeline} shows that the NFRs
 \emph{functionality}, \emph{portability} and \emph{maintainability}
 contain more labelled topics, since these NFRs have been more
-intensely shaded; 
-one interesting stream is \emph{efficiency} which shows periodic
-activity, does this suggest that once maybe efficiency related changes
-have longer lasting effects?
+intensely shaded. One interesting stream is \emph{efficiency}, which shows periodic
+activity, and suggests that efficiency-related changes
+have longer lasting effects.
 The topmost row in each diagram lists historical events for that project (such as a release). 
 %We refer to these occurrences in the discussion which follows.
 
@@ -1161,7 +1160,7 @@ The topmost row in each diagram lists historical events for that project (such a
 %\texttt{sutcheck}, a tool specific to the development process of MaxDB. 
 
 %\noindent \textbf{Timeline of key events} -- 
-We analyzed each project's developer mailing list for external validation. 
+We analyzed each project's developer mailing list for external validation (the body of the email).
 %As discussed earlier, the top row in each figure shows key events for each project. 
 We use \textit{labelled topic extraction} to pick out the underlying NFR activity behind these events. 
 For example, both MaxDB and MySQL show a high number of NFRs recognized at the first period of analysis. 
@@ -1174,8 +1173,8 @@ The gap in MaxDB (Figure \ref{fig:maxdb-timeline}) is due to a shift in developm
 released in June 2005.
 
 %For MySQL (Figure \ref{fig:mysql-timeline}), we similarly validated our NFR patterns with external mailing list data. 
-The release of MySQL we study  (Figure \ref{fig:mysql-timeline}) was the first to be licenced under the GPL. 
-Version 3.23.31 (January, 2001) was the production release (non-beta), and we see a flurry of topics labelled with \emph{functionality} and
+The development period of MySQL we studied  (Figure \ref{fig:mysql-timeline}) saw the first releases to be licensed under the GPL. 
+Version 3.23.31 (January, 2001) was the production release (non-beta), and the timeline view shows a flurry of topics labelled with \emph{functionality} and
 \emph{maintainability}. 
 After this point, this version enters the maintenance phase of its life-cycle. 
 In May 2001, there is an increase in the number of topics labelled with \emph{portability}. 
@@ -1185,9 +1184,9 @@ of version 3.23.52, a general bug fix with a focus on security (a component of t
 After this point, efforts shift to the newer releases (4.0, 4.1,
 5.0). 
 
-By contrast, the PostgreSQL time-line  (Figure \ref{fig:pgsql-timeline}) is extracted from a central trunk and is not version-specific. Therefore development 
+By contrast, the PostgreSQL time-line  (Figure \ref{fig:pgsql-timeline}) is extracted from a central trunk and is not version-specific (due to differences in how the projects manage branches). Therefore development 
 tends to be focused on releases 7.3, 7.4 and 7.5/8.0 alpha. For example, a priority for the 8.0 candidate was a Windows-native port of the source code, which seems to 
-correlate with the \emph{portability} NFR increasing in frequency in mid-2004. Before the 7.4 release, \emph{usability,functionality} and \emph{portability} all 
+correlate with the \emph{portability} NFR increasing in frequency in mid-2004. Before the 7.4 release, \emph{usability, functionality} and \emph{portability} all 
 increase in frequency, possibly reflecting the interest in adding features and documentation for the release. In the following sections we turn to our research questions:
 
 % \subsection{Comparing MaxDB and MySQL}
@@ -1216,7 +1215,7 @@ This suggests that maintenance activity is not necessarily strictly decreasing w
 In MaxDB, we can observe that \emph{Maintainability} topics became more prevalent as MaxDB matures. 
 This is likely due to our analysis time-frame for MaxDB being shorter than the time-frame for the MySQL product. 
 
-In PostgreSQL, by comparison, the frequencies seem to be cyclic, since we are not studying a maintenance-phase for the product, but rather ongoing
+In PostgreSQL, by comparison, the frequencies seem to become somewhat cyclic, since we are not studying a maintenance-phase for the product, but rather ongoing
 feature addition and usability improvements.
 
 \subsection{Do Projects Differ in their Relative  Topic Interest?}
@@ -1385,7 +1384,7 @@ was related to \emph{correctness} and \emph{reliability}, possibly because concu
 % management. 
 these kinds of changes are slightly related to \emph{maintainability}. 
 A non-functional change that was not quality-related was licensing and
-copyright; many changes were simply to do with updating copyrights or
+copyright; many changes concerned updating copyrights or
 ensuring copyright or license headers were applied to files. In these
 cases we assigned the \emph{None} label to the topic.
 
@@ -1433,23 +1432,21 @@ Everything & 0.107 & 0.108 \\ \hline
 
 Table \ref{tab:interr} describes the Cohen Kappa and the Spearman
 correlation of our per topic annotations for each NFR. We had to
-evaluate inter-rater reliability this way because 1 topic could be
-tagged with more than 1 NFR.
+evaluate inter-rater reliability this way because a single topic could be
+tagged with more than one NFR. 
 
-We feel these results are poor. The aggregate view of with a Kappa of
-$0.1$ indicates there is some agreement but not a lot. We found that
+We feel these results are poor. The aggregate view of a Kappa of
+$0.1$ indicates there is some weak agreement. We found that
 there was a lot of agreement in terms of lack of a tag, but often more
-disagreement when a tag should be applied.
-
-After some discussion we concluded that usability was a source of
+disagreement when a tag should be applied. After some discussion we concluded that usability was a source of
 disagreement. Do user manuals improve usability? Is a command-line
 option a usability issue? These kinds of questions illustrate some of
 the agreement, disagreement and ambiguity about these labels. 
 Thus we would recommend that future annotators make a concerted effort
 to train and discuss when one applies an annotation.
-Furthermore, 
-both annotators found that the annotation was time-consuming and
-difficult.
+%Furthermore, 
+%both annotators found that the annotation was time-consuming and
+%difficult.
 
 We feel that this resulting IRR score, although lackluster, indicates
 the underlying difficulty of annotating such a data-set.
@@ -1489,7 +1486,7 @@ In general, the machine learners and \textsf{exp3} did better than
 \textsf{exp2} for MySQL and MaxDB, yet for PostgreSQL the
 \textsf{exp2} word-lists performed better.
 For both MySQL and MaxDB \textit{usability} was better served by \textsf{exp2}. 
-\textit{Usability} was a very infrequent label, however, which made it difficult to detect in any case.
+\textit{Usability} was a very infrequent label, however, which made it difficult to detect for both approaches.
 
 The semi-unsupervised labelling had difficulty distinguishing between common labels and infrequent labels. 
 The learners would occasionally mislabel a topic deserving of an infrequent label with a more common label.
@@ -1505,7 +1502,7 @@ require a separate Naive Bayes learner per label.
 %{Discuss how these are CHEAP techniques and although somewhat %inaccurate they don't require a tonne of work}
 
 With ROC values ranging from $0.6$ to $0.8$ for MySQL and MaxDB and
-$0.47$ to $0.6$ for PostgreSQL, we can see there is promise in these methods.
+$0.47$ to $0.6$ for PostgreSQL, we can see there is promise in supervised methods.
 \textsf{exp2} and \textsf{exp3} both indicate that static information can be used to help label topics without any training whatsoever. 
 MySQL and MaxDB's machine learners made some decisions based off a few shared words: \textsf{bug, code, compiler, database, HP UX, delete, memory,
 missing, problems, removed, add, added, changed, problem, and test}. 
@@ -1520,10 +1517,9 @@ These results are promising because they indicate that these
 techniques are accurate enough to be useful while still maintaining
 acceptable run-time performance.
 
-Since this work focuses on labelling natural language commit log
-comments we feel it can be adapted to other natural language artifacts
-such as mailing-list discussions and bug reports, even though that was
-not evaluated in this paper. Bug reports might not exhibit the same
+While this work focuses on labelling natural language commit log
+comments, we feel it can be adapted to other natural language software artifacts, 
+such as mailing-list discussions and bug reports. Bug reports might not exhibit the same
 behaviour as commits in terms of dominant topics.
 
 \subsection{Threats to Validity}
@@ -1541,7 +1537,8 @@ Possibly they would have influenced our results, but there would be a degree of 
 %Conversely, construct validity was addressed in our validation as we used the files, topics and revisions to annotate the commit messages. 
 %We used mailing-lists to verify the purpose behind some events.
 Our taxonomy for software NFRs is subject to dispute, but seems to be
-generally accepted. Finally, there are exogenous sources, such as
+generally accepted.  A future approach should consider a different taxonomy, such as one created by surveying developers on what ``types" of tasks they work on.
+Finally, there are exogenous sources, such as
 in-person discussions, which we did not access.  %We did not show these results to the stakeholders.
 
 Our word-lists were built up of words that were assumed to be relevant

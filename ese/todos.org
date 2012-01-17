@@ -196,23 +196,23 @@ an issue).
     - [ ] Page 13: why are Bayesian techniques performing the best here?
       Because they can handle a large number of features
 
-    - [ ] Why didn't you also generate Fig.4 for PostgreSQL?
+    - [X] Why didn't you also generate Fig.4 for PostgreSQL?
 
-    - [ ] - 4 RQs: The authors provide excellent justifications for the research questions under investigation
+    - [X] - 4 RQs: The authors provide excellent justifications for the research questions under investigation
 
-    - [ ] - 4 Q2: "This could be to confirm" -> this could be _used_ to confirm?
+    - [X] - 4 Q2: "This could be to confirm" -> this could be _used_ to confirm?
 
-    - [ ] - 4, p. 16, line 12: "Figures 6a and 6b and 6c " -> remove first and
+    - [X] - 4, p. 16, line 12: "Figures 6a and 6b and 6c " -> remove first and
 
-    - [ ] - 4, p. 16, lines 14 & 18: "that NFR" -> the NFR
+    - [X] - 4, p. 16, lines 14 & 18: "that NFR" -> the NFR
 
-    - [ ] - 4, p. 16, line 21: "more intensely shaded;" -> change ; to .
+    - [X] - 4, p. 16, line 21: "more intensely shaded;" -> change ; to .
 
-    - [ ] - 4, p. 16, lines 21-42: the sentence "one interesting stream is efficiency which shows periodic activity..." is unclear. Do the authors mean, "one interesting stream is efficiency, which shows periodic activity, & may suggest that efficiency-related changes have longer lasting effects.
+    - [X] - 4, p. 16, lines 21-42: the sentence "one interesting stream is efficiency which shows periodic activity..." is unclear. Do the authors mean, "one interesting stream is efficiency, which shows periodic activity, & may suggest that efficiency-related changes have longer lasting effects.
 
-    - [ ] - 4, p. 16, line 38: "The release of MySQL we study" use of present tense here is confusing. Should it be past tense to agree with rest of paragraph?
+    - [X] - 4, p. 16, line 38: "The release of MySQL we study" use of present tense here is confusing. Should it be past tense to agree with rest of paragraph?
 
-    - [ ] 4, p. 16, line 38: licenced -> fix spelling
+    - [X] 4, p. 16, line 38: licenced -> fix spelling {YankeeS!}
 
     - [ ] - 4, p. 16, line 49: "After this point, efforts shift to the newer releases (4.0, 4.1, 5.0)" -> and what effect does this have on NFR topics?
 
@@ -229,38 +229,38 @@ the total number of topics may be more suitable.
 At least its not apparent to me by looking at the figure. Perhaps
 this could be explained better.
 
-    - [ ] "we analyzed each project's developer mailing list" - was only the subject line (as in the commit messages) or entire email analyzed?
-    - [ ]  Why multiple releases of Pg were investigated while only one release of the other two databases?
+    - [X] "we analyzed each project's developer mailing list" - was only the subject line (as in the commit messages) or entire email analyzed?
+    - [X]  Why multiple releases of Pg were investigated while only one release of the other two databases?
 
 
-    - [ ] - 4, top of p.18: add space between "usability,functionality"
+    - [X] - 4, top of p.18: add space between "usability,functionality"
     - [X] If possible, please avoid 1-sentence paragraphs (such as the last one in 4).
 
     - [X] - 4.3, 1st para is missing words: "NFRs that worked on" -- that they? "we found that 3/10" that for 3/10?
 
     - [X] - 4.3, p. 19 line 24: "we found that number" -> that the number
-    - [ ] The figures discussed in 4.3 and 5 are very difficult to understand, and there appear to be some inconsistencies in the writing.
+    - [X] The figures discussed in 4.3 and 5 are very difficult to understand, and there appear to be some inconsistencies in the writing.
 
     - [ ] Fig 7 is very hard to interpret. Needs more explanation in the text of how this figure should be read. What does the height mean? What does being on the same/different branch mean? Do the purple boxes indicate groups of similar NFRs?
 
     - [ ] The sentence "This diagram shows that petere, tgl and momjian form their own cluster" seems to contradict the later sentence, "The most frequent committers do not share the same clusters." Should the first sentence say the 3 DO NOT form their own cluster?
     - [ ] Fig 8 needs more explanation of how it should be read. For example, what do values in each quadrant mean? For instance, morjan in the top right means that s/he commits on many topics and matches the global distribution. This implies that..
-    - [ ] The cite in the first sentence of 5 does not clearly support the claim.
-    - [ ] The last sentence of 5.2 and the first paragraph of 5.3 appear to contradict each other. In 5.2, the authors state that the annotators found the annotations to be time consuming and difficult. But in the next paragraph, the authors claim the effort to be acceptable. Also, it would be useful to quantify the "time consuming and difficult" claim with some numbers, for example, about how many minutes per example or overall time (as stated in 5.3).
-    - [ ]  5.2: first 2 paragraphs can be joined. In general, authors should try to avoid so many short paragraphs--they break up the reader's flow unnecessarily.
+    - [ ] The cite in the first sentence of 5 does not clearly support the claim. {not sure what sentence this is }
+    - [X] The last sentence of 5.2 and the first paragraph of 5.3 appear to contradict each other. In 5.2, the authors state that the annotators found the annotations to be time consuming and difficult. But in the next paragraph, the authors claim the effort to be acceptable. Also, it would be useful to quantify the "time consuming and difficult" claim with some numbers, for example, about how many minutes per example or overall time (as stated in 5.3).
+    - [X]  5.2: first 2 paragraphs can be joined. In general, authors should try to avoid so many short paragraphs--they break up the reader's flow unnecessarily.
     - [ ] - 5.2, p. 21 lines 48-49: Please revise "We had to evaluate inter-rater reliability this way..." -- Perhaps change to "We evaluated", and define what "this way" means -- briefly mention what the traditional way is, and why it didn't apply here.
-    - [ ] - 5.2, p. 22 line 1: "The aggregate view of with a Kappa" -- pick either of or with
-    - [ ] - 5.3, line 29: replace "in any case" with "for the supervised learners"? Or was this a problem for both supervised and semi-supervised?
-    - [ ] - 5.3, line 43: "these methods" -- both supervised and semi-supervised?
-    - [ ] - 5.5, last sentence: "other domains" -- can the authors qualify this as software projects in other domains, rather than implying the authors intend to apply the analysis to other textual artifacts outside SE.
-    - [ ] 	5.4 The taxonomy that was chosen is likely to have increased the difficulty of this labeling problem.  A future approach should consider a different taxonomy, such as one created by surveying developers on what "types" of tasks they work on and then search for these labels.
-    - [ ] Page 14: "the performance of such techniques" performance in terms of...?
+    - [X] - 5.2, p. 22 line 1: "The aggregate view of with a Kappa" -- pick either of or with
+    - [X] - 5.3, line 29: replace "in any case" with "for the supervised learners"? Or was this a problem for both supervised and semi-supervised?
+    - [X] - 5.3, line 43: "these methods" -- both supervised and semi-supervised?
+    - [X] - 5.5, last sentence: "other domains" -- can the authors qualify this as software projects in other domains, rather than implying the authors intend to apply the analysis to other textual artifacts outside SE.
+    - [X] 	5.4 The taxonomy that was chosen is likely to have increased the difficulty of this labeling problem.  A future approach should consider a different taxonomy, such as one created by surveying developers on what "types" of tasks they work on and then search for these labels.
+    - [X] Page 14: "the performance of such techniques" performance in terms of...?
     - [ ] Page 15: "poor performance of one of the labels" do you know why? Again, knowing this would give great insight as to generalizability.
     - [X] Page 18: proportionately... shouldn't this be proportionally? (NOPE)
-    - [ ] Page 18: "In PostgreSQL, by comparison, ..." I wouldn't call them cyclic, but I would say that they become more intense over time.
+    - [X] Page 18: "In PostgreSQL, by comparison, ..." I wouldn't call them cyclic, but I would say that they become more intense over time.
     - [ ] Page 19: "our theory is that the less frequent committers are more focused and less general, thus their distributions of topics are different than the main developers who commit code in many different contexts". I think this is a very interesting and important finding! So I was wondering why you didn't repeat this exercise for one of the other systems, to reinforce your theory...
     - [ ] I am afraid that this sub-section needs an essential rewrite to be interpretable. Virtually every remaining paragraph is either incomprehensible or appears to make no sense.
-    - [ ] Page 20: many changes were simply to do --> had to do?
+    - [X] Page 20: many changes were simply to do --> had to do?
     - [ ] Strengthen conclusion
       - I found the conclusion to be weak and superficial. I would suggest that you iterate over the research questions again (briefly) and also list your contributions explicitly.
       - Claiming that an ROC between 0.6 and 0.8 is "performing well" seems like a strong claim, especially when a random classifier has an ROC of 0.5.  Please justify this claim or soften it.
