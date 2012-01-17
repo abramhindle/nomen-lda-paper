@@ -1238,9 +1238,7 @@ After this point, efforts shift to the newer releases (4.0, 4.1,
 By contrast, the PostgreSQL time-line  (Figure \ref{fig:pgsql-timeline}) is extracted from a central trunk and is not version-specific. Therefore development 
 tends to be focused on releases 7.3, 7.4 and 7.5/8.0 alpha. For example, a priority for the 8.0 candidate was a Windows-native port of the source code, which seems to 
 correlate with the \emph{portability} NFR increasing in frequency in mid-2004. Before the 7.4 release, \emph{usability,functionality} and \emph{portability} all 
-increase in frequency, possibly reflecting the interest in adding features and documentation for the release.
-
-In the following sections we turn to our research questions:
+increase in frequency, possibly reflecting the interest in adding features and documentation for the release. In the following sections we turn to our research questions:
 
 % \subsection{Comparing MaxDB and MySQL}
 
@@ -1296,12 +1294,12 @@ how often \emph{portability} arises as a concern.
 %data/clusters.R
 
 We wanted to see how similar developers were to each other in terms of
-the NFRs that worked on. 
+the NFRs that they worked on. 
 Within this section we focused on PostgreSQL.
-First we did pairwise $X^2$ (chi-squared)
-tests and Kolmogorov-Smirnov tests for each developer pair and we
-found that $3/10$ of these tests the developers were significantly
-different, that is their distributions were not similar. This implies
+We first conducted pairwise $X^2$ (chi-squared)
+tests and Kolmogorov-Smirnov tests for each developer pair. We
+found that in $3/10$ of these tests, the developers were significantly
+different, i.e., their distributions were not similar. This implies
 that there are authors who focus on different NFRs or different
 proportion of NFRs.
 
@@ -1325,13 +1323,12 @@ derivative of distance was the highest in that region as well.
 
 It should be noted that much of PostgreSQL development originates from
 the mailinglist and the developers are often pushing integrations. If
-we compare the global NFR distribution to each author we find that 1
-quarter of the authors have a similarity of $0.47$ or less. This is
-depicted in Figure \ref{fig:authorsim} where we can see that not all
+we compare the global NFR distribution to each author we find that 25\%
+ of the authors have a similarity of $0.47$ or less. This is
+depicted in Figure \ref{fig:authorsim}, where we can see that not all
 authors are as similar to the global trend as others. Of course, we
 found that number of commits correlated with an author's similarity to the
 global NFR distribution ($0.59$ Pearson).
-
 
 Our theory is that the less frequent committers are more
 focused and less general, thus their distributions of topics are
@@ -1348,7 +1345,7 @@ were:
 \texttt{jurka} and \texttt{joe} for reliability;
 \texttt{thomas} and \texttt{weick} for functionality;
 and \texttt{ishii} and \texttt{scrappy} for maintainability.
-Given these results we found that yes indeed there was often a focus
+Given these results we found that there indeed was a focus
 of $1/3$ to $1/10$ of commits dedicated to a particular NFR.
 
 One potential confound for this analysis is that we could be
