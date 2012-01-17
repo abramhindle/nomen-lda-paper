@@ -624,12 +624,12 @@ related to one of the NFRs in ISO9126, we added it to our word-list. This allowe
 %For example, we add the term ``performance'' to the synonyms for \emph{efficiency}, since this term occurs in most mail messages that discuss efficiency.
 Table \ref{tbl:wnsig} shows the labels (NFRs) and word-lists we used for matching.
 
-For the third set of word-lists, \textsf{exp3}, we extended the word-lists from \textsf{exp2} using unfiltered WordNet similarity matches. 
+For the third set of word-lists, \textsf{exp3}, we extended the word-lists from \textsf{exp2} using WordNet similarity matches. 
 Similarity in WordNet means siblings in a hypernym tree. 
 We do not include these words here for space
-considerations~\footenote{For our data repository visit \url{http://softwareprocess.es/nomen/}}. 
-It is not clear the words associated with our labels in \textsf{exp3} are specific enough. For example, the label \emph{maintainability} is associated with
-words \emph{ease} and \emph{ownership}. In general, as we proceed from word-lists in \textsf{exp1} to that in \textsf{exp3}, our lists become more generic.
+considerations~\footnote{For our data repository visit \url{http://softwareprocess.es/nomen/}}. 
+Wordnet similarity is a very broad match. For example, the label \emph{maintainability} is associated with
+words \emph{ease} and \emph{ownership}, and the word \emph{performance} has a `sense' which refers to musical performances -- which is not related to software development. In general, as we proceed from word-lists in \textsf{exp1} to that in \textsf{exp3}, our lists become more generic.
 
 \begin{table*}
 	\centering
@@ -683,8 +683,7 @@ because most software often addresses similar issues, we can use the
 domain knowledge of software to label relevant topics.
 
 
-Table \ref{tbl:wordlist} shows how many topics were labelled for MaxDB
-and MySQL.
+Table \ref{tbl:wordlist} shows how many topics were labelled for MaxDB, MySQL and PostgreSQL.
 
 
 
