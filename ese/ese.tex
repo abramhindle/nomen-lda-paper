@@ -1440,6 +1440,30 @@ $0.1$ indicates there is some agreement but not a lot. We found that
 there was a lot of agreement in terms of lack of a tag, but often more
 disagreement when a tag should be applied.
 
+Empirically how poor were our results? We decided to compare our
+results against simulated or random results. In the first simulation
+we sampled with replacement from our own NFR label distributions to
+produce random ratings that looked like our own. We then applied the
+Kappa-statistic on this sampling versus our labelling, and repeated
+this 10000 times, we found that
+for 4 out of 7 NFR labels, our labels IRR were greater than the random
+IRR measures 95\% of the time. For portability and efficiency, our IRR
+was greater 100\% of the time both for Neil's ratings, Abram's ratings
+and the union of both Neil and Abram. Figure \ref{fig:irr} depicts the IRR of
+these sampled ratings versus our IRR using the Kappa statistic.
+
+We also achieved similar results if the ratings were pulled from a
+uniform distributions. What this does indicate is that our labels and
+ratings were definitely better than random except for functionality,
+reliability and usability. 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/self-sample-Both}
+  \caption{Measured IRR versus IRR of labeling random simulations.}
+  \label{fig:irr}
+\end{figure}
+
 After some discussion we concluded that usability was a source of
 disagreement. Do user manuals improve usability? Is a command-line
 option a usability issue? These kinds of questions illustrate some of

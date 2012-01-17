@@ -1,4 +1,5 @@
 #neil and abram annotations!
+cores <- 8
 pgsqln <- read.csv("output/pgsqln.arff.csv",header=TRUE)
 pgsqla <- read.csv("output/pgsqla.arff.csv",header=TRUE)
 nn <- length(pgsqln)
@@ -57,6 +58,7 @@ mat <- matrix(c( paall, pnall ), ncol=2)
 kappam.fleiss(mat)$value
 kappa2(mat)$value
 
+
   for (i in c(1:7)) {
     print(paste(names(pa)[[i]]))
     print(paste("Pos Disagree: ",length(pa[pa[,i]+pn[,i]==1,i])))
@@ -72,9 +74,11 @@ sapply(names(pa),function(i) {
 })
 
 kappaof <- function(sai,pai) {
-    mat <- matrix(c( sai, pai ), ncol=2)
-    kappa2(mat)$value
+  #mat <- matrix(c( sai, pai ), ncol=2)
+  mat <- matrix(c( as.factor(sai), as.factor(pai) ), ncol=2)
+  kappa2(mat)$value
 }
+
 
 # repeat N times
 # sample from the distribution itself
@@ -91,7 +95,119 @@ kappaofself <- function( pan, N) {
                          sapply(names(pan),function(i){
                            kappaof(sample(pan[,i],630,replace=T),pan[,i])})})[x,])})
 }
-# Abram annotations 1000 times
+
+library(irr)
+library(multicore)
+
+paunion <- pa
+for (i in names(pa)) {
+  paunion[,i] <- (pa[,i] & pn[,i]) * 1
+}
+
+ratings <- list()
+ratings[["Abram"]] <- pa
+ratings[["Neil"]] <- pn
+ratings[["Both"]] <- paunion
+panames <- c("Portability","Functionality","Reliability","Maintainability","Effeciency", "Usability", "None")
+
+for (person in c("Abram","Neil","Both")) {
+pan <- ratings[[person]]
+i <- names(pan)[1]
+#
+#           mean(
+#                mclapply(c(1:N),
+#                sapply(c(1:N),
+#                       function(x){
+#                         sapply(names(pan),function(i){
+#                           kappaof(sample(pan[,i],630,replace=T),pan[,i])})})[x,])})
+#}
+
+
+#versus a sample
+
+N <- 1000
+kappas <- lapply(names(pa),function(acolumn) {
+  unlist(
+         mclapply(
+                  c(1:N),
+                  function(run) {
+                    kappaof(sample(pan[,acolumn],length(pan[,acolumn]),replace=T),pan[,acolumn])
+                  },
+                  mc.cores=cores)
+         )
+})
+
+pankappas <- sapply(names(pa),function(i) {
+   kappaof(pa[,i],pn[,i])
+})
+
+  pdf(paste("self-sample",person,"pdf",sep="."),width=12,height=4)
+  miny <- min(c(sapply(kappas,min), min(pankappas)))
+  maxy <- max(c(sapply(kappas,max), max(pankappas)))
+  boxplot(kappas, names=panames,ylim=c(miny,maxy))
+  title(paste("Human Ratings (",person,") versus Sampled Random Ratings"))
+  lines(pankappas, type="o",col="red",lw=3)
+  dev.off()
+  print(paste("Person ", person))
+  print(sapply(kappas,mean))
+  print(paste("Person ECDF measures", person))
+  print(sapply(c(1:7),function(i){ecdf(kappas[[i]])(pankappas[i])}))
+}
+
+
+#now versus unif
+
+for (threshold in c(0.01,0.1,0.1,0.25,0.5,0.9,0.99)) {
+  N <- 10000
+  kappas <- lapply(names(pa),function(acolumn) {
+                                        #acolumn <- i
+
+    unlist(
+         mclapply(
+         c(1:N),
+         function(run) {
+             kappaof(
+                     ((runif(length(pan[,acolumn])) < threshold) * 1)
+                     ,pan[,acolumn])
+         },
+         mc.cores=cores)
+           )
+  })
+  pankappas <- sapply(names(pa),function(i) {
+   kappaof(pa[,i],pn[,i])
+  })
+
+
+
+  pdf(paste("unif-threshold",threshold,"pdf",sep="."),width=12,height=4)
+  miny <- min(c(sapply(kappas,min), min(pankappas)))
+  maxy <- max(c(sapply(kappas,max), max(pankappas)))
+  boxplot(kappas, names=panames,ylim=c(miny,maxy))
+  title(paste("Human Ratings versus Random Ratings with Threshold of ",threshold))
+  lines(pankappas, type="o",col="red",lw=3)
+  dev.off()
+  print(paste("Threshold ", threshold))
+  print(sapply(kappas,mean))
+  print(paste("Threshold ECDF measures", threshold))
+  print(sapply(c(1:7),function(i){ecdf(kappas[[i]])(pankappas[i])}))
+
+}
+# at 1000
+# [1] "Person  Abram"
+# [1] -6.844509e-04 -2.526857e-03 -9.342679e-04 -1.994073e-03 -1.256012e-04
+# [6] -5.947729e-05  2.560513e-03
+# [1] "Person ECDF measures Abram"
+# [1] 1.000 0.377 0.536 0.978 1.000 0.656 0.951
+# [1] "Person  Neil"
+# [1]  0.0010039020  0.0005305748 -0.0011660652 -0.0015651146 -0.0023653867
+# [6]  0.0008542890  0.0016953597
+# [1] "Person ECDF measures Neil"
+# [1] 1.000 0.375 0.567 0.980 1.000 0.585 0.921
+
+
+
+
+                                        # Abram annotations 1000 times
                                         #    A_portability   A_functionality     A_reliability A_maintainability 
 #     0.0084965406      0.0062652051     -0.0055896254     -0.0008711916 
 #     A_efficiency       A_usability            A_none 
@@ -102,11 +218,11 @@ kappaofself <- function( pan, N) {
 #     0.0057201264     -0.0062654271     -0.0011111470     -0.0024650803 
 #     A_efficiency A_maintainability            A_none 
 #    -0.0020136751      0.0082175191     -0.0009733678 
-kappaofself( pn, 1000)
-kappaofself( pa, 1000)
-kappaofself( paunion, 10)
-kappaofself( paunion, 100)
-kappaofself( paunion, 1000)
+#kappaofself( pn, 1000)
+#kappaofself( pa, 1000)
+#kappaofself( paunion, 10)
+#kappaofself( paunion, 100)
+#kappaofself( paunion, 1000)
 
 kappaofunif <- function( pan, N, threshold) {
   sapply(names(pan),
@@ -124,9 +240,9 @@ kappaofunif <- function( pan, N, threshold) {
 #     -0.004717955       0.002173449      -0.004581317      -0.001811884 
 #     A_efficiency       A_usability            A_none 
 #     -0.001374283      -0.001031894      -0.001149971
-cc <- c(0,0.01,0.05,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.95,0.99,1.0)
-for (i in cc) {
-  kappaofunif(pa,1000,i)
-  kappaofunif(pn,1000,i)
-  kappaofunif(paunion,1000,i)
-}
+#cc <- c(0,0.01,0.05,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,0.95,0.99,1.0)
+#for (i in cc) {
+#  kappaofunif(pa,1000,i)
+#  kappaofunif(pn,1000,i)
+#  kappaofunif(paunion,1000,i)
+#}
