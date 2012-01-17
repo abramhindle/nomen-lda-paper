@@ -17,6 +17,8 @@
      be more precise and specify where the tags come from (source code, cvs
      logs, ...)
 
+   - [X] Section 2, last paragraph: relation to current work unclear. For example, "Their work discusses the source of the requirements and how they are used in the development process" -- but how is this different from the current authors' work? "None of this work addressed quality requirements in OSS, nor did it examine requirements trends" -- as the authors do? Again, relationship to current work unclear. This paragraph may also make more sense as the second to last paragraph (especially given the word "Finally" in the opening of the preceding paragraph).
+
 
 ** [X] 2. Provide more details about design choices
    The reviewers have several requests for more details of the study
@@ -89,15 +91,36 @@
 
 
    
-** 3. Fix writing
- 3. The reviewers point out quite some inconsistent and unclear writing
-   in various places of the paper.
+** [ ] 3. Fix writing: The reviewers point out quite some inconsistent and unclear writing in various places of the paper.
     - [ ] Clean Up Writing
-    - [ ] Do an audio edit
-   - [ ] Are the words domain independant Section 3.2.1 "These word list were determined a priori and were not
-         extracted from the projects themselves". How did you do this? How do
-         you make sure that you have not missed important terms? Could I say
-         that they are project AND domain independent?
+    - [ ] Beginning of abstract (i.e., original problem statement) is too detailed and long.  Consider reducing the first four sentences to something shorter, like "When trying to extract topic labels from software current approaches create project-specific word-lists that are difficult to interpret without a summary and impossible to compare across projects."
+    - [X] Abstract Too detailed: use "source control systems" without "CVS and Bitkeeper" as examples?
+    - [ ] Soften or qualify the claim by either alluding to or directly stating the issues encountered with IRR.
+    - [ ] Do an audio edit (Neil: what is this?)
+    - [X] There seems to be a lack of cites in the introduction.  For instance, the first sentence "A key problem for practicing?" does not include a cite even though it seems to me to be a strong claim.
+    - [X] There are also no cites related to machine learning, etc, but this may be because these topics are considered common knowledge?
+    - [X] Consider either moving the concrete applications discussion towards the top of the introduction or make it a separate sub-section with a mockup of a tool that would use this information.  It was at first very difficult to imagine that developers would really be interested in labeling commits but, with examples sprinkled throughout the paper, it became more believable.  The motivation of this research needs to be strengthened in the introduction section
+    - [ ] Reorganize methdology presentation
+	While there is no absolute standard way to present experiments and case studies many researchers are converging on a similar presentation.  For instance, they often present the experimental design, including data about the subject projects, the process, etc and then present the experimental results in a separate section.  This paper could benefit from a presentation that is closer to the standard.  See the following paper for an example: W. J. Dzidek, E. Arisholm, and L. C. Briand, "A Realistic Empirical Evaluation of the Costs and Benefits of UML in Software Maintenance," IEEE Transactions on Software Engineering, vol. 34, no. 3, pp. 407-432, May. 2008. 
+    - [ ] Are the words domain independant Section 3.2.1 
+      "These word list were determined a priori and were not
+          extracted from the projects themselves". How did you do this? How do
+          you make sure that you have not missed important terms? Could I say
+          that they are project AND domain independent?
+
+    - [ ] 	The sentence "We explicitly chose older versions of mature?.to increase the likelihood that we would encounter primarily maintenance activities?" came as a surprise.  If you intend to focus on maintenance topics this should be stated in the abstract or somewhere more prominent.  It feels hidden here.
+
+    - [ ] 	30 days is an arbitrary boundary? 
+    what if a topic was split over two 30 day periods? It would appear to be less important as it would be only = as high in each period. I realize you may have had to choose an arbitrary boundary but please at least discuss this issue.
+
+   - [ ] Please list all word-lists that you use explicity in three different tables and reduce the discussion surrounding the word lists.
+
+   - [ ] Using ROC instead of F-Measure as your primary measure (for graphs) was a surprise.  Why did you choose this? A cynical reader would suggest because ROC values are higher (not my point-of-view but you should be aware of this point).
+
+   - [ ] 3.2.3 These f-measures are very low, potentially making the approach not usable, consider discussing why you think that an approach with such a low f-measure is usable.
+
+   - [ ] 3.3.1 It seems odd that you chose the best performing learner per label.  This seems like overfitting to your specific data.  In practice, a tool would almost certainly chose one learner and apply only that learner during execution.  Please explain this decision.
+
 
    - [X] On page 9 you mention that you did a random analysis of mailing list
      messages from KDE. Why KDE and why not from a selection of projects if
@@ -111,26 +134,55 @@
    - [ ] Table 2: why are the scores for PostgreSQL so low?
    - [X] Correct this: "Table 2 shows ... for MaxDB and MySQL" --> and PgSQL???
    - [X] Usability?
-   You mention that you did not see many results for usability and they
-   you show the scores: 4/0/138. Does this mean that PostgreSQL IS
-   concerned more with usability?
-    
-   You also mention accuracy and you say that this term is associated
-   with less than then topics. How then should I interpret the numbers
-   3/0/27?
-   - [X] On page 11 you mention: "The most frequent label across all projects
-   was usability", yet on page 10 I just read "We did not see many
-   results for usability". Did I miss something here?!?
+     You mention that you did not see many results for usability and they    you show the scores: 4/0/138. Does this mean that PostgreSQL IS    concerned more with usability? You also mention accuracy and you say that this term is associated    with less than then topics. How then should I interpret the numbers 3/0/27?
+   - [X] On page 11 you mention: "The most frequent label across all projects was usability", yet on page 10 I just read "We did not see many   results for usability". Did I miss something here?!?
 
+   - [ ] From Table 2 there seem to be only 640 topics for Pg, but
+text indicates 748 topics just for correctness. This needs 
+It would also be good to comment on why Pg had so few unnamed
+topics. 
+
+   - [ ] Figure 1: to be consistent with the text, should the figure say semi-supervised rather than unsupervised? Also, the intro states the authors are comparing 3 techniques: 2 supervised & 1 semi-supervised. It is confusing that the figure only appears to depict 2 approaches -- 1 semi-supervised & 1 supervised.
+
+   - [ ]  3.1.2: the authors do an excellent job explaining the ROC curves and how to interpret them. However, it is not clear what the reader should be getting from the F Measure results
+
+   - [ ] The transition paragraph before 3.2.1 would be a great place to briefly make the distinction of why the approach is semi-supervised, rather than simply unsupervised. The transition now sounds very much like unsupervised learning, which could confuse the reader.
    - [X] Page 11: "For each quality" what do you mean by this?
+
+   - [ ]  3.2.1 "The labels we used" _are_:
+
+   - [ ] 3.2.2: what preprocessing steps were taken before applying LDA to the commit messages? For example, were the terms stemmed? Were any identifiers split? Or were the words in the commits just delimited using non-alphanumeric characters?
 
    - [X] Page 11: probably very stupid from me, but in section 3.2.3 you are
     talking about the average... the average of what? Did you do multiple
     runs and are you taking the average of that? Please explain!
 
+   - [ ] I appreciate the section on multi-label learners, but,
+perhaps, that's a bit too much content for the paper. I would prefer
+to see that space used to explain existing results (if the space is
+an issue).
+
    - [X] Page 12: "a mixture of classes"... what exactly do you mean by this?
    That a class can be assigned 10% to topic X and 20% to topic Y? Maybe
    an example would work well here.
+
+   - [ ] p. 10 last para: the topic numbers in parentheses (121/238/625) were hard to read. In the first parenthesis, can the word "respectively" be included to make the meaning of the numbers clear?
+
+   - [ ] The differences between exp1, exp2, and exp3 are difficult for a reader to remember. The authors could give the word lists names based on how they were created instead.
+
+   - [ ] Figure 2: why weren't the exp1 ROC values reported? Because they were so poor? This should be explained in the text.
+
+   - [ ] 3.2.3, 1st para: "To be clear" -> Recall that
+
+   - [ ] 3.2.3, 2nd para: is "we estimate that exp1 had poor performance via the overlap between ISO9126 and the Kayed ontology" a hypothesis or an explanation of the results? If the latter, please present the results before the discussion explaining it.
+
+   - [ ] 3.2.3, last para: "Many ROC scores were 0.6 or less, but our classifier, in most cases, still performed substantially better than random." -- is this the only discussion of the ROC results presented in Figure 2? The paper would benefit from a discussion (as a paragraph, rather than a single sentence) of Figure 2 if the authors plan on including it.
+
+   - [ ] 3.3.1: "more poor" -> poorer?
+   - [ ]  "The reason for this lack of performance could be that the number of topics, N" -> add comma after N
+
+   - [ ] 3.4: "zero, one, or more NFRs" -> zero or more?
+   - [ ] last sentence: colon doesn't make sense here, should this be a semi-colon? 
 
    - [ ]Page 13: "N could be non-optimal for PostgreSQL. Perhaps topics were
    getting too mixed..." I think this observation is essential. In fact,
@@ -141,26 +193,95 @@
       - issue of clean topics
         - cite Stephen Thomas here
 
-   - [ ] Page 13: why are Bayesian techniques performing the best here?
-     Because they can handle a large number of features
+    - [ ] Page 13: why are Bayesian techniques performing the best here?
+      Because they can handle a large number of features
 
-   - [ ] Why didn't you also generate Fig.4 for PostgreSQL?
+    - [ ] Why didn't you also generate Fig.4 for PostgreSQL?
 
-   - [ ] Page 14: "the performance of such techniques" performance in terms of...?
+    - [ ] - 4 RQs: The authors provide excellent justifications for the research questions under investigation
+
+    - [ ] - 4 Q2: "This could be to confirm" -> this could be _used_ to confirm?
+
+    - [ ] - 4, p. 16, line 12: "Figures 6a and 6b and 6c " -> remove first and
+
+    - [ ] - 4, p. 16, lines 14 & 18: "that NFR" -> the NFR
+
+    - [ ] - 4, p. 16, line 21: "more intensely shaded;" -> change ; to .
+
+    - [ ] - 4, p. 16, lines 21-42: the sentence "one interesting stream is efficiency which shows periodic activity..." is unclear. Do the authors mean, "one interesting stream is efficiency, which shows periodic activity, & may suggest that efficiency-related changes have longer lasting effects.
+
+    - [ ] - 4, p. 16, line 38: "The release of MySQL we study" use of present tense here is confusing. Should it be past tense to agree with rest of paragraph?
+
+    - [ ] 4, p. 16, line 38: licenced -> fix spelling
+
+    - [ ] - 4, p. 16, line 49: "After this point, efforts shift to the newer releases (4.0, 4.1, 5.0)" -> and what effect does this have on NFR topics?
+
+    - [ ] - Figure 6: can the authors increase the size of the text? The labels are hard to read on a print out, and are much smaller than the capture text -- could the labels at least be as large as the caption font?
+
+    - [ ] "relative to maximum number of labeled topics" - why not relative to
+the total number of labeled topics? This normalization assumes that
+unlabeled topics have the same proportions of activities as labeled
+topics. But if we assume that unlabeled topics have some completely
+different types of activities, then, it seems, that normalization by
+the total number of topics may be more suitable.
+
+    - [ ] "efficiency which shows periodic activity" - I am not sure it does. 
+At least its not apparent to me by looking at the figure. Perhaps
+this could be explained better.
+
+    - [ ] "we analyzed each project's developer mailing list" - was only the subject line (as in the commit messages) or entire email analyzed?
+    - [ ]  Why multiple releases of Pg were investigated while only one release of the other two databases?
 
 
-     --- Finished Here Comeback later ---
+    - [ ] - 4, top of p.18: add space between "usability,functionality"
+    - [X] If possible, please avoid 1-sentence paragraphs (such as the last one in 4).
+
+    - [X] - 4.3, 1st para is missing words: "NFRs that worked on" -- that they? "we found that 3/10" that for 3/10?
+
+    - [X] - 4.3, p. 19 line 24: "we found that number" -> that the number
+    - [ ] The figures discussed in 4.3 and 5 are very difficult to understand, and there appear to be some inconsistencies in the writing.
+
+    - [ ] Fig 7 is very hard to interpret. Needs more explanation in the text of how this figure should be read. What does the height mean? What does being on the same/different branch mean? Do the purple boxes indicate groups of similar NFRs?
+
+    - [ ] The sentence "This diagram shows that petere, tgl and momjian form their own cluster" seems to contradict the later sentence, "The most frequent committers do not share the same clusters." Should the first sentence say the 3 DO NOT form their own cluster?
+    - [ ] Fig 8 needs more explanation of how it should be read. For example, what do values in each quadrant mean? For instance, morjan in the top right means that s/he commits on many topics and matches the global distribution. This implies that..
+    - [ ] The cite in the first sentence of 5 does not clearly support the claim.
+    - [ ] The last sentence of 5.2 and the first paragraph of 5.3 appear to contradict each other. In 5.2, the authors state that the annotators found the annotations to be time consuming and difficult. But in the next paragraph, the authors claim the effort to be acceptable. Also, it would be useful to quantify the "time consuming and difficult" claim with some numbers, for example, about how many minutes per example or overall time (as stated in 5.3).
+    - [ ]  5.2: first 2 paragraphs can be joined. In general, authors should try to avoid so many short paragraphs--they break up the reader's flow unnecessarily.
+    - [ ] - 5.2, p. 21 lines 48-49: Please revise "We had to evaluate inter-rater reliability this way..." -- Perhaps change to "We evaluated", and define what "this way" means -- briefly mention what the traditional way is, and why it didn't apply here.
+    - [ ] - 5.2, p. 22 line 1: "The aggregate view of with a Kappa" -- pick either of or with
+    - [ ] - 5.3, line 29: replace "in any case" with "for the supervised learners"? Or was this a problem for both supervised and semi-supervised?
+    - [ ] - 5.3, line 43: "these methods" -- both supervised and semi-supervised?
+    - [ ] - 5.5, last sentence: "other domains" -- can the authors qualify this as software projects in other domains, rather than implying the authors intend to apply the analysis to other textual artifacts outside SE.
+    - [ ] 	5.4 The taxonomy that was chosen is likely to have increased the difficulty of this labeling problem.  A future approach should consider a different taxonomy, such as one created by surveying developers on what "types" of tasks they work on and then search for these labels.
+    - [ ] Page 14: "the performance of such techniques" performance in terms of...?
+    - [ ] Page 15: "poor performance of one of the labels" do you know why? Again, knowing this would give great insight as to generalizability.
+    - [X] Page 18: proportionately... shouldn't this be proportionally? (NOPE)
+    - [ ] Page 18: "In PostgreSQL, by comparison, ..." I wouldn't call them cyclic, but I would say that they become more intense over time.
+    - [ ] Page 19: "our theory is that the less frequent committers are more focused and less general, thus their distributions of topics are different than the main developers who commit code in many different contexts". I think this is a very interesting and important finding! So I was wondering why you didn't repeat this exercise for one of the other systems, to reinforce your theory...
+    - [ ] I am afraid that this sub-section needs an essential rewrite to be interpretable. Virtually every remaining paragraph is either incomprehensible or appears to make no sense.
+    - [ ] Page 20: many changes were simply to do --> had to do?
+    - [ ] Strengthen conclusion
+      - I found the conclusion to be weak and superficial. I would suggest that you iterate over the research questions again (briefly) and also list your contributions explicitly.
+      - Claiming that an ROC between 0.6 and 0.8 is "performing well" seems like a strong claim, especially when a random classifier has an ROC of 0.5.  Please justify this claim or soften it.
 
 
-** 4. Honestly address the IRR issues
+** 4. Honestly address the IRR and validity issues
    4. Reviewer 3 raises that the extremely low IRR (~0.1) threatens the
    validity of the results of these experiments, and its threats to
    validity should be made more prominent.
    - [X] Threats to validity updated for low IRR
    - [X] Suggestions on improvement
    - [ ] Compare against random
+   - [ ] Am I right in saying that you actually continued with two separate sets instead of trying to integrate both sets? If this is so, I would suggest you to make this more clear in advance.
+   - [ ] The three software systems that you study all come from the same domain. One of the reasons that you give for that is "to show how named topics can be compared between projects". In the threats to validity however, you do mention the fact that all 3 systems come from the same domain, but at that point in time I would expect that you restate why you did this. In fact, I would go further and try to mitigate the generalizability further by saying that the development teams were independent of each other or something along those lines
+   - [ ] There must be a clear indicator that these results are threatened by the low IRR in the conclusion.
+   - [ ]  5.2 As I've mentioned and as you admit, this is a major threat to validity.  Is it possible to further reduce this threat in any way, such as by increasing the amount of external validation on mailing lists to correlate with figure 6?  That would increase my confidence in much of the results.
+   - [ ] This section was very interesting but the low IRR makes me wonder how much noise is in the data.  I would love to hear more about your external validation on developer mailing lists which would strengthen these findings.
+   - [ ] Given low inter-rater reliability measures for the manual annotations ...
+          it would be interesting to discuss it in light on low performance of automatic and supervised labeling.  E.g, what would ROC be using one rater on another rater, how much can we expect from classifiers?  I understand that for multi-label classification there may not be too many established measures, but presenting perfect agreement (all labels are the same for both raters) and weak agreement (at least one label is shared between the two raters) would be very important to understand cross-rater reliability.
 
-**  [X] 5. What about developer style
+**  [ ] 5. What about developer style
    5. Reviewer 4 raises the some observed results may simply be due to
    the differences among developer styles and not necessarily
    reflecting different types of work.
@@ -170,6 +291,9 @@
    - [X] Add to threats to validity.
    - [X] Warn up front about developer style
    - [X] Cite large changes paper that style can be an issue
+   - [ ]  Developer differences (see also comment for Page 16) What was exactly tested? E.g., KS test requires CDF: what was that CDF of? What were test criteria (significance levels)? How many developer pairs?
+   - [ ]  Different clustering algorithms result in different trees: how sensitive the results were to algorithm/distance measure choices?
+   - [ ] 
 
 
 * Raw Text
@@ -386,7 +510,7 @@ mitigate the generalizability further by saying that the development
 teams were independent of each other or something along those lines.
 
 I found the conclusion to be weak and superficial. I would suggest that you iterate over the research questions again (briefly) and also list your contributions explicitly.
-
+Con
 
 
 
@@ -513,13 +637,14 @@ Detailed comments:
      a.	Beginning of abstract (i.e., original problem statement) is too detailed and long.  Consider reducing the first four sentences to something shorter, like "When trying to extract topic labels from software current approaches create project-specific word-lists that are difficult to interpret without a summary and impossible to compare across projects."  
      b.	Too detailed: use "source control systems" without "CVS and Bitkeeper" as examples? 
 [X]     c.	Soften or qualify the claim by either alluding to or directly stating the issues encountered with IRR.  
-2.	Introduction
+1. Introduction
      a.	There seems to be a lack of cites in the introduction.  For instance, the first sentence "A key problem for practicing?" does not include a cite even though it seems to me to be a strong claim.  There are also no cites related to machine learning, etc, but this may be because these topics are considered common knowledge?
+2. [ ] 
      b.	Consider either moving the concrete applications discussion towards the top of the introduction or make it a separate sub-section with a mockup of a tool that would use this information.  It was at first very difficult to imagine that developers would really be interested in labeling commits but, with examples sprinkled throughout the paper, it became more believable.  The motivation of this research needs to be strengthened in the introduction section.
-3.	Previous work
+3. Previous work
      a.	Mockus and Votta's work is not well-described.  They "studied" a system? what did they actually study and what did they conclude?
      b.	The concept location cite (i.e, [17) seems odd.  Concept location does not seem similar to this line of research.
-4.	Study design and execution
+4. Study design and execution
      a.	High-level point: This section is not well-organized IMO.  It could benefit in terms of readability and reproducibility from a re-organization.
      b.	While there is no absolute standard way to present experiments and case studies many researchers are converging on a similar presentation.  For instance, they often present the experimental design, including data about the subject projects, the process, etc and then present the experimental results in a separate section.  This paper could benefit from a presentation that is closer to the standard.  See the following paper for an example: W. J. Dzidek, E. Arisholm, and L. C. Briand, "A Realistic Empirical Evaluation of the Costs and Benefits of UML in Software Maintenance," IEEE Transactions on Software Engineering, vol. 34, no. 3, pp. 407-432, May. 2008. 
      c.	The sentence "We explicitly chose older versions of mature?.to increase the likelihood that we would encounter primarily maintenance activities?" came as a surprise.  If you intend to focus on maintenance topics this should be stated in the abstract or somewhere more prominent.  It feels hidden here.
@@ -528,14 +653,14 @@ Detailed comments:
      f.	Using ROC instead of F-Measure as your primary measure (for graphs) was a surprise.  Why did you choose this? A cynical reader would suggest because ROC values are higher (not my point-of-view but you should be aware of this point).
      g.	3.2.3 These f-measures are very low, potentially making the approach not usable, consider discussing why you think that an approach with such a low f-measure is usable.
      h.	3.3.1 It seems odd that you chose the best performing learner per label.  This seems like overfitting to your specific data.  In practice, a tool would almost certainly chose one learner and apply only that learner during execution.  Please explain this decision.
-5.	Understanding software maintenance activities
+5. Understanding software maintenance activities
      a.	The cite in the first sentence does not clearly support the claim.
      b.	This section was very interesting but the low IRR makes me wonder how much noise is in the data.  I would love to hear more about your external validation on developer mailing lists which would strengthen these findings.
-6.	Discussion
+6. Discussion
      a.	5.2 As I've mentioned and as you admit, this is a major threat to validity.  Is it possible to further reduce this threat in any way, such as by increasing the amount of external validation on mailing lists to correlate with figure 6?  That would increase my confidence in much of the results.
      b.	5.4 The taxonomy that was chosen is likely to have increased the difficulty of this labeling problem.  A future approach should consider a different taxonomy, such as one created by surveying developers on what "types" of tasks they work on and then search for these labels.  
-7.	Conclusions
-     a.	There must be a clear indicator that these results are threatened by the low IRR in the conclusion.  
+7. Conclusions
+     a.	There must be a clear indicator that these results are threatened by the low IRR in the conclusion.There must be a clear indicator that these results are threatened by the low IRR in the conclusion.  
      b.	Claiming that an ROC between 0.6 and 0.8 is "performing well" seems like a strong claim, especially when a random classifier has an ROC of 0.5.  Please justify this claim or soften it.
 
 

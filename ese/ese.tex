@@ -95,7 +95,7 @@ to improve, contextualize, or describe results for the developers.
 We propose a solution: \emph{automated labelled topic extraction}.
   Topics are extracted 
 using  Latent Dirichlet Allocation (LDA) from commit-log comments recovered
-from source control systems such as CVS and BitKeeper.  
+from source control systems. % such as CVS and BitKeeper.  
 These topics are given labels from a generalizable
 cross-project taxonomy, consisting of non-functional
 requirements. Our approach was evaluated with experiments and case studies
@@ -110,8 +110,8 @@ insight into their evolving software development activities.
 \end{abstract}
 
 \section{Introduction}
-A key problem for practising software maintainers is gaining an
-understanding of \emph{why} a system has evolved the way it has. 
+A key problem for practicing software maintainers is gaining an
+understanding of \emph{why} a system has evolved the way it has \cite{Mockus00}. 
 This is different from \emph{how} a system has evolved. 
 % NE this phrase confuses me: "because the change of behaviour itself is the \emph{how}.
 Looking back on streams of artifacts scattered across different
@@ -121,8 +121,21 @@ involved.
 %new stuff
 % edit this. awkward
 In this work we seek to provide a method of automatically labelling  development topics extracted from commit logs.
+Concrete applications of topics and \emph{labelled topic extraction}, which this paper introduces,
+range from project dashboards to annotating software artifacts such as revisions and bug reports with
+NFR-related tags.
+Project dashboards~\cite{dashboard} are typically employed by managers and are used to
+provide quick summaries of the effort put into a software project. In this case, 
+labelled topic extraction would allow managers to track effort
+related to NFR topics, such as \emph{portability}.
+These techniques also allow for the annotation of commit comments
+ and other software artifacts with NFRs. 
+This would enable querying of bug reports and artifacts by relevant NFRs. 
+For instance a manager can confirm if their developers were
+focused on \emph{usability} by looking for
+ \emph{usability}-relevant revisions and bug reports.
 
-Topic modeling is a machine learning technique that creates
+Topic modeling (such as Latent Dirichlet Allocation ~\cite{Blei2003}) is a machine learning technique that creates
 multinomial distributions of words extracted from a text corpus. 
 This technique infers the hidden structure of a corpus using posterior
 inference: the probability of the hidden structure given the data. 
@@ -132,14 +145,6 @@ mailing-list messages, by identifying statistically co-occurring words.
 Among other uses, it can quickly give developers an overview of where significant
 activity has occurred, and gives managers or maintainers a sense of
 project history. 
-%A major challenge for topic modeling is to accurately identify the
-%summary label for a topic; in the previous case, perhaps
-%\emph{``event-handling''} would be appropriate. 
-%Current approaches are manual: they rely on human expertise to
-%recognize the appropriate label. 
-%Furthermore, to date the results of topic modeling are project
-%specific, and not generalizable. 
-%This paper presents an approach, \emph{labelled topic extraction}, which addresses these two problems.
 
 %migod
 While machine learning techniques can automatically identify clumps of
@@ -154,43 +159,6 @@ human experts, and also are limited to project-specific topic labels.
 In this paper, we introduce \emph{labelled topic extraction}, an
 approach to topic labelling that labels topics automatically with
 labels that are project independent.
-%is both automatic and creates labels that are project independent.
-
-% Changes to software systems, revisions, do not occur without
-% reason. 
-% The reason or purpose is often related to requirements 
-% Often one revision might have multiple purposes ranging from
-% maintenance issues, quality issues, requirements, features or a
-% response to a bug report.
-% These purposes often are exhibited as latent topics that relate to
-% many development artifacts such as:
-%  version control revisions, bug reports, and mailing-list discussions.
-
-%In our previous work we dealt with topic trends, which are topics that recur over time~\cite{Hindle09ICSM}. 
-%We observed that topic trends were often non-functional requirements (NFRs). 
-%NFRs have the property of being cross-domain and widely applicable. 
-%In this sense, they are useful abstractions for developer conversations about different software projects.
-
-% harp on data mining more
-%In general, the mining of software artifacts tends to be very project specific, yet NFRs are not. 
-% I was told if you're going to use a paren, you don't need to say it.
-%There is a series of standards on NFRs, such as ISO9126~\cite{iso9126}, specifically intended to apply to projects of varying types.
-%These standards indicate our approach is possible. %, if perhaps not universally accepted).
-% NFRs are prevalent in almost all software systems.
-% In this paper we will show that NFR related topics occur quite frequently.
-%XXXXXX this sentence is confusing
-%This informs our method of generalizing the data mining of these software artifacts to leverage the global domain knowledge of software engineering,
-%specifically NFRs. 
-%In particular, we use software quality models to generalize topics across projects. 
-%This allows us to mine software systems with the intention of comparing their NFR-related development topics.
-% in order to achieve generalizable, cross project data mining results.
-
-%%%% THIS PARAGRAPH ARGUES ABOUT THE CONCRETE APPLICATION OF 
-%%%% TOPIC MODELLING AND LABELLED TOPIC EXTRACTION
-%%%% IT NEEDS TO BE TIGHTER BUT IT ALSO NEEDS TO BE HERE
-
-% AH: Topics take a long to read
-% AH: Project Dashboards, summarization, software process recovery
 
 %migod
 In general, the fruits of mining software artifacts are often project
@@ -207,20 +175,6 @@ In this sense, they are useful abstractions for developer
 conversations about different software projects.  
 Furthermore, there is a series of standards on NFRs, such as ISO9126 \cite{iso9126}, that are specifically intended to apply to projects of varying
 types; this suggests that our goal of trying to extract NFR-related development topics, such as those related to software quality models, holds promise.
-
-Concrete applications of topics and \emph{labelled topic extraction}
-range from project dashboards to annotating software artifacts such as revisions and bug reports with
-NFR-related tags.
-Project dashboards~\cite{dashboard} are typically employed by managers and are used to
-provide quick summaries of the effort put into a software project. In this case, 
-labelled topic extraction would allow managers to track effort
-related to NFR topics, such as \emph{portability}.
-These techniques also allow for the annotation of commit comments
- and other software artifacts with NFRs. 
-This would enable querying of bug reports and artifacts by relevant NFRs. 
-For instance a manager can confirm if their developers were
-focused on \emph{usability} by looking for
- \emph{usability}-relevant revisions and bug reports.
 
 In this paper, we describe \emph{automated labelled topic extraction}. It addresses two gaps in the topic mining literature:
 \begin{enumerate}
@@ -273,21 +227,17 @@ begin by creating word-lists to signify when a topic matches an NFR label. We th
 %Our goal is to label a given topic with either an NFR from our taxonomy,
  %Section \ref{sec:unsuplabelling} presents our technique for using word-lists to do unsupervised classification, and describes the results.
 
-This work extends our previous work~\cite{msr2011}, published at The
+This work extends our previous work~\cite{msr2011}, published at the
 Working Conference on Mining Software Repositories 2011
-(MSR'2011). 
-Within this new paper that builds up upon the previous
-work, we added more machine learning results and another case-study: PostgreSQL. 
-We used two authors to
-each annotate the same PostgreSQL topics in order to compare
+(MSR'2011). The major extensions in this paper are as follows:
+\begin{itemize}
+	\item We added more machine learning results and another case-study: PostgreSQL. 
+	\item We used two authors to each annotate the same PostgreSQL topics in order to compare
 them. 
-Thus we used this new case-study to test inter-rater
-reliability, described in Section \ref{sec:inter-rater}. 
-In Section
-\ref{sec:developers}, we further extended the MSR'2011 paper with an
-analysis of PostgreSQL authors and their association with NFRs and
-topics.
-
+	\item We used this new case-study to test inter-rater reliability, described in Section \ref{sec:inter-rater}. 
+	\item We conducted an analysis of PostgreSQL authors and their association with NFRs and
+topics (Section \ref{sec:developers}).
+\end{itemize}
 
 
 In Section \ref{sec:suplabelling}, we manually annotate the topics, and use those annotations as training data for supervised classification.  
@@ -403,14 +353,13 @@ techniques. This supports the result described in this paper, that software qual
 
 
 
-Finally, 
-this paper and our MSR 2011 paper~\cite{msr2011} are based off of the
+This paper and our MSR 2011 paper~\cite{msr2011} are based off of the
 work of Ernst and Mylopoulos~\cite{ernst10refsq} and the work of Hindle et
 al.~\cite{Hindle09ICSM}.
 In Ernst and Mylopoulos~\cite{ernst10refsq}, we describe an earlier
 project that identifies changes in quality requirements
-in GNOME software projects (GNOME is a Linux desktop environment). This earlier approach was more exploratory, had
-less validation, uses different word-lists, solely uses text-matching,
+in GNOME software projects (GNOME is a Linux desktop environment). Unlike this paper, this earlier approach was more exploratory and had
+less validation. In particular, it  uses different word-lists, solely uses text-matching,
 and does not leverage machine learning strategies.  
 Our approach in this paper, and our
 MSR 2011 paper~\cite{msr2011}, extends Ernst and Mylopoulos~\cite{ernst10refsq} by using 
@@ -1238,9 +1187,7 @@ After this point, efforts shift to the newer releases (4.0, 4.1,
 By contrast, the PostgreSQL time-line  (Figure \ref{fig:pgsql-timeline}) is extracted from a central trunk and is not version-specific. Therefore development 
 tends to be focused on releases 7.3, 7.4 and 7.5/8.0 alpha. For example, a priority for the 8.0 candidate was a Windows-native port of the source code, which seems to 
 correlate with the \emph{portability} NFR increasing in frequency in mid-2004. Before the 7.4 release, \emph{usability,functionality} and \emph{portability} all 
-increase in frequency, possibly reflecting the interest in adding features and documentation for the release.
-
-In the following sections we turn to our research questions:
+increase in frequency, possibly reflecting the interest in adding features and documentation for the release. In the following sections we turn to our research questions:
 
 % \subsection{Comparing MaxDB and MySQL}
 
@@ -1296,12 +1243,12 @@ how often \emph{portability} arises as a concern.
 %data/clusters.R
 
 We wanted to see how similar developers were to each other in terms of
-the NFRs that worked on. 
+the NFRs that they worked on. 
 Within this section we focused on PostgreSQL.
-First we did pairwise $X^2$ (chi-squared)
-tests and Kolmogorov-Smirnov tests for each developer pair and we
-found that $3/10$ of these tests the developers were significantly
-different, that is their distributions were not similar. This implies
+We first conducted pairwise $X^2$ (chi-squared)
+tests and Kolmogorov-Smirnov tests for each developer pair. We
+found that in $3/10$ of these tests, the developers were significantly
+different, i.e., their distributions were not similar. This implies
 that there are authors who focus on different NFRs or different
 proportion of NFRs.
 
@@ -1325,13 +1272,12 @@ derivative of distance was the highest in that region as well.
 
 It should be noted that much of PostgreSQL development originates from
 the mailinglist and the developers are often pushing integrations. If
-we compare the global NFR distribution to each author we find that 1
-quarter of the authors have a similarity of $0.47$ or less. This is
-depicted in Figure \ref{fig:authorsim} where we can see that not all
+we compare the global NFR distribution to each author we find that 25\%
+ of the authors have a similarity of $0.47$ or less. This is
+depicted in Figure \ref{fig:authorsim}, where we can see that not all
 authors are as similar to the global trend as others. Of course, we
 found that number of commits correlated with an author's similarity to the
 global NFR distribution ($0.59$ Pearson).
-
 
 Our theory is that the less frequent committers are more
 focused and less general, thus their distributions of topics are
@@ -1348,7 +1294,7 @@ were:
 \texttt{jurka} and \texttt{joe} for reliability;
 \texttt{thomas} and \texttt{weick} for functionality;
 and \texttt{ishii} and \texttt{scrappy} for maintainability.
-Given these results we found that yes indeed there was often a focus
+Given these results we found that there indeed was a focus
 of $1/3$ to $1/10$ of commits dedicated to a particular NFR.
 
 One potential confound for this analysis is that we could be
