@@ -23,12 +23,14 @@
    domain, using ROC instead of F-Measure as your primary measure) and
    some related discussion on the threats to validity.
    - [X] Defend ROC (class sizes)
-         - in the "Creating a Validation Corpus" we addressed why we
+         - Re: in the "Creating a Validation Corpus" we addressed why we
            used ROC over F-Measure: class imbalance leads to bias in
            F-Measure. And we cited relevant work that discussed this
            particular issue.            
-   - [ ] Defend low ROC in threats to validity
-   - [ ] Skewed classes in threats to validity
+   - [X] Defend low ROC in threats to validity
+         - Re: we explained some reasons for low ROC scores.
+   - [X] Skewed classes in threats to validity
+         - Re: in threats to validity, internal validity, we discussed skewed classes
    - [X] Address single domain
      - On page 5 you mention that you chose the same application domain to
        control for differences in functional requirements. While I do indeed

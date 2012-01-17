@@ -1550,6 +1550,32 @@ topic regardless of the actual purpose of their commits.
 \emph{Internal validity} -- %includes inter-rater reliability and our lack of rival explanation building. 
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
 We did not attempt to match our results to any particular model.
+
+We primarily relied on ROC (the area under the receiver operating
+characteristic curve), as our measurement to compare the effectiveness
+of semi-supervised and supervised learners. ROC is less biased than
+F-Measure in cross-folds
+validation~\cite{flach-icml03,Forman:2010:ACS:1882471.1882479} in the
+case of class imbalance. We
+feel that the fixed point of $0.5$ for random results allows us to
+better describe the predictability achieved by some of these
+techniques against random and ZeroR learners. 
+We also include
+F-Measure results to allow for the reader to validate against
+F-Measure if they are more comfortable with it. Thus because of
+F-Measure biased handling of class-imbalance and the inherent
+class-imbalance that our data suffers from we chose ROC.
+
+%XXX If we have more time try to elaborate more on this
+One potential issue with some of our results is that we achieved very
+low ROC and F-Measure scores.  Performance was not uniformly low,
+often the more common classes exhibited better performance than the
+more rare classes.  Often this was amplified by class imbalance. In
+future work we plan to investigate techniques such as sub-sampling and
+boot-strapping in order to improve performance. Some of the ROC
+performance could be due to a lack of coherence in tagging which was
+shown by our low inter-rater reliability score.
+
 We assessed inter-rater reliability (IRR), a measure of the correlation between the manual annotations the first two authors created. Perfect IRR (1.0) indicates complete agreement 
 on the appropriate annotation for that topic. We verified IRR using
 manually annotated PostgreSQL topics, and achieved a weak result of $0.1$.
