@@ -330,11 +330,16 @@ a corpus.
 Topic modelling generates topics that are independent of a user query, and relate only to word frequencies in the corpus.
 %Some results were interesting, but their precision was quite low. 
 With ConcernLines, Treude et al.~\cite{treude09cl} showed tag occurrence
-using colour and intensity. 
+using colour and intensity, and our plots that rely on color and intensity
+have a similar look and feel to Treude et al.'s plots.
 They mined
-developer created tags 
-%change request tags (such as `milestone 3') and used these 
+developer created 
+change request tags from IBM Jazz
+repositories and used these 
 in order to analyze the evolution of a single product.
+Change requests in Jazz allow for users to annotate each change
+request and check-in with tags such as ``ui'', ``usability'' or
+``milestone 3''. 
 % make evolutionary analyses of a single product. 
 The presence of a well-maintained set of tags is obviously essential to the success of this technique.
 
@@ -425,12 +430,22 @@ code~\footnote{{http://www.sdn.sap.com/irj/sdn/maxdb}}.
   
 %Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
 We explicitly chose older versions of mature projects from a stable problem domain to increase the likelihood that we would encounter primarily
-maintenance activities in our studies.
+maintenance activities in our studies. We felt that a single domain
+would allow for cross-project comparison. At the same time we
+recognize that a problem-domain alone does guarantee functional and
+non-functional similarity.
+For instance each database system has a different focus, PostgreSQL
+tends to focus on fulfilling much of the SQL92 specification and adding
+more features while MySQL has been slow to adopt much of the spec.
+ As a consequence our choice of looking at a
+single domain limits our generalizability. What we show in this paper
+will be somewhat biased towards database software.
 
 For each project, we used source control commit comments, the messages
 that programmers write when they commit revisions to a source control
 repository. 
-Most commits we observed had commit comments.
+Most commits we observed had commit comments (90\% in MySQL 3.23,
+98.5\% in PostgreSQL and 99.99\% in MaxDB 7.500).
 Commit comments are often studied by researchers, as they are the most readily accessible source of project interactions, and developers are often
 required to create them by the repository mechanism (e.g., Git).  Additionally, relying only on commit comments makes our approach more generalizable,
 as we do not assume the presence of other artifact corpora.
@@ -455,7 +470,12 @@ algorithm~\cite{Blei2003}, and recorded the topics the algorithm extracted.
 %we created `topics' using Latent Dirichlet Allocation, a topic identification algorithm. 
 
 A topic analysis tool such as LDA will try to find $N$ independent
-word distributions within the word distributions of all input messages. 
+word distributions within the word distributions of all input
+messages. 
+If there are not $N$ independent word distributions, the topics
+produce tend to be duplicates of each other, that is they share the
+top terms. During this study we found that when $N$ was 20 we did not
+witness duplicate topics very often.
 Linear combinations of these $N$ word distributions are meant to represent and recreate the word distributions of any of the original messages. 
 These $N$ word distributions effectively form \emph{topics}: cross-cutting collections of words relevant to one or more of our commit messages. 
 LDA extracts topics in an unsupervised manner; the algorithm relies
@@ -481,7 +501,10 @@ portability, efficiency, usability,} and \emph{reliability}~\footnote{While ther
 seems like a reasonable starting point for our work.}.
 There is some debate about the terms in this model. 
 However, ISO9126 is ``an international standard and thus provides an 
-internationally accepted terminology for software quality \cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this research.  
+internationally accepted terminology for software quality
+\cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this
+research.  
+\emph{Performance} is an example of RDBMS word related to the \emph{efficiency} NFR.
 We claim that these NFRs are maintenance concerns (to varying degrees) in all software projects, and are therefore well-suited for comparisons between
 projects.
 
@@ -515,7 +538,7 @@ annotations that would be aggregated up to one of these higher-level labels.
 We validate classification performance using the area under the curve
 of Receiver Operating
 Characteristic~\cite{Fawcett2006861},
-abbreviated \emph{ROC}, and the F-measure, which is the harmonic mean of precision and recall, i.e., $2 * (P * R) / (P + R)$. 
+abbreviated \emph{ROC}, sometimes called \emph{AUC}, and the F-measure, which is the harmonic mean of precision and recall, i.e., $2 * (P * R) / (P + R)$. 
 
 ROC values provide a score %, similar to school letter-grades (A is 0.9, C is 0.6),
  reflecting how well a particular learner performed for the given data. 
@@ -526,7 +549,23 @@ A ROC result of $0.5$ would be equivalent to a random learner (that is, issuing 
 The %area under the -- NE confusing to have area again ... and not importantana
 ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen
 negative instance.
+
+We argue for using ROC over F-Measure because ROC suffers less from
+bias than F-Measure and as often F-Measure skews towards the positive
+class~\cite{flach-icml03,Forman:2010:ACS:1882471.1882479}, especially
+in the case of class imbalance. Forman et
+al.~\cite{Forman:2010:ACS:1882471.1882479} demonstrate that cross-fold
+validation will often produce low F-measures given high class
+imbalance and the presence of false negatives.
+Although
+recent work~\cite{Forman:2010:ACS:1882471.1882479} has suggested that while ROC suffers less bias than
+the average F-measure ($F_{avg}$) for cross-folds, F-measures ($F_{tp,fp}$) that are calculated from
+the sums of true-positives,
+false-positive, and false-negatives across folds tend to exhibit no
+bias. Unfortunately our experimental framework lacks a robust way to
+calculate $F_{tp,fp}$, thus we still provide ROC and $F_{avg}$.
 We consider our labelling classifiers acceptable if they outperform a random classifier (0.5). 
+
 
 \subsection{Semi-unsupervised Labelling}
 \label{sec:unsuplabelling}
@@ -569,7 +608,9 @@ Our second word-list, \textsf{exp2}, uses the ISO9126 taxonomy described above (
 The terms from ISO9126 may not capture all words occurring in the topics that are nonetheless associated with one of the NFRs. 
 For example, the term ``redundancy'' is one 
 we considered to be
-relevant to discussion of \emph{reliability}, but is not in the standard. 
+relevant to discussion of \emph{reliability}, but is not in the
+standard. We recognize though that terms like this might be used in a
+different context with a different meaning, like code-cloning.
 We therefore took the NFRs from the ISO9126 and added terms to them.
 
 To construct these expanded word-lists, we used
@@ -583,11 +624,12 @@ related to one of the NFRs in ISO9126, we added it to our word-list. This allowe
 %For example, we add the term ``performance'' to the synonyms for \emph{efficiency}, since this term occurs in most mail messages that discuss efficiency.
 Table \ref{tbl:wnsig} shows the labels (NFRs) and word-lists we used for matching.
 
-For the third set of word-lists, \textsf{exp3}, we extended the word-lists from \textsf{exp2} using unfiltered WordNet similarity matches. 
+For the third set of word-lists, \textsf{exp3}, we extended the word-lists from \textsf{exp2} using WordNet similarity matches. 
 Similarity in WordNet means siblings in a hypernym tree. 
-We do not include these words here for space considerations (but see the Appendix for our data repository). 
-It is not clear the words associated with our labels in \textsf{exp3} are specific enough. For example, the label \emph{maintainability} is associated with
-words \emph{ease} and \emph{ownership}. In general, as we proceed from word-lists in \textsf{exp1} to that in \textsf{exp3}, our lists become more generic.
+We do not include these words here for space
+considerations~\footnote{For our data repository visit \url{http://softwareprocess.es/nomen/}}. 
+Wordnet similarity is a very broad match. For example, the label \emph{maintainability} is associated with
+words \emph{ease} and \emph{ownership}, and the word \emph{performance} has a `sense' which refers to musical performances -- which is not related to software development. In general, as we proceed from word-lists in \textsf{exp1} to that in \textsf{exp3}, our lists become more generic.
 
 \begin{table*}
 	\centering
@@ -626,7 +668,7 @@ resilience integrity stability stable crash bug fails redundancy error failure\\
 %\noindent \textbf{Generating labels automatically} --- 
 
 Using our three word-lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labelled our topics with an NFR where there was a match between a word in
-the list and the same word somewhere in the distribution of words that constitute the topic.
+the list and the same word somewhere in the frequency distribution of words that constitute the topic.
 A \emph{named topic} is a topic with a match. 
 \emph{Unnamed topics} occur where there is no such match. 
 This may indicate either a lack of precision in the word-lists, or simply that this topic is not associated with non-functional
@@ -641,8 +683,7 @@ because most software often addresses similar issues, we can use the
 domain knowledge of software to label relevant topics.
 
 
-Table \ref{tbl:wordlist} shows how many topics were labelled for MaxDB
-and MySQL.
+Table \ref{tbl:wordlist} shows how many topics were labelled for MaxDB, MySQL and PostgreSQL.
 
 
 
@@ -1481,6 +1522,14 @@ generally accepted. Finally, there are exogenous sources, such as
 in-person discussions, which we did not access, an omission as noted
 in Aranda et al.~\cite{aranda09icse} %We did not show these results to the stakeholders.
 
+Our word-lists were built up of words that were assumed to be relevant
+to those topics, our automated analysis was ignorant of the multi-uses
+of words and thus topics could be flagged inappropriately. For
+instance, if the word \emph{redundancy} is used would it reference
+reliability or cloned code? This issue is why we checked the
+performance of the techniques, although we did not explicitly check
+for these cases.
+
 \emph{Internal validity} -- %includes inter-rater reliability and our lack of rival explanation building. 
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
 We did not attempt to match our results to any particular model.
@@ -1494,8 +1543,9 @@ usability or portability?). A short education session on what a given NFR from t
 Our data originated from OSS database projects and thus might not be applicable to commercially developed software or other domains. 
 Furthermore, our analysis techniques rely on a project's use of meaningful commit messages, although we feel this is the most frequently occurring form
 of developer comments. 
-%The OSS projects investigated were database systems, thus 
-%our results might not generalize to other domains. %We only studied database systems.
+While we tried to control for application domain variability, OSS
+projects investigated were database systems, thus our results might
+not generalize well to other domains.
 
 
 % in Case Study Research: Design Case Studies

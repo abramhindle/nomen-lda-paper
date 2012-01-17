@@ -6,15 +6,15 @@
    discussion of previous papers related to the current draft.
    - [ ] In Previous work provide MORE details
    - [ ] In Previous work and intro add more about the comparison
-     between the two papers
-     I would actually think that it is appropriate that you mention your
-   previous (MSR) paper somewhere in the introduction and briefly explain
-   in 1 sentence how this paper extends the previous work.
+         between the two papers
+         I would actually think that it is appropriate that you mention your
+         previous (MSR) paper somewhere in the introduction and briefly explain
+         in 1 sentence how this paper extends the previous work.
 
-   - [ ] Talk about Treude's concernlines
+   - [X] Talk about Treude's concernlines
      In the related work part you mention ConcernLines by Truede. Could you
-   be more precise and specify where the tags come from (source code, cvs
-   logs, ...)
+     be more precise and specify where the tags come from (source code, cvs
+     logs, ...)
 
 
 ** 2. Provide more details about design choices
@@ -22,10 +22,14 @@
    design choices (e.g., choosing projects from the same application
    domain, using ROC instead of F-Measure as your primary measure) and
    some related discussion on the threats to validity.
-   - [ ] Defend ROC (class sizes)
+   - [X] Defend ROC (class sizes)
+         - in the "Creating a Validation Corpus" we addressed why we
+           used ROC over F-Measure: class imbalance leads to bias in
+           F-Measure. And we cited relevant work that discussed this
+           particular issue.            
    - [ ] Defend low ROC in threats to validity
    - [ ] Skewed classes in threats to validity
-   - [ ] Address single domain
+   - [X] Address single domain
      - On page 5 you mention that you chose the same application domain to
        control for differences in functional requirements. While I do indeed
        see that the functional requirements of each of the 3 database systems
@@ -34,22 +38,51 @@
        MySQL, which is absent from the other 2. That would create an extra
        functional requirement. Could you discuss this further in the paper
        what the benefits and consequences are of your choice?
-   - [ ] Most commits we observed had commit comments. Can you be more precise
+     - Re: we responded on page 6 and in the threats to validity about
+       the issues of a single domain
+   - [X] Most commits we observed had commit comments. Can you be more precise
      here and quantify?
-   - [ ] Minor: While I am certainly no expert in the area of LDA, I started wondering
+         - MaxDB 7.500
+         -    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+              5.0    83.0    94.0   111.5   138.0  1149.0 
+         - summary(v$V1)
+           Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+           5.0    83.0    94.0   111.5   138.0  1149.0 
+         - summary(v$V2)
+           Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+           1.000   6.000   8.000   7.872   8.000 110.000 
+         - summary(mysql$V1)
+           Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+           30.00   54.00   57.00   78.35   81.00 4095.00 
+         - summary(mysql$V2)
+           Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+           5.00    9.00   11.00   13.28   14.00  659.00 
+         - summary(postgresql$V1)
+           Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+           1.0    41.0    72.0   158.8   169.0 21480.0 
+         - summary(postgresql$V2)
+           Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+           1.0     5.0     9.0    19.7    21.0  2035.0 
+         - 10% of mysql were small
+           - import
+         - 1.5% of postgresql 
+         - 0.01% of maxdb
+   - [X] Minor: While I am certainly no expert in the area of LDA, I started wondering
          on page 7: you mention that you want to find N independent word
          distributions, but what if no independent word distributions exist? Is
          this possible and did you spot this during your study?
-   - [ ] Mention where performance is in terms of ISO9126
+         - discussed this in the the independent word section./
+   - [X] Mention where performance is in terms of ISO9126
    On page 7, when I was reading the NFR topics from ISO9126 I was
    immediately thinking about performance, which is quite important in
    the area of RDBMS... Does this term fall under the flag of
    "efficiency"?
-   - [ ] On page 9 you mention that you put the term "redundancy" under the
+   - [X] On page 9 you mention that you put the term "redundancy" under the
          flag of reliability. This is quite possible in the context of RDBMS,
          but... it could also be used to indicate code cloning (code
          redundancy). How did you cope with this double meaning?
          Threat to validity and IRR issues
+         - mentioned in threats to validity
 
 
    
@@ -68,12 +101,12 @@
      the analysis was random in the first place?
      -- WE SHOULD CITE YOUR PAPER NEIL
 
-   - [ ] On page 9 you mention an Appendix... I didn't get that one for my review and I also don't see a URL.
-   - [ ] Section 3.2.2... is the term "distribution of words" right?
+   - [X] On page 9 you mention an Appendix... I didn't get that one for my review and I also don't see a URL.
+   - [X] Section 3.2.2... is the term "distribution of words" right?
      What makes it a distribution?
-   - [ ] Page 9: "unfiltered WordNet" --> why unfiltered?
+   - [X] Page 9: "unfiltered WordNet" --> why unfiltered?
    - [ ] Table 2: why are the scores for PostgreSQL so low?
-   - [ ] Correct this: "Table 2 shows ... for MaxDB and MySQL" --> and PgSQL???
+   - [X] Correct this: "Table 2 shows ... for MaxDB and MySQL" --> and PgSQL???
    - [ ] Usability?
    You mention that you did not see many results for usability and they
    you show the scores: 4/0/138. Does this mean that PostgreSQL IS
