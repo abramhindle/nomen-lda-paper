@@ -84,17 +84,23 @@ John Mylopoulos
 
 \begin{abstract}
 
-Researchers have employed a variety of techniques to extract underlying
-topics that relate to software development artifacts.  Typically, these
-techniques use semi-unsupervised machine-learning algorithms to suggest
-candidate word-lists.  However, word-lists are
+%Researchers have employed a variety of techniques to extract underlying
+%topics that relate to software development artifacts.  Typically, these
+%techniques use semi-unsupervised machine-learning algorithms to suggest
+%candidate word-lists, topics.  
+Software repositories provide a deluge of software artifacts to
+analyze. Researchers have attempted to summarize, categorize, and relate these
+artifacts by using semi-unsupervised machine-learning
+algorithms, such as Latent Dirichlet Allocation (LDA), used for concept and topic analysis to suggest candidate
+word-lists or topics that describe and relate software artifacts.
+However, these word-lists and topics are
 difficult to 
 interpret in the absence of meaningful summary labels.  Current topic modeling 
 techniques assume manual labelling and do not use domain-specific knowledge
 to improve, contextualize, or describe results for the developers.  
 We propose a solution: \emph{automated labelled topic extraction}.
   Topics are extracted 
-using  Latent Dirichlet Allocation (LDA) from commit-log comments recovered
+using  LDA from commit-log comments recovered
 from source control systems. % such as CVS and BitKeeper.  
 These topics are given labels from a generalizable
 cross-project taxonomy, consisting of non-functional
