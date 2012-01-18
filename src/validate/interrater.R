@@ -125,7 +125,7 @@ i <- names(pan)[1]
 
 #versus a sample
 
-N <- 1000
+N <- 10000
 kappas <- lapply(names(pa),function(acolumn) {
   unlist(
          mclapply(
@@ -141,7 +141,7 @@ pankappas <- sapply(names(pa),function(i) {
    kappaof(pa[,i],pn[,i])
 })
 
-  pdf(paste("self-sample",person,"pdf",sep="."),width=12,height=4)
+  pdf(paste("self-sample",person,"pdf",sep="."),width=12,height=8)
   miny <- min(c(sapply(kappas,min), min(pankappas)))
   maxy <- max(c(sapply(kappas,max), max(pankappas)))
   boxplot(kappas, names=panames,ylim=c(miny,maxy))
@@ -179,7 +179,7 @@ for (threshold in c(0.01,0.1,0.1,0.25,0.5,0.9,0.99)) {
 
 
 
-  pdf(paste("unif-threshold",threshold,"pdf",sep="."),width=12,height=4)
+  pdf(paste("unif-threshold",threshold,"pdf",sep="."),width=12,height=8)
   miny <- min(c(sapply(kappas,min), min(pankappas)))
   maxy <- max(c(sapply(kappas,max), max(pankappas)))
   boxplot(kappas, names=panames,ylim=c(miny,maxy))
