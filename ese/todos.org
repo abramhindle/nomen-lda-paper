@@ -163,13 +163,15 @@
      You mention that you did not see many results for usability and they    you show the scores: 4/0/138. Does this mean that PostgreSQL IS    concerned more with usability? You also mention accuracy and you say that this term is associated    with less than then topics. How then should I interpret the numbers 3/0/27?
    - [X] On page 11 you mention: "The most frequent label across all projects was usability", yet on page 10 I just read "We did not see many   results for usability". Did I miss something here?!?
 
-   - [ ] From Table 2 there seem to be only 640 topics for Pg, but text indicates 748 topics just for correctness. This needs fixing
+   - [X] From Table 2 there seem to be only 640 topics for Pg, but text indicates 748 topics just for correctness. This needs fixing
 
-   - [ ] It would also be good to comment on why Pg had so few unnamed topics. 
+   - [X] It would also be good to comment on why Pg had so few unnamed topics. 
 
    - [X] Figure 1: to be consistent with the text, should the figure say semi-supervised rather than unsupervised? Also, the intro states the authors are comparing 3 techniques: 2 supervised & 1 semi-supervised. It is confusing that the figure only appears to depict 2 approaches -- 1 semi-supervised & 1 supervised.
 
-   - [ ]  3.1.2: the authors do an excellent job explaining the ROC curves and how to interpret them. However, it is not clear what the reader should be getting from the F Measure results
+   - [X] 3.1.2: the authors do an excellent job explaining the ROC
+     curves and how to interpret them. However, it is not clear what
+     the reader should be getting from the F Measure results
 
    - [X] The transition paragraph before 3.2.1 would be a great place to briefly make the distinction of why the approach is semi-supervised, rather than simply unsupervised. The transition now sounds very much like unsupervised learning, which could confuse the reader.
 
@@ -183,10 +185,13 @@
     talking about the average... the average of what? Did you do multiple
     runs and are you taking the average of that? Please explain!
 
-   - [ ] I appreciate the section on multi-label learners, but,
+   - [X] I appreciate the section on multi-label learners, but,
 perhaps, that's a bit too much content for the paper. I would prefer
 to see that space used to explain existing results (if the space is
 an issue).
+     - neil I'm checking this off because I want to keep the
+       multi-label learning and space is not an issue. Julius's paper
+       is 40 pages!
 
    - [X] Page 12: "a mixture of classes"... what exactly do you mean by this?
    That a class can be assigned 10% to topic X and 20% to topic Y? Maybe

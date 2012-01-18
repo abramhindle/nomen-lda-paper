@@ -531,7 +531,12 @@ annotations that would be aggregated up to one of these higher-level labels.
 We validate classification performance using the area under the curve
 of Receiver Operating
 Characteristic~\cite{Fawcett2006861},
-abbreviated \emph{ROC}, sometimes called \emph{AUC}, and the F-measure, which is the harmonic mean of precision and recall, i.e., $2 * (P * R) / (P + R)$. 
+abbreviated \emph{ROC}, sometimes called \emph{AUC}, and the
+F-measure, which is the harmonic mean of precision and recall, i.e.,
+$2 * (P * R) / (P + R)$. 
+Throughout the paper we will provide F-measure scores so that readers
+who are more familiar with F-measure than ROC can intuitively
+interpret the results.
 
 ROC values provide a score %, similar to school letter-grades (A is 0.9, C is 0.6),
  reflecting how well a particular learner performed for the given data. 
@@ -680,7 +685,14 @@ because most software often addresses similar issues, we can use the
 domain knowledge of software to label relevant topics.
 
 
-Table \ref{tbl:wordlist} shows how many topics were labelled for MaxDB, MySQL and PostgreSQL.
+Table \ref{tbl:wordlist} shows how many topics were labelled for
+MaxDB, MySQL and PostgreSQL.  Notice how PostgreSQL had far fewer
+unlabelled topics, PostgreSQL also was under going far more
+development as we evaluated 20330 PostgreSQL commits versus 8664 MaxDB
+commits and 12056 commits. We suspect that PostgreSQL topics were
+flooded with many terms and perhaps we needed more 20 topics per month
+for PostgreSQL as this result indicates there is a lot of overlap in
+the topics.
 
 
 
@@ -748,8 +760,8 @@ Table \ref{tbl:wordlist} shows how many topics were labelled for MaxDB, MySQL an
 %\DONE{this discussion is about which DB? where do the numbers come from?}
 For \textsf{exp1} the labels with the most topics
 were
-%XXX Neil                    V
-\emph{correctness} (182/305/748, which represent MySQL, MaxDB and PostgreSQL topic counts, respectively) and \emph{testability} (121/238/625). 
+%XXX Neil                    V changed from 748 is that right?
+\emph{correctness} (182/305/640, which represent MySQL, MaxDB and PostgreSQL topic counts, respectively) and \emph{testability} (121/238/625). 
 We did not see many results for \emph{usability} (4/0/138) or
 \emph{accuracy} (3/0/27), which were infrequently matched. Note the significantly higher result for \emph{usability} in PostgreSQL -- this suggests a difference in how this project is discussing usability, at least with respect to our analysis.
 We also looked for correlations between our labels: excluding double
@@ -1596,6 +1608,12 @@ topic regardless of the actual purpose of their commits.
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
 We did not attempt to match our results to any particular model.
 
+PostgreSQL's size in terms of commits was equal to MySQL and MaxDB
+combined. This imbalance in size, combined with the choice of 20
+topics per month produced topics that represented too many issues or
+threads within PostgreSQL's development. Choice of number of topics
+should probably be tuned to the project.
+
 We primarily relied on ROC (the area under the receiver operating
 characteristic curve), as our measurement to compare the effectiveness
 of semi-supervised and supervised learners. ROC is less biased than
@@ -1634,6 +1652,7 @@ same.
 Furthermore weak IRR results threatens the validity of the
 experiments, if raters cannot agree then consistently labelling by
 ISO-9126 related NFRs could be quite difficult.
+
 
 
 \emph{External validity} -- %was addressed by our use of two case studies, but there are still issues. 
