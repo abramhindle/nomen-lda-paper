@@ -553,7 +553,7 @@ ROC of a classifier is equivalent to the probability that the classifier will ra
 negative instance.
 
 We argue for using ROC over F-Measure because ROC suffers less from
-bias than F-Measure and as often F-Measure skews towards the positive
+bias than F-Measure and F-Measure often skews towards the positive
 class~\cite{flach-icml03,Forman:2010:ACS:1882471.1882479}, especially
 in the case of class imbalance. Forman et
 al.~\cite{Forman:2010:ACS:1882471.1882479} demonstrate that cross-fold
@@ -935,11 +935,10 @@ Figure \ref{fig:best-learn-per-tag} shows that MaxDB and MySQL have
 quite different results, as the ROC values for \emph{reliability} and
 \emph{functionality} swap between projects. For PostgreSQL, the
 performance is nearly always poorer than the other two systems. The
-reason for this lack of performance could be that the number of
-topics, $N$, could be non-optimal for PostgreSQL. Perhaps topics were
-getting too mixed and it was becoming hard to distinguish one topic
+reason for this lack of performance could be that parameter we chose for number of
+topics, $N$, could be non-optimal for PostgreSQL. One explanation is that given the size of the PostgreSQL dataset, it was becoming hard to distinguish one topic
 from the next. PostgreSQL's data-set was the largest of the 3 projects:
-the XML data-dump that described the PostgreSQL topics that we
+the XML datafile that described the PostgreSQL topics that we
 annotated was 8 times larger than MySQL and 1.7 times larger than MaxDB. These
 size differences arise from the number of commits, the number of files
 and the verbosity of the commit descriptions.
@@ -956,7 +955,7 @@ classifier.
 \label{fig:best-learn-per-tag}
 \end{figure}
 
-For all projects Bayesian techniques did the best out of a wide variety of machine learners tested. 
+For all projects Bayesian techniques did the best out of a wide variety of machine learners tested, due to the large number of features they can handle.
 Our best learners, Discriminative Multinomial Naive Bayes, Naive Bayes
 and Multinomial Naive Bayes  are all based on Bayes' theorem and all
 assume, naively, that the features supplied are independent. 
@@ -1125,9 +1124,10 @@ Topic time-lines are depicted in Figures \ref{fig:mysql-timeline},
 \ref{fig:maxdb-timeline} and \ref{fig:pgsql-timeline}. These topic time-lines show the
 temporal patterns of NFR frequencies.
 %NEIL- I think this (below) is just confusing, although maybe important to note.
-% based on the manually annotated
-%topics, although this visualization can be generated from the
-%results of labelled topic extraction.
+This is generated from the manually annotated
+topics, although this visualization can be generated from the
+results of labelled topic extraction. Note that there are no unlabelled topics in this dataset.
+
 There are two measures represented. 
 One, the relative frequency, shown in the grey histogram boxes, represents the number of topics with that NFR in that period, 
 relative to the maximum number of topics assigned to the NFR. 
@@ -1137,9 +1137,9 @@ relative to the maximum number of labelled topics overall.
 For instance, Figure \ref{fig:mysql-timeline} shows that the NFRs
 \emph{functionality}, \emph{portability} and \emph{maintainability}
 contain more labelled topics, since these NFRs have been more
-intensely shaded. One interesting stream is \emph{efficiency}, which shows periodic
+intensely shaded. One interesting stream is \emph{efficiency} in PostgreSQL, which shows periodic
 activity, and suggests that efficiency-related changes
-have longer lasting effects.
+have longer lasting effects. A more systematic analysis of periodicity is necessary to properly conclude this.
 The topmost row in each diagram lists historical events for that project (such as a release). 
 %We refer to these occurrences in the discussion which follows.
 
@@ -1202,8 +1202,7 @@ In May 2001, there is an increase in the number of topics labelled with \emph{po
 This might be related to release 3.23.38, which focused on Windows compatibility. 
 Similarly, in August, 2002, both \emph{functionality} and \emph{portability} are frequent, and mailing list data suggests this is related to the release
 of version 3.23.52, a general bug fix with a focus on security (a component of the \emph{functionality} NFR in the ISO9126 model). 
-After this point, efforts shift to the newer releases (4.0, 4.1,
-5.0). 
+After this point, efforts shift to the newer releases (4.0, 4.1, 5.0) and subsequently becomes more functionality oriented. 
 
 By contrast, the PostgreSQL time-line  (Figure \ref{fig:pgsql-timeline}) is extracted from a central trunk and is not version-specific (due to differences in how the projects manage branches). Therefore development 
 tends to be focused on releases 7.3, 7.4 and 7.5/8.0 alpha. For example, a priority for the 8.0 candidate was a Windows-native port of the source code, which seems to 
