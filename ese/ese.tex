@@ -1209,23 +1209,8 @@ tends to be focused on releases 7.3, 7.4 and 7.5/8.0 alpha. For example, a prior
 correlate with the \emph{portability} NFR increasing in frequency in mid-2004. Before the 7.4 release, \emph{usability, functionality} and \emph{portability} all 
 increase in frequency, possibly reflecting the interest in adding features and documentation for the release. In the following sections we turn to our research questions:
 
-% \subsection{Comparing MaxDB and MySQL}
-
-% \label{sec:comparison}
-%\XXX{Not sure there's enough here to do that!}
-% We observed that MySQL had more topic subsets than MaxDB. 
-% MySQL 3.23 also had more topics and a longer recorded history than MaxDB 7.500. 
-% We tagged more MySQL topics with annotations than MaxDB topics, yet both shared similarities. 
-% In terms of non-functional requirements both projects had long running trends that focused on \emph{functionality}, \emph{maintainability}, and
-%\emph{portability}, yet MaxDB had more of a focus on \emph{efficiency} and \emph{reliability}. 
-%\subsection{Research questions}
-%This analysis allows to address the questions raised in Section \ref{sec:suplabelling}:
-%This analysis addresses our research questions: %raised in Section \ref{sec:analysis}:
 
 \subsection{Do NFR Frequencies Change over Time?}
-%\noindent\textbf{1. Do NFR frequencies change over time?} --- 
-%\subsubsection{Do label frequencies change over time?}
-
 In both MaxDB and MySQL the frequencies generally decreased with age. 
 However, there are variations within our NFR labels. In MySQL, \emph{usability} and \emph{efficiency} do not appear very often in topics. 
 A proportionately smaller number of commits addressed these NFRs.
@@ -1262,70 +1247,107 @@ how often \emph{portability} arises as a concern.
 
 %data/clusters.R
 
-We wanted to see how similar developers were to each other in terms of
-the NFRs that they worked on. 
-Within this section we focused on PostgreSQL.
-We first conducted pairwise $X^2$ (chi-squared)
+We wanted to see whether developers in the PostgreSQL project\footnote{Since the MySQL and MaxDB data had poor records for developer ids, we focused on PostgreSQL.} worked on similar NFRs. For example, one developer might be a usability expert, while
+another developer is focused on security. We assume that the NFR labels associated with a commit implicitly reflect work on those NFRs. Being able to report on where effort is being expended is useful for tracking productivity (among other things).
+%Within this section we focused on PostgreSQL.
+We explored this issue by extracting, for each topic in the PostgreSQL dataset, the developer names responsible for the commits used to generate that topic, and 
+the NFRs that are associated with the topic. This produced a map which associated developer name with NFR labels. The six NFR labels (\emph{maintainability, usability, efficiency, functionality, portability, reliability}) and the \emph{None} label describe a 7-dimensional space, into which we can position developers, based on the frequency with which each label occurs in the map.
+
+Using this space, we first conducted pairwise $X^2$ (chi-squared)
 tests and Kolmogorov-Smirnov tests for each developer pair. We
-found that in $3/10$ of these tests, the developers were significantly
-different, i.e., their distributions were not similar. This implies
-that there are authors who focus on different NFRs or different
-proportion of NFRs.
+found that in $3/10$ of these tests, the two developers were significantly
+different (i.e. distant in the 7-d space). This implies
+that there are developers who focus on different NFRs or different
+proportions of NFRs.
 
-In Figure \ref{fig:authorcluster} we clustered the top developers from
+In Figure \ref{fig:authorcluster} we clustered the developers from
 PostgreSQL using the
-Ward method of Hierarchical clustering.  This diagram shows that
-\texttt{petere}, \texttt{tgl} and \texttt{momjian} form their own
-cluster (they are also the most frequent committers). This is
-interesting because it means that the important developers are not
-committing code that fits the same NFR profile. In terms of the larger
-cluster we can see that \texttt{momjian} and \texttt{tgl} are in the
-same cluster, but \texttt{petere} is not. The most frequent
-committers do not share the same clusters. This implies that
-developers do work on different sets of NFRs and have different
-software quality focus.
-
-Figure \ref{fig:authorcluster} clustered the authors into $2$ clusters
-and $6$ clusters. We chose $6$ because the difference in distance
-between entities and centroids was minimal at $6$ clusters, and the
+Ward method of Hierarchical clustering on the 7-d space.  
+This will group developers according to a distance metric. 
+We clustered the authors into both $2$-clusters
+and $6$-clusters. We chose $6$-clusters because the difference in distance
+between entities and centroids was minimal at $6$-clusters, and the
 derivative of distance was the highest in that region as well.
 
-It should be noted that much of PostgreSQL development originates from
-the mailinglist and the developers are often pushing integrations. If
-we compare the global NFR distribution to each author we find that 25\%
- of the authors have a similarity of $0.47$ or less. This is
-depicted in Figure \ref{fig:authorsim}, where we can see that not all
-authors are as similar to the global trend as others. Of course, we
-found that number of commits correlated with an author's similarity to the
-global NFR distribution ($0.59$ Pearson).
+\begin{figure}
+  \centering
+  \includegraphics[width=.9\textwidth]{figures/postgresql-author-cluster}
+  \caption{PostgreSQL Author Clusters: Authors clustered by cosine
+    distance of their NFR contributions. The outer rectangles (blue) reflect the 2-clusters; the inner rectangles (purple) reflect 6-clusters.}
+\label{fig:authorcluster}
+\end{figure}
 
-Our theory is that the less frequent committers are more
-focused and less general, thus their distributions of topics are
-different than the main developers who commit code in many different
-contexts.  The lead developers either ``wear more hats'' or have more
-time to ``wear more hats''.
 
-Given the top 15 PostgreSQL developers we found that proportionally many
-developers had a focus on NFR topics. Authors with top proportions per NFR
-were:
-\texttt{dennis} for usability; 
-\texttt{scrappy} and \texttt{meskes} for portability;
-\texttt{inoue} and \texttt{neilc} for efficiency;
-\texttt{jurka} and \texttt{joe} for reliability;
-\texttt{thomas} and \texttt{weick} for functionality;
-and \texttt{ishii} and \texttt{scrappy} for maintainability.
-Given these results we found that there indeed was a focus
-of $1/3$ to $1/10$ of commits dedicated to a particular NFR.
+Figure \ref{fig:authorcluster} shows that when we use $6$-clusters, 
+\texttt{petere}, \texttt{tgl} and \texttt{momjian} form their own individual
+clusters (i.e., are distant from one another in the 7-d space). 
+%NEIL - not sure the relevance of this ... needs more explaining. --> (they are also the most frequent committers). 
+This is
+interesting because it means that the important developers are not
+committing code that fits the same NFR profile. In terms of the 2-clusters,
+ we can see that \texttt{momjian} and \texttt{tgl} are in the
+same cluster, but \texttt{petere} is not. The most frequent
+committers do not share the same clusters, even at the coarsest level. 
+This implies that
+developers in this sample do work on different sets of NFRs and have different
+software quality focuses.
+
+
+% NEIL --> Explain the reason why this sentence is included: 
+%It should be noted that much of PostgreSQL development originates from
+%the project mailing list, and the developers are often pushing integrations. 
+If we compare the global NFR distribution (that is, the relative global frequency of each NFR label)
+to each author we find that 25\%
+ of the authors have a similarity of $0.47$ or less. In other words, for these authors (gathered to the lower left of Figure  \ref{fig:authorsim}),
+ their NFR distribution does not match well with the global distribution.
+We found that number of commits correlated with an author's similarity to the
+global NFR distribution ($0.59$ Pearson), i.e., the variables ``number of topics associated with a developer'' and ``number of commits'' are not discriminative.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=.9\textwidth]{figures/author-distance-from-aggregate}
+  \caption{PostgreSQL Author Similarity to the Global Distribution of NFR topics}
+\label{fig:authorsim}
+\end{figure}
+
+
+Our working theory is that less frequent committers are more
+specialized, e.g., interested in a specific NFR, while the main developers (i.e., frequent committers) either ``wear more hats'' or have more
+time to ``wear more hats''. An interesting extension would be to compare this data with 
+the PostgreSQL source code files, to see which developer touched which file.
+
+We say that an author (read developer) is ``proportionately interested'' in an NFR if, for all NFRs with which he or she is associated, a given NFR receives the plurality of his or her commits. This is a measure of relative interest and is independent of number of commits (subject to the caveat about frequent committers, above).
+If we look at which of the top 15 developers were proportionately interested in a given NFR, we find the associations identified in Table \ref{tbl:devinterest}. Our data also showed that for these top developers, between $1/10$ and $1/3$ of their commits were labelled with a single NFR.
+
+\begin{table}
+\begin{tabular}{l|c}
+\toprule
+\textbf{NFR} & \textbf{Developer} \\
+\midrule
+\emph{Usability} & \texttt{dennis, neilc} \\
+\emph{Portability} & \texttt{scrappy, meskes} \\
+\emph{Efficiency} & \texttt{inoue, neilc} \\
+\emph{Reliability} & \texttt{jurka, joe} \\
+\emph{Functionality} & \texttt{thomas, weick} \\
+\emph{Maintainability} & \texttt{scrappy, ishii}\\
+\bottomrule
+\end{tabular}
+	\caption{Developer interest in NFRs}
+	\label{tbl:devinterest}
+\end{table}
+
 
 One potential confound for this analysis is that we could be
 describing developer style instead of developer focus. Developer style
-would be a developers likelihood to use or not use terms found within
-our dictionaries and training corpus. Further more a top developer, in
-terms of frequency of commits, will have more samples and more likely
-take on a more general role. We found in a previous
-paper~\cite{largechanges} that often the words used to describe a commit
-and the actual author of the commit were often correlated. Thus based
-on that observation developer style might be a confounding concern.
+would be a developer's likelihood to use or not use terms found within
+our dictionaries and training corpus in their commit messages. Furthermore, a top developer, in
+terms of number of commits, will have more samples, and thus be more likely
+take on a more general role. For example, we found in a previous
+project~\cite{largechanges} that there was a good correlation between the words used to describe a commit
+and the actual author of the commit. 
+%were often correlated. Thus based
+%on that observation developer style might be a confounding concern.
 
 
 % Dennis is into usability
@@ -1371,25 +1393,6 @@ on that observation developer style might be a confounding concern.
 % Functionality   0.12244898
 % Maintainability 0.10204082
 % Usability       0.18367347
-
-
-\begin{figure}
-  \centering
-  \includegraphics[width=.9\textwidth]{figures/postgresql-author-cluster}
-  \caption{PostgreSQL Author Clusters: Authors clustered by cosine
-    distance of their NFR contributions}
-\label{fig:authorcluster}
-\end{figure}
-
-
-
-
-\begin{figure}
-  \centering
-  \includegraphics[width=.9\textwidth]{figures/author-distance-from-aggregate}
-  \caption{PostgreSQL Author Similarity to the Global Distribution of NFR topics}
-\label{fig:authorsim}
-\end{figure}
 
 
 \section{Discussion}
