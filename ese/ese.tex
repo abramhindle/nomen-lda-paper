@@ -453,7 +453,14 @@ as we do not assume the presence of other artifact corpora.
 An example of a typical commit message, from MySQL, is: \textit{``history annotate diffs bug fixed (if mysql\-\_real\-\_connect() failed there were
 two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. 
 We extracted these messages and indexed them by creation time. 
-We summarized each message as a word distribution minus stop-words such as ``\emph{the}'' and ``\emph{at}''. 
+Each word in the message was
+stripped of punctuation and converted to lowercase.
+We summarized each message as a word distribution minus stop-words
+such as ``\emph{the}'' and ``\emph{at}''. We did not stem or apply any
+other transforms to the messages.
+Our stop words are derived from the Natural Language Toolkit (NLTK) stop-word English stop-word
+list~\footenote{NLTK: \url{http://www.nltk.org/}.
+
 %Stemming was performed in the later stages of our analysis. % WAS IT?
 
 For the commit message data-sets of each project, we created an XML file that separated commits into 30 day periods. 
@@ -684,6 +691,9 @@ requirements.
 All experiments were run on the data-sets for each project (e.g., PostgreSQL, MySQL, MaxDB). LDA
 extracted $20$ topics per period for each project.
 % Is this good enough
+Each change-log message was lightly processed before applying LDA:
+words were converted to lowercase with punctuation removed and then
+stop words were removed.
 This labelling is \emph{semi-unsupervised} because the corpus is not derived from 
 the project being analyzed, and we did not label the project's topics
 ourselves for a training set. The motivation behind this technique is that
