@@ -233,7 +233,7 @@ qualities)~\cite{Cleland-Huang2006}.
 %Their approach is similar to
 %ours, as they mine keywords from NFR catalogues.  They differ from our approach because
 %they mine requirements documents whereas we mine revisions.
-One approach they tried was similar to this one, with keywords mined from NFR catalogues found in Chung et al.~\cite{corollary99}. 
+One approach they tried was similar to this one, with keywords mined from NFR catalogues found in Chung et al.~\cite{chung99}. 
 Their approach resulted in a recall of $80\%$ with precision of $57\%$ for the \emph{security} NFR, but could not find a reliable source of keywords for other NFRs. 
 Instead, they developed a supervised classifier by using human experts to identify an NFR training set. 
 Our research is different because we use a more comprehensive set of terms based on a taxonomy that is an integral part of our framework.
@@ -299,12 +299,12 @@ label accordingly.
 %XXX Possible to cut this
 As discussed earlier, given the topic \emph{``listener change remove add fire''}, Baldi et al. would assign the label \emph{event-handling}. 
 The labels are reasonable enough, but still require an expert in the field to determine them. 
-Furthermore, these labels are project-specific, because they are
+Furthermore, these labels are project specific, because they are
 generated from the data of that project. For example we might have a label called \emph{`Oracle'}
 in the MySQL case, since Oracle owns MySQL. 
 %We do this differently.
 %This paper does this differently. 
-Our approach differs: first of all, we automate the process of naming the topics; secondly, we label topics with project-independent terms, in order
+Our approach differs in two important ways: we automate the process of naming the topics, and we label topics with project-independent terms, in order
 to permit cross-project comparison.
 
 Mei et al.~\cite{Mei2007} use context information to automatically name topics. 
@@ -373,42 +373,42 @@ role of NFRs in software maintenance.
 To evaluate our approach, we sought candidate systems that were mature projects and had openly accessible source control repositories. 
 We selected systems from the same application domain, to control for differences in functional, rather than non-functional, requirements. 
 We used three different open-source, partially-commercial database systems:
-\begin{itemize}
-\item  MySQL 3.23. Started in 1994 and MySQL 3.23 was released in early 2001. MySQL contains $320,000$ lines of C and C++ source code~\footnote{generated
+\begin{description}
+\item [ MySQL 3.23] --- Started in 1994 and MySQL 3.23 was released in early 2001. MySQL contains $320,000$ lines of C and C++ source code~\footnote{generated
 using David A. Wheeler's \emph{SLOCCount},
 {http://dwheeler.com/sloccount}.}. We used the MySQL 3.23 source control  history from July
 31st, 2000 to August 9th, 2004.
-\item MaxDB 7.500. Started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project
+\item [MaxDB 7.500] --- Started in the late 1970s as a research project, and was later acquired by SAP. As of version 7.500, released April 2007, the project
 has over $940,000$ lines of C source
 code~\footnote{{http://www.sdn.sap.com/irj/sdn/maxdb}}. 
  We used the MaxDB 7.500 source control history from June
 29th, 2004 to June 19th, 2006.
-\item PostgreSQL 7.3. Started in the 1980s as a Berkeley research
+\item [PostgreSQL 7.3] --- Started in the 1980s as a Berkeley research
   project~\footnote{{http://www.postgresql.org/docs/7.3/static/}}. PostgreSQL
   7.3 contains $306,000$ lines of C code.
  We used the PostgreSQL 7.3 source control  history from May 9th, 2002 to 
  August 26th, 2004.
 
-\end{itemize}
+\end{description}
   
 %Choosing an older version of these projects allowed us to focus on projects which have moved further into the maintenance phase of the software life-cycle.
 We explicitly chose older versions of mature projects from a stable problem domain to increase the likelihood that we would encounter primarily
 maintenance activities in our studies. We felt that a single domain
 would allow for cross-project comparison. At the same time we
-recognize that a problem-domain alone does guarantee functional and
+recognize that problem domain alone does not guarantee functional and
 non-functional similarity.
-For instance each database system has a different focus, PostgreSQL
+For instance, each database system has a different focus. PostgreSQL
 tends to focus on fulfilling much of the SQL92 specification and adding
-more features while MySQL has been slow to adopt much of the spec.
- As a consequence our choice of looking at a
-single domain limits our generalizability. What we show in this paper
+more features, while MySQL has been slow to adopt much of that specification in favour of community-requested features.
+The consequence of our choice to look at a
+single domain is to limit generalizability. What we show in this paper
 will be somewhat biased towards database software.
 
-For each project, we used source control commit comments, the messages
+For each project, we studied source control commit comments, the messages
 that programmers write when they commit revisions to a source control
 repository. 
-Most commits we observed had commit comments (90\% in MySQL 3.23,
-98.5\% in PostgreSQL and 99.99\% in MaxDB 7.500).
+Most commits we observed had comments: 90\% in MySQL 3.23,
+98.5\% in PostgreSQL and 99.99\% in MaxDB 7.500.
 Commit comments are often studied by researchers, as they are the most readily accessible source of project interactions, and developers are often
 required to create them by the repository mechanism (e.g., Git).  Additionally, relying only on commit comments makes our approach more generalizable,
 as we do not assume the presence of other artifact corpora.
@@ -421,7 +421,7 @@ We extracted these messages and indexed them by creation time.
 We summarized each message as a word distribution minus stop-words such as ``\emph{the}'' and ``\emph{at}''. 
 %Stemming was performed in the later stages of our analysis. % WAS IT?
 
-For the commit message data-sets of each project, we created an XML file that separated commits into 30 day periods. 
+For the commit message data-sets of each project, we created an XML file that partitioned commits into 30 day periods. 
 %This size of period, 30 days, is smaller than the time between minor
 %releases but large enough for there to be sufficient commits to
 %analyze
@@ -436,40 +436,38 @@ A topic analysis tool such as LDA will try to find $N$ independent
 word distributions within the word distributions of all input
 messages. 
 If there are not $N$ independent word distributions, the topics
-produce tend to be duplicates of each other, that is they share the
-top terms. During this study we found that when $N$ was 20 we did not
-witness duplicate topics very often.
-Linear combinations of these $N$ word distributions are meant to represent and recreate the word distributions of any of the original messages. 
-These $N$ word distributions effectively form \emph{topics}: cross-cutting collections of words relevant to one or more of our commit messages. 
+produced tend to be duplicates of each other, that is, they share the
+top terms. During this study we found that if we used a value of 20 for $N$, duplicate topics were infrequent.
+Linear combinations of these $N$ word distributions are meant to represent and recreate the word distributions of any of the original messages. In other words, these topics are cross-cutting collections of words relevant to one or more of our commit messages. 
 LDA extracts topics in an unsupervised manner; the algorithm relies
 solely on the source data and word distributions of messages, with no human intervention.
+%We applied Blei's LDA implementation~\cite{Blei2003} against the word distributions of these commits, and generated lists of topics per period. 
 
-In topic analysis a single document, such as a commit message, can be related to multiple topics. 
-Representing documents as a mixture of topics maps well to source code repository commits, which often have more than one purpose~\cite{Hindle09ICSM}.  
-For this paper, a topic represents a word distribution generated from a group of commit log comments which are related by their content.  
+% In topic analysis a single document, such as a commit message, can be related to multiple topics. 
+% Representing documents as a mixture of topics maps well to source code repository commits, which often have more than one purpose~\cite{Hindle09ICSM}.  
+% For this paper, a topic represents a word distribution generated from a group of commit log comments which are related by their content.  
 %In this paper a topic is a set of tokens extracted from commit messages found within a project's source control system (SCS).
 
-We applied Blei's LDA implementation~\cite{Blei2003} against the word distributions of these commits, and generated lists of topics per period. 
-We set the number of topics to generate to $20$, because past experimentation showed that fewer topics might aggregate multiple unique topics while
-any more topics dilutes the results and creates indistinct topics~\cite{Hindle09ICSM}. 
+
+%We set the number of topics to generate to $20$, because past experimentation showed that fewer topics might aggregate multiple unique topics while
+%any more topics dilutes the results and creates indistinct topics~\cite{Hindle09ICSM}. 
 % Furthermore, more than $20$ topics quickly became infeasible for inspection.
 
 \subsubsection{The High-level Labels}
 
 %\noindent \textbf{The high-level labels} --- 
 
-To facilitate cross-project comparison, we used a taxonomy of NFRs. This taxonomy is based on the ISO quality model, ISO9126~\cite{iso9126}. 
-ISO9126 describes six high-level NFRs: \emph{maintainability, functionality,
-portability, efficiency, usability,} and \emph{reliability}
+To facilitate cross-project comparison, we used a taxonomy of NFRs. This taxonomy is based on the ISO quality model, ISO9126~\cite{iso9126}, which describes six high-level NFRs: \emph{maintainability, functionality,
+portability, efficiency, usability,} and \emph{reliability}. 
 %\footnote{While there may be lingering debate in some circles about these terms, an ISO standard
 %seems like a reasonable starting point for our work.}.
-There is some debate about the terms in this model, and whether they are a) the correct terms and b) correctly organized. 
+There is some debate about the terms in this model \cite{Boegh2008}, and whether they are a) the correct terms and b) correctly organized. 
 However, ISO9126 is ``an international standard and thus provides an 
 internationally accepted terminology for software quality
-\cite[p. 58]{Boegh2008},'' that is sufficient for the purposes of this
+\cite[p. 58]{Boegh2008},'' and so we consider that it is sufficient for the purposes of this
 research.  
-\emph{Performance} is an example of RDBMS word related to the \emph{efficiency} NFR.
-We claim that these NFRs are maintenance concerns (to varying degrees) in all software projects, and are therefore well-suited for comparisons between
+\emph{Performance} is an example of an RDBMS word related to the \emph{efficiency} NFR.
+We claim that these NFRs are maintenance concerns (to varying degrees) in all software projects, and are therefore well suited for comparisons between
 projects.
 
 %\noindent \textbf{Creating a validation corpus} --- 
@@ -479,22 +477,21 @@ To evaluate both semi-unsupervised and supervised classification, we
 created a validation set of manually labelled topics. For each project,
  the annotators (the first two authors) annotated each extracted topic in each period with
 the six NFR labels listed above.
-Annotators did not annotate each other's annotations, but some brief
-inspection of annotations was used to confirm that the annotators were
-acting similarly. PostgreSQL (PgSQL) was annotated by both annotators in order
+Annotators did not annotate each other's annotations
+%NEIL --> not really! also makes IRR confusing., but some brief
+%inspection of annotations was used to confirm that the annotators were acting similarly. 
+PostgreSQL (PgSQL) was annotated by both annotators in order
 to evaluate inter-rater reliability.
-We looked at each period's topics, and assessed what the data ---
-consisting of the frequency-weighted word lists and messages ---
-suggested was the label for that topic. 
-We were able to pinpoint the appropriate label using auxiliary information as well, such as the actual revisions and files that were related to the
+We looked at each period's topics, and assessed what the data---consisting of the frequency-weighted word lists and messages---suggested was the most appropriate labels for that topic. 
+We selected the appropriate labels using auxiliary information as well, such as the actual revisions and files that were related to the
 topic being annotated.
 For example, for the MaxDB topic consisting of a message ``exit() only
 used in non NPTL LINUX Versions'', we tagged that topic
 \emph{portability}. 
-Given the top-level annotations of \emph{none}, \emph{portability},
+Given the top-level annotations of \emph{portability},
 \emph{efficiency}, \emph{reliability}, \emph{functionality},
 \emph{usability}, and \emph{maintainability}, the annotators annotated each topic
-with the relevant label. Sometimes they used finer-grained
+with the relevant label. We added a catch-all label, \emph{none}, which we used when none of the six NFRs was suitable. In some instances, we used finer-grained
 annotations that would be aggregated up to one of these higher-level labels.
 %We compared against this data-set, but we also used the data-set for our supervised machine learning based topic classification. 
 % A topic may have more than one matching keyword. % ok what?
@@ -502,7 +499,7 @@ annotations that would be aggregated up to one of these higher-level labels.
 We validate classification performance using the area under the curve
 of Receiver Operating
 Characteristic~\cite{Fawcett2006861},
-abbreviated \emph{ROC}, sometimes called \emph{AUC}, and the
+abbreviated \emph{ROC}, sometimes called Area Under the Curve or \emph{AUC}, and the
 F-measure, which is the harmonic mean of precision and recall, i.e.,
 $2 * (P * R) / (P + R)$. 
 Throughout the paper we will provide F-measure scores so that readers
@@ -524,7 +521,7 @@ ROC of a classifier is equivalent to the probability that the classifier will ra
 negative instance.
 
 We argue for using ROC over F-Measure because ROC suffers less from
-bias than F-Measure and F-Measure often skews towards the positive
+bias, as F-Measure often skews towards the positive
 class~\cite{flach-icml03,Forman:2010:ACS:1882471.1882479}, especially
 in the case of class imbalance. Forman et
 al.~\cite{Forman:2010:ACS:1882471.1882479} demonstrate that cross-fold
@@ -555,26 +552,26 @@ In order to automatically label each topic with
 one of the six high-level NFRs,
 %an NFR from ISO9126, 
 we associate each NFR with a list
-of keywords (\emph{word-lists}, in our parlance). These word-lists were determined a priori and were not extracted from the projects themselves, using the methodology explained below. In general, these lists are project and domain independent.
+of keywords or \emph{word-lists}, in our parlance. These word-lists were determined a priori and were not extracted from the projects themselves, using the methodology explained below. In general, these lists are project and domain independent.
 We intersected the words of the topics and the words of our word-lists.
 We ``labelled'' a topic if any of its words matched any of the word-list's words.
 A topic could match more than one NFR.
 We used several different sets of word-lists for comparison, which we
 refer to as \textsf{exp1}, \textsf{exp2}, and \textsf{exp3} in the text which follows. 
 
-Our first word-list set, \textsf{exp1}, was generated using the ontology described in Kayed et al.~\cite{5072519}
-That paper constructs an ontology for software quality measurement using eighty source documents, including research papers and international standards. 
-The labels we used are:
+Our first word-list set, \textsf{exp1}, was generated using the ontology for software quality measurement described in Kayed et al.~\cite{5072519}, which was constructed using 80 source documents, including research papers and international standards. 
+The labels we used were:
 
-\begin{quotation}
-\small \noindent \textsf{
+\vspace{2mm}
+\parbox{0.7\textwidth}{
+\small \textsf{
 integrity, security,
 interoperability, testability, maintainability, traceability,
 accuracy, modifiability, understandability, availability, modularity,
 usability, correctness, performance, verifiability, efficiency,
 portability, flexibility, reliability.
-}
-\end{quotation}
+}}
+\vspace{2mm}
 
 Our second word-list, \textsf{exp2}, uses the ISO9126 taxonomy described above (Section \ref{sec:wordlist}) to seed the word-lists.
 %We use these qualities later on as classes in supervised labelling. NE confusing the issue here, I think.
@@ -582,7 +579,7 @@ The terms from ISO9126 may not capture all words occurring in the topics that ar
 For example, the term ``redundancy'' is one 
 we considered to be
 relevant to discussion of \emph{reliability}, but is not in the
-standard. We recognize though that terms like this might be used in a
+standard. We recognize that terms like this might be used in a
 different context with a different meaning, like code-cloning.
 We therefore took the NFRs from the ISO9126 and added terms to them.
 
@@ -590,7 +587,7 @@ To construct these expanded word-lists, we used
 WordNet~\cite{Fellbaum1998}.
 We then added Boehm's software quality model~\cite{Boehm+:1976:ICSE}, and classified his eleven `\emph{ilities}' into their respective ISO9126 NFRs. 
 We did the same for the quality model produced by McCall et al.~\cite{mccall1977}. 
-We then did a simple random analysis of mailing list messages from an open source ecosystem, KDE. Like the GNOME study we conducted in Ernst and Mylopoulos \cite{ernst10refsq}, KDE contains a suite of different products covering a variety of software categories. If we judged a given message to contain terms that were
+We then conducted a simple random analysis of mailing list messages from an open source ecosystem, KDE. Like the GNOME study we conducted in Ernst and Mylopoulos \cite{ernst10refsq}, KDE contains a suite of different products covering a variety of software categories. If we judged a given message to contain terms that were
 related to one of the NFRs in ISO9126, we added it to our word-list. This allowed us to expand our word-lists with more software-specific terms.
 %Finally, we randomly analyzed two mailing lists from another software project to expand our set with domain-specific terms. 
 % Less info is probably better here...
@@ -602,7 +599,7 @@ Similarity in WordNet means siblings in a hypernym tree.
 We do not include these words here for space
 considerations~\footnote{For our data repository visit \url{http://softwareprocess.es/nomen/}}. 
 Wordnet similarity is a very broad match. For example, the label \emph{maintainability} is associated with
-words \emph{ease} and \emph{ownership}, and the word \emph{performance} has a `sense' which refers to musical performances -- which is not related to software development. In general, as we proceed from word-lists in \textsf{exp1} to that in \textsf{exp3}, our lists become more generic.
+words \emph{ease} and \emph{ownership}, and the word \emph{performance} has a `sense' that refers to musical performances, which is obviously unrelated to software development. In general, as we proceed from word-lists in \textsf{exp1} to that in \textsf{exp3}, our lists become more generic.
 
 \begin{table*}
 	\centering
