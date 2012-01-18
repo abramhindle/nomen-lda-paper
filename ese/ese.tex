@@ -538,7 +538,11 @@ ROC values provide a score %, similar to school letter-grades (A is 0.9, C is 0.
 ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) versus the false
 positive rate (1 - specificity). 
 A perfect learner has a ROC value of $1.0$, reflecting perfect recall and precision. 
-A ROC result of $0.5$ would be equivalent to a random learner (that is, issuing as many false positives as true positives). 
+A ROC result of $0.5$ would be equivalent to a random learner (that
+is, issuing as many false positives as true positives). While we
+recognize that using $0.5$ as the base-line means our ROC scores will
+look much larger than our F-Measure scores, we feel that the knowledge
+that the random selection is $0.5$ or worse is helpful for interpreting our results.
 The %area under the -- NE confusing to have area again ... and not importantana
 ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen
 negative instance.

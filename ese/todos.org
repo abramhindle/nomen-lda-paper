@@ -135,9 +135,14 @@
 
    - [X] Please list all word-lists that you use explicity in three different tables and reduce the discussion surrounding the word lists.
 
-   - [ ] Using ROC instead of F-Measure as your primary measure (for graphs) was a surprise.  Why did you choose this? A cynical reader would suggest because ROC values are higher (not my point-of-view but you should be aware of this point).
+   - [X] Using ROC instead of F-Measure as your primary measure (for
+     graphs) was a surprise.  Why did you choose this? A cynical
+     reader would suggest because ROC values are higher (not my
+     point-of-view but you should be aware of this point).
 
-   - [ ] 3.2.3 These f-measures are very low, potentially making the approach not usable, consider discussing why you think that an approach with such a low f-measure is usable.
+   - [ ] 3.2.3 These f-measures are very low, potentially making the
+     approach not usable, consider discussing why you think that an
+     approach with such a low f-measure is usable.
 
    - [X] 3.3.1 It seems odd that you chose the best performing learner per label.  This seems like overfitting to your specific data.  In practice, a tool would almost certainly chose one learner and apply only that learner during execution.  Please explain this decision.
 
@@ -268,7 +273,10 @@ this could be explained better.
     - [ ] The cite in the first sentence of 5 does not clearly support the claim. {not sure what sentence this is }
     - [X] The last sentence of 5.2 and the first paragraph of 5.3 appear to contradict each other. In 5.2, the authors state that the annotators found the annotations to be time consuming and difficult. But in the next paragraph, the authors claim the effort to be acceptable. Also, it would be useful to quantify the "time consuming and difficult" claim with some numbers, for example, about how many minutes per example or overall time (as stated in 5.3).
     - [X]  5.2: first 2 paragraphs can be joined. In general, authors should try to avoid so many short paragraphs--they break up the reader's flow unnecessarily.
-    - [ ] - 5.2, p. 21 lines 48-49: Please revise "We had to evaluate inter-rater reliability this way..." -- Perhaps change to "We evaluated", and define what "this way" means -- briefly mention what the traditional way is, and why it didn't apply here.
+    - [ ] - 5.2, p. 21 lines 48-49: Please revise "We had to evaluate
+      inter-rater reliability this way..." -- Perhaps change to "We
+      evaluated", and define what "this way" means -- briefly mention
+      what the traditional way is, and why it didn't apply here.
     - [X] - 5.2, p. 22 line 1: "The aggregate view of with a Kappa" -- pick either of or with
     - [X] - 5.3, line 29: replace "in any case" with "for the supervised learners"? Or was this a problem for both supervised and semi-supervised?
     - [X] - 5.3, line 43: "these methods" -- both supervised and semi-supervised?
