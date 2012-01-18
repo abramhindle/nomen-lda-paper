@@ -125,7 +125,7 @@ i <- names(pan)[1]
 
 #versus a sample
 
-N <- 10000
+N <- 100000
 kappas <- lapply(names(pa),function(acolumn) {
   unlist(
          mclapply(
