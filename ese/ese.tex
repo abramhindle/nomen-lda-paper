@@ -126,7 +126,8 @@ what reasons, is hard without expert advice from the developers
 involved. 
 %new stuff
 % edit this. awkward
-In this work we provide a method of automatically labelling  development topics extracted from commit logs called \emph{labelled topic extraction}.
+In this work we provide a method of automatically labelling
+development topics extracted from commit logs, this method is called \emph{labelled topic extraction}.
 
 
 Concrete applications of \emph{labelled topic extraction} include the annotation of development artifacts with NFR-related tags and the creation of project dashboards.  Annotating software development artifacts with NFR-related tags would allow developers to create detailed directed queries of different artifact kinds that concern the same NFR; for example, a developer could browse the recent history of performance-related bug reports and code check-ins. Project dashboards distill detailed information about a software system into a simpler and more abstract view that summarizes key aspects of the development effort \cite{dashboard}; labelled topic extraction would allow managers to track effort related to specific NFR topics, such as \emph{usability} or \emph{portability}.
@@ -162,7 +163,7 @@ specific and hard to generalize.
 However, in our previous work we
 investigated \emph{topic trends} --- that is, topics that recur over
 time --- we observed that topic trends often corresponded to
-non-functional requirements (NFRs)~\cite{Hindle09ICSM}, which is
+\emph{non-functional requirements} (NFRs)~\cite{Hindle09ICSM}, which is
 further emphasized in this paper due to the large numbers of NFR
 labelled topics.  
 This is encouraging, as NFRs have the property of being cross-domain
@@ -217,7 +218,8 @@ This work extends our previous work~\cite{msr2011}. The major extensions in this
 	\item We conducted another case-study on PostgreSQL. 
 	\item We used two authors to each annotate the same PostgreSQL topics in order to compare
 these annotations. 
-	\item We used this new case-study to test inter-rater reliability, described in Section \ref{sec:inter-rater}. 
+	\item We used this new case-study to test \emph{inter-rater
+          reliability} (IRR), described in Section \ref{sec:inter-rater}. 
 	\item We conducted an analysis of PostgreSQL authors and their association with NFRs and
 topics (Section \ref{sec:developers}).
 \end{itemize}
@@ -323,7 +325,7 @@ Their work discusses the source of the requirements and how they are used in the
  German~\cite{german03gnome} looked at GNOME specifically, and listed several sources for requirements: leader interest, mimicry, brainstorming, and prototypes. 
 None of this work  addressed quality requirements in OSS, nor did it examine requirements trends.
 % NE 0113 this seems too early to mention 'result'.
-In Hindle et al. \cite{Hindle2007} we examined release patterns in OSS. That work showed that there is a difference between projects regarding maintenance
+In Hindle et al.~\cite{Hindle2007} we examined release patterns in OSS. That work showed that there is a difference between projects regarding maintenance
 techniques. This supports the result described in this paper, that software qualities are not discussed with the same frequency across projects.
 
 
