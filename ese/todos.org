@@ -1,5 +1,6 @@
 * TODOS
 ** [ ] Make a response document
+   file:~/projects/lda-paper/ese-major-response.tex
    - [ ] Aggregate responses per each of these points (re:)
    - [ ] Make a little latex response PDF.
 ** [X] 1. Detail the relationship between this paper and previous paper in the paper itself
@@ -20,7 +21,15 @@
      be more precise and specify where the tags come from (source code, cvs
      logs, ...)
 
-   - [X] Section 2, last paragraph: relation to current work unclear. For example, "Their work discusses the source of the requirements and how they are used in the development process" -- but how is this different from the current authors' work? "None of this work addressed quality requirements in OSS, nor did it examine requirements trends" -- as the authors do? Again, relationship to current work unclear. This paragraph may also make more sense as the second to last paragraph (especially given the word "Finally" in the opening of the preceding paragraph).
+   - [X] Section 2, last paragraph: relation to current work
+     unclear. For example, "Their work discusses the source of the
+     requirements and how they are used in the development process" --
+     but how is this different from the current authors' work? "None
+     of this work addressed quality requirements in OSS, nor did it
+     examine requirements trends" -- as the authors do? Again,
+     relationship to current work unclear. This paragraph may also
+     make more sense as the second to last paragraph (especially given
+     the word "Finally" in the opening of the preceding paragraph).
 
 
 ** [X] 2. Provide more details about design choices
@@ -117,9 +126,24 @@
       "CVS and Bitkeeper" as examples?
     - [X] Soften or qualify the claim by either alluding to or
       directly stating the issues encountered with IRR.
-    - [X] There seems to be a lack of cites in the introduction.  For instance, the first sentence "A key problem for practicing?" does not include a cite even though it seems to me to be a strong claim.
-    - [X] There are also no cites related to machine learning, etc, but this may be because these topics are considered common knowledge?
-    - [X] Consider either moving the concrete applications discussion towards the top of the introduction or make it a separate sub-section with a mockup of a tool that would use this information.  It was at first very difficult to imagine that developers would really be interested in labeling commits but, with examples sprinkled throughout the paper, it became more believable.  The motivation of this research needs to be strengthened in the introduction section
+    - [X] There seems to be a lack of cites in the introduction.  For
+      instance, the first sentence "A key problem for practicing?"
+      does not include a cite even though it seems to me to be a
+      strong claim.
+
+    - [X] There are also no cites related to machine learning, etc,
+      but this may be because these topics are considered common
+      knowledge?
+
+    - [X] Consider either moving the concrete applications discussion
+      towards the top of the introduction or make it a separate
+      sub-section with a mockup of a tool that would use this
+      information.  It was at first very difficult to imagine that
+      developers would really be interested in labeling commits but,
+      with examples sprinkled throughout the paper, it became more
+      believable.  The motivation of this research needs to be
+      strengthened in the introduction section
+
     - [X] Reorganize methdology presentation
 	While there is no absolute standard way to present experiments
         and case studies many researchers are converging on a similar
@@ -145,7 +169,9 @@
     - [X] 	30 days is an arbitrary boundary? 
     what if a topic was split over two 30 day periods? It would appear to be less important as it would be only = as high in each period. I realize you may have had to choose an arbitrary boundary but please at least discuss this issue.
 
-   - [X] Please list all word-lists that you use explicity in three different tables and reduce the discussion surrounding the word lists.
+   - [X] Please list all word-lists that you use explicity in three
+     different tables and reduce the discussion surrounding the word
+     lists.
 
    - [X] Using ROC instead of F-Measure as your primary measure (for
      graphs) was a surprise.  Why did you choose this? A cynical

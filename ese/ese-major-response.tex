@@ -1,0 +1,144 @@
+\documentclass{article}
+
+\usepackage{comment,fullpage}
+
+\begin{document}
+Dear EMSE Reviewers,
+
+We would like to thank you for your thorough reviews. We addressed all
+5 major revision points and we then we tried to address all of the
+smaller reviewer comments, edits. We have a giant TODO file that was
+compiled from the very thorough four reviews our paper received, and
+we achieved, met, and integrated all of those comments, edits, and
+requirements into this revision of the paper.
+
+\begin{quotation}
+ The reviewers would like to see discussion of the relationship of
+ the current draft and the previous MSR 2011 paper and more detailed
+ discussion of previous papers related to the current draft. 
+\end{quotation}
+
+In this new revision, within the introduction and the previous work we
+addressed the provenance of this paper and clearly indicated what we
+added to this paper to make it different and more thorough. We
+addressed our better coverage of machine learning, our addition of the
+PostgreSQL case study, our inter-rater reliability study, our author
+analysis study, etc. 
+
+We also fleshed out much of the previous work that both authors had
+worked on in the past relevant to this paper, in order to provide more
+context.
+
+\begin{quotation}
+     The reviewers have several requests for more details of the study
+   design choices (e.g., choosing projects from the same application
+   domain, using ROC instead of F-Measure as your primary measure) and
+   some related discussion on the threats to validity.
+\end{quotation}
+
+Throughout the paper we added more details, especially in terms of
+methodology and what statistical methods we were using and how.
+
+In the section ``Creating a Validation Corpus'' we added why we chose
+ROC over F-Measure and described some of the weakness of F-Measure
+based evaluation. We also motivated why we did provide both
+measures. We also discussed some of these issues in threats to
+validity.
+
+Furthermore we addressed issues of low ROC and F-measure scores in
+this section, in threats to validity, and in the conclusions.
+
+We also addressed reviewer concerns about the use of a single domain.
+
+Examples of further details include: we discussed the pre-processing
+of changelog comments for LDA in better detail; we described our
+clustering methodology clearer and discussed significance of many of
+the comparisons; we provided some more explanation of LDA and the
+topics it extracts.
+
+\begin{comment}
+         - Re: in the "Creating a Validation Corpus" we addressed why we
+           used ROC over F-Measure: class imbalance leads to bias in
+           F-Measure. And we cited relevant work that discussed this
+           particular issue.            
+
+         - Re: we explained some reasons for low ROC scores.
+
+         - Re: in threats to validity, internal validity, we discussed skewed classes
+
+     - Re: we responded on page 6 and in the threats to validity about
+       the issues of a single domain
+
+    - Re: discussed LDA word distributions
+
+    - in the clustering section we described our methodology clearer
+    - we better described LDA preprocessing
+\end{comment}
+
+\begin{quotation}
+  Fix writing: The reviewers point out quite some inconsistent and
+  unclear writing in various places of the paper.
+\end{quotation}
+
+In an effort to clean up the paper and appease the reviewers, we
+collated a big TODO list from the reviewer comments and ensured all of
+the comments were addressed and all edits were executed. We feel that
+cleaned up the paper and edited it very careful, with the help of the
+reviewer comments of course.  As per reviewer requests we softened
+some of the claims in light of low ROC and IRR scores when applicable.
+We recognize there were a lot of edits suggested by the reviewers and
+we did our due diligence and attended to all that we could.
+
+\begin{quotation}
+ Reviewer 3 raises that the extremely low IRR (~0.1) threatens the
+   validity of the results of these experiments, and its threats to
+   validity should be made more prominent.
+  
+\end{quotation}
+
+Within this new revisions, we addressed this issue in the inter-rater
+reliability section and referenced this discussion in the threats to
+validity and the conclusion. 
+
+Furthermore we provided more evidence that our IRR results were mostly
+better than noise, we did extensive simulations sampling our ratings
+and then comparing those ratings against our ratings to find that the
+majority of our labels received higher IRR scores than 96\% to 99.9\%
+of the random simulations. This allows us to confidently show that our
+labels were primarily better than random. But we recognize that the
+average of the values is low and we address the threats this causes to
+this work and what it might mean for practitioners and other
+researchers when replicating this study or methodology.
+
+We also addressed the reviewers concerns that the IRR scores would
+affect our ROC and F-Measure scores. We addressed this in the IRR
+section and the threats to validity.
+
+\begin{quotation}
+ Reviewer 4 raises the some observed results may simply be due to
+ the differences among developer styles and not necessarily
+ reflecting different types of work.  
+\end{quotation}
+
+In this new version, we addressed these issues ``Do different
+developers work on different NFRs?''  and the threats to validity. We
+also better explained the methodology behind comparing these authors
+and the topics they are associated with.
+
+In conclusion we addressed the reviews to fullest extent possible,
+both in terms of major criticisms and minor criticisms. We feel that
+this new revision is far more robust and show ease the concerns of the
+reviewers.
+
+Thanks you,
+
+Abram, Neil, Michael and John
+
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

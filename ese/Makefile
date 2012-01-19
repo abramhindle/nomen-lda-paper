@@ -66,3 +66,8 @@ clean:
 .eps.pdf:
 	epstopdf $<
 
+ese-major-response.pdf: ese-major-response.tex
+	pdflatex ese-major-response
+	pdflatex ese-major-response
+
+
