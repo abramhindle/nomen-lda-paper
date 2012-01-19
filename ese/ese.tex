@@ -1189,7 +1189,7 @@ correlate with the \emph{portability} NFR increasing in frequency in mid-2004. B
 increase in frequency, possibly reflecting the interest in adding features and documentation for the release. In the following sections we turn to our research questions:
 
 
-\subsection{Do NFR Frequencies Change over Time?}
+\subsection{RQ1: Do NFR Frequencies Change over Time?}
 In both MaxDB and MySQL the frequencies generally decreased with age. 
 However, there are variations within our NFR labels. In MySQL, \emph{usability} and \emph{efficiency} do not appear very often in topics. 
 A proportionately smaller number of commits addressed these NFRs.
@@ -1202,8 +1202,8 @@ This is likely due to our analysis time-frame for MaxDB being shorter than the t
 In PostgreSQL, by comparison, the frequencies seem to become somewhat cyclic, since we are not studying a maintenance-phase for the product, but rather ongoing
 feature addition and usability improvements.
 
-\subsection{Do Projects Differ in their Relative  Topic Interest?}
-\emph{Yes}. MySQL 3.23 had proportionally more
+\subsection{RQ2: Do Projects Differ in Their Relative  Topic Interest?}
+We found significant overall variation in the projects. MySQL 3.23 had proportionally more
 topics labelled \emph{functionality}, while MaxDB had proportionally more
 \emph{efficiency} related topics. MaxDB was a very mature release ``donated'' to the open-source community, 
 whereas MySQL was in its relative infancy, and	
@@ -1220,7 +1220,7 @@ how often \emph{portability} arises as a concern.
 
 %\DONE{add the pgsql data}
 
-\subsection{Do different developers work on different NFRs?}
+\subsection{RQ3: Do Different Developers Work on Different NFRs?}
 
 \label{sec:developers}
 
@@ -1292,8 +1292,8 @@ global NFR distribution ($0.59$ Pearson), i.e., the variables ``number of topics
 
 
 Our working theory is that less frequent committers are more
-specialized, e.g., interested in a specific NFR, while the main developers (i.e., frequent committers) either ``wear more hats'' or have more
-time to ``wear more hats''. An interesting extension would be to compare this data with 
+specialized, e.g., interested in a specific NFR, while the main developers (i.e., frequent committers) either have wider responsibility or have more
+time to be widely involved. An interesting extension would be to compare this data with 
 the PostgreSQL source code files, to see which developer touched which file.
 
 We say that an author (read developer) is ``proportionately interested'' in an NFR if, for all NFRs with which he or she is associated, a given NFR receives the plurality of his or her commits. This is a measure of relative interest and is independent of number of commits (subject to the caveat about frequent committers, above).
@@ -1319,12 +1319,12 @@ If we look at which of the top 15 developers were proportionately interested in 
 
 One potential confound for this analysis is that we could be
 describing developer style instead of developer focus. Developer style
-would be a developer's likelihood to use or not use terms found within
+would be a developer's likelihood to use terms found within
 our dictionaries and training corpus in their commit messages. Furthermore, a top developer, in
 terms of number of commits, will have more samples, and thus be more likely
 take on a more general role. For example, we found in a previous
 project~\cite{largechanges} that there was a good correlation between the words used to describe a commit
-and the actual author of the commit. 
+and the author of the commit. 
 %were often correlated. Thus based
 %on that observation developer style might be a confounding concern.
 
@@ -1378,11 +1378,11 @@ and the actual author of the commit.
 \label{sec:limit}
 
 \subsection{Annotation Observations}
-We found many topics that were not actually non-functional requirements (NFRs) but were often related to them. 
+We found many topics that were not non-functional requirements (NFRs) but were often related to them. 
 For instance, concurrency was mentioned often in the commit logs and
 was related to \emph{correctness} and \emph{reliability}, possibly because concurrent code is prone to bugs such as race conditions. %are 
 % often  was troublesome. 
-\emph{Configuration management} and \emph{source control} related changes appeared often; % and sometimes there were topics dedicated to configuration
+Topics related to \emph{Configuration management} and \emph{source control} appeared often; % and sometimes there were topics dedicated to configuration
 % management. 
 these kinds of changes are slightly related to \emph{maintainability}. 
 A non-functional change that was not quality-related was licensing and
@@ -1401,7 +1401,11 @@ Project specific word-lists would avoid automated mistakes due to the names of e
 \subsection{Inter-rater reliability}
 \label{sec:inter-rater}
 To determine inter-rater reliability two of the authors---Ernst and Hindle---each annotated the PostgreSQL topics,
-and then evaluated each other's annotations.
+and then evaluated each other's annotations. 
+Table \ref{tab:interr} describes the Cohen Kappa and the Spearman
+correlation of our per-topic annotations for each NFR. We 
+evaluated inter-rater reliability using each NFR, because a single topic could be
+tagged with more than one NFR.
 
 %>    A_portability   A_functionality     A_reliability A_maintainability
 %>      0.153548387      -0.013588517       0.004573794       0.082001031
@@ -1432,39 +1436,33 @@ Everything & 0.107 & 0.108 \\ \hline
 \label{tab:interr}
 \end{table}
 
-Table \ref{tab:interr} describes the Cohen Kappa and the Spearman
-correlation of our per topic annotations for each NFR. We had to
-evaluate inter-rater reliability this way because a single topic could be
-tagged with more than one NFR. 
+ 
 
 We feel these results are poor. The aggregate view of a Kappa of
 $0.1$ indicates there is some weak agreement. We found that
 there was a lot of agreement in terms of lack of a tag, but often more
-disagreement when a tag should be applied. After some discussion we concluded that usability was a source of
+disagreement when a tag should be applied. After some discussion we concluded that 
+usability was a primary source of
 disagreement. Do user manuals improve usability? Is a command-line
 option a usability issue? These kinds of questions illustrate some of
-the agreement, disagreement and ambiguity about these labels. 
-Thus we would recommend that future annotators make a concerted effort
-to train and discuss when one applies an annotation.
+the agreement, disagreement, and ambiguity about these labels. 
+We therefore recommend that future annotators train and discuss how and when an annotation is appropriate.
 
 
-
-Empirically how poor were our results? We decided to compare our
-results against simulated or random results. In the first simulation
+To evaluate our results empirically, we compared them the annotations that would result if the seven labels
+ were applied randomly. In the first simulation
 we sampled with replacement from our own NFR label distributions to
 produce random ratings that looked like our own. We then applied the
-Kappa-statistic on this sampling versus our labelling, and repeated
-this 100,000 times, we found that
-for 4 out of 7 NFR labels, our labels IRR were greater than the random
-IRR measures 96\% of the time. For portability and efficiency, our IRR
+Kappa-statistic on this sampling, compared it with our labelling, and repeated
+this 100,000 times. We found that
+for 4 out of 7 NFR labels, the IRR values for our labels were greater than the random
+IRR measures 96\% of the time. For \emph{portability} and \emph{efficiency}, our IRR
 was greater 100\% of the time both for Neil's ratings, Abram's ratings
 and the union of both Neil and Abram. Figure \ref{fig:irr} depicts the IRR of
-these sampled ratings versus our IRR using the Kappa statistic.
-
-We also achieved similar results if the ratings were pulled from a
-uniform distributions. What this does indicate is that our labels and
-ratings were definitely better than random except for functionality,
-reliability and usability. 
+these sampled ratings versus our IRR using the Kappa statistic. We also achieved similar results if the ratings were pulled from a
+uniform distributions. These experiments indicate that our labels and
+ratings were an improvement on random annotations in all cases, with the exceptions of \emph{functionality},
+\emph{reliability} and \emph{usability}. 
 
 \begin{figure}
   \centering
@@ -1473,18 +1471,15 @@ reliability and usability.
   \label{fig:irr}
 \end{figure}
 
-We feel that this resulting IRR score, although lackluster, indicates
-the underlying difficulty of annotating such a data-set.
-Consistent training of the annotators (the people) might avoid low IRR scores, or
-using more annotators.
+We feel that this resulting IRR score indicates
+the underlying difficulty of annotating such a data-set. To improve IRR,
+consistent training of the annotators or the use of more annotators might help.
 Other improvements could be gained by approaching some of the original developers
-and using their expertise to annotate the data according to their intent.
-Thus improvements
-could be gained by producing more robust training samples that use
+and using their expertise to annotate the data according to their original, recollected intent.
+Improvements
+could be therefore be gained by producing more robust training samples that use
 multiple raters, or experts, who are similarly trained and willing to discuss and
 negotiate disagreements.
-
-
 
 % [1] "Person  Abram"
 % [1]  3.093543e-06  1.269107e-04 -5.132487e-05 -1.449561e-05  7.953201e-05
