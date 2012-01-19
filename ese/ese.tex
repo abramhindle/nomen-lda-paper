@@ -551,7 +551,7 @@ We consider our labelling classifiers acceptable if they outperform a random cla
 \label{sec:unsuplabelling}
 
 In this section we describe how to label topics based on dictionaries
-mined from sources external to the projects. We call this `semi-unsupervised' because while there is no ``training set'', we do seed the wordlists manually.
+mined from sources external to the projects. We call this `semi-unsupervised' because while there is no ``training set'', we do seed the word-lists manually.
 
 
 \subsubsection{Generating Word Lists}
@@ -758,7 +758,7 @@ with \emph{portability} and \emph{efficiency}.
 
 For \textsf{exp3}, we generally labelled more topics. 
 As mentioned above, the word-lists are broad, so there are likely to be false-positives (discussed below). 
-The most frequent label across all projects (for this wordlist, and unlike \textsf{exp1}) was \emph{usability}, and the
+The most frequent label across all projects (for this worldliest, and unlike \textsf{exp1}) was \emph{usability}, and the
 least frequent label was \emph{maintainability}. This implies that our signifiers for usability in this experiment were fairly broad.
 Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{efficiency} with \emph{reliability}, and \emph{efficiency} with \emph{usability}.
 %(200, 190, and 150 topics in common, respectively). 
@@ -880,7 +880,7 @@ We used a suite of supervised classifiers, WEKA~\cite{weka09},
 that includes machine learning tools such as support vector machines and Bayes-nets. 
 We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}. %\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. 
 Traditional classifiers label topics with a single class, whereas Mulan allows for a mixture of classes per topic, which is what we observed while
-manually labelling topics. For example, a given topic (word distribution) may be `about' both usability and maintainability, if this topic was a product of a discussion on design tradeoffs.
+manually labelling topics. For example, a given topic (word distribution) may be `about' both usability and maintainability, if this topic was a product of a discussion on design trade offs.
 The \emph{features} we used are word counts/occurrence	per topic, if
 a word occurs frequently enough in a topic we consider it a feature of
 the topic.
@@ -912,9 +912,9 @@ quite different results, as the ROC values for \emph{reliability} and
 \emph{functionality} swap between projects. For PostgreSQL, the
 performance is nearly always poorer than the other two systems. The
 reason for this lack of performance could be that parameter we chose for number of
-topics, $N$, could be non-optimal for PostgreSQL. One explanation is that given the size of the PostgreSQL dataset, it was becoming hard to distinguish one topic
+topics, $N$, could be non-optimal for PostgreSQL. One explanation is that given the size of the PostgreSQL datasets, it was becoming hard to distinguish one topic
 from the next. PostgreSQL's data-set was the largest of the 3 projects:
-the XML datafile that described the PostgreSQL topics that we
+the XML datable that described the PostgreSQL topics that we
 annotated was 8 times larger than MySQL and 1.7 times larger than MaxDB. These
 size differences arise from the number of commits, the number of files
 and the verbosity of the commit descriptions.
@@ -1113,7 +1113,7 @@ temporal patterns of NFR frequencies.
 %NEIL- I think this (below) is just confusing, although maybe important to note.
 This is generated from the manually annotated
 topics, although this visualization can be generated from the
-results of labelled topic extraction. Note that there are no unlabelled topics in this dataset.
+results of labelled topic extraction. Note that there are no unlabelled topics in this data-set.
 
 There are two measures represented. 
 One, the relative frequency, shown in the grey histogram boxes, represents the number of topics with that NFR in that period, 
@@ -1182,7 +1182,7 @@ released in June 2005.
 
 %For MySQL (Figure \ref{fig:mysql-timeline}), we similarly validated our NFR patterns with external mailing list data. 
 The development period of MySQL we studied  (Figure \ref{fig:mysql-timeline}) saw the first releases to be licensed under the GPL. 
-Version 3.23.31 (January, 2001) was the production release (non-beta), and the timeline view shows a flurry of topics labelled with \emph{functionality} and
+Version 3.23.31 (January, 2001) was the production release (non-beta), and the timberline view shows a flurry of topics labelled with \emph{functionality} and
 \emph{maintainability}. 
 After this point, this version enters the maintenance phase of its life-cycle. 
 In May 2001, there is an increase in the number of topics labelled with \emph{portability}. 
@@ -1237,7 +1237,7 @@ how often \emph{portability} arises as a concern.
 We wanted to see whether developers in the PostgreSQL project\footnote{Since the MySQL and MaxDB data had poor records for developer ids, we focused on PostgreSQL.} worked on similar NFRs. For example, one developer might be a usability expert, while
 another developer is focused on security. We assume that the NFR labels associated with a commit implicitly reflect work on those NFRs. Being able to report on where effort is being expended is useful for tracking productivity (among other things).
 %Within this section we focused on PostgreSQL.
-We explored this issue by extracting, for each topic in the PostgreSQL dataset, the developer names responsible for the commits used to generate that topic, and 
+We explored this issue by extracting, for each topic in the PostgreSQL data-set, the developer names responsible for the commits used to generate that topic, and 
 the NFRs that are associated with the topic. 
 The analysis in this section used Neil's annotations.
 This produced a map which associated developer name with NFR labels. The six NFR labels (\emph{maintainability, usability, efficiency, functionality, portability, reliability}) and the \emph{None} label describe a 7-dimensional space, into which we can position developers, based on the frequency with which each label occurs in the map.
@@ -1717,7 +1717,7 @@ Furthermore, our analysis techniques rely on a project's use of meaningful commi
 of developer comments. 
 While we tried to control for application domain variability, OSS
 projects investigated were database systems, thus our results might
-not generalize well to other domains. Generaizability is enhanced by
+not generalize well to other domains. Generalizability is enhanced by
 the fact that all three projects
 were maintained by different developers and different teams using
 different development processes.
