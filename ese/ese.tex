@@ -1286,8 +1286,19 @@ software quality focuses.
 %the project mailing list, and the developers are often pushing integrations. 
 If we compare the global NFR distribution (that is, the relative global frequency of each NFR label)
 to each author we find that 25\%
- of the authors have a similarity of $0.47$ or less. In other words, for these authors (gathered to the lower left of Figure  \ref{fig:authorsim}),
- their NFR distribution does not match well with the global distribution.
+ of the authors have a similarity (Pearson correlation) of $0.47$ or less. In other words, for these authors (gathered to the lower left of Figure  \ref{fig:authorsim}),
+ their NFR distribution does not match well with the global
+ distribution.
+Authors \texttt{momjian} and \texttt{tgl} are in the top right of
+Figure \ref{fig:authorsim}
+    top right, dominate in topic count and commit count, thus they are
+    very similar to the global distribution of NFR topics.
+Figure \ref{fig:authorsim} demonstrates that although a  few authors dominate in
+the number of commits many authors exhibit different behaviour in
+terms of the NFR-relevant topics of their commits. Furthermore there
+are no authors in the top left corner, indicating that the authors who
+commit less, do not contribute with a similar NFR-topic distribution
+as \texttt{momjian} or \texttt{tgl}.
 We found that number of commits correlated with an author's similarity to the
 global NFR distribution ($0.59$ Pearson), i.e., the variables ``number of topics associated with a developer'' and ``number of commits'' are not discriminative.
 
@@ -1295,7 +1306,13 @@ global NFR distribution ($0.59$ Pearson), i.e., the variables ``number of topics
 \begin{figure}
   \centering
   \includegraphics[width=.9\textwidth]{figures/author-distance-from-aggregate}
-  \caption{PostgreSQL Author Similarity to the Global Distribution of NFR topics}
+  % \caption{PostgreSQL Author Similarity to the Global Distribution of
+  %   NFR topics versus Commits}
+  \caption{Author commit count versus the similarity of the NFR
+    distribution of an Author to the Global Distribution of NFR
+    topics. Similarity is Pearson correlation between the counts of
+    NFR relevant topics associated with an Author and the total counts
+    of NFR relevant topics. }
 \label{fig:authorsim}
 \end{figure}
 
