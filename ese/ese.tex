@@ -1034,7 +1034,14 @@ Mulan also includes methods for determining the performance of these learners.
 Two perspectives used to evaluate multi-label learners are with micro or macro measurements (shown in Figure \ref{fig:mulan}a).
 Macro measurements are aggregated at a class or label level (per class) while micro measurements are at the element level (per element).
 A macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. 
-For MaxDB, the macro-ROC values are undefined because of poor performance of one of the labels.%, see Figure \ref{fig:mulan}.
+For MaxDB, the macro-ROC values are undefined because of poor
+performance of one of the labels.%, see Figure \ref{fig:mulan}. 
+During cross-folds validation if the class imbalance or poor learner
+performance causes a division by zero when evaluating one of the NFR
+labels (in this case \emph{usability}), creating an undefined
+value. This undefined 
+value is propagated through to the mean of ROC per NFR label, causing
+the end calculation of macro-ROC to be undefined.
 
 Figure~\ref{fig:mulan} presents the results of Mulan's best multi-label learners for the MaxDB and MySQL projects, and  Figure~\ref{fig:pgcomp} for PostgreSQL. 
 Calibrated Label Ranking (CLR) is a learner that builds two layers. The first layer determines if an entity should be labelled, while the second layer
@@ -1230,11 +1237,15 @@ We explored this issue by extracting, for each topic in the PostgreSQL dataset, 
 the NFRs that are associated with the topic. This produced a map which associated developer name with NFR labels. The six NFR labels (\emph{maintainability, usability, efficiency, functionality, portability, reliability}) and the \emph{None} label describe a 7-dimensional space, into which we can position developers, based on the frequency with which each label occurs in the map.
 
 Using this space, we first conducted pairwise $X^2$ (chi-squared)
-tests and Kolmogorov-Smirnov tests for each developer pair. We
-found that in $3/10$ of these tests, the two developers were significantly
-different (i.e. distant in the 7-d space). This implies
+tests and Kolmogorov-Smirnov tests for each developer 
+ pair on their
+NFR distributions
+(18 developers, 306 pair-wise tests).
+We
+found that in $27\%$ of these tests, the two developers were significantly
+different (i.e. distant in the 7-d space and have significant p-values less than $0.05$). This implies
 that there are developers who focus on different NFRs or different
-proportions of NFRs.
+proportions of NFRs, but the majority of developers have similar NFR distributions.
 
 In Figure \ref{fig:authorcluster} we clustered the developers from
 PostgreSQL using the
@@ -1269,7 +1280,8 @@ derivative of distance was the highest in that region as well.
 Figure \ref{fig:authorcluster} shows that when we use $6$-clusters, 
 \texttt{petere}, one of the major contributors, is in his own cluster
 while two other major contributors, \texttt{tgl} and \texttt{momjian}
-form their own cluster (i.e., they are distant from one another in the 7-dimensional space). 
+form their own cluster (i.e., they are distant from one another in the
+7-dimensional space). 
 %NEIL - not sure the relevance of this ... needs more explaining. --> (they are also the most frequent committers). 
 This is interesting because it means that the important developers are
 have different proportions of NFR-relevant contributions; they have different
@@ -1326,6 +1338,7 @@ We say that an author (read developer) is ``proportionately interested'' in an N
 If we look at which of the top 15 developers were proportionately interested in a given NFR, we find the associations identified in Table \ref{tbl:devinterest}. Our data also showed that for these top developers, between $1/10$ and $1/3$ of their commits were labelled with a single NFR.
 
 \begin{table}
+\centering
 \begin{tabular}{l|c}
 \toprule
 \textbf{NFR} & \textbf{Developer} \\
@@ -1342,6 +1355,19 @@ If we look at which of the top 15 developers were proportionately interested in 
 	\label{tbl:devinterest}
 \end{table}
 
+Based on Figure \label{fig:authorsim} we wanted to see which clusters
+\texttt{momjian}, \texttt{tgl}, and \texttt{petere} would be in if we
+evaluated the clusters proportionately, that is if we use distance
+measures that normalize the data and ignore magnitude (e.g. turning an
+author NFR contributions into a histogram or unit-vector) such as
+cosine distance, euclidean distance of unit vectors, or Pearson
+correlation. Euclidean distance uses both angle and magnitude of a
+vector. For all 3 non-magnitude distances measures we tend to see that
+the 3 largest contributors, \texttt{momjian}, \texttt{tgl}, and
+\texttt{petere} inhabit the same clusters when we use 2 clusters or 6
+clusters. This confirms the observations in
+Figure \label{fig:authorsim}, which uses Pearson correlation, that the larger contributors tend to be
+proportionally similar.
 
 One potential confound for this analysis is that we could be
 describing developer style instead of developer focus. Developer style
