@@ -95,6 +95,8 @@
     - [ ] Clean Up Writing
     - [ ] Do an audio edit (Neil: what is this?)
        - when I use a speech synthesizer
+    - [ ] %XXX Neil should we remove this cite? Aranda et al.~\cite{aranda09icse} explored \emph{why}, in
+          terms of how a bug actually occurred and was documented.
     - [X] Beginning of abstract (i.e., original problem statement) is
       too detailed and long.  Consider reducing the first four
       sentences to something shorter, like "When trying to extract
@@ -282,7 +284,7 @@ this could be explained better.
       morjan in the top right means that s/he commits on many topics
       and matches the global distribution. This implies that..
 
-    - [ ] The cite in the first sentence of 5 does not clearly support
+    - [X] The cite in the first sentence of 5 does not clearly support
       the claim. {not sure what sentence this is }
 
     - [X] The last sentence of 5.2 and the first paragraph of 5.3 appear to contradict each other. In 5.2, the authors state that the annotators found the annotations to be time consuming and difficult. But in the next paragraph, the authors claim the effort to be acceptable. Also, it would be useful to quantify the "time consuming and difficult" claim with some numbers, for example, about how many minutes per example or overall time (as stated in 5.3).
@@ -739,8 +741,16 @@ Detailed comments:
 [X]     c.	Soften or qualify the claim by either alluding to or directly stating the issues encountered with IRR.  
 1. Introduction
      a.	There seems to be a lack of cites in the introduction.  For instance, the first sentence "A key problem for practicing?" does not include a cite even though it seems to me to be a strong claim.  There are also no cites related to machine learning, etc, but this may be because these topics are considered common knowledge?
-2. [ ] 
-     b.	Consider either moving the concrete applications discussion towards the top of the introduction or make it a separate sub-section with a mockup of a tool that would use this information.  It was at first very difficult to imagine that developers would really be interested in labeling commits but, with examples sprinkled throughout the paper, it became more believable.  The motivation of this research needs to be strengthened in the introduction section.
+2. 
+     b. Consider either moving the concrete applications discussion
+     towards the top of the introduction or make it a separate
+     sub-section with a mockup of a tool that would use this
+     information.  It was at first very difficult to imagine that
+     developers would really be interested in labeling commits but,
+     with examples sprinkled throughout the paper, it became more
+     believable.  The motivation of this research needs to be
+     strengthened in the introduction section.
+
 3. Previous work
      a.	Mockus and Votta's work is not well-described.  They "studied" a system? what did they actually study and what did they conclude?
      b.	The concept location cite (i.e, [17) seems odd.  Concept location does not seem similar to this line of research.
