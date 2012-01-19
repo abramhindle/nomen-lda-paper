@@ -1512,7 +1512,7 @@ While an unsupervised technique such as LDA is appealing in its lack of human in
 supervised learners have the advantage of domain knowledge, which typically means improved results. 
 % NEIL - we got criticized for making it sound like this is the obvious thing to do... and then why do you need a learner?
 %Our manual annotations were fairly quick to do, taking only a few minutes per 30 day period. 
-Creating annotated topics (i.e., manual labels) for training is painstaking, but with a suitably representative set of topics, the effort is acceptable. To
+Creating annotated topics (i.e., manual labels) for training is painstaking, but with a suitably representative set of topics, we feel that the effort is acceptable for non-academic use. To
 annotate \emph{all} topics took us approximately 20 hours per project, but we estimate only 10\% of the topics need annotation to produce useful results.
 
 Very rarely did \textsf{exp2} and \textsf{exp3} (semi-unsupervised word matching) ever perform as well as the supervised machine learners. 
@@ -1528,7 +1528,7 @@ The learners would occasionally mislabel a topic deserving of an infrequent labe
 The word-lists for \emph{correctness} tended to be too lengthy, non-specific and broad, especially if WordNet words were used, since the NFRs are
 typically loosely defined concepts in common parlance.
 
-We found that the multi-label learners of BR, CLR and HOMER only did
+We found that the multi-label learners of BR, CLR and HOMER performed only 
 as well or worse for Macro-ROC as the single-label Naive Bayes and other naive Bayes-derived learners. 
 This suggests that by combining together multiple Naive Bayes learners
 we could probably label sets of topics effectively, but it would
@@ -1564,9 +1564,9 @@ behaviour as commits in terms of dominant topics.
 \subsection{Threats to Validity}
 % can always be cut down
 
-Our work faced multiple threats to validity and we attempted to address many of them:
+Our work faced multiple threats to validity and we have attempted to address them:
 
-\emph{Construct validity} -- we used only commit messages rather than
+\paragraph{Construct validity} -- we used only commit messages rather than
 mail or bug tracker messages. 
 To extend further we would need matching repositories for each project.
 %Each case study was BecauseSince we required a seamless record, it was not possible to obtain
@@ -1588,14 +1588,14 @@ reliability or cloned code? This issue is why we checked the
 performance of the techniques, although we did not explicitly check
 for these cases.
 
-Developer style is another confounding issue, if we are searching for
-these words we are relying on developers to use these words. This
+Developer style is another confounding issue; if we are searching for
+words in a word-list, we are relying on developers to use these words. This
 study might be exploiting the behaviour or style of a few
 developers. If one developer did not describe their commits well or
 used fewer terms it is likely they would be associated with a NFR
 topic regardless of the actual purpose of their commits.
 
-\emph{Internal validity} -- %includes inter-rater reliability and our lack of rival explanation building. 
+\paragraph{Internal validity} -- %includes inter-rater reliability and our lack of rival explanation building. 
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
 We did not attempt to match our results to any particular model.
 
@@ -1623,30 +1623,29 @@ class-imbalance that our data suffers from we chose ROC.
 %XXX If we have more time try to elaborate more on this
 One potential issue with some of our results is that we achieved very
 low ROC and F-Measure scores.  Performance was not uniformly low,
-often the more common classes exhibited better performance than the
+as the more common classes often exhibited better performance than the
 more rare classes.  Often this was amplified by class imbalance. In
 future work we plan to investigate techniques such as sub-sampling and
 boot-strapping in order to improve performance. Some of the ROC
 performance could be due to a lack of coherence in tagging which was
-shown by our low inter-rater reliability score.
-
-We assessed inter-rater reliability (IRR), a measure of the correlation between the manual annotations the first two authors created. Perfect IRR (1.0) indicates complete agreement 
-on the appropriate annotation for that topic. We verified IRR using
-manually annotated PostgreSQL topics, and achieved a weak result of $0.1$.
-Some of the reasons for this are a disagreement over the appropriate classification for documentation topics (should this be considered
-usability or portability?). A short education session on what a given
-NFR from the ISO standard encompasses would reduce this error rate.
-Weak IRR results could also be responsible for some the low ROC
-performance, if each rater is picking up on different information it
-might make it more difficult to train a machine learner to do the
-same.
-Furthermore weak IRR results threatens the validity of the
-experiments, if raters cannot agree then consistently labelling by
-ISO-9126 related NFRs could be quite difficult.
-
+shown by our low inter-rater reliability score. Inter-rater reliability is a threat, and we discussed it in Section \ref{sec:inter-rater}. 
+% We assessed inter-rater reliability (IRR), a measure of the correlation between the manual annotations the first two authors created. Perfect IRR (1.0) indicates complete agreement 
+% on the appropriate annotation for that topic. We verified IRR using
+% manually annotated PostgreSQL topics, and achieved a weak result of $0.1$.
+% Some of the reasons for this are a disagreement over the appropriate classification for documentation topics (should this be considered
+% usability or portability?). A short education session on what a given
+% NFR from the ISO standard encompasses would reduce this error rate.
+% Weak IRR results could also be responsible for some the low ROC
+% performance, if each rater is picking up on different information it
+% might make it more difficult to train a machine learner to do the
+% same.
+% Furthermore weak IRR results threatens the validity of the
+% experiments, if raters cannot agree then consistently labelling by
+% ISO-9126 related NFRs could be quite difficult.
 
 
-\emph{External validity} -- %was addressed by our use of two case studies, but there are still issues. 
+
+\paragraph{External validity} -- %was addressed by our use of two case studies, but there are still issues. 
 Our data originated from OSS database projects and thus might not be applicable to commercially developed software or other domains. 
 Furthermore, our analysis techniques rely on a project's use of meaningful commit messages, although we feel this is the most frequently occurring form
 of developer comments. 
@@ -1656,11 +1655,11 @@ not generalize well to other domains.
 
 
 % in Case Study Research: Design Case Studies
-\emph{Reliability} -- each annotator, the first two authors, followed the same protocol and used the same annotations. 
+\paragraph{Reliability} -- each annotator, the first two authors, followed the same protocol and used the same annotations. 
 However, only two annotators were used; their annotations exhibit some
 bias as suggested by the weak inter-rater reliability for
 PostgreSQL. Inter-rater reliability could not be checked for MySQL and
-MaxDB because annotators did not rate the same documents.
+MaxDB because annotators did not rate the same documents. This is discussed at length in Section \ref{sec:inter-rater}
 
 \subsection{Future Work}
 There are several avenues of further investigation.  
