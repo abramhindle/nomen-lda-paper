@@ -205,6 +205,11 @@ begin by creating word-lists to signify when a topic matches an NFR label. We th
 %We show that labels with their topics can be learned and used to classify other data-sets, either without training 
 %Our goal is to label a given topic with either an NFR from our taxonomy,
  %Section \ref{sec:unsuplabelling} presents our technique for using word-lists to do unsupervised classification, and describes the results.
+In Section \ref{sec:suplabelling}, we manually annotate the topics, and use those annotations as training data for supervised classification.  
+%We then present visualizations of named topics and their trends over time to aid communication and analysis. 
+To demonstrate an application of labelled topic extraction, we use an exploratory case study of three open source database systems to show how named
+topics can be compared between projects  (Section \ref{sec:analysis}). 
+The paper concludes with a discussion of limitations (Section \ref{sec:limit}), and future work.
 
 This work extends our previous work~\cite{msr2011}. The major extensions in this paper are as follows:
 \begin{itemize}
@@ -216,14 +221,6 @@ these annotations.
 	\item We conducted an analysis of PostgreSQL authors and their association with NFRs and
 topics (Section \ref{sec:developers}).
 \end{itemize}
-
-
-In Section \ref{sec:suplabelling}, we manually annotate the topics, and use those annotations as training data for supervised classification.  
-%We then present visualizations of named topics and their trends over time to aid communication and analysis. 
-To demonstrate an application of labelled topic extraction, we use an exploratory case study of three open source database systems to show how named
-topics can be compared between projects  (Section \ref{sec:analysis}). 
-The paper concludes with a discussion of limitations (Section \ref{sec:limit}), and future work.
-
 
 \section{Previous Work}
 \label{sec:related}
@@ -1659,7 +1656,7 @@ not generalize well to other domains.
 However, only two annotators were used; their annotations exhibit some
 bias as suggested by the weak inter-rater reliability for
 PostgreSQL. Inter-rater reliability could not be checked for MySQL and
-MaxDB because annotators did not rate the same documents. This is discussed at length in Section \ref{sec:inter-rater}
+MaxDB because annotators did not rate the same documents. This is discussed at length in Section \ref{sec:inter-rater}.
 
 \subsection{Future Work}
 There are several avenues of further investigation.  
