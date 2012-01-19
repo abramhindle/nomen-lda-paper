@@ -132,7 +132,7 @@ In this work we provide a method of automatically labelling  development topics 
 Concrete applications of \emph{labelled topic extraction} include the annotation of development artifacts with NFR-related tags and the creation of project dashboards.  Annotating software development artifacts with NFR-related tags would allow developers to create detailed directed queries of different artifact kinds that concern the same NFR; for example, a developer could browse the recent history of performance-related bug reports and code check-ins. Project dashboards distill detailed information about a software system into a simpler and more abstract view that summarizes key aspects of the development effort \cite{dashboard}; labelled topic extraction would allow managers to track effort related to specific NFR topics, such as \emph{usability} or \emph{portability}.
 
 
-Topic modeling (such as Latent Dirichlet Allocation ~\cite{Blei2003}) is a machine learning technique that creates
+Topic modeling (such as Latent Dirichlet Allocation~\cite{Blei2003}) is a machine learning technique that creates
 multinomial distributions of words extracted from a text corpus. 
 This technique infers the hidden structure of a corpus using posterior
 inference: the probability of the hidden structure given the data. 
@@ -1197,7 +1197,7 @@ correlate with the \emph{portability} NFR increasing in frequency in mid-2004. B
 increase in frequency, possibly reflecting the interest in adding features and documentation for the release. In the following sections we turn to our research questions:
 
 
-\subsection{RQ1: Do NFR Frequencies Change over Time?}
+\subsection{RQ1: Do NFR Frequencies Change Over Time?}
 In both MaxDB and MySQL the frequencies generally decreased with age. 
 However, there are variations within our NFR labels. In MySQL, \emph{usability} and \emph{efficiency} do not appear very often in topics. 
 A proportionately smaller number of commits addressed these NFRs.
@@ -1361,18 +1361,17 @@ If we look at which of the top 15 developers were proportionately interested in 
 	\label{tbl:devinterest}
 \end{table}
 
-Based on Figure \label{fig:authorsim} we wanted to see which clusters
+Based on Figure \ref{fig:authorsim} we wanted to see which clusters
 \texttt{momjian}, \texttt{tgl}, and \texttt{petere} would be in if we
 evaluated the clusters proportionately, that is if we use distance
 measures that normalize the data and ignore magnitude (e.g. turning an
-author NFR contributions into a histogram or unit-vector) such as
-cosine distance, euclidean distance of unit vectors, or Pearson
+author's NFR contributions into a histogram or unit-vector) such as
+cosine distance, Euclidean distance of unit vectors, or Pearson
 correlation. Euclidean distance uses both angle and magnitude of a
-vector. For all 3 non-magnitude distances measures we tend to see that
-the 3 largest contributors, \texttt{momjian}, \texttt{tgl}, and
-\texttt{petere} inhabit the same clusters when we use 2 clusters or 6
-clusters. This confirms the observations in
-Figure \label{fig:authorsim}, which uses Pearson correlation, that the larger contributors tend to be
+vector. For all three non-magnitude distances measures we tend to see that
+the three largest contributors, \texttt{momjian}, \texttt{tgl}, and
+\texttt{petere} inhabit the same clusters when we use 2-clusters or 6-clusters. This confirms the observations in
+Figure \ref{fig:authorsim}, which uses Pearson correlation, that the larger contributors tend to be
 proportionally similar.
 
 One potential confound for this analysis is that we could be
@@ -1440,7 +1439,7 @@ We found many topics that were not non-functional requirements (NFRs) but were o
 For instance, concurrency was mentioned often in the commit logs and
 was related to \emph{correctness} and \emph{reliability}, possibly because concurrent code is prone to bugs such as race conditions. %are 
 % often  was troublesome. 
-Topics related to \emph{Configuration management} and \emph{source control} appeared often; % and sometimes there were topics dedicated to configuration
+Topics related to \emph{configuration management} and \emph{source control} appeared often; % and sometimes there were topics dedicated to configuration
 % management. 
 these kinds of changes are slightly related to \emph{maintainability}. 
 A non-functional change that was not quality-related was licensing and
@@ -1496,18 +1495,20 @@ Everything & 0.107 & 0.108 \\ \hline
 
  
 
-We feel these results are poor. The aggregate view of a Kappa of
+These results are fairly poor. The aggregate view of a Kappa of
 $0.1$ indicates there is some weak agreement. We found that
-there was a lot of agreement in terms of lack of a tag, but often more
-disagreement when a tag should be applied. After some discussion we concluded that 
-usability was a primary source of
-disagreement. Do user manuals improve usability? Is a command-line
+there was good agreement in terms of lack of an annotation, but
+disagreement regarding which annotation to apply. After some discussion we concluded that 
+\emph{usability} was a primary source of
+disagreement. For instance, should we annotate a commit which updates the user manual as a usability-related change? Is adding a command-line
 option a usability issue? These kinds of questions illustrate some of
 the agreement, disagreement, and ambiguity about these labels. 
-We therefore recommend that future annotators train and discuss how and when an annotation is appropriate.
+We therefore recommend that future annotators train and discuss how and when an annotation is appropriate. This ought to be
+easier to do if an internal team is using our tool, since (presumably) there is a greater shared understanding of project activities, and therefore,
+potentially greater rater agreement.
 
 
-To evaluate our results empirically, we compared them the annotations that would result if the seven labels
+To evaluate our results empirically, we compared them to the annotations that would result if the seven labels
  were applied randomly. In the first simulation
 we sampled with replacement from our own NFR label distributions to
 produce random ratings that looked like our own. We then applied the
@@ -1516,8 +1517,11 @@ this 100,000 times. We found that
 for 4 out of 7 NFR labels, the IRR values for our labels were greater than the random
 IRR measures 96\% of the time. For \emph{portability} and \emph{efficiency}, our IRR
 was greater 100\% of the time both for Neil's ratings, Abram's ratings
-and the union of both Neil and Abram. Figure \ref{fig:irr} depicts the IRR of
-these sampled ratings versus our IRR using the Kappa statistic. We also achieved similar results if the ratings were pulled from a
+and the union of both Neil and Abram. One explanation of the positive result for \emph{portability} is that such changes are often 
+accompanied by clear indicator terms such as \emph{Windows, Linux, SunOS}, etc. 
+
+Figure \ref{fig:irr} depicts the IRR of
+these sampled ratings versus our IRR using the Kappa statistic. We also achieved similar results if the ratings were pulled from
 uniform distributions. These experiments indicate that our labels and
 ratings were an improvement on random annotations in all cases, with the exceptions of \emph{functionality},
 \emph{reliability} and \emph{usability}. 
@@ -1525,19 +1529,19 @@ ratings were an improvement on random annotations in all cases, with the excepti
 \begin{figure}
   \centering
   \includegraphics[width=0.9\textwidth]{figures/self-sample-Both}
-  \caption{Measured IRR versus IRR of labeling random simulations.}
+  \caption{Measured IRR versus IRR of labeling random simulations. Perfect IRR is 1.0. }
   \label{fig:irr}
 \end{figure}
 
-Were our results harmed by low IRR scores? For MaxDB and MySQL since
-each annotator (Neil or Abram) acted as the sole Oracle, the results
-for either system still stand, but construct validity is harmed in
-terms of did if an NFR actually meant the NFR that is being
-evaluated. The measured empirical performance of each system still
+Were our results harmed by low IRR scores? For MaxDB and MySQL, since
+each annotator (Neil or Abram) acted as the sole oracle, the results
+for either system still stand, but construct validity is harmed since 
+it is not clear if the annotated NFR actually represented the NFR relevant to that commit.
+ The measured empirical performance of each system still
 stands, but the comparison between systems in terms of NFRs might be
 harmed by low IRR scores.
 
-We feel that this resulting IRR score indicates
+The low IRR scores indicate
 the underlying difficulty of annotating such a data-set. To improve IRR,
 consistent training of the annotators or the use of more annotators might help.
 Other improvements could be gained by approaching some of the original developers
