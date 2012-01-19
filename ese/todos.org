@@ -93,7 +93,9 @@
    
 ** [ ] 3. Fix writing: The reviewers point out quite some inconsistent and unclear writing in various places of the paper.
     - [ ] Clean Up Writing
-    - [ ] Beginning of abstract (i.e., original problem statement) is
+    - [ ] Do an audio edit (Neil: what is this?)
+       - when I use a speech synthesizer
+    - [X] Beginning of abstract (i.e., original problem statement) is
       too detailed and long.  Consider reducing the first four
       sentences to something shorter, like "When trying to extract
       topic labels from software current approaches create
@@ -101,10 +103,8 @@
       without a summary and impossible to compare across projects."
     - [X] Abstract Too detailed: use "source control systems" without
       "CVS and Bitkeeper" as examples?
-    - [ ] Soften or qualify the claim by either alluding to or
+    - [X] Soften or qualify the claim by either alluding to or
       directly stating the issues encountered with IRR.
-    - [ ] Do an audio edit (Neil: what is this?)
-       - when I use a speech synthesizer
     - [X] There seems to be a lack of cites in the introduction.  For instance, the first sentence "A key problem for practicing?" does not include a cite even though it seems to me to be a strong claim.
     - [X] There are also no cites related to machine learning, etc, but this may be because these topics are considered common knowledge?
     - [X] Consider either moving the concrete applications discussion towards the top of the introduction or make it a separate sub-section with a mockup of a tool that would use this information.  It was at first very difficult to imagine that developers would really be interested in labeling commits but, with examples sprinkled throughout the paper, it became more believable.  The motivation of this research needs to be strengthened in the introduction section
@@ -179,7 +179,7 @@
 
    - [X]  3.2.1 "The labels we used" _are_:
 
-   - [ ] 3.2.2: what preprocessing steps were taken before applying LDA to the commit messages? For example, were the terms stemmed? Were any identifiers split? Or were the words in the commits just delimited using non-alphanumeric characters?
+   - [X] 3.2.2: what preprocessing steps were taken before applying LDA to the commit messages? For example, were the terms stemmed? Were any identifiers split? Or were the words in the commits just delimited using non-alphanumeric characters?
 
    - [X] Page 11: probably very stupid from me, but in section 3.2.3 you are
     talking about the average... the average of what? Did you do multiple
@@ -297,7 +297,9 @@ this could be explained better.
     - [X] - 5.5, last sentence: "other domains" -- can the authors qualify this as software projects in other domains, rather than implying the authors intend to apply the analysis to other textual artifacts outside SE.
     - [X] 	5.4 The taxonomy that was chosen is likely to have increased the difficulty of this labeling problem.  A future approach should consider a different taxonomy, such as one created by surveying developers on what "types" of tasks they work on and then search for these labels.
     - [X] Page 14: "the performance of such techniques" performance in terms of...?
-    - [ ] Page 15: "poor performance of one of the labels" do you know why? Again, knowing this would give great insight as to generalizability.
+    - [ ] Page 15: "poor performance of one of the labels" do you know
+      why? Again, knowing this would give great insight as to
+      generalizability.
     - [X] Page 18: proportionately... shouldn't this be proportionally? (NOPE)
     - [X] Page 18: "In PostgreSQL, by comparison, ..." I wouldn't call them cyclic, but I would say that they become more intense over time.
     - [ ] Page 19: "our theory is that the less frequent committers
@@ -307,7 +309,13 @@ this could be explained better.
       important finding! So I was wondering why you didn't repeat this
       exercise for one of the other systems, to reinforce your
       theory...
-    - [ ] I am afraid that this sub-section needs an essential rewrite to be interpretable. Virtually every remaining paragraph is either incomprehensible or appears to make no sense.
+
+    - [X] I am afraid that this sub-section needs an essential rewrite
+      to be interpretable. Virtually every remaining paragraph is
+      either incomprehensible or appears to make no sense.
+          - context: page 19 and author discussion
+          - fine tooth comb that section, be more clear?
+
     - [X] Page 20: many changes were simply to do --> had to do?
     - [ ] Strengthen conclusion
       - I found the conclusion to be weak and superficial. I would
