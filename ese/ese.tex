@@ -1508,19 +1508,24 @@ potentially greater rater agreement.
 
 
 To evaluate our results empirically, we compared them to the annotations that would result if the seven labels
- were applied randomly. In the first simulation
+ were applied randomly. In the first simulation, as shown by Figure \ref{fig:irr},
 we sampled with replacement from our own NFR label distributions to
 produce random ratings that looked like our own. We then applied the
-Kappa-statistic on this sampling, compared it with our labelling, and repeated
-this 100,000 times. We found that
+Kappa-statistic on this sampling and our labelling, and repeated
+this 100,000 times. We then compared this distribution of simulated
+IRR ratings against our our IRR scores. We found that
 for 4 out of 7 NFR labels, the IRR values for our labels were greater than the random
 IRR measures 96\% of the time. For \emph{portability} and \emph{efficiency}, our IRR
 was greater 100\% of the time both for Neil's ratings, Abram's ratings
-and the union of both Neil and Abram. One explanation of the positive result for \emph{portability} is that such changes are often 
+and the union of both Neil and Abram. 
+We know this by evaluating our IRR ratings against the empirical
+cumulative distribution function (ECDF) of the IRR ratings of the 100,000
+simulation runs.
+One explanation of the positive result for \emph{portability} is that such changes are often 
 accompanied by clear indicator terms such as \emph{Windows, Linux, SunOS}, etc. 
 
 Figure \ref{fig:irr} depicts the IRR of
-these sampled ratings versus our IRR using the Kappa statistic. We also achieved similar results if the ratings were pulled from
+these simulated sampled ratings versus our IRR using the Kappa statistic. We also achieved similar results if the ratings were pulled from
 uniform distributions. These experiments indicate that our labels and
 ratings were an improvement on random annotations in all cases, with the exceptions of \emph{functionality},
 \emph{reliability} and \emph{usability}. 
@@ -1528,7 +1533,17 @@ ratings were an improvement on random annotations in all cases, with the excepti
 \begin{figure}
   \centering
   \includegraphics[width=0.9\textwidth]{figures/self-sample-Both}
-  \caption{Measured IRR versus IRR of labeling random simulations. Perfect IRR is 1.0. }
+  \caption{Measured IRR versus IRR of random labeling
+    simulations. Perfect IRR is 1.0.
+    The red line and points highlight the inter-rater reliability of
+    NFR topics labels
+    measured on PostgreSQL. 
+    The box-plots are the distribution of 100,000 IRR ratings between
+    random simulation, drawn from our distribution of ratings, and our
+    labelling of NFRs.
+    Note how for 4 of the 7 NFRs it is
+    distinctly higher than the median of the simulations.
+  }
   \label{fig:irr}
 \end{figure}
 

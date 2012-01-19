@@ -108,9 +108,9 @@ ratings <- list()
 ratings[["Abram"]] <- pa
 ratings[["Neil"]] <- pn
 ratings[["Both"]] <- paunion
-panames <- c("Portability","Functionality","Reliability","Maintainability","Effeciency", "Usability", "None")
+panames <- c("Portability","Functionality","Reliability","Maintainability","Efficiency", "Usability", "None")
 
-for (person in c("Abram","Neil","Both")) {
+for (person in c("Both","Abram","Neil")) {
 pan <- ratings[[person]]
 i <- names(pan)[1]
 #
@@ -126,6 +126,7 @@ i <- names(pan)[1]
 #versus a sample
 
 N <- 100000
+#N <- 1000
 kappas <- lapply(names(pa),function(acolumn) {
   unlist(
          mclapply(
@@ -147,6 +148,7 @@ pankappas <- sapply(names(pa),function(i) {
   boxplot(kappas, names=panames,ylim=c(miny,maxy))
   title(paste("Human Ratings (",person,") versus Sampled Random Ratings"))
   lines(pankappas, type="o",col="red",lw=3)
+  legend("topleft", c("Interrater Reliability per NFR Topic Label"), bty="o",lwd=3, col=c("red"),  lty=c(1));
   dev.off()
   print(paste("Person ", person))
   print(sapply(kappas,mean))
