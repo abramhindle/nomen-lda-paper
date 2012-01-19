@@ -1249,8 +1249,13 @@ proportions of NFRs.
 
 In Figure \ref{fig:authorcluster} we clustered the developers from
 PostgreSQL using the
-Ward method of Hierarchical clustering on the 7-d space.  
-This will group developers according to a distance metric. 
+Ward method of Hierarchical clustering on the 7-dimensional space.  
+This will group developers according to the Euclidean distance metric.
+%We chose cosine distance because it is often used in IR research to
+%compare documents, in this case we are comparing the labels of topics
+%associated with each author's commits.
+The height in Figure \ref{fig:authorcluster} describes the euclidean
+distance between elements, in terms of the path 
 We clustered the authors into both $2$-clusters
 and $6$-clusters. We chose $6$-clusters because the difference in distance
 between entities and centroids was minimal at $6$-clusters, and the
@@ -1259,24 +1264,31 @@ derivative of distance was the highest in that region as well.
 \begin{figure}
   \centering
   \includegraphics[width=.9\textwidth]{figures/postgresql-author-cluster}
-  \caption{PostgreSQL Author Clusters: Authors clustered by cosine
-    distance of their NFR contributions. The outer rectangles (blue) reflect the 2-clusters; the inner rectangles (purple) reflect 6-clusters.}
+  \caption{PostgreSQL Author Clusters: Authors clustered by euclidean
+    distance of their NFR contributions. The outer rectangles (blue)
+    reflect the clustering of authors into 2 clusters; while the inner rectangles
+    (purple) reflect clustering of authors into 6 clusters. The height is a
+    measure of cluster similarity, Euclidean distance, where smaller
+    values are more similar. Individuals that share
+    branches are more similar to each other individuals who do
+    not. The longer the path, in terms of height, between two
+    individuals, the more different their NFR contributions are.}
 \label{fig:authorcluster}
 \end{figure}
 
 
 Figure \ref{fig:authorcluster} shows that when we use $6$-clusters, 
-\texttt{petere}, \texttt{tgl} and \texttt{momjian} form their own individual
-clusters (i.e., are distant from one another in the 7-d space). 
+\texttt{petere}, one of the major contributors, is in his own cluster
+while two other major contributors, \texttt{tgl} and \texttt{momjian}
+form their own cluster (i.e., they are distant from one another in the 7-dimensional space). 
 %NEIL - not sure the relevance of this ... needs more explaining. --> (they are also the most frequent committers). 
-This is
-interesting because it means that the important developers are not
-committing code that fits the same NFR profile. In terms of the 2-clusters,
- we can see that \texttt{momjian} and \texttt{tgl} are in the
-same cluster, but \texttt{petere} is not. The most frequent
-committers do not share the same clusters, even at the coarsest level. 
-This implies that
-developers in this sample do work on different sets of NFRs and have different
+This is interesting because it means that the important developers are
+have different proportions of NFR-relevant contributions; they have different
+focuses during development. In terms of the 2-clusters, we can see that \texttt{momjian}
+and \texttt{tgl} are in the same cluster, but \texttt{petere} is
+not. The most frequent committers do not share the same clusters, even
+at the coarsest level of clustering, 2 clusters.  This implies that developers in
+this sample do work on different sets of NFRs and have different
 software quality focuses.
 
 

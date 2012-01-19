@@ -10,14 +10,71 @@ authors <- matrix(tv,nrow=7,dimnames=list(labels(tv)[[1]],vv[,1]))
 #hc <- hclust(as.dist(cor(authors)),method="ward")
 #hc <- hclust(as.dist(cor(authors)),method="centroid")
 #
-hc <- hclust(as.dist(cor(authors)),method="ward")
-pdf("postgresql-author-cluster.pdf")
+
+pdf("oldpostgresql-author-cluster.pdf")
+
+#hc <- hclust(as.dist(cor(authors)),method="ward")
+#plot(hc,sub="Organized into 2 and 6 clusters",xlab="PostgreSQL Authors")
+#rect.hclust(hc,k=2,border="blue")
+##rect.hclust(hc,k=3,border="red")
+##rect.hclust(hc,k=4,border="green")
+#rect.hclust(hc,k=6,border="purple")
+
+
+hc <- hclust(as.dist(1-cor(authors)),method="ward")
+plot(hc,sub="Organized into 2 and 6 clusters",xlab="PostgreSQL Authors")
+rect.hclust(hc,k=2,border="blue")
+#rect.hclust(hc,k=3,border="red")
+#rect.hclust(hc,k=4,border="green")
+rect.hclust(hc,k=6,border="purple")
+
+
+dev.off()
+
+asqr <- cor(authors)
+asqr <- asqr^2
+hc <- hclust(as.dist(asqr),method="ward")
+plot(hc,sub="Organized into 2 and 6 clusters",xlab="PostgreSQL Authors")
+rect.hclust(hc,k=2,border="blue")
+#rect.hclust(hc,k=3,border="red")
+#rect.hclust(hc,k=4,border="green")
+rect.hclust(hc,k=6,border="purple")
+
+
+
+library(lsa)
+pdf("postgresql-author-cluster-cosine.pdf")
+hc <- hclust(as.dist(1-cosine(authors)),method="ward")
 plot(hc,sub="Organized into 2 and 6 clusters",xlab="PostgreSQL Authors")
 rect.hclust(hc,k=2,border="blue")
 #rect.hclust(hc,k=3,border="red")
 #rect.hclust(hc,k=4,border="green")
 rect.hclust(hc,k=6,border="purple")
 dev.off()
+
+# grr fixed it to this. The easiest to explain clustering
+pdf("postgresql-author-cluster.pdf")
+hc <- hclust(dist(t(authors)),method="ward")
+plot(hc,sub="Organized into 2 and 6 clusters",xlab="PostgreSQL Authors")
+rect.hclust(hc,k=2,border="blue")
+#rect.hclust(hc,k=3,border="red")
+#rect.hclust(hc,k=4,border="green")
+rect.hclust(hc,k=6,border="purple")
+dev.off()
+
+
+
+pdf("postgresql-author-cluster-proportional.pdf")
+hc <- hclust(dist(t(nauthors)),method="ward")
+plot(hc,sub="Organized into 2 and 6 clusters",xlab="PostgreSQL Authors")
+rect.hclust(hc,k=2,border="blue")
+#rect.hclust(hc,k=3,border="red")
+#rect.hclust(hc,k=4,border="green")
+rect.hclust(hc,k=6,border="purple")
+dev.off()
+
+
+
 
 nauthors <- authors
 normalize <- function(x) { x / sum(x) }
@@ -32,6 +89,9 @@ for (author in labels(nauthors)[[2]]) { nauthors[,author] <-
                                           normalize(authors[,author])
                                       }
 nauthor <- length(labels(authors)[[2]])
+
+
+
 authorNames = labels(authors)[[2]]
 chisqm <- matrix(c(1:(nauthor*nauthor))*0,ncol=nauthor,dimnames=list(authorNames,authorNames))
 ksm <- matrix(c(1:(nauthor*nauthor))*0,ncol=nauthor,dimnames=list(authorNames,authorNames))
