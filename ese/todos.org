@@ -329,17 +329,17 @@ this could be explained better.
         has an ROC of 0.5.  Please justify this claim or soften it.
 
 
-** 4. Honestly address the IRR and validity issues
+** [X] 4. Honestly address the IRR and validity issues
    4. Reviewer 3 raises that the extremely low IRR (~0.1) threatens the
    validity of the results of these experiments, and its threats to
    validity should be made more prominent.
    - [X] Threats to validity updated for low IRR
    - [X] Suggestions on improvement
    - [X] Compare against random
-   - [ ] Am I right in saying that you actually continued with two
+   - [X] Am I right in saying that you actually continued with two
      separate sets instead of trying to integrate both sets? If this
      is so, I would suggest you to make this more clear in advance.
-   - [ ] The three software systems that you study all come from the
+   - [X] The three software systems that you study all come from the
      same domain. One of the reasons that you give for that is "to
      show how named topics can be compared between projects". In the
      threats to validity however, you do mention the fact that all 3
@@ -348,18 +348,20 @@ this could be explained better.
      go further and try to mitigate the generalizability further by
      saying that the development teams were independent of each other
      or something along those lines
-   - [ ] There must be a clear indicator that these results are
+   - [X] There must be a clear indicator that these results are
      threatened by the low IRR in the conclusion.
-   - [ ]  5.2 As I've mentioned and as you admit, this is a major
+   - [X]  5.2 As I've mentioned and as you admit, this is a major
      threat to validity.  Is it possible to further reduce this threat
      in any way, such as by increasing the amount of external
      validation on mailing lists to correlate with figure 6?  That
      would increase my confidence in much of the results.
-   - [ ] This section was very interesting but the low IRR makes me
+          - didn't do mailinglist
+   - [X] This section was very interesting but the low IRR makes me
      wonder how much noise is in the data.  I would love to hear more
      about your external validation on developer mailing lists which
      would strengthen these findings.
-   - [ ] Given low inter-rater reliability measures for the manual
+         - re: random test show it is far above noise.
+   - [X] Given low inter-rater reliability measures for the manual
      annotations ...  it would be interesting to discuss it in light
      on low performance of automatic and supervised labeling.  E.g,
      what would ROC be using one rater on another rater, how much can
@@ -369,9 +371,10 @@ this could be explained better.
      both raters) and weak agreement (at least one label is shared
      between the two raters) would be very important to understand
      cross-rater reliability.
+         
 
 
-**  [ ] 5. What about developer style
+**  [X] 5. What about developer style
    5. Reviewer 4 raises the some observed results may simply be due to
    the differences among developer styles and not necessarily
    reflecting different types of work.

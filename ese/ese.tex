@@ -1234,7 +1234,9 @@ We wanted to see whether developers in the PostgreSQL project\footnote{Since the
 another developer is focused on security. We assume that the NFR labels associated with a commit implicitly reflect work on those NFRs. Being able to report on where effort is being expended is useful for tracking productivity (among other things).
 %Within this section we focused on PostgreSQL.
 We explored this issue by extracting, for each topic in the PostgreSQL dataset, the developer names responsible for the commits used to generate that topic, and 
-the NFRs that are associated with the topic. This produced a map which associated developer name with NFR labels. The six NFR labels (\emph{maintainability, usability, efficiency, functionality, portability, reliability}) and the \emph{None} label describe a 7-dimensional space, into which we can position developers, based on the frequency with which each label occurs in the map.
+the NFRs that are associated with the topic. 
+The analysis in this section used Neil's annotations.
+This produced a map which associated developer name with NFR labels. The six NFR labels (\emph{maintainability, usability, efficiency, functionality, portability, reliability}) and the \emph{None} label describe a 7-dimensional space, into which we can position developers, based on the frequency with which each label occurs in the map.
 
 Using this space, we first conducted pairwise $X^2$ (chi-squared)
 tests and Kolmogorov-Smirnov tests for each developer 
@@ -1703,7 +1705,10 @@ Furthermore, our analysis techniques rely on a project's use of meaningful commi
 of developer comments. 
 While we tried to control for application domain variability, OSS
 projects investigated were database systems, thus our results might
-not generalize well to other domains.
+not generalize well to other domains. Generaizability is enhanced by
+the fact that all three projects
+were maintained by different developers and different teams using
+different development processes.
 
 
 % in Case Study Research: Design Case Studies
