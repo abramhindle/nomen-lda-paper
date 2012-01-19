@@ -635,8 +635,6 @@ resilience integrity stability stable crash bug fails redundancy error failure\\
 
 \subsubsection{Automatic Labelled Topic Extraction}
 
-%\noindent \textbf{Generating labels automatically} --- 
-
 Using our three word-lists (\textsf{exp1}, \textsf{exp2}, \textsf{exp3}), we labelled our topics with an NFR where there was a match between a word in
 the list and the same word somewhere in the frequency distribution of words that constitute the topic.
 A \emph{named topic} is a topic with a match. 
@@ -731,14 +729,12 @@ were
 %XXX Neil                    V changed from 748 is that right?
 \emph{correctness} (182/305/640, which represent MySQL, MaxDB and PostgreSQL topic counts, respectively) and \emph{testability} (121/238/625). 
 We did not see many results for \emph{usability} (4/0/138) or
-\emph{accuracy} (3/0/27), which were infrequently matched. Note the significantly higher result for \emph{usability} in PostgreSQL -- this suggests a difference in how this project is discussing usability, at least with respect to our analysis.
+\emph{accuracy} (3/0/27), which were infrequently matched. Note the significantly higher result for \emph{usability} in PostgreSQL---this suggests a difference in how project developers are discussing usability, at least with respect to our analysis.
 We also looked for correlations between our labels: excluding double
 matches (self-correlation), our highest co-occurring terms were
 \emph{verifiability} or \emph{correctness}
 with \emph{traceability}, and \emph{testability} with \emph{correctness}.% (76 and 62 matches, respectively).
 % See the following sections for our error analysis. 
-
-
 
 For \textsf{exp2}, there are more unnamed topics than \textsf{exp1}. 
 Only \emph{reliability} produces the most matches, mostly due to the word ``error''. 
@@ -748,7 +744,7 @@ with \emph{portability} and \emph{efficiency}.
 
 
 For \textsf{exp3}, we generally labelled more topics. 
-As we mentioned, the word-lists are broad, so there are likely to be false-positives (discussed below). 
+As mentioned above, the word-lists are broad, so there are likely to be false-positives (discussed below). 
 The most frequent label across all projects (for this wordlist, and unlike \textsf{exp1}) was \emph{usability}, and the
 least frequent label was \emph{maintainability}. This implies that our signifiers for usability in this experiment were fairly broad.
 Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{efficiency} with \emph{reliability}, and \emph{efficiency} with \emph{usability}.
@@ -877,16 +873,15 @@ a word occurs frequently enough in a topic we consider it a feature of
 the topic.
 
 To assess the performance of the supervised learners, we did a 10-fold cross-validation~\cite{Kohavi1995}, a common technique for evaluating machine
-learners. 
-The original data is partitioned randomly into ten sub-samples. Each sample is used to test against a training set composed of the nine other samples.
+learners, where the original data is partitioned randomly into ten sub-samples, and each sample is used to test against a training set composed of the nine other samples.
 %One subsample is used as a training set and evaluated on the other nine sub-samples. 
 %This is repeated nine more times, with each subsample used once as the training set. 
-We have reported these results below.% in Section \ref{sec:suplabelling}.
+We discuss these results below.% in Section \ref{sec:suplabelling}.
 
 \subsubsection{Analysis of the Supervised Labelling}
 % \label{sec:suplabelling}
-Because our data-set was of word counts we expected Bayesian techniques, often used in spam filtering, to perform well. 
-We tried other learners that WEKA~\cite{weka09} provides: rule learners, decision tree learners, vector space learners, and support vector machines.  
+Because our data-set consisted of word counts we expected Bayesian techniques to perform well. Bayesian techniques are often used in spam filtering, which is similarly interested in word distributions. 
+We tried other learners that WEKA~\cite{weka09} provides, including rule learners, decision tree learners, vector space learners, and support vector machines.  
 Figure \ref{fig:best-learn-per-tag} shows the performance of the best
 performing learner per label: 
 % We considered the best learner for a label to be 
@@ -923,10 +918,10 @@ classifier.
 \label{fig:best-learn-per-tag}
 \end{figure}
 
-For all projects Bayesian techniques did the best out of a wide variety of machine learners tested, due to the large number of features they can handle.
-Our best learners, Discriminative Multinomial Naive Bayes, Naive Bayes
-and Multinomial Naive Bayes  are all based on Bayes' theorem and all
-assume, naively, that the features supplied are independent. 
+Although we used a variety of machine learners, we found that Bayesian techniques performed the best on all projects. We believe this is due to the large number of features they can handle.
+Our best-performing learners---Discriminative Multinomial Naive Bayes, Naive Bayes
+and Multinomial Naive Bayes---are all based on Bayes' theorem and all make the naive assumption
+that the features supplied are independent. 
 %The features we used are word counts per message. 
 One beneficial aspect of this result is that it suggests we can have
 very fast training and classifying  since training on or classifying one
@@ -974,8 +969,8 @@ using multi-label learners.
 
 As noted in Section \ref{sec:wordlist}, each topic in our data-set can be composed of zero or more NFRs. 
 For example, a commit message might address \textit{reliability} in the context of \textit{efficiency}, or make a \textit{maintainability} improvement
-in the source code that related to \textit{usability}. 
-However, traditional machine learning techniques, such as Naive Bayes, can only map topics to a single class. 
+in the source code that relates to \textit{usability}. 
+However, traditional machine learning techniques, such as Naive Bayes, can map topics to only a single class. 
 The Mulan~\cite{mulan} library encapsulates several different multi-label machine learners which can label elements with multiple labels.
 Mulan also includes methods for determining the performance of these learners.
 % TOO DETAILED The problem framed in the learners above has changed; instead of looking at the precision and recall of applying one label, we rank
@@ -1055,14 +1050,14 @@ As we mentioned in the introduction, a key issue in software maintenance is unde
 In this section we demonstrate the value of labelled topic extraction
 in addressing this issue. 
 % more why
-Labelled topics address \emph{why}  because they show reasons why changes
-occurred rather than \emph{how}. 
-The \emph{how} of a change is the change itself, the purpose or
+Labelled topics address \emph{why} questions by associating a commit with the underlying software qualities which motivated that change.
+The \emph{how} of a change is the change itself, the software quality behind it, the
 \emph{why} is what we are after.
 We investigate the history of the three large-scale database systems that we studied. 
 We use our technique to show the topic of development efforts over time in each project.
 %We evaluated two research questions using the ground truth data that we annotated by hand:
 We motivated our investigation with three research questions:
+\renewcommand{\labelenumi}{\textbf{RQ\arabic{enumi}. }}
 \begin{enumerate}
 \item \emph{Do NFR frequencies change over time?} If a particular NFR
   was of more interest at one point in the life-cycle than another,
