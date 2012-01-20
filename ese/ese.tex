@@ -1255,7 +1255,10 @@ another developer is focused on security. We assume that the NFR labels associat
 We explored this issue by extracting, for each topic in the PostgreSQL data-set, the developer names responsible for the commits used to generate that topic, and 
 the NFRs that are associated with the topic. 
 The analysis in this section used Neil's annotations.
-This produced a map which associated developer name with NFR labels. The six NFR labels (\emph{maintainability, usability, efficiency, functionality, portability, reliability}) and the \emph{None} label describe a 7-dimensional space, into which we can position developers, based on the frequency with which each label occurs in the map.
+This produced a map which associated developer name with NFR
+labels. The six NFR labels (\emph{maintainability, usability,
+  efficiency, functionality, portability, reliability}) and the
+\emph{None} label describe a 7-dimensional space (essentially a distribution), into which we can position developers, based on the frequency with which each label occurs in the map.
 
 Using this space, we first conducted pairwise $X^2$ (chi-squared)
 tests and Kolmogorov-Smirnov tests for each developer 
@@ -1381,7 +1384,7 @@ evaluated the clusters proportionately, that is if we use distance
 measures that normalize the data and ignore magnitude (e.g. turning an
 author's NFR contributions into a histogram or unit-vector) such as
 cosine distance, Euclidean distance of unit vectors, or Pearson
-correlation. Euclidean distance uses both angle and magnitude of a
+correlation distance ($1 - r$). Whereas, Euclidean distance uses both angle and magnitude of a
 vector. For all three non-magnitude distances measures we tend to see that
 the three largest contributors, \texttt{momjian}, \texttt{tgl}, and
 \texttt{petere} inhabit the same clusters when we use 2-clusters or 6-clusters. This confirms the observations in
@@ -1528,7 +1531,7 @@ we sampled with replacement from our own NFR label distributions to
 produce random ratings that looked like our own. We then applied the
 Kappa-statistic on this sampling and our labelling, and repeated
 this 100,000 times. We then compared this distribution of simulated
-IRR ratings against our our IRR scores. We found that
+IRR ratings against our own IRR ratings. We found that
 for 4 out of 7 NFR labels, the IRR values for our labels were greater than the random
 IRR measures 96\% of the time. For \emph{portability} and \emph{efficiency}, our IRR
 was greater 100\% of the time both for Neil's ratings, Abram's ratings
@@ -1698,11 +1701,11 @@ topic regardless of the actual purpose of their commits.
 We improved internal validity by trying to correlate and explain the behaviours observed in the analysis with the historical records of the projects.
 We did not attempt to match our results to any particular model.
 
-PostgreSQL's size in terms of commits was equal to MySQL and MaxDB
-combined. This imbalance in size, combined with the choice of 20
-topics per month produced topics that represented too many issues or
-threads within PostgreSQL's development. Choice of number of topics
-should probably be tuned to the project.
+PostgreSQL was larger than MySQL and MaxDB. This imbalance in size,
+combined with the choice of 20 topics per month produced topics that
+represented too many issues or threads within PostgreSQL's
+development. Choice of number of topics should probably be tuned to
+the project.
 
 We primarily relied on ROC (the area under the receiver operating
 characteristic curve), as our measurement to compare the effectiveness
@@ -1720,11 +1723,11 @@ F-Measure biased handling of class-imbalance and the inherent
 class-imbalance that our data suffers from we chose ROC.
 
 %XXX If we have more time try to elaborate more on this
-One potential issue with some of our results is that we achieved very
+One potential issue with some of our results is that we often achieved very
 low ROC and F-Measure scores.  Performance was not uniformly low,
 as the more common classes often exhibited better performance than the
 more rare classes.  Often this was amplified by class imbalance. In
-future work we plan to investigate techniques such as sub-sampling and
+our future work we plan to investigate techniques such as sub-sampling and
 boot-strapping in order to improve performance. Some of the ROC
 performance could be due to a lack of coherence in tagging which was
 shown by our low inter-rater reliability score. Inter-rater reliability is a threat, and we discussed it in Section \ref{sec:inter-rater}. 
