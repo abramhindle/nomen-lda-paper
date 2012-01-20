@@ -56,10 +56,10 @@ dev.off()
 pdf("postgresql-author-cluster.pdf")
 hc <- hclust(dist(t(authors)),method="ward")
 plot(hc,sub="Organized into 2 and 6 clusters",xlab="PostgreSQL Authors")
-rect.hclust(hc,k=2,border="blue")
+rect.hclust(hc,k=2,border="black")
 #rect.hclust(hc,k=3,border="red")
 #rect.hclust(hc,k=4,border="green")
-rect.hclust(hc,k=6,border="purple")
+rect.hclust(hc,k=6,border="dimgrey")
 dev.off()
 
 
