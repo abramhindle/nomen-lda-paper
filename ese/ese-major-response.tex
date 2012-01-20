@@ -5,6 +5,8 @@
 \begin{document}
 Dear EMSE Reviewers,
 
+\vspace{2mm}
+
 We would like to thank you for your thorough reviews. In our revised paper,
 we have addressed all five  major revision points. In addition, we incorporated nearly all of the
 minor reviewer comments and corrections. 
@@ -13,22 +15,21 @@ minor reviewer comments and corrections.
 % compiled from the very thorough four reviews our paper received, and
 % we achieved, met, and integrated all of those comments, edits, and
 % requirements into this revision of the paper.
-
 We now explain how we have amended the paper to incorporate the major revisions requested.
 
 \subsubsection*{1. The reviewers would like to see discussion of the relationship of
  the current draft and the previous MSR 2011 paper and more detailed
  discussion of previous papers related to the current draft.}
 
-In this new revision, within the introduction and the previous work we
-addressed the provenance of this paper and clearly indicated what we
-added to this paper to make it different and more thorough. We
+In this new revision, we have expanded the introduction and the previous work sections to address
+the provenance of this paper, and included a detailed description of the work added to 
+this paper to extend the conference publication. In particular, we highlighted how we 
 addressed our better coverage of machine learning, our addition of the
-PostgreSQL case study, our inter-rater reliability study, our author
-analysis study, etc. 
+PostgreSQL case study, our inter-rater reliability study, and our author
+analysis study.
 
-We also fleshed out much of the previous work that both authors had
-worked on in the past relevant to this paper, in order to provide more
+We also expanded on the previous work that the authors had conducted 
+ which was relevant to this paper, in order to provide more
 context.
 
 \subsubsection*{2. The reviewers have several requests for more details of the study
@@ -36,95 +37,76 @@ context.
    domain, using ROC instead of F-Measure as your primary measure) and
    some related discussion on the threats to validity.}
 
-Throughout the paper we added more details, especially in terms of
-methodology and what statistical methods we were using and how.
+Throughout the paper we added explanations of 
+methodology choices and choice of statistical methods.
+In Section 3.1.2, ``Creating a Validation Corpus'', we added an explanation of our choice of 
+ROC over F-Measure, referencing other researchers in describing some of the weakness of F-Measure
+based evaluation. We now motivate why both measures were provided.
+We also discussed some of these issues in Section 5.4, ``Threats to
+Validity''.
 
-In the section ``Creating a Validation Corpus'' we added why we chose
-ROC over F-Measure and described some of the weakness of F-Measure
-based evaluation. We also motivated why we did provide both
-measures. We also discussed some of these issues in threats to
-validity.
+Furthermore, we now address issues of low ROC and F-measure scores in
+both 3.1.2 and 5.4, as well as in the conclusions. We added a discussion regarding concerns about the use of a single domain in section 3.1.
 
-Furthermore we addressed issues of low ROC and F-measure scores in
-this section, in threats to validity, and in the conclusions.
-
-We also addressed reviewer concerns about the use of a single domain.
-
-Examples of further details include: we discussed the pre-processing
+Examples of further amendments: we discussed the pre-processing
 of changelog comments for LDA in better detail; we described our
-clustering methodology clearer and discussed significance of many of
-the comparisons; we provided some more explanation of LDA and the
+clustering methodology more clearly, and discussed the statistical significance of
+the comparisons; and we provided some more explanation of LDA and the
 topics it extracts.
-
-\begin{comment}
-         - Re: in the "Creating a Validation Corpus" we addressed why we
-           used ROC over F-Measure: class imbalance leads to bias in
-           F-Measure. And we cited relevant work that discussed this
-           particular issue.            
-
-         - Re: we explained some reasons for low ROC scores.
-
-         - Re: in threats to validity, internal validity, we discussed skewed classes
-
-     - Re: we responded on page 6 and in the threats to validity about
-       the issues of a single domain
-
-    - Re: discussed LDA word distributions
-
-    - in the clustering section we described our methodology clearer
-    - we better described LDA preprocessing
-\end{comment}
 
 \subsubsection*{
   3. Fix writing: The reviewers point out quite some inconsistent and
   unclear writing in various places of the paper.}
 
-In an effort to clean up the paper and appease the reviewers, we
-collated a big TODO list from the reviewer comments and ensured all of
-the comments were addressed and all edits were executed. We feel that
-cleaned up the paper and edited it very careful, with the help of the
-reviewer comments of course.  As per reviewer requests we softened
-some of the claims in light of low ROC and IRR scores when applicable.
+We collated a big TODO list from the reviewer comments and ensured all of
+the comments were addressed and all edits were executed. 
+%We feel that cleaned up the paper and edited it very careful, with the help of the
+%reviewer comments of course.  
+As per reviewer requests we softened some of the claims in light of low ROC and IRR scores when applicable.
 We recognize there were a lot of edits suggested by the reviewers and
-we did our due diligence and attended to all that we could.
+we did our due diligence and attended to all that we could. We regret that making the figure showing timelines 
+larger would have required three pages of figures. 
+%We note that this figure is vector-based, and so zooms appropriately
+%when read on a device. 
 
 \subsubsection*{4.  Reviewer 3 raises that the extremely low IRR (~0.1) threatens the
    validity of the results of these experiments, and its threats to
    validity should be made more prominent.}
 
-Within this new revisions, we addressed this issue in the inter-rater
-reliability section and referenced this discussion in the threats to
-validity and the conclusion. 
+Within this new revision, we addressed this issue in a new section on inter-rater
+reliability (5.3) and referenced this discussion in the threats to
+validity (5.4) and the conclusion. 
 
-Furthermore we provided more evidence that our IRR results were mostly
-better than noise, we did extensive simulations sampling our ratings
-and then comparing those ratings against our ratings to find that the
+Furthermore, we expanded the discussion with statistical evidence that our IRR results were mostly
+better than noise. We did extensive simulations sampling our ratings,
+and then comparing those ratings against our ratings. We found that the
 majority of our labels received higher IRR scores than 96\% to 99.9\%
-of the random simulations. This allows us to confidently show that our
+of the random simulations. This allows us to confidently state that our
 labels were primarily better than random. But we recognize that the
-average of the values is low and we address the threats this causes to
-this work and what it might mean for practitioners and other
-researchers when replicating this study or methodology.
+average of the values is low, and Section 5.3 address the threats this causes to
+this paper, and what it might mean for practitioners and other
+researchers when replicating this study. Section 5.3 also addresses the reviewers concerns that the IRR scores would
+affect our ROC and F-Measure scores. 
 
-We also addressed the reviewers concerns that the IRR scores would
-affect our ROC and F-Measure scores. We addressed this in the IRR
-section and the threats to validity.
-
-\subsubsection*{5. Reviewer 4 raises the some observed results may simply be due to
+\subsubsection*{5. Reviewer 4 raises the [issue that] some observed results may simply be due to
  the differences among developer styles and not necessarily
  reflecting different types of work. }
 
-In this new version, we addressed these issues ``Do different
-developers work on different NFRs?''  and the threats to validity. We
+We discuss this possibility in Section 4.3, ``Do different
+developers work on different NFRs?'',  and in Section 5.3, the threats to validity. We
 also better explained the methodology behind comparing these authors
-and the topics they are associated with.
+and the topics they are associated with. 
 
-In conclusion we addressed the reviews to fullest extent possible,
+We believe we have addressed the reviews to the fullest extent possible,
 both in terms of major criticisms and minor criticisms. We feel that
-this new revision is far more robust and show ease the concerns of the
+this new revision is far more robust and should ease the concerns of the
 reviewers.
 
-Thanks you,
+\vspace{2mm}
+
+Thank you,
+
+\vspace{3mm}
 
 Abram, Neil, Michael and John
 
