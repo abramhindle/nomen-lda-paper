@@ -609,7 +609,7 @@ Table \ref{tbl:wnsig} shows the labels (NFRs) and word-lists we used for matchin
 For the third set of word-lists, \textsf{exp3}, we extended the word-lists from \textsf{exp2} using WordNet similarity matches. 
 Similarity in WordNet means siblings in a hypernym tree. 
 We do not include these words here for space
-considerations~\footnote{For our data repository visit \url{http://softwareprocess.es/nomen/}}. 
+considerations~\footnote{For our word lists visit \url{http://softwareprocess.es/nomen/}}. 
 Wordnet similarity is a very broad match. For example, the label \emph{maintainability} is associated with
 words \emph{ease} and \emph{ownership}, and the word \emph{performance} has a `sense' that refers to musical performances, which is obviously unrelated to software development. In general, as we proceed from word-lists in \textsf{exp1} to that in \textsf{exp3}, our lists become more generic.
 
@@ -677,8 +677,8 @@ MaxDB had 68203, and MySQL had 101081. This implies there were
 more PostgreSQL
 terms for the topic analyzer to produce topics with.
 And thus we suspect that PostgreSQL topics were
-flooded with many terms, indicating that perhaps we needed more 20 topics per month
-for PostgreSQL as this result indicates there is a lot of overlap in
+flooded with many terms, indicating that perhaps we needed more than 20 topics per month
+for PostgreSQL, as this result indicates there is a lot of overlap in
 the topics.
 
 %abez@burn:~/projects/query1-data/postgresql$ sort -u query1.mrs2 | egrep "\|200[234]\-[0-9]" | awk -F\| '{print $5}' | wc
@@ -758,7 +758,7 @@ were
 We did not see many results for \emph{usability} (4/0/138) or
 \emph{accuracy} (3/0/27), which were infrequently matched. Note the significantly higher result for \emph{usability} in PostgreSQL---this suggests a difference in how project developers are discussing usability, at least with respect to our analysis.
 We also looked for correlations between our labels: excluding double
-matches (self-correlation), our highest co-occurring terms were
+matches (self-correlation), our highest co-occurring labels were
 \emph{verifiability} or \emph{correctness}
 with \emph{traceability}, and \emph{testability} with \emph{correctness}.% (76 and 62 matches, respectively).
 % See the following sections for our error analysis. 
@@ -788,9 +788,9 @@ Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{effic
 For each quality in the high-level ISO 9126 taxonomy (namely, \emph{Maintainability, Usability, Reliability, Efficiency, Portability, Functionality}) we assessed whether the semi-unsupervised labels for a topic matched the manual annotations we created for the validation corpus. 
 Recall that the manual annotations were not used to
 train the labelling process.
-As described in Section \ref{sec:wordlist} we used both ROC and F-1 measures to evaluate the performance of the classification.
+As described in Section \ref{sec:wordlist} we used both ROC and F-measure measures to evaluate the performance of the classification.
 Figure \ref{fig:maxdb-unsup-results} shows our ROC results for
-PostgreSQL, MaxDB and MySQL. We omit plots of \textsf{exp1} due to poor results. We describe F-1 results in the text below.
+PostgreSQL, MaxDB and MySQL. We omit plots of \textsf{exp1} due to poor results. We describe F-measure results in the text below.
 
 
 % \begin{figure}[t]
@@ -865,7 +865,7 @@ while MySQL had $0.41$ and $0.10$ and PostgreSQL $0.31$ and $0.29$, respectively
 % EXP3
 For \textsf{exp3}, the average F-measure (macro-F1) for MaxDB was $0.26$ with a range $0.11$ to
 $0.47$, and $0.36$ for MySQL with a range of $0.10$ to $0.65$. 
-PostgreSQL had an average of $0.42$ with a range of $0.31$ to $0.54$.
+PostgreSQL had an average F-measure of $0.42$ with a range of $0.31$ to $0.54$.
 MaxDB had an average precision and recall of $0.16$ and $0.67$
 while MySQL had $0.3$ and $0.48$. PostgreSQL had average precision and recall of $0.27$ and $0.95$, respectively.
 
@@ -915,7 +915,7 @@ performing learner per label:
 % We considered the best learner for a label to be 
 the learner that had the highest ROC value for that label. 
 The best learner is important because one uses a single learner per
-label. When applying our technique, for each NFR one should select the
+label. When applying our technique, per each NFR one should select the
 best performing learner possible. Given the tractability of these techniques, a tool which applied all learners and presented the best result should be feasible. 
 %Figure \ref{fig:best-learn-per-tag} uses the ZeroR learner as a baseline, a common practice in machine learning,
 %as ZeroR naively chooses the largest category all of the time. 
@@ -1197,7 +1197,7 @@ released in June 2005.
 
 %For MySQL (Figure \ref{fig:mysql-timeline}), we similarly validated our NFR patterns with external mailing list data. 
 The development period of MySQL we studied  (Figure \ref{fig:mysql-timeline}) saw the first releases to be licensed under the GPL. 
-Version 3.23.31 (January, 2001) was the production release (non-beta), and the timberline view shows a flurry of topics labelled with \emph{functionality} and
+Version 3.23.31 (January, 2001) was the production release (non-beta), and the time-line view shows a flurry of topics labelled with \emph{functionality} and
 \emph{maintainability}. 
 After this point, this version enters the maintenance phase of its life-cycle. 
 In May 2001, there is an increase in the number of topics labelled with \emph{portability}. 
@@ -1288,7 +1288,7 @@ derivative of distance was the highest in that region as well.
 \begin{figure}
   \centering
   \includegraphics[width=.9\textwidth]{figures/postgresql-author-cluster}
-  \caption{PostgreSQL Author Clusters: Authors clustered by euclidean
+  \caption{PostgreSQL Author Clusters: Authors clustered by Euclidean
     distance of their NFR contributions. The outer rectangles (blue)
     reflect the clustering of authors into 2 clusters; while the inner rectangles
     (purple) reflect clustering of authors into 6 clusters. The height is a
@@ -1548,18 +1548,18 @@ uniform distributions. These experiments indicate that our labels and
 ratings were an improvement on random annotations in all cases, with the exceptions of \emph{functionality},
 \emph{reliability} and \emph{usability}. 
 
+
 \begin{figure}
   \centering
   \includegraphics[width=0.9\textwidth]{figures/self-sample-Both}
   \caption{Measured IRR versus IRR of random labeling
     simulations. Perfect IRR is 1.0.
-    The red line and points highlight the inter-rater reliability of
-    NFR topics labels
-    measured on PostgreSQL. 
+    The red line and points highlight the measured inter-rater reliability of
+    NFR topics labels between annotators of PostgreSQL.
     The box-plots are the distribution of 100,000 IRR ratings between
     random simulation, drawn from our distribution of ratings, and our
     labelling of NFRs.
-    Note how for 4 of the 7 NFRs it is
+    Note how for 4 of the 7 NFRs the measure IRR is
     distinctly higher than the median of the simulations.
   }
   \label{fig:irr}
@@ -1678,7 +1678,7 @@ Possibly they would have influenced our results, but there would be a degree of 
 %Conversely, construct validity was addressed in our validation as we used the files, topics and revisions to annotate the commit messages. 
 %We used mailing-lists to verify the purpose behind some events.
 Our taxonomy for software NFRs is subject to dispute, but seems to be
-generally accepted.  A future approach should consider a different taxonomy, such as one created by surveying developers on what ``types" of tasks they work on.
+generally accepted.  A future approach should consider a different taxonomy, such as one created by surveying developers on what ``types'' of tasks they work on.
 Finally, there are exogenous sources, such as
 in-person discussions, which we did not access.  %We did not show these results to the stakeholders.
 
@@ -1719,7 +1719,7 @@ techniques against random and ZeroR learners.
 We also include
 F-Measure results to allow for the reader to validate against
 F-Measure if they are more comfortable with it. Thus because of
-F-Measure biased handling of class-imbalance and the inherent
+F-Measure's biased handling of class-imbalance and the inherent
 class-imbalance that our data suffers from we chose ROC.
 
 %XXX If we have more time try to elaborate more on this
