@@ -69,5 +69,12 @@ clean:
 ese-major-response.pdf: ese-major-response.tex
 	pdflatex ese-major-response
 	pdflatex ese-major-response
+ese-major-response.dvi: ese-major-response.tex
+	latex ese-major-response
+	latex ese-major-response
+ese-major-response.ps: ese-major-response.dvi
+	dvips -Pdownload35 ese-major-response.dvi -o ese-major-response.ps
 
 
+hindle-ernst-ese.ps: ese.ps
+	mv ese.ps hindle-ernst-ese.ps
