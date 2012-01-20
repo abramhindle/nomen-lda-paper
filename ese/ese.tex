@@ -157,7 +157,7 @@ human experts, and also are limited to project-specific topic labels.
 In this paper, we introduce \emph{labelled topic extraction}, an
 approach that automatically suggests project-independent labels for topics.
 
-%migod
+% migod
 In general, the fruits of mining software artifacts are often project
 specific and hard to generalize.  
 However, in our previous work we
@@ -305,7 +305,7 @@ label accordingly.
 As discussed earlier, given the topic \emph{``listener change remove add fire''}, Baldi et al. would assign the label \emph{event-handling}. 
 The labels are reasonable enough, but still require an expert in the field to determine them. 
 Furthermore, these labels are project specific, because they are
-generated from the data of that project. For example we might have a label called \emph{`Oracle'}
+generated from the data of that project. For example we might have a label called \emph{``Oracle''}
 in the MySQL case, since Oracle owns MySQL. 
 %We do this differently.
 %This paper does this differently. 
@@ -415,7 +415,7 @@ repository.
 Most commits we observed had comments: 90\% in MySQL 3.23,
 98.5\% in PostgreSQL and 99.99\% in MaxDB 7.500.
 Commit comments are often studied by researchers, as they are the most readily accessible source of project interactions, and developers are often
-required to create them by the repository mechanism (e.g., Git).  Additionally, relying only on commit comments makes our approach more generalizable,
+required to create them by the repository mechanism (e.g., CVS).  Additionally, relying only on commit comments makes our approach more generalizable,
 as we do not assume the presence of other artifact corpora.
 %This is the most readily accessible source of project interactions for outside researchers, since developers often or always (e.g., Git) write such
 %message. Our approach is more generalizable if it does not assume the presence of other corpora. 
@@ -428,7 +428,7 @@ stripped of punctuation and converted to lowercase.
 We summarized each message as a word distribution minus stop-words
 such as ``\emph{the}'' and ``\emph{at}''. We did not stem or apply any
 other transforms to the messages.
-Our stop words are derived from the Natural Language Toolkit (NLTK) stop-word English stop-word
+Our stop words are derived from the Natural Language Toolkit (NLTK) English stop-word
 list~\footnote{NLTK: \url{http://www.nltk.org/}}.
 
 %Stemming was performed in the later stages of our analysis. % WAS IT?
@@ -486,10 +486,10 @@ projects.
 
 \subsubsection{Creating a Validation Corpus}
 To evaluate both semi-unsupervised and supervised classification, we
-created a validation set of manually labelled topics. For each project,
+created a validation set of manually labelled topics. Per each project,
  the annotators (the first two authors) annotated each extracted topic in each period with
 the six NFR labels listed above.
-Annotators did not annotate each other's annotations
+Annotators did not annotate each other's annotations, except that
 %NEIL --> not really! also makes IRR confusing., but some brief
 %inspection of annotations was used to confirm that the annotators were acting similarly. 
 PostgreSQL (PgSQL) was annotated by both annotators in order
@@ -508,9 +508,9 @@ annotations that would be aggregated up to one of these higher-level labels.
 %We compared against this data-set, but we also used the data-set for our supervised machine learning based topic classification. 
 % A topic may have more than one matching keyword. % ok what?
 
-We validate classification performance using the area under the curve
+We validate classification performance using the \emph{area under the curve
 of Receiver Operating
-Characteristic~\cite{Fawcett2006861},
+Characteristic}~\cite{Fawcett2006861},
 abbreviated \emph{ROC}, sometimes called Area Under the Curve or \emph{AUC}, and the
 F-measure, which is the harmonic mean of precision and recall, i.e.,
 $2 * (P * R) / (P + R)$. 
@@ -527,7 +527,7 @@ A ROC result of $0.5$ would be equivalent to a random learner (that
 is, issuing as many false positives as true positives). While we
 recognize that using $0.5$ as the base-line means our ROC scores will
 look much larger than our F-Measure scores, we feel that the knowledge
-that the random selection is $0.5$ or worse is helpful for interpreting our results.
+that random selection is $0.5$ or worse is helpful for interpreting our results.
 The %area under the -- NE confusing to have area again ... and not importantana
 ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen
 negative instance.
@@ -546,14 +546,14 @@ the sums of true-positives,
 false-positive, and false-negatives across folds tend to exhibit no
 bias. Unfortunately our experimental framework lacks a robust way to
 calculate $F_{tp,fp}$, thus we still provide ROC and $F_{avg}$.
-We consider our labelling classifiers acceptable if they outperform a random classifier (0.5). 
+We consider our labelling classifiers acceptable if they outperform a random classifier ($0.5$). 
 
 
 \subsection{Semi-unsupervised Labelling}
 \label{sec:unsuplabelling}
 
 In this section we describe how to label topics based on dictionaries
-mined from sources external to the projects. We call this `semi-unsupervised' because while there is no ``training set'', we do seed the word-lists manually.
+mined from sources external to the projects. We call this ``semi-unsupervised'' because while there is no ``training set'', we do seed the word-lists manually.
 
 
 \subsubsection{Generating Word Lists}
@@ -599,7 +599,7 @@ To construct these expanded word-lists, we used
 WordNet~\cite{Fellbaum1998}.
 We then added Boehm's software quality model~\cite{Boehm+:1976:ICSE}, and classified his eleven `\emph{ilities}' into their respective ISO9126 NFRs. 
 We did the same for the quality model produced by McCall et al.~\cite{mccall1977}. 
-We then conducted a simple random analysis of mailing list messages from an open source ecosystem, KDE. Like the GNOME study we conducted in Ernst and Mylopoulos \cite{ernst10refsq}, KDE contains a suite of different products covering a variety of software categories. If we judged a given message to contain terms that were
+We then conducted a simple random analysis of mailing list messages from an open source ecosystem, KDE. Like the GNOME study we conducted in Ernst and Mylopoulos~\cite{ernst10refsq}, KDE contains a suite of different products covering a variety of software categories. If we judged a given message to contain terms that were
 related to one of the NFRs in ISO9126, we added it to our word-list. This allowed us to expand our word-lists with more software-specific terms.
 %Finally, we randomly analyzed two mailing lists from another software project to expand our set with domain-specific terms. 
 % Less info is probably better here...
