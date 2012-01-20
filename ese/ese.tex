@@ -283,7 +283,7 @@ They mined
 developer created 
 change request tags from IBM Jazz
 repositories and used these 
-in order to analyze the evolution of a single product.
+to analyze the evolution of a single product.
 Change requests in Jazz allow for users to annotate each change
 request and check-in with tags such as ``ui'', ``usability'' or
 ``milestone 3''. 
@@ -666,15 +666,27 @@ because most software often addresses similar issues, we can use the
 domain knowledge of software to label relevant topics.
 
 
+% Did a little validation here
 Table \ref{tbl:wordlist} shows how many topics were labelled for
 MaxDB, MySQL and PostgreSQL.  Notice how PostgreSQL had far fewer
 unlabelled topics, PostgreSQL also was under going far more
-development as we evaluated 20330 PostgreSQL commits versus 8664 MaxDB
-commits and 12056 commits. We suspect that PostgreSQL topics were
-flooded with many terms and perhaps we needed more 20 topics per month
+development as we evaluated 7744 PostgreSQL commits versus 8664 MaxDB
+commits and 6223 MySQL commits. 
+In terms of change-log comment words PostgreSQL had 164724, while
+MaxDB had 68203, and MySQL had 101081. This implies there were
+more PostgreSQL
+terms for the topic analyzer to produce topics with.
+And thus we suspect that PostgreSQL topics were
+flooded with many terms, indicating that perhaps we needed more 20 topics per month
 for PostgreSQL as this result indicates there is a lot of overlap in
 the topics.
 
+%abez@burn:~/projects/query1-data/postgresql$ sort -u query1.mrs2 | egrep "\|200[234]\-[0-9]" | awk -F\| '{print $5}' | wc
+%   7744  164724 1340914
+%abez@burn:~/projects/query1-data/maxdb-7500/dist$ sort -u query1.mrs2 | awk -F\| '{print $5}' | wc
+%   8664   68203  974487
+%abez@burn:~/projects/query1-data/mysql-3.23$ sort -u query1.mrs2 | awk -F\| '{print $5}' | wc
+%   6223  101081  628971
 
 
 \begin{table}
@@ -760,7 +772,7 @@ with \emph{portability} and \emph{efficiency}.
 
 For \textsf{exp3}, we generally labelled more topics. 
 As mentioned above, the word-lists are broad, so there are likely to be false-positives (discussed below). 
-The most frequent label across all projects (for this worldliest, and unlike \textsf{exp1}) was \emph{usability}, and the
+The most frequent label across all projects (for this word-list, and unlike \textsf{exp1}) was \emph{usability}, and the
 least frequent label was \emph{maintainability}. This implies that our signifiers for usability in this experiment were fairly broad.
 Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{efficiency} with \emph{reliability}, and \emph{efficiency} with \emph{usability}.
 %(200, 190, and 150 topics in common, respectively). 
@@ -777,7 +789,8 @@ For each quality in the high-level ISO 9126 taxonomy (namely, \emph{Maintainabil
 Recall that the manual annotations were not used to
 train the labelling process.
 As described in Section \ref{sec:wordlist} we used both ROC and F-1 measures to evaluate the performance of the classification.
-Figure \ref{fig:maxdb-unsup-results} shows our ROC results for PostgreSQL, MaxDB and MySQL. We omit \textsf{exp1} due to poor results. We describe F-1 results in the text below.
+Figure \ref{fig:maxdb-unsup-results} shows our ROC results for
+PostgreSQL, MaxDB and MySQL. We omit plots of \textsf{exp1} due to poor results. We describe F-1 results in the text below.
 
 
 % \begin{figure}[t]
