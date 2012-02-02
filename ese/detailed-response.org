@@ -1,8 +1,29 @@
+We would like to thank you for your thorough reviews. In our revised
+paper, we have addressed all five major revision points. In addition,
+we incorporated nearly all of the minor reviewer comments and
+corrections.  We now explain how we have amended the paper to
+incorporate the major revisions requested.
+
+
 * TODOS
 ** [X] 1. Detail the relationship between this paper and previous paper in
    the paper itself The reviewers would like to see discussion of the relationship of
    the current draft and the previous MSR 2011 paper and more detailed
    discussion of previous papers related to the current draft.
+
+   - Response: In this new revision, we have expanded the introduction
+     and the previous work sections to address the provenance of this
+     paper, and included a detailed description of the work added to
+     this paper to extend the conference publication. In particular,
+     we highlighted how we addressed our better coverage of machine
+     learning, our addition of the PostgreSQL case study, our
+     inter-rater reliability study, and our author analysis study.
+     
+     We also expanded on the previous work that the authors had conducted
+     which was relevant to this paper, in order to provide more context.
+
+
+
    - [X] In Previous work and intro add more about the comparison between the
          two papers. R1: I would actually think that it is appropriate that
          you mention your previous (MSR) paper somewhere in the
@@ -37,8 +58,30 @@
    design choices (e.g., choosing projects from the same application
    domain, using ROC instead of F-Measure as your primary measure) and
    some related discussion on the threats to validity.
+
+
+   - Response: Throughout the paper we added explanations of
+     methodology choices and choice of statistical methods.  In Section
+     3.1.2, ``Creating a Validation Corpus'', we added an explanation of
+     our choice of ROC over F-Measure, referencing other researchers in
+     describing some of the weakness of F-Measure based evaluation. We
+     now motivate why both measures were provided.  We also discussed
+     some of these issues in Section 5.4, ``Threats to Validity''.
+
+     Furthermore, we now address issues of low ROC and F-measure scores
+     in both 3.1.2 and 5.4, as well as in the conclusions. We added a
+     discussion regarding concerns about the use of a single domain in
+     section 3.1.
+
+     Examples of further amendments: we discussed the pre-processing of
+     changelog comments for LDA in better detail; we described our
+     clustering methodology more clearly, and discussed the statistical
+     significance of the comparisons; and we provided some more
+     explanation of LDA and the topics it extracts.
+
+
    - [X] R2: ROC Versus F-Measure
-     - Responses: in the "Creating a Validation Corpus" we addressed why we
+     - Response: in the "Creating a Validation Corpus" we addressed why we
        used ROC over F-Measure: class imbalance leads to bias in
        F-Measure. And we cited relevant work that discussed this
        particular issue. We also addressed ROC versus F-Measure in
@@ -53,14 +96,14 @@
        MySQL, which is absent from the other 2. That would create an extra
        functional requirement. Could you discuss this further in the paper
        what the benefits and consequences are of your choice?
-       - Responses: We clarified and responded on page in the 6 and in
+       - Response: We clarified and responded on page in the 6 and in
          the threats to validity about the issues of a single domain,
          in particular the threats to generalizability, but also the
          gain in control for functionality and similar issues.
 
    - [X] R1: Most commits we observed had commit comments. Can you be more precise
      here and quantify?
-     - Responses: We responded in the section Generating the Data we added information about
+     - Response: We responded in the section Generating the Data we added information about
        how many commits actually had comments, 90% of MySQL commits
        had comments, 98.5% of postgresql commits had comments and
        99.99% of MaxDB commits had comments. We added this information
@@ -69,7 +112,7 @@
          on page 7: you mention that you want to find N independent word
          distributions, but what if no independent word distributions exist? Is
          this possible and did you spot this during your study?
-     - Responses: We added a discussion of this issue in the Generating the Data
+     - Response: We added a discussion of this issue in the Generating the Data
        section. We mentioned that if there are not actually N
        independent word distributions that the topics tend to be
        duplicates at least in their top 10 words. This tended to be
@@ -79,13 +122,13 @@
    immediately thinking about performance, which is quite important in
    the area of RDBMS... Does this term fall under the flag of
    "efficiency"?
-     - Responses: In section High-level labels we added a line about
+     - Response: In section High-level labels we added a line about
        how Performance is an example of  a efficiency word in ISO9126.
      - [X] R1: On page 9 you mention that you put the term "redundancy" under the
           flag of reliability. This is quite possible in the context of RDBMS,
           but... it could also be used to indicate code cloning (code
           redundancy). How did you cope with this double meaning?
-     - Responses: We added to threats to validity that is an issue but
+     - Response: We added to threats to validity that is an issue but
        we also added discussion to "Generating Word Lists" about this
        danger. Also in Generating Word Lists we had addressed
        ambiguity of the word Performance and its relevant words as well.       
@@ -99,10 +142,19 @@
          also described in the "Inter-rater Reliability" section.
    
 ** [ ] 3. Fix writing: The reviewers point out quite some inconsistent and unclear writing in various places of the paper.
+
+    - Response: We collated a big TODO list from the reviewer comments and ensured all
+      of the comments were addressed and all edits were executed.  As per
+      reviewer requests we softened some of the claims in light of low ROC
+      and IRR scores when applicable.  We recognize there were a lot of
+      edits suggested by the reviewers and we did our due diligence and
+      attended to all that we could. We regret that making the figure
+      showing timelines larger would have required three pages of figures.
+
     - [X] R1: I found the conclusion to be weak and superficial. I would
         suggest that you iterate over the research questions again
         (briefly) and also list your contributions explicitly.
-        - Responses: We cleaned up the conclusions and rewrote much of
+        - Response: We cleaned up the conclusions and rewrote much of
           it. We tried to make our contributions clearer in the
           conclusions and appeal to the comments of this reviewer. We
           addressed this comment by carefully editing and rewriting
@@ -110,7 +162,7 @@
     - [X] R3: Claiming that an ROC between 0.6 and 0.8 is "performing well"
         seems like a strong claim, especially when a random classifier
         has an ROC of 0.5.  Please justify this claim or soften it.
-        - Responses: We decided to soften this claim and but to
+        - Response: We decided to soften this claim and but to
           provide a bit of a rationale and to couch its performance
           with IRR. We also feel that ROC of 0.5 is random, any
           worse and there was no point doing any learning whatsoever,
@@ -125,15 +177,15 @@
       topic labels from software current approaches create
       project-specific word-lists that are difficult to interpret
       without a summary and impossible to compare across projects."
-      - Responses: We essentially rewrote the first half of the
+      - Response: We essentially rewrote the first half of the
         abstract to address this reviewer's comments.
     - [X] R3: Abstract Too detailed: use "source control systems" without
       "CVS and Bitkeeper" as examples?
-      - Responses: We removed this mention and another. We addressed
+      - Response: We removed this mention and another. We addressed
         this reviewer's abstract issues.
     - [X] R3: Soften or qualify the claim by either alluding to or
       directly stating the issues encountered with IRR.
-      - Responses: we softened the language in the abstract to address
+      - Response: we softened the language in the abstract to address
         this reviewer's concern.
     - [X] R3: There seems to be a lack of cites in the introduction.  For
       instance, the first sentence "A key problem for practicing?"
@@ -195,7 +247,7 @@
       extracted from the projects themselves". How did you do this? How do
       you make sure that you have not missed important terms? Could I say
       that they are project AND domain independent?
-      - Responses: We addressed this reviewer's comments in the text but also by
+      - Response: We addressed this reviewer's comments in the text but also by
         the design of the experiment, since the word lists were
         generated from clearly defined sources like the ISO9126
         specification and WordNET we could then go and test if these
@@ -211,7 +263,7 @@
       intend to focus on maintenance topics this should be stated in
       the abstract or somewhere more prominent.  It feels hidden
       here.
-      - Responses: non-functional requirements are a topic of
+      - Response: non-functional requirements are a topic of
         maintenance and we feel that ingrained in the paper is a sense
         of looking for these activities. Especially in our case
         studies. We feel that through our revisions we have addressed
@@ -229,7 +281,7 @@
      graphs) was a surprise.  Why did you choose this? A cynical
      reader would suggest because ROC values are higher (not my
      point-of-view but you should be aware of this point).
-     - Responses: In the "Creating a Validation Corpus" we addressed
+     - Response: In the "Creating a Validation Corpus" we addressed
        why we did this. Mostly to deal with class imbalance and bias
        suffered by F-Measure. We discussed this in threats to validity
        as well. We also showed both as to enable readers comfortable
@@ -320,7 +372,7 @@
    - [X] R2: 3.1.2: the authors do an excellent job explaining the ROC
      curves and how to interpret them. However, it is not clear what
      the reader should be getting from the F Measure results
-     - Responses: in the "Creating a Validation Corpus" we addressed why we
+     - Response: in the "Creating a Validation Corpus" we addressed why we
        used ROC over F-Measure (and in this review summary we
        described it as well)
 
@@ -362,7 +414,7 @@
    - [X] Page 12: "a mixture of classes"... what exactly do you mean
      by this? That a class can be assigned 10% to topic X and 20% to
      topic Y? Maybe an example would work well here.
-     - Responses: yes, 1 element can be labelled with more than 1
+     - Response: yes, 1 element can be labelled with more than 1
        class. Thus to clarify this we added it to the paper in section
        Supervised Labelling.
 
@@ -370,11 +422,11 @@
      (121/238/625) were hard to read. In the first parenthesis, can
      the word "respectively" be included to make the meaning of the
      numbers clear?
-     - Responses: Yes, added to that paragraph.
+     - Response: Yes, added to that paragraph.
    - [X] The differences between exp1, exp2, and exp3 are difficult
      for a reader to remember. The authors could give the word lists
      names based on how they were created instead.
-     - Responses: While we understand that these names can be
+     - Response: While we understand that these names can be
        difficult to remember, we have to keep them clear as well and
        this is the terminology that we used in our MSR paper as
        well. So this is one of the few responses that we did not
@@ -603,6 +655,24 @@
    4. Reviewer 3 raises that the extremely low IRR (~0.1) threatens the
    validity of the results of these experiments, and its threats to
    validity should be made more prominent.
+
+   - Response: We addressed this issue in a new section on inter-rater
+     reliability (5.3), and referenced this discussion in the threats
+     to validity (5.4) and the conclusion.  Furthermore, we expanded
+     the discussion with statistical evidence that our IRR results
+     were mostly better than noise. We did extensive simulations
+     sampling our ratings, and then comparing those ratings against
+     our ratings. We found that the majority of our labels received
+     higher IRR scores than 96\% to 99.9\% of the random
+     simulations. This allows us to confidently state that our labels
+     were primarily better than random. But we recognize that the
+     average of the values is low, and Section 5.3 address the threats
+     this causes to this paper, and what it might mean for
+     practitioners and other researchers when replicating this
+     study. Section 5.3 also addresses the reviewers concerns that the
+     IRR scores would affect our ROC and F-Measure scores.
+
+
    - Response: We addressed low IRR in multiple places, first in the
      inter-rater reliability section we discussed reasons why and
      invested if it was very negative or not. We provided suggestions
@@ -677,6 +747,19 @@
    5. Reviewer 4 raises the some observed results may simply be due to
    the differences among developer styles and not necessarily
    reflecting different types of work.  
+
+    - Response: We discuss this possibility in Section 4.3, ``Do different
+      developers work on different NFRs?'',  and in Section 5.3, the threats to validity. We
+      also better explained the methodology behind comparing these authors
+      and the topics they are associated with. 
+      
+      We believe we have addressed the reviews to the fullest extent possible,
+      both in terms of major criticisms and minor criticisms. We feel that
+      this new revision is far more robust and should ease the concerns of the
+      reviewers.
+
+
+
     - Response: We added developer style threats to the end of the
       section: Do different developers work on   different NFRs?  We
       also cited our cited our previous work on large   changes where
