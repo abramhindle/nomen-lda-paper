@@ -332,7 +332,7 @@ incorporate the major revisions requested.
        have since changed this.
    - [X] R1 and R4: what is 748 again? 
      - Response: We fixed this error in the paper.
-   - [X] Table 2: why are the scores for PostgreSQL so low?
+   - [X] R1: Table 2: why are the scores for PostgreSQL so low?
      - Response: In section Automatic Labelled Topic Extraction and Analysis of
        the Supervised Labelling we directly addressed by PostgreSQL
        scores were lower. We suspect that the choice on N=20 topics
@@ -341,7 +341,7 @@ incorporate the major revisions requested.
    - [X] R1: Correct this: "Table 2 shows ... for MaxDB and MySQL" --> and
      PgSQL???
      - Response: We added the PgSQL information
-   - [X] Usability?     You mention that you did not see many results
+   - [X] R1: Usability?     You mention that you did not see many results
      for usability and they    you show the scores: 4/0/138. Does this
      mean that PostgreSQL IS    concerned more with usability? You
      also mention accuracy and you say that this term is associated
@@ -376,7 +376,7 @@ incorporate the major revisions requested.
        used ROC over F-Measure (and in this review summary we
        described it as well)
 
-   - [X] The transition paragraph before 3.2.1 would be a great place
+   - [X] R2: The transition paragraph before 3.2.1 would be a great place
      to briefly make the distinction of why the approach is
      semi-supervised, rather than simply unsupervised. The transition
      now sounds very much like unsupervised learning, which could
@@ -385,21 +385,21 @@ incorporate the major revisions requested.
        "Semi-unsupervised Labelling".
 
 
-   - [X] Page 11: "For each quality" what do you mean by this?
+   - [X] R1: Page 11: "For each quality" what do you mean by this?
      - Response: we clarified in the paper.
-   - [X]  3.2.1 "The labels we used" _are_:
+   - [X] R2: 3.2.1 "The labels we used" _are_:
      - Response: we fixed this, thanks.
-   - [X] 3.2.2: what preprocessing steps were taken before applying
+   - [X] R2: 3.2.2: what preprocessing steps were taken before applying
      LDA to the commit messages? For example, were the terms stemmed?
      Were any identifiers split? Or were the words in the commits just
      delimited using non-alphanumeric characters?
      - Response: We clarified in 3.2.2 the exact prepossessing steps:
        lower-casing and stop word removal and tokenizing.
-   - [X] Page 11: probably very stupid from me, but in section 3.2.3 you are
+   - [X] R1: Page 11: probably very stupid from me, but in section 3.2.3 you are
     talking about the average... the average of what? Did you do multiple
     runs and are you taking the average of that? Please explain!
      - Response: we addressed this in the text.
-   - [X] I appreciate the section on multi-label learners, but,
+   - [X] R4: I appreciate the section on multi-label learners, but,
      perhaps, that's a bit too much content for the paper. I would
      prefer to see that space used to explain existing results (if the
      space is an issue).
@@ -411,19 +411,19 @@ incorporate the major revisions requested.
        response to this reviewer: we feel the multilabel learners are
        important and have not removed their discussion from the
        paper. But we have edited that section.
-   - [X] Page 12: "a mixture of classes"... what exactly do you mean
+   - [X] R1: Page 12: "a mixture of classes"... what exactly do you mean
      by this? That a class can be assigned 10% to topic X and 20% to
      topic Y? Maybe an example would work well here.
      - Response: yes, 1 element can be labelled with more than 1
        class. Thus to clarify this we added it to the paper in section
        Supervised Labelling.
 
-   - [X] p. 10 last para: the topic numbers in parentheses
+   - [X] R2: p. 10 last para: the topic numbers in parentheses
      (121/238/625) were hard to read. In the first parenthesis, can
      the word "respectively" be included to make the meaning of the
      numbers clear?
      - Response: Yes, added to that paragraph.
-   - [X] The differences between exp1, exp2, and exp3 are difficult
+   - [X] R2: The differences between exp1, exp2, and exp3 are difficult
      for a reader to remember. The authors could give the word lists
      names based on how they were created instead.
      - Response: While we understand that these names can be
@@ -432,29 +432,29 @@ incorporate the major revisions requested.
        well. So this is one of the few responses that we did not
        address, but we did so out of a need for internal consistency.
 
-   - [X] Figure 2: why weren't the exp1 ROC values reported? Because
+   - [X] R2: Figure 2: why weren't the exp1 ROC values reported? Because
      they were so poor? This should be explained in the text.
      - Response: exp1 did not use the same NFR tags so it doesn't make sense in
        that figure.
-   - [X] 3.2.3, 1st para: "To be clear" -> Recall that    
+   - [X] R2: 3.2.3, 1st para: "To be clear" -> Recall that    
      - Response: changed as per review.
-   - [X] 3.2.3, 2nd para: is "we estimate that exp1 had poor
+   - [X] R2: 3.2.3, 2nd para: is "we estimate that exp1 had poor
      performance via the overlap between ISO9126 and the Kayed
      ontology" a hypothesis or an explanation of the results? If the
      latter, please present the results before the discussion
      explaining it.
      - Response: we added a note explaining what this meant and what
        our hypothesis was. 
-   - [X] 3.3.1: "more poor" -> poorer?
+   - [X] R2: 3.3.1: "more poor" -> poorer?
      - Response: changed as per review.
-   - [X]  "The reason for this lack of performance could be that the
+   - [X] R2: "The reason for this lack of performance could be that the
      number of topics, N" -> add comma after N
      - Response: changed as per review.
-   - [X] 3.4: "zero, one, or more NFRs" -> zero or more?
+   - [X] R2: 3.4: "zero, one, or more NFRs" -> zero or more?
      - Response: changed as per review.
-   - [X] last sentence: colon doesn't make sense here, should this be a semi-colon?  {Coulnd't find this}
+   - [X] R2: last sentence: colon doesn't make sense here, should this be a semi-colon?  {Coulnd't find this}
      - Response: changed as per review.
-   - [X] Page 13: "N could be non-optimal for PostgreSQL. Perhaps
+   - [X] R1: Page 13: "N could be non-optimal for PostgreSQL. Perhaps
      topics were getting too mixed..." I think this observation is
      essential. In fact what does this observation tell about
      generalizability? Furthermore, you are now phrasing it as
@@ -462,38 +462,38 @@ incorporate the major revisions requested.
      - Response: we addressed this in the text by talking about the
        size difference between PostgreSQL and MySQL and MaxDB.
 
-   - [X] Page 13: why are Bayesian techniques performing the best here?
+   - [X] R1: Page 13: why are Bayesian techniques performing the best here?
      - Response: We added to the text the rational about Bayesian
        techniques, in particular their performance when dealing with a
        large number of features.
      
-   - [X] Why didn't you also generate Fig.4 for PostgreSQL?
+   - [X] R1: Why didn't you also generate Fig.4 for PostgreSQL?
      - Response: because have Figure 5 that contains the same
        information for PostgreSQL broken down by annotator.
 
-   - [X] - 4 Q2: "This could be to confirm" -> this could be _used_ to confirm?
+   - [X] R2: - 4 Q2: "This could be to confirm" -> this could be _used_ to confirm?
      - Response: edit completed.
-   - [X] - 4, p. 16, line 12: "Figures 6a and 6b and 6c " -> remove first and
+   - [X] R2: - 4, p. 16, line 12: "Figures 6a and 6b and 6c " -> remove first and
      - Response: edit completed.
-   - [X] - 4, p. 16, lines 14 & 18: "that NFR" -> the NFR
+   - [X] R2: - 4, p. 16, lines 14 & 18: "that NFR" -> the NFR
      - Response: edit completed.
-   - [X] - 4, p. 16, line 21: "more intensely shaded;" -> change ; to .
+   - [X] R2: - 4, p. 16, line 21: "more intensely shaded;" -> change ; to .
      - Response: edit completed.
-   - [X] - 4, p. 16, lines 21-42: the sentence "one interesting stream
+   - [X] R2: - 4, p. 16, lines 21-42: the sentence "one interesting stream
      is efficiency which shows periodic activity..." is unclear. Do
      the authors mean, "one interesting stream is efficiency, which
      shows periodic activity, & may suggest that efficiency-related
      changes have longer lasting effects.
      - Response: edit completed.
-   - [X] - 4, p. 16, line 38: "The release of MySQL we study" use of
+   - [X] R2: - 4, p. 16, line 38: "The release of MySQL we study" use of
      present tense here is confusing. Should it be past tense to agree
      with rest of paragraph?
      - Response: edit completed.
-   - [X] - 4, p. 16, line 49: "After this point, efforts shift to the
+   - [X] R2: - 4, p. 16, line 49: "After this point, efforts shift to the
      newer releases (4.0, 4.1, 5.0)" -> and what effect does this have
      on NFR topics?
      - Response: within the text we added a rationale for this effect.
-   - [X] - Figure 6: can the authors increase the size of the text?
+   - [X] R2: - Figure 6: can the authors increase the size of the text?
      The labels are hard to read on a print out, and are much smaller
      than the capture text -- could the labels at least be as large as
      the caption font?
@@ -501,7 +501,7 @@ incorporate the major revisions requested.
        having difficulty modifying them in the diagram while
        maintaining the other properties of the diagram.
 
-   - [X] "relative to maximum number of labeled topics" - why not
+   - [X] R4: "relative to maximum number of labeled topics" - why not
      relative to the total number of labeled topics? This
      normalization assumes that unlabeled topics have the same
      proportions of activities as labeled topics. But if we assume
@@ -512,53 +512,53 @@ incorporate the major revisions requested.
        NONE label. If something wasn't labelled with an NFR it was
        labelled NONE.
 
-   - [X] "efficiency which shows periodic activity" - I am not sure
+   - [X] R4: "efficiency which shows periodic activity" - I am not sure
       it does.  At least its not apparent to me by looking at the
       figure. Perhaps this could be explained better.
       - Response: in the text we addressed and tried to justify this
         in section "Understanding Software Maintenance Activities".
 
-   - [X] "we analyzed each project's developer mailing list" - was
+   - [X] R4: "we analyzed each project's developer mailing list" - was
       only the subject line (as in the commit messages) or entire
       email analyzed?
       - Response: we added to the text in section "Understanding Software
         Maintenance Activities" we clarified that we looked at the
         body of the email.
-   - [X]  Why multiple releases of Pg were investigated while only
+   - [X] R4: Why multiple releases of Pg were investigated while only
       one release of the other two databases?
       - Response: MaxDB and MySQL repositories are branched per major version Pg
         are not. So Pg commits get mixed in and MaxDB and MySQL do not.
-   - [X] - 4, top of p.18: add space between
+   - [X] R2: - 4, top of p.18: add space between
       "usability,functionality"
       - Response: we addressed this edit.
-   - [X] If possible, please avoid 1-sentence paragraphs (such as the last one in 4).
+   - [X] R2: If possible, please avoid 1-sentence paragraphs (such as the last one in 4).
       - Response: during our edits we tried to remove these here and
         throughout the text.
-   - [X] - 4.3, 1st para is missing words: "NFRs that worked on" -- that they? "we found that 3/10" that for 3/10?
+   - [X] R2: - 4.3, 1st para is missing words: "NFRs that worked on" -- that they? "we found that 3/10" that for 3/10?
      - Response: edit completed.
-   - [X] - 4.3, p. 19 line 24: "we found that number" -> that the
+   - [X] R2: - 4.3, p. 19 line 24: "we found that number" -> that the
       number
      - Response: edit completed.
 
-   - [X] The figures discussed in 4.3 and 5 are very difficult to  understand, and there appear 
+   - [X] R2: The figures discussed in 4.3 and 5 are very difficult to  understand, and there appear 
       to be some inconsistencies in the writing.
       - Response: we edited and fixed some of the language in their descriptions.
 
-   - [X] Fig 7 is very hard to interpret. Needs more explanation in
+   - [X] R2: Fig 7 is very hard to interpret. Needs more explanation in
       the text of how this figure should be read. What does the height
       mean? What does being on the same/different branch mean? Do the
       purple boxes indicate groups of similar NFRs?
       - Response: we rewrote the text describing that figure and
         better explained it in the text of "RQ3: Do Different Developers Work on Different NFRs?"
 
-   - [X] The sentence "This diagram shows that petere, tgl and
+   - [X] R2: The sentence "This diagram shows that petere, tgl and
       momjian form their own cluster" seems to contradict the later
       sentence, "The most frequent committers do not share the same
       clusters." Should the first sentence say the 3 DO NOT form their
       own cluster?
       - Response: we clarified that sentence in section "RQ3: Do Different Developers Work on Different NFRs?".
 
-   - [X] Fig 8 needs more explanation of how it should be read. For
+   - [X] R2: Fig 8 needs more explanation of how it should be read. For
       example, what do values in each quadrant mean? For instance,
       morjan in the top right means that s/he commits on many topics
       and matches the global distribution. This implies that..
@@ -566,11 +566,11 @@ incorporate the major revisions requested.
         Different NFRs?" we added further clarification of
         Figure 8 and addressed this question.
 
-   - [X] The cite in the first sentence of 5 does not clearly support
+   - [X] R3: The cite in the first sentence of 5 does not clearly support
       the claim. {not sure what sentence this is }
       - Response: we removed this cite and the claim.
 
-   - [X] The last sentence of 5.2 and the first paragraph of 5.3
+   - [X] R2: The last sentence of 5.2 and the first paragraph of 5.3
       appear to contradict each other. In 5.2, the authors state that 
       the annotators found the annotations to be time consuming and
       difficult.  But in the next paragraph, the authors claim the
@@ -580,57 +580,57 @@ incorporate the major revisions requested.
       (as stated in 5.3).
       - Response: we cleared this up in the final text.
 
-   - [X]  5.2: first 2 paragraphs can be joined. In general, authors
+   - [X] R2: 5.2: first 2 paragraphs can be joined. In general, authors
       should try to avoid so many short paragraphs--they break up the
       reader's flow unnecessarily.
       - Response: this section underwent many changes and this edit
         was addressed during those edits.
-   - [X] - 5.2, p. 21 lines 48-49: Please revise "We had to evaluate
+   - [X] R2: - 5.2, p. 21 lines 48-49: Please revise "We had to evaluate
       inter-rater reliability this way..." -- Perhaps change to "We
       evaluated", and define what "this way" means -- briefly mention
       what the traditional way is, and why it didn't apply here.
       - Response: edit addressed in the text.
-   - [X] - 5.2, p. 22 line 1: "The aggregate view of with a Kappa" --
+   - [X] R2: - 5.2, p. 22 line 1: "The aggregate view of with a Kappa" --
       pick either of or with
       - Response: edit addressed in the text.
-   - [X] - 5.3, line 29: replace "in any case" with "for the
+   - [X] R2: - 5.3, line 29: replace "in any case" with "for the
       supervised learners"? Or was this a problem for both supervised
       and semi-supervised?
       - Response: edit addressed in the text.
-   - [X] - 5.3, line 43: "these methods" -- both supervised and
+   - [X] R2: - 5.3, line 43: "these methods" -- both supervised and
       semi-supervised
       - Response: edit addressed in the text.
-   - [X] - 5.5, last sentence: "other domains" -- can the authors
+   - [X] R2: - 5.5, last sentence: "other domains" -- can the authors
       qualify this as software projects in other domains, rather than
       implying the authors intend to apply the analysis to other
       textual artifacts outside SE.
        - Response: we addressed while editing that section and
          clarified as per reviewer request.
-   - [X] 	5.4 The taxonomy that was chosen is likely to have
+   - [X] R3:	5.4 The taxonomy that was chosen is likely to have
       increased the difficulty of this labeling problem.  A future
       approach should consider a different taxonomy, such as one
       created by surveying developers on what "types" of tasks they
       work on and then search for these labels.
       - Response: thank you for this idea, we addressed it in the
         future work section and in threats to validity.
-   - [X] Page 14: "the performance of such techniques" performance in
+   - [X] R1: Page 14: "the performance of such techniques" performance in
       terms of...?
       - Response: we clarified this in the text.
-   - [X] Page 15: "poor performance of one of the labels" do you know
+   - [X] R1: Page 15: "poor performance of one of the labels" do you know
       why? Again, knowing this would give great insight as to
       generalizability.
       - Response: we discussed class imbalance as one reason. Some
         NFRs are far more frequent than others.
-   - [X] Page 18: proportionately... shouldn't this be
+   - [X] R1: Page 18: proportionately... shouldn't this be
       proportionally?
       - Response: we addressed this in the text.
-   - [X] Page 18: "In PostgreSQL, by comparison, ..." I wouldn't call
+   - [X] R1: Page 18: "In PostgreSQL, by comparison, ..." I wouldn't call
       them cyclic, but I would say that they become more intense over
       time.
       - Response: we wanted to focus on the fluctuation, the periodic
         and cyclic aspects hence the term cyclic. We feel that the intensity is
         clear from the figure.
-   - [X] Page 19: "our theory is that the less frequent committers
+   - [X] R1: Page 19: "our theory is that the less frequent committers
       are more focused and less general, thus their distributions of
       topics are different than the main developers who commit code in
       many different contexts". I think this is a very interesting and
@@ -642,13 +642,13 @@ incorporate the major revisions requested.
         entire section. We felt comfortable about PostgreSQL analysis
         because both us of thoroughly looked at PostgreSQL and could
         verify the end results we received.
-   - [X] I am afraid that this sub-section needs an essential rewrite
+   - [X] R4: I am afraid that this sub-section needs an essential rewrite
       to be interpretable. Virtually every remaining paragraph is
       either incomprehensible or appears to make no sense.
       - context: page 19 and author discussion
       - Response: We carefully edited that section as per this
         reviewer's request.
-   - [X] Page 20: many changes were simply to do --> had to do?
+   - [X] R1: Page 20: many changes were simply to do --> had to do?
       - Response: edited in the text.
 
 ** [X] 4. Honestly address the IRR and validity issues
@@ -688,7 +688,7 @@ incorporate the major revisions requested.
        use. In one case in the IRR section we used the union of Abram
        and Neil's in one case of simulations to check against the
        random simulations.
-   - [X] The three software systems that you study all come from the
+   - [X] R1: The three software systems that you study all come from the
      same domain. One of the reasons that you give for that is "to
      show how named topics can be compared between projects". In the
      threats to validity however, you do mention the fact that all 3
@@ -707,7 +707,7 @@ incorporate the major revisions requested.
      threatened by the low IRR in the conclusion.
      - Response: we added these issues to the conclusion as per your
        request.
-   - [X]  5.2 As I've mentioned and as you admit, this is a major
+   - [X] R3: 5.2 As I've mentioned and as you admit, this is a major
      threat to validity.  Is it possible to further reduce this threat
      in any way, such as by increasing the amount of external
      validation on mailing lists to correlate with figure 6?  That
@@ -716,7 +716,7 @@ incorporate the major revisions requested.
        Activities we do manually correlate mailinglist discussions
        with events in Figure 6. We address in future work how this is
        a valid avenue to take.
-   - [X] This section was very interesting but the low IRR makes me
+   - [X] R3: This section was very interesting but the low IRR makes me
      wonder how much noise is in the data.  I would love to hear more
      about your external validation on developer mailing lists which
      would strengthen these findings.
@@ -725,7 +725,7 @@ incorporate the major revisions requested.
        randomly. This increases the strength of the IRR results, but
        at the same time we address IRR issues in the IRR section,
        threats to validity and the conclusions.
-   - [X] Given low inter-rater reliability measures for the manual
+   - [X] R4: Given low inter-rater reliability measures for the manual
      annotations ...  it would be interesting to discuss it in light
      on low performance of automatic and supervised labeling.  E.g,
      what would ROC be using one rater on another rater, how much can
@@ -767,14 +767,14 @@ incorporate the major revisions requested.
       type as their words, such that style can be an issue.   We added
       this concern to threats to validity.
 
-   - [X] Developer differences (see also comment for Page 16) What was
+   - [X] R4: Developer differences (see also comment for Page 16) What was
      exactly tested? E.g., KS test requires CDF: what was that CDF of?
      What were test criteria (significance levels)? How many developer
      pairs?
      - Response: Within 4.3 "RQ3: Do Different Developers Work on
        Different NFRs?" in the text we provide this information about
        pairs and p-values.
-   - [X] Different clustering algorithms result in different trees:
+   - [X] R4: Different clustering algorithms result in different trees:
      how sensitive the results were to algorithm/distance measure
      choices?
      - Response: in response to this reviewers comments we clarified
