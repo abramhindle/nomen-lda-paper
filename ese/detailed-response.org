@@ -259,58 +259,112 @@
        then in that case we want to know which multilabel learners
        work for our training data which has many features.
 
-   - [X] On page 9 you mention that you did a random analysis of mailing list
+   - [X] R1: On page 9 you mention that you did a random analysis of mailing list
      messages from KDE. Why KDE and why not from a selection of projects if
      the analysis was random in the first place?
      - Response: In Generating Word Lists we better described the
        provenance of this information and we cited the appropriate
        paper where this information came from. We clarified and cited.
-   - [X] On page 9 you mention an Appendix... I didn't get that one
+   - [X] R1: On page 9 you mention an Appendix... I didn't get that one
      for my review and I also don't see a URL.
-     - Response:
-   - [X] Section 3.2.2... is the term "distribution of words" right?
+     - Response: We fixed this and made the URL apparent at the end of
+       the paper and footnoted it appropriate.
+   - [X] R1: Section 3.2.2... is the term "distribution of words" right?
      What makes it a distribution?
-   - [X] Page 9: "unfiltered WordNet" --> why unfiltered?
-   - [X] what is 748 again? \emph{correctness} (182/305/748, which represent MySQL, MaxDB and PostgreSQL topic counts, respe
+     - Response: This comes from the LDA literature and it is exactly
+       what LDA deals with. Word distribution and word count and word
+       feature vector seem to be used interchangably but LDA produces
+       Word distributions as topics, based on word counts or empirical
+       word distributions. We clarified this in the paper as well.
+   - [X] R1: Page 9: "unfiltered WordNet" --> why unfiltered?
+     - Response: Wordnet contains lots of irrelevant words we were trying to
+       communicate that we did not filter the wordnet suggestions. We
+       have since changed this.
+   - [X] R1 and R4: what is 748 again? 
+     - Response: We fixed this error in the paper.
    - [X] Table 2: why are the scores for PostgreSQL so low?
-   - [X] Correct this: "Table 2 shows ... for MaxDB and MySQL" --> and PgSQL???
-   - [X] Usability?
-     You mention that you did not see many results for usability and they    you show the scores: 4/0/138. Does this mean that PostgreSQL IS    concerned more with usability? You also mention accuracy and you say that this term is associated    with less than then topics. How then should I interpret the numbers 3/0/27?
-   - [X] On page 11 you mention: "The most frequent label across all projects was usability", yet on page 10 I just read "We did not see many   results for usability". Did I miss something here?!?
+     - Response: In section Automatic Labelled Topic Extraction and Analysis of
+       the Supervised Labelling we directly addressed by PostgreSQL
+       scores were lower. We suspect that the choice on N=20 topics
+       was not enough for postgresql which had far more verbose commit
+       comments.
+   - [X] R1: Correct this: "Table 2 shows ... for MaxDB and MySQL" --> and
+     PgSQL???
+     - Response: We added the PgSQL information
+   - [X] Usability?     You mention that you did not see many results
+     for usability and they    you show the scores: 4/0/138. Does this
+     mean that PostgreSQL IS    concerned more with usability? You
+     also mention accuracy and you say that this term is associated
+     with less than then topics. How then should I interpret the
+     numbers 3/0/27?
+     - Response: It means postgresql has usability mentions, we
+       clarified these scores a bit in Automatic Labelled Topic Extraction.
+   - [X] R1: On page 11 you mention: "The most frequent label across all
+     projects was usability", yet on page 10 I just read "We did not
+     see many results for usability". Did I miss something here?!?
+     - Response: we clarified the text, this is the context of a
+       wordlist (exp3) not exp2 or exp1.
+   - [X] R4: From Table 2 there seem to be only 640 topics for Pg, but
+     text indicates 748 topics just for correctness. This needs fixing
+     - Response: We fixed this error.
+   - [X] R4: It would also be good to comment on why Pg had so few unnamed topics. 
+     - Response: We discussed and showed that PostgreSQL is has more
+       verbose commit comments in Automatic Labelled Topic Extraction,
+       ANalysis of the Supervised Labelling.
 
-   - [X] From Table 2 there seem to be only 640 topics for Pg, but text indicates 748 topics just for correctness. This needs fixing
+   - [X] R2: Figure 1: to be consistent with the text, should the figure
+     say semi-supervised rather than unsupervised? Also, the intro
+     states the authors are comparing 3 techniques: 2 supervised & 1
+     semi-supervised. It is confusing that the figure only appears to
+     depict 2 approaches -- 1 semi-supervised & 1 supervised.
+     - Response: Figure 1 has been updated.
 
-   - [X] It would also be good to comment on why Pg had so few unnamed topics. 
-
-   - [X] Figure 1: to be consistent with the text, should the figure say semi-supervised rather than unsupervised? Also, the intro states the authors are comparing 3 techniques: 2 supervised & 1 semi-supervised. It is confusing that the figure only appears to depict 2 approaches -- 1 semi-supervised & 1 supervised.
-
-   - [X] 3.1.2: the authors do an excellent job explaining the ROC
+   - [X] R2: 3.1.2: the authors do an excellent job explaining the ROC
      curves and how to interpret them. However, it is not clear what
      the reader should be getting from the F Measure results
+     - Responses: in the "Creating a Validation Corpus" we addressed why we
+       used ROC over F-Measure (and in this review summary we
+       described it as well)
 
-   - [X] The transition paragraph before 3.2.1 would be a great place to briefly make the distinction of why the approach is semi-supervised, rather than simply unsupervised. The transition now sounds very much like unsupervised learning, which could confuse the reader.
+   - [X] The transition paragraph before 3.2.1 would be a great place
+     to briefly make the distinction of why the approach is
+     semi-supervised, rather than simply unsupervised. The transition
+     now sounds very much like unsupervised learning, which could
+     confuse the reader.
+     - Response: we provide a explanation in section at the start of
+       "Semi-unsupervised Labelling".
+
 
    - [X] Page 11: "For each quality" what do you mean by this?
-
+     - Response: we clarified in the paper.
    - [X]  3.2.1 "The labels we used" _are_:
-
-   - [X] 3.2.2: what preprocessing steps were taken before applying LDA to the commit messages? For example, were the terms stemmed? Were any identifiers split? Or were the words in the commits just delimited using non-alphanumeric characters?
-
+     - Response: we fixed this, thanks.
+   - [X] 3.2.2: what preprocessing steps were taken before applying
+     LDA to the commit messages? For example, were the terms stemmed?
+     Were any identifiers split? Or were the words in the commits just
+     delimited using non-alphanumeric characters?
+     - Response: We clarified in 3.2.2 the exact prepossessing steps:
+       lower-casing and stop word removal and tokenizing.
    - [X] Page 11: probably very stupid from me, but in section 3.2.3 you are
     talking about the average... the average of what? Did you do multiple
     runs and are you taking the average of that? Please explain!
-
+     - Response: we addressed this in the text.
    - [X] I appreciate the section on multi-label learners, but,
-perhaps, that's a bit too much content for the paper. I would prefer
-to see that space used to explain existing results (if the space is
-an issue).
-     - neil I'm checking this off because I want to keep the
-       multi-label learning and space is not an issue. Julius's paper
-       is 40 pages!
-
+   perhaps, that's a bit too much content for the paper. I would prefer
+   to see that space used to explain existing results (if the space is
+   an issue).
+      - Response: we feel that the multilabel learners are relevant to
+        our work because we have to apply 7 different learners and
+        training sets to label a class with 7 labels. Thus multilabel
+        are important as they take advantage of duplicate information,
+        correlation and the issues that face multilabel tagging. So in
+        response to this reviewer: we feel the multilabel learners are
+        important and have not removed their discussion from the
+        paper. But we have edited that section.
    - [X] Page 12: "a mixture of classes"... what exactly do you mean by this?
    That a class can be assigned 10% to topic X and 20% to topic Y? Maybe
    an example would work well here.
+   
 
    - [X] p. 10 last para: the topic numbers in parentheses (121/238/625) were hard to read. In the first parenthesis, can the word "respectively" be included to make the meaning of the numbers clear?
 
