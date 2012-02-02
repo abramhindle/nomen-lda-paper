@@ -99,8 +99,6 @@
          also described in the "Inter-rater Reliability" section.
    
 ** [ ] 3. Fix writing: The reviewers point out quite some inconsistent and unclear writing in various places of the paper.
-    - [X] Clean Up Writing
-          - [ ] Strengthen conclusion
     - [X] R1: I found the conclusion to be weak and superficial. I would
         suggest that you iterate over the research questions again
         (briefly) and also list your contributions explicitly.
@@ -462,53 +460,53 @@
        NONE label. If something wasn't labelled with an NFR it was
        labelled NONE.
 
-    - [X] "efficiency which shows periodic activity" - I am not sure
+   - [X] "efficiency which shows periodic activity" - I am not sure
       it does.  At least its not apparent to me by looking at the
       figure. Perhaps this could be explained better.
       - response: in the text we addressed and tried to justify this
         in section "Understanding Software Maintenance Activities".
 
-    - [X] "we analyzed each project's developer mailing list" - was
+   - [X] "we analyzed each project's developer mailing list" - was
       only the subject line (as in the commit messages) or entire
       email analyzed?
       - response: we added to the text in section "Understanding Software
         Maintenance Activities" we clarified that we looked at the
         body of the email.
-    - [X]  Why multiple releases of Pg were investigated while only
+   - [X]  Why multiple releases of Pg were investigated while only
       one release of the other two databases?
       - Response: MaxDB and MySQL repositories are branched per major version Pg
         are not. So Pg commits get mixed in and MaxDB and MySQL do not.
-    - [X] - 4, top of p.18: add space between
+   - [X] - 4, top of p.18: add space between
       "usability,functionality"
       - Response: we addressed this edit.
-    - [X] If possible, please avoid 1-sentence paragraphs (such as the last one in 4).
+   - [X] If possible, please avoid 1-sentence paragraphs (such as the last one in 4).
       - Response: during our edits we tried to remove these here and
         throughout the text.
-    - [X] - 4.3, 1st para is missing words: "NFRs that worked on" -- that they? "we found that 3/10" that for 3/10?
+   - [X] - 4.3, 1st para is missing words: "NFRs that worked on" -- that they? "we found that 3/10" that for 3/10?
      - Response: edit completed.
-    - [X] - 4.3, p. 19 line 24: "we found that number" -> that the
+   - [X] - 4.3, p. 19 line 24: "we found that number" -> that the
       number
      - Response: edit completed.
 
-    - [X] The figures discussed in 4.3 and 5 are very difficult to  understand, and there appear 
+   - [X] The figures discussed in 4.3 and 5 are very difficult to  understand, and there appear 
       to be some inconsistencies in the writing.
       - Response: we edited and fixed some of the language in their descriptions.
 
-    - [X] Fig 7 is very hard to interpret. Needs more explanation in
+   - [X] Fig 7 is very hard to interpret. Needs more explanation in
       the text of how this figure should be read. What does the height
       mean? What does being on the same/different branch mean? Do the
       purple boxes indicate groups of similar NFRs?
       - Response: we rewrote the text describing that figure and
         better explained it in the text of "RQ3: Do Different Developers Work on Different NFRs?"
 
-    - [X] The sentence "This diagram shows that petere, tgl and
+   - [X] The sentence "This diagram shows that petere, tgl and
       momjian form their own cluster" seems to contradict the later
       sentence, "The most frequent committers do not share the same
       clusters." Should the first sentence say the 3 DO NOT form their
       own cluster?
       - Response: we clarified that sentence in section "RQ3: Do Different Developers Work on Different NFRs?".
 
-    - [X] Fig 8 needs more explanation of how it should be read. For
+   - [X] Fig 8 needs more explanation of how it should be read. For
       example, what do values in each quadrant mean? For instance,
       morjan in the top right means that s/he commits on many topics
       and matches the global distribution. This implies that..
@@ -516,11 +514,11 @@
         Different NFRs?" we added further clarification of
         Figure 8 and addressed this question.
 
-    - [X] The cite in the first sentence of 5 does not clearly support
+   - [X] The cite in the first sentence of 5 does not clearly support
       the claim. {not sure what sentence this is }
       - Response: we removed this cite and the claim.
 
-    - [X] The last sentence of 5.2 and the first paragraph of 5.3
+   - [X] The last sentence of 5.2 and the first paragraph of 5.3
       appear to contradict each other. In 5.2, the authors state that 
       the annotators found the annotations to be time consuming and
       difficult.  But in the next paragraph, the authors claim the
@@ -530,57 +528,57 @@
       (as stated in 5.3).
       - Response: we cleared this up in the final text.
 
-    - [X]  5.2: first 2 paragraphs can be joined. In general, authors
+   - [X]  5.2: first 2 paragraphs can be joined. In general, authors
       should try to avoid so many short paragraphs--they break up the
       reader's flow unnecessarily.
       - Response: this section underwent many changes and this edit
         was addressed during those edits.
-    - [X] - 5.2, p. 21 lines 48-49: Please revise "We had to evaluate
+   - [X] - 5.2, p. 21 lines 48-49: Please revise "We had to evaluate
       inter-rater reliability this way..." -- Perhaps change to "We
       evaluated", and define what "this way" means -- briefly mention
       what the traditional way is, and why it didn't apply here.
       - Response: edit addressed in the text.
-    - [X] - 5.2, p. 22 line 1: "The aggregate view of with a Kappa" --
+   - [X] - 5.2, p. 22 line 1: "The aggregate view of with a Kappa" --
       pick either of or with
       - Response: edit addressed in the text.
-    - [X] - 5.3, line 29: replace "in any case" with "for the
+   - [X] - 5.3, line 29: replace "in any case" with "for the
       supervised learners"? Or was this a problem for both supervised
       and semi-supervised?
       - Response: edit addressed in the text.
-    - [X] - 5.3, line 43: "these methods" -- both supervised and
+   - [X] - 5.3, line 43: "these methods" -- both supervised and
       semi-supervised
       - Response: edit addressed in the text.
-    - [X] - 5.5, last sentence: "other domains" -- can the authors
+   - [X] - 5.5, last sentence: "other domains" -- can the authors
       qualify this as software projects in other domains, rather than
       implying the authors intend to apply the analysis to other
       textual artifacts outside SE.
        - Response: we addressed while editing that section and
          clarified as per reviewer request.
-    - [X] 	5.4 The taxonomy that was chosen is likely to have
+   - [X] 	5.4 The taxonomy that was chosen is likely to have
       increased the difficulty of this labeling problem.  A future
       approach should consider a different taxonomy, such as one
       created by surveying developers on what "types" of tasks they
       work on and then search for these labels.
       - Response: thank you for this idea, we addressed it in the
         future work section and in threats to validity.
-    - [X] Page 14: "the performance of such techniques" performance in
+   - [X] Page 14: "the performance of such techniques" performance in
       terms of...?
       - Response: we clarified this in the text.
-    - [X] Page 15: "poor performance of one of the labels" do you know
+   - [X] Page 15: "poor performance of one of the labels" do you know
       why? Again, knowing this would give great insight as to
       generalizability.
       - Response: we discussed class imbalance as one reason. Some
         NFRs are far more frequent than others.
-    - [X] Page 18: proportionately... shouldn't this be
+   - [X] Page 18: proportionately... shouldn't this be
       proportionally?
       - Response: we addressed this in the text.
-    - [X] Page 18: "In PostgreSQL, by comparison, ..." I wouldn't call
+   - [X] Page 18: "In PostgreSQL, by comparison, ..." I wouldn't call
       them cyclic, but I would say that they become more intense over
       time.
       - Response: we wanted to focus on the fluctuation, the periodic
         and cyclic aspects hence the term cyclic. We feel that the intensity is
         clear from the figure.
-    - [X] Page 19: "our theory is that the less frequent committers
+   - [X] Page 19: "our theory is that the less frequent committers
       are more focused and less general, thus their distributions of
       topics are different than the main developers who commit code in
       many different contexts". I think this is a very interesting and
@@ -592,13 +590,13 @@
         entire section. We felt comfortable about PostgreSQL analysis
         because both us of thoroughly looked at PostgreSQL and could
         verify the end results we received.
-    - [X] I am afraid that this sub-section needs an essential rewrite
+   - [X] I am afraid that this sub-section needs an essential rewrite
       to be interpretable. Virtually every remaining paragraph is
       either incomprehensible or appears to make no sense.
       - context: page 19 and author discussion
       - response: We carefully edited that section as per this
         reviewer's request.
-    - [X] Page 20: many changes were simply to do --> had to do?
+   - [X] Page 20: many changes were simply to do --> had to do?
       - response: edited in the text.
 
 ** [X] 4. Honestly address the IRR and validity issues
