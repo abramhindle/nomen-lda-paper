@@ -562,7 +562,7 @@
       created by surveying developers on what "types" of tasks they
       work on and then search for these labels.
       - Response: thank you for this idea, we addressed it in the
-        future work section.
+        future work section and in threats to validity.
     - [X] Page 14: "the performance of such techniques" performance in
       terms of...?
       - Response: we clarified this in the text.
@@ -605,12 +605,21 @@
    4. Reviewer 3 raises that the extremely low IRR (~0.1) threatens the
    validity of the results of these experiments, and its threats to
    validity should be made more prominent.
-   - [X] Threats to validity updated for low IRR
-   - [X] Suggestions on improvement
-   - [X] Compare against random
+   - Response: We addressed low IRR in multiple places, first in the
+     inter-rater reliability section we discussed reasons why and
+     invested if it was very negative or not. We provided suggestions
+     for other researchers on how they can improve IRR in the future
+     if they do this. Then we provided simulations which show that
+     most of our IRR scores are far better than Random in terms of
+     agreement.
    - [X] Am I right in saying that you actually continued with two
      separate sets instead of trying to integrate both sets? If this
      is so, I would suggest you to make this more clear in advance.
+     - Response: We made edits in the IRR section and the other places
+       that we analyze PostgreSQL data, as to which data set we
+       use. In one case in the IRR section we used the union of Abram
+       and Neil's in one case of simulations to check against the
+       random simulations.
    - [X] The three software systems that you study all come from the
      same domain. One of the reasons that you give for that is "to
      show how named topics can be compared between projects". In the
@@ -620,19 +629,34 @@
      go further and try to mitigate the generalizability further by
      saying that the development teams were independent of each other
      or something along those lines
+     - Response: Thank you for this comment, in the threats to
+       validity we do mention this issue, but also in the section 3.1
+       Generating the Data we address the issue of generalizability
+       when using 3 projects from the same domain. Thus to address
+       these edits we modified Threats to Validity and section 3.1
+       Generating the data. 
    - [X] There must be a clear indicator that these results are
      threatened by the low IRR in the conclusion.
+     - Response: we added these issues to the conclusion as per your
+       request.
    - [X]  5.2 As I've mentioned and as you admit, this is a major
      threat to validity.  Is it possible to further reduce this threat
      in any way, such as by increasing the amount of external
      validation on mailing lists to correlate with figure 6?  That
      would increase my confidence in much of the results.
-          - didn't do mailinglist
+     - Response: in section 4 Understanding Software Maintenance
+       Activities we do manually correlate mailinglist discussions
+       with events in Figure 6. We address in future work how this is
+       a valid avenue to take.
    - [X] This section was very interesting but the low IRR makes me
      wonder how much noise is in the data.  I would love to hear more
      about your external validation on developer mailing lists which
      would strengthen these findings.
-         - re: random test show it is far above noise.
+     - Response: Our random simulations show that our results are far
+       better than noise, it is hard to come up with our results
+       randomly. This increases the strength of the IRR results, but
+       at the same time we address IRR issues in the IRR section,
+       threats to validity and the conclusions.
    - [X] Given low inter-rater reliability measures for the manual
      annotations ...  it would be interesting to discuss it in light
      on low performance of automatic and supervised labeling.  E.g,
@@ -643,25 +667,41 @@
      both raters) and weak agreement (at least one label is shared
      between the two raters) would be very important to understand
      cross-rater reliability.
-         
+     - Response: In section 5.2 IRR we address how ROC suffers from
+       these results. In order to deal with the issue of "how good is
+       your IRR really?" we did a big simulation experiment in Section
+       5.3 to address this issue in order to ensure our results
+       weren't just random junk. For the majority of the classes that
+       was true. We also mentioned in the conclusions how this is a threat.
 
 
 **  [X] 5. What about developer style
    5. Reviewer 4 raises the some observed results may simply be due to
    the differences among developer styles and not necessarily
-   reflecting different types of work.
-   - re: We added developer style threats to the end of the section:
-     Do different developers work on different NFRs?
-   - re: We added this concern to threats to validity.
-   - [X] Add to threats to validity.
-   - [X] Warn up front about developer style
-   - [X] Cite large changes paper that style can be an issue
+   reflecting different types of work.  
+    - Response: We added developer style threats to the end of the
+      section: Do different developers work on   different NFRs?  We
+      also cited our cited our previous work on large   changes where
+      we report that the author's name had as much effect   on change
+      type as their words, such that style can be an issue.   We added
+      this concern to threats to validity.
 
    - [X] Developer differences (see also comment for Page 16) What was
      exactly tested? E.g., KS test requires CDF: what was that CDF of?
      What were test criteria (significance levels)? How many developer
      pairs?
+     - Response: Within 4.3 "RQ3: Do Different Developers Work on
+       Different NFRs?" in the text we provide this information about
+       pairs and p-values.
    - [X] Different clustering algorithms result in different trees:
      how sensitive the results were to algorithm/distance measure
      choices?
+     - Response: in response to this reviewers comments we clarified
+       the main clustering technique discussed and then we applied
+       other clustering techniques and summarized their results as
+       well. We broke the analysis into two groups, angle based
+       clustering (Cosine distance, etc.) and magnitude based
+       clustering (Euclidean distance). We discussed both results in
+       the text of 4.3 "RQ3: Do Different Developers Work on Different
+       NFRs?"
 
