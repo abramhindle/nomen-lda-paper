@@ -350,127 +350,236 @@
     runs and are you taking the average of that? Please explain!
      - Response: we addressed this in the text.
    - [X] I appreciate the section on multi-label learners, but,
-   perhaps, that's a bit too much content for the paper. I would prefer
-   to see that space used to explain existing results (if the space is
-   an issue).
-      - Response: we feel that the multilabel learners are relevant to
-        our work because we have to apply 7 different learners and
-        training sets to label a class with 7 labels. Thus multilabel
-        are important as they take advantage of duplicate information,
-        correlation and the issues that face multilabel tagging. So in
-        response to this reviewer: we feel the multilabel learners are
-        important and have not removed their discussion from the
-        paper. But we have edited that section.
-   - [X] Page 12: "a mixture of classes"... what exactly do you mean by this?
-   That a class can be assigned 10% to topic X and 20% to topic Y? Maybe
-   an example would work well here.
-   
+     perhaps, that's a bit too much content for the paper. I would
+     prefer to see that space used to explain existing results (if the
+     space is an issue).
+     - Response: we feel that the multilabel learners are relevant to
+       our work because we have to apply 7 different learners and
+       training sets to label a class with 7 labels. Thus multilabel
+       are important as they take advantage of duplicate information,
+       correlation and the issues that face multilabel tagging. So in
+       response to this reviewer: we feel the multilabel learners are
+       important and have not removed their discussion from the
+       paper. But we have edited that section.
+   - [X] Page 12: "a mixture of classes"... what exactly do you mean
+     by this? That a class can be assigned 10% to topic X and 20% to
+     topic Y? Maybe an example would work well here.
+     - Responses: yes, 1 element can be labelled with more than 1
+       class. Thus to clarify this we added it to the paper in section
+       Supervised Labelling.
 
-   - [X] p. 10 last para: the topic numbers in parentheses (121/238/625) were hard to read. In the first parenthesis, can the word "respectively" be included to make the meaning of the numbers clear?
+   - [X] p. 10 last para: the topic numbers in parentheses
+     (121/238/625) were hard to read. In the first parenthesis, can
+     the word "respectively" be included to make the meaning of the
+     numbers clear?
+     - Responses: Yes, added to that paragraph.
+   - [X] The differences between exp1, exp2, and exp3 are difficult
+     for a reader to remember. The authors could give the word lists
+     names based on how they were created instead.
+     - Responses: While we understand that these names can be
+       difficult to remember, we have to keep them clear as well and
+       this is the terminology that we used in our MSR paper as
+       well. So this is one of the few responses that we did not
+       address, but we did so out of a need for internal consistency.
 
-   - [X] The differences between exp1, exp2, and exp3 are difficult for a reader to remember. The authors could give the word lists names based on how they were created instead. {Don't think we have time for this fairly complex refactoring}
-
-  - [X] Figure 2: why weren't the exp1 ROC values reported? Because they were so poor? This should be explained in the text.
-
-   - [X] 3.2.3, 1st para: "To be clear" -> Recall that
-
-   - [X] 3.2.3, 2nd para: is "we estimate that exp1 had poor performance via the overlap between ISO9126 and the Kayed ontology" a hypothesis or an explanation of the results? If the latter, please present the results before the discussion explaining it.
-
-   - [X] 3.2.3, last para: 
-       "Many ROC scores were 0.6 or less, but our classifier, in most cases, still performed substantially better      than random." -- is this the only discussion of the ROC results presented in Figure 2? The paper would benefit from a discussion (as a paragraph, rather than a single sentence) of Figure 2 if      the authors plan on including it. {odd... don't see this in the paper.}
-
+   - [X] Figure 2: why weren't the exp1 ROC values reported? Because
+     they were so poor? This should be explained in the text.
+     - Response: exp1 did not use the same NFR tags so it doesn't make sense in
+       that figure.
+   - [X] 3.2.3, 1st para: "To be clear" -> Recall that    
+     - Response: changed as per review.
+   - [X] 3.2.3, 2nd para: is "we estimate that exp1 had poor
+     performance via the overlap between ISO9126 and the Kayed
+     ontology" a hypothesis or an explanation of the results? If the
+     latter, please present the results before the discussion
+     explaining it.
+     - Response: we added a note explaining what this meant and what
+       our hypothesis was. 
    - [X] 3.3.1: "more poor" -> poorer?
-   - [X]  "The reason for this lack of performance could be that the number of topics, N" -> add comma after N
-
+     - Response: changed as per review.
+   - [X]  "The reason for this lack of performance could be that the
+     number of topics, N" -> add comma after N
+     - Response: changed as per review.
    - [X] 3.4: "zero, one, or more NFRs" -> zero or more?
+     - Response: changed as per review.
    - [X] last sentence: colon doesn't make sense here, should this be a semi-colon?  {Coulnd't find this}
-
-   - [X] Page 13: "N could be non-optimal for PostgreSQL. Perhaps topics were getting too mixed..." I think this observation is essential. In fact what does this observation tell about generalizability? Furthermore, you are now phrasing it as "perhaps"... is this a hunch or do you have    evidence for this {- validity - issue of clean topics  - cite Stephen Thomas here} who is Stpehen Thomas?
+     - Response: changed as per review.
+   - [X] Page 13: "N could be non-optimal for PostgreSQL. Perhaps
+     topics were getting too mixed..." I think this observation is
+     essential. In fact what does this observation tell about
+     generalizability? Furthermore, you are now phrasing it as
+     "perhaps"... is this a hunch or do you have evidence for this 
+     - Response: we addressed this in the text by talking about the
+       size difference between PostgreSQL and MySQL and MaxDB.
 
    - [X] Page 13: why are Bayesian techniques performing the best here?
-       Because they can handle a large number of features
-
+     - Response: We added to the text the rational about Bayesian
+       techniques, in particular their performance when dealing with a
+       large number of features.
+     
    - [X] Why didn't you also generate Fig.4 for PostgreSQL?
+     - Response: because have Figure 5 that contains the same
+       information for PostgreSQL broken down by annotator.
 
-     - [X] - 4 RQs: The authors provide excellent justifications for the research questions under investigation
+   - [X] - 4 Q2: "This could be to confirm" -> this could be _used_ to confirm?
+     - Response: edit completed.
+   - [X] - 4, p. 16, line 12: "Figures 6a and 6b and 6c " -> remove first and
+     - Response: edit completed.
+   - [X] - 4, p. 16, lines 14 & 18: "that NFR" -> the NFR
+     - Response: edit completed.
+   - [X] - 4, p. 16, line 21: "more intensely shaded;" -> change ; to .
+     - Response: edit completed.
+   - [X] - 4, p. 16, lines 21-42: the sentence "one interesting stream
+     is efficiency which shows periodic activity..." is unclear. Do
+     the authors mean, "one interesting stream is efficiency, which
+     shows periodic activity, & may suggest that efficiency-related
+     changes have longer lasting effects.
+     - Response: edit completed.
+   - [X] - 4, p. 16, line 38: "The release of MySQL we study" use of
+     present tense here is confusing. Should it be past tense to agree
+     with rest of paragraph?
+     - Response: edit completed.
+   - [X] - 4, p. 16, line 49: "After this point, efforts shift to the
+     newer releases (4.0, 4.1, 5.0)" -> and what effect does this have
+     on NFR topics?
+     - Response: within the text we added a rationale for this effect.
+   - [X] - Figure 6: can the authors increase the size of the text?
+     The labels are hard to read on a print out, and are much smaller
+     than the capture text -- could the labels at least be as large as
+     the caption font?
+     - Response: The figure is very information packed and we were
+       having difficulty modifying them in the diagram while
+       maintaining the other properties of the diagram.
 
-     - [X] - 4 Q2: "This could be to confirm" -> this could be _used_ to confirm?
+   - [X] "relative to maximum number of labeled topics" - why not
+     relative to the total number of labeled topics? This
+     normalization assumes that unlabeled topics have the same
+     proportions of activities as labeled topics. But if we assume
+     that unlabeled topics have some completely different types of
+     activities, then, it seems, that normalization by the total
+     number of topics may be more suitable.
+     - Response: we didn't have unlabelled topics because we had the
+       NONE label. If something wasn't labelled with an NFR it was
+       labelled NONE.
 
-     - [X] - 4, p. 16, line 12: "Figures 6a and 6b and 6c " -> remove first and
+    - [X] "efficiency which shows periodic activity" - I am not sure
+      it does.  At least its not apparent to me by looking at the
+      figure. Perhaps this could be explained better.
+      - response: in the text we addressed and tried to justify this
+        in section "Understanding Software Maintenance Activities".
 
-     - [X] - 4, p. 16, lines 14 & 18: "that NFR" -> the NFR
-
-     - [X] - 4, p. 16, line 21: "more intensely shaded;" -> change ; to .
-
-     - [X] - 4, p. 16, lines 21-42: the sentence "one interesting stream is efficiency which shows periodic activity..." is unclear. Do the authors mean, "one interesting stream is efficiency, which shows periodic activity, & may suggest that efficiency-related changes have longer lasting effects.
-
-     - [X] - 4, p. 16, line 38: "The release of MySQL we study" use of present tense here is confusing. Should it be past tense to agree with rest of paragraph?
-
-     - [X] 4, p. 16, line 38: licenced -> fix spelling {YankeeS!}
-
-     - [X] - 4, p. 16, line 49: "After this point, efforts shift to the newer releases (4.0, 4.1, 5.0)" -> and what effect does this have on NFR topics?
-
-     - [X] - Figure 6: can the authors increase the size of the text? The labels are hard to read on a print out, and are much smaller than the capture text -- could the labels at least be as large as the caption font? {Essentially not, but it is vector oriented, so can be zoomed in online.}
-
-     - [X] "relative to maximum number of labeled topics" - why not relative to
-the total number of labeled topics? This normalization assumes that
-unlabeled topics have the same proportions of activities as labeled
-topics. But if we assume that unlabeled topics have some completely
-different types of activities, then, it seems, that normalization by
-the total number of topics may be more suitable. {Not accurate from my (Neil) understanding. There are no "unlabelled" topics here - since we are using the validation corpus for the plots, (specifically, neil's for PG and MaxDB, abram's for MySQL).
-
-    - [X] "efficiency which shows periodic activity" - I am not sure it does. 
-At least its not apparent to me by looking at the figure. Perhaps
-this could be explained better.
-
-    - [X] "we analyzed each project's developer mailing list" - was only the subject line (as in the commit messages) or entire email analyzed?
-    - [X]  Why multiple releases of Pg were investigated while only one release of the other two databases?
-
-
-    - [X] - 4, top of p.18: add space between "usability,functionality"
+    - [X] "we analyzed each project's developer mailing list" - was
+      only the subject line (as in the commit messages) or entire
+      email analyzed?
+      - response: we added to the text in section "Understanding Software
+        Maintenance Activities" we clarified that we looked at the
+        body of the email.
+    - [X]  Why multiple releases of Pg were investigated while only
+      one release of the other two databases?
+      - Response: MaxDB and MySQL repositories are branched per major version Pg
+        are not. So Pg commits get mixed in and MaxDB and MySQL do not.
+    - [X] - 4, top of p.18: add space between
+      "usability,functionality"
+      - Response: we addressed this edit.
     - [X] If possible, please avoid 1-sentence paragraphs (such as the last one in 4).
-
+      - Response: during our edits we tried to remove these here and
+        throughout the text.
     - [X] - 4.3, 1st para is missing words: "NFRs that worked on" -- that they? "we found that 3/10" that for 3/10?
+     - Response: edit completed.
+    - [X] - 4.3, p. 19 line 24: "we found that number" -> that the
+      number
+     - Response: edit completed.
 
-    - [X] - 4.3, p. 19 line 24: "we found that number" -> that the number
-    - [X] The figures discussed in 4.3 and 5 are very difficult to understand, and there appear to be some inconsistencies in the writing.
+    - [X] The figures discussed in 4.3 and 5 are very difficult to  understand, and there appear 
+      to be some inconsistencies in the writing.
+      - Response: we edited and fixed some of the language in their descriptions.
 
     - [X] Fig 7 is very hard to interpret. Needs more explanation in
       the text of how this figure should be read. What does the height
       mean? What does being on the same/different branch mean? Do the
       purple boxes indicate groups of similar NFRs?
+      - Response: we rewrote the text describing that figure and
+        better explained it in the text of "RQ3: Do Different Developers Work on Different NFRs?"
 
     - [X] The sentence "This diagram shows that petere, tgl and
       momjian form their own cluster" seems to contradict the later
       sentence, "The most frequent committers do not share the same
       clusters." Should the first sentence say the 3 DO NOT form their
       own cluster?
+      - Response: we clarified that sentence in section "RQ3: Do Different Developers Work on Different NFRs?".
 
     - [X] Fig 8 needs more explanation of how it should be read. For
       example, what do values in each quadrant mean? For instance,
       morjan in the top right means that s/he commits on many topics
       and matches the global distribution. This implies that..
+      - Response: in section, "RQ3: Do Different Developers Work on
+        Different NFRs?" we added further clarification of
+        Figure 8 and addressed this question.
 
     - [X] The cite in the first sentence of 5 does not clearly support
       the claim. {not sure what sentence this is }
+      - Response: we removed this cite and the claim.
 
-    - [X] The last sentence of 5.2 and the first paragraph of 5.3 appear to contradict each other. In 5.2, the authors state that the annotators found the annotations to be time consuming and difficult. But in the next paragraph, the authors claim the effort to be acceptable. Also, it would be useful to quantify the "time consuming and difficult" claim with some numbers, for example, about how many minutes per example or overall time (as stated in 5.3).
-    - [X]  5.2: first 2 paragraphs can be joined. In general, authors should try to avoid so many short paragraphs--they break up the reader's flow unnecessarily.
+    - [X] The last sentence of 5.2 and the first paragraph of 5.3
+      appear to contradict each other. In 5.2, the authors state that 
+      the annotators found the annotations to be time consuming and
+      difficult.  But in the next paragraph, the authors claim the
+      effort to be acceptable. Also, it would be useful to quantify 
+      the "time consuming and difficult" claim with some numbers, 
+      for example, about how many minutes per example or overall time 
+      (as stated in 5.3).
+      - Response: we cleared this up in the final text.
+
+    - [X]  5.2: first 2 paragraphs can be joined. In general, authors
+      should try to avoid so many short paragraphs--they break up the
+      reader's flow unnecessarily.
+      - Response: this section underwent many changes and this edit
+        was addressed during those edits.
     - [X] - 5.2, p. 21 lines 48-49: Please revise "We had to evaluate
       inter-rater reliability this way..." -- Perhaps change to "We
       evaluated", and define what "this way" means -- briefly mention
       what the traditional way is, and why it didn't apply here.
-    - [X] - 5.2, p. 22 line 1: "The aggregate view of with a Kappa" -- pick either of or with
-    - [X] - 5.3, line 29: replace "in any case" with "for the supervised learners"? Or was this a problem for both supervised and semi-supervised?
-    - [X] - 5.3, line 43: "these methods" -- both supervised and semi-supervised?
-    - [X] - 5.5, last sentence: "other domains" -- can the authors qualify this as software projects in other domains, rather than implying the authors intend to apply the analysis to other textual artifacts outside SE.
-    - [X] 	5.4 The taxonomy that was chosen is likely to have increased the difficulty of this labeling problem.  A future approach should consider a different taxonomy, such as one created by surveying developers on what "types" of tasks they work on and then search for these labels.
-    - [X] Page 14: "the performance of such techniques" performance in terms of...?
+      - Response: edit addressed in the text.
+    - [X] - 5.2, p. 22 line 1: "The aggregate view of with a Kappa" --
+      pick either of or with
+      - Response: edit addressed in the text.
+    - [X] - 5.3, line 29: replace "in any case" with "for the
+      supervised learners"? Or was this a problem for both supervised
+      and semi-supervised?
+      - Response: edit addressed in the text.
+    - [X] - 5.3, line 43: "these methods" -- both supervised and
+      semi-supervised
+      - Response: edit addressed in the text.
+    - [X] - 5.5, last sentence: "other domains" -- can the authors
+      qualify this as software projects in other domains, rather than
+      implying the authors intend to apply the analysis to other
+      textual artifacts outside SE.
+       - Response: we addressed while editing that section and
+         clarified as per reviewer request.
+    - [X] 	5.4 The taxonomy that was chosen is likely to have
+      increased the difficulty of this labeling problem.  A future
+      approach should consider a different taxonomy, such as one
+      created by surveying developers on what "types" of tasks they
+      work on and then search for these labels.
+      - Response: thank you for this idea, we addressed it in the
+        future work section.
+    - [X] Page 14: "the performance of such techniques" performance in
+      terms of...?
+      - Response: we clarified this in the text.
     - [X] Page 15: "poor performance of one of the labels" do you know
       why? Again, knowing this would give great insight as to
       generalizability.
-    - [X] Page 18: proportionately... shouldn't this be proportionally? (NOPE)
-    - [X] Page 18: "In PostgreSQL, by comparison, ..." I wouldn't call them cyclic, but I would say that they become more intense over time.
+      - Response: we discussed class imbalance as one reason. Some
+        NFRs are far more frequent than others.
+    - [X] Page 18: proportionately... shouldn't this be
+      proportionally?
+      - Response: we addressed this in the text.
+    - [X] Page 18: "In PostgreSQL, by comparison, ..." I wouldn't call
+      them cyclic, but I would say that they become more intense over
+      time.
+      - Response: we wanted to focus on the fluctuation, the periodic
+        and cyclic aspects hence the term cyclic. We feel that the intensity is
+        clear from the figure.
     - [X] Page 19: "our theory is that the less frequent committers
       are more focused and less general, thus their distributions of
       topics are different than the main developers who commit code in
@@ -478,18 +587,19 @@ this could be explained better.
       important finding! So I was wondering why you didn't repeat this
       exercise for one of the other systems, to reinforce your
       theory...
-
+      - Response: we felt constrained by space and time, as well we
+        already were addressing other reviewer comments about that
+        entire section. We felt comfortable about PostgreSQL analysis
+        because both us of thoroughly looked at PostgreSQL and could
+        verify the end results we received.
     - [X] I am afraid that this sub-section needs an essential rewrite
       to be interpretable. Virtually every remaining paragraph is
       either incomprehensible or appears to make no sense.
       - context: page 19 and author discussion
-      - fine tooth comb that section, be more clear?
-
+      - response: We carefully edited that section as per this
+        reviewer's request.
     - [X] Page 20: many changes were simply to do --> had to do?
-    - [X] MiGOD: So you had difficulty agreeing on labels.  Did it
-      actually make a difference to the results?  (ie not the labels
-      themselves but the rest of the work)
-
+      - response: edited in the text.
 
 ** [X] 4. Honestly address the IRR and validity issues
    4. Reviewer 3 raises that the extremely low IRR (~0.1) threatens the
