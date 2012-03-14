@@ -1,5 +1,5 @@
 * TODOs - final edit for minor comments
-** Reviewer 2 [ ]
+** Reviewer 2 [1/22]
    - [ ] text label size on Fig 2, 6, 9
          The text labels in Figures 2, 6, and to some extent 9, are virtually unreadable on the printed copy. I understand that many people will view this paper in its electronic form, but shouldn't the text be readable on a print out as well? If the authors are having trouble increasing the size of the text in their diagram program (without increasing the size of the figure to 3 pages), I suggest they use pdf or image editing software to white out the current labels & overlay larger ones. I think readability is more important than aesthetics at this point, and there appears to be plenty of room in the paper for the minor addition of larger labels (regardless of how the size is increased).
    - [ ] More on F-measure
@@ -27,11 +27,29 @@
    - [ ]    - p22, l46: "developers are have different" -> remove are
    - [ ]    - p23, l49: "Whereas, ..." This sentence seems to be missing a clause, and does not make sense as a stand alone sentence.
    - [ ]    - Fig 8: can't read tgl in the upper right -- can the authors just plot momjian & then add the tgl label in post processing? The other overlapping author names aren't an issue, but tgl & momjian are used as examples for the reader to refer to in the text.
-   - [ ]    - p24, l46: "be more likely take on" -> to take on
-** Reviewer 3 
+   - [X]    - p24, l46: "be more likely take on" -> to take on
+** Reviewer 3  [0/6]
+   - [ ] Redo section 3
+        All of my major issues have been addressed and I believe this paper is strong enough to accept.  However, I am concerned that Section 3 contains too much content and should be split into two sections, and thus I would support one more round of revisions.  I only mention this because I believe a restructuring of that section would make this paper much more readable.  I'm still not convinced that the paper organization is sufficiently clear.  Section 3 "Study Design and Execution" spans pages 6 - 17, about 1/3 of the paper, which sticks out to me.  I would rather see this split into two sections (e.g., "Approach" and "Study").  In relation to Figure \#1 this would mean presenting the top half of this process in the first section and the bottom half in the section.  As it stands now Section 3 mixes in both approach (e.g., "Generating Word-Lists") with evaluation (e.g., "Generating the Data").  I personally find Section 3 difficult to read because of this mix of approach and evaluation, and think that the size of the section is akin to the "Long Method" code smell.
+   - [ ] Sentence starting with "Researchers have.." is a run-on sentence.
+   - [ ] Flow between "However, these word-lists.." and "Current topic modeling.." sentences is poor.
+   - [ ] Why is the discussion of ROC vs F-Measure hidden in the section called "Creating a Validation Corpus"?  
+         I would rather see this discussion in its own sub-sub-section, "3.1.3 Measuring Classification Performance". This makes this section easier to find for future readers.
+   - [ ] You may devote too much space to the ROC over F-Measure argument given that you provide both measures throughout the rest of the paper.
+   - [ ] ROC claim
+         I think that average ROC values of between 0.6 and 0.8 cannot be considered "performing well", as described in the Conclusion.  This claim should be softened, even as slightly as to change it to "performed noticeably better than random".
+** Reviewer 4 [0/4] 
+   - [ ]  Discussion of multiple labels
+       I did not find the discussion arguing that multiple labels in Pg were caused by too many terms in each 30-day window to be convincing. It seems that the overall increase in change-log words is less than double of that in MySQL (165K words in Pg vs 101K in MySQL), yet the differences in topic overlap appear to be quite notable. The argument also appears to conflict with an earlier statement that N=20 was chosen because the overlap in topics (two topics sharing most frequent terms) was infrequent.
+   - [ ] There appear to be some discrepancies in numbers. 
+         According to Table 2, there were 640 topics in Pg. 20 topics per 30-day windo 32 30-day windows for Pg, yet the time period appears to contain fewer such windows.  For the other two projects the numbers of topics are not even divisible by 20. Some clarification would help. It appears that Pg has 625 of 640 topics with at least two labels: testability and correctness based on exp1. It may be worth giving he reader some idea about how many topics have exactly one label (the table shows numbers for none and at least one label)
+   - [ ] Validity on authors
+        Although briefly noted in the validity section, the two most frequent committers may be defining the global distribution of NFR topics in Pg, if, for example they have produced the bulk of commits for the topic extraction. This, perhaps, could be mentioned earlier with a fraction of commits these two authors produced.
+   - [ ] Word more cautiously
+        I still think that the overall work is primarily to introduces the topic analysis and how it might be used in the context of software maintenance activities as the low inter-rater agreement makes one ask the question: are these topics real? In particular, the performance of the supervised learning algorithms and, more generally, the interpretation of the NFR topic trends could be worded a bit more cautiously to be consistent with that lack of certainty if the labeling is reflective of the underlying intent.
 
 
-* Todos
+* Todos major revisions
 ** [ ] Make a response document
    file:~/projects/lda-paper/ese-major-response.tex
    - [X] Aggregate responses per each of these points (re:)
