@@ -161,8 +161,8 @@ approach that automatically suggests project-independent labels for topics.
 In general, the fruits of mining software artifacts are often project
 specific and hard to generalize.  
 However, in our previous work we
-investigated \emph{topic trends} --- that is, topics that recur over
-time --- we observed that topic trends often corresponded to
+investigated \emph{topic trends}---that is, topics that recur over
+time---where we observed that topic trends often corresponded to
 \emph{non-functional requirements} (NFRs)~\cite{Hindle09ICSM}, which is
 further emphasized in this paper due to the large numbers of NFR
 labelled topics.  
@@ -199,18 +199,18 @@ we apply these techniques to visualize NFRs over time, and to analyze maintenanc
 \end{itemize}
 
 %We first introduces labelled topic extraction, and then uses that technique to analyze development activity in two large-scale examples.
-We begin by discussing related work in Section \ref{sec:related}.
-Next, we describe how we generated our data (Section \ref{sec:wordlist}). For semi-unsupervised classification (Section \ref{sec:unsuplabelling}), we
+We begin by discussing related work in Section~\ref{sec:related}.
+Next, we describe how we generated our data (Section~\ref{sec:wordlist}). For semi-unsupervised classification (Section~\ref{sec:unsuplabelling}), we
 begin by creating word-lists to signify when a topic matches an NFR label. We then apply our classifier and analyze the results. 
 %and how we created the word-lists used in unsupervised classification. 
 %We show that labels with their topics can be learned and used to classify other data-sets, either without training 
 %Our goal is to label a given topic with either an NFR from our taxonomy,
  %Section \ref{sec:unsuplabelling} presents our technique for using word-lists to do unsupervised classification, and describes the results.
-In Section \ref{sec:suplabelling}, we manually annotate the topics, and use those annotations as training data for supervised classification.  
+In Section~\ref{sec:suplabelling}, we manually annotate the topics, and use those annotations as training data for supervised classification.  
 %We then present visualizations of named topics and their trends over time to aid communication and analysis. 
 To demonstrate an application of labelled topic extraction, we use an exploratory case study of three open source database systems to show how named
-topics can be compared between projects  (Section \ref{sec:analysis}). 
-The paper concludes with a discussion of limitations (Section \ref{sec:limit}), and future work.
+topics can be compared between projects  (Section~\ref{sec:analysis}). 
+The paper concludes with a discussion of limitations (Section~\ref{sec:limit}), and future work.
 
 This work extends our previous work~\cite{msr2011}. The major extensions in this paper are as follows:
 \begin{itemize}
@@ -286,7 +286,7 @@ repositories and used these
 to analyze the evolution of a single product.
 Change requests in Jazz allow for users to annotate each change
 request and check-in with tags such as ``ui'', ``usability'' or
-``milestone 3''. 
+``milestone~3''. 
 % make evolutionary analyses of a single product. 
 The presence of a well-maintained set of tags is obviously essential to the success of this technique.
 
@@ -348,7 +348,7 @@ analysis that we extend with labelled
 topics, NFRs and new visualizations. This windowed method was
 to bucket documents  by time windows (such as months), that could overlap if
 necessary, and then use LDA to extract documents from these
-bucket. These topics were then related to topics in other adjacent
+buckets. These topics were then related to topics in other adjacent
 buckets, and joined if deemed sufficiently similar. This paper, and our
 MSR'2011 paper~\cite{msr2011}, extend the method of Hindle et
 al.~\cite{Hindle09ICSM} by labelling topics
@@ -424,7 +424,7 @@ An example of a typical commit message, from MySQL, is: \textit{``history annota
 two pointers to malloc'ed strings, with memory corruption on free(), of course)''}. 
 We extracted these messages and indexed them by creation time. 
 Each word in the message was
-stripped of punctuation and converted to lowercase.
+stripped of punctuation and converted to lower-case.
 We summarized each message as a word distribution minus stop-words
 such as ``\emph{the}'' and ``\emph{at}''. We did not stem or apply any
 other transforms to the messages.
@@ -504,7 +504,7 @@ Given the top-level annotations of \emph{portability},
 \emph{efficiency}, \emph{reliability}, \emph{functionality},
 \emph{usability}, and \emph{maintainability}, the annotators annotated each topic
 with the relevant label. We added a catch-all label, \emph{none}, which we used when none of the six NFRs was suitable. In some instances, we used finer-grained
-annotations that would be aggregated up to one of these higher-level labels.
+annotations that would be aggregated up to one of these higher-level labels. 
 %We compared against this data-set, but we also used the data-set for our supervised machine learning based topic classification. 
 % A topic may have more than one matching keyword. % ok what?
 
@@ -1203,7 +1203,7 @@ Version 3.23.31 (January, 2001) was the production release (non-beta), and the t
 After this point, this version enters the maintenance phase of its life-cycle. 
 In May 2001, there is an increase in the number of topics labelled with \emph{portability}. 
 This might be related to release 3.23.38, which focused on Windows compatibility. 
-Similarly, in August, 2002, both \emph{functionality} and \emph{portability} are frequent, and mailing list data suggests this is related to the release
+Similarly, in August 2002, both \emph{functionality} and \emph{portability} are frequent, and mailing list data suggests this is related to the release
 of version 3.23.52, a general bug fix with a focus on security (a component of the \emph{functionality} NFR in the ISO9126 model). 
 After this point, efforts shift to the newer releases (4.0, 4.1, 5.0) and subsequently becomes more functionality oriented. 
 
@@ -1275,12 +1275,12 @@ proportions of NFRs, but the majority of developers have similar NFR distributio
 In Figure \ref{fig:authorcluster} we clustered the developers from
 PostgreSQL using the
 Ward method of Hierarchical clustering on the 7-dimensional space.  
-This will group developers according to the Euclidean distance metric.
+This method groups developers according to the Euclidean distance metric.
 %We chose cosine distance because it is often used in IR research to
 %compare documents, in this case we are comparing the labels of topics
 %associated with each author's commits.
 The height in Figure \ref{fig:authorcluster} describes the euclidean
-distance between elements, in terms of the path 
+distance between elements, in terms of the path. 
 We clustered the authors into both $2$-clusters
 and $6$-clusters. We chose $6$-clusters because the difference in distance
 between entities and centroids was minimal at $6$-clusters, and the
@@ -1308,7 +1308,7 @@ while two other major contributors, \texttt{tgl} and \texttt{momjian}
 form their own cluster (i.e., they are distant from one another in the
 7-dimensional space). 
 %NEIL - not sure the relevance of this ... needs more explaining. --> (they are also the most frequent committers). 
-This is interesting because it means that the important developers are
+This is interesting because it means that the important developers
 have different proportions of NFR-relevant contributions; they have different
 focuses during development. In terms of the 2-clusters, we can see that \texttt{momjian}
 and \texttt{tgl} are in the same cluster, but \texttt{petere} is
@@ -1381,12 +1381,13 @@ If we look at which of the top 15 developers were proportionately interested in 
 
 Based on Figure \ref{fig:authorsim} we wanted to see which clusters
 \texttt{momjian}, \texttt{tgl}, and \texttt{petere} would be in if we
-evaluated the clusters proportionately, that is if we use distance
+evaluated the clusters proportionately, that is, if we use distance
 measures that normalize the data and ignore magnitude (e.g. turning an
 author's NFR contributions into a histogram or unit-vector) such as
 cosine distance, Euclidean distance of unit vectors, or Pearson
-correlation distance ($1 - r$). Whereas, Euclidean distance uses both angle and magnitude of a
-vector. For all three non-magnitude distances measures we tend to see that
+correlation distance ($1 - r$). 
+%Whereas Euclidean distance uses both angle and magnitude of a vector. 
+For all three non-magnitude distances measures we tend to see that
 the three largest contributors, \texttt{momjian}, \texttt{tgl}, and
 \texttt{petere} inhabit the same clusters when we use 2-clusters or 6-clusters. This confirms the observations in
 Figure \ref{fig:authorsim}, which uses Pearson correlation, that the larger contributors tend to be
