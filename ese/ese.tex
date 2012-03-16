@@ -91,12 +91,14 @@ John Mylopoulos
 Software repositories provide a deluge of software artifacts to
 analyze. Researchers have attempted to summarize, categorize, and relate these
 artifacts by using semi-unsupervised machine-learning
-algorithms, such as Latent Dirichlet Allocation (LDA), used for concept and topic analysis to suggest candidate
+algorithms, such as Latent Dirichlet Allocation (LDA). LDA is used for concept and topic analysis to suggest candidate
 word-lists or topics that describe and relate software artifacts.
 However, these word-lists and topics are
-difficult to 
-interpret in the absence of meaningful summary labels.  Current topic modeling 
-techniques assume manual labelling and do not use domain-specific knowledge
+difficult to  
+interpret in the absence of meaningful summary labels.  Current attempts to interpret topics
+%topic modeling 
+%techniques 
+assume manual labelling and do not use domain-specific knowledge
 to improve, contextualize, or describe results for the developers.  
 We propose a solution: \emph{automated labelled topic extraction}.
   Topics are extracted 
@@ -130,7 +132,7 @@ In this work we provide a method of automatically labelling
 development topics extracted from commit logs, this method is called \emph{labelled topic extraction}.
 
 
-Concrete applications of \emph{labelled topic extraction} include the annotation of development artifacts with NFR-related tags and the creation of project dashboards.  Annotating software development artifacts with NFR-related tags would allow developers to create detailed directed queries of different artifact kinds that concern the same NFR; for example, a developer could browse the recent history of performance-related bug reports and code check-ins. Project dashboards distill detailed information about a software system into a simpler and more abstract view that summarizes key aspects of the development effort \cite{dashboard}; labelled topic extraction would allow managers to track effort related to specific NFR topics, such as \emph{usability} or \emph{portability}.
+Concrete applications of \emph{labelled topic extraction} include the annotation of development artifacts with non-functional requirements (NFR) keywords, and the creation of project dashboards, which can summarize project activity in a single location.  Annotating software development artifacts with NFR-related tags would allow developers to create detailed directed queries of different artifact kinds that concern the same NFR; for example, a developer could browse the recent history of performance-related bug reports and code check-ins. Project dashboards distill detailed information about a software system into a simpler and more abstract view that summarizes key aspects of the development effort \cite{dashboard}; labelled topic extraction would allow managers to track effort related to specific NFR topics, such as \emph{usability} or \emph{portability}.
 
 
 Topic modeling (such as Latent Dirichlet Allocation~\cite{Blei2003}) is a machine learning technique that creates
@@ -163,9 +165,8 @@ specific and hard to generalize.
 However, in our previous work we
 investigated \emph{topic trends}---that is, topics that recur over
 time---where we observed that topic trends often corresponded to
-\emph{non-functional requirements} (NFRs)~\cite{Hindle09ICSM}, which is
-further emphasized in this paper due to the large numbers of NFR
-labelled topics.  
+\emph{non-functional requirements} (NFRs)~\cite{Hindle09ICSM}.
+%which is further emphasized in this paper due to the large numbers of NFR labelled topics.  
 This is encouraging, as NFRs have the property of being cross-domain
 and widely applicable. 
 In this sense, they are useful abstractions for developer
@@ -215,7 +216,7 @@ The paper concludes with a discussion of limitations (Section~\ref{sec:limit}), 
 This work extends our previous work~\cite{msr2011}. The major extensions in this paper are as follows:
 \begin{itemize}
 	%\item We added new results on developer activities.
-	\item We conducted another case-study on PostgreSQL. 
+	\item We added a third case study using PostgreSQL, in order to consider another set of data while remaining in the database domain.
 	\item We used two authors to each annotate the same PostgreSQL topics in order to compare
 these annotations. 
 	\item We used this new case-study to test \emph{inter-rater
@@ -882,7 +883,7 @@ Our F-measure scores were low and many ROC scores were $0.6$ or less, but our cl
 still performed substantially better than random ($0.5$), even in the
 face of heavy class-imbalance for qualities such as \emph{usability} 
 and \emph{efficiency}. While there is much room for improvement, we are seeing some
-correlation between our quality word lists and relevant topics.
+correlation between our NFR word lists (\textsf{exp2} and \textsf{exp3}) and relevant topics.
 
 %\vspace*{-1em}
 \subsection{Supervised Labelling}
@@ -1750,7 +1751,7 @@ shown by our low inter-rater reliability score. Inter-rater reliability is a thr
 
 
 \paragraph{External validity} -- %was addressed by our use of two case studies, but there are still issues. 
-Our data originated from OSS database projects and thus might not be applicable to commercially developed software or other domains. 
+Our data originated from OSS database projects and thus might not be applicable to commercially developed software or software projects in other domains. 
 Furthermore, our analysis techniques rely on a project's use of meaningful commit messages, although we feel this is the most frequently occurring form
 of developer comments. 
 While we tried to control for application domain variability, OSS
@@ -1805,7 +1806,7 @@ insight into maintenance activity. %topics and artifacts from project histories.
 We validated our topic labelling techniques using multiple experiments. % on unsupervised learners, supervised and multi-label learners. 
 We first conducted semi-unsupervised labelling using word-lists. 
 Our next approach was supervised, using single-label and multi-label learners. 
-Both kinds of learners performed well with average
+Both kinds of learners performed noticeably better than random with average
 %area under the 
 ROC values between $0.6$ and $0.8$. 
 These results were confounded by our low inter-rater reliability score
