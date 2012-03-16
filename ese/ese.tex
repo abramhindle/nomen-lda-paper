@@ -1255,7 +1255,7 @@ another developer is focused on security. We assume that the NFR labels associat
 %Within this section we focused on PostgreSQL.
 We explored this issue by extracting, for each topic in the PostgreSQL data-set, the developer names responsible for the commits used to generate that topic, and 
 the NFRs that are associated with the topic. 
-The analysis in this section used Neil's annotations.
+The analysis in this section used author 2's annotations.
 This produced a map which associated developer name with NFR
 labels. The six NFR labels (\emph{maintainability, usability,
   efficiency, functionality, portability, reliability}) and the
@@ -1476,7 +1476,7 @@ Project specific word-lists would avoid automated mistakes due to the names of e
 
 \subsection{Inter-rater reliability}
 \label{sec:inter-rater}
-To determine inter-rater reliability two of the authors---Ernst and Hindle---each annotated the PostgreSQL topics,
+To determine inter-rater reliability two of the authors---author 1 and author 2---each annotated the PostgreSQL topics,
 and then evaluated each other's annotations. 
 Table \ref{tab:interr} describes the Cohen Kappa and the Spearman
 correlation of our per-topic annotations for each NFR. We 
@@ -1536,8 +1536,8 @@ this 100,000 times. We then compared this distribution of simulated
 IRR ratings against our own IRR ratings. We found that
 for 4 out of 7 NFR labels, the IRR values for our labels were greater than the random
 IRR measures 96\% of the time. For \emph{portability} and \emph{efficiency}, our IRR
-was greater 100\% of the time both for Neil's ratings, Abram's ratings
-and the union of both Neil and Abram. 
+was greater 100\% of the time both for author 2's ratings, author 1's ratings
+and the union of both authors 1 and 2. 
 We know this by evaluating our IRR ratings against the empirical
 cumulative distribution function (ECDF) of the IRR ratings of the 100,000
 simulation runs.
@@ -1568,7 +1568,7 @@ ratings were an improvement on random annotations in all cases, with the excepti
 \end{figure}
 
 Were our results harmed by low IRR scores? For MaxDB and MySQL, since
-each annotator (Neil or Abram) acted as the sole oracle, the results
+each annotator (author 2 or author 1) acted as the sole oracle, the results
 for either system still stand, but construct validity is harmed since 
 it is not clear if the annotated NFR actually represented the NFR relevant to that commit.
  The measured empirical performance of each system still
