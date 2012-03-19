@@ -359,16 +359,16 @@ described in Section \ref{sec:analysis}.
 
 
 
-\section{Study Design and Execution}
+\section{Study Design}
 Figure \ref{fig:process} gives an outline of our methodology.
 We begin by gathering source data and creating topic models. For semi-unsupervised labelling, we generate three sets of word-lists as signifiers for NFRs.
 %e created labels using a well-known NFR taxonomy. 
 With supervised learning, we train our data with manual annotations in order to match topics with NFRs. Finally, these topics are used to analyze the
-role of NFRs in software maintenance.
+role of NFRs in software maintenance. We discuss the results in Section \ref{sec:obs}.
 
 \begin{figure}
   \centering
- \includegraphics[height=.6\textheight]{figures/process-model}
+ \includegraphics[height=.5\textheight]{figures/process-model}
  \caption{Research methodology process view.}
   \label{fig:process}
 \end{figure}
@@ -509,47 +509,6 @@ annotations that would be aggregated up to one of these higher-level labels.
 %We compared against this data-set, but we also used the data-set for our supervised machine learning based topic classification. 
 % A topic may have more than one matching keyword. % ok what?
 
-We validate classification performance using the \emph{area under the curve
-of Receiver Operating
-Characteristic}~\cite{Fawcett2006861},
-abbreviated \emph{ROC}, sometimes called Area Under the Curve or \emph{AUC}, and the
-F-measure, which is the harmonic mean of precision and recall, i.e.,
-$2 * (P * R) / (P + R)$. 
-Throughout the paper we will provide F-measure scores so that readers
-who are more familiar with F-measure than ROC can intuitively
-interpret the results.
-
-ROC values provide a score %, similar to school letter-grades (A is 0.9, C is 0.6),
- reflecting how well a particular learner performed for the given data. 
-ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) versus the false
-positive rate (1 - specificity). 
-A perfect learner has a ROC value of $1.0$, reflecting perfect recall and precision. 
-A ROC result of $0.5$ would be equivalent to a random learner (that
-is, issuing as many false positives as true positives). While we
-recognize that using $0.5$ as the base-line means our ROC scores will
-look much larger than our F-Measure scores, we feel that the knowledge
-that random selection is $0.5$ or worse is helpful for interpreting our results.
-The %area under the -- NE confusing to have area again ... and not importantana
-ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen
-negative instance.
-
-We argue for using ROC over F-Measure because ROC suffers less from
-bias, as F-Measure often skews towards the positive
-class~\cite{flach-icml03,Forman:2010:ACS:1882471.1882479}, especially
-in the case of class imbalance. Forman et
-al.~\cite{Forman:2010:ACS:1882471.1882479} demonstrate that cross-fold
-validation will often produce low F-measures given high class
-imbalance and the presence of false negatives.
-Although
-recent work~\cite{Forman:2010:ACS:1882471.1882479} has suggested that while ROC suffers less bias than
-the average F-measure ($F_{avg}$) for cross-folds, F-measures ($F_{tp,fp}$) that are calculated from
-the sums of true-positives,
-false-positive, and false-negatives across folds tend to exhibit no
-bias. Unfortunately our experimental framework lacks a robust way to
-calculate $F_{tp,fp}$, thus we still provide ROC and $F_{avg}$.
-We consider our labelling classifiers acceptable if they outperform a random classifier ($0.5$). 
-
-
 \subsection{Semi-unsupervised Labelling}
 \label{sec:unsuplabelling}
 
@@ -666,7 +625,97 @@ ourselves for a training set. The motivation behind this technique is that
 because most software often addresses similar issues, we can use the 
 domain knowledge of software to label relevant topics.
 
+\subsection{Supervised Labelling}
+\label{sec:suplabelling}
+Supervised labelling requires expert analysis of the correct
+class/label to assign a label to a topic. In our approach, we use the top-level NFRs in the ISO9126 standard~\cite{iso9126} for our classes, but other
+taxonomies are also applicable.%In order to validate how effective these word-bag approaches to topic labelling would be we created a validation data set. 
 
+We used a suite of supervised classifiers, WEKA~\cite{weka09},
+that includes machine learning tools such as support vector machines and Bayes-nets. 
+We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}. %\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. 
+Traditional classifiers label topics with a single class, whereas Mulan allows for a mixture of classes per topic, which is what we observed while
+manually labelling topics. For example, a given topic (word distribution) may be `about' both usability and maintainability, if this topic was a product of a discussion on design trade offs.
+The \emph{features} we used are word counts/occurrence	per topic, if
+a word occurs frequently enough in a topic we consider it a feature of
+the topic.
+
+To assess the performance of the supervised learners, we did a 10-fold cross-validation~\cite{Kohavi1995}, a common technique for evaluating machine
+learners, where the original data is partitioned randomly into ten sub-samples, and each sample is used to test against a training set composed of the nine other samples.
+%One subsample is used as a training set and evaluated on the other nine sub-samples. 
+%This is repeated nine more times, with each subsample used once as the training set. 
+We discuss these results below.% in Section \ref{sec:suplabelling}.
+
+
+\subsection{Applying Multiple Labels to Topics}
+\label{sec:multilabel}
+As noted in Section \ref{sec:wordlist}, each topic in our data-set can be composed of zero or more NFRs. 
+For example, a commit message might address \textit{reliability} in the context of \textit{efficiency}, or make a \textit{maintainability} improvement
+in the source code that relates to \textit{usability}. 
+However, traditional machine learning techniques, such as Naive Bayes, can map topics to only a single class. 
+The Mulan~\cite{mulan} library encapsulates several different multi-label machine learners which can label elements with multiple labels.
+Mulan also includes methods for determining the performance of these learners.
+
+Two perspectives used to evaluate multi-label learners are with micro or macro measurements (shown in Figure \ref{fig:mulan}a).
+Macro measurements are aggregated at a class or label level (per class) while micro measurements are at the element level (per element).
+A macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. 
+For MaxDB, the macro-ROC values are undefined because of poor
+performance of one of the labels.%, see Figure \ref{fig:mulan}. 
+During cross-folds validation if the class imbalance or poor learner
+performance causes a division by zero when evaluating one of the NFR
+labels (in this case \emph{usability}), creating an undefined
+value. This undefined 
+value is propagated through to the mean of ROC per NFR label, causing
+the end calculation of macro-ROC to be undefined.
+
+\section{Observations and Analysis}
+\label{sec:obs}
+\subsection{Measuring Classification Performance}
+We validate classification performance using the \emph{area under the curve
+of Receiver Operating
+Characteristic}~\cite{Fawcett2006861},
+abbreviated \emph{ROC}, sometimes called Area Under the Curve or \emph{AUC}, and the
+F-measure, which is the harmonic mean of precision and recall, i.e.,
+$2 * (P * R) / (P + R)$. 
+In this domain, F-measure values reflect the performance of our
+approach with respect to false-positive/false-negative (and the duals) results.
+A higher F-measure indicates that more topics were correctly labelled.
+Throughout the paper we will provide F-measure scores so that readers
+who are more familiar with F-measure than ROC can intuitively
+interpret the results. 
+ 
+
+ROC values provide a score %, similar to school letter-grades (A is 0.9, C is 0.6),
+ reflecting how well a particular learner performed for the given data. 
+ROC maps to the more familiar concepts of precision/sensitivity and recall/specificity: it plots the true positive rate (sensitivity) versus the false
+positive rate (1 - specificity). 
+A perfect learner has a ROC value of $1.0$, reflecting perfect recall and precision. 
+A ROC result of $0.5$ would be equivalent to a random learner (that
+is, issuing as many false positives as true positives). While we
+recognize that using $0.5$ as the base-line means our ROC scores will
+look much larger than our F-Measure scores, we feel that the knowledge
+that random selection is $0.5$ or worse is helpful for interpreting our results.
+The %area under the -- NE confusing to have area again ... and not importantana
+ROC of a classifier is equivalent to the probability that the classifier will rank a randomly chosen positive instance higher than a randomly chosen
+negative instance.
+
+We argue for using ROC over F-Measure because ROC suffers less from
+bias, as F-Measure often skews towards the positive
+class~\cite{flach-icml03,Forman:2010:ACS:1882471.1882479}, especially
+in the case of class imbalance. Forman et
+al.~\cite{Forman:2010:ACS:1882471.1882479} demonstrate that cross-fold
+validation will often produce low F-measures given high class
+imbalance and the presence of false negatives.
+Although
+recent work~\cite{Forman:2010:ACS:1882471.1882479} has suggested that while ROC suffers less bias than
+the average F-measure ($F_{avg}$) for cross-folds, F-measures ($F_{tp,fp}$) that are calculated from
+the sums of true-positives,
+false-positive, and false-negatives across folds tend to exhibit no
+bias. Unfortunately our experimental framework lacks a robust way to
+calculate $F_{tp,fp}$, thus we still provide ROC and $F_{avg}$.
+We consider our labelling classifiers acceptable if they outperform a random classifier ($0.5$). 
+
+\subsection{Analysis of the Semi-Unsupervised Labelling}
 % Did a little validation here
 Table \ref{tbl:wordlist} shows how many topics were labelled for
 MaxDB, MySQL and PostgreSQL.  Notice how PostgreSQL had far fewer
@@ -779,9 +828,7 @@ Common co-occurrences were \emph{reliability} with \emph{usability}, \emph{effic
 %(200, 190, and 150 topics in common, respectively). 
 
 
-
-
-\subsubsection{Analysis of the Semi-unsupervised Labelling} %--- %Based
+%\subsubsection{Analysis of the Semi-unsupervised Labelling} %--- %Based
 				%on the labels, and our manual topic
 				%labelling, 
 %\noindent \textbf{Analysis of the unsupervised labelling} --- %Based on the labels, and our manual topic labelling, 
@@ -886,28 +933,9 @@ and \emph{efficiency}. While there is much room for improvement, we are seeing s
 correlation between our NFR word lists (\textsf{exp2} and \textsf{exp3}) and relevant topics.
 
 %\vspace*{-1em}
-\subsection{Supervised Labelling}
-\label{sec:suplabelling}
-Supervised labelling requires expert analysis of the correct
-class/label to assign a label to a topic. In our approach, we use the top-level NFRs in the ISO9126 standard~\cite{iso9126} for our classes, but other
-taxonomies are also applicable.%In order to validate how effective these word-bag approaches to topic labelling would be we created a validation data set. 
 
-We used a suite of supervised classifiers, WEKA~\cite{weka09},
-that includes machine learning tools such as support vector machines and Bayes-nets. 
-We also used the multi-labelling add-on for WEKA, Mulan~\cite{mulan}. %\footnote{\url{http://mlkd.csd.auth.gr/multilabel.html}}. 
-Traditional classifiers label topics with a single class, whereas Mulan allows for a mixture of classes per topic, which is what we observed while
-manually labelling topics. For example, a given topic (word distribution) may be `about' both usability and maintainability, if this topic was a product of a discussion on design trade offs.
-The \emph{features} we used are word counts/occurrence	per topic, if
-a word occurs frequently enough in a topic we consider it a feature of
-the topic.
 
-To assess the performance of the supervised learners, we did a 10-fold cross-validation~\cite{Kohavi1995}, a common technique for evaluating machine
-learners, where the original data is partitioned randomly into ten sub-samples, and each sample is used to test against a training set composed of the nine other samples.
-%One subsample is used as a training set and evaluated on the other nine sub-samples. 
-%This is repeated nine more times, with each subsample used once as the training set. 
-We discuss these results below.% in Section \ref{sec:suplabelling}.
-
-\subsubsection{Analysis of the Supervised Labelling}
+\subsection{Analysis of the Supervised Labelling}
 % \label{sec:suplabelling}
 Because our data-set consisted of word counts we expected Bayesian techniques to perform well. Bayesian techniques are often used in spam filtering, which is similarly interested in word distributions. 
 We tried other learners that WEKA~\cite{weka09} provides, including rule learners, decision tree learners, vector space learners, and support vector machines.  
@@ -993,15 +1021,8 @@ using multi-label learners.
 
 %\balance
 
-\subsection{Applying Multiple Labels to Topics}
-\label{sec:multilabel}
+\subsection{Analysis of the Multiple Label Approach}
 
-As noted in Section \ref{sec:wordlist}, each topic in our data-set can be composed of zero or more NFRs. 
-For example, a commit message might address \textit{reliability} in the context of \textit{efficiency}, or make a \textit{maintainability} improvement
-in the source code that relates to \textit{usability}. 
-However, traditional machine learning techniques, such as Naive Bayes, can map topics to only a single class. 
-The Mulan~\cite{mulan} library encapsulates several different multi-label machine learners which can label elements with multiple labels.
-Mulan also includes methods for determining the performance of these learners.
 % TOO DETAILED The problem framed in the learners above has changed; instead of looking at the precision and recall of applying one label, we rank
 % multiple labels at once. We must check if the full subset of labels was applied, and then how much of that subset was applied.
 
@@ -1047,17 +1068,6 @@ Mulan also includes methods for determining the performance of these learners.
 \label{fig:pgcomp}
 \end{figure}
 
-Two perspectives used to evaluate multi-label learners are with micro or macro measurements (shown in Figure \ref{fig:mulan}a).
-Macro measurements are aggregated at a class or label level (per class) while micro measurements are at the element level (per element).
-A macro-ROC measurement is the average ROC over the ROC values for all labels, where a micro-ROC is the average ROC over all examples that were classified. 
-For MaxDB, the macro-ROC values are undefined because of poor
-performance of one of the labels.%, see Figure \ref{fig:mulan}. 
-During cross-folds validation if the class imbalance or poor learner
-performance causes a division by zero when evaluating one of the NFR
-labels (in this case \emph{usability}), creating an undefined
-value. This undefined 
-value is propagated through to the mean of ROC per NFR label, causing
-the end calculation of macro-ROC to be undefined.
 
 Figure~\ref{fig:mulan} presents the results of Mulan's best multi-label learners for the MaxDB and MySQL projects, and  Figure~\ref{fig:pgcomp} for PostgreSQL. 
 Calibrated Label Ranking (CLR) is a learner that builds two layers. The first layer determines if an entity should be labelled, while the second layer
