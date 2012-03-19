@@ -838,7 +838,7 @@ Recall that the manual annotations were not used to
 train the labelling process.
 As described in Section \ref{sec:wordlist} we used both ROC and F-measure measures to evaluate the performance of the classification.
 Figure \ref{fig:maxdb-unsup-results} shows our ROC results for
-PostgreSQL, MaxDB and MySQL. We omit plots of \textsf{exp1} due to poor results. We describe F-measure results in the text below.
+PostgreSQL, MaxDB and MySQL. We did not calculate the ROC of \textsf{exp1} because the labels used were completely different than the manual annotation labels. We describe F-measure results in the text below.
 
 
 % \begin{figure}[t]
@@ -1301,9 +1301,9 @@ derivative of distance was the highest in that region as well.
   \centering
   \includegraphics[width=.9\textwidth]{figures/postgresql-author-cluster}
   \caption{PostgreSQL Author Clusters: Authors clustered by Euclidean
-    distance of their NFR contributions. The outer rectangles (black)
+    distance of their NFR contributions. The two outer rectangles (thicker black)
     reflect the clustering of authors into 2 clusters; while the inner rectangles
-    (dim grey) reflect clustering of authors into 6 clusters. The height is a
+    (dashed) reflect clustering of authors into 6 clusters. The height is a
     measure of cluster similarity, Euclidean distance, where smaller
     values are more similar. Individuals that share
     branches are more similar to each other individuals who do
