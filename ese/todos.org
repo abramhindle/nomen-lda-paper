@@ -1,11 +1,11 @@
 * TODOs - final edit for minor comments
-** Reviewer 2 [19/23]
+** Reviewer 2 [22/23]
    - [X] text label size on Fig 2, 6
          The text labels in Figures 2, 6, and to some extent 9, are virtually unreadable on the printed copy. I understand that many people will view this paper in its electronic form, but shouldn't the text be readable on a print out as well? If the authors are having trouble increasing the size of the text in their diagram program (without increasing the size of the figure to 3 pages), I suggest they use pdf or image editing software to white out the current labels & overlay larger ones. I think readability is more important than aesthetics at this point, and there appears to be plenty of room in the paper for the minor addition of larger labels (regardless of how the size is increased).
    - [ ] Text label size on fig 9
-   - [ ] More on F-measure
+   - [X] More on F-measure
            3.1.2: the authors do an excellent job explaining the ROC curves and how to interpret them. However, it is not clear what the reader should be getting from the F Measure results. The authors addressed this issue by stating the purpose of the F Measure results is for readers who are more familiar with F than ROC, to help them interpret results. This is fine, but does not completely fix the issue. It is possible for a reader to be familiar with F in general, but  not know how to interpret the results in this domain. If you are including a measure, please include at least a brief sentence of what high/low (or good/bad) results mean.
-   - [ ] Figure 2: why weren't the exp1 ROC values reported? 
+   - [X] Figure 2: why weren't the exp1 ROC values reported? 
           Because they were so poor? This should be explained in the text. Even if the ROC results for exp1 are poor, the raw numbers at least should be reported. In a later response the authors state that exp1 ROC numbers COULDN'T be included in Figure 2 because they use different NFRs. That is not the implication from section 3.2.3 in the text, which just states ROC PLOTS for exp1 are omitted because results are poor. The fact that the ROC results for exp1 cannot be found anywhere else in the paper (or at least, I couldn't find them) makes it seem as if the authors are sweeping bad results under the rug (although I'm sure this is not the authors' intent).
    - [X] More on intro extensions. 
           End of intro describing major extensions: this information is a welcome addition, but incomplete. How is another case study on PgSQL different from what the previous study did? To analyze this software project at all, or to analyze it differently? This needs to be more clear for readers who haven't read the previous work.
@@ -24,19 +24,19 @@
    - [X]    - p20, l15: "August, 2002," -> August 2002,
    - [X]    - p21, l44: "This will group" -> This groups?
    - [X] - p21, l47: "the path We" -> the path. We
-   - [ ]    - Fig 7: Although Figure 7 is now much easier to read, I can't see the difference between dim gray & black on a color print out. However, the purple in the prior submission provided at least some contrast.
+   - [X]    - Fig 7: Although Figure 7 is now much easier to read, I can't see the difference between dim gray & black on a color print out. However, the purple in the prior submission provided at least some contrast.
    - [X]    - p22, l46: "developers are have different" -> remove are
    - [X]    - p23, l49: "Whereas, ..." This sentence seems to be missing a clause, and does not make sense as a stand alone sentence.
    - [X]    - Fig 8: can't read tgl in the upper right -- can the authors just plot momjian & then add the tgl label in post processing? The other overlapping author names aren't an issue, but tgl & momjian are used as examples for the reader to refer to in the text.
    - [X]    - p24, l46: "be more likely take on" -> to take on
-** Reviewer 3  [3/6]
-   - [ ] Redo section 3
+** Reviewer 3  [6/6]
+   - [X] Redo section 3
         All of my major issues have been addressed and I believe this paper is strong enough to accept.  However, I am concerned that Section 3 contains too much content and should be split into two sections, and thus I would support one more round of revisions.  I only mention this because I believe a restructuring of that section would make this paper much more readable.  I'm still not convinced that the paper organization is sufficiently clear.  Section 3 "Study Design and Execution" spans pages 6 - 17, about 1/3 of the paper, which sticks out to me.  I would rather see this split into two sections (e.g., "Approach" and "Study").  In relation to Figure \#1 this would mean presenting the top half of this process in the first section and the bottom half in the section.  As it stands now Section 3 mixes in both approach (e.g., "Generating Word-Lists") with evaluation (e.g., "Generating the Data").  I personally find Section 3 difficult to read because of this mix of approach and evaluation, and think that the size of the section is akin to the "Long Method" code smell.
    - [X] Sentence starting with "Researchers have.." is a run-on sentence.
    - [X] Flow between "However, these word-lists.." and "Current topic modeling.." sentences is poor.
-   - [ ] Why is the discussion of ROC vs F-Measure hidden in the section called "Creating a Validation Corpus"?  
+   - [X] Why is the discussion of ROC vs F-Measure hidden in the section called "Creating a Validation Corpus"?  
          I would rather see this discussion in its own sub-sub-section, "3.1.3 Measuring Classification Performance". This makes this section easier to find for future readers.
-   - [ ] You may devote too much space to the ROC over F-Measure argument given that you provide both measures throughout the rest of the paper.
+   - [X] You may devote too much space to the ROC over F-Measure argument given that you provide both measures throughout the rest of the paper.
    - [X] ROC claim
          I think that average ROC values of between 0.6 and 0.8 cannot be considered "performing well", as described in the Conclusion.  This claim should be softened, even as slightly as to change it to "performed noticeably better than random".
 ** Reviewer 4 [0/4] 
