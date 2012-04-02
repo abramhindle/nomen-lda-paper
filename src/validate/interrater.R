@@ -1,5 +1,6 @@
 #neil and abram annotations!
 cores <- 8
+cores <- 4
 pgsqln <- read.csv("output/pgsqln.arff.csv",header=TRUE)
 pgsqla <- read.csv("output/pgsqla.arff.csv",header=TRUE)
 nn <- length(pgsqln)
@@ -110,7 +111,8 @@ ratings[["Neil"]] <- pn
 ratings[["Both"]] <- paunion
 panames <- c("Portability","Functionality","Reliability","Maintainability","Efficiency", "Usability", "None")
 
-for (person in c("Both","Abram","Neil")) {
+#for (person in c("Both","Abram","Neil")) {
+for (person in c("Both")) {
 pan <- ratings[[person]]
 i <- names(pan)[1]
 #
@@ -142,21 +144,27 @@ pankappas <- sapply(names(pa),function(i) {
    kappaof(pa[,i],pn[,i])
 })
 
-  pdf(paste("self-sample",person,"pdf",sep="."),width=12,height=8)
+  heights=c(3,4,5,6,8,9,10)
+
   miny <- min(c(sapply(kappas,min), min(pankappas)))
   maxy <- max(c(sapply(kappas,max), max(pankappas)))
-  boxplot(kappas, names=panames,ylim=c(miny,maxy))
-  title(paste("Human Ratings (",person,") versus Sampled Random Ratings"))
-  lines(pankappas, type="o",col="red",lw=3)
-  legend("topleft", c("Interrater Reliability per NFR Topic Label"), bty="o",lwd=3, col=c("red"),  lty=c(1));
-  dev.off()
+
+  for (height in heights) {
+    width = 1.5*height
+    pdf(paste("self-sample",person,"pdf",sep="."),width=7.5,height=5)
+    boxplot(kappas, names=panames,ylim=c(miny,maxy))
+    title(paste("Human Ratings (",person,") versus Sampled Random Ratings"))
+    lines(pankappas, type="o",col="red",lw=3)
+    legend("topleft", c("Interrater Reliability per NFR Topic Label"), bty="o",lwd=3, col=c("red"),  lty=c(1));
+    dev.off()
+  }
   print(paste("Person ", person))
   print(sapply(kappas,mean))
   print(paste("Person ECDF measures", person))
   print(sapply(c(1:7),function(i){ecdf(kappas[[i]])(pankappas[i])}))
 }
 
-
+exit(0);
 #now versus unif
 
 for (threshold in c(0.01,0.1,0.1,0.25,0.5,0.9,0.99)) {
