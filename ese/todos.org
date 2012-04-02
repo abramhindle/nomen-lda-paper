@@ -41,13 +41,45 @@
          I think that average ROC values of between 0.6 and 0.8 cannot be considered "performing well", as described in the Conclusion.  This claim should be softened, even as slightly as to change it to "performed noticeably better than random".
 ** Reviewer 4 [0/4] 
    - [ ]  Discussion of multiple labels
-       I did not find the discussion arguing that multiple labels in Pg were caused by too many terms in each 30-day window to be convincing. It seems that the overall increase in change-log words is less than double of that in MySQL (165K words in Pg vs 101K in MySQL), yet the differences in topic overlap appear to be quite notable. The argument also appears to conflict with an earlier statement that N=20 was chosen because the overlap in topics (two topics sharing most frequent terms) was infrequent.
+       I did not find the discussion arguing that multiple labels in
+       Pg were caused by too many terms in each 30-day window to be
+       convincing. It seems that the overall increase in change-log
+       words is less than double of that in MySQL (165K words in Pg vs
+       101K in MySQL), yet the differences in topic overlap appear to
+       be quite notable. The argument also appears to conflict with an
+       earlier statement that N=20 was chosen because the overlap in
+       topics (two topics sharing most frequent terms) was infrequent.
+
    - [ ] There appear to be some discrepancies in numbers. 
-         According to Table 2, there were 640 topics in Pg. 20 topics per 30-day windo 32 30-day windows for Pg, yet the time period appears to contain fewer such windows.  For the other two projects the numbers of topics are not even divisible by 20. Some clarification would help. It appears that Pg has 625 of 640 topics with at least two labels: testability and correctness based on exp1. It may be worth giving he reader some idea about how many topics have exactly one label (the table shows numbers for none and at least one label)
+         According to Table 2, there were 640 topics in Pg. 20 topics
+         per 30-day windo 32 30-day windows for Pg, yet the time
+         period appears to contain fewer such windows.  For the other
+         two projects the numbers of topics are not even divisible
+         by 20. Some clarification would help. It appears that Pg has
+         625 of 640 topics with at least two labels: testability and
+         correctness based on exp1. It may be worth giving he reader
+         some idea about how many topics have exactly one label (the
+         table shows numbers for none and at least one label)
+
    - [ ] Validity on authors
-        Although briefly noted in the validity section, the two most frequent committers may be defining the global distribution of NFR topics in Pg, if, for example they have produced the bulk of commits for the topic extraction. This, perhaps, could be mentioned earlier with a fraction of commits these two authors produced.
+        Although briefly noted in the validity section, the two most
+        frequent committers may be defining the global distribution of
+        NFR topics in Pg, if, for example they have produced the bulk
+        of commits for the topic extraction. This, perhaps, could be
+        mentioned earlier with a fraction of commits these two authors
+        produced.
+
    - [ ] Word more cautiously
-        I still think that the overall work is primarily to introduces the topic analysis and how it might be used in the context of software maintenance activities as the low inter-rater agreement makes one ask the question: are these topics real? In particular, the performance of the supervised learning algorithms and, more generally, the interpretation of the NFR topic trends could be worded a bit more cautiously to be consistent with that lack of certainty if the labeling is reflective of the underlying intent.
+        I still think that the overall work is primarily to introduces
+        the topic analysis and how it might be used in the context of
+        software maintenance activities as the low inter-rater
+        agreement makes one ask the question: are these topics real?
+        In particular, the performance of the supervised learning
+        algorithms and, more generally, the interpretation of the NFR
+        topic trends could be worded a bit more cautiously to be
+        consistent with that lack of certainty if the labeling is
+        reflective of the underlying intent.
+
 
 
 * Todos major revisions
