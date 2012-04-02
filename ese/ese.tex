@@ -450,7 +450,11 @@ word distributions within the word distributions of all input
 messages. 
 If there are not $N$ independent word distributions, the topics
 produced tend to be duplicates of each other, that is, they share the
-top terms. During this study we found that if we used a value of 20 for $N$, duplicate topics were infrequent.
+top terms. During this study we found that if we used a value of 20
+for $N$, duplicate topics were infrequent in MaxDB and MySQL. The
+PostgreSQL study was added later and we followed the same methodology
+to extract topics fro PostgreSQL, the choice of $N$ = 20 was not
+necessarily the optimal choice for PostgreSQL.
 Linear combinations of these $N$ word distributions are meant to represent and recreate the word distributions of any of the original messages. In other words, these topics are cross-cutting collections of words relevant to one or more of our commit messages. 
 LDA extracts topics in an unsupervised manner; the algorithm relies
 solely on the source data and word distributions of messages, with no human intervention.
@@ -961,8 +965,22 @@ from the next. PostgreSQL's data-set was the largest of the 3 projects:
 the XML datable that described the PostgreSQL topics that we
 annotated was 8 times larger than MySQL and 1.7 times larger than MaxDB. These
 size differences arise from the number of commits, the number of files
-and the verbosity of the commit descriptions.
+and the verbosity of the commit descriptions. The density of
+information with in the PostgreSQL is a concern as well. Not only are
+PostgreSQL commits larger, when raw commit text are compressed with \texttt{gzip} per
+each project, PostgreSQL (402kb) is 5.1 times the size of MaxDB (80kb) and 11.8 the size
+of MySQL (34kb). PostgreSQL commit messages often include email messages from
+the from the mailing list where the patch originated.
 
+% 
+\begin{comment}
+for file in ~/projects/query1-data/postgresql/query1.mrs2 \
+            ~/projects/query1-data/maxdb-7500/dist/query1.mrs2 \
+            ~/projects/query1-data/mysql-3.23/query1.mrs2 
+do
+sort -u $file | egrep "\|200[234]\-[0-9]" | awk -F\| '{print $5}' | sed -e 's/NEWLINE/\n/g' | gzip -c - | wc -c
+done
+\end{comment}
 %\DONE{expand on why?}
 
 % PG data from abram's email of 09/01/2011 using first column and pgsqln.

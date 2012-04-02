@@ -39,8 +39,8 @@
    - [X] You may devote too much space to the ROC over F-Measure argument given that you provide both measures throughout the rest of the paper.
    - [X] ROC claim
          I think that average ROC values of between 0.6 and 0.8 cannot be considered "performing well", as described in the Conclusion.  This claim should be softened, even as slightly as to change it to "performed noticeably better than random".
-** Reviewer 4 [0/4] 
-   - [ ]  Discussion of multiple labels
+** Reviewer 4 [1/4] 
+   - [X]  Discussion of multiple labels
        I did not find the discussion arguing that multiple labels in
        Pg were caused by too many terms in each 30-day window to be
        convincing. It seems that the overall increase in change-log
@@ -49,6 +49,15 @@
        be quite notable. The argument also appears to conflict with an
        earlier statement that N=20 was chosen because the overlap in
        topics (two topics sharing most frequent terms) was infrequent.
+     - In section Study Design we added an explaination that N=20 was
+       kept for consistency reasons, because the original study used
+       MaxDB and MySQL, PostgreSQL was added later and we wanted to
+       maintain methodological consistency.  Further more in section
+       ``Analysis of the Supervised Labelling'' we added information
+       that shows that PostgreSQL commit log messages contain more
+       information than MaxDB or MySQL.
+       We also added an observation about the pattern of PostgreSQL
+       commit log messages.
 
    - [ ] There appear to be some discrepancies in numbers. 
          According to Table 2, there were 640 topics in Pg. 20 topics
