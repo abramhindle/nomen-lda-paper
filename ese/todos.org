@@ -1,4 +1,6 @@
 * TODOs - final edit for minor comments
+** RESPONSE [/]
+   - [ ] Write up a response to these edits
 ** Reviewer 2 [23/23]
    - [X] text label size on Fig 2, 6
          The text labels in Figures 2, 6, and to some extent 9, are virtually unreadable on the printed copy. I understand that many people will view this paper in its electronic form, but shouldn't the text be readable on a print out as well? If the authors are having trouble increasing the size of the text in their diagram program (without increasing the size of the figure to 3 pages), I suggest they use pdf or image editing software to white out the current labels & overlay larger ones. I think readability is more important than aesthetics at this point, and there appears to be plenty of room in the paper for the minor addition of larger labels (regardless of how the size is increased).
@@ -69,6 +71,11 @@
          correctness based on exp1. It may be worth giving he reader
          some idea about how many topics have exactly one label (the
          table shows numbers for none and at least one label)
+     - so in maxdb not every month made 20 topics
+       - topics get dropped if documents aren't actually relevant to
+         the topic enough to warrant keeping the topic. A topic will
+         stay if documents meet a threshold of relevance, if documents
+         do not make that relevance the topic is removed.
 
    - [ ] Validity on authors
         Although briefly noted in the validity section, the two most
