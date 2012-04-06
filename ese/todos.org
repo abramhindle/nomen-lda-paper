@@ -72,11 +72,12 @@
          some idea about how many topics have exactly one label (the
          table shows numbers for none and at least one label)
      - so in maxdb not every month made 20 topics
-       - topics get dropped if documents aren't actually relevant to
+       - Topics get dropped if documents aren't actually relevant to
          the topic enough to warrant keeping the topic. A topic will
          stay if documents meet a threshold of relevance, if documents
          do not make that relevance the topic is removed.
-
+        - in Generating the Data and in Analysis of the
+          Semi-Unsupervised Labelling we explain this filtering.
    - [ ] Validity on authors
         Although briefly noted in the validity section, the two most
         frequent committers may be defining the global distribution of

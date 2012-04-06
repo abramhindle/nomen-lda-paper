@@ -451,7 +451,16 @@ messages.
 If there are not $N$ independent word distributions, the topics
 produced tend to be duplicates of each other, that is, they share the
 top terms. During this study we found that if we used a value of 20
-for $N$, duplicate topics were infrequent in MaxDB and MySQL. The
+for $N$, duplicate topics were infrequent in MaxDB and MySQL. 
+Sometimes LDA produces topics that have a
+very low association to documents, in this paper we removed topics
+that
+exhibit very low document association. Our threshold for
+topic inclusion was that a topic needed at least 1
+document with a gamma (the variational
+posterior Dirichlet~\cite{Blei2003} of a topic to a document, similar
+to an association weight) of $1.0$ or greater.
+The
 PostgreSQL study was added later and we followed the same methodology
 to extract topics fro PostgreSQL, the choice of $N$ = 20 was not
 necessarily the optimal choice for PostgreSQL.
@@ -722,7 +731,12 @@ We consider our labelling classifiers acceptable if they outperform a random cla
 \subsection{Analysis of the Semi-Unsupervised Labelling}
 % Did a little validation here
 Table \ref{tbl:wordlist} shows how many topics were labelled for
-MaxDB, MySQL and PostgreSQL.  Notice how PostgreSQL had far fewer
+MaxDB, MySQL and PostgreSQL.  
+The total topics are often less than 20 times the number of months
+studied because in some months there was not enough data for LDA to
+extract 20 actual topics as some topics were not actually strongly
+associated with any documents. 
+Notice how PostgreSQL had far fewer
 unlabelled topics, PostgreSQL also was under going far more
 development as we evaluated 7744 PostgreSQL commits versus 8664 MaxDB
 commits and 6223 MySQL commits. 
