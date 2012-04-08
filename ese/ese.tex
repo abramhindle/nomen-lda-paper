@@ -453,16 +453,16 @@ produced tend to be duplicates of each other, that is, they share the
 top terms. During this study we found that if we used a value of 20
 for $N$, duplicate topics were infrequent in MaxDB and MySQL. 
 Sometimes LDA produces topics that have a
-very low association to documents, in this paper we removed topics
+very low association to documents, and in this paper we removed topics
 that
 exhibit very low document association. Our threshold for
-topic inclusion was that a topic needed at least 1
+topic inclusion was that a topic needed to be related to at least 1
 document with a gamma (the variational
 posterior Dirichlet~\cite{Blei2003} of a topic to a document, similar
 to an association weight) of $1.0$ or greater.
 The
 PostgreSQL study was added later and we followed the same methodology
-to extract topics fro PostgreSQL, the choice of $N$ = 20 was not
+to extract topics fro PostgreSQL, the choice of $N = 20$ was not
 necessarily the optimal choice for PostgreSQL.
 Linear combinations of these $N$ word distributions are meant to represent and recreate the word distributions of any of the original messages. In other words, these topics are cross-cutting collections of words relevant to one or more of our commit messages. 
 LDA extracts topics in an unsupervised manner; the algorithm relies
@@ -518,7 +518,8 @@ Given the top-level annotations of \emph{portability},
 \emph{efficiency}, \emph{reliability}, \emph{functionality},
 \emph{usability}, and \emph{maintainability}, the annotators annotated each topic
 with the relevant label. We added a catch-all label, \emph{none}, which we used when none of the six NFRs was suitable. In some instances, we used finer-grained
-annotations that would be aggregated up to one of these higher-level labels. 
+annotations that would be aggregated up to one of these higher-level
+labels. 
 %We compared against this data-set, but we also used the data-set for our supervised machine learning based topic classification. 
 % A topic may have more than one matching keyword. % ok what?
 
@@ -1172,7 +1173,10 @@ temporal patterns of NFR frequencies.
 %NEIL- I think this (below) is just confusing, although maybe important to note.
 This is generated from the manually annotated
 topics, although this visualization can be generated from the
-results of labelled topic extraction. Note that there are no unlabelled topics in this data-set.
+results of labelled topic extraction. Note that there are no
+unlabelled topics in this data-set. Furthermore these plots are
+display data about the interpretation of NFRs relevant to topics;
+different annotators might produce different results.
 
 There are two measures represented. 
 One, the relative frequency, shown in the grey histogram boxes, represents the number of topics with that NFR in that period, 
