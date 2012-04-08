@@ -1293,6 +1293,7 @@ how often \emph{portability} arises as a concern.
 \label{sec:developers}
 
 %data/clusters.R
+%hindle1@burn:~/oldhome/projects/query1-data/postgresql$ sort -u query1.mrs2 | egrep "\|200[234]\-[0-9]" | awk -F: '{print $1}' | sort | uniq -c > ~/projects/lda-paper/ese/authors.csv
 
 We wanted to see whether developers in the PostgreSQL project\footnote{Since the MySQL and MaxDB data had poor records for developer ids, we focused on PostgreSQL.} worked on similar NFRs. For example, one developer might be a usability expert, while
 another developer is focused on security. We assume that the NFR labels associated with a commit implicitly reflect work on those NFRs. Being able to report on where effort is being expended is useful for tracking productivity (among other things).
@@ -1345,12 +1346,19 @@ derivative of distance was the highest in that region as well.
 \label{fig:authorcluster}
 \end{figure}
 
+% > tmp/ts
+% [1] 0.8601498
+% > tm/ts
+% [1] 0.7855114
 
 Figure \ref{fig:authorcluster} shows that when we use $6$-clusters, 
 \texttt{petere}, one of the major contributors, is in his own cluster
 while two other major contributors, \texttt{tgl} and \texttt{momjian}
 form their own cluster (i.e., they are distant from one another in the
 7-dimensional space). 
+\texttt{tgl} and \texttt{momjian} make up $79\%$ of the commits, and
+together \texttt{tgl}, \texttt{momjian} and \texttt{petere} make up
+$86\%$ of all commits.
 %NEIL - not sure the relevance of this ... needs more explaining. --> (they are also the most frequent committers). 
 This is interesting because it means that the important developers
 have different proportions of NFR-relevant contributions; they have different
@@ -1370,6 +1378,8 @@ to each author we find that 25\%
  of the authors have a similarity (Pearson correlation) of $0.47$ or less. In other words, for these authors (gathered to the lower left of Figure  \ref{fig:authorsim}),
  their NFR distribution does not match well with the global
  distribution.
+As stated before, the  3 most frequent authors produced $86\%$ of the
+commits and thus they dominate the global NFR distribution.
 Authors \texttt{momjian} and \texttt{tgl} are in the top right of
 Figure \ref{fig:authorsim}, dominate in topic count and commit count, and so are
     very similar to the global distribution of NFR topics.
