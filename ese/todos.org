@@ -72,33 +72,109 @@
      to have addressed this issue, but the sentence in the revised
      submission is identical to the original submission?!? Are there
      any other reviewer comments that have this same oversight???
-     
-   - [X]  Intro, 2nd para: please define the terms NFR & project dashboard before using.
-   - [X] p 3, l 7: "topic trends --" the second -- needs a transition word after it like and/where, or could be changed to a period.
-   - [X] p3 l9: "is further emphasized in this paper..." is this point really pertinent here? Aren't the authors still trying to motivate the purpose of the work they've undertaken in the current paper at this point in the intro?
-   - [X] p3, l49: bad page turn, use nonbreaking space for Section~4. Also bad line break for p5, l9 milestone~3.
+     - Response: We apologize for the oversight (the original sentence
+       did mention consumer-facing software but that was a suffix), we
+       have clarified that we mean domains of software projects and
+       have provided some examples.
+   - [X]  Intro, 2nd para: please define the terms NFR & project
+     dashboard before using.
+     - response: Addressed
+   - [X] p 3, l 7: "topic trends --" the second -- needs a transition
+     - response: Addressed
+     word after it like and/where, or could be changed to a period.
+     - response: Addressed
+   - [X] p3 l9: "is further emphasized in this paper..." is this point
+     really pertinent here? Aren't the authors still trying to
+     motivate the purpose of the work they've undertaken in the
+     current paper at this point in the intro?
+     - response: Addressed
+   - [X] p3, l49: bad page turn, use nonbreaking space for
+     Section~4. Also bad line break for p5, l9 milestone~3.
+     - response: Addressed
    - [X] p6, l35: bucket -> buckets
+     - response: Addressed
    - [X]  top of p8: low-ercase is bad line break
-   - [X] p14 l15 just before 3.3: do "quality word lists" mean exp2 & 3? Can this be made more explicit?
+     - response: Addressed
+   - [X] p14 l15 just before 3.3: do "quality word lists" mean exp2 &
+     3? Can this be made more explicit?
+     - response: Addressed
    - [X]   - 3.4, p16, l47: "labels.During" -- needs space
+     - response: Addressed
    - [X]    - p20, l15: "August, 2002," -> August 2002,
+     - response: Addressed
    - [X]    - p21, l44: "This will group" -> This groups?
+     - response: Addressed
    - [X] - p21, l47: "the path We" -> the path. We
-   - [X]    - Fig 7: Although Figure 7 is now much easier to read, I can't see the difference between dim gray & black on a color print out. However, the purple in the prior submission provided at least some contrast.
+     - response: Addressed
+   - [X]    - Fig 7: Although Figure 7 is now much easier to read, I
+     can't see the difference between dim gray & black on a color
+     print out. However, the purple in the prior submission provided
+     at least some contrast.     
+     - response: Addressed
    - [X]    - p22, l46: "developers are have different" -> remove are
-   - [X]    - p23, l49: "Whereas, ..." This sentence seems to be missing a clause, and does not make sense as a stand alone sentence.
-   - [X]    - Fig 8: can't read tgl in the upper right -- can the authors just plot momjian & then add the tgl label in post processing? The other overlapping author names aren't an issue, but tgl & momjian are used as examples for the reader to refer to in the text.
+     - response: Addressed
+   - [X]    - p23, l49: "Whereas, ..." This sentence seems to be
+     - response: Addressed
+     missing a clause, and does not make sense as a stand alone
+     sentence.
+     - response: Addressed
+   - [X]    - Fig 8: can't read tgl in the upper right -- can the
+     authors just plot momjian & then add the tgl label in post
+     processing? The other overlapping author names aren't an issue,
+     but tgl & momjian are used as examples for the reader to refer to
+     in the text.
+     - response: Addressed
    - [X]    - p24, l46: "be more likely take on" -> to take on
+     - response: Addressed
 ** Reviewer 3  [6/6]
    - [X] Redo section 3
-        All of my major issues have been addressed and I believe this paper is strong enough to accept.  However, I am concerned that Section 3 contains too much content and should be split into two sections, and thus I would support one more round of revisions.  I only mention this because I believe a restructuring of that section would make this paper much more readable.  I'm still not convinced that the paper organization is sufficiently clear.  Section 3 "Study Design and Execution" spans pages 6 - 17, about 1/3 of the paper, which sticks out to me.  I would rather see this split into two sections (e.g., "Approach" and "Study").  In relation to Figure \#1 this would mean presenting the top half of this process in the first section and the bottom half in the section.  As it stands now Section 3 mixes in both approach (e.g., "Generating Word-Lists") with evaluation (e.g., "Generating the Data").  I personally find Section 3 difficult to read because of this mix of approach and evaluation, and think that the size of the section is akin to the "Long Method" code smell.
-   - [X] Sentence starting with "Researchers have.." is a run-on sentence.
-   - [X] Flow between "However, these word-lists.." and "Current topic modeling.." sentences is poor.
-   - [X] Why is the discussion of ROC vs F-Measure hidden in the section called "Creating a Validation Corpus"?  
-         I would rather see this discussion in its own sub-sub-section, "3.1.3 Measuring Classification Performance". This makes this section easier to find for future readers.
-   - [X] You may devote too much space to the ROC over F-Measure argument given that you provide both measures throughout the rest of the paper.
+        All of my major issues have been addressed and I believe this
+     paper is strong enough to accept.  However, I am concerned that
+     Section 3 contains too much content and should be split into two
+     sections, and thus I would support one more round of revisions.
+     I only mention this because I believe a restructuring of that
+     section would make this paper much more readable.  I'm still not
+     convinced that the paper organization is sufficiently clear.
+     Section 3 "Study Design and Execution" spans pages 6 - 17, about
+     1/3 of the paper, which sticks out to me.  I would rather see
+     this split into two sections (e.g., "Approach" and "Study").  In
+     relation to Figure \#1 this would mean presenting the top half of
+     this process in the first section and the bottom half in the
+     section.  As it stands now Section 3 mixes in both approach
+     (e.g., "Generating Word-Lists") with evaluation (e.g.,
+     "Generating the Data").  I personally find Section 3 difficult to
+     read because of this mix of approach and evaluation, and think
+     that the size of the section is akin to the "Long Method" code
+     smell.
+     - Response: We interpreted and executed the reviewer comments as
+       best we can. We split up section 3 and broke the methodology
+       from the results. The result is far more readable.
+   - [X] Sentence starting with "Researchers have.." is a run-on
+     sentence.
+     - Response: addressed
+   - [X] Flow between "However, these word-lists.." and "Current topic
+     modeling.." sentences is poor.
+     - Response: addressed
+   - [X] Why is the discussion of ROC vs F-Measure hidden in the
+     section called "Creating a Validation Corpus"?  
+     I would rather see this discussion in its own sub-sub-section,
+     "3.1.3 Measuring Classification Performance". This makes this
+     section easier to find for future readers.
+     - Response: addressed
+   - [X] You may devote too much space to the ROC over F-Measure
+     argument given that you provide both measures throughout the rest
+     of the paper.
+     - Response: We feel that the true negatives are important and ignored by
+       F-measure, especially in the face of class imbalance. While we
+       attempted to tone this down a bit we still had to motivate ROCs
+       use over F-measure for our analysis, regardless of the fact
+       that we show both.
    - [X] ROC claim
-         I think that average ROC values of between 0.6 and 0.8 cannot be considered "performing well", as described in the Conclusion.  This claim should be softened, even as slightly as to change it to "performed noticeably better than random".
+         I think that average ROC values of between 0.6 and 0.8 cannot
+     be considered "performing well", as described in the Conclusion.
+     This claim should be softened, even as slightly as to change it
+     to "performed noticeably better than random".
+     - Response: We changed the language the match this reviewer's comments.
 ** Reviewer 4 [4/4] 
    - [X]  Discussion of multiple labels
        I did not find the discussion arguing that multiple labels in
