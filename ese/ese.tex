@@ -27,7 +27,7 @@
 \usepackage{booktabs, colortbl}
 \usepackage{amsmath}
 \usepackage{url}
-\usepackage[pdfstartview=FitH,bookmarksopenlevel=3,bookmarks=true]{hyperref} %pdfpagescrop={92 112 523 778},
+\usepackage[pdfstartview=FFitH,bookmarksopenlevel=3,bookmarks=true]{hyperref} %pdfpagescrop={92 112 523 778},
 \journalname{Empirical Software Engineering}
 
 \begin{document}
@@ -693,7 +693,11 @@ F-measure, which is the harmonic mean of precision and recall, i.e.,
 $2 * (P * R) / (P + R)$. 
 In this domain, F-measure values reflect the performance of our
 approach with respect to false-positive/false-negative (and the duals) results.
-A higher F-measure indicates that more topics were correctly labelled.
+A higher F-measure indicates that more topics were correctly labelled,
+$0$ is the worst, $1$ is the best, $0.5$ indicates potentially good performance, 
+and above $0.10$ gives an indication of perhaps better than random
+performance but it is hard to tell as F-measure doesn't account for
+true negatives.
 Throughout the paper we will provide F-measure scores so that readers
 who are more familiar with F-measure than ROC can intuitively
 interpret the results. 
@@ -857,7 +861,11 @@ Recall that the manual annotations were not used to
 train the labelling process.
 As described in Section \ref{sec:wordlist} we used both ROC and F-measure measures to evaluate the performance of the classification.
 Figure \ref{fig:maxdb-unsup-results} shows our ROC results for
-PostgreSQL, MaxDB and MySQL. We did not calculate the ROC of \textsf{exp1} because the labels used were completely different than the manual annotation labels. We describe F-measure results in the text below.
+PostgreSQL, MaxDB and MySQL. We did not calculate the ROC of
+\textsf{exp1} because the labels used were completely different than
+the manual annotation labels, but we provide an F-measure estimate
+based on the possible overlap (we could not apply the same tools to
+calculate ROC in this case). We describe F-measure results in the text below.
 
 
 % \begin{figure}[t]
@@ -1287,7 +1295,9 @@ two projects is that many of the commits for PostgreSQL were UI
 changes and documentation changes. PostgreSQL also seemed to focus
 more on \emph{reliability} later in the case study than earlier like MySQL.
 In all cases \emph{portability} was a constant maintenance concern and was prevalent throughout the lifetime of the projects. It may surprise developers
-how often \emph{portability} arises as a concern.
+how often \emph{portability} arises as a concern, but that might
+depend on the quality of the annotations or the accuracy of the
+automatic labeller.
 
 
 %\DONE{add the pgsql data}

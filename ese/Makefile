@@ -2,7 +2,7 @@ IMAGES=
 default: view
 
 view: ese.pdf
-	xpdf $<
+	evince $<
 
 #ese.ps: ese.tex
 #	latex ese

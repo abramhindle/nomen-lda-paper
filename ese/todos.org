@@ -1,20 +1,78 @@
 * TODOs - final edit for minor comments
-** RESPONSE [/]
-   - [ ] Write up a response to these edits
 ** Reviewer 2 [23/23]
    - [X] text label size on Fig 2, 6
-         The text labels in Figures 2, 6, and to some extent 9, are virtually unreadable on the printed copy. I understand that many people will view this paper in its electronic form, but shouldn't the text be readable on a print out as well? If the authors are having trouble increasing the size of the text in their diagram program (without increasing the size of the figure to 3 pages), I suggest they use pdf or image editing software to white out the current labels & overlay larger ones. I think readability is more important than aesthetics at this point, and there appears to be plenty of room in the paper for the minor addition of larger labels (regardless of how the size is increased).
+     The text labels in Figures 2, 6, and to some extent 9, are
+     virtually unreadable on the printed copy. I understand that many
+     people will view this paper in its electronic form, but shouldn't
+     the text be readable on a print out as well? If the authors are
+     having trouble increasing the size of the text in their diagram
+     program (without increasing the size of the figure to 3 pages), I
+     suggest they use pdf or image editing software to white out the
+     current labels & overlay larger ones. I think readability is more
+     important than aesthetics at this point, and there appears to be
+     plenty of room in the paper for the minor addition of larger
+     labels (regardless of how the size is increased).
+     - Response: We fixed the text label sizes as per the reviewers comments.
    - [X] Text label size on fig 9
+     - Response: We fixed the text label sizes as per the reviewers comments.
    - [X] More on F-measure
-           3.1.2: the authors do an excellent job explaining the ROC curves and how to interpret them. However, it is not clear what the reader should be getting from the F Measure results. The authors addressed this issue by stating the purpose of the F Measure results is for readers who are more familiar with F than ROC, to help them interpret results. This is fine, but does not completely fix the issue. It is possible for a reader to be familiar with F in general, but  not know how to interpret the results in this domain. If you are including a measure, please include at least a brief sentence of what high/low (or good/bad) results mean.
+           3.1.2: the authors do an excellent job explaining the ROC
+     curves and how to interpret them. However, it is not clear what
+     the reader should be getting from the F Measure results. The
+     authors addressed this issue by stating the purpose of the F
+     Measure results is for readers who are more familiar with F than
+     ROC, to help them interpret results. This is fine, but does not
+     completely fix the issue. It is possible for a reader to be
+     familiar with F in general, but  not know how to interpret the
+     results in this domain. If you are including a measure, please
+     include at least a brief sentence of what high/low (or good/bad)
+     results mean.
+     - Response: in subsection {Measuring Classification Performance}
+       we provided some context for F-Measure and explained some of
+       the issues that face the interpretation of F-Measure.
    - [X] Figure 2: why weren't the exp1 ROC values reported? 
-          Because they were so poor? This should be explained in the text. Even if the ROC results for exp1 are poor, the raw numbers at least should be reported. In a later response the authors state that exp1 ROC numbers COULDN'T be included in Figure 2 because they use different NFRs. That is not the implication from section 3.2.3 in the text, which just states ROC PLOTS for exp1 are omitted because results are poor. The fact that the ROC results for exp1 cannot be found anywhere else in the paper (or at least, I couldn't find them) makes it seem as if the authors are sweeping bad results under the rug (although I'm sure this is not the authors' intent).
+          Because they were so poor? This should be explained in the
+     text. Even if the ROC results for exp1 are poor, the raw numbers
+     at least should be reported. In a later response the authors
+     state that exp1 ROC numbers COULDN'T be included in Figure 2
+     because they use different NFRs. That is not the implication from
+     section 3.2.3 in the text, which just states ROC PLOTS for exp1
+     are omitted because results are poor. The fact that the ROC
+     results for exp1 cannot be found anywhere else in the paper (or
+     at least, I couldn't find them) makes it seem as if the authors
+     are sweeping bad results under the rug (although I'm sure this is
+     not the authors' intent).
+     - Response: In section ``Analysis of the Semi-Unsupervised
+       Labelling'' we explain that exp1 couldn't be directly
+       calculated and compared with exp2 and exp3 because it used
+       different classes, but we explained the exp1 was estimated by
+       an overlap in order to compare to exp2 and exp3. Because we
+       couldn't use the same technique to calculate ROC in this case 
    - [X] More on intro extensions. 
-          End of intro describing major extensions: this information is a welcome addition, but incomplete. How is another case study on PgSQL different from what the previous study did? To analyze this software project at all, or to analyze it differently? This needs to be more clear for readers who haven't read the previous work.
-   - [X] p21, l30: "Neil's annotations" 
-         can the authors justify why this author's annotations are used, when they claim earlier that author 1 was more successful in annotating, given Figure 5? Also, can the authors be more consistent in how they refer to the annotators? For example, the second annotator is referred to as author #2, Neil, and Ernst. Each section seems to use its own naming convention, which is very confusing for the reader.
+          End of intro describing major extensions: this information
+     is a welcome addition, but incomplete. How is another case study
+     on PgSQL different from what the previous study did? To analyze
+     this software project at all, or to analyze it differently? This
+     needs to be more clear for readers who haven't read the previous
+     work.
+     - Response: At the end of the intro we illustrated this more.
+   - [X] p21, l30: "Neil's annotations" can the authors justify why
+     this author's annotations are used, when they claim earlier that
+     author 1 was more successful in annotating, given Figure 5? Also,
+     can the authors be more consistent in how they refer to the
+     annotators? For example, the second annotator is referred to as
+     author #2, Neil, and Ernst. Each section seems to use its own
+     naming convention, which is very confusing for the reader.
+     - Response: throughout the text we clarified why, which author,
+       and we numbered the authors instead of using names or titles.
    - [X] 5.5, last sentence: "other domains"
-         can the authors qualify this as software projects in other domains, rather than implying the authors intend to apply the analysis to other textual artifacts outside SE. The authors claim to have addressed this issue, but the sentence in the revised submission is identical to the original submission?!? Are there any other reviewer comments that have this same oversight???
+         can the authors qualify this as software projects in other
+     domains, rather than implying the authors intend to apply the
+     analysis to other textual artifacts outside SE. The authors claim
+     to have addressed this issue, but the sentence in the revised
+     submission is identical to the original submission?!? Are there
+     any other reviewer comments that have this same oversight???
+     
    - [X]  Intro, 2nd para: please define the terms NFR & project dashboard before using.
    - [X] p 3, l 7: "topic trends --" the second -- needs a transition word after it like and/where, or could be changed to a period.
    - [X] p3 l9: "is further emphasized in this paper..." is this point really pertinent here? Aren't the authors still trying to motivate the purpose of the work they've undertaken in the current paper at this point in the intro?
@@ -41,7 +99,7 @@
    - [X] You may devote too much space to the ROC over F-Measure argument given that you provide both measures throughout the rest of the paper.
    - [X] ROC claim
          I think that average ROC values of between 0.6 and 0.8 cannot be considered "performing well", as described in the Conclusion.  This claim should be softened, even as slightly as to change it to "performed noticeably better than random".
-** Reviewer 4 [3/4] 
+** Reviewer 4 [4/4] 
    - [X]  Discussion of multiple labels
        I did not find the discussion arguing that multiple labels in
        Pg were caused by too many terms in each 30-day window to be
@@ -51,7 +109,7 @@
        be quite notable. The argument also appears to conflict with an
        earlier statement that N=20 was chosen because the overlap in
        topics (two topics sharing most frequent terms) was infrequent.
-     - In section Study Design we added an explanation that N=20 was
+     - Response: In section Study Design we added an explanation that N=20 was
        kept for consistency reasons, because the original study used
        MaxDB and MySQL, PostgreSQL was added later and we wanted to
        maintain methodological consistency.  Further more in section
@@ -71,13 +129,13 @@
          correctness based on exp1. It may be worth giving he reader
          some idea about how many topics have exactly one label (the
          table shows numbers for none and at least one label)
-     - so in maxdb not every month made 20 topics
-       - Topics get dropped if documents aren't actually relevant to
-         the topic enough to warrant keeping the topic. A topic will
-         stay if documents meet a threshold of relevance, if documents
-         do not make that relevance the topic is removed.
-         - in Generating the Data and in Analysis of the
-           Semi-Unsupervised Labelling we explain this filtering.
+       - Response: Topics get dropped if documents aren't actually
+         relevant to the topic enough to warrant keeping the topic. A
+         topic will stay if documents meet a threshold of relevance,
+         if documents do not make that relevance the topic is removed.
+         In ``Generating the Data and in Analysis of the
+         Semi-Unsupervised Labelling'' we explain this filtering.
+
    - [X] Validity on authors
         Although briefly noted in the validity section, the two most
         frequent committers may be defining the global distribution of
@@ -85,14 +143,14 @@
         of commits for the topic extraction. This, perhaps, could be
         mentioned earlier with a fraction of commits these two authors
         produced.
-     - In section {RQ3: Do Different Developers Work on Different
+     - Response: In section {RQ3: Do Different Developers Work on Different
        NFRs?} we added text that showed the proportions of the top 3
        authors and later mentioned this domination of the the global
        NFR topic distribution by the top 3 authors.
        
 
 
-   - [ ] Word more cautiously
+   - [X] Word more cautiously
         I still think that the overall work is primarily to introduces
         the topic analysis and how it might be used in the context of
         software maintenance activities as the low inter-rater
@@ -102,14 +160,15 @@
         topic trends could be worded a bit more cautiously to be
         consistent with that lack of certainty if the labeling is
         reflective of the underlying intent.
-     - performance
-     - intent
-     - case study interpretation
-     - conclusion interpretation
+     - Response:
        - We toned down the language in the conclusion regarding the
          ROC scores
        - In section ``Understanding Software Maintenance Activities''
-         we mention that these topic trend plots are showing an interpretation.
+         we mention that these topic trend plots are showing an
+         interpretation.
+       - We walked through the paper and tried to address any issues
+         relevant to review and tried to add caution to the language.
+
 * Todos major revisions
 ** [ ] Make a response document
    file:~/projects/lda-paper/ese-major-response.tex
